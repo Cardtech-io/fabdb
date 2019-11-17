@@ -14,6 +14,14 @@ return [
     |
     */
 
+    'aws' => [
+        'cloudfront' => [
+            'domain' => env('CLOUDFRONT_DOMAIN'),
+            'private_key_path' => env('CLOUDFRONT_PRIVATE_KEY_PATH'),
+            'key_pair_id' => env('CLOUDFRONT_KEY_PAIR_ID'),
+        ]
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

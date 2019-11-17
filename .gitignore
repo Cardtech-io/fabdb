@@ -1,7 +1,9 @@
+.idea
 /node_modules
 /public/hot
 /public/storage
 /storage/*.key
+/scraped
 /vendor
 .env
 .env.backup

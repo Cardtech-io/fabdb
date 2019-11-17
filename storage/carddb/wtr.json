@@ -1,0 +1,3777 @@
+[
+  {
+    "id": "001",
+    "set": "WTR",
+    "name": "Rhinar, Reckless Rampage",
+    "rarity": "T",
+    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "keywords": [
+      "brute",
+      "hero"
+    ],
+    "stats": {
+      "life": 40,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "002",
+    "set": "WTR",
+    "name": "Rhinar",
+    "rarity": "T",
+    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "keywords": ["brute", "hero", "young"],
+    "stats": {
+      "life": 20,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "003",
+    "set": "WTR",
+    "name": "Romping Club",
+    "rarity": "T",
+    "text": "",
+    "keywords": ["brute", "weapon", "club"],
+    "stats": {
+      "attack": 4
+    }
+  },
+  {
+    "id": "004",
+    "set": "WTR",
+    "name": "Scabskin Leathers",
+    "rarity": "L",
+    "text": "",
+    "keywords": ["brute", "equipment", "legs"],
+    "stats": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "005",
+    "set": "WTR",
+    "name": "Barkbone Strapping",
+    "rarity": "C",
+    "text": "",
+    "keywords": ["brute", "equipment", "chest"],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "006",
+    "set": "WTR",
+    "name": "Alpha Rampage",
+    "rarity": "M",
+    "text": "",
+    "keywords": ["brute", "attack", "action"],
+    "stats": {
+      "attack": 9,
+      "defense": 3,
+      "resource": 1,
+      "cost": 3
+    }
+  },
+  {
+    "id": "007",
+    "set": "WTR",
+    "name": "Bloodrush Bellow",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "brute",
+      "equipment",
+      "legs"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "008",
+    "set": "WTR",
+    "name": "Reckless Swing",
+    "rarity": "S",
+    "text": "",
+    "keywords": ["brute", "defense", "reaction"],
+    "stats": {
+      "defense": 4,
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "009",
+    "set": "WTR",
+    "name": "Sand Sketched Plan",
+    "rarity": "S",
+    "text": "",
+    "keywords": ["brute", "action"],
+    "stats": {
+      "defense": 3,
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "010",
+    "set": "WTR",
+    "name": "Bone Head Barrier",
+    "rarity": "S",
+    "text": "",
+    "keywords": ["brute", "instant"],
+    "stats": {
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "011",
+    "set": "WTR",
+    "name": "Breakneck Battery",
+    "rarity": "R",
+    "text": "",
+    "keywords": ["brute", "action", "attack"],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 1,
+      "cost": 2
+    }
+  },
+  {
+    "id": "012",
+    "set": "WTR",
+    "name": "Breakneck Battery",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 5,
+      "defense": 3,
+      "resource": 2,
+      "cost": 2
+    }
+  },
+  {
+    "id": "013",
+    "set": "WTR",
+    "name": "Breakneck Battery",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 4,
+      "defense": 3,
+      "resource": 3,
+      "cost": 2
+    }
+  },
+  {
+    "id": "014",
+    "set": "WTR",
+    "name": "Savage Feast",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 1,
+      "cost": 1
+    }
+  },
+  {
+    "id": "015",
+    "set": "WTR",
+    "name": "Savage Feast",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 5,
+      "defense": 3,
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "016",
+    "set": "WTR",
+    "name": "Savage Feast",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 4,
+      "defense": 3,
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "017",
+    "set": "WTR",
+    "name": "Barraging Beatdown",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 1,
+      "cost": 0
+    }
+  },
+  {
+    "id": "018",
+    "set": "WTR",
+    "name": "Barraging Beatdown",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 2,
+      "cost": 0
+    }
+  },
+  {
+    "id": "019",
+    "set": "WTR",
+    "name": "Barraging Beatdown",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "020",
+    "set": "WTR",
+    "name": "Savage Swing",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 7,
+      "defense": 3,
+      "resource": 1,
+      "cost": 1
+    }
+  },
+  {
+    "id": "021",
+    "set": "WTR",
+    "name": "Savage Swing",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "022",
+    "set": "WTR",
+    "name": "Savage Swing",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 5,
+      "defense": 3,
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "023",
+    "set": "WTR",
+    "name": "Pack Hunt",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 1,
+      "cost": 2
+    }
+  },
+  {
+    "id": "024",
+    "set": "WTR",
+    "name": "Pack Hunt",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 5,
+      "defense": 3,
+      "resource": 2,
+      "cost": 2
+    }
+  },
+  {
+    "id": "025",
+    "set": "WTR",
+    "name": "Pack Hunt",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 4,
+      "defense": 3,
+      "resource": 3,
+      "cost": 2
+    }
+  },
+  {
+    "id": "026",
+    "set": "WTR",
+    "name": "Smash Instinct",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 7,
+      "defense": 3,
+      "resource": 1,
+      "cost": 3
+    }
+  },
+  {
+    "id": "027",
+    "set": "WTR",
+    "name": "Smash Instinct",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 2,
+      "cost": 3
+    }
+  },
+  {
+    "id": "028",
+    "set": "WTR",
+    "name": "Smash Instinct",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 5,
+      "defense": 3,
+      "resource": 3,
+      "cost": 3
+    }
+  },
+  {
+    "id": "029",
+    "set": "WTR",
+    "name": "Wrecker Romp",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 8,
+      "defense": 3,
+      "resource": 1,
+      "cost": 2
+    }
+  },
+  {
+    "id": "030",
+    "set": "WTR",
+    "name": "Wrecker Romp",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 7,
+      "defense": 3,
+      "resource": 2,
+      "cost": 2
+    }
+  },
+  {
+    "id": "031",
+    "set": "WTR",
+    "name": "Wrecker Romp",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 6,
+      "defense": 3,
+      "resource": 3,
+      "cost": 2
+    }
+  },
+  {
+    "id": "032",
+    "set": "WTR",
+    "name": "Awakening Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 1,
+      "cost": 1
+    }
+  },
+  {
+    "id": "033",
+    "set": "WTR",
+    "name": "Awakening Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "034",
+    "set": "WTR",
+    "name": "Awakening Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "035",
+    "set": "WTR",
+    "name": "Primeval Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 1,
+      "cost": 0
+    }
+  },
+  {
+    "id": "036",
+    "set": "WTR",
+    "name": "Primeval Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 2,
+      "cost": 0
+    }
+  },
+  {
+    "id": "037",
+    "set": "WTR",
+    "name": "Primeval Bellow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "brute",
+      "action"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "038",
+    "set": "WTR",
+    "name": "Bravo, Showstopper",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "hero"
+    ],
+    "stats": {
+      "life": 40,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "039",
+    "set": "WTR",
+    "name": "Bravo, Showstopper",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "hero",
+      "young"
+    ],
+    "stats": {
+      "life": 20,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "040",
+    "set": "WTR",
+    "name": "Anothos",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "weapon",
+      "hammer"
+    ],
+    "stats": {
+      "attack": 4
+    }
+  },
+  {
+    "id": "041",
+    "set": "WTR",
+    "name": "Tectonic Plating",
+    "rarity": "L",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "equipment",
+      "chest"
+    ],
+    "stats": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "042",
+    "set": "WTR",
+    "name": "Helm of Isen's Peak",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "equipment",
+      "head"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "043",
+    "set": "WTR",
+    "name": "Crippling Crush",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 11,
+      "defense": 3,
+      "resource": 1,
+      "cost": 7
+    }
+  },
+  {
+    "id": "044",
+    "set": "WTR",
+    "name": "Spinal Crush",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 9,
+      "defense": 3,
+      "resource": 1,
+      "cost": 5
+    }
+  },
+  {
+    "id": "045",
+    "set": "WTR",
+    "name": "Cranial Crush",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 8,
+      "defense": 3,
+      "resource": 3,
+      "cost": 6
+    }
+  },
+  {
+    "id": "046",
+    "set": "WTR",
+    "name": "Forged for War",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 2,
+      "cost": 2
+    }
+  },
+  {
+    "id": "047",
+    "set": "WTR",
+    "name": "Show Time!",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "defense": 3,
+      "resource": 3,
+      "cost": 3
+    }
+  },
+  {
+    "id": "048",
+    "set": "WTR",
+    "name": "Disable",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 9,
+      "defense": 3,
+      "resource": 1,
+      "cost": 5
+    }
+  },
+  {
+    "id": "049",
+    "set": "WTR",
+    "name": "Disable",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 8,
+      "defense": 3,
+      "resource": 2,
+      "cost": 5
+    }
+  },
+  {
+    "id": "050",
+    "set": "WTR",
+    "name": "Disable",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "attack": 7,
+      "defense": 3,
+      "resource": 3,
+      "cost": 5
+    }
+  },
+  {
+    "id": "051",
+    "set": "WTR",
+    "name": "Staunch Response",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 7
+    }
+  },
+  {
+    "id": "052",
+    "set": "WTR",
+    "name": "Staunch Response",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 6
+    }
+  },
+  {
+    "id": "053",
+    "set": "WTR",
+    "name": "Staunch Response",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 5
+    }
+  },
+  {
+    "id": "054",
+    "set": "WTR",
+    "name": "Blessing of Deliverance",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "055",
+    "set": "WTR",
+    "name": "Blessing of Deliverance",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "056",
+    "set": "WTR",
+    "name": "Blessing of Deliverance",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "057",
+    "set": "WTR",
+    "name": "Buckling Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 4,
+      "defense": 3,
+      "attack": 8
+    }
+  },
+  {
+    "id": "058",
+    "set": "WTR",
+    "name": "Buckling Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 4,
+      "defense": 3,
+      "attack": 7
+    }
+  },
+  {
+    "id": "059",
+    "set": "WTR",
+    "name": "Buckling Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 4,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "060",
+    "set": "WTR",
+    "name": "Cartilage Crush",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3,
+      "attack": 7
+    }
+  },
+  {
+    "id": "061",
+    "set": "WTR",
+    "name": "Cartilage Crush",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "062",
+    "set": "WTR",
+    "name": "Cartilage Crush",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "063",
+    "set": "WTR",
+    "name": "Crush Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3,
+      "attack": 7
+    }
+  },
+  {
+    "id": "064",
+    "set": "WTR",
+    "name": "Crush Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "065",
+    "set": "WTR",
+    "name": "Crush Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "066",
+    "set": "WTR",
+    "name": "Debilitate",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 4,
+      "defense": 3,
+      "attack": 8
+    }
+  },
+  {
+    "id": "067",
+    "set": "WTR",
+    "name": "Debilitate",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 4,
+      "defense": 3,
+      "attack": 7
+    }
+  },
+  {
+    "id": "068",
+    "set": "WTR",
+    "name": "Debilitate",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 4,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "069",
+    "set": "WTR",
+    "name": "Emerging Power",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "070",
+    "set": "WTR",
+    "name": "Emerging Power",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "071",
+    "set": "WTR",
+    "name": "Emerging Power",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "072",
+    "set": "WTR",
+    "name": "Stonewall Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "073",
+    "set": "WTR",
+    "name": "Stonewall Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "074",
+    "set": "WTR",
+    "name": "Stonewall Confidence",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "guardian",
+      "action",
+      "aura"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "075",
+    "set": "WTR",
+    "name": "Seismic Surge",
+    "rarity": "T",
+    "text": "At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",
+    "keywords": [
+      "guardian",
+      "token",
+      "aura"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "076",
+    "set": "WTR",
+    "name": "Katsu, the Wanderer",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "hero"
+    ],
+    "stats": {
+      "hand-size": 4,
+      "life": 40
+    }
+  },
+  {
+    "id": "077",
+    "set": "WTR",
+    "name": "Katsu",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "hero",
+      "young"
+    ],
+    "stats": {
+      "hand-size": 4,
+      "life": 20
+    }
+  },
+  {
+    "id": "078",
+    "set": "WTR",
+    "name": "Harmonized Kodachi",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "weapon",
+      "dagger"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "079",
+    "set": "WTR",
+    "name": "Mask of Momentum",
+    "rarity": "L",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "equipment",
+      "head"
+    ],
+    "stats": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "080",
+    "set": "WTR",
+    "name": "Breaking Scales",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "equipment",
+      "arms"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "081",
+    "set": "WTR",
+    "name": "Lord of Wind",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "082",
+    "set": "WTR",
+    "name": "Ancestral Empowerment",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "083",
+    "set": "WTR",
+    "name": "Mugenshi: RELEASE",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "084",
+    "set": "WTR",
+    "name": "Hurricane Technique",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "085",
+    "set": "WTR",
+    "name": "Pounding Gale",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "086",
+    "set": "WTR",
+    "name": "Fluster Fist",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "087",
+    "set": "WTR",
+    "name": "Fluster Fist",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "088",
+    "set": "WTR",
+    "name": "Fluster Fist",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "089",
+    "set": "WTR",
+    "name": "Blackout Kick",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "090",
+    "set": "WTR",
+    "name": "Blackout Kick",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "091",
+    "set": "WTR",
+    "name": "Blackout Kick",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "092",
+    "set": "WTR",
+    "name": "Flic Flak",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 4
+    }
+  },
+  {
+    "id": "093",
+    "set": "WTR",
+    "name": "Flic Flak",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 4
+    }
+  },
+  {
+    "id": "094",
+    "set": "WTR",
+    "name": "Flic Flak",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 4
+    }
+  },
+  {
+    "id": "095",
+    "set": "WTR",
+    "name": "Open the Center",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "096",
+    "set": "WTR",
+    "name": "Open the Center",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "097",
+    "set": "WTR",
+    "name": "Open the Center",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "098",
+    "set": "WTR",
+    "name": "Head Jab",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "099",
+    "set": "WTR",
+    "name": "Head Jab",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "100",
+    "set": "WTR",
+    "name": "Head Jab",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 1
+    }
+  },
+  {
+    "id": "101",
+    "set": "WTR",
+    "name": "Leg Tap",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "102",
+    "set": "WTR",
+    "name": "Leg Tap",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "103",
+    "set": "WTR",
+    "name": "Leg Tap",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "104",
+    "set": "WTR",
+    "name": "Rising Knee Thrust",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "105",
+    "set": "WTR",
+    "name": "Rising Knee Thrust",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "106",
+    "set": "WTR",
+    "name": "Rising Knee Thrust",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 1
+    }
+  },
+  {
+    "id": "107",
+    "set": "WTR",
+    "name": "Surging Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "108",
+    "set": "WTR",
+    "name": "Surging Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "109",
+    "set": "WTR",
+    "name": "Surging Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "110",
+    "set": "WTR",
+    "name": "Whelming Gustwave",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "111",
+    "set": "WTR",
+    "name": "Whelming Gustwave",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "112",
+    "set": "WTR",
+    "name": "Whelming Gustwave",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "ninja",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 1
+    }
+  },
+  {
+    "id": "113",
+    "set": "WTR",
+    "name": "Dorinthea Ironsong",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "hero"
+    ],
+    "stats": {
+      "health": 40,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "114",
+    "set": "WTR",
+    "name": "Dorinthea",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "hero",
+      "young"
+    ],
+    "stats": {
+      "health": 20,
+      "hand-size": 4
+    }
+  },
+  {
+    "id": "115",
+    "set": "WTR",
+    "name": "Dawnblade",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "weapon",
+      "sword"
+    ],
+    "stats": {
+      "attack": 3
+    }
+  },
+  {
+    "id": "116",
+    "set": "WTR",
+    "name": "Braveforge Bracers",
+    "rarity": "L",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "equipment",
+      "arms"
+    ],
+    "stats": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "117",
+    "set": "WTR",
+    "name": "Refraction Bolters",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "equipment",
+      "legs"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "118",
+    "set": "WTR",
+    "name": "Glint the Quicksilver",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "119",
+    "set": "WTR",
+    "name": "Steelblade Supremacy",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "120",
+    "set": "WTR",
+    "name": "Rout",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "121",
+    "set": "WTR",
+    "name": "Singing Steelblade",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "122",
+    "set": "WTR",
+    "name": "Ironsong Determination",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "123",
+    "set": "WTR",
+    "name": "Overpower",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3
+    }
+  },
+  {
+    "id": "124",
+    "set": "WTR",
+    "name": "Overpower",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3
+    }
+  },
+  {
+    "id": "125",
+    "set": "WTR",
+    "name": "Overpower",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3
+    }
+  },
+  {
+    "id": "126",
+    "set": "WTR",
+    "name": "Steelblade Shunt",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 6
+    }
+  },
+  {
+    "id": "127",
+    "set": "WTR",
+    "name": "Steelblade Shunt",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 5
+    }
+  },
+  {
+    "id": "128",
+    "set": "WTR",
+    "name": "Steelblade Shunt",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 4
+    }
+  },
+  {
+    "id": "129",
+    "set": "WTR",
+    "name": "Warrior's Valor",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "130",
+    "set": "WTR",
+    "name": "Warrior's Valor",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "131",
+    "set": "WTR",
+    "name": "Warrior's Valor",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "132",
+    "set": "WTR",
+    "name": "Ironsong Response",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "133",
+    "set": "WTR",
+    "name": "Ironsong Response",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "134",
+    "set": "WTR",
+    "name": "Biting Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "135",
+    "set": "WTR",
+    "name": "Biting Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "136",
+    "set": "WTR",
+    "name": "Biting Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "137",
+    "set": "WTR",
+    "name": "Stroke of Foresight",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "138",
+    "set": "WTR",
+    "name": "Stroke of Foresight",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "139",
+    "set": "WTR",
+    "name": "Stroke of Foresight",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "140",
+    "set": "WTR",
+    "name": "Sharpen Steel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "141",
+    "set": "WTR",
+    "name": "Sharpen Steel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "142",
+    "set": "WTR",
+    "name": "Sharpen Steel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "143",
+    "set": "WTR",
+    "name": "Driving Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "144",
+    "set": "WTR",
+    "name": "Driving Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "145",
+    "set": "WTR",
+    "name": "Driving Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "146",
+    "set": "WTR",
+    "name": "Nature's Path Pilgrimage",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "147",
+    "set": "WTR",
+    "name": "Nature's Path Pilgrimage",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "148",
+    "set": "WTR",
+    "name": "Nature's Path Pilgrimage",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "150",
+    "set": "WTR",
+    "name": "Fyendal's Spring Tunic",
+    "rarity": "L",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "chest"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "151",
+    "set": "WTR",
+    "name": "Hope Merchant's Hood",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "head"
+    ],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "152",
+    "set": "WTR",
+    "name": "Heartened Cross Strap",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "chest"
+    ],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "153",
+    "set": "WTR",
+    "name": "Goliath Gauntlet",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "arms"
+    ],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "154",
+    "set": "WTR",
+    "name": "Snapdragon Scalers",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "legs"
+    ],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "155",
+    "set": "WTR",
+    "name": "Ironrot Helm",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "head"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "156",
+    "set": "WTR",
+    "name": "Ironrot Plate",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "chest"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "157",
+    "set": "WTR",
+    "name": "Ironrot Gauntlet",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "arms"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "158",
+    "set": "WTR",
+    "name": "Ironrot Legs",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "equipment",
+      "legs"
+    ],
+    "stats": {
+      "defense": 1
+    }
+  },
+  {
+    "id": "159",
+    "set": "WTR",
+    "name": "Enlightened Strike",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "160",
+    "set": "WTR",
+    "name": "Tome of Fyendal",
+    "rarity": "M",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "161",
+    "set": "WTR",
+    "name": "Last Ditch Effort",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "162",
+    "set": "WTR",
+    "name": "Crazy Brew",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "item"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "163",
+    "set": "WTR",
+    "name": "Remembrance",
+    "rarity": "S",
+    "text": "",
+    "keywords": [
+      "generic",
+      "instant"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0
+    }
+  },
+  {
+    "id": "164",
+    "set": "WTR",
+    "name": "Drone of Brutality",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 6
+    }
+  },
+  {
+    "id": "165",
+    "set": "WTR",
+    "name": "Drone of Brutality",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "166",
+    "set": "WTR",
+    "name": "Drone of Brutality",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "167",
+    "set": "WTR",
+    "name": "Snatch",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "168",
+    "set": "WTR",
+    "name": "Snatch",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "169",
+    "set": "WTR",
+    "name": "Snatch",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "170",
+    "set": "WTR",
+    "name": "Energy Potion",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "item"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "171",
+    "set": "WTR",
+    "name": "Potion of Strength",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "item"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "172",
+    "set": "WTR",
+    "name": "Timesnap Potion",
+    "rarity": "R",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "item"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "173",
+    "set": "WTR",
+    "name": "Sigil of Solace",
+    "rarity": "R",
+    "text": "Gain 3 [life]",
+    "keywords": [
+      "generic",
+      "instant"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0
+    }
+  },
+  {
+    "id": "174",
+    "set": "WTR",
+    "name": "Sigil of Solace",
+    "rarity": "R",
+    "text": "Gain 2 [life]",
+    "keywords": [
+      "generic",
+      "instant"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0
+    }
+  },
+  {
+    "id": "175",
+    "set": "WTR",
+    "name": "Sigil of Solace",
+    "rarity": "R",
+    "text": "Gain 1 [life]",
+    "keywords": [
+      "generic",
+      "instant"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
+    "id": "176",
+    "set": "WTR",
+    "name": "Barraging Brawnhide",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 2,
+      "attack": 7
+    }
+  },
+  {
+    "id": "177",
+    "set": "WTR",
+    "name": "Barraging Brawnhide",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 2,
+      "attack": 6
+    }
+  },
+  {
+    "id": "178",
+    "set": "WTR",
+    "name": "Barraging Brawnhide",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "179",
+    "set": "WTR",
+    "name": "Demolition Crew",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 6
+    }
+  },
+  {
+    "id": "180",
+    "set": "WTR",
+    "name": "Demolition Crew",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "181",
+    "set": "WTR",
+    "name": "Demolition Crew",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "182",
+    "set": "WTR",
+    "name": "Flock of the Featherwalkers",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "183",
+    "set": "WTR",
+    "name": "Flock of the Featherwalkers",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "184",
+    "set": "WTR",
+    "name": "Flock of the Featherwalkers",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "185",
+    "set": "WTR",
+    "name": "Nimble Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "186",
+    "set": "WTR",
+    "name": "Nimble Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "187",
+    "set": "WTR",
+    "name": "Nimble Strike",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "188",
+    "set": "WTR",
+    "name": "Raging Onslaught",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3,
+      "attack": 7
+    }
+  },
+  {
+    "id": "189",
+    "set": "WTR",
+    "name": "Raging Onslaught",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "190",
+    "set": "WTR",
+    "name": "Raging Onslaught",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "191",
+    "set": "WTR",
+    "name": "Scar for a Scar",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "192",
+    "set": "WTR",
+    "name": "Scar for a Scar",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "193",
+    "set": "WTR",
+    "name": "Scar for a Scar",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "194",
+    "set": "WTR",
+    "name": "Scour the Battlescape",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "195",
+    "set": "WTR",
+    "name": "Scour the Battlescape",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  {
+    "id": "196",
+    "set": "WTR",
+    "name": "Scour the Battlescape",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 1
+    }
+  },
+  {
+    "id": "197",
+    "set": "WTR",
+    "name": "Regurgitating Slog",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 6
+    }
+  },
+  {
+    "id": "198",
+    "set": "WTR",
+    "name": "Regurgitating Slog",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "199",
+    "set": "WTR",
+    "name": "Regurgitating Slog",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "200",
+    "set": "WTR",
+    "name": "Wounded Bull",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 2,
+      "attack": 7
+    }
+  },
+  {
+    "id": "201",
+    "set": "WTR",
+    "name": "Wounded Bull",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 2,
+      "attack": 6
+    }
+  },
+  {
+    "id": "202",
+    "set": "WTR",
+    "name": "Wounded Bull",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "203",
+    "set": "WTR",
+    "name": "Wounding Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "204",
+    "set": "WTR",
+    "name": "Wounding Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "205",
+    "set": "WTR",
+    "name": "Wounding Blow",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "206",
+    "set": "WTR",
+    "name": "Pummel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "207",
+    "set": "WTR",
+    "name": "Pummel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "208",
+    "set": "WTR",
+    "name": "Pummel",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "209",
+    "set": "WTR",
+    "name": "Razor Reflex",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "210",
+    "set": "WTR",
+    "name": "Razor Reflex",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "211",
+    "set": "WTR",
+    "name": "Razor Reflex",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "212",
+    "set": "WTR",
+    "name": "Unmovable",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 7
+    }
+  },
+  {
+    "id": "213",
+    "set": "WTR",
+    "name": "Unmovable",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 6
+    }
+  },
+  {
+    "id": "214",
+    "set": "WTR",
+    "name": "Unmovable",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 5
+    }
+  },
+  {
+    "id": "215",
+    "set": "WTR",
+    "name": "Sink Below",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 4
+    }
+  },
+  {
+    "id": "216",
+    "set": "WTR",
+    "name": "Sink Below",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "217",
+    "set": "WTR",
+    "name": "Sink Below",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "defense",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "218",
+    "set": "WTR",
+    "name": "Nimblism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "219",
+    "set": "WTR",
+    "name": "Nimblism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "220",
+    "set": "WTR",
+    "name": "Nimblism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "221",
+    "set": "WTR",
+    "name": "Sloggism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 2
+    }
+  },
+  {
+    "id": "222",
+    "set": "WTR",
+    "name": "Sloggism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 2
+    }
+  },
+  {
+    "id": "223",
+    "set": "WTR",
+    "name": "Sloggism",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 2
+    }
+  },
+  {
+    "id": "224",
+    "set": "WTR",
+    "name": "Cracked Bauble",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "generic",
+      "resource"
+    ],
+    "stats": {
+
+    }
+  },
+  {
+    "id": "225",
+    "set": "WTR",
+    "name": "Quicken",
+    "rarity": "T",
+    "text": "",
+    "keywords": [
+      "generic",
+      "token",
+      "aura"
+    ],
+    "stats": {
+
+    }
+  }
+]

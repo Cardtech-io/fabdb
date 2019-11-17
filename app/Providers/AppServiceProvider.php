@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Providers;
+namespace FabDB\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+abstract class AppServiceProvider extends ServiceProvider
 {
+    protected $interfaces = [];
+
     /**
      * Register any application services.
      *
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->bindImplementations();
     }
 
     /**
@@ -24,5 +26,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+    }
+
+    private function bindImplementations()
+    {
+        foreach ($this->interfaces as $interface => $implementation) {
+            $this->app->bind($interface, $implementation);
+        }
     }
 }

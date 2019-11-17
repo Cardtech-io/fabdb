@@ -64,6 +64,16 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'scraped' => [
+            'driver' => 'local',
+            'root' => storage_path('scraped'),
+        ],
+
+        'carddb' => [
+            'driver' => 'local',
+            'root' => storage_path('carddb'),
+        ]
+
     ],
 
 ];
