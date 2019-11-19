@@ -3,7 +3,7 @@
 namespace FabDB\Http\Controllers\Auth;
 
 use FabDB\Http\Controllers\Controller;
-use FabDB\User;
+use FabDB\Domain\Users\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \FabDB\User
+     * @return \FabDB\Domain\Users\User
      */
     protected function create(array $data)
     {

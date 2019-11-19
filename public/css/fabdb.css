@@ -11412,6 +11412,38 @@ video {
         no-repeat center center fixed;
 }
 
+.logo-text {
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+  top: 50px;
+  left: 10px;
+  width: 120px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.link {
+  color: #c05621;
+}
+
+.link:hover {
+  color: #e2e8f0;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -25%;
+  background-color: #000;
+  position: fixed;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  border-color: #2d3748;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

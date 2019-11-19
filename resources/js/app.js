@@ -1,18 +1,11 @@
 require('./bootstrap');
+require('./axios-config');
 
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Authenticator from './Auth/Authenticator.vue';
+import router from './router.js';
 
-Vue.use(VueRouter);
-
-import CardDatabase from './CardDatabase/CardDatabase.vue';
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {"path": "/", "component": CardDatabase}
-    ]
-});
+Vue.component('authenticator', Authenticator);
 
 const app = new Vue({
     router

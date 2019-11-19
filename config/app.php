@@ -174,6 +174,7 @@ return [
         FabDB\Providers\EventServiceProvider::class,
         FabDB\Providers\RouteServiceProvider::class,
         FabDB\Domain\Cards\CardsServiceProvider::class,
+        FabDB\Domain\Users\UsersServiceProvider::class,
     ],
 
     /*

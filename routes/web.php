@@ -11,8 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('cards', 'CardController@list');
+Route::get('cards/{card}', 'CardController@view');
+
+Route::post('authenticate', 'AuthController@authenticate');
+Route::post('validate', 'AuthController@validateCode');
+
+Route::middleware(['auth'])->group(function(){
+    Route::post('collection', 'CollectionController@addCard');
+    Route::delete('collection/{card}', 'CollectionController@removeCard');
 });
 
-Route::get('cards', 'CardController@search');
+Route::get('{anything}', function() {
+    return view('welcome');
+})->where('anything', '.*');

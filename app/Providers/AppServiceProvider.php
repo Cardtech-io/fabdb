@@ -1,5 +1,4 @@
 <?php
-
 namespace FabDB\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -16,16 +15,6 @@ abstract class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->bindImplementations();
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 
     private function bindImplementations()

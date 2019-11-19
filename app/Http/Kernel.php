@@ -1,5 +1,4 @@
 <?php
-
 namespace FabDB\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;

@@ -8,3 +8,35 @@
         url('/img/background.jpg')
         no-repeat center center fixed;
 }
+
+.logo-text {
+    transform: rotate(-10deg);
+    top: 50px;
+    left: 10px;
+    width: 120px;
+}
+
+button:focus {
+    @apply outline-none;
+}
+
+.link {
+    @apply text-orange-700;
+}
+
+.link:hover {
+    @apply text-gray-300;
+}
+
+.modal {
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -25%;
+
+    @apply bg-black;
+    @apply fixed;
+    @apply border;
+    @apply rounded-lg;
+    @apply border-gray-800;
+}

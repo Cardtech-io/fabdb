@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => FabDB\User::class,
+            'model' => \FabDB\Domain\Users\User::class,
         ],
 
         // 'users' => [

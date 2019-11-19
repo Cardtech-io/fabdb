@@ -33,6 +33,6 @@ final class Identifier implements \JsonSerializable
 
     function jsonSerialize()
     {
-        return ['set' => $this->set, 'id' => $this->id];
+        return (string) $this;
     }
 }

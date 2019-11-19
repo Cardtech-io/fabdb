@@ -1,7 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use FabDB\User;
+use FabDB\Domain\Users\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
