@@ -1890,6 +1890,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/validate/', {
+        email: this.email,
         code: this.code
       }).then(function (response) {
         _this2.visible = false;
@@ -1921,6 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
 //
 //
 //
@@ -1931,9 +1933,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['card'],
+  props: {
+    card: Object,
+    view: String
+  },
   methods: {
     viewUrl: function viewUrl() {
       return '/card/' + this.card.identifier + '/';
@@ -2053,6 +2062,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['card', 'view'],
+  data: function data() {
+    return {
+      owned: this.card.owned
+    };
+  },
+  methods: {
+    add: function add() {
+      this.owned += 1;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/collection/', {
+        identifier: this.card.identifier
+      });
+    },
+    remove: function remove() {
+      this.owned -= 1;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + this.card.identifier + '/');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/Paginator.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/Paginator.vue?vue&type=script&lang=js& ***!
@@ -2096,11 +2154,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-//
-//
-//
-//
-//
+/* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
 //
 //
 //
@@ -2129,8 +2183,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  components: {
+    ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       card: null
@@ -2149,22 +2207,13 @@ __webpack_require__.r(__webpack_exports__);
     sentenceCase: function sentenceCase(string) {
       var sentence = string.replace("-", ' ');
       return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
-    },
-    addToCollection: function addToCollection() {
-      var _this = this;
-
-      axios.post('/collection/', {
-        identifier: this.card.identifier
-      }).then(function (response) {
-        _this.card.count += 1;
-      });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this = this;
 
     axios.get('/cards/' + this.$route.params.identifier).then(function (response) {
-      _this2.card = response.data;
+      _this.card = response.data;
     });
   }
 });
@@ -20445,7 +20494,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-4 pb-0 w-1/2 sm:w-1/3 lg:w-1/4" },
+    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
     [
       _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
         _c("img", {
@@ -20457,7 +20506,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("button", [_vm._v("Add to collection")])
+      _c("manage-card", { attrs: { card: _vm.card, view: "list" } })
     ],
     1
   )
@@ -20604,6 +20653,116 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "my-4 flex items-center",
+      class: _vm.view == "list" ? "justify-center" : ""
+    },
+    [
+      _c(
+        "button",
+        {
+          staticClass:
+            "flex bg-gray-900 p-2 px-4 h-10 items-center rounded-lg hover:bg-gray-800",
+          on: {
+            click: function($event) {
+              return _vm.add()
+            }
+          }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "fill-current h-4 w-4",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 20 20"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _vm.view != "list"
+            ? _c("span", { staticClass: "ml-2" }, [_vm._v("Add")])
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _vm.owned
+        ? _c(
+            "button",
+            {
+              staticClass:
+                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              on: {
+                click: function($event) {
+                  return _vm.remove()
+                }
+              }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "fill-current h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d: "M10 20a10 10 0 110-20 10 10 0 010 20zm5-11H5v2h10V9z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.view != "list"
+                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Remove")])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v("(" + _vm._s(_vm.owned) + ")")
+              ])
+            ]
+          )
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/Paginator.vue?vue&type=template&id=8cb345aa&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/Paginator.vue?vue&type=template&id=8cb345aa& ***!
@@ -20702,101 +20861,69 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "md:w-2/3 md:float-right md:pl-8" }, [
-            _c("h1", { staticClass: "font-serif text-4xl mb-4" }, [
-              _vm._v(
-                _vm._s(_vm.card.name) + " - " + _vm._s(_vm.card.identifier)
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              [
-                _c("li", { staticClass: "clearfix mb-4" }, [
-                  _c("div", { staticClass: "float-left w-1/3" }, [
-                    _vm._v("Keywords")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "float-left w-2/3" },
-                    _vm._l(_vm.card.keywords, function(keyword, index) {
-                      return _c(
-                        "span",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "link",
-                              attrs: { to: "/?search=" + keyword }
-                            },
-                            [_vm._v(_vm._s(keyword))]
-                          ),
-                          index < _vm.card.keywords.length - 1
-                            ? _c("span", [_vm._v(", ")])
-                            : _vm._e()
-                        ],
-                        1
-                      )
-                    }),
-                    0
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.card.stats, function(value, stat) {
-                  return _c("li", { staticClass: "clearfix" }, [
+          _c(
+            "div",
+            { staticClass: "md:w-2/3 md:float-right md:pl-8" },
+            [
+              _c("h1", { staticClass: "font-serif text-4xl mb-4" }, [
+                _vm._v(
+                  _vm._s(_vm.card.name) + " - " + _vm._s(_vm.card.identifier)
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                [
+                  _c("li", { staticClass: "clearfix mb-4" }, [
                     _c("div", { staticClass: "float-left w-1/3" }, [
-                      _vm._v(_vm._s(_vm.sentenceCase(stat)))
+                      _vm._v("Keywords")
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "float-left w-2/3" }, [
-                      _vm._v(_vm._s(value))
-                    ])
-                  ])
-                })
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "my-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "flex bg-gray-900 p-2 px-4 items-center rounded-lg hover:bg-gray-800",
-                  on: {
-                    click: function($event) {
-                      return _vm.addToCollection()
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "fill-current h-4 w-4",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"
-                        }
-                      })
-                    ]
-                  ),
+                    _c(
+                      "div",
+                      { staticClass: "float-left w-2/3" },
+                      _vm._l(_vm.card.keywords, function(keyword, index) {
+                        return _c(
+                          "span",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "link",
+                                attrs: { to: "/?search=" + keyword }
+                              },
+                              [_vm._v(_vm._s(keyword))]
+                            ),
+                            index < _vm.card.keywords.length - 1
+                              ? _c("span", [_vm._v(", ")])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      }),
+                      0
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "ml-2" }, [
-                    _vm._v("Add to collection")
-                  ])
-                ]
-              )
-            ])
-          ])
+                  _vm._l(_vm.card.stats, function(value, stat) {
+                    return _c("li", { staticClass: "clearfix" }, [
+                      _c("div", { staticClass: "float-left w-1/3" }, [
+                        _vm._v(_vm._s(_vm.sentenceCase(stat)))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "float-left w-2/3" }, [
+                        _vm._v(_vm._s(value))
+                      ])
+                    ])
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c("manage-card", { attrs: { card: _vm.card } })
+            ],
+            1
+          )
         ]
       )
     : _vm._e()
@@ -36158,6 +36285,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListCards_vue_vue_type_template_id_5305587f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListCards_vue_vue_type_template_id_5305587f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/ManageCard.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/CardDatabase/ManageCard.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ManageCard.vue?vue&type=template&id=4378eb6b& */ "./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&");
+/* harmony import */ var _ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/CardDatabase/ManageCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ManageCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ManageCard.vue?vue&type=template&id=4378eb6b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

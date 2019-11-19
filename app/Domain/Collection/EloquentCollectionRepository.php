@@ -17,8 +17,8 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
 
         if (!$ownedCard) {
             $ownedCard = new OwnedCard;
-            $ownedCard->cardId = $cardId;
-            $ownedCard->userId = $userId;
+            $ownedCard->card_id = $cardId;
+            $ownedCard->user_id = $userId;
             $ownedCard->total = 0;
         }
 

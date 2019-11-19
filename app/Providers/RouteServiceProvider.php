@@ -5,6 +5,7 @@ namespace FabDB\Providers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
@@ -29,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
 
         // Model bindings
         Route::bind('card', function($identifier) {
-            return app(CardRepository::class)->find($identifier);
+            return app(CardRepository::class)->find($identifier, Auth::user()->id);
         });
     }
 

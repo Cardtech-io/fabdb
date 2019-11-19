@@ -20,21 +20,21 @@
                 </li>
             </ul>
 
-            <div class="my-4">
-                <button class="flex bg-gray-900 p-2 px-4 items-center rounded-lg hover:bg-gray-800" @click="addToCollection()">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"/></svg>
-                    <span class="ml-2">Add to collection</span>
-                </button>
-            </div>
+            <manage-card :card="card"></manage-card>
         </div>
     </div>
 </template>
 
 <script>
     import Cardable from './Cardable.js';
+    import ManageCard from './ManageCard.vue';
 
     export default {
         mixins: [Cardable],
+
+        components: {
+            ManageCard
+        },
 
         data() {
             return {
@@ -57,12 +57,6 @@
                 var sentence = string.replace("-", ' ');
 
                 return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
-            },
-
-            addToCollection: function() {
-                axios.post('/collection/', {identifier: this.card.identifier}).then(response => {
-                    this.card.count += 1;
-                });
             }
         },
 

@@ -18,11 +18,11 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
             ->first();
     }
 
-    public function findByEmailAndCode(string $email, string $code): User
+    public function findByEmailAndToken(string $email, string $code): User
     {
         return $this->newQuery()
             ->whereEmail($email)
-            ->whereCode($code)
+            ->whereToken($code)
             ->firstOrFail();
     }
 

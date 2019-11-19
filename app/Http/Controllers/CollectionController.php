@@ -11,7 +11,7 @@ class CollectionController extends Controller
 {
     public function addCard(Request $request, CardRepository $cards)
     {
-        $card = $cards->find($request->get('identifier'));
+        $card = $cards->find($request->get('identifier'), $request->user()->id);
 
         $this->dispatchNow(new AddCardToCollection($card->id, $request->user()->id));
     }

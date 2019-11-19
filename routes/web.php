@@ -15,7 +15,8 @@ Route::get('cards', 'CardController@list');
 Route::get('cards/{card}', 'CardController@view');
 
 Route::post('authenticate', 'AuthController@authenticate');
-Route::post('validate', 'AuthController@validateCode');
+Route::post('validate
+', 'AuthController@validateCode');
 
 Route::middleware(['auth'])->group(function(){
     Route::post('collection', 'CollectionController@addCard');

@@ -7,5 +7,5 @@ interface UserRepository
 
     public function save(User $user);
 
-    public function findByEmailAndCode(string $email, string $code): User;
+    public function findByEmailAndToken(string $email, string $code): User;
 }

@@ -44,7 +44,7 @@
                 });
             },
             submitCode: function() {
-                axios.post('/validate/', {code: this.code}).then(response => {
+                axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     this.visible = false;
                 });
             }

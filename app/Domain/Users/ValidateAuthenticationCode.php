@@ -1,6 +1,8 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use Illuminate\Support\Facades\Auth;
+
 class ValidateAuthenticationCode
 {
     /**
@@ -21,9 +23,11 @@ class ValidateAuthenticationCode
 
     public function handle(UserRepository $users)
     {
-        $user = $users->findByEmailAndCode($this->email, $this->code);
+        $user = $users->findByEmailAndToken($this->email, $this->code);
         $user->clearToken();
 
         $users->save($user);
+
+        Auth::login($user);
     }
 }

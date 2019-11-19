@@ -15,11 +15,16 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * Searches for a range of cards, that match the provided parameters.
      *
      * @param array $params
+     * @param int $userId
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function search(array $params)
+    public function search(array $params, int $userId = null)
     {
         $query = $this->newQuery();
+        $query->select([
+            'cards.identifier',
+            'cards.name'
+        ]);
 
         // The following condition and clause determines whether the user is looking for an individual card or not
         if (count($params) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $params[0], $matches)) {
@@ -36,6 +41,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
         }
 
+        if ($userId) {
+            $query->leftJoin('owned_cards', function($join) use ($userId) {
+                $join->on('owned_cards.card_id', '=', 'cards.id');
+                $join->where('owned_cards.user_id', $userId);
+            });
+
+            $query->addSelect(\DB::raw('owned_cards.total AS owned'));
+        }
+
         return $query->paginate(12);
     }
 
@@ -49,12 +63,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function find(string $identifier, int $userId = null)
     {
         $select = [
+            'cards.id',
             'cards.identifier',
             'cards.name',
             'cards.keywords',
             'cards.stats',
             'cards.text',
-            $userId ? \DB::raw('COUNT(owned_cards.id) AS owned') : \DB::raw('0 AS owned')
+            $userId ? \DB::raw('owned_cards.total AS owned') : \DB::raw('0 AS owned')
         ];
 
         $query = $this->newQuery()
@@ -63,7 +78,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         if ($userId) {
             $query->leftJoin('owned_cards', function($join) use ($userId) {
-                $join->on('owned_cards.card_id', 'cards.id');
+                $join->on('owned_cards.card_id', '=', 'cards.id');
                 $join->where('owned_cards.user_id', $userId);
             });
         }
