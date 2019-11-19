@@ -16,9 +16,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      *
      * @param array $params
      * @param int $userId
+     * @param bool $restrict If provided, will restrict results to only those owned by the user.
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function search(array $params, int $userId = null)
+    public function search(array $params, int $userId = null, bool $restrict = false)
     {
         $query = $this->newQuery();
         $query->select([
@@ -42,7 +43,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         if ($userId) {
-            $query->leftJoin('owned_cards', function($join) use ($userId) {
+            $join = $restrict ? 'join' : 'leftJoin';
+
+            $query->$join('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
                 $join->where('owned_cards.user_id', $userId);
             });
