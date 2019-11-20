@@ -16,7 +16,7 @@
                 <div class="clearfix">
                     <div class="logo float-left relative overflow-visible">
                         <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
-                        <img src="{{ cloudfront_url('assets/fab-logo.png') }}" class="h-16">
+                        <img src="/img/fab-logo.png" class="h-16">
                     </div>
 
                     <nav class="float-left ml-4 mt-6">
