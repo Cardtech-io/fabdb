@@ -21,6 +21,10 @@
     width: 120px;
 }
 
+.left-1\/4 {
+    left: 25%;
+}
+
 button:focus {
     @apply outline-none;
 }
@@ -34,14 +38,5 @@ button:focus {
 }
 
 .modal {
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -25%;
 
-    @apply bg-black;
-    @apply fixed;
-    @apply border;
-    @apply rounded-lg;
-    @apply border-gray-800;
 }

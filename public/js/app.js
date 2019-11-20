@@ -1866,6 +1866,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -20379,96 +20381,105 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.visible
-      ? _c("div", { staticClass: "modal w-1/2 z-20 p-8" }, [
-          _c("h1", { staticClass: "font-serif text-xl text-gray-300" }, [
-            _vm._v("Login")
-          ]),
-          _vm._v(" "),
-          !_vm.submitted
-            ? _c("div", [
-                _c("p", { staticClass: "my-4" }, [
-                  _vm._v(
-                    "Some features on fabdb require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex mt-8" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.email,
-                        expression: "email"
-                      }
-                    ],
-                    staticClass: "w-3/4 p-4 rounded-l-lg",
-                    attrs: { type: "email", placeholder: "Email address" },
-                    domProps: { value: _vm.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+      ? _c("div", { staticClass: "fixed w-full z-20" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "p-8 mt-40 bg-black md:rounded-lg md:w-1/2 md:mx-auto"
+            },
+            [
+              _c("h1", { staticClass: "font-serif text-xl text-gray-300" }, [
+                _vm._v("Login")
+              ]),
+              _vm._v(" "),
+              !_vm.submitted
+                ? _c("div", [
+                    _c("p", { staticClass: "my-4" }, [
+                      _vm._v(
+                        "Some features on fabdb require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex mt-8" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.email,
+                            expression: "email"
+                          }
+                        ],
+                        staticClass: "w-2/3 p-4 rounded-l-lg",
+                        attrs: { type: "email", placeholder: "Email address" },
+                        domProps: { value: _vm.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.email = $event.target.value
+                          }
                         }
-                        _vm.email = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "w-1/4 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700",
-                    attrs: { type: "button", value: "Send code" },
-                    on: {
-                      click: function($event) {
-                        return _vm.submitEmail()
-                      }
-                    }
-                  })
-                ])
-              ])
-            : _c("div", [
-                _c("p", { staticClass: "my-4" }, [
-                  _vm._v(
-                    "Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below."
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex mt-8" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.code,
-                        expression: "code"
-                      }
-                    ],
-                    staticClass: "w-3/4 p-4 rounded-l-lg",
-                    attrs: { type: "text", placeholder: "" },
-                    domProps: { value: _vm.code },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass:
+                          "w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700",
+                        attrs: { type: "button", value: "Send code" },
+                        on: {
+                          click: function($event) {
+                            return _vm.submitEmail()
+                          }
                         }
-                        _vm.code = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "w-1/4 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center",
-                    attrs: { type: "button", value: "Login" },
-                    on: {
-                      click: function($event) {
-                        return _vm.submitCode()
-                      }
-                    }
-                  })
-                ])
-              ])
+                      })
+                    ])
+                  ])
+                : _c("div", [
+                    _c("p", { staticClass: "my-4" }, [
+                      _vm._v(
+                        "Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below."
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex mt-8" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.code,
+                            expression: "code"
+                          }
+                        ],
+                        staticClass: "w-2/3 p-4 rounded-l-lg",
+                        attrs: { type: "text", placeholder: "" },
+                        domProps: { value: _vm.code },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.code = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass:
+                          "w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center",
+                        attrs: { type: "button", value: "Login" },
+                        on: {
+                          click: function($event) {
+                            return _vm.submitCode()
+                          }
+                        }
+                      })
+                    ])
+                  ])
+            ]
+          )
         ])
       : _vm._e()
   ])
@@ -36388,7 +36399,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var terms = this.$route.query.search;
-      console.log('searching...');
       axios.get(this.url, {
         params: this.$route.query
       }).then(function (response) {

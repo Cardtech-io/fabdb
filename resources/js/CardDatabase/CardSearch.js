@@ -28,7 +28,7 @@ export default {
         },
         search: function() {
             const terms = this.$route.query.search;
-            console.log('searching...');
+
             axios.get(this.url, {params: this.$route.query}).then(response => {
                 this.cards = response.data.data;
                 this.results = response.data;

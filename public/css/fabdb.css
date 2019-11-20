@@ -11425,6 +11425,10 @@ video {
   width: 120px;
 }
 
+.left-1\/4 {
+  left: 25%;
+}
+
 button:focus {
   outline: 0;
 }
@@ -11438,15 +11442,6 @@ button:focus {
 }
 
 .modal {
-  top: 50%;
-  left: 50%;
-  margin-top: -200px;
-  margin-left: -25%;
-  background-color: #000;
-  position: fixed;
-  border-width: 1px;
-  border-radius: 0.5rem;
-  border-color: #2d3748;
 }
 
 @media (min-width: 640px) {
