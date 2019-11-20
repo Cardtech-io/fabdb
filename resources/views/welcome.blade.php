@@ -12,20 +12,16 @@
     <body class="theme-bg text-gray-500 mx-4">
         <div id="app" class="container mx-auto">
             <!-- Header -->
-            <div class="py-8">
+            <div class="pt-4 pb-8">
                 <div class="clearfix">
-                    <div class="logo float-left relative overflow-visible">
-                        <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
-                        <img src="/img/fab-logo.png" class="h-16">
+                    <div class="sm:float-left overflow-visible">
+                        <div class="mx-auto relative overflow-visible logo">
+                            <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
+                            <img src="/img/fab-logo.png" class="h-16">
+                        </div>
                     </div>
 
-                    <nav class="float-left ml-4 mt-6">
-                        <ol>
-                            <li class="float-left"><router-link to="/" class="text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 ml-4 rounded-lg">Database</router-link></li>
-                            <li class="float-left"><router-link to="/collection/" class="text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 ml-4 rounded-lg">Collection</router-link></li>
-                            <li class="float-left"><router-link to="/support/" class="text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 ml-4 rounded-lg">Support</router-link></li>
-                        </ol>
-                    </nav>
+                    <navigation></navigation>
                 </div>
             </div>
 

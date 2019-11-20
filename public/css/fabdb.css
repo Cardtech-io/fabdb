@@ -11412,6 +11412,11 @@ video {
         no-repeat center center fixed;
 }
 
+.logo {
+  width: 123px;
+  margin-bottom: 1rem;
+}
+
 .logo-text {
   -webkit-transform: rotate(-10deg);
           transform: rotate(-10deg);

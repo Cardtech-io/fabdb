@@ -9,6 +9,11 @@
         no-repeat center center fixed;
 }
 
+.logo {
+    width: 123px;
+    @apply mb-4;
+}
+
 .logo-text {
     transform: rotate(-10deg);
     top: 50px;
