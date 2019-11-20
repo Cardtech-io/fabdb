@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import ListCards from './CardDatabase/ListCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
+import Collection from './CardDatabase/Collection.vue';
 import Support from './Support.vue';
 
 Vue.use(VueRouter);
@@ -10,9 +11,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {"path": "/", "component": ListCards},
-        {"path": "/card/:identifier/", "component": ViewCard},
-        {"path": "/support/", "component": Support}
+        { path: "/", component: ListCards, name: 'cards' },
+        { path: "/card/:identifier/", component: ViewCard, name: 'card-view' },
+        { path: "/collection/", component: Collection, name: 'collection' },
+        { path: "/support/", component: Support, name: 'support' }
     ]
 });
 

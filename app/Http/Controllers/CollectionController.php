@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
+    public function list(Request $request, CardRepository $cards)
+    {
+        return $cards->search(explode(' ', $request->get('search')), $request->user()->id, $restrict = true)->appends($request->except('page'));
+    }
+
     public function addCard(Request $request, CardRepository $cards)
     {
         $card = $cards->find($request->get('identifier'), $request->user()->id);

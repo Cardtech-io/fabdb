@@ -1,5 +1,4 @@
 <?php
-
 namespace FabDB\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;

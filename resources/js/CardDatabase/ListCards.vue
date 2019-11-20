@@ -29,66 +29,15 @@
 </template>
 
 <script>
-    import CardItem from './CardItem.vue';
-    import Paginator from './Paginator.vue';
+    import CardSearch from './CardSearch';
 
     export default {
-        components: {
-            CardItem,
-            Paginator
-        },
+        mixins: [CardSearch],
 
         data() {
             return {
-                cards: null,
-                results: null,
-                page: 1,
-                searchText: this.$route.query.search
+                url: '/cards'
             }
-        },
-        mounted() {
-            this.search();
-        },
-        methods: {
-            filterCards: function() {
-                this.$router.push({path: '/', query: {search: this.searchText, page: this.page}});
-
-                this.cards = [];
-
-                if (!this.searchText) {
-                    return;
-                }
-
-                this.search();
-            },
-            search: function() {
-                const terms = this.$route.query.search;
-
-                if (!terms) return;
-
-                axios.get('/cards', {params: this.$route.query}).then(response => {
-                    this.cards = response.data.data;
-                    this.results = response.data;
-                });
-            },
-            updatePage: function(page) {
-                this.page = page;
-                this.filterCards();
-            }
-        },
-        watch: {
-    //        $route: function(route) {
-    //            this.page = route.params.page;
-    //            this.searchText = route.params.search;
-    //        },
-
-            searchText: function() {
-                this.page = 1;
-                this.debouncedFilterCards();
-            }
-        },
-        created: function() {
-            this.debouncedFilterCards = _.debounce(this.filterCards, 750);
         }
     };
 </script>

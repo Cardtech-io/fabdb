@@ -19,6 +19,7 @@ Route::post('validate
 ', 'AuthController@validateCode');
 
 Route::middleware(['auth'])->group(function(){
+    Route::get('collection', 'CollectionController@list');
     Route::post('collection', 'CollectionController@addCard');
     Route::delete('collection/{card}', 'CollectionController@removeCard');
 });

@@ -7,7 +7,7 @@ class SinglePageApp
 {
     public function handle(Request $request, \Closure $next)
     {
-        if (!$request->accepts('application/json')) {
+        if (! $request->wantsJson()) {
             return response()->view('welcome');
         }
 

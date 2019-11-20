@@ -53,6 +53,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->addSelect(\DB::raw('owned_cards.total AS owned'));
         }
 
+        $query->orderBy('cards.identifier');
+
         return $query->paginate(12);
     }
 
