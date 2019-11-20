@@ -9,7 +9,7 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        return $cards->search(explode(' ', $request->get('search')), $request->user()->id)->appends($request->except('page'));
+        return $cards->search(explode(' ', $request->get('search')), @$request->user()->id)->appends($request->except('page'));
     }
 
     public function view(Card $card)
