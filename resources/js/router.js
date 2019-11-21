@@ -11,10 +11,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: "/", component: ListCards, name: 'cards' },
-        { path: "/card/:identifier/", component: ViewCard, name: 'card-view' },
-        { path: "/collection/", component: Collection, name: 'collection' },
-        { path: "/support/", component: Support, name: 'support' }
+        { path: "/", component: ListCards, name: 'cards', meta: {title: 'Card search'} },
+        { path: "/card/:identifier/", component: ViewCard, name: 'card-view', meta: {title: 'View card'} },
+        { path: "/collection/", component: Collection, name: 'collection', meta: {title: 'My collection'} },
+        { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }
     ]
 });
 
@@ -29,6 +29,8 @@ router.beforeResolve((to, from, next) => {
 
 router.afterEach((to, from) => {
     NProgress.done();
+    
+    document.title = to.meta.title + ' | fabdb.net';
 });
 
 // ga may not be defined as it hasn't been loaded as no analytics id is available

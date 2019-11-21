@@ -37146,19 +37146,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: "/",
     component: _CardDatabase_ListCards_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: 'cards'
+    name: 'cards',
+    meta: {
+      title: 'Card search'
+    }
   }, {
     path: "/card/:identifier/",
     component: _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    name: 'card-view'
+    name: 'card-view',
+    meta: {
+      title: 'View card'
+    }
   }, {
     path: "/collection/",
     component: _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    name: 'collection'
+    name: 'collection',
+    meta: {
+      title: 'My collection'
+    }
   }, {
     path: "/support/",
     component: _Support_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    name: 'support'
+    name: 'support',
+    meta: {
+      title: 'Support options'
+    }
   }]
 });
 router.beforeResolve(function (to, from, next) {
@@ -37172,6 +37184,7 @@ router.beforeResolve(function (to, from, next) {
 });
 router.afterEach(function (to, from) {
   nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
+  document.title = to.meta.title + ' | fabdb.net';
 }); // ga may not be defined as it hasn't been loaded as no analytics id is available
 
 if (typeof ga !== 'undefined') {
