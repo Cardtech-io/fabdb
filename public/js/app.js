@@ -37172,7 +37172,18 @@ router.beforeResolve(function (to, from, next) {
 });
 router.afterEach(function (to, from) {
   nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
-});
+}); // ga may not be defined as it hasn't been loaded as no analytics id is available
+
+if (typeof ga !== 'undefined') {
+  // google analytics stuff
+  ga('set', 'page', router.currentRoute.path);
+  ga('send', 'pageview');
+  router.afterEach(function (to, from) {
+    ga('set', 'page', to.path);
+    ga('send', 'pageview');
+  });
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),

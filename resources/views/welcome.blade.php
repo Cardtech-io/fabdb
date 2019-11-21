@@ -7,7 +7,18 @@
         <title>@lang('app.title')</title>
 
         <link rel="stylesheet" href="/css/fabdb.css">
-        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet" />
+        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
+
+        @if (env('ANALYTICS_ID'))
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('ANALYTICS_ID') }}"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '{{env('ANALYTICS_ID')}}');
+            </script>
+        @endif
     </head>
     <body class="theme-bg text-gray-500">
         <div id="app">

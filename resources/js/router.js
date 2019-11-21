@@ -31,4 +31,16 @@ router.afterEach((to, from) => {
     NProgress.done();
 });
 
+// ga may not be defined as it hasn't been loaded as no analytics id is available
+if (typeof ga !== 'undefined') {
+    // google analytics stuff
+    ga('set', 'page', router.currentRoute.path);
+    ga('send', 'pageview');
+
+    router.afterEach((to, from) => {
+        ga('set', 'page', to.path);
+        ga('send', 'pageview');
+    });
+}
+
 export default router;
