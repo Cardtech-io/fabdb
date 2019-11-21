@@ -1896,6 +1896,7 @@ __webpack_require__.r(__webpack_exports__);
         code: this.code
       }).then(function (response) {
         _this2.visible = false;
+        location.reload();
       });
     }
   },
@@ -2071,24 +2072,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['card', 'view'],
   data: function data() {
     return {
-      owned: this.card.owned
+      foil: this.card.foil,
+      standard: this.card.standard
     };
   },
   methods: {
-    add: function add() {
-      this.owned += 1;
+    add: function add(type) {
+      this[type] += 1;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/collection/', {
-        identifier: this.card.identifier
+        identifier: this.card.identifier,
+        type: type
       });
     },
-    remove: function remove() {
-      this.owned -= 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + this.card.identifier + '/');
+    remove: function remove(type) {
+      this[type] -= 1;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + this.card.identifier + '/?type=' + type);
     }
   }
 });
@@ -20778,7 +20791,7 @@ var render = function() {
             "flex bg-gray-900 p-2 px-4 h-10 items-center rounded-lg hover:bg-gray-800",
           on: {
             click: function($event) {
-              return _vm.add()
+              return _vm.add("standard")
             }
           }
         },
@@ -20796,7 +20809,7 @@ var render = function() {
               _c("path", {
                 attrs: {
                   d:
-                    "M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"
+                    "M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16z"
                 }
               })
             ]
@@ -20808,7 +20821,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _vm.owned
+      _vm.standard
         ? _c(
             "button",
             {
@@ -20816,7 +20829,89 @@ var render = function() {
                 "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
               on: {
                 click: function($event) {
-                  return _vm.remove()
+                  return _vm.remove("standard")
+                }
+              }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "fill-current h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm5-9v2H5V9h10z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.view != "list"
+                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Remove")])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v("(" + _vm._s(_vm.standard) + ")")
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.view != "list"
+        ? _c(
+            "button",
+            {
+              staticClass:
+                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              on: {
+                click: function($event) {
+                  return _vm.add("foil")
+                }
+              }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "fill-current h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm.view != "list"
+                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Add foil")])
+                : _vm._e()
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.foil && _vm.view != "list"
+        ? _c(
+            "button",
+            {
+              staticClass:
+                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              on: {
+                click: function($event) {
+                  return _vm.remove("foil")
                 }
               }
             },
@@ -20844,7 +20939,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c("span", { staticClass: "ml-2" }, [
-                _vm._v("(" + _vm._s(_vm.owned) + ")")
+                _vm._v("(" + _vm._s(_vm.foil) + ")")
               ])
             ]
           )

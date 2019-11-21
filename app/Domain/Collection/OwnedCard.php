@@ -16,4 +16,9 @@ class OwnedCard extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function hasNone()
+    {
+        return !$this->standard && !$this->foil && !$this->promo;
+    }
 }

@@ -48,9 +48,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->$join('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
                 $join->where('owned_cards.user_id', $userId);
+                $join->where(function($clause) {
+                    $clause->where('owned_cards.standard', '>', 0);
+                    $clause->orWhere('owned_cards.foil', '>', 0);
+                });
             });
 
-            $query->addSelect(\DB::raw('owned_cards.total AS owned'));
+            $query->addSelect('owned_cards.standard', 'owned_cards.foil');
         }
 
         $query->orderBy('cards.identifier');
@@ -74,7 +78,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
-            $userId ? \DB::raw('owned_cards.total AS owned') : \DB::raw('0 AS owned')
+            'owned_cards.standard',
+            'owned_cards.foil',
         ];
 
         $query = $this->newQuery()

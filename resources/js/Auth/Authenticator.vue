@@ -48,6 +48,7 @@
             submitCode: function() {
                 axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     this.visible = false;
+                    location.reload();
                 });
             }
         },
