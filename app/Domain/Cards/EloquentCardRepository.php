@@ -80,8 +80,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
-            'owned_cards.standard',
-            'owned_cards.foil',
         ];
 
         $query = $this->newQuery()
@@ -89,6 +87,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->select($select);
 
         if ($userId) {
+            $query->addSelect(['owned_cards.standard', 'owned_cards.foil']);
             $query->leftJoin('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
                 $join->where('owned_cards.user_id', $userId);

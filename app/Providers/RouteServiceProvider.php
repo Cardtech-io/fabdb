@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
 
         // Model bindings
         Route::bind('card', function($identifier) {
-            return app(CardRepository::class)->find($identifier, Auth::user()->id);
+            return app(CardRepository::class)->find($identifier, @Auth::user()->id);
         });
     }
 
