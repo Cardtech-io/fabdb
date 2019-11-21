@@ -35,6 +35,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->where('identifier', $identifier);
         } else {
             foreach ($params as $param) {
+                $param = strtolower($param);
+
                 $query->where(function($query) use ($param){
                     $query->orWhere('name', 'LIKE', "{$param}%");
                     $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
