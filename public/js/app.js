@@ -1987,6 +1987,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_CardSearch__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -2270,6 +2273,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20584,6 +20593,22 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "border-gray-800 rounded-lg border p-4 mb-4" }, [
+      _c(
+        "p",
+        {},
+        [
+          _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
+            _vm._v("Home")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
+          _vm._v(" My Collection")
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "border-gray-800 rounded-lg border p-4" }, [
       _c("input", {
         directives: [
@@ -21176,13 +21201,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "flex sm:ml-4 mt-6 sm:float-left" },
+    { staticClass: "flex sm:ml-4 mt-6 sm:float-left sm:flex-none" },
     [
       _c(
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 rounded-l-lg sm:rounded-lg sm:ml-4",
+            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 rounded-l-lg sm:rounded-lg sm:ml-4 sm:w-auto",
           attrs: { to: "/" }
         },
         [_vm._v("Database")]
@@ -21192,17 +21217,17 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 sm:rounded-lg sm:ml-4",
+            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 sm:rounded-lg sm:ml-4 sm:w-auto",
           attrs: { to: "/collection/" }
         },
-        [_vm._v("Collection")]
+        [_vm._v("My collection")]
       ),
       _vm._v(" "),
       _c(
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 rounded-r-lg p-3 sm:rounded-lg sm:ml-4",
+            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 rounded-r-lg p-3 sm:rounded-lg sm:ml-4 sm:w-auto",
           attrs: { to: "/support/" }
         },
         [_vm._v("Support")]
@@ -21233,7 +21258,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "border-gray-800 rounded-lg border p-4 mb-4" }, [
+      _c(
+        "p",
+        {},
+        [
+          _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
+            _vm._v("Home")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
+          _vm._v(" Support")
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -21250,7 +21293,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
-            _vm._v("To support fabdb.net, go to our\n            "),
+            _vm._v("To support fabdb.net, go to our\n                "),
             _c(
               "a",
               {
@@ -21260,9 +21303,9 @@ var staticRenderFns = [
                   target: "_blank"
                 }
               },
-              [_vm._v("patreon\n                page")]
+              [_vm._v("patreon\n                    page")]
             ),
-            _vm._v(" and sign up there or donate via our\n            "),
+            _vm._v(" and sign up there or donate via our\n                "),
             _c(
               "a",
               {
@@ -21276,19 +21319,19 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "Currently, fabdb is a work of love, a contribution to the broader community to help everyone in\n            researching cards, as well as managing their collections and decks. It is a completely free service, but\n            that doesn't mean it's free to me - time spent, hosting, design, expanding the service, all costs money."
+              "Currently, fabdb is a work of love, a contribution to the broader community to help everyone in\n                researching cards, as well as managing their collections and decks. It is a completely free service, but\n                that doesn't mean it's free to me - time spent, hosting, design, expanding the service, all costs money."
             )
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "For the price of a coffee every month, you can help me in building what I hope to be the\n            ultimate resource and suite of tools for my fellow fleshy, bloody TCG players! Or, you can donate with a\n            one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just\n            spreading the word and telling other players about this website, is super helpful!"
+              "For the price of a coffee every month, you can help me in building what I hope to be the\n                ultimate resource and suite of tools for my fellow fleshy, bloody TCG players! Or, you can donate with a\n                one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just\n                spreading the word and telling other players about this website, is super helpful!"
             )
           ]),
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              'All money raised as part of this endeavour will go directly into the project, by helping to cover the\n            various costs, and then expanding it further. I badly want this game to be "the new classic" that Legend\n            Story has designed it to be! Together, we can get it there! :)'
+              'All money raised as part of this endeavour will go directly into the project, by helping to cover the\n                various costs, and then expanding it further. I badly want this game to be "the new classic" that Legend\n                Story has designed it to be! Together, we can get it there! :)'
             )
           ])
         ])

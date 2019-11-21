@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="border-gray-800 rounded-lg border p-4 mb-4">
+            <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> My Collection</p>
+        </div>
         <div class="border-gray-800 rounded-lg border p-4">
             <input type="text" v-model="searchText" placeholder="Search" class="rounded p-4 bg-black focus:outline-none w-full">
         </div>
