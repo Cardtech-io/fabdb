@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
-import ListCards from './CardDatabase/ListCards.vue';
+import BrowseCards from './CardDatabase/BrowseCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './CardDatabase/Collection.vue';
 import Support from './Support.vue';
@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: "/", component: ListCards, name: 'cards', meta: {title: 'Card search'} },
+        { path: "/", component: BrowseCards, name: 'cards', meta: {title: 'Browse cards'} },
         { path: "/card/:identifier/", component: ViewCard, name: 'card-view', meta: {title: 'View card'} },
         { path: "/collection/", component: Collection, name: 'collection', meta: {title: 'My collection'} },
         { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }

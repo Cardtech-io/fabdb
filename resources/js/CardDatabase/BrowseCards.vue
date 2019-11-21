@@ -4,7 +4,7 @@
             <input type="text" v-model="searchText" placeholder="Search" class="rounded p-4 bg-black focus:outline-none w-full">
         </div>
 
-        <div v-if="searchText">
+        <div v-if="cards.length">
             <div class="border-gray-800 rounded-lg border my-8 clearfix mh-10 p-4">
                 <paginator v-bind:results="results" @page-selected="updatePage"></paginator>
                 <ul class="clearfix">
