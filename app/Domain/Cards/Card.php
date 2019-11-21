@@ -1,7 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-use Illuminate\Database\Eloquent\Model;
+use FabDB\Library\Model;
 
 class Card extends Model
 {

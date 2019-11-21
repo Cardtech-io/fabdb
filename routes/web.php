@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('collection', 'CollectionController@list');
     Route::post('collection', 'CollectionController@addCard');
     Route::delete('collection/{card}', 'CollectionController@removeCard');
+
+    Route::get('decks/mine', 'DeckController@mine');
+    Route::get('decks/{deck}', 'DeckController@view');
+    Route::post('decks', 'DeckController@addDeck');
 });
 
 Route::get('{anything}', function() {

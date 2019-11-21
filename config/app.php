@@ -176,6 +176,7 @@ return [
         FabDB\Domain\Cards\CardsServiceProvider::class,
         FabDB\Domain\Users\UsersServiceProvider::class,
         FabDB\Domain\Collection\CollectionServiceProvider::class,
+        FabDB\Domain\Decks\DecksServiceProvider::class,
     ],
 
     /*

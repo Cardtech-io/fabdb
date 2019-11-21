@@ -3,7 +3,7 @@ namespace FabDB\Domain\Collection;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
-use Illuminate\Database\Eloquent\Model;
+use FabDB\Library\Model;
 
 class OwnedCard extends Model
 {

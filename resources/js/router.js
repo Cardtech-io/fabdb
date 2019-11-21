@@ -4,6 +4,8 @@ import NProgress from 'nprogress';
 import ListCards from './CardDatabase/ListCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './CardDatabase/Collection.vue';
+import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import EditDeck from './DeckBuilder/EditDeck.vue';
 import Support from './Support.vue';
 
 Vue.use(VueRouter);
@@ -14,6 +16,21 @@ const router = new VueRouter({
         { path: "/", component: ListCards, name: 'cards', meta: {title: 'Card search'} },
         { path: "/card/:identifier/", component: ViewCard, name: 'card-view', meta: {title: 'View card'} },
         { path: "/collection/", component: Collection, name: 'collection', meta: {title: 'My collection'} },
+        {
+            path: "/deck-builder/",
+            component: DeckBuilder,
+            name: 'deck-builder',
+            meta: {
+                title: 'Deck builder'
+            },
+            children: [{
+                path: ":deck",
+                component: EditDeck,
+                meta: {
+                    title: 'Deck builder &gt; Edit deck'
+                }
+            }]
+        },
         { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }
     ]
 });

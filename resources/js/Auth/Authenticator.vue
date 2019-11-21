@@ -6,20 +6,24 @@
                 <h1 class="font-serif text-xl text-gray-300">Login</h1>
 
                 <div v-if="!submitted">
-                    <p class="my-4">Some features on fabdb require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)</p>
+                    <form @submit.prevent="submitEmail()">
+                        <p class="my-4">Some features on fabdb require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)</p>
 
-                    <div class="flex mt-8">
-                        <input type="email" class="w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email">
-                        <input type="button" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700" value="Send code" @click="submitEmail()">
-                    </div>
+                        <div class="flex mt-8">
+                            <input type="email" class="w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email">
+                            <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700" value="Send code"">
+                        </div>
+                    </form>
                 </div>
                 <div v-else>
-                    <p class="my-4">Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below.</p>
+                    <form @submit.prevent="submitCode()">
+                        <p class="my-4">Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below.</p>
 
-                    <div class="flex mt-8">
-                        <input type="text" class="w-2/3 p-4 rounded-l-lg" placeholder="" v-model="code">
-                        <input type="button" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login" @click="submitCode()">
-                    </div>
+                        <div class="flex mt-8">
+                            <input type="text" class="w-2/3 p-4 rounded-l-lg" placeholder="" v-model="code">
+                            <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -49,7 +53,6 @@
             submitCode: function() {
                 axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     this.visible = false;
-                    location.reload();
                 });
             }
         },

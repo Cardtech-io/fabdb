@@ -15,9 +15,6 @@ export default {
             searchText: this.$route.query.search
         }
     },
-    mounted() {
-        this.search();
-    },
     methods: {
         filterCards: function() {
             this.$router.push({path: this.$route.path, query: {search: this.searchText, page: this.page}});

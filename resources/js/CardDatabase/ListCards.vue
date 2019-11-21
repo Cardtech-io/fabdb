@@ -18,7 +18,8 @@
             <h1 class="font-serif text-xl">Search tips</h1>
             <p class="my-4">The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards
                 based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc.</p>
-            <ul class="list-disc ml-4">
+            <ul class="list-disc
+            ml-4">
                 <li><strong>hero</strong>: list all cards that have the keyword 'hero'. This applies to any keyword you search for.</li>
                 <li><strong>WTR011</strong>: Look for card #11 within the Welcome to Rathe set</li>
                 <li><strong>1</strong>: Load card #1 in any set (can also be formatted as 01 or 001</li>

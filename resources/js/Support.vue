@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="border-gray-800 rounded-lg border p-4 mb-4">
+        <div class="border-gray-800 border-b-0 rounded-t-lg border p-4">
             <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> Support</p>
         </div>
 
-        <div class="border-gray-800 rounded-lg border p-4 my-8 clearfix">
+        <div class="border-gray-800 rounded-lb-g border p-4 clearfix">
             <div class="float-left md:w-2/3">
                 <h1 class="font-serif text-xl">Support fabdb.net!</h1>
 

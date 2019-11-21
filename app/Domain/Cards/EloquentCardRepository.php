@@ -2,7 +2,7 @@
 namespace FabDB\Domain\Cards;
 
 use FabDB\Library\EloquentRepository;
-use Illuminate\Database\Eloquent\Model;
+use FabDB\Library\Model;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
@@ -38,7 +38,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 $param = strtolower($param);
 
                 $query->where(function($query) use ($param){
-                    $query->orWhere('name', 'LIKE', "{$param}%");
+                    $query->orWhere('name', 'LIKE', "%{$param}%");
                     $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
                 });
             }

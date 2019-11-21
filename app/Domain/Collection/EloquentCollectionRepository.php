@@ -3,7 +3,7 @@ namespace FabDB\Domain\Collection;
 
 use FabDB\Domain\Cards\CardType;
 use FabDB\Library\EloquentRepository;
-use Illuminate\Database\Eloquent\Model;
+use FabDB\Library\Model;
 
 class EloquentCollectionRepository extends EloquentRepository implements CollectionRepository
 {

@@ -1,8 +1,6 @@
 <?php
 namespace FabDB\Library;
 
-use Illuminate\Database\Eloquent\Model;
-
 abstract class EloquentRepository
 {
     protected function newQuery()
@@ -11,4 +9,9 @@ abstract class EloquentRepository
     }
 
     abstract protected function model(): Model;
+
+    public function save(Model $model)
+    {
+        $model->save();
+    }
 }
