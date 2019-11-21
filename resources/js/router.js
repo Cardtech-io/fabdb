@@ -29,7 +29,7 @@ router.beforeResolve((to, from, next) => {
 
 router.afterEach((to, from) => {
     NProgress.done();
-    
+
     document.title = to.meta.title + ' | fabdb.net';
 });
 

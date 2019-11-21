@@ -2243,7 +2243,7 @@
   {
     "id": "134",
     "set": "WTR",
-    "name": "Biting Blade",
+    "name": "Ironsong Response",
     "rarity": "C",
     "text": "",
     "keywords": [
@@ -2252,8 +2252,8 @@
       "reaction"
     ],
     "stats": {
-      "resource": 1,
-      "cost": 2,
+      "resource": 3,
+      "cost": 0,
       "defense": 3
     }
   },
@@ -2269,7 +2269,7 @@
       "reaction"
     ],
     "stats": {
-      "resource": 2,
+      "resource": 1,
       "cost": 2,
       "defense": 3
     }
@@ -2286,13 +2286,30 @@
       "reaction"
     ],
     "stats": {
-      "resource": 3,
+      "resource": 2,
       "cost": 2,
       "defense": 3
     }
   },
   {
     "id": "137",
+    "set": "WTR",
+    "name": "Biting Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "attack",
+      "reaction"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "1389",
     "set": "WTR",
     "name": "Stroke of Foresight",
     "rarity": "C",
@@ -2304,23 +2321,6 @@
     ],
     "stats": {
       "resource": 1,
-      "cost": 1,
-      "defense": 3
-    }
-  },
-  {
-    "id": "138",
-    "set": "WTR",
-    "name": "Stroke of Foresight",
-    "rarity": "C",
-    "text": "",
-    "keywords": [
-      "warrior",
-      "attack",
-      "reaction"
-    ],
-    "stats": {
-      "resource": 2,
       "cost": 1,
       "defense": 3
     }
@@ -2337,7 +2337,7 @@
       "reaction"
     ],
     "stats": {
-      "resource": 3,
+      "resource": 2,
       "cost": 1,
       "defense": 3
     }
@@ -2345,16 +2345,17 @@
   {
     "id": "140",
     "set": "WTR",
-    "name": "Sharpen Steel",
+    "name": "Stroke of Foresight",
     "rarity": "C",
     "text": "",
     "keywords": [
       "warrior",
-      "action"
+      "attack",
+      "reaction"
     ],
     "stats": {
-      "resource": 1,
-      "cost": 0,
+      "resource": 3,
+      "cost": 1,
       "defense": 3
     }
   },
@@ -2369,7 +2370,7 @@
       "action"
     ],
     "stats": {
-      "resource": 2,
+      "resource": 1,
       "cost": 0,
       "defense": 3
     }
@@ -2385,7 +2386,7 @@
       "action"
     ],
     "stats": {
-      "resource": 3,
+      "resource": 2,
       "cost": 0,
       "defense": 3
     }
@@ -2393,7 +2394,7 @@
   {
     "id": "143",
     "set": "WTR",
-    "name": "Driving Blade",
+    "name": "Sharpen Steel",
     "rarity": "C",
     "text": "",
     "keywords": [
@@ -2401,8 +2402,8 @@
       "action"
     ],
     "stats": {
-      "resource": 1,
-      "cost": 2,
+      "resource": 3,
+      "cost": 0,
       "defense": 3
     }
   },
@@ -2417,7 +2418,7 @@
       "action"
     ],
     "stats": {
-      "resource": 2,
+      "resource": 1,
       "cost": 2,
       "defense": 3
     }
@@ -2433,13 +2434,29 @@
       "action"
     ],
     "stats": {
-      "resource": 3,
+      "resource": 2,
       "cost": 2,
       "defense": 3
     }
   },
   {
     "id": "146",
+    "set": "WTR",
+    "name": "Driving Blade",
+    "rarity": "C",
+    "text": "",
+    "keywords": [
+      "warrior",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "147",
     "set": "WTR",
     "name": "Nature's Path Pilgrimage",
     "rarity": "C",
@@ -2455,7 +2472,7 @@
     }
   },
   {
-    "id": "147",
+    "id": "148",
     "set": "WTR",
     "name": "Nature's Path Pilgrimage",
     "rarity": "C",
@@ -2471,7 +2488,7 @@
     }
   },
   {
-    "id": "148",
+    "id": "149",
     "set": "WTR",
     "name": "Nature's Path Pilgrimage",
     "rarity": "C",
