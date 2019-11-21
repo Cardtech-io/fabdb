@@ -8,7 +8,7 @@
             <ul>
                 <li class="clearfix">
                     <div class="float-left w-1/3">Rarity</div>
-                    <div class="float-left w-2/3">{{ rarityTerm }}</div>
+                    <div class="float-left w-2/3">{{ rarity }}</div>
                 </li>
                 <li class="clearfix mb-4">
                     <div class="float-left w-1/3">Keywords</div>
@@ -41,7 +41,7 @@
         },
 
         computed: {
-            rarityTerm: function() {
+            rarity: function() {
                 const levels = {
                     C: 'Common',
                     R: 'Rare',
@@ -52,7 +52,7 @@
                     T: 'Token',
                     P: 'Promo'
                 };
-                
+
                 return levels[this.card.rarity];
             }
         },

@@ -2195,7 +2195,7 @@ __webpack_require__.r(__webpack_exports__);
     ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
-    rarityTerm: function rarityTerm() {
+    rarity: function rarity() {
       var levels = {
         C: 'Common',
         R: 'Rare',
@@ -21094,7 +21094,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "float-left w-2/3" }, [
-                      _vm._v(_vm._s(_vm.rarityTerm))
+                      _vm._v(_vm._s(_vm.rarity))
                     ])
                   ]),
                   _vm._v(" "),
