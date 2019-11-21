@@ -2183,12 +2183,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
   components: {
     ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  computed: {
+    rarityTerm: function rarityTerm() {
+      var levels = {
+        C: 'Common',
+        R: 'Rare',
+        S: 'Super rare',
+        M: 'Majestic',
+        L: 'Legendary',
+        F: 'Fabled',
+        T: 'Token',
+        P: 'Promo'
+      };
+      return levels[this.card.rarity];
+    }
   },
   data: function data() {
     return {
@@ -21069,6 +21088,16 @@ var render = function() {
               _c(
                 "ul",
                 [
+                  _c("li", { staticClass: "clearfix" }, [
+                    _c("div", { staticClass: "float-left w-1/3" }, [
+                      _vm._v("Rarity")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "float-left w-2/3" }, [
+                      _vm._v(_vm._s(_vm.rarityTerm))
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c("li", { staticClass: "clearfix mb-4" }, [
                     _c("div", { staticClass: "float-left w-1/3" }, [
                       _vm._v("Keywords")

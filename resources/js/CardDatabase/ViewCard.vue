@@ -6,6 +6,10 @@
         <div class="md:w-2/3 md:float-right md:pl-8">
             <h1 class="font-serif text-4xl mb-4">{{ card.name }} - {{ card.identifier }}</h1>
             <ul>
+                <li class="clearfix">
+                    <div class="float-left w-1/3">Rarity</div>
+                    <div class="float-left w-2/3">{{ rarityTerm }}</div>
+                </li>
                 <li class="clearfix mb-4">
                     <div class="float-left w-1/3">Keywords</div>
                     <div class="float-left w-2/3">
@@ -34,6 +38,23 @@
 
         components: {
             ManageCard
+        },
+
+        computed: {
+            rarityTerm: function() {
+                const levels = {
+                    C: 'Common',
+                    R: 'Rare',
+                    S: 'Super rare',
+                    M: 'Majestic',
+                    L: 'Legendary',
+                    F: 'Fabled',
+                    T: 'Token',
+                    P: 'Promo'
+                };
+                
+                return levels[this.card.rarity];
+            }
         },
 
         data() {
