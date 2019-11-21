@@ -28,6 +28,7 @@
 
 <script>
     import axios from 'axios';
+    import NProgress from 'nprogress';
 
     export default {
         data() {
@@ -57,6 +58,7 @@
             axios.interceptors.response.use(null, error => {
                 if (error && error.response.status === 401) {
                     this.visible = true;
+                    NProgress.done();
                 }
                 else {
                     return Promise.reject(error);
