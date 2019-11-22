@@ -32,6 +32,7 @@
 <script>
     import axios from 'axios';
     import NProgress from 'nprogress';
+    import tracker from '../Components/Tracker';
 
     export default {
         data() {
@@ -51,12 +52,16 @@
             submitEmail: function() {
                 axios.post('/authenticate/', {email: this.email}).then(response => {
                     this.submitted = true;
+
+                    const action = response.data.registered ? 'Registered' : 'Code requested';
+
+                    tracker.track('Authentication', action);
                 });
             },
             submitCode: function() {
                 axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     this.visible = false;
-                    location.reload();
+                    tracker.track('Authentication', 'Authenticated');
                 });
             }
         },

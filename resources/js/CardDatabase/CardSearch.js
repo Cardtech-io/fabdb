@@ -32,7 +32,7 @@ export default {
             axios.get(this.url, {params: this.$route.query}).then(response => {
                 this.cards = response.data.data;
                 this.results = response.data;
-            });
+            }).catch(error => {});
         },
         updatePage: function(page) {
             this.page = page;

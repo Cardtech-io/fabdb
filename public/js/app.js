@@ -1842,6 +1842,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Tracker */ "./resources/js/Components/Tracker.js");
 //
 //
 //
@@ -1873,6 +1874,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1895,6 +1897,8 @@ __webpack_require__.r(__webpack_exports__);
         email: this.email
       }).then(function (response) {
         _this.submitted = true;
+        var action = response.data.registered ? 'Registered' : 'Code requested';
+        _Components_Tracker__WEBPACK_IMPORTED_MODULE_2__["default"].track('Authentication', action);
       });
     },
     submitCode: function submitCode() {
@@ -1905,7 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
         code: this.code
       }).then(function (response) {
         _this2.visible = false;
-        location.reload();
+        _Components_Tracker__WEBPACK_IMPORTED_MODULE_2__["default"].track('Authentication', 'Authenticated');
       });
     }
   },
@@ -36685,7 +36689,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.cards = response.data.data;
         _this.results = response.data;
-      });
+      })["catch"](function (error) {});
     },
     updatePage: function updatePage(page) {
       this.page = page;
@@ -37069,6 +37073,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Navigation_vue_vue_type_template_id_0fcaec9f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Components/Tracker.js":
+/*!********************************************!*\
+  !*** ./resources/js/Components/Tracker.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  track: function track(category, action, label, value) {
+    if (typeof ga !== 'undefined') {
+      ga('send', 'event', category, action, label, value);
+    }
+  }
+});
 
 /***/ }),
 
