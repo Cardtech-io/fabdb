@@ -14,12 +14,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     /**
      * Searches for a range of cards, that match the provided parameters.
      *
+     * @param string $view
      * @param array $params
      * @param int $userId
-     * @param bool $restrict If provided, will restrict results to only those owned by the user.
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @internal param bool $restrict If provided, will restrict results to only those owned by the user.
      */
-    public function search(array $params, int $userId = null, bool $restrict = false)
+    public function search(string $view, array $params, int $userId = null)
     {
         $query = $this->newQuery();
         $query->select([
@@ -45,7 +46,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         if ($userId) {
-            $join = $restrict ? 'join' : 'leftJoin';
+            $join = $view !== 'all' ? 'join' : 'leftJoin';
 
             $query->$join('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');

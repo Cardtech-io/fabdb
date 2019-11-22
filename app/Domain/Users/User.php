@@ -1,15 +1,17 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
-class User extends Authenticatable
+class User extends Model implements Authenticatable
 {
     use Notifiable;
     use Raiseable;
+    use UserAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

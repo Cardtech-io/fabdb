@@ -1,16 +1,14 @@
 <template>
     <div>
-        <div class="border-gray-800 rounded-lg border p-4">
-            <input type="text" v-model="searchText" placeholder="Search" class="rounded p-4 bg-black focus:outline-none w-full">
-        </div>
+        <card-search view="all" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
 
-        <div v-if="cards">
+        <div v-if="results && results.data">
             <div class="border-gray-800 rounded-lg border my-8 clearfix mh-10 p-4">
-                <paginator v-bind:results="results" @page-selected="updatePage"></paginator>
+                <paginator :results="results" @page-selected="updatePage"></paginator>
                 <ul class="clearfix">
-                    <card-item v-for="card in cards" v-bind:card="card" v-bind:key="card.identifier"></card-item>
+                    <card-item v-for="card in results.data" v-bind:card="card" v-bind:key="card.identifier"></card-item>
                 </ul>
-                <paginator v-bind:results="results" @page-selected="updatePage"></paginator>
+                <paginator :results="results" @page-selected="updatePage"></paginator>
             </div>
         </div>
 
@@ -30,14 +28,31 @@
 </template>
 
 <script>
-    import CardSearch from './CardSearch';
+    import CardSearch from './CardSearch.vue';
+    import CardItem from './CardItem.vue';
+    import Paginator from './Paginator.vue';
 
     export default {
-        mixins: [CardSearch],
+        components: {
+            CardItem,
+            CardSearch,
+            Paginator
+        },
 
         data() {
             return {
-                url: '/cards'
+                page: 1,
+                results: {}
+            }
+        },
+
+        methods: {
+            refreshResults: function(results) {
+                this.results = results;
+            },
+
+            updatePage: function(page) {
+                this.page = page;
             }
         }
     };

@@ -1,11 +1,11 @@
 <?php
 namespace FabDB\Domain\Users;
 
-interface UserRepository
+use FabDB\Library\Repository;
+
+interface UserRepository extends Repository
 {
     public function findByEmail(string $email);
-
-    public function save(User $user);
 
     public function findByEmailAndToken(string $email, string $code): User;
 }

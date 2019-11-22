@@ -2,7 +2,7 @@
 namespace FabDB\Domain\Users;
 
 use FabDB\Library\EloquentRepository;
-use Illuminate\Database\Eloquent\Model;
+use FabDB\Library\Model;
 
 class EloquentUserRepository extends EloquentRepository implements UserRepository
 {
@@ -24,12 +24,5 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
             ->whereEmail($email)
             ->whereToken($code)
             ->firstOrFail();
-    }
-
-    public function save(User $user)
-    {
-        if ($user->isDirty()) {
-            $user->save();
-        }
     }
 }

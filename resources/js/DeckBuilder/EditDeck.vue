@@ -2,26 +2,23 @@
     <div class="flex h-full">
         <div class="w-1/2 p-4">
             <h1 class="font-serif text-2xl" v-if="deck">{{ deck.name }}</h1>
+            <p>No cards.</p>
         </div>
 
-        <div class="border-gray-800 border-l w-1/2 p-4">
-            <input type="text" v-model="searchText" placeholder="Search" class="rounded p-2 bg-black focus:outline-none w-full">
-        </div>
-
+        <card-search view="all"></card-search>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
-    import CardSearch from '../CardDatabase/CardSearch';
+    import CardSearch from '../CardDatabase/CardSearch.vue';
 
     export default {
-        mixins: [CardSearch],
+        components: {CardSearch},
 
         data() {
             return {
-                deck: null,
-                searchText: null
+                deck: null
             };
         },
 

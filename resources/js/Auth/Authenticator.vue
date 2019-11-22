@@ -65,7 +65,7 @@
             submitCode: function() {
                 axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     this.visible = false;
-                    
+
                     tracker.track('Authentication', 'Authenticated');
                 });
             }
@@ -74,6 +74,7 @@
         mounted() {
             axios.interceptors.response.use(null, error => {
                 if (error && error.response.status === 401) {
+                    this.submitted = false;
                     this.visible = true;
                     NProgress.done();
                 }
