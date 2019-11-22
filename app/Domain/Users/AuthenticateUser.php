@@ -12,9 +12,15 @@ class AuthenticateUser
      */
     private $email;
 
-    public function __construct(string $email)
+    /**
+     * @var AuthObserver
+     */
+    private $observer;
+
+    public function __construct(string $email, AuthObserver $observer)
     {
         $this->email = $email;
+        $this->observer = $observer;
     }
 
     public function handle(UserRepository $users)
@@ -23,8 +29,10 @@ class AuthenticateUser
 
         if (! $user) {
             $user = User::register($this->email);
+            $this->observer->registered();
         } else {
             $user->auth();
+            $this->observer->authenticated();
         }
 
         $users->save($user);
