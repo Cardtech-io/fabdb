@@ -18,12 +18,13 @@
 
         props: {
             card: Object,
-            view: String
+            view: String,
+            path: String
         },
 
         methods: {
             viewUrl: function() {
-                return '/card/' + this.card.identifier + '/';
+                return this.path + '/' + this.card.identifier + '/';
             }
         }
     }

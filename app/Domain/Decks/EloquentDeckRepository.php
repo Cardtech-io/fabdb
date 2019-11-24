@@ -17,8 +17,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return $this->newQuery()->whereUserId($userId)->get();
     }
 
-    public function bySlug(string $slug): Model
+    public function bySlug(string $slug, bool $includeCards = false): Model
     {
-        return $this->newQuery()->whereSlug($slug)->firstOrFail();
+        $query = $this->newQuery()->whereSlug($slug);
+
+        if ($includeCards) {
+            $query->with('cards');
+        }
+
+        return $query->firstOrFail();
     }
 }

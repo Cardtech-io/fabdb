@@ -4,17 +4,15 @@
             <h1 class="font-serif text-2xl" v-if="deck">{{ deck.name }}</h1>
             <p>No cards.</p>
         </div>
-
-        <card-search view="all"></card-search>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
-    import CardSearch from '../CardDatabase/CardSearch.vue';
+    import CardSelector from './CardSelector.vue';
 
     export default {
-        components: {CardSearch},
+        components: {CardSelector},
 
         data() {
             return {

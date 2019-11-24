@@ -30,6 +30,6 @@ class DeckController extends Controller
 
     public function view($deck)
     {
-        return $this->decks->bySlug($deck);
+        return $this->decks->bySlug($deck, true);
     }
 }

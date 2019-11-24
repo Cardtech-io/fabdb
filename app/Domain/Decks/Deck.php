@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Decks;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
@@ -16,6 +17,11 @@ class Deck extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function cards()
+    {
+        return $this->belongsToMany(Card::class)->withPivot('total');
     }
 
     public static function add(int $userId, string $name)

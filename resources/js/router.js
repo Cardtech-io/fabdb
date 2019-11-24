@@ -4,7 +4,8 @@ import NProgress from 'nprogress';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './CardDatabase/Collection.vue';
-import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import ListDecks from './DeckBuilder/ListDecks.vue';
+import ListDeckCards from './DeckBuilder/ListDeckCards.vue';
 import EditDeck from './DeckBuilder/EditDeck.vue';
 import Support from './Support.vue';
 
@@ -14,18 +15,34 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: "/", component: BrowseCards, name: 'cards', meta: {title: 'Browse cards'} },
-        { path: "/card/:identifier/", component: ViewCard, name: 'card-view', meta: {title: 'View card'} },
-        { path: "/collection/", component: Collection, name: 'collection', meta: {title: 'My collection'} },
+        {
+            path: "/cards/:identifier/",
+            component: ViewCard,
+            name: 'card-view',
+            meta: { title: 'View card', parent: {name: 'Browse', path: '/'} }
+        },
+        {
+            path: "/collection/",
+            component: Collection,
+            name: 'collection',
+            meta: {title: 'My collection'}
+        },
+        {
+            path: "/collection/:identifier/",
+            component: ViewCard,
+            name: 'collection-view',
+            meta: { title: 'View card', parent: {name: 'Collection', path: '/collection'} }
+        },
         {
             path: "/deck-builder/",
-            component: DeckBuilder,
+            component: ListDecks,
             name: 'deck-builder',
             meta: {
                 title: 'Deck builder'
             },
             children: [{
                 path: ":deck",
-                component: EditDeck,
+                component: ListDeckCards,
                 meta: {
                     title: 'Deck builder &gt; Edit deck'
                 }

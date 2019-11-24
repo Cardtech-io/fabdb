@@ -17,7 +17,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * @param string $view
      * @param array $params
      * @param int $userId
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      * @internal param bool $restrict If provided, will restrict results to only those owned by the user.
      */
     public function search(string $view, array $params, int $userId = null)
@@ -25,7 +24,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $query = $this->newQuery();
         $query->select([
             'cards.identifier',
-            'cards.name'
+            'cards.name',
+            'cards.keywords',
+            'cards.stats',
         ]);
 
         // The following condition and clause determines whether the user is looking for an individual card or not
@@ -62,7 +63,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         $query->orderBy('cards.identifier');
 
-        return $query->paginate(12);
+        return $query;
     }
 
     /**

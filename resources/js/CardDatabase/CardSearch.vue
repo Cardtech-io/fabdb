@@ -1,12 +1,22 @@
 <template>
-    <div class="border-gray-800 rounded-b-lg border p-4">
-        <input type="text" v-model="searchText" placeholder="Search" class="rounded p-4 bg-black focus:outline-none w-full">
+    <div>
+        <input type="text" v-model="searchText" placeholder="Search" class="rounded bg-black focus:outline-none w-full" :class="size == 'small' ? 'p-2 text-sml' : 'p-4'">
     </div>
 </template>
 
 <script>
     export default {
-        props: ['page', 'view', 'refreshable'],
+        props: {
+            page: Number,
+            limit: {
+                type: Number,
+                default: 12
+            },
+            view: String,
+            refreshable: Boolean,
+            size: String,
+            wait: Boolean
+        },
 
         data() {
             return {
@@ -36,12 +46,15 @@
                 params.view = this.view;
                 params.search = this.searchText;
                 params.page = this.page;
+                params.per_page = this.limit;
 
                 return params;
             }
         },
 
         mounted() {
+            if (this.wait) return;
+
             this.search();
         },
 

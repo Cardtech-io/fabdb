@@ -4,13 +4,15 @@
             <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> My Collection</p>
         </div>
 
-        <card-search view="mine" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
+        <div class="border-gray-800 rounded-b-lg border p-4">
+            <card-search view="mine" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
+        </div>
 
         <div>
             <div class="border-gray-800 rounded-lg border my-8 clearfix mh-10 p-4">
                 <paginator v-bind:results="results" @page-selected="updatePage"></paginator>
                 <ul class="clearfix">
-                    <card-item v-for="card in results.data" v-bind:card="card" v-bind:key="card.identifier"></card-item>
+                    <card-item v-for="card in results.data" v-bind:card="card" v-bind:key="card.identifier" path="/collection"></card-item>
                 </ul>
                 <paginator v-bind:results="results" @page-selected="updatePage"></paginator>
             </div>

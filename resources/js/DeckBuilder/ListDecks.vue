@@ -5,7 +5,7 @@
         </div>
 
         <div class="flex w-full mt-8">
-            <div class="border-gray-800 rounded-l-lg border w-1/4">
+            <div class="border-gray-800 rounded-l-lg border w-1/2">
                 <h1 class="font-serif text-2xl p-4">My Decks</h1>
 
                 <ol v-if="decks">
@@ -14,10 +14,10 @@
                     </li>
                 </ol>
 
-                <add-deck @deck-added="updateDecks"></add-deck>
+                <add-deck @deck-added="addDeck"></add-deck>
             </div>
 
-            <div class="border-gray-800 border border-l-0 rounded-r-lg w-3/4">
+            <div class="border-gray-800 border border-l-0 rounded-r-lg w-1/2">
                 <router-view></router-view>
             </div>
         </div>
@@ -37,7 +37,7 @@
         },
 
         methods: {
-            updateDecks: function(deck) {
+            addDeck: function(deck) {
                 this.decks.push(deck);
             }
         },

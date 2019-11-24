@@ -1,12 +1,14 @@
 <template>
     <div>
-        <card-search view="all" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
+        <div class="border-gray-800 rounded-b-lg border p-4">
+            <card-search view="all" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
+        </div>
 
         <div v-if="results && results.data">
             <div class="border-gray-800 rounded-lg border my-8 clearfix mh-10 p-4">
                 <paginator :results="results" @page-selected="updatePage"></paginator>
                 <ul class="clearfix">
-                    <card-item v-for="card in results.data" v-bind:card="card" v-bind:key="card.identifier"></card-item>
+                    <card-item v-for="card in results.data" v-bind:card="card" v-bind:key="card.identifier" path="/cards"></card-item>
                 </ul>
                 <paginator :results="results" @page-selected="updatePage"></paginator>
             </div>
