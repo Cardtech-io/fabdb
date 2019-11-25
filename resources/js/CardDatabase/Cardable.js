@@ -8,14 +8,12 @@ export default {
             return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
         },
 
-        resourceColour: function(card) {
-            if (card.stats.resource) {
-                const colours = {1: 'red-600', 2: 'yellow-300', 3: 'blue-400'};
-                const colour = colours[card.stats.resource];
+        resourceColour: function(resource) {
+            const colours = {1: 'red-600', 2: 'yellow-300', 3: 'blue-400'};
+            const colour = colours[resource];
 
-                if (colour) {
-                    return 'bg-' + colour;
-                }
+            if (colour) {
+                return 'bg-' + colour;
             }
         },
 

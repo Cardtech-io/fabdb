@@ -23,6 +23,7 @@
                 searchText: this.$route.query.search
             }
         },
+
         methods: {
             filterCards: function() {
                 if (this.refreshable) {

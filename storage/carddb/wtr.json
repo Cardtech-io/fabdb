@@ -32,7 +32,7 @@
     "name": "Romping Club",
     "rarity": "T",
     "text": "",
-    "keywords": ["brute", "weapon", "club"],
+    "keywords": ["brute", "weapon", "club", "2h"],
     "stats": {
       "attack": 4
     }
@@ -632,7 +632,8 @@
     "keywords": [
       "guardian",
       "weapon",
-      "hammer"
+      "hammer",
+      "2h"
     ],
     "stats": {
       "attack": 4
@@ -1287,12 +1288,11 @@
     "keywords": [
       "ninja",
       "weapon",
-      "dagger"
+      "dagger",
+      "1h"
     ],
     "stats": {
-      "resource": 1,
-      "cost": 2,
-      "defense": 3
+      "attack": 1
     }
   },
   {
@@ -1937,7 +1937,8 @@
     "keywords": [
       "warrior",
       "weapon",
-      "sword"
+      "sword",
+      "2h"
     ],
     "stats": {
       "attack": 3
