@@ -24,7 +24,7 @@
         <div id="app">
             <authenticator></authenticator>
 
-            <div class="container px-4 sm:mx-auto">
+            <div class="container sm:mx-auto">
                 <!-- Header -->
                 <div class="pt-4 pb-8">
                     <div class="clearfix">

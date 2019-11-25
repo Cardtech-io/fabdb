@@ -5,8 +5,7 @@ import BrowseCards from './CardDatabase/BrowseCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './CardDatabase/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
-import ListDeckCards from './DeckBuilder/ListDeckCards.vue';
-import EditDeck from './DeckBuilder/EditDeck.vue';
+import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
 import Support from './Support.vue';
 
 Vue.use(VueRouter);
@@ -36,17 +35,17 @@ const router = new VueRouter({
         {
             path: "/deck-builder/",
             component: ListDecks,
-            name: 'deck-builder',
+            name: 'list-decks',
             meta: {
                 title: 'Deck builder'
-            },
-            children: [{
-                path: ":deck",
-                component: ListDeckCards,
-                meta: {
-                    title: 'Deck builder &gt; Edit deck'
-                }
-            }]
+            }
+        },
+        {
+            path: "/deck-builder/:deck/",
+            component: DeckBuilder,
+            meta: {
+                title: 'Deck builder &gt; Edit deck'
+            }
         },
         { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }
     ]

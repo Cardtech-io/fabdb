@@ -10,6 +10,7 @@ class Card extends Model
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'keywords', 'stats'];
     protected $hidden = ['id'];
+    protected $appends = ['total'];
 
     public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, array $keywords, array $stats)
     {
@@ -34,5 +35,10 @@ class Card extends Model
     public function getRarityAttribute(string $rarity)
     {
         return new Rarity($rarity);
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->pivot ? $this->pivot->total : 0;
     }
 }

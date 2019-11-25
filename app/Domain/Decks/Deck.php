@@ -21,7 +21,7 @@ class Deck extends Model
 
     public function cards()
     {
-        return $this->belongsToMany(Card::class)->withPivot('total');
+        return $this->belongsToMany(Card::class, 'deck_cards')->withPivot('id', 'total');
     }
 
     public static function add(int $userId, string $name)
@@ -33,5 +33,10 @@ class Deck extends Model
         $deck->raise(new DeckWasAdded($userId, $name));
 
         return $deck;
+    }
+
+    public function hasCard(Card $card)
+    {
+        return $this->cards->where('id', $card->id)->first();
     }
 }

@@ -1,9 +1,11 @@
 <?php
 namespace FabDB\Domain\Decks;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class EloquentDeckRepository extends EloquentRepository implements DeckRepository
 {
@@ -26,5 +28,27 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         return $query->firstOrFail();
+    }
+
+    public function addCardToDeck(Deck $deck, Card $card)
+    {
+        $existing = $deck->hasCard($card);
+
+        if ($existing) {
+            DB::update('UPDATE deck_cards SET total = total + 1 WHERE id = ?', [$existing->pivot->id]);
+        } else {
+            DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deck->id, $card->id]);
+        }
+    }
+
+    public function removeCardFromDeck(Deck $deck, Card $card)
+    {
+        $existing = $deck->hasCard($card);
+
+        if ($existing->pivot->total > 1) {
+            DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);
+        } else {
+            DB::delete('DELETE FROM deck_cards WHERE id = ?', [$existing->pivot->id]);
+        }
     }
 }

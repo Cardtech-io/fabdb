@@ -6,6 +6,21 @@ export default {
             const id = parts[1].replace(/^0+/, '');
 
             return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+        },
+
+        resourceColour: function(card) {
+            if (card.stats.resource) {
+                const colours = {1: 'red-600', 2: 'yellow-300', 3: 'blue-400'};
+                const colour = colours[card.stats.resource];
+
+                if (colour) {
+                    return 'bg-' + colour;
+                }
+            }
+        },
+
+        ucfirst: function(string) {
+            return string[0].toUpperCase() + string.slice(1);
         }
     }
 };

@@ -27,6 +27,11 @@
             filterCards: function() {
                 if (this.refreshable) {
                     this.$router.push({path: this.$route.path, query: {search: this.searchText, page: this.page}});
+                } else {
+                    if (! this.searchText) {
+                        this.$emit('search-completed', {});
+                        return;
+                    }
                 }
 
                 this.search();
