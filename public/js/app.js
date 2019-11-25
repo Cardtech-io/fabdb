@@ -22722,6 +22722,10 @@ var render = function() {
                                       }
                                     },
                                     [
+                                      _c("span", {}, [
+                                        _vm._v("(" + _vm._s(card.total) + ")")
+                                      ]),
+                                      _vm._v(" "),
                                       _c(
                                         "span",
                                         {
@@ -22741,10 +22745,6 @@ var render = function() {
                                             )
                                           })
                                         : _vm._e(),
-                                      _vm._v(" "),
-                                      _c("span", {}, [
-                                        _vm._v("(" + _vm._s(card.total) + ")")
-                                      ]),
                                       _vm._v(" "),
                                       _c(
                                         "span",
@@ -23049,6 +23049,10 @@ var render = function() {
                         "ol",
                         _vm._l(_vm.other, function(card) {
                           return _c("li", { staticClass: "p-2 pl-4" }, [
+                            _c("span", {}, [
+                              _vm._v("(" + _vm._s(card.total) + ")")
+                            ]),
+                            _vm._v(" "),
                             _c(
                               "span",
                               { class: { "text-red-600": card.total > 3 } },
@@ -23062,10 +23066,6 @@ var render = function() {
                                   class: _vm.resourceColour(card.stats.resource)
                                 })
                               : _vm._e(),
-                            _vm._v(" "),
-                            _c("span", {}, [
-                              _vm._v("(" + _vm._s(card.total) + ")")
-                            ]),
                             _vm._v(" "),
                             _c(
                               "span",
@@ -39366,8 +39366,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     other: function other() {
-      return this.cards.filter(function (card) {
+      var cards = this.cards.filter(function (card) {
         return !(card.keywords.includes('hero') || card.keywords.includes('equipment') || card.keywords.includes('weapon'));
+      }); // Sort by pitch
+
+      return cards.sort(function compare(a, b) {
+        if (a.stats.resource < b.stats.resource) return -1;
+        if (a.stats.resource > b.stats.resource) return 1;
+        return 0;
       });
     },
     totalCards: function totalCards() {

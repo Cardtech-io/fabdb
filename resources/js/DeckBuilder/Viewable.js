@@ -19,8 +19,15 @@ export default {
         },
 
         other: function() {
-            return this.cards.filter(card => {
+            const cards = this.cards.filter(card => {
                 return !(card.keywords.includes('hero') || card.keywords.includes('equipment') || card.keywords.includes('weapon'));
+            });
+
+            // Sort by pitch
+            return cards.sort(function compare(a, b) {
+                if (a.stats.resource < b.stats.resource) return -1;
+                if (a.stats.resource > b.stats.resource) return 1;
+                return 0;
             });
         },
 

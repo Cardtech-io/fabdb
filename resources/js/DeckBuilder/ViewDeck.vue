@@ -51,9 +51,9 @@
                             <h3 class="p-2 font-serif uppercase">Other</h3>
                             <ol>
                                 <li v-for="card in other" class="p-2 pl-4">
+                                    <span class="">({{ card.total }})</span>
                                     <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
                                     <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
-                                    <span class="">({{ card.total }})</span>
                                     <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
                                 </li>
                             </ol>

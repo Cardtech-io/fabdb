@@ -7,7 +7,7 @@
         <title>@lang('app.title')</title>
 
         <link rel="stylesheet" href="/css/fabdb.css">
-        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
+        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet"><x></x>
 
         @if (env('ANALYTICS_ID'))
             <!-- Global site tag (gtag.js) - Google Analytics -->
