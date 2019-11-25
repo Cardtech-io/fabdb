@@ -6,6 +6,7 @@ import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './CardDatabase/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 
 Vue.use(VueRouter);
@@ -45,6 +46,13 @@ const router = new VueRouter({
             component: DeckBuilder,
             meta: {
                 title: 'Deck builder &gt; Edit deck'
+            }
+        },
+        {
+            path: "/decks/:deck/",
+            component: ViewDeck,
+            meta: {
+                title: 'View deck'
             }
         },
         { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }

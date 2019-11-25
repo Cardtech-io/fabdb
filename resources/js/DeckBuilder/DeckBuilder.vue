@@ -21,8 +21,15 @@
         <div class="border border-gray-800 rounded-lg rounded-tl-none p-4">
             <div v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
-                    <div class="border-b border-gray-800 mb-4">
-                        <h1 class="font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
+                    <div class="border-b border-gray-800 mb-4" v-if="hero">
+                        <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
+                        <div class="float-right py-2">
+                            <a href="" @click.prevent="copy" class="link" title="Copy deck to text for sharing on social media">
+                                <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     <div class="clearfix">
                         <div class="md:w-1/3 md:float-left" v-if="hero">
@@ -96,10 +103,11 @@
     import axios from 'axios';
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
+    import Viewable from './Viewable';
 
     export default {
         components: { CardSelector },
-        mixins: [ Cardable ],
+        mixins: [ Cardable, Viewable ],
 
         computed: {
             cards: function() {
@@ -116,47 +124,31 @@
                 return [];
             },
 
-            hero: function() {
-                return this.cards.filter(card => {
-                    return card.keywords.includes('hero');
-                })[0];
-            },
+            shareText: function() {
+                const weapons = this.weapons.map(weapon => weapon.name).join(', ');
+                const equipment = this.equipment.map(item => item.name).join(', ');
 
-            weapons: function() {
-                return this.cards.filter(card => {
-                    return card.keywords.includes('weapon');
-                });
-            },
-
-            equipment: function() {
-                return this.cards.filter(card => {
-                    return card.keywords.includes('equipment');
-                });
-            },
-
-            other: function() {
-                return this.cards.filter(card => {
-                    return !(card.keywords.includes('hero') || card.keywords.includes('equipment') || card.keywords.includes('weapon'));
-                });
-            },
-
-            totalCards: function() {
-                var count = 0;
+                var text = this.shareLine('Deck build - via https://fabdb.net :') +
+                        this.shareLine('') +
+                        this.shareLine(this.deck.name) +
+                        this.shareLine('') +
+                        this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) +
+                        this.shareLine('Hero: ' + this.hero.name) +
+                        this.shareLine('Weapons: ' + weapons) +
+                        this.shareLine('Equipment: ' + equipment) +
+                        this.shareLine('');
 
                 for (var i in this.other) {
-                    count += this.other[i].total;
+                    var card = this.other[i];
+
+                    text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
                 }
 
-                return count;
-            },
+                text = text + this.shareLine('');
+                text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
 
-            totalColoured: function() {
-                return {
-                    'blue': this.countColoured('blue'),
-                    'yellow': this.countColoured('yellow'),
-                    'red': this.countColoured('red')
-                }
-            },
+                return text;
+            }
          },
 
         data() {
@@ -167,6 +159,14 @@
         },
 
         methods: {
+            shareLine: function(line) {
+                return line + '\r\n';
+            },
+
+            copy: function() {
+                this.$copyText(this.shareText);
+            },
+
             addCard: function(card) {
                 const deckCard = this.findCard(card);
 
@@ -241,19 +241,6 @@
 
             setTab: function(tab) {
                 this.activeTab = tab;
-            },
-
-            countColoured: function(colour) {
-                const resources = {blue: 3, yellow: 2, red: 1};
-                const cards = this.other.filter(card => { return card.stats.resource == resources[colour]});
-
-                var count = 0;
-
-                for (var i in cards) {
-                    count += cards[i].total;
-                }
-
-                return count;
             }
         },
 

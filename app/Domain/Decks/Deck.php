@@ -21,7 +21,9 @@ class Deck extends Model
 
     public function cards()
     {
-        return $this->belongsToMany(Card::class, 'deck_cards')->withPivot('id', 'total');
+        return $this->belongsToMany(Card::class, 'deck_cards')
+            ->orderBy('cards.name')
+            ->withPivot('id', 'total');
     }
 
     public static function add(int $userId, string $name)

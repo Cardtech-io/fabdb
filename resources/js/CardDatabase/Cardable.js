@@ -17,6 +17,12 @@ export default {
             }
         },
 
+        colourToText: function(resource) {
+            const colours = {1: 'red', 2: 'yellow', 3: 'blue'};
+
+            return colours[resource];
+        },
+
         ucfirst: function(string) {
             return string[0].toUpperCase() + string.slice(1);
         }
