@@ -39383,7 +39383,7 @@ __webpack_require__.r(__webpack_exports__);
         count += this.other[i].total;
       }
 
-      return count;
+      return count + this.equipment.length;
     },
     totalColoured: function totalColoured() {
       return {
