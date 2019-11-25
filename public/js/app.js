@@ -2652,6 +2652,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -22487,45 +22495,82 @@ var render = function() {
                               )
                             : _vm._e(),
                           _vm._v(" "),
-                          _c("div", { staticClass: "float-right py-2" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "link",
-                                attrs: {
-                                  href: "",
-                                  title:
-                                    "Copy deck to text for sharing on social media"
+                          _c(
+                            "div",
+                            { staticClass: "float-right py-2" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "link",
+                                  attrs: { to: "/decks/" + _vm.deck.slug }
                                 },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.copy($event)
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "fill-current h-5 w-5",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 20 20"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "inline-block fill-current h-6 w-6",
                                       attrs: {
-                                        d:
-                                          "M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
                                       }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n\n                         \n\n                        "
+                              ),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "link",
+                                  attrs: {
+                                    href: "",
+                                    title:
+                                      "Copy deck to text for sharing on social media"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.copy($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "inline-block fill-current h-5 w-5",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
                         ]
                       )
                     : _vm._e(),
