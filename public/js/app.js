@@ -22566,39 +22566,33 @@ var render = function() {
                             _c(
                               "ol",
                               _vm._l(_vm.weapons, function(weapon) {
-                                return _c(
-                                  "li",
-                                  { staticClass: "hover:bg-black p-2 pl-4" },
-                                  [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "block hover:bg-black p-2 pl-4 w-full",
-                                        attrs: { href: "" },
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.removeCard(weapon)
-                                          }
+                                return _c("li", [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "block hover:bg-black p-2 pl-4 w-full",
+                                      attrs: { href: "" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.removeCard(weapon)
                                         }
-                                      },
-                                      [
-                                        _c("span", [
-                                          _vm._v(_vm._s(weapon.name))
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "text-gray-600 text-xs"
-                                          },
-                                          [_vm._v(_vm._s(weapon.identifier))]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
+                                      }
+                                    },
+                                    [
+                                      _c("span", [_vm._v(_vm._s(weapon.name))]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        {
+                                          staticClass: "text-gray-600 text-xs"
+                                        },
+                                        [_vm._v(_vm._s(weapon.identifier))]
+                                      )
+                                    ]
+                                  )
+                                ])
                               }),
                               0
                             )

@@ -42,7 +42,7 @@
                             <div v-if="weapons.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase">Weapons</h3>
                                 <ol>
-                                    <li v-for="weapon in weapons" class="hover:bg-black p-2 pl-4">
+                                    <li v-for="weapon in weapons">
                                         <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-black p-2 pl-4 w-full">
                                             <span>{{ weapon.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
