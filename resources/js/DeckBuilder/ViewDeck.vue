@@ -35,7 +35,7 @@
                             </ol>
                         </div>
 
-                        <div v-if="equipment.length">
+                        <div v-if="equipment.length" class="mb-8">
                             <h3 class="p-2 font-serif uppercase">Equipment</h3>
                             <ol>
                                 <li v-for="card in equipment" class="p-2 pl-4">

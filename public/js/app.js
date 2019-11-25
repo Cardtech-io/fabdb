@@ -22969,7 +22969,7 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.equipment.length
-                  ? _c("div", [
+                  ? _c("div", { staticClass: "mb-8" }, [
                       _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
                         _vm._v("Equipment")
                       ]),

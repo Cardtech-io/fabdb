@@ -15,10 +15,7 @@ Route::get('cards', 'CardController@list');
 Route::get('cards/{card}', 'CardController@view');
 
 Route::post('authenticate', 'AuthController@authenticate');
-Route::post('validate
-', 'AuthController@validateCode');
-
-Route::get('decks/{deck}', 'DeckController@view');
+Route::post('validate', 'AuthController@validateCode');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('collection', 'CollectionController@list');
@@ -30,6 +27,8 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
     Route::post('decks', 'DeckController@addDeck');
 });
+
+Route::get('decks/{deck}', 'DeckController@view');
 
 Route::get('{anything}', function() {
     return view('welcome');
