@@ -22303,7 +22303,13 @@ var render = function() {
       "div",
       [
         _c("card-search", {
-          attrs: { view: "all", size: "small", wait: true, limit: 10 },
+          attrs: {
+            view: "all",
+            size: "small",
+            wait: true,
+            refreshable: false,
+            limit: 10
+          },
           on: { "search-completed": _vm.refreshResults }
         })
       ],
