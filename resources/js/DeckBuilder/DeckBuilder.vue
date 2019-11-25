@@ -160,7 +160,7 @@
 
         methods: {
             shareLine: function(line) {
-                return line + '\r\n';
+                return line + '\n';
             },
 
             copy: function() {

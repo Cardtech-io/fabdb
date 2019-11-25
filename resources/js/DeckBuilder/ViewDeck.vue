@@ -2,7 +2,7 @@
     <div>
         <div class="border-gray-800 rounded-lg border p-4">
             <router-link to="/" class="link">Home</router-link>
-            <span class="text-gray-600">&gt;</span> View deck<span class="text-gray-600">:</span> {{ deck.name }}
+            <span class="text-gray-600">&gt;</span> View deck<span class="text-gray-600">:</span> <span v-if="deck">{{ deck.name }}</span>
         </div>
 
         <div class="border border-gray-800 rounded-lg p-4 mt-8">

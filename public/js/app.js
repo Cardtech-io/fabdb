@@ -2702,7 +2702,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     shareLine: function shareLine(line) {
-      return line + '\r\n';
+      return line + '\n';
     },
     copy: function copy() {
       this.$copyText(this.shareText);
@@ -22874,7 +22874,8 @@ var render = function() {
         _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
         _vm._v(" View deck"),
         _c("span", { staticClass: "text-gray-600" }, [_vm._v(":")]),
-        _vm._v(" " + _vm._s(_vm.deck.name) + "\n    ")
+        _vm._v(" "),
+        _vm.deck ? _c("span", [_vm._v(_vm._s(_vm.deck.name))]) : _vm._e()
       ],
       1
     ),

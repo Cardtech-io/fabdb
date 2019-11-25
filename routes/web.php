@@ -18,13 +18,14 @@ Route::post('authenticate', 'AuthController@authenticate');
 Route::post('validate
 ', 'AuthController@validateCode');
 
+Route::get('decks/{deck}', 'DeckController@view');
+
 Route::middleware(['auth'])->group(function(){
     Route::get('collection', 'CollectionController@list');
     Route::post('collection', 'CollectionController@addCard');
     Route::delete('collection/{card}', 'CollectionController@removeCard');
 
     Route::get('decks/mine', 'DeckController@mine');
-    Route::get('decks/{deck}', 'DeckController@view');
     Route::post('decks/{deck}', 'DeckController@addCard');
     Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
     Route::post('decks', 'DeckController@addDeck');
