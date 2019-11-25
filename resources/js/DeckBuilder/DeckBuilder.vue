@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="md:w-1/3 md:float-left pl-4">
-                            <div v-if="weapons" class="mb-8">
+                            <div v-if="weapons.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase">Weapons</h3>
                                 <ol>
                                     <li v-for="weapon in weapons" class="hover:bg-black p-2 pl-4">

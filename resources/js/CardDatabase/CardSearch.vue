@@ -13,7 +13,10 @@
                 default: 12
             },
             view: String,
-            refreshable: Boolean,
+            refreshable: {
+                type: Boolean,
+                default: true
+            },
             size: String,
             wait: Boolean
         },

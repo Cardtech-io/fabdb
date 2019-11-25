@@ -2068,7 +2068,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": 12
     },
     view: String,
-    refreshable: Boolean,
+    refreshable: {
+      type: Boolean,
+      "default": true
+    },
     size: String,
     wait: Boolean
   },
@@ -21403,7 +21406,7 @@ var render = function() {
       { staticClass: "border-gray-800 rounded-b-lg border p-4" },
       [
         _c("card-search", {
-          attrs: { view: "all", page: _vm.page, refreshable: "true" },
+          attrs: { view: "all", page: _vm.page, refreshable: true },
           on: { "search-completed": _vm.refreshResults }
         })
       ],
@@ -21634,7 +21637,7 @@ var render = function() {
       { staticClass: "border-gray-800 rounded-b-lg border p-4" },
       [
         _c("card-search", {
-          attrs: { view: "mine", page: _vm.page, refreshable: "true" },
+          attrs: { view: "mine", page: _vm.page, refreshable: true },
           on: { "search-completed": _vm.refreshResults }
         })
       ],
@@ -21977,7 +21980,8 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-          _vm._v("\n            " + _vm._s(_vm.card.name) + "\n        ")
+          _vm._v(" "),
+          _vm.card ? _c("span", [_vm._v(_vm._s(_vm.card.name))]) : _vm._e()
         ],
         1
       )
@@ -22551,7 +22555,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
-                      _vm.weapons
+                      _vm.weapons.length
                         ? _c("div", { staticClass: "mb-8" }, [
                             _c(
                               "h3",

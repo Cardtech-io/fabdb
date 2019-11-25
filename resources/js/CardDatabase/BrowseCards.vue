@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="border-gray-800 rounded-b-lg border p-4">
-            <card-search view="all" @search-completed="refreshResults" :page="page" refreshable="true"></card-search>
+            <card-search view="all" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
         </div>
 
         <div v-if="results && results.data">

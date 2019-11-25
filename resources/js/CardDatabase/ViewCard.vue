@@ -4,7 +4,7 @@
             <p class="">
                 <router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span>
                 <router-link :to="$route.meta.parent.path" class="link">{{ $route.meta.parent.name }}</router-link> <span class="text-gray-600">&gt;</span>
-                {{ card.name }}
+                <span v-if="card">{{ card.name }}</span>
             </p>
         </div>
 
