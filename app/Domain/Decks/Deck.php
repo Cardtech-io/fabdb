@@ -41,4 +41,18 @@ class Deck extends Model
     {
         return $this->cards->where('id', $card->id)->first();
     }
+
+    public function hasWeapon()
+    {
+        return $this->cards->first(function(Card $card) {
+            return $card->isWeapon();
+        });
+    }
+
+    public function hero()
+    {
+        return $this->cards->first(function(Card $card) {
+            return $card->isHero();
+        });
+    }
 }

@@ -41,4 +41,19 @@ class Card extends Model
     {
         return $this->pivot ? $this->pivot->total : 0;
     }
+
+    public function isHero()
+    {
+        return in_array('hero', $this->keywords);
+    }
+
+    public function isWeapon()
+    {
+        return in_array('weapon', $this->keywords);
+    }
+
+    public function isEquipment()
+    {
+        return in_array('equipment', $this->keywords);
+    }
 }

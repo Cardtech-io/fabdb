@@ -22316,7 +22316,7 @@ var render = function() {
             size: "small",
             wait: true,
             refreshable: false,
-            limit: 10
+            limit: 50
           },
           on: { "search-completed": _vm.refreshResults }
         })
