@@ -1,26 +1,21 @@
 <?php
 namespace FabDB\Domain\Decks\Validation;
 
-use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
 class HasHero implements Rule
 {
+    use RequiresCard;
+
     /**
      * @var Deck
      */
     private $deckHero;
 
-    /**
-     * @var string
-     */
-    private $card;
-
-    public function __construct(Deck $deck, Card $card)
+    public function __construct(Deck $deck)
     {
         $this->deckHero = $deck->hero();
-        $this->card = $card;
     }
 
     /**
@@ -32,7 +27,9 @@ class HasHero implements Rule
      */
     public function passes($attribute, $value)
     {
-        return ($this->deckHero && !$this->card->isHero()) || (!$this->deckHero && $this->card->isHero());
+        $card = $this->getCard($value);
+
+        return ($this->deckHero && !$card->isHero()) || (!$this->deckHero && $card->isHero());
     }
 
     /**

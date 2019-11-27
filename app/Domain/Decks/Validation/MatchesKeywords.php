@@ -7,20 +7,16 @@ use Illuminate\Contracts\Validation\Rule;
 
 class MatchesKeywords implements Rule
 {
+    use RequiresCard;
+
     /**
      * @var string
      */
     private $mainKeyword;
 
-    /**
-     * @var Card
-     */
-    private $card;
-
-    public function __construct(Deck $deck, Card $card)
+    public function __construct(Deck $deck)
     {
         $this->mainKeyword = $deck->hero()->keywords[1];
-        $this->card = $card;
     }
 
     /**
@@ -32,7 +28,9 @@ class MatchesKeywords implements Rule
      */
     public function passes($attribute, $value)
     {
-        return count(array_intersect($this->card->keywords, [$this->mainKeyword, 'generic'])) >= 1;
+        $card = $this->getCard($value);
+
+        return count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1;
     }
 
     /**
