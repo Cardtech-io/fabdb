@@ -4,10 +4,8 @@ namespace FabDB\Domain\Decks\Validation;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
-class SupportsWeapon implements Rule
+class MaxThreeCards implements Rule
 {
-    use RequiresCard;
-
     /**
      * @var Deck
      */
@@ -15,6 +13,7 @@ class SupportsWeapon implements Rule
 
     public function __construct(Deck $deck)
     {
+
         $this->deck = $deck;
     }
 
@@ -27,11 +26,9 @@ class SupportsWeapon implements Rule
      */
     public function passes($attribute, $value)
     {
-        $card = $this->getCard($value);
+        $card = $this->deck->card($value);
 
-        return !$card->isWeapon() ||
-            $this->deck->weapons()->isEmpty() ||
-            ($this->deck->weapons()->first()->oneHanded() && in_array('1h', $card->keywords));
+        return ! $card || $card->pivot_total < 3;
     }
 
     /**
@@ -41,6 +38,6 @@ class SupportsWeapon implements Rule
      */
     public function message()
     {
-        return 'When adding a weapon to a deck, the following rules apply: either a single two-handed weapon, or up to two one-handed weapons.';
+        return 'You cannot add more than 3 of the same card to a deck.';
     }
 }

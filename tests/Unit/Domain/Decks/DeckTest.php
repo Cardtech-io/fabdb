@@ -22,9 +22,9 @@ class DeckTest extends TestCase
         $deck = new Deck;
         $deck->setRelation('cards', collect([$card1, $card2]));
 
-        $this->assertNotNull($deck->hasCard($card1));
-        $this->assertNotNull($deck->hasCard($card2));
-        $this->assertNull($deck->hasCard($card3));
+        $this->assertNotNull($deck->card($card1->id));
+        $this->assertNotNull($deck->card($card2->id));
+        $this->assertNull($deck->card($card3->id));
     }
 
     function test_deck_has_a_weapon()
