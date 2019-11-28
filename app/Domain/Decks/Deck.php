@@ -55,4 +55,11 @@ class Deck extends Model
             return $card->isHero();
         });
     }
+
+    public function weapons()
+    {
+        return $this->cards->filter(function(Card $card) {
+            return $card->isWeapon();
+        });
+    }
 }
