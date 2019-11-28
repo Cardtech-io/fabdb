@@ -13,10 +13,10 @@ class MaxThreeCardsTest extends TestCase
     function test_it_passes_when_none_of_the_required_card_have_been_added()
     {
         $card1 = $this->card('008');
-        $card1->pivot_total = 3;
+        $card1->pivot = (object) ['total' => 3];
 
         $card2 = $this->card('011');
-        $card2->pivot_total = 2;
+        $card2->pivot = (object) ['total' => 2];
 
         $deck = new Deck;
         $deck->setRelation('cards', collect([$card1, $card2]));

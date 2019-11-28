@@ -13,7 +13,6 @@ class MaxThreeCards implements Rule
 
     public function __construct(Deck $deck)
     {
-
         $this->deck = $deck;
     }
 
@@ -28,7 +27,7 @@ class MaxThreeCards implements Rule
     {
         $card = $this->deck->card($value);
 
-        return ! $card || $card->pivot_total < 3;
+        return ! $card || $card->total < 3;
     }
 
     /**
