@@ -16,7 +16,7 @@ class MatchesKeywords implements Rule
 
     public function __construct(Deck $deck)
     {
-        $this->mainKeyword = $deck->hero()->keywords[1];
+        $this->mainKeyword = $deck->hero()->keywords[0];
     }
 
     /**

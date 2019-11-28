@@ -1926,6 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.visible = true;
         nprogress__WEBPACK_IMPORTED_MODULE_1___default.a.done();
       } else {
+        nprogress__WEBPACK_IMPORTED_MODULE_1___default.a.done();
         return Promise.reject(error);
       }
     });
@@ -2716,20 +2717,19 @@ __webpack_require__.r(__webpack_exports__);
       this.$copyText(this.shareText);
     },
     addCard: function addCard(card) {
-      var deckCard = this.findCard(card); // validate
+      var _this = this;
 
-      var valid = this.validate(deckCard);
-      if (!valid) return;
-
-      if (deckCard) {
-        deckCard.total += 1;
-      } else {
-        card.total = 1;
-        this.deck.cards.push(card);
-      }
-
+      var deckCard = this.findCard(card);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/' + this.$route.params.deck, {
         card: card.identifier
+      }).then(function (response) {
+        if (deckCard) {
+          deckCard.total += 1;
+        } else {
+          card.total = 1;
+
+          _this.deck.cards.push(card);
+        }
       });
     },
     removeCard: function removeCard(card) {
@@ -2760,40 +2760,15 @@ __webpack_require__.r(__webpack_exports__);
         return deckCard.identifier === card.identifier;
       })[0];
     },
-    // Validates whether the card in question can be added
-    validate: function validate(card) {
-      // Doesn't exist in array, continue.
-      if (!card) return true;
-
-      if (card.keywords.includes('hero') && this.hero) {
-        return false;
-      }
-
-      if (card.keywords.includes('weapon') && this.weapons.length == 2) {
-        return false;
-      }
-
-      if (card.keywords.includes('equipment') && this.equipment.filter(function (equipment) {
-        return equipment.keywords[2] === card.keywords[2];
-      })[0]) {
-        return false;
-      }
-
-      if (card.total >= 3) {
-        return false;
-      }
-
-      return true;
-    },
     setTab: function setTab(tab) {
       this.activeTab = tab;
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + this.$route.params.deck + '').then(function (response) {
-      _this.deck = response.data;
+      _this2.deck = response.data;
     });
   }
 });

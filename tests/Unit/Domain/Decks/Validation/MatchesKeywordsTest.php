@@ -20,7 +20,7 @@ class MatchesKeywordsTest extends TestCase
     function test_card_added_matches_required_keywords()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$this->card('hero', ['hero', 'guardian'])]));
+        $deck->setRelation('cards', collect([$this->card('hero', ['guardian', 'hero'])]));
 
         $card1 = $this->card('WTR001', ['guardian', 'weapon', '1h']);
         $card2 = $this->card('WTR002', ['ninja', 'weapon', '1h']);
