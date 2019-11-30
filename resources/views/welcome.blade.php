@@ -56,6 +56,8 @@
                     </div>
                 </div>
             </div>
+
+            <messages></messages>
         </div>
 
         <script src="/js/app.js"></script>

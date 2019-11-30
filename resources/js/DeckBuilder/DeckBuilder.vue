@@ -59,7 +59,7 @@
                                 </ol>
                             </div>
 
-                            <div v-if="equipment.length">
+                            <div v-if="equipment.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase">Equipment</h3>
                                 <ol>
                                     <li v-for="card in equipment">
@@ -112,6 +112,7 @@
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Viewable from './Viewable';
+    import { mapActions } from 'vuex'
 
     export default {
         components: { CardSelector },
@@ -167,6 +168,8 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
+
             shareLine: function(line) {
                 return line + '\n';
             },
@@ -176,7 +179,7 @@
             },
 
             addCard: function(card) {
-                const deckCard = this.findCard(card);
+                let self = this;
 
                 axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
                     if (deckCard) {
@@ -184,6 +187,10 @@
                     } else {
                         card.total = 1;
                         this.deck.cards.push(card);
+                    }
+                }).catch(error => {
+                    if (error.response.status == 422) {
+                        this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                     }
                 });
             },
