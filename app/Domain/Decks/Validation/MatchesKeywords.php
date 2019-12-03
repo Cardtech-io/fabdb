@@ -16,7 +16,7 @@ class MatchesKeywords implements Rule
 
     public function __construct(Deck $deck)
     {
-        $this->mainKeyword = $deck->hero()->keywords[0];
+        $this->mainKeyword = $deck->mainKeyword();
     }
 
     /**
@@ -30,7 +30,7 @@ class MatchesKeywords implements Rule
     {
         $card = $this->getCard($value);
 
-        return count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1;
+        return $card->isHero() || count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1;
     }
 
     /**

@@ -1,16 +1,21 @@
 <template>
-    <div v-if="visible" class="absolute bottom w-full z-10" @message="displayMessage">
-        {{ messages }}
+    <div v-if="messages" class="fixed bottom w-full z-10">
+        <ol>
+            <li v-for="(message, i) in messages" :key="'key-' + i" class="p-4" :class="backgroundClass(message.status)" @click="acknowledge(i)">
+                {{ message.message }}<br>
+                {{ i }}
+            </li>
+        </ol>
     </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex';
+    import { mapState, mapActions } from 'vuex';
 
     export default {
         data() {
             return {
-                visible: true
+
             }
         },
 
@@ -19,9 +24,14 @@
         },
 
         methods: {
-            displayMessage: function(event) {
-                console.log(event);
+            ...mapActions('messages', ['acknowledge']),
 
+            backgroundClass: function(status) {
+                const colours = {
+                    error: 'bg-red-800'
+                };
+
+                return colours[status];
             }
         }
     };

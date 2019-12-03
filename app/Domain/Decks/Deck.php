@@ -44,6 +44,13 @@ class Deck extends Model
         return $this->cards->where($column, $cardIdentifier)->first();
     }
 
+    public function mainKeyword()
+    {
+        $hero = $this->hero();
+
+        return $hero ? $hero->keywords[0] : null;
+    }
+
     public function hasWeapon()
     {
         return $this->cards->first(function(Card $card) {

@@ -179,8 +179,6 @@
             },
 
             addCard: function(card) {
-                let self = this;
-
                 axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
                     if (deckCard) {
                         deckCard.total += 1;

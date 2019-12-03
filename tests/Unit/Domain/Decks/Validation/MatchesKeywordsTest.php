@@ -38,4 +38,17 @@ class MatchesKeywordsTest extends TestCase
         $this->assertFalse($validator2->passes('card', 'WTR002'));
         $this->assertTrue($validator3->passes('card', 'WTR003'));
     }
+
+    function test_when_card_added_is_hero()
+    {
+        $deck = new Deck;
+        $deck->setRelation('cards', collect());
+
+        $card = $this->card('hero', ['guardian', 'hero']);
+        $validator = new MatchesKeywords($deck, $card);
+
+        $this->cards->shouldReceive('find')->with('WTR001')->andReturn($card);
+
+        $this->assertTrue($validator->passes('card', 'WTR001'));
+    }
 }

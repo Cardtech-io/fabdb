@@ -2421,19 +2421,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      visible: true
-    };
+    return {};
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('messages', ['messages'])),
-  methods: {
-    displayMessage: function displayMessage(event) {
-      console.log(event);
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['acknowledge']), {
+    backgroundClass: function backgroundClass(status) {
+      var colours = {
+        error: 'bg-red-800'
+      };
+      return colours[status];
     }
-  }
+  })
 });
 
 /***/ }),
@@ -2766,7 +2772,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addCard: function addCard(card) {
       var _this = this;
 
-      var self = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/' + this.$route.params.deck, {
         card: card.identifier
       }).then(function (response) {
@@ -22139,15 +22144,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.visible
-    ? _c(
-        "div",
-        {
-          staticClass: "absolute bottom w-full z-10",
-          on: { message: _vm.displayMessage }
-        },
-        [_vm._v("\n    " + _vm._s(_vm.messages) + "\n")]
-      )
+  return _vm.messages
+    ? _c("div", { staticClass: "fixed bottom w-full z-10" }, [
+        _c(
+          "ol",
+          _vm._l(_vm.messages, function(message, i) {
+            return _c(
+              "li",
+              {
+                key: "key-" + i,
+                staticClass: "p-4",
+                class: _vm.backgroundClass(message.status),
+                on: {
+                  click: function($event) {
+                    return _vm.acknowledge(i)
+                  }
+                }
+              },
+              [
+                _vm._v("\n            " + _vm._s(message.message)),
+                _c("br"),
+                _vm._v("\n            " + _vm._s(i) + "\n        ")
+              ]
+            )
+          }),
+          0
+        )
+      ])
     : _vm._e()
 }
 var staticRenderFns = []
@@ -39973,14 +39996,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./resources/js/Components/Messages.vue ***!
   \**********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Messages_vue_vue_type_template_id_ef412ed2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Messages.vue?vue&type=template&id=ef412ed2& */ "./resources/js/Components/Messages.vue?vue&type=template&id=ef412ed2&");
 /* harmony import */ var _Messages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Messages.vue?vue&type=script&lang=js& */ "./resources/js/Components/Messages.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Messages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Messages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -40010,7 +40034,7 @@ component.options.__file = "resources/js/Components/Messages.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/Components/Messages.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40663,10 +40687,13 @@ __webpack_require__.r(__webpack_exports__);
     messages: []
   },
   mutations: {
-    addMessage: function addMessage(state, _ref) {
-      var status = _ref.status,
-          message = _ref.message;
-      console.log(status, message);
+    acknowledge: function acknowledge(state, _ref) {
+      var index = _ref.index;
+      state.messages.splice(index, 1);
+    },
+    addMessage: function addMessage(state, _ref2) {
+      var status = _ref2.status,
+          message = _ref2.message;
       state.messages.push({
         status: status,
         message: message
@@ -40674,14 +40701,28 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    addMessage: function addMessage(_ref2, _ref3) {
-      var commit = _ref2.commit;
-      var status = _ref3.status,
-          message = _ref3.message;
+    acknowledge: function acknowledge(_ref3, _ref4) {
+      var commit = _ref3.commit;
+      var index = _ref4.index;
+      commit('acknowledge', {
+        index: index
+      });
+    },
+    addMessage: function addMessage(_ref5, _ref6) {
+      var commit = _ref5.commit,
+          state = _ref5.state;
+      var status = _ref6.status,
+          message = _ref6.message;
       commit('addMessage', {
         status: status,
         message: message
       });
+      setTimeout(function () {
+        var index = state.messages.length - 1;
+        commit('acknowledge', {
+          index: index
+        });
+      }, 5000);
     }
   }
 });
