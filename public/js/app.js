@@ -2712,6 +2712,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -22693,6 +22694,14 @@ var render = function() {
                                       }
                                     },
                                     [
+                                      weapon.total > 1
+                                        ? _c("span", [
+                                            _vm._v(
+                                              "(" + _vm._s(weapon.total) + ")"
+                                            )
+                                          ])
+                                        : _vm._e(),
+                                      _vm._v(" "),
                                       _c("span", [_vm._v(_vm._s(weapon.name))]),
                                       _vm._v(" "),
                                       _c(

@@ -52,6 +52,7 @@
                                 <ol>
                                     <li v-for="weapon in weapons">
                                         <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-black p-2 pl-4 w-full">
+                                            <span v-if="weapon.total > 1">({{ weapon.total }})</span>
                                             <span>{{ weapon.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
                                         </a>
