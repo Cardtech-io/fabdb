@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <card-search view="all" size="small" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="10"></card-search>
+            <card-search view="all" size="small" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="50"></card-search>
         </div>
 
         <ul v-if="cards">

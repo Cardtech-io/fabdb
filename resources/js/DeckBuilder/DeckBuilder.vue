@@ -59,7 +59,7 @@
                                 </ol>
                             </div>
 
-                            <div v-if="equipment.length">
+                            <div v-if="equipment.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase">Equipment</h3>
                                 <ol>
                                     <li v-for="card in equipment">
@@ -112,6 +112,7 @@
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Viewable from './Viewable';
+    import { mapActions } from 'vuex'
 
     export default {
         components: { CardSelector },
@@ -167,6 +168,8 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
+
             shareLine: function(line) {
                 return line + '\n';
             },
@@ -176,21 +179,20 @@
             },
 
             addCard: function(card) {
-                const deckCard = this.findCard(card);
+                axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
+                    const deckCard = this.findCard(card);
 
-                // validate
-                const valid = this.validate(deckCard);
-
-                if (! valid) return;
-
-                if (deckCard) {
-                    deckCard.total += 1;
-                } else {
-                    card.total = 1;
-                    this.deck.cards.push(card);
-                }
-
-                axios.post('/decks/' + this.$route.params.deck, {card: card.identifier});
+                    if (deckCard) {
+                        deckCard.total += 1;
+                    } else {
+                        card.total = 1;
+                        this.deck.cards.push(card);
+                    }
+                }).catch(error => {
+                    if (error.response.status == 422) {
+                        this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
+                    }
+                });
             },
 
             removeCard: function(card) {
@@ -221,30 +223,6 @@
                 return this.deck.cards.filter(function(deckCard) {
                     return deckCard.identifier === card.identifier;
                 })[0];
-            },
-
-            // Validates whether the card in question can be added
-            validate: function(card) {
-                // Doesn't exist in array, continue.
-                if (! card) return true;
-
-                if (card.keywords.includes('hero') && this.hero) {
-                    return false;
-                }
-
-                if (card.keywords.includes('weapon') && this.weapons.length == 2) {
-                    return false;
-                }
-
-                if (card.keywords.includes('equipment') && this.equipment.filter(equipment => { return equipment.keywords[2] === card.keywords[2]})[0]) {
-                    return false;
-                }
-
-                if (card.total >= 3) {
-                    return false;
-                }
-
-                return true;
             },
 
             setTab: function(tab) {

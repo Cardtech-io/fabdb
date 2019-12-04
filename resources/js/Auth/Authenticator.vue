@@ -79,6 +79,7 @@
                     NProgress.done();
                 }
                 else {
+                    NProgress.done();
                     return Promise.reject(error);
                 }
             });

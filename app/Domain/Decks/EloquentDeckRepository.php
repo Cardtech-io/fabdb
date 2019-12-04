@@ -32,7 +32,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function addCardToDeck(Deck $deck, Card $card)
     {
-        $existing = $deck->hasCard($card);
+        $existing = $deck->card($card->id);
 
         if ($existing) {
             DB::update('UPDATE deck_cards SET total = total + 1 WHERE id = ?', [$existing->pivot->id]);
@@ -43,7 +43,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function removeCardFromDeck(Deck $deck, Card $card)
     {
-        $existing = $deck->hasCard($card);
+        $existing = $deck->card($card->id);
 
         if ($existing->pivot->total > 1) {
             DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);

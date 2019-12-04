@@ -37,8 +37,38 @@ class Deck extends Model
         return $deck;
     }
 
-    public function hasCard(Card $card)
+    public function card($cardIdentifier)
     {
-        return $this->cards->where('id', $card->id)->first();
+        $column = is_numeric($cardIdentifier) ? 'id' : 'identifier';
+
+        return $this->cards->where($column, $cardIdentifier)->first();
+    }
+
+    public function mainKeyword()
+    {
+        $hero = $this->hero();
+
+        return $hero ? $hero->keywords[0] : null;
+    }
+
+    public function hasWeapon()
+    {
+        return $this->cards->first(function(Card $card) {
+            return $card->isWeapon();
+        });
+    }
+
+    public function hero()
+    {
+        return $this->cards->first(function(Card $card) {
+            return $card->isHero();
+        });
+    }
+
+    public function weapons()
+    {
+        return $this->cards->filter(function(Card $card) {
+            return $card->isWeapon();
+        });
     }
 }
