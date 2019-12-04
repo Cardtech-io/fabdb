@@ -1,11 +1,10 @@
 <template>
     <div v-if="messages" class="fixed bottom w-full z-10">
-        <ol>
-            <li v-for="(message, i) in messages" :key="'key-' + i" class="p-4" :class="backgroundClass(message.status)" @click="acknowledge(i)">
-                {{ message.message }}<br>
-                {{ i }}
-            </li>
-        </ol>
+        <!--<ol>-->
+            <!--<li v-for="(message, i) in messages" :key="'key-' + i" class="p-4" :class="backgroundClass(message.status)" @click="acknowledge(i)">-->
+                <!--{{ message.message }}-->
+            <!--</li>-->
+        <!--</ol>-->
     </div>
 </template>
 

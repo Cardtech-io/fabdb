@@ -2425,7 +2425,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2775,6 +2774,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/' + this.$route.params.deck, {
         card: card.identifier
       }).then(function (response) {
+        var deckCard = _this.findCard(card);
+
         if (deckCard) {
           deckCard.total += 1;
         } else {
@@ -22145,32 +22146,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.messages
-    ? _c("div", { staticClass: "fixed bottom w-full z-10" }, [
-        _c(
-          "ol",
-          _vm._l(_vm.messages, function(message, i) {
-            return _c(
-              "li",
-              {
-                key: "key-" + i,
-                staticClass: "p-4",
-                class: _vm.backgroundClass(message.status),
-                on: {
-                  click: function($event) {
-                    return _vm.acknowledge(i)
-                  }
-                }
-              },
-              [
-                _vm._v("\n            " + _vm._s(message.message)),
-                _c("br"),
-                _vm._v("\n            " + _vm._s(i) + "\n        ")
-              ]
-            )
-          }),
-          0
-        )
-      ])
+    ? _c("div", { staticClass: "fixed bottom w-full z-10" })
     : _vm._e()
 }
 var staticRenderFns = []

@@ -180,6 +180,8 @@
 
             addCard: function(card) {
                 axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
+                    const deckCard = this.findCard(card);
+
                     if (deckCard) {
                         deckCard.total += 1;
                     } else {
