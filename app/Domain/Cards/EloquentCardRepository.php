@@ -32,9 +32,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         // The following condition and clause determines whether the user is looking for an individual card or not
         if (count($params) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $params[0], $matches)) {
             $set = $matches[1] ?: 'WTR';
-            $identifier = $set.str_pad($matches[2], 3, '0', STR_PAD_LEFT);
+            $identifier = $set . str_pad($matches[2], 3, '0', STR_PAD_LEFT);
 
             $query->where('identifier', $identifier);
+        } elseif (count($params) == 1 && $params[0] === 'missing') {
+            // do nothing, check below.
         } else {
             foreach ($params as $param) {
                 $param = strtolower($param);
@@ -57,6 +59,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                     $clause->orWhere('owned_cards.foil', '>', 0);
                 });
             });
+
+            // If their main search parameter is to find missing cards, then only show cards where there is no record of the owned card
+            if (count($params) == 1 && $params[0] === 'missing') {
+                $query->whereNull('owned_cards.id');
+            }
 
             $query->addSelect('owned_cards.standard', 'owned_cards.foil');
         }
