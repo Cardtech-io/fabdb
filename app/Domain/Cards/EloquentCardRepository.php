@@ -49,7 +49,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         if ($userId) {
-            $join = $view !== 'all' ? 'join' : 'leftJoin';
+            $join = $view !== 'all' && $params[0] !== 'missing' ? 'join' : 'leftJoin';
 
             $query->$join('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
