@@ -38,7 +38,7 @@ export default {
                 count += this.other[i].total;
             }
 
-            return count + this.equipment.length;
+            return count + this.equipment.length + this.weapons.length;
         },
 
         totalColoured: function() {
