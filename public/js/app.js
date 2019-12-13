@@ -2713,6 +2713,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -22668,6 +22678,69 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
+                      _vm.other.length
+                        ? _c("div", { staticClass: "mb-8" }, [
+                            _c(
+                              "h3",
+                              { staticClass: "p-2 font-serif uppercase" },
+                              [_vm._v("Deck stats")]
+                            ),
+                            _vm._v(" "),
+                            _c("ol", [
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
+                                    "Total cards: " + _vm._s(_vm.totalCards)
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
+                                    "Average card cost: " +
+                                      _vm._s(_vm.averageCost)
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
+                                    "Pitch 3: " + _vm._s(_vm.pitchCount(3))
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
+                                    "Pitch 2: " + _vm._s(_vm.pitchCount(2))
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
+                                    "Pitch 1: " + _vm._s(_vm.pitchCount(1))
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
                       _vm.weapons.length
                         ? _c("div", { staticClass: "mb-8" }, [
                             _c(
@@ -40564,6 +40637,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
+    averageCost: function averageCost() {
+      var cards = this.other;
+      var total = cards.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
+      var totalCost = cards.reduce(function (total, card) {
+        return total + card.stats.cost * card.total;
+      }, 0);
+      return (totalCost / total).toFixed(2);
+    },
     hero: function hero() {
       return this.cards.filter(function (card) {
         return card.keywords.includes('hero');
@@ -40624,6 +40707,14 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return count;
+    },
+    pitchCount: function pitchCount(type) {
+      var cards = this.other.filter(function (card) {
+        return card.stats.resource == type;
+      });
+      return cards.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
     }
   }
 });

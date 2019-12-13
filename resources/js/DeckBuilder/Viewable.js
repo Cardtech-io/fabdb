@@ -1,5 +1,18 @@
 export default {
     computed: {
+        averageCost: function() {
+            const cards = this.other;
+            const total = cards.reduce((total, card) => {
+                return total + card.total;
+            }, 0);
+
+            const totalCost = cards.reduce((total, card) => {
+                return total + card.stats.cost * card.total;
+            }, 0);
+
+            return (totalCost / total).toFixed(2);
+        },
+
         hero: function() {
             return this.cards.filter(card => {
                 return card.keywords.includes('hero');
@@ -62,6 +75,16 @@ export default {
             }
 
             return count;
+        },
+
+        pitchCount: function(type) {
+            const cards = this.other.filter(card => {
+                return card.stats.resource == type;
+            });
+
+            return cards.reduce((total, card) => {
+                return total + card.total;
+            }, 0);
         }
     }
 };
