@@ -96,6 +96,12 @@
                 this.deck = response.data;
                 this.cards = this.deck.cards;
             });
+        },
+
+        metaInfo() {
+            return {
+                title: this.deck ? 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')' : 'Loading...'
+            }
         }
     };
 </script>

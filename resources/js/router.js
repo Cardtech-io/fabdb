@@ -19,27 +19,24 @@ const router = new VueRouter({
             path: "/cards/:identifier/",
             component: ViewCard,
             name: 'card-view',
-            meta: { title: 'View card', parent: {name: 'Browse', path: '/'} }
+            meta: { title: 'View card', parent: { name: 'Browse', path: '/' } }
         },
         {
             path: "/collection/",
             component: Collection,
             name: 'collection',
-            meta: {title: 'My collection'}
+            meta: { title: 'My collection' }
         },
         {
             path: "/collection/:identifier/",
             component: ViewCard,
             name: 'collection-view',
-            meta: { title: 'View card', parent: {name: 'Collection', path: '/collection'} }
+            meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } }
         },
         {
             path: "/deck-builder/",
             component: ListDecks,
-            name: 'list-decks',
-            meta: {
-                title: 'Deck builder'
-            }
+            name: 'list-decks'
         },
         {
             path: "/deck-builder/:deck/",
@@ -70,8 +67,6 @@ router.beforeResolve((to, from, next) => {
 
 router.afterEach((to, from) => {
     NProgress.done();
-
-    document.title = to.meta.title + ' | fabdb.net';
 });
 
 // ga may not be defined as it hasn't been loaded as no analytics id is available

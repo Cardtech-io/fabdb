@@ -3,19 +3,15 @@ require('./axios-config');
 
 import Vue from 'vue';
 import VueClipboard from 'vue-clipboard2';
-import Authenticator from './Auth/Authenticator.vue';
-import Navigation from './Components/Navigation.vue';
-import Messages from './Components/Messages.vue';
+import VueMeta from 'vue-meta';
+import App from './App.vue';
 import store from './Store/Application';
 import router from './router.js';
 
 Vue.use(VueClipboard);
+Vue.use(VueMeta);
 
-Vue.component('authenticator', Authenticator);
-Vue.component('navigation', Navigation);
-Vue.component('messages', Messages);
+App.router = router;
+App.store = store;
 
-const app = new Vue({
-    router,
-    store
-}).$mount('#app');
+new Vue(App).$mount('#app');

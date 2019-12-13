@@ -246,6 +246,19 @@
             axios.get('/decks/' + this.$route.params.deck + '').then(response => {
                 this.deck = response.data;
             });
+        },
+
+        metaInfo() {
+            return {
+                title: this.deck ? 'Deck builder - Edit deck (' + this.deck.name + ')' : 'Deck builder - Edit deck',
+                meta: [
+                    {
+                        vmid: 'description',
+                        name: 'description',
+                        content: 'Fab DB is a suite of utilities for Flesh & Blood players, including a deck builder, collection manager and more.'
+                    }
+                ]
+            }
         }
     };
 </script>

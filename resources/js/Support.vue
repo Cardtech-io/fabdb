@@ -22,9 +22,11 @@
                     one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just
                     spreading the word and telling other players about this website, is super helpful!</p>
 
-                <p>All money raised as part of this endeavour will go directly into the project, by helping to cover the
+                <p class="my-4">All money raised as part of this endeavour will go directly into the project, by helping to cover the
                     various costs, and then expanding it further. I badly want this game to be "the new classic" that Legend
-                    Story has designed it to be! Together, we can get it there! :)</p>
+                    Story has designed it to be! </p>
+
+                <p class="my-4">Together, we can get it there! :)</p>
             </div>
         </div>
     </div>
@@ -32,6 +34,10 @@
 
 <script>
 export default {
-
+    metaInfo() {
+        return {
+            title: 'Support us!'
+        }
+    }
 };
 </script>

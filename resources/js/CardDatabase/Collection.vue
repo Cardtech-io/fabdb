@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="border-gray-800 border-b-0 rounded-t-lg border p-4">
-            <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> My Collection</p>
+            <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> {{ title }}</p>
         </div>
 
         <div class="border-gray-800 rounded-b-lg border p-4">
@@ -35,7 +35,8 @@
         data() {
             return {
                 page: 1,
-                results: {}
+                results: {},
+                title: 'My collection'
             }
         },
 
@@ -46,6 +47,12 @@
 
             updatePage: function(page) {
                 this.page = page;
+            }
+        },
+
+        metaInfo() {
+            return {
+                title: this.title
             }
         }
     };

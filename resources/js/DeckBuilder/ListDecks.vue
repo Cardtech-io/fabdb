@@ -40,6 +40,12 @@
             axios.get('/decks/mine/').then(response => {
                 this.decks = response.data;
             });
+        },
+
+        metaInfo() {
+            return {
+                title: 'Deck builder'
+            }
         }
     }
 </script>

@@ -91,10 +91,16 @@
             }
         },
 
-        mounted() {
+        created() {
             axios.get('/cards/' + this.$route.params.identifier).then(response => {
                 this.card = response.data;
             });
+        },
+
+        metaInfo() {
+            return {
+                title: this.card ? this.card.name + ' - ' + this.card.identifier : null
+            }
         }
     }
 </script>
