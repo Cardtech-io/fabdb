@@ -22695,7 +22695,9 @@ var render = function() {
                         ? _c("div", { staticClass: "mb-8" }, [
                             _c(
                               "h3",
-                              { staticClass: "p-2 font-serif uppercase" },
+                              {
+                                staticClass: "p-2 font-serif uppercase text-2xl"
+                              },
                               [_vm._v("Deck stats")]
                             ),
                             _vm._v(" "),
@@ -22768,7 +22770,9 @@ var render = function() {
                         ? _c("div", { staticClass: "mb-8" }, [
                             _c(
                               "h3",
-                              { staticClass: "p-2 font-serif uppercase" },
+                              {
+                                staticClass: "p-2 font-serif uppercase text-2xl"
+                              },
                               [_vm._v("Weapons")]
                             ),
                             _vm._v(" "),
@@ -22820,7 +22824,9 @@ var render = function() {
                         ? _c("div", { staticClass: "mb-8" }, [
                             _c(
                               "h3",
-                              { staticClass: "p-2 font-serif uppercase" },
+                              {
+                                staticClass: "p-2 font-serif uppercase text-2xl"
+                              },
                               [_vm._v("Equipment")]
                             ),
                             _vm._v(" "),
@@ -22866,7 +22872,9 @@ var render = function() {
                         ? _c("div", [
                             _c(
                               "h3",
-                              { staticClass: "p-2 font-serif uppercase" },
+                              {
+                                staticClass: "p-2 font-serif uppercase text-2xl"
+                              },
                               [_vm._v("Other")]
                             ),
                             _vm._v(" "),
@@ -23157,9 +23165,11 @@ var render = function() {
               _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
                 _vm.other.length
                   ? _c("div", { staticClass: "mb-8" }, [
-                      _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
-                        _vm._v("Deck stats")
-                      ]),
+                      _c(
+                        "h3",
+                        { staticClass: "p-2 font-serif uppercase text-2xl" },
+                        [_vm._v("Deck stats")]
+                      ),
                       _vm._v(" "),
                       _c("ol", [
                         _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
@@ -23193,9 +23203,11 @@ var render = function() {
                 _vm._v(" "),
                 _vm.weapons
                   ? _c("div", { staticClass: "mb-8" }, [
-                      _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
-                        _vm._v("Weapons")
-                      ]),
+                      _c(
+                        "h3",
+                        { staticClass: "p-2 font-serif uppercase text-2xl" },
+                        [_vm._v("Weapons")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "ol",
@@ -23217,9 +23229,11 @@ var render = function() {
                 _vm._v(" "),
                 _vm.equipment.length
                   ? _c("div", { staticClass: "mb-8" }, [
-                      _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
-                        _vm._v("Equipment")
-                      ]),
+                      _c(
+                        "h3",
+                        { staticClass: "p-2 font-serif uppercase text-2xl" },
+                        [_vm._v("Equipment")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "ol",
@@ -23243,9 +23257,11 @@ var render = function() {
               _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
                 _vm.other.length
                   ? _c("div", [
-                      _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
-                        _vm._v("Other")
-                      ]),
+                      _c(
+                        "h3",
+                        { staticClass: "p-2 font-serif uppercase text-2xl" },
+                        [_vm._v("Other")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "ol",

@@ -48,7 +48,7 @@
 
                         <div class="md:w-1/3 md:float-left pl-4">
                             <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase">Deck stats</h3>
+                                <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
                                 <ol>
                                     <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
                                     <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
@@ -59,7 +59,7 @@
                                 </ol>
                             </div>
                             <div v-if="weapons.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase">Weapons</h3>
+                                <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
                                 <ol>
                                     <li v-for="weapon in weapons">
                                         <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-black p-2 pl-4 w-full">
@@ -72,7 +72,7 @@
                             </div>
 
                             <div v-if="equipment.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase">Equipment</h3>
+                                <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
                                 <ol>
                                     <li v-for="card in equipment">
                                         <a href="" @click.prevent="removeCard(card)" class="block hover:bg-black p-2 pl-4 w-full">
@@ -86,7 +86,7 @@
 
                         <div class="md:w-1/3 md:float-left pl-4">
                             <div v-if="other.length">
-                                <h3 class="p-2 font-serif uppercase">Other</h3>
+                                <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
                                     <li v-for="card in other">
                                         <a href="" @click.prevent="removeCard(card)" class="block hover:bg-black p-2 pl-4 w-full">
