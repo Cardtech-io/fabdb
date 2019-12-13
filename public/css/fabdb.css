@@ -563,7 +563,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
@@ -3645,16 +3645,8 @@ video {
   clear: both;
 }
 
-.font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 .font-serif {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
-.font-mono {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
 }
 
 .font-hairline {
@@ -11403,13 +11395,19 @@ video {
 
 .theme-bg {
   background:
-        -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))),
+        -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.3))),
         url('/img/background.jpg')
-        no-repeat top center fixed;
+        no-repeat top center;
   background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
         url('/img/background.jpg')
-        no-repeat top center fixed;
+        no-repeat top center;
+  background-size: cover;
+  height: 400px;
+}
+
+.navigation {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .logo {
@@ -11441,10 +11439,15 @@ button:focus {
   color: #e2e8f0;
 }
 
-.bg-foil {
-  background: #3e4956; /* Old browsers */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #3e4956 0%,#3b414b 50%,#343a42 51%,#2e4260 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e4956', endColorstr='#2e4260',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+@font-face {
+  font-family: 'Capitolium';
+
+  src: url('/fonts/Capitolium-RegularRomanOsf.woff2') format('woff2'),
+    url('/fonts/Capitolium-RegularRomanOsf.woff') format('woff');
+
+  font-weight: normal;
+
+  font-style: normal;
 }
 
 @media (min-width: 640px) {
@@ -14466,16 +14469,8 @@ button:focus {
     clear: both;
   }
 
-  .sm\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
   .sm\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
 
   .sm\:font-hairline {
@@ -25242,16 +25237,8 @@ button:focus {
     clear: both;
   }
 
-  .md\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
   .md\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
 
   .md\:font-hairline {
@@ -36018,16 +36005,8 @@ button:focus {
     clear: both;
   }
 
-  .lg\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
   .lg\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
 
   .lg\:font-hairline {
@@ -46794,16 +46773,8 @@ button:focus {
     clear: both;
   }
 
-  .xl\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
-
   .xl\:font-serif {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  }
-
-  .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
 
   .xl\:font-hairline {

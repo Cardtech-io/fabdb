@@ -1882,6 +1882,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -21394,20 +21399,22 @@ var render = function() {
     [
       _c("authenticator"),
       _vm._v(" "),
-      _c("div", { staticClass: "container sm:mx-auto" }, [
-        _c("div", { staticClass: "pt-4 pb-8" }, [
+      _c("div", { staticClass: "theme-bg" }, [
+        _c("div", { staticClass: "py-4 navigation" }, [
           _c(
             "div",
-            { staticClass: "clearfix" },
+            { staticClass: "clearfix container sm:mx-auto" },
             [_vm._m(0), _vm._v(" "), _c("navigation")],
             1
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "clearfix" }, [_c("router-view")], 1),
-        _vm._v(" "),
         _vm._m(1)
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "clearfix" }, [_c("router-view")], 1),
+      _vm._v(" "),
+      _vm._m(2),
       _vm._v(" "),
       _c("messages")
     ],
@@ -21431,6 +21438,22 @@ var staticRenderFns = [
         ),
         _vm._v(" "),
         _c("img", { staticClass: "h-16", attrs: { src: "/img/fab-logo.png" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container sm:mx-auto py-20" }, [
+      _c("h1", { staticClass: "font-serif text-white text-6xl uppercase" }, [
+        _vm._v("Welcome")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-white" }, [
+        _vm._v(
+          "FAB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more."
+        )
       ])
     ])
   },
@@ -22457,7 +22480,7 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 rounded-l-lg sm:rounded-lg sm:ml-4 sm:w-auto",
+            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
           attrs: { to: "/" }
         },
         [_vm._v("Browse")]
@@ -22467,7 +22490,7 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 sm:rounded-lg sm:ml-4 sm:w-auto",
+            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
           attrs: { to: "/collection/" }
         },
         [_vm._v("My collection")]
@@ -22477,7 +22500,7 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 p-3 sm:rounded-lg sm:ml-4 sm:w-auto",
+            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
           attrs: { to: "/deck-builder/" }
         },
         [_vm._v("Deck builder")]
@@ -22487,7 +22510,7 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "w-1/3 text-center text-gray-500 bg-gray-900 hover:bg-gray-800 rounded-r-lg p-3 sm:rounded-lg sm:ml-4 sm:w-auto",
+            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
           attrs: { to: "/support/" }
         },
         [_vm._v("Support")]
