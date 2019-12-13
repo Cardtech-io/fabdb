@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'title' => 'Flesh &amp; Blood TCG Database',
+    'title' => 'Flesh &amp; Blood Deck Builder &amp; Card Database',
 ];
