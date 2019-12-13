@@ -2981,6 +2981,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -23143,6 +23155,42 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
+                _vm.other.length
+                  ? _c("div", { staticClass: "mb-8" }, [
+                      _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
+                        _vm._v("Deck stats")
+                      ]),
+                      _vm._v(" "),
+                      _c("ol", [
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v("Total cards: " + _vm._s(_vm.totalCards))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v(
+                            "Average card cost: " + _vm._s(_vm.averageCost)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v("Average pitch: " + _vm._s(_vm.averagePitch))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v("Pitch 3: " + _vm._s(_vm.pitchCount(3)))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v("Pitch 2: " + _vm._s(_vm.pitchCount(2)))
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                          _vm._v("Pitch 1: " + _vm._s(_vm.pitchCount(1)))
+                        ])
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 _vm.weapons
                   ? _c("div", { staticClass: "mb-8" }, [
                       _c("h3", { staticClass: "p-2 font-serif uppercase" }, [
