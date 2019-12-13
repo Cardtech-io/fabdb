@@ -2723,6 +2723,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -22713,6 +22714,16 @@ var render = function() {
                                 { staticClass: "block p-1 pl-4 w-full" },
                                 [
                                   _vm._v(
+                                    "Average pitch: " + _vm._s(_vm.averagePitch)
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "li",
+                                { staticClass: "block p-1 pl-4 w-full" },
+                                [
+                                  _vm._v(
                                     "Pitch 3: " + _vm._s(_vm.pitchCount(3))
                                   )
                                 ]
@@ -40638,14 +40649,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     averageCost: function averageCost() {
-      var cards = this.other;
-      var total = cards.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-      var totalCost = cards.reduce(function (total, card) {
+      var totalCost = this.other.reduce(function (total, card) {
         return total + card.stats.cost * card.total;
       }, 0);
-      return (totalCost / total).toFixed(2);
+      return (totalCost / this.totalOther).toFixed(2);
+    },
+    averagePitch: function averagePitch() {
+      var totalPitch = this.other.reduce(function (total, card) {
+        return total + card.stats.resource * card.total;
+      }, 0);
+      return (totalPitch / this.totalOther).toFixed(2);
     },
     hero: function hero() {
       return this.cards.filter(function (card) {
@@ -40672,6 +40685,11 @@ __webpack_require__.r(__webpack_exports__);
         if (a.stats.resource > b.stats.resource) return 1;
         return 0;
       });
+    },
+    totalOther: function totalOther() {
+      return this.other.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
     },
     totalCards: function totalCards() {
       var count = 0;

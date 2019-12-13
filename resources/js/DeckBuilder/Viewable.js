@@ -1,16 +1,19 @@
 export default {
     computed: {
         averageCost: function() {
-            const cards = this.other;
-            const total = cards.reduce((total, card) => {
-                return total + card.total;
-            }, 0);
-
-            const totalCost = cards.reduce((total, card) => {
+            const totalCost = this.other.reduce((total, card) => {
                 return total + card.stats.cost * card.total;
             }, 0);
 
-            return (totalCost / total).toFixed(2);
+            return (totalCost / this.totalOther).toFixed(2);
+        },
+
+        averagePitch: function() {
+            const totalPitch = this.other.reduce((total, card) => {
+                return total + (card.stats.resource * card.total);
+            }, 0);
+
+            return (totalPitch / this.totalOther).toFixed(2);
         },
 
         hero: function() {
@@ -42,6 +45,12 @@ export default {
                 if (a.stats.resource > b.stats.resource) return 1;
                 return 0;
             });
+        },
+
+        totalOther: function() {
+            return this.other.reduce((total, card) => {
+                return total + card.total;
+            }, 0);
         },
 
         totalCards: function() {

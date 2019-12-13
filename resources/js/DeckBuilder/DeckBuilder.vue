@@ -52,6 +52,7 @@
                                 <ol>
                                     <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
                                     <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
+                                    <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
                                     <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>
                                     <li class="block p-1 pl-4 w-full">Pitch 2: {{ pitchCount(2) }}</li>
                                     <li class="block p-1 pl-4 w-full">Pitch 1: {{ pitchCount(1) }}</li>
