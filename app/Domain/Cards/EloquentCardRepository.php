@@ -16,10 +16,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      *
      * @param string $view
      * @param array $params
+     * @param $class
+     * @param $type
      * @param int $userId
+     * @return \Illuminate\Database\Eloquent\Builder
      * @internal param bool $restrict If provided, will restrict results to only those owned by the user.
      */
-    public function search(string $view, array $params, int $userId = null)
+    public function search(string $view, array $params, $class, $type, int $userId = null)
     {
         $query = $this->newQuery();
         $query->select([
@@ -45,6 +48,19 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                     $query->orWhere('name', 'LIKE', "%{$param}%");
                     $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
                 });
+            }
+        }
+
+        if ($class) {
+            $query->where(\DB::raw("JSON_EXTRACT(keywords, '$[0]')"), $class);
+        }
+
+        if ($type) {
+            $type = explode(' ', $type);
+
+            for ($i = 0; $i < count($type); $i++) {
+                $index = $i + 1;
+                $query->where(\DB::raw("JSON_EXTRACT(keywords, '$[$index]')"), $type[$i]);
             }
         }
 

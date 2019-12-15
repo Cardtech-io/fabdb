@@ -17,8 +17,8 @@
                 </div>
             </div>
 
-            <div class="container sm:mx-auto py-20">
-                <h1 class="font-serif text-white text-6xl uppercase">Welcome</h1>
+            <div class="container sm:mx-auto py-10">
+                <h1 class="font-serif text-white text-4xl uppercase">Welcome</h1>
                 <p class="text-white">FAB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more.</p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="clearfix p-4 text-sm" v-if="results">
+    <div class="clearfix text-sm" v-if="results">
         <ul class="w-full">
             <li class="float-left w-1/3"><button @click="previous()" v-if="results.current_page > 1" class="text-orange-700 hover:text-gray-300">&lt; Previous</button>&nbsp;</li>
             <li class="float-left w-1/3 text-center">Found {{ results.total }} results</li>

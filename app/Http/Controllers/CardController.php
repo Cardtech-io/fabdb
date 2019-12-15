@@ -9,13 +9,15 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        $searchParams = array_map(function($param) {
+        $params = collect(explode(' ', $request->get('search')))->map(function($param) {
             return addslashes($param);
-        }, explode(' ', $request->get('search')));
+        })->filter()->toArray();
 
         return $cards->search(
             $request->get('view'),
-            $searchParams,
+            $params,
+            $request->get('class'),
+            $request->get('type'),
             @$request->user()->id
         )->paginate($request->get('per_page', 12))->appends($request->except('page'));
     }

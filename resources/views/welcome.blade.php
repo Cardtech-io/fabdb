@@ -20,7 +20,7 @@
             </script>
         @endif
     </head>
-    <body class="text-gray-900">
+    <body class="bg-gray-200 text-gray-900">
         <div id="app"></div>
 
         <script src="/js/app.js"></script>

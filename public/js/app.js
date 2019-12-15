@@ -2053,6 +2053,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2065,12 +2095,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       page: 1,
-      results: {}
+      results: {},
+      view: 'gallery'
     };
   },
   methods: {
     refreshResults: function refreshResults(results) {
       this.results = results;
+    },
+    setView: function setView(view) {
+      this.view = view;
     },
     updatePage: function updatePage(page) {
       this.page = page;
@@ -2136,12 +2170,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     page: Number,
     limit: {
       type: Number,
-      "default": 12
+      "default": 15
     },
     view: String,
     refreshable: {
@@ -2153,7 +2220,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      searchText: this.$route.query.search
+      heroClass: null,
+      keywords: this.$route.query.search,
+      type: null
     };
   },
   methods: {
@@ -2162,12 +2231,12 @@ __webpack_require__.r(__webpack_exports__);
         this.$router.push({
           path: this.$route.path,
           query: {
-            search: this.searchText,
+            search: this.keywords,
             page: this.page
           }
         });
       } else {
-        if (!this.searchText) {
+        if (!this.keywords) {
           this.$emit('search-completed', {});
           return;
         }
@@ -2188,9 +2257,11 @@ __webpack_require__.r(__webpack_exports__);
     buildSearchParams: function buildSearchParams() {
       var params = this.$route.query;
       params.view = this.view;
-      params.search = this.searchText;
+      params.search = this.keywords;
       params.page = this.page;
       params.per_page = this.limit;
+      params['class'] = this.heroClass;
+      params.type = this.type;
       return params;
     }
   },
@@ -2201,10 +2272,6 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     page: function page(_page) {
       this.filterCards();
-    },
-    searchText: function searchText() {
-      this.$emit('page-selected', 1);
-      this.debouncedFilterCards();
     }
   },
   created: function created() {
@@ -21445,8 +21512,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container sm:mx-auto py-20" }, [
-      _c("h1", { staticClass: "font-serif text-white text-6xl uppercase" }, [
+    return _c("div", { staticClass: "container sm:mx-auto py-10" }, [
+      _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
         _vm._v("Welcome")
       ]),
       _vm._v(" "),
@@ -21745,55 +21812,146 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "border-gray-800 rounded-b-lg border p-4" },
-      [
-        _c("card-search", {
-          attrs: { view: "all", page: _vm.page, refreshable: true },
-          on: { "search-completed": _vm.refreshResults }
-        })
-      ],
-      1
-    ),
+    _vm._m(0),
     _vm._v(" "),
-    _vm.results && _vm.results.data
-      ? _c("div", [
-          _c(
-            "div",
-            {
-              staticClass:
-                "border-gray-800 rounded-lg border my-8 clearfix mh-10 p-4"
-            },
-            [
-              _c("paginator", {
-                attrs: { results: _vm.results },
-                on: { "page-selected": _vm.updatePage }
-              }),
-              _vm._v(" "),
-              _c(
-                "ul",
-                { staticClass: "clearfix" },
-                _vm._l(_vm.results.data, function(card) {
-                  return _c("card-item", {
-                    key: card.identifier,
-                    attrs: { card: card, path: "/cards" }
-                  })
-                }),
-                1
-              ),
-              _vm._v(" "),
-              _c("paginator", {
-                attrs: { results: _vm.results },
-                on: { "page-selected": _vm.updatePage }
-              })
-            ],
-            1
-          )
-        ])
-      : _vm._e(),
+    _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
+      _c(
+        "div",
+        { staticClass: "container sm:mx-auto" },
+        [
+          _c("card-search", {
+            attrs: { view: "all", page: _vm.page, refreshable: true },
+            on: { "search-completed": _vm.refreshResults }
+          })
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _vm._m(0)
+    _c("div", { staticClass: "container sm:mx-auto" }, [
+      _vm.results && _vm.results.data
+        ? _c("div", [
+            _c(
+              "div",
+              { staticClass: "clearfix" },
+              [
+                _c("div", { staticClass: "clearfix py-4" }, [
+                  _c("div", { staticClass: "float-left w-1/5" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "gallery"
+                        },
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("gallery")
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "inline-block fill-current h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "list"
+                        },
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("list")
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass:
+                              "inline-block fill-current h-5 w-5 ml-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "float-right w-4/5" },
+                    [
+                      _c("paginator", {
+                        attrs: { results: _vm.results },
+                        on: { "page-selected": _vm.updatePage }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "clearfix -mx-4" },
+                  _vm._l(_vm.results.data, function(card) {
+                    return _c("card-item", {
+                      key: card.identifier,
+                      attrs: { card: card, view: _vm.view, path: "/cards" }
+                    })
+                  }),
+                  1
+                ),
+                _vm._v(" "),
+                _c("paginator", {
+                  attrs: { results: _vm.results },
+                  on: { "page-selected": _vm.updatePage }
+                })
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -21803,19 +21961,41 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
+      {
+        staticClass: "sm:mx-auto bg-orange-900 text-white font-serif uppercase"
+      },
+      [
+        _c("div", { staticClass: "container sm:mx-auto" }, [
+          _c("ul", { staticClass: "flex" }, [
+            _c(
+              "li",
+              { staticClass: "float-left active border-b-4 border-white p-4" },
+              [_vm._v("Welcome to Rathe")]
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
       { staticClass: "border-gray-800 rounded-lg border p-4 my-8" },
       [
-        _c("h1", { staticClass: "font-serif text-xl" }, [
+        _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
           _vm._v("Search tips")
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "my-4" }, [
           _vm._v(
-            "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n            based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc."
+            "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc."
           )
         ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "list-disc\n        ml-4" }, [
+        _c("ul", { staticClass: "list-disc ml-4" }, [
           _c("li", [
             _c("strong", [_vm._v("hero")]),
             _vm._v(
@@ -21869,7 +22049,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
+    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/5" },
     [
       _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
         _c("img", {
@@ -21908,32 +22088,198 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.searchText,
-          expression: "searchText"
-        }
-      ],
-      staticClass: "rounded bg-black focus:outline-none w-full",
-      class: _vm.size == "small" ? "p-2 text-sml" : "p-4",
-      attrs: { type: "text", placeholder: "Search" },
-      domProps: { value: _vm.searchText },
+  return _c(
+    "form",
+    {
+      staticClass: "block flex flex-wrap -mx-3",
       on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.searchText = $event.target.value
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.search($event)
         }
       }
-    })
-  ])
+    },
+    [
+      _c("div", { staticClass: "flex w-full sm:w-3/4" }, [
+        _c("div", { staticClass: "w-full sm:w-3/5 px-2" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block font-serif uppercase tracking-wide mb-1 text-sm"
+            },
+            [_vm._v("Search text")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.keywords,
+                expression: "keywords"
+              }
+            ],
+            staticClass:
+              "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+            attrs: { type: "text" },
+            domProps: { value: _vm.keywords },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.keywords = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full sm:w-1/5 px-2" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block font-serif uppercase tracking-wide mb-1 text-sm"
+            },
+            [_vm._v("Class")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.heroClass,
+                  expression: "heroClass"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.heroClass = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "brute" } }, [_vm._v("Brute")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "guardian" } }, [
+                _vm._v("Guardian")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "ninja" } }, [_vm._v("Ninja")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "warrior" } }, [
+                _vm._v("Warrior")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "generic" } }, [_vm._v("Generic")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full sm:w-1/5 px-2" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "block font-serif uppercase tracking-wide mb-1 text-sm"
+            },
+            [_vm._v("Card type")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.type,
+                  expression: "type"
+                }
+              ],
+              staticClass:
+                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.type = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "action" } }, [_vm._v("Action")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "attack" } }, [_vm._v("Attack")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "attack reaction" } }, [
+                _vm._v("Attack reaction")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "defense reaction" } }, [
+                _vm._v("Defense reaction")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "instant" } }, [_vm._v("Instant")])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-full sm:w-1/4 px-4" }, [
+      _c(
+        "label",
+        {
+          staticClass: "block font-serif uppercase tracking-wide mb-1 text-sm"
+        },
+        [_vm._v(" ")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass:
+          "appearance-none block w-full bg-orange-700 text-white rounded py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500",
+        attrs: { type: "submit", value: "Search" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -22055,8 +22401,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass:
-            "flex bg-gray-900 p-2 px-4 h-10 items-center rounded-lg hover:bg-gray-800",
+          staticClass: "flex p-2 px-4 h-10 items-center",
           on: {
             click: function($event) {
               return _vm.add("standard")
@@ -22093,8 +22438,7 @@ var render = function() {
         ? _c(
             "button",
             {
-              staticClass:
-                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
               on: {
                 click: function($event) {
                   return _vm.remove("standard")
@@ -22136,8 +22480,7 @@ var render = function() {
         ? _c(
             "button",
             {
-              staticClass:
-                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
               on: {
                 click: function($event) {
                   return _vm.add("foil")
@@ -22175,8 +22518,7 @@ var render = function() {
         ? _c(
             "button",
             {
-              staticClass:
-                "flex bg-gray-900 p-2 px-4 ml-4 h-10 items-center rounded-lg hover:bg-gray-800",
+              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
               on: {
                 click: function($event) {
                   return _vm.remove("foil")
@@ -22238,7 +22580,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.results
-    ? _c("div", { staticClass: "clearfix p-4 text-sm" }, [
+    ? _c("div", { staticClass: "clearfix text-sm" }, [
         _c("ul", { staticClass: "w-full" }, [
           _c("li", { staticClass: "float-left w-1/3" }, [
             _vm.results.current_page > 1
@@ -42188,7 +42530,7 @@ __webpack_require__.r(__webpack_exports__);
       var parts = identifier.match(/.{3}/g);
       var set = parts[0].toLowerCase();
       var id = parts[1].replace(/^0+/, '');
-      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&trim=color&trim-color=black';
     },
     resourceColour: function resourceColour(resource) {
       var colours = {
