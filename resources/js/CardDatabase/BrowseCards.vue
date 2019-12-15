@@ -37,7 +37,23 @@
                     </div>
 
                     <ul class="clearfix -mx-4">
-                        <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
+                        <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards" v-if="view == 'gallery'"></card-item>
+
+                        <table v-if="view == 'list'" class="w-full table-auto border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border border-gray-400 p-2">ID</th>
+                                    <th class="border border-gray-400 p-2">Name</th>
+                                    <th class="border border-gray-400 p-2">Standard</th>
+                                    <th class="border border-gray-400 p-2">Foil</th>
+                                    <th class="border border-gray-400 p-2">Promo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
+                            </tbody>
+                        </table>
+
                     </ul>
 
                     <paginator :results="results" @page-selected="updatePage"></paginator>
@@ -62,11 +78,13 @@
 <script>
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
+    import CardListItem from './CardListItem.vue';
     import Paginator from './Paginator.vue';
 
     export default {
         components: {
             CardItem,
+            CardListItem,
             CardSearch,
             Paginator
         },
