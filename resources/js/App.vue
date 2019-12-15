@@ -3,23 +3,18 @@
         <authenticator></authenticator>
 
         <!-- Header -->
-        <div class="theme-bg">
+        <div>
             <div class="py-4 navigation">
                 <div class="clearfix container sm:mx-auto">
                     <div class="sm:float-left overflow-visible">
                         <div class="mx-auto relative overflow-visible logo">
                             <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
-                            <img src="/img/fab-logo.png" class="h-16">
+                            <router-link to="/"><img src="/img/fab-logo.png" class="h-16"></router-link>
                         </div>
                     </div>
 
                     <navigation></navigation>
                 </div>
-            </div>
-
-            <div class="container sm:mx-auto py-10">
-                <h1 class="font-serif text-white text-4xl uppercase">Welcome</h1>
-                <p class="text-white">FAB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more.</p>
             </div>
         </div>
 

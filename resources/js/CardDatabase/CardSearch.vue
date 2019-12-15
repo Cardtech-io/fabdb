@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="search" class="block flex flex-wrap -mx-3">
+    <form @submit.prevent="filterCards" class="block flex flex-wrap -mx-3">
         <div class="flex w-full sm:w-3/4">
             <div class="w-full sm:w-3/5 px-2">
                 <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Search text</label>
@@ -57,7 +57,7 @@
         data() {
             return {
                 heroClass: null,
-                keywords: this.$route.query.search,
+                keywords: this.$route.query.keywords,
                 type: null
             }
         },
@@ -65,7 +65,14 @@
         methods: {
             filterCards: function() {
                 if (this.refreshable) {
-                    this.$router.push({path: this.$route.path, query: {search: this.keywords, page: this.page}});
+                    this.$router.push({
+                        path: this.$route.path,
+                        query: {
+                            keywords: this.keywords,
+                            page: this.page,
+                            'class': this.heroClass,
+                            type: this.type
+                        }});
                 } else {
                     if (! this.keywords) {
                         this.$emit('search-completed', {});
@@ -88,7 +95,7 @@
                 var params = this.$route.query;
 
                 params.view = this.view;
-                params.search = this.keywords;
+                params.keywords = this.keywords;
                 params.page = this.page;
                 params.per_page = this.limit;
                 params['class'] = this.heroClass;
@@ -111,6 +118,10 @@
         },
 
         created: function() {
+            this.keywords = this.$route.query.keywords;
+            this.heroClass = this.$route.query['class'];
+            this.type = this.$route.query.type;
+
             this.debouncedFilterCards = _.debounce(this.filterCards, 750);
         }
     };

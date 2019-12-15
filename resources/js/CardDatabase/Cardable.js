@@ -5,7 +5,7 @@ export default {
             const set = parts[0].toLowerCase();
             const id = parts[1].replace(/^0+/, '');
 
-            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&trim=auto';
+            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=22,22,406,584';
         },
 
         resourceColour: function(resource) {

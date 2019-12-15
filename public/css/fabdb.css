@@ -11393,16 +11393,24 @@ video {
   z-index: auto;
 }
 
+html, body {
+  height: 100%;
+}
+
 .theme-bg {
   background:
         -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.3))),
         url('/img/background.jpg')
-        no-repeat center top;
+        no-repeat left top;
   background:
         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
         url('/img/background.jpg')
-        no-repeat center top;
+        no-repeat left top;
   background-size: cover;
+}
+
+.bg-semi-black {
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .navigation {

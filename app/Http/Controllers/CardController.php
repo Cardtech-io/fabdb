@@ -9,13 +9,13 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        $params = collect(explode(' ', $request->get('search')))->map(function($param) {
-            return addslashes($param);
+        $keywords = collect(explode(' ', $request->get('keywords')))->map(function($keyword) {
+            return addslashes($keyword);
         })->filter()->toArray();
 
         return $cards->search(
             $request->get('view'),
-            $params,
+            $keywords,
             $request->get('class'),
             $request->get('type'),
             @$request->user()->id

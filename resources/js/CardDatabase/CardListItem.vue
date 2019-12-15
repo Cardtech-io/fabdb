@@ -1,10 +1,10 @@
 <template>
     <tr>
-        <td class="border border-gray-400 p-2">{{ card.identifier }}</td>
-        <td class="border border-gray-400 p-2">{{ card.name }}</td>
-        <td class="border border-gray-400 p-2">{{ card.standard }}</td>
-        <td class="border border-gray-400 p-2">{{ card.foil }}</td>
-        <td class="border border-gray-400 p-2">{{ card.promo }}</td>
+        <td class="border border-gray-300 py-2 px-4">{{ card.identifier }}</td>
+        <td class="border border-gray-300 py-2 px-4">{{ card.name }}</td>
+        <td class="border border-gray-300 py-2 px-4 text-center">{{ card.standard }}</td>
+        <td class="border border-gray-300 py-2 px-4 text-center">{{ card.foil }}</td>
+        <td class="border border-gray-300 py-2 px-4 text-center">{{ card.promo }}</td>
     </tr>
 </template>
 

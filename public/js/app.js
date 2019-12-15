@@ -1882,11 +1882,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -2023,6 +2018,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardItem.vue */ "./resources/js/CardDatabase/CardItem.vue");
 /* harmony import */ var _CardListItem_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardListItem.vue */ "./resources/js/CardDatabase/CardListItem.vue");
 /* harmony import */ var _Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Paginator.vue */ "./resources/js/CardDatabase/Paginator.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2280,7 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       heroClass: null,
-      keywords: this.$route.query.search,
+      keywords: this.$route.query.keywords,
       type: null
     };
   },
@@ -2290,8 +2294,10 @@ __webpack_require__.r(__webpack_exports__);
         this.$router.push({
           path: this.$route.path,
           query: {
-            search: this.keywords,
-            page: this.page
+            keywords: this.keywords,
+            page: this.page,
+            'class': this.heroClass,
+            type: this.type
           }
         });
       } else {
@@ -2316,7 +2322,7 @@ __webpack_require__.r(__webpack_exports__);
     buildSearchParams: function buildSearchParams() {
       var params = this.$route.query;
       params.view = this.view;
-      params.search = this.keywords;
+      params.keywords = this.keywords;
       params.page = this.page;
       params.per_page = this.limit;
       params['class'] = this.heroClass;
@@ -2334,6 +2340,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    this.keywords = this.$route.query.keywords;
+    this.heroClass = this.$route.query['class'];
+    this.type = this.$route.query.type;
     this.debouncedFilterCards = _.debounce(this.filterCards, 750);
   }
 });
@@ -3244,6 +3253,75 @@ __webpack_require__.r(__webpack_exports__);
     };
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Home.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Home.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -21525,22 +21603,47 @@ var render = function() {
     [
       _c("authenticator"),
       _vm._v(" "),
-      _c("div", { staticClass: "theme-bg" }, [
+      _c("div", [
         _c("div", { staticClass: "py-4 navigation" }, [
           _c(
             "div",
             { staticClass: "clearfix container sm:mx-auto" },
-            [_vm._m(0), _vm._v(" "), _c("navigation")],
+            [
+              _c("div", { staticClass: "sm:float-left overflow-visible" }, [
+                _c(
+                  "div",
+                  { staticClass: "mx-auto relative overflow-visible logo" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute"
+                      },
+                      [_vm._v("Card Database")]
+                    ),
+                    _vm._v(" "),
+                    _c("router-link", { attrs: { to: "/" } }, [
+                      _c("img", {
+                        staticClass: "h-16",
+                        attrs: { src: "/img/fab-logo.png" }
+                      })
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("navigation")
+            ],
             1
           )
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "clearfix" }, [_c("router-view")], 1),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(0),
       _vm._v(" "),
       _c("messages")
     ],
@@ -21548,41 +21651,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sm:float-left overflow-visible" }, [
-      _c("div", { staticClass: "mx-auto relative overflow-visible logo" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute"
-          },
-          [_vm._v("Card Database")]
-        ),
-        _vm._v(" "),
-        _c("img", { staticClass: "h-16", attrs: { src: "/img/fab-logo.png" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container sm:mx-auto py-10" }, [
-      _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
-        _vm._v("Welcome")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-white" }, [
-        _vm._v(
-          "FAB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more."
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -21875,6 +21943,8 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
     _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
       _c(
         "div",
@@ -21889,113 +21959,117 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "container sm:mx-auto" }, [
-      _vm.results && _vm.results.data
-        ? _c("div", [
-            _c(
-              "div",
-              { staticClass: "clearfix" },
-              [
-                _c("div", { staticClass: "clearfix py-4" }, [
-                  _c("div", { staticClass: "float-left w-1/5" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "text-gray-800",
-                        class: {
-                          "text-orange-700 hover:text-gray-500":
-                            _vm.view != "gallery"
-                        },
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.setView("gallery")
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "inline-block fill-current h-4 w-4",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
+    _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "container sm:mx-auto" }, [
+        _vm.results && _vm.results.data
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "clearfix" },
+                [
+                  _c("div", { staticClass: "clearfix py-4" }, [
+                    _c("div", { staticClass: "float-left w-1/5" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-gray-800",
+                          class: {
+                            "text-orange-700 hover:text-gray-500":
+                              _vm.view != "gallery"
                           },
-                          [
-                            _c("path", {
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.setView("gallery")
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "inline-block fill-current h-4 w-4",
                               attrs: {
-                                d:
-                                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
                               }
-                            })
-                          ]
-                        )
-                      ]
-                    ),
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-gray-800",
+                          class: {
+                            "text-orange-700 hover:text-gray-500":
+                              _vm.view != "list"
+                          },
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.setView("list")
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "inline-block fill-current h-5 w-5 ml-1",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c(
-                      "a",
-                      {
-                        staticClass: "text-gray-800",
-                        class: {
-                          "text-orange-700 hover:text-gray-500":
-                            _vm.view != "list"
-                        },
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.setView("list")
-                          }
-                        }
-                      },
+                      "div",
+                      { staticClass: "float-left w-3/5" },
                       [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "inline-block fill-current h-5 w-5 ml-1",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    )
+                        _c("paginator", {
+                          attrs: { results: _vm.results },
+                          on: { "page-selected": _vm.updatePage }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "float-left w-1/5" }, [
+                      _vm._v(" ")
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "float-right w-4/5" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  { staticClass: "clearfix -mx-4" },
-                  [
-                    _vm._l(_vm.results.data, function(card) {
-                      return _vm.view == "gallery"
-                        ? _c("card-item", {
+                  _vm.view == "gallery"
+                    ? _c(
+                        "ul",
+                        { staticClass: "clearfix -mx-4" },
+                        _vm._l(_vm.results.data, function(card) {
+                          return _c("card-item", {
                             key: card.identifier,
                             attrs: {
                               card: card,
@@ -22003,48 +22077,63 @@ var render = function() {
                               path: "/cards"
                             }
                           })
-                        : _vm._e()
-                    }),
-                    _vm._v(" "),
-                    _vm.view == "list"
-                      ? _c(
-                          "table",
-                          { staticClass: "w-full table-auto border-collapse" },
-                          [
-                            _vm._m(1),
-                            _vm._v(" "),
-                            _c(
-                              "tbody",
-                              _vm._l(_vm.results.data, function(card) {
-                                return _c("card-list-item", {
-                                  key: card.identifier,
-                                  attrs: { card: card, path: "/cards" }
-                                })
-                              }),
-                              1
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ],
-                  2
-                ),
-                _vm._v(" "),
-                _c("paginator", {
-                  attrs: { results: _vm.results },
-                  on: { "page-selected": _vm.updatePage }
-                })
-              ],
-              1
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._m(2)
+                        }),
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.view == "list"
+                    ? _c(
+                        "table",
+                        {
+                          staticClass:
+                            "w-full table-auto border-collapse bg-white"
+                        },
+                        [
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.results.data, function(card) {
+                              return _c("card-list-item", {
+                                key: card.identifier,
+                                attrs: { card: card, path: "/cards" }
+                              })
+                            }),
+                            1
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("paginator", {
+                    attrs: { results: _vm.results },
+                    on: { "page-selected": _vm.updatePage }
+                  })
+                ],
+                1
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._m(3)
+      ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container sm:mx-auto flex" }, [
+      _c("div", { staticClass: "w-1/3 pr-8 py-10" }, [
+        _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
+          _vm._v("Browse cards")
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -22073,23 +22162,47 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { staticClass: "border border-gray-400 p-2" }, [_vm._v("ID")]),
+        _c(
+          "th",
+          {
+            staticClass:
+              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+          },
+          [_vm._v("ID")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "border border-gray-400 p-2" }, [
-          _vm._v("Name")
-        ]),
+        _c(
+          "th",
+          {
+            staticClass:
+              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+          },
+          [_vm._v("Name")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "border border-gray-400 p-2" }, [
-          _vm._v("Standard")
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+          },
+          [_vm._v("Standard")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "border border-gray-400 p-2" }, [
-          _vm._v("Foil")
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+          },
+          [_vm._v("Foil")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "border border-gray-400 p-2" }, [
-          _vm._v("Promo")
-        ])
+        _c(
+          "th",
+          {
+            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+          },
+          [_vm._v("Promo")]
+        )
       ])
     ])
   },
@@ -22107,7 +22220,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "my-4" }, [
           _vm._v(
-            "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc."
+            "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                    based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc."
           )
         ]),
         _vm._v(" "),
@@ -22206,23 +22319,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
-    _c("td", { staticClass: "border border-gray-400 p-2" }, [
+    _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
       _vm._v(_vm._s(_vm.card.identifier))
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "border border-gray-400 p-2" }, [
+    _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
       _vm._v(_vm._s(_vm.card.name))
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "border border-gray-400 p-2" }, [
+    _c("td", { staticClass: "border border-gray-300 py-2 px-4 text-center" }, [
       _vm._v(_vm._s(_vm.card.standard))
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "border border-gray-400 p-2" }, [
+    _c("td", { staticClass: "border border-gray-300 py-2 px-4 text-center" }, [
       _vm._v(_vm._s(_vm.card.foil))
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "border border-gray-400 p-2" }, [
+    _c("td", { staticClass: "border border-gray-300 py-2 px-4 text-center" }, [
       _vm._v(_vm._s(_vm.card.promo))
     ])
   ])
@@ -22256,7 +22369,7 @@ var render = function() {
       on: {
         submit: function($event) {
           $event.preventDefault()
-          return _vm.search($event)
+          return _vm.filterCards($event)
         }
       }
     },
@@ -22984,7 +23097,7 @@ var render = function() {
         {
           staticClass:
             "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/" }
+          attrs: { to: "/browse/" }
         },
         [_vm._v("Browse")]
       ),
@@ -24084,6 +24197,184 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Home.vue?vue&type=template&id=35a92206&":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Home.vue?vue&type=template&id=35a92206& ***!
+  \********************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container sm:mx-auto flex" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "w-2/3 bg-semi-black rounded-lg py-8 px-4 my-20" },
+      [
+        _c(
+          "h1",
+          { staticClass: "font-serif text-white text-4xl uppercase pl-4" },
+          [_vm._v("Features")]
+        ),
+        _vm._v(" "),
+        _c("ol", { staticClass: "text-white" }, [
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/browse/" } }, [
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "inline-block hover:bg-black hover:text-orange-300 rounded-lg p-4"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass:
+                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12z"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(
+                      "\n\n                        Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,\n                        or add to that touranment-winning deck!\n                    "
+                    )
+                  ]
+                )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mt-4" },
+            [
+              _c("router-link", { attrs: { to: "/collection/" } }, [
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass:
+                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: { d: "M0 11l2-2 5 5L18 3l2 2L7 18z" }
+                        })
+                      ]
+                    ),
+                    _vm._v(
+                      "\n\n                        Manage your collection by adding and removing cards, recording the foils and promos you own, and share what you are\n                        looking for, or willing to trade!\n                    "
+                    )
+                  ]
+                )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mt-4" },
+            [
+              _c("router-link", { attrs: { to: "/deck-builder/" } }, [
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass:
+                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(
+                      "\n\n                        Craft decks, by selecting your hero, weapons & equipment and the cards they'll\n                        need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!\n                    "
+                    )
+                  ]
+                )
+              ])
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("p")
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-1/3 pr-8 py-40" }, [
+      _c("h1", { staticClass: "font-serif text-white text-6xl uppercase" }, [
+        _vm._v("Welcome")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-white" }, [
+        _vm._v(
+          "FaB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more."
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -42760,7 +43051,7 @@ __webpack_require__.r(__webpack_exports__);
       var parts = identifier.match(/.{3}/g);
       var set = parts[0].toLowerCase();
       var id = parts[1].replace(/^0+/, '');
-      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&trim=auto';
+      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=22,22,406,584';
     },
     resourceColour: function resourceColour(resource) {
       var colours = {
@@ -43744,6 +44035,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Home.vue":
+/*!*******************************!*\
+  !*** ./resources/js/Home.vue ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=35a92206& */ "./resources/js/Home.vue?vue&type=template&id=35a92206&");
+/* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/Home.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Home.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Home.vue?vue&type=script&lang=js&":
+/*!********************************************************!*\
+  !*** ./resources/js/Home.vue?vue&type=script&lang=js& ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--4-0!../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Home.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Home.vue?vue&type=template&id=35a92206&":
+/*!**************************************************************!*\
+  !*** ./resources/js/Home.vue?vue&type=template&id=35a92206& ***!
+  \**************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=template&id=35a92206& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Home.vue?vue&type=template&id=35a92206&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_35a92206___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Store/Application.js":
 /*!*******************************************!*\
   !*** ./resources/js/Store/Application.js ***!
@@ -44002,13 +44363,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardDatabase/BrowseCards.vue */ "./resources/js/CardDatabase/BrowseCards.vue");
-/* harmony import */ var _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CardDatabase/ViewCard.vue */ "./resources/js/CardDatabase/ViewCard.vue");
-/* harmony import */ var _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CardDatabase/Collection.vue */ "./resources/js/CardDatabase/Collection.vue");
-/* harmony import */ var _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DeckBuilder/ListDecks.vue */ "./resources/js/DeckBuilder/ListDecks.vue");
-/* harmony import */ var _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeckBuilder/DeckBuilder.vue */ "./resources/js/DeckBuilder/DeckBuilder.vue");
-/* harmony import */ var _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeckBuilder/ViewDeck.vue */ "./resources/js/DeckBuilder/ViewDeck.vue");
-/* harmony import */ var _Support_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Support.vue */ "./resources/js/Support.vue");
+/* harmony import */ var _Home_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Home.vue */ "./resources/js/Home.vue");
+/* harmony import */ var _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CardDatabase/BrowseCards.vue */ "./resources/js/CardDatabase/BrowseCards.vue");
+/* harmony import */ var _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CardDatabase/ViewCard.vue */ "./resources/js/CardDatabase/ViewCard.vue");
+/* harmony import */ var _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CardDatabase/Collection.vue */ "./resources/js/CardDatabase/Collection.vue");
+/* harmony import */ var _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeckBuilder/ListDecks.vue */ "./resources/js/DeckBuilder/ListDecks.vue");
+/* harmony import */ var _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeckBuilder/DeckBuilder.vue */ "./resources/js/DeckBuilder/DeckBuilder.vue");
+/* harmony import */ var _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DeckBuilder/ViewDeck.vue */ "./resources/js/DeckBuilder/ViewDeck.vue");
+/* harmony import */ var _Support_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Support.vue */ "./resources/js/Support.vue");
+
 
 
 
@@ -44024,14 +44387,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
     path: "/",
-    component: _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _Home_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    name: 'home',
+    meta: {
+      title: 'Home'
+    }
+  }, {
+    path: "/browse/",
+    component: _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: 'cards',
     meta: {
       title: 'Browse cards'
     }
   }, {
     path: "/cards/:identifier/",
-    component: _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    component: _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'card-view',
     meta: {
       title: 'View card',
@@ -44042,14 +44412,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     path: "/collection/",
-    component: _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     name: 'collection',
     meta: {
       title: 'My collection'
     }
   }, {
     path: "/collection/:identifier/",
-    component: _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    component: _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'collection-view',
     meta: {
       title: 'View card',
@@ -44060,23 +44430,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     path: "/deck-builder/",
-    component: _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     name: 'list-decks'
   }, {
     path: "/deck-builder/:deck/",
-    component: _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    component: _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     meta: {
       title: 'Deck builder &gt; Edit deck'
     }
   }, {
     path: "/decks/:deck/",
-    component: _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       title: 'View deck'
     }
   }, {
     path: "/support/",
-    component: _Support_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    component: _Support_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
     name: 'support',
     meta: {
       title: 'Support options'
