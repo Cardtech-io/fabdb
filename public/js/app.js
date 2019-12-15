@@ -2451,6 +2451,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['card', 'view'],
@@ -2496,9 +2498,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['results'],
+  computed: {
+    pageRange: function pageRange() {
+      var rangeLimit = 7;
+      var current = this.results.current_page;
+      var first = current - 3;
+
+      if (first + rangeLimit > this.results.last_page) {
+        first = this.results.last_page - rangeLimit;
+      }
+
+      if (first < 1) {
+        first = 1;
+      }
+
+      var range = [];
+
+      for (var i = first; i < first + rangeLimit; i++) {
+        range.push(i);
+      }
+
+      return range;
+    }
+  },
   methods: {
+    active: function active(n) {
+      return {
+        'bg-orange-700': this.results.current_page == n,
+        'text-white': this.results.current_page == n
+      };
+    },
     next: function next() {
       this.$emit('page-selected', this.results.current_page + 1);
     },
@@ -22709,10 +22746,16 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm.standard
+        ? _c("span", { staticClass: "ml-2" }, [
+            _vm._v("(" + _vm._s(_vm.standard) + ")")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.standard
         ? _c(
             "button",
             {
-              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
+              staticClass: "flex p-2 px-4 h-10 items-center",
               on: {
                 click: function($event) {
                   return _vm.remove("standard")
@@ -22741,11 +22784,7 @@ var render = function() {
               _vm._v(" "),
               _vm.view != "list"
                 ? _c("span", { staticClass: "ml-2" }, [_vm._v("Remove")])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2" }, [
-                _vm._v("(" + _vm._s(_vm.standard) + ")")
-              ])
+                : _vm._e()
             ]
           )
         : _vm._e(),
@@ -22855,47 +22894,62 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.results
     ? _c("div", { staticClass: "clearfix text-sm" }, [
-        _c("ul", { staticClass: "w-full" }, [
-          _c("li", { staticClass: "float-left w-1/3" }, [
-            _vm.results.current_page > 1
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "text-orange-700 hover:text-gray-300",
-                    on: {
-                      click: function($event) {
-                        return _vm.previous()
-                      }
+        _c(
+          "ul",
+          [
+            _c("li", { staticClass: "float-left" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.previous($event)
                     }
-                  },
-                  [_vm._v("< Previous")]
-                )
-              : _vm._e(),
-            _vm._v(" ")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left w-1/3 text-center" }, [
-            _vm._v("Found " + _vm._s(_vm.results.total) + " results")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-right w-1/3 text-right" }, [
-            _vm._v(" "),
-            _vm.results.current_page < _vm.results.last_page
-              ? _c(
-                  "button",
+                  }
+                },
+                [_vm._v("<")]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.pageRange, function(n) {
+              return _c("li", { staticClass: "float-left" }, [
+                _c(
+                  "a",
                   {
-                    staticClass: "text-orange-700 hover:text-gray-300",
-                    on: {
-                      click: function($event) {
-                        return _vm.next()
-                      }
-                    }
+                    staticClass:
+                      "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+                    class: _vm.active(n),
+                    attrs: { href: "" }
                   },
-                  [_vm._v("Next >")]
+                  [_vm._v(_vm._s(n))]
                 )
-              : _vm._e()
-          ])
-        ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("li", { staticClass: "float-left" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.next($event)
+                    }
+                  }
+                },
+                [_vm._v(">")]
+              )
+            ])
+          ],
+          2
+        )
       ])
     : _vm._e()
 }
