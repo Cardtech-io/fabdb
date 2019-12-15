@@ -2,7 +2,7 @@
     <form @submit.prevent="filterCards" class="block flex flex-wrap -mx-3">
         <div class="flex w-full sm:w-3/4">
             <div class="w-full sm:w-3/5 px-2">
-                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Search text</label>
+                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Keywords</label>
                 <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg">
             </div>
 
@@ -108,6 +108,10 @@
         mounted() {
             if (this.wait) return;
 
+            this.keywords = this.$route.query.keywords;
+            this.heroClass = this.$route.query['class'];
+            this.type = this.$route.query.type;;
+
             this.search();
         },
 
@@ -118,10 +122,6 @@
         },
 
         created: function() {
-            this.keywords = this.$route.query.keywords;
-            this.heroClass = this.$route.query['class'];
-            this.type = this.$route.query.type;
-
             this.debouncedFilterCards = _.debounce(this.filterCards, 750);
         }
     };

@@ -2104,6 +2104,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2332,6 +2334,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (this.wait) return;
+    this.keywords = this.$route.query.keywords;
+    this.heroClass = this.$route.query['class'];
+    this.type = this.$route.query.type;
+    ;
     this.search();
   },
   watch: {
@@ -2340,9 +2346,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.keywords = this.$route.query.keywords;
-    this.heroClass = this.$route.query['class'];
-    this.type = this.$route.query.type;
     this.debouncedFilterCards = _.debounce(this.filterCards, 750);
   }
 });
@@ -22005,156 +22008,152 @@ var render = function() {
       _c("div", { staticClass: "container sm:mx-auto" }, [
         _vm.results && _vm.results.data
           ? _c("div", [
-              _c(
-                "div",
-                { staticClass: "clearfix" },
-                [
-                  _c("div", { staticClass: "clearfix py-4" }, [
-                    _c("div", { staticClass: "float-left w-1/5" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "text-gray-800",
-                          class: {
-                            "text-orange-700 hover:text-gray-500":
-                              _vm.view != "gallery"
-                          },
-                          attrs: { href: "" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.setView("gallery")
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "inline-block fill-current h-4 w-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 20 20"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "text-gray-800",
-                          class: {
-                            "text-orange-700 hover:text-gray-500":
-                              _vm.view != "list"
-                          },
-                          attrs: { href: "" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.setView("list")
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "inline-block fill-current h-5 w-5 ml-1",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 20 20"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
+              _c("div", { staticClass: "clearfix" }, [
+                _c("div", { staticClass: "clearfix py-4" }, [
+                  _c("div", { staticClass: "float-left w-1/5" }, [
                     _c(
-                      "div",
-                      { staticClass: "float-left w-3/5" },
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "gallery"
+                        },
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("gallery")
+                          }
+                        }
+                      },
                       [
-                        _c("paginator", {
-                          attrs: { results: _vm.results },
-                          on: { "page-selected": _vm.updatePage }
-                        })
-                      ],
-                      1
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "inline-block fill-current h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "float-left w-1/5" }, [
-                      _vm._v(" ")
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "list"
+                        },
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("list")
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass:
+                              "inline-block fill-current h-5 w-5 ml-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
-                  _vm.view == "gallery"
-                    ? _c(
-                        "ul",
-                        { staticClass: "clearfix -mx-4" },
-                        _vm._l(_vm.results.data, function(card) {
-                          return _c("card-item", {
-                            key: card.identifier,
-                            attrs: {
-                              card: card,
-                              view: _vm.view,
-                              path: "/cards"
-                            }
-                          })
-                        }),
-                        1
-                      )
-                    : _vm._e(),
+                  _c(
+                    "div",
+                    { staticClass: "float-left w-3/5" },
+                    [
+                      _c("paginator", {
+                        attrs: { results: _vm.results },
+                        on: { "page-selected": _vm.updatePage }
+                      })
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _vm.view == "list"
-                    ? _c(
-                        "table",
-                        {
-                          staticClass:
-                            "w-full table-auto border-collapse bg-white"
-                        },
-                        [
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(_vm.results.data, function(card) {
-                              return _c("card-list-item", {
-                                key: card.identifier,
-                                attrs: { card: card, path: "/cards" }
-                              })
-                            }),
-                            1
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("paginator", {
-                    attrs: { results: _vm.results },
-                    on: { "page-selected": _vm.updatePage }
-                  })
-                ],
-                1
-              )
+                  _c("div", { staticClass: "float-left w-1/5" }, [_vm._v(" ")])
+                ]),
+                _vm._v(" "),
+                _vm.view == "gallery"
+                  ? _c(
+                      "ul",
+                      { staticClass: "clearfix -mx-4" },
+                      _vm._l(_vm.results.data, function(card) {
+                        return _c("card-item", {
+                          key: card.identifier,
+                          attrs: { card: card, view: _vm.view, path: "/cards" }
+                        })
+                      }),
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.view == "list"
+                  ? _c(
+                      "table",
+                      {
+                        staticClass:
+                          "w-full table-auto border-collapse bg-white"
+                      },
+                      [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.results.data, function(card) {
+                            return _c("card-list-item", {
+                              key: card.identifier,
+                              attrs: { card: card, path: "/cards" }
+                            })
+                          }),
+                          1
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.results },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                )
+              ])
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -22252,49 +22251,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "border-gray-800 rounded-lg border p-4 my-8" },
-      [
-        _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
-          _vm._v("Search tips")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-4" }, [
+    return _c("div", { staticClass: "border-t border-gray-300 py-8" }, [
+      _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
+        _vm._v("Search tips")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-4" }, [
+        _vm._v(
+          "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                    based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc. using the keywords search field."
+        )
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-disc ml-4" }, [
+        _c("li", [
+          _c("strong", [_vm._v("hero")]),
           _vm._v(
-            "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                    based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc."
+            ": list all cards that have the keyword 'hero'. This applies to any keyword you search for."
           )
         ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "list-disc ml-4" }, [
-          _c("li", [
-            _c("strong", [_vm._v("hero")]),
-            _vm._v(
-              ": list all cards that have the keyword 'hero'. This applies to any keyword you search for."
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("strong", [_vm._v("WTR011")]),
-            _vm._v(": Look for card #11 within the Welcome to Rathe set")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("strong", [_vm._v("1")]),
-            _vm._v(
-              ": Load card #1 in any set (can also be formatted as 01 or 001"
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("strong", [_vm._v("guardian action")]),
-            _vm._v(
-              ': Find all cards that have the keywords "guardian" and "action"'
-            )
-          ])
+        _c("li", [
+          _c("strong", [_vm._v("WTR011")]),
+          _vm._v(": Look for card #11 within the Welcome to Rathe set")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("1")]),
+          _vm._v(
+            ": Load card #1 in any set (can also be formatted as 01 or 001"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("guardian action")]),
+          _vm._v(
+            ': Find all cards that have the keywords "guardian" and "action"'
+          )
         ])
-      ]
-    )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -22424,7 +22419,7 @@ var render = function() {
               staticClass:
                 "block font-serif uppercase tracking-wide mb-1 text-sm"
             },
-            [_vm._v("Search text")]
+            [_vm._v("Keywords")]
           ),
           _vm._v(" "),
           _c("input", {
