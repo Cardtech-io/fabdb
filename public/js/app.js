@@ -2132,8 +2132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2208,7 +2206,7 @@ __webpack_require__.r(__webpack_exports__);
     page: Number,
     limit: {
       type: Number,
-      "default": 15
+      "default": 12
     },
     view: String,
     refreshable: {
@@ -21627,7 +21625,7 @@ var render = function() {
     _vm.visible
       ? _c("div", {
           staticClass:
-            "w-full h-full fixed top-0 left-0 z-10 bg-gray-400 opacity-50"
+            "w-full h-full fixed top-0 left-0 z-10 bg-black opacity-50"
         })
       : _vm._e(),
     _vm._v(" "),
@@ -21637,7 +21635,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "relative p-8 mt-40 bg-black md:rounded-lg md:w-1/2 md:mx-auto"
+                "relative p-8 mt-40 bg-white md:rounded-lg md:w-1/2 md:mx-auto"
             },
             [
               _c("div", { staticClass: "absolute top-0 right-0" }, [
@@ -21675,7 +21673,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("h1", { staticClass: "font-serif text-xl text-gray-300" }, [
+              _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
                 _vm._v("Login")
               ]),
               _vm._v(" "),
@@ -21694,7 +21692,7 @@ var render = function() {
                       [
                         _c("p", { staticClass: "my-4" }, [
                           _vm._v(
-                            "Some features on fabdb require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)"
+                            "Some features on FaB DB require an account. Registration/login is super, super easy! Just provide your email and grab the code sent to you in a few moments :)"
                           )
                         ]),
                         _vm._v(" "),
@@ -21708,7 +21706,8 @@ var render = function() {
                                 expression: "email"
                               }
                             ],
-                            staticClass: "w-2/3 p-4 rounded-l-lg",
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
                             attrs: {
                               type: "email",
                               placeholder: "Email address"
@@ -21761,7 +21760,8 @@ var render = function() {
                                 expression: "code"
                               }
                             ],
-                            staticClass: "w-2/3 p-4 rounded-l-lg",
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
                             attrs: { type: "text", placeholder: "" },
                             domProps: { value: _vm.code },
                             on: {
@@ -22049,14 +22049,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/5" },
+    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
     [
       _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
         _c("img", {
-          staticClass: "w-full",
+          staticClass: "w-full rounded-t-lg",
           attrs: {
             src: _vm.cardUrl(_vm.card.identifier, 250),
-            alt: _vm.card.name
+            alt: _vm.card.name,
+            title: _vm.card.name
           }
         })
       ]),
@@ -22121,7 +22122,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
             attrs: { type: "text" },
             domProps: { value: _vm.keywords },
             on: {
@@ -22157,7 +22158,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -22216,7 +22217,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -22274,7 +22275,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass:
-          "appearance-none block w-full bg-orange-700 text-white rounded py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500",
+          "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500",
         attrs: { type: "submit", value: "Search" }
       })
     ])
@@ -22394,7 +22395,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "my-4 flex items-center",
+      staticClass: "flex items-center bg-white",
       class: _vm.view == "list" ? "justify-center" : ""
     },
     [
@@ -42530,7 +42531,7 @@ __webpack_require__.r(__webpack_exports__);
       var parts = identifier.match(/.{3}/g);
       var set = parts[0].toLowerCase();
       var id = parts[1].replace(/^0+/, '');
-      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&trim=color&trim-color=black';
+      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&trim=auto';
     },
     resourceColour: function resourceColour(resource) {
       var colours = {

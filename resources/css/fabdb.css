@@ -49,3 +49,15 @@ button:focus {
     font-weight: normal;
     font-style: normal;
 }
+
+.input {
+    @apply appearance-none;
+    @apply block;
+    @apply w-full;
+    @apply bg-gray-200;
+    @apply text-gray-700;
+    @apply border;
+    @apply border-gray-200;
+    @apply leading-tight;
+    @apply outline-none;
+}

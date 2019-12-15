@@ -3,12 +3,12 @@
         <div class="flex w-full sm:w-3/4">
             <div class="w-full sm:w-3/5 px-2">
                 <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Search text</label>
-                <input type="text" v-model="keywords" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg">
             </div>
 
             <div class="w-full sm:w-1/5 px-2">
                 <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Class</label>
-                <select v-model="heroClass" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select v-model="heroClass" class="input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg">
                     <option value=""></option>
                     <option value="brute">Brute</option>
                     <option value="guardian">Guardian</option>
@@ -20,7 +20,7 @@
 
             <div class="w-full sm:w-1/5 px-2">
                 <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Card type</label>
-                <select v-model="type" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <select v-model="type" class="input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg">
                     <option value=""></option>
                     <option value="action">Action</option>
                     <option value="attack">Attack</option>
@@ -32,7 +32,7 @@
         </div>
         <div class="w-full sm:w-1/4 px-4">
             <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
-            <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500">
+            <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500">
         </div>
     </form>
 </template>
@@ -43,7 +43,7 @@
             page: Number,
             limit: {
                 type: Number,
-                default: 15
+                default: 12
             },
             view: String,
             refreshable: {
