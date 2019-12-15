@@ -2496,33 +2496,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['results'],
   computed: {
     pageRange: function pageRange() {
       var rangeLimit = 7;
-      var current = this.results.current_page;
-      var first = current - 3;
+      var currentPage = this.results.current_page;
+      var lastPage = this.results.last_page;
+      var first = currentPage - 3;
 
-      if (first + rangeLimit > this.results.last_page) {
-        first = this.results.last_page - rangeLimit;
+      if (first + rangeLimit > lastPage) {
+        first = lastPage - rangeLimit;
       }
 
       if (first < 1) {
         first = 1;
       }
 
+      var last = first + rangeLimit;
+
+      if (last > lastPage) {
+        last = lastPage;
+      }
+
       var range = [];
 
-      for (var i = first; i < first + rangeLimit; i++) {
+      for (var i = first; i <= last; i++) {
         range.push(i);
       }
 
@@ -2536,11 +2535,17 @@ __webpack_require__.r(__webpack_exports__);
         'text-white': this.results.current_page == n
       };
     },
+    select: function select(page) {
+      this.selectPage(page);
+    },
     next: function next() {
-      this.$emit('page-selected', this.results.current_page + 1);
+      this.selectPage(this.results.current_page + 1);
     },
     previous: function previous() {
-      this.$emit('page-selected', this.results.current_page - 1);
+      this.selectPage(this.results.current_page - 1);
+    },
+    selectPage: function selectPage(page) {
+      this.$emit('page-selected', page);
     }
   }
 });
@@ -22893,64 +22898,63 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.results
-    ? _c("div", { staticClass: "clearfix text-sm" }, [
-        _c(
-          "ul",
-          [
-            _c("li", { staticClass: "float-left" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
-                  attrs: { href: "" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.previous($event)
-                    }
+    ? _c(
+        "div",
+        { staticClass: "clearfix text-sm text-center" },
+        [
+          _c(
+            "a",
+            {
+              staticClass:
+                "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+              attrs: { href: "" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.previous($event)
+                }
+              }
+            },
+            [_vm._v("<")]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.pageRange, function(n) {
+            return _c(
+              "a",
+              {
+                staticClass:
+                  "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+                class: _vm.active(n),
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.select(n)
                   }
-                },
-                [_vm._v("<")]
-              )
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.pageRange, function(n) {
-              return _c("li", { staticClass: "float-left" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
-                    class: _vm.active(n),
-                    attrs: { href: "" }
-                  },
-                  [_vm._v(_vm._s(n))]
-                )
-              ])
-            }),
-            _vm._v(" "),
-            _c("li", { staticClass: "float-left" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
-                  attrs: { href: "" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.next($event)
-                    }
-                  }
-                },
-                [_vm._v(">")]
-              )
-            ])
-          ],
-          2
-        )
-      ])
+                }
+              },
+              [_vm._v(_vm._s(n))]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+              attrs: { href: "" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.next($event)
+                }
+              }
+            },
+            [_vm._v(">")]
+          )
+        ],
+        2
+      )
     : _vm._e()
 }
 var staticRenderFns = []

@@ -1,16 +1,8 @@
 <template>
-    <div class="clearfix text-sm" v-if="results">
-        <ul>
-            <li class="float-left">
-                <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="previous">&lt;</a>
-            </li>
-            <li v-for="n in pageRange" class="float-left">
-                <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" :class="active(n)">{{ n }}</a>
-            </li>
-            <li class="float-left">
-                <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="next">&gt;</a>
-            </li>
-        </ul>
+    <div class="clearfix text-sm text-center" v-if="results">
+        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="previous">&lt;</a>
+        <a v-for="n in pageRange" href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
+        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="next">&gt;</a>
     </div>
 </template>
 
@@ -21,21 +13,28 @@
         computed: {
             pageRange: function() {
                 const rangeLimit = 7;
-                const current = this.results.current_page;
+                const currentPage = this.results.current_page;
+                const lastPage = this.results.last_page;
 
-                let first = current - 3;
+                let first = currentPage - 3;
 
-                if (first + rangeLimit > this.results.last_page) {
-                    first = this.results.last_page - rangeLimit;
+                if (first + rangeLimit > lastPage) {
+                    first = lastPage - rangeLimit;
                 }
 
                 if (first < 1) {
                     first = 1;
                 }
 
+                let last = first + rangeLimit;
+
+                if (last > lastPage) {
+                    last = lastPage;
+                }
+
                 var range = [];
 
-                for (var i = first; i < first + rangeLimit; i++) {
+                for (var i = first; i <= last; i++) {
                     range.push(i);
                 }
 
@@ -51,12 +50,20 @@
                 }
             },
 
+            select: function(page) {
+                this.selectPage(page);
+            },
+
             next: function() {
-                this.$emit('page-selected', this.results.current_page + 1);
+                this.selectPage(this.results.current_page + 1);
             },
 
             previous: function() {
-                this.$emit('page-selected', this.results.current_page - 1);
+                this.selectPage(this.results.current_page - 1);
+            },
+
+            selectPage: function(page) {
+                this.$emit('page-selected', page);
             }
         }
     };
