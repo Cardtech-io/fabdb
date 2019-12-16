@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container sm:mx-auto flex">
-            <div class="w-1/3 pr-8 py-10">
+            <div class="p-8 py-10 md:px-0">
                 <h1 class="font-serif text-white text-4xl uppercase">Browse cards</h1>
             </div>
         </div>

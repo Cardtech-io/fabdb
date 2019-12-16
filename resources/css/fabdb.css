@@ -69,3 +69,9 @@ button:focus {
     @apply leading-tight;
     @apply outline-none;
 }
+
+.rounded-xl {
+    -webkit-border-radius: 1em;
+    -moz-border-radius: 1em;
+    border-radius: 1em;
+}

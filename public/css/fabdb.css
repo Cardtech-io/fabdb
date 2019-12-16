@@ -11471,6 +11471,10 @@ button:focus {
   outline: 0;
 }
 
+.rounded-xl {
+  border-radius: 1em;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

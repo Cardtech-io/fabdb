@@ -12,7 +12,7 @@
 
         computed: {
             pageRange: function() {
-                const rangeLimit = 7;
+                const rangeLimit = 6;
                 const currentPage = this.results.current_page;
                 const lastPage = this.results.last_page;
 

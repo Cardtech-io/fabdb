@@ -2503,7 +2503,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['results'],
   computed: {
     pageRange: function pageRange() {
-      var rangeLimit = 7;
+      var rangeLimit = 6;
       var currentPage = this.results.current_page;
       var lastPage = this.results.last_page;
       var first = currentPage - 3;
@@ -2566,6 +2566,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22170,7 +22180,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container sm:mx-auto flex" }, [
-      _c("div", { staticClass: "w-1/3 pr-8 py-10" }, [
+      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
         _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
           _vm._v("Browse cards")
         ])
@@ -22984,39 +22994,70 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "border-gray-800 rounded-lg border p-4 mb-4" }, [
-      _c(
-        "p",
-        {},
-        [
-          _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
-            _vm._v("Home")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { staticClass: "link", attrs: { to: _vm.$route.meta.parent.path } },
-            [_vm._v(_vm._s(_vm.$route.meta.parent.name))]
-          ),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-          _vm._v(" "),
-          _vm.card ? _c("span", [_vm._v(_vm._s(_vm.card.name))]) : _vm._e()
-        ],
-        1
-      )
+    _c("div", { staticClass: "container sm:mx-auto flex" }, [
+      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
+        _vm.card
+          ? _c(
+              "h1",
+              { staticClass: "font-serif text-white text-4xl uppercase" },
+              [_vm._v(_vm._s(_vm.card.name))]
+            )
+          : _vm._e()
+      ])
     ]),
     _vm._v(" "),
-    _vm.card
-      ? _c(
-          "div",
-          { staticClass: "border-gray-800 rounded-lg border p-4 clearfix" },
-          [
+    _c(
+      "div",
+      {
+        staticClass:
+          "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
+      },
+      [
+        _c("div", { staticClass: "container sm:mx-auto" }, [
+          _c(
+            "p",
+            {},
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "text-white hover:text-orange-300",
+                  attrs: { to: "/" }
+                },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "text-white hover:text-orange-300",
+                  attrs: { to: _vm.$route.meta.parent.path }
+                },
+                [_vm._v(_vm._s(_vm.$route.meta.parent.name))]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
+              _vm._v(" "),
+              _vm.card
+                ? _c("span", { staticClass: "text-orange-300" }, [
+                    _vm._v(_vm._s(_vm.card.name))
+                  ])
+                : _vm._e()
+            ],
+            1
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-gray-200" }, [
+      _vm.card
+        ? _c("div", { staticClass: "container sm:mx-auto py-8 clearfix" }, [
             _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
               _c("img", {
-                staticClass: "w-full max-w-md",
+                staticClass: "w-full max-w-md rounded-xl",
                 attrs: {
                   src: _vm.cardUrl(_vm.card.identifier, 350),
                   alt: _vm.card.name
@@ -23028,11 +23069,17 @@ var render = function() {
               "div",
               { staticClass: "md:w-2/3 md:float-right md:pl-8" },
               [
-                _c("h1", { staticClass: "font-serif text-4xl mb-4" }, [
-                  _vm._v(
-                    _vm._s(_vm.card.name) + " - " + _vm._s(_vm.card.identifier)
-                  )
-                ]),
+                _c(
+                  "h2",
+                  { staticClass: "font-serif text-4xl mb-4 uppercase" },
+                  [
+                    _vm._v(
+                      _vm._s(_vm.card.name) +
+                        " - " +
+                        _vm._s(_vm.card.identifier)
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -23097,9 +23144,9 @@ var render = function() {
               ],
               1
             )
-          ]
-        )
-      : _vm._e()
+          ])
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []
@@ -44483,7 +44530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Home_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Home.vue */ "./resources/js/Home.vue");
+/* harmony import */ var _Home_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home.vue */ "./resources/js/Home.vue");
 /* harmony import */ var _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CardDatabase/BrowseCards.vue */ "./resources/js/CardDatabase/BrowseCards.vue");
 /* harmony import */ var _CardDatabase_ViewCard_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./CardDatabase/ViewCard.vue */ "./resources/js/CardDatabase/ViewCard.vue");
 /* harmony import */ var _CardDatabase_Collection_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CardDatabase/Collection.vue */ "./resources/js/CardDatabase/Collection.vue");
@@ -44507,7 +44554,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
     path: "/",
-    component: _Home_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: 'home',
     meta: {
       title: 'Home'
@@ -44527,7 +44574,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'View card',
       parent: {
         name: 'Browse',
-        path: '/'
+        path: '/browse/'
       }
     }
   }, {
