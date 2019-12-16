@@ -32,7 +32,7 @@
                             <div class="float-left w-1/3">Keywords</div>
                             <div class="float-left w-2/3">
                             <span v-for="(keyword, index) in card.keywords">
-                                <router-link :to="'/?search=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
+                                <router-link :to="'/browse/?search=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                             </span>
                             </div>
                         </li>

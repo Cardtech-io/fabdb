@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center bg-white" :class="view == 'list' ? 'justify-center' : ''">
+    <div class="flex items-center" :class="view == 'list' ? 'justify-center' : ''">
         <button class="flex p-2 px-4 h-10 items-center" @click="add('standard')">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16z"/></svg>
             <span class="ml-2" v-if="view != 'list'">Add</span>

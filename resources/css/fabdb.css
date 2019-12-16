@@ -47,7 +47,7 @@ button:focus {
 }
 
 .link:hover {
-    @apply text-gray-300;
+    @apply text-gray-800;
 }
 
 @font-face {

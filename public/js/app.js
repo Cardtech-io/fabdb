@@ -2157,6 +2157,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -22329,20 +22331,26 @@ var render = function() {
     "li",
     { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
     [
-      _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
-        _c("img", {
-          staticClass: "w-full rounded-t-lg",
-          attrs: {
-            src: _vm.cardUrl(_vm.card.identifier, 250),
-            alt: _vm.card.name,
-            title: _vm.card.name
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("manage-card", { attrs: { card: _vm.card, view: "list" } })
-    ],
-    1
+      _c(
+        "div",
+        { staticClass: "bg-white rounded-xl" },
+        [
+          _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
+            _c("img", {
+              staticClass: "w-full rounded-xl",
+              attrs: {
+                src: _vm.cardUrl(_vm.card.identifier, 250),
+                alt: _vm.card.name,
+                title: _vm.card.name
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("manage-card", { attrs: { card: _vm.card, view: "list" } })
+        ],
+        1
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -22724,7 +22732,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex items-center bg-white",
+      staticClass: "flex items-center",
       class: _vm.view == "list" ? "justify-center" : ""
     },
     [
@@ -23110,7 +23118,7 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "link",
-                                  attrs: { to: "/?search=" + keyword }
+                                  attrs: { to: "/browse/?search=" + keyword }
                                 },
                                 [_vm._v(_vm._s(keyword))]
                               ),
