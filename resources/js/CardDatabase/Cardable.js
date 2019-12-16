@@ -25,6 +25,10 @@ export default {
 
         ucfirst: function(string) {
             return string[0].toUpperCase() + string.slice(1);
+        },
+
+        hasResource: function(card) {
+            return card.stats.hasOwnProperty('resource');
         }
     }
 };

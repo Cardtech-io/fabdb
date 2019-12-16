@@ -1,7 +1,7 @@
 <template>
     <tr>
         <td class="border border-gray-300 py-2 px-4">{{ card.identifier }}</td>
-        <td class="border border-gray-300 py-2 px-4">{{ card.name }}</td>
+        <td class="border border-gray-300 py-2 px-4">{{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></td>
         <td class="border border-gray-300 py-2 px-4 text-center">{{ card.standard }}</td>
         <td class="border border-gray-300 py-2 px-4 text-center">{{ card.foil }}</td>
         <td class="border border-gray-300 py-2 px-4 text-center">{{ card.promo }}</td>

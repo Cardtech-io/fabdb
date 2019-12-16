@@ -2727,6 +2727,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -3310,6 +3311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -22361,7 +22363,14 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
-      _vm._v(_vm._s(_vm.card.name))
+      _vm._v(_vm._s(_vm.card.name) + " "),
+      _vm.hasResource(_vm.card)
+        ? _c("span", [
+            _vm._v(
+              "(" + _vm._s(_vm.colourToText(_vm.card.stats.resource)) + ")"
+            )
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("td", { staticClass: "border border-gray-300 py-2 px-4 text-center" }, [
@@ -23145,6 +23154,16 @@ var render = function() {
     "nav",
     { staticClass: "flex sm:ml-4 mt-6 sm:float-left sm:flex-none" },
     [
+      _c(
+        "router-link",
+        {
+          staticClass:
+            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
+          attrs: { to: "/" }
+        },
+        [_vm._v("Home")]
+      ),
+      _vm._v(" "),
       _c(
         "router-link",
         {
@@ -24271,12 +24290,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container sm:mx-auto flex" }, [
-    _vm._m(0),
+  return _c("div", { staticClass: "container sm:mx-auto text-white" }, [
+    _c(
+      "div",
+      {
+        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg-pr-8 lg:py-20"
+      },
+      [
+        _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
+          _vm._v("Welcome")
+        ]),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "my-4" },
+          [
+            _vm._v(
+              "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
+            ),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/deck-builder/" }
+              },
+              [_vm._v("deck builder")]
+            ),
+            _vm._v(", "),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/collection/" }
+              },
+              [_vm._v("collection manager")]
+            ),
+            _vm._v(" and more.")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "my-4" },
+          [
+            _vm._v(
+              "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
+            ),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/support/" }
+              },
+              [_vm._v("Support page")]
+            ),
+            _vm._v(".")
+          ],
+          1
+        )
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "w-2/3 bg-semi-black rounded-lg py-8 px-4 my-20" },
+      {
+        staticClass:
+          "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg py-8 px-4 lg:m-0 lg:my-20"
+      },
       [
         _c(
           "h1",
@@ -24410,24 +24491,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-1/3 pr-8 py-40" }, [
-      _c("h1", { staticClass: "font-serif text-white text-6xl uppercase" }, [
-        _vm._v("Welcome")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-white" }, [
-        _vm._v(
-          "FaB DB is an unofficial, Flesh & Blood TCG website, with various features such as deck builder, collection manager and more."
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -43128,6 +43192,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     ucfirst: function ucfirst(string) {
       return string[0].toUpperCase() + string.slice(1);
+    },
+    hasResource: function hasResource(card) {
+      return card.stats.hasOwnProperty('resource');
     }
   }
 });
