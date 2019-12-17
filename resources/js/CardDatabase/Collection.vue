@@ -7,17 +7,26 @@
         </div>
 
         <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto">
-                <p class="">
-                    <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                    <span class="text-orange-300">My Collection</span>
-                </p>
+            <div class="container sm:mx-auto flex">
+                <div class="flex-1">
+                    <p class="">
+                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
+                        <span class="text-orange-300">My Collection</span>
+                    </p>
+                </div>
+                <div class="flex-1 text-right">
+                    <p>
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('all')" :class="activeFilter('all')">All</a> <span class="text-orange-500">|</span>
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('mine')" :class="activeFilter('mine')">Mine</a> <span class="text-orange-500">|</span>
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('need')" :class="activeFilter('need')">Need</a>
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto">
-                <card-search view="collection" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
+                <card-search useCase="collection" @search-completed="refreshResults" :page="page" :refreshable="true" :external="searchDefaults"></card-search>
             </div>
         </div>
 
@@ -93,12 +102,21 @@
             return {
                 page: 1,
                 results: {},
+                searchDefaults: {view: 'all'},
                 title: 'My collection',
                 view: 'list'
             }
         },
 
         methods: {
+            activeFilter: function(view) {
+                return this.searchDefaults.view == view ? 'text-orange-300' : '';
+            },
+
+            filter: function(view) {
+                this.searchDefaults.view = view;
+            },
+
             refreshResults: function(results) {
                 this.results = results;
             },

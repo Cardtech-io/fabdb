@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Storage;
 
 final class JsonCardRepository implements CardRepository
 {
-    public function search(string $view, array $params, $class, $type, int $userId = null)
+    public function search(string $useCase, array $keywords, $class, $type, $view, int $userId = null)
     {
         $cards = Storage::disk('carddb')->get('wtr.json');
 

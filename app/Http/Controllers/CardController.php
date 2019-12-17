@@ -14,10 +14,11 @@ class CardController extends Controller
         })->filter()->toArray();
 
         return $cards->search(
-            $request->get('view'),
+            $request->get('use-case'),
             $keywords,
             $request->get('class'),
             $request->get('type'),
+            $request->get('view', 'all'),
             @$request->user()->id
         )->paginate($request->get('per_page', 12))->appends($request->except('page'));
     }

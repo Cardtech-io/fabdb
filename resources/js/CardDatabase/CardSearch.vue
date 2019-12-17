@@ -40,12 +40,16 @@
 <script>
     export default {
         props: {
+            external: {
+                type: Object,
+                default: () => { return {}; }
+            },
             page: Number,
             limit: {
                 type: Number,
                 default: 12
             },
-            view: String,
+            useCase: String,
             refreshable: {
                 type: Boolean,
                 default: true
@@ -94,14 +98,14 @@
             buildSearchParams: function() {
                 var params = this.$route.query;
 
-                params.view = this.view;
+                params['use-case'] = this.useCase;
                 params.keywords = this.keywords;
                 params.page = this.page;
                 params.per_page = this.limit;
                 params['class'] = this.heroClass;
                 params.type = this.type;
 
-                return params;
+                return {...this.external, ...params};
             }
         },
 
@@ -116,6 +120,10 @@
         },
 
         watch: {
+            'external.view': function(external) {
+                this.filterCards();
+            },
+
             page: function(page) {
                 this.filterCards();
             }

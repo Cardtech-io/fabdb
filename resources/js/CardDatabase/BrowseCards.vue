@@ -16,7 +16,7 @@
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto">
-                <card-search view="browse" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
             </div>
         </div>
 

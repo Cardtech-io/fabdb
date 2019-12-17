@@ -17,7 +17,7 @@
 
         computed: {
             total: function() {
-                return this.card[this.type];
+                return this.card[this.type] || 0;
             }
         },
 

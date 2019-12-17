@@ -1,6 +1,6 @@
 <template>
     <div class="self-center pl-2">
-        <a :href="count > 0" @click.prevent="remove" :class="classes">
+        <a :href="disabled" @click.prevent="remove" :class="classes">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm5-9v2H5V9h10z"/>
             </svg>
@@ -25,13 +25,20 @@
             classes: function() {
                 return {
                     'link': this.count > 0,
-                    'text-gray-400': this.count == 0
+                    'text-gray-400': this.disabled,
+                    'cursor-not-allowed': this.disabled
                 }
+            },
+
+            disabled: function() {
+                return this.count == 0;
             }
         },
 
         methods: {
             remove: function() {
+                if (this.disabled) return;
+
                 this.$emit('card-removed', this.type);
                 this.total += 1;
 

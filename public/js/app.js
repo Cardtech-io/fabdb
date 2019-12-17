@@ -2195,6 +2195,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2236,12 +2242,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
+    external: {
+      type: Object,
+      "default": function _default() {
+        return {};
+      }
+    },
     page: Number,
     limit: {
       type: Number,
       "default": 12
     },
-    view: String,
+    useCase: String,
     refreshable: {
       type: Boolean,
       "default": true
@@ -2289,13 +2301,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     buildSearchParams: function buildSearchParams() {
       var params = this.$route.query;
-      params.view = this.view;
+      params['use-case'] = this.useCase;
       params.keywords = this.keywords;
       params.page = this.page;
       params.per_page = this.limit;
       params['class'] = this.heroClass;
       params.type = this.type;
-      return params;
+      return _objectSpread({}, this.external, {}, params);
     }
   },
   mounted: function mounted() {
@@ -2307,6 +2319,9 @@ __webpack_require__.r(__webpack_exports__);
     this.search();
   },
   watch: {
+    'external.view': function externalView(external) {
+      this.filterCards();
+    },
     page: function page(_page) {
       this.filterCards();
     }
@@ -2408,6 +2423,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2423,11 +2447,20 @@ __webpack_require__.r(__webpack_exports__);
     return {
       page: 1,
       results: {},
+      searchDefaults: {
+        view: 'all'
+      },
       title: 'My collection',
       view: 'list'
     };
   },
   methods: {
+    activeFilter: function activeFilter(view) {
+      return this.searchDefaults.view == view ? 'text-orange-300' : '';
+    },
+    filter: function filter(view) {
+      this.searchDefaults.view = view;
+    },
     refreshResults: function refreshResults(results) {
       this.results = results;
     },
@@ -2788,7 +2821,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     total: function total() {
-      return this.card[this.type];
+      return this.card[this.type] || 0;
     }
   },
   methods: {
@@ -2838,14 +2871,19 @@ __webpack_require__.r(__webpack_exports__);
     classes: function classes() {
       return {
         'link': this.count > 0,
-        'text-gray-400': this.count == 0
+        'text-gray-400': this.disabled,
+        'cursor-not-allowed': this.disabled
       };
+    },
+    disabled: function disabled() {
+      return this.count == 0;
     }
   },
   methods: {
     remove: function remove() {
       var _this = this;
 
+      if (this.disabled) return;
       this.$emit('card-removed', this.type);
       this.total += 1;
 
@@ -22207,7 +22245,7 @@ var render = function() {
         { staticClass: "container sm:mx-auto" },
         [
           _c("card-search", {
-            attrs: { view: "browse", page: _vm.page, refreshable: true },
+            attrs: { useCase: "browse", page: _vm.page, refreshable: true },
             on: { "search-completed": _vm.refreshResults }
           })
         ],
@@ -22694,28 +22732,86 @@ var render = function() {
           "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
       },
       [
-        _c("div", { staticClass: "container sm:mx-auto" }, [
-          _c(
-            "p",
-            {},
-            [
+        _c("div", { staticClass: "container sm:mx-auto flex" }, [
+          _c("div", { staticClass: "flex-1" }, [
+            _c(
+              "p",
+              {},
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-white hover:text-orange-300",
+                    attrs: { to: "/" }
+                  },
+                  [_vm._v("Home")]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-orange-300" }, [
+                  _vm._v("My Collection")
+                ])
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex-1 text-right" }, [
+            _c("p", [
               _c(
-                "router-link",
+                "a",
                 {
                   staticClass: "text-white hover:text-orange-300",
-                  attrs: { to: "/" }
+                  class: _vm.activeFilter("all"),
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.filter("all")
+                    }
+                  }
                 },
-                [_vm._v("Home")]
+                [_vm._v("All")]
               ),
               _vm._v(" "),
-              _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
+              _c("span", { staticClass: "text-orange-500" }, [_vm._v("|")]),
               _vm._v(" "),
-              _c("span", { staticClass: "text-orange-300" }, [
-                _vm._v("My Collection")
-              ])
-            ],
-            1
-          )
+              _c(
+                "a",
+                {
+                  staticClass: "text-white hover:text-orange-300",
+                  class: _vm.activeFilter("mine"),
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.filter("mine")
+                    }
+                  }
+                },
+                [_vm._v("Mine")]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-orange-500" }, [_vm._v("|")]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "text-white hover:text-orange-300",
+                  class: _vm.activeFilter("need"),
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.filter("need")
+                    }
+                  }
+                },
+                [_vm._v("Need")]
+              )
+            ])
+          ])
         ])
       ]
     ),
@@ -22726,7 +22822,12 @@ var render = function() {
         { staticClass: "container sm:mx-auto" },
         [
           _c("card-search", {
-            attrs: { view: "collection", page: _vm.page, refreshable: true },
+            attrs: {
+              useCase: "collection",
+              page: _vm.page,
+              refreshable: true,
+              external: _vm.searchDefaults
+            },
             on: { "search-completed": _vm.refreshResults }
           })
         ],
@@ -23537,7 +23638,7 @@ var render = function() {
       "a",
       {
         class: _vm.classes,
-        attrs: { href: _vm.count > 0 },
+        attrs: { href: _vm.disabled },
         on: {
           click: function($event) {
             $event.preventDefault()

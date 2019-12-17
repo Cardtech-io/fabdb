@@ -16,15 +16,16 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     /**
      * Searches for a range of cards, that match the provided parameters.
      *
-     * @param string $view
-     * @param array $params
+     * @param string $useCase
+     * @param array $keywords
      * @param $class
      * @param $type
+     * @param string $view
      * @param int $userId
      * @return \Illuminate\Database\Eloquent\Builder
      * @internal param bool $restrict If provided, will restrict results to only those owned by the user.
      */
-    public function search(string $view, array $params, $class, $type, int $userId = null)
+    public function search(string $useCase, array $keywords, $class, $type, $view = 'all', int $userId = null)
     {
         $query = $this->newQuery();
         $query->select([
@@ -35,15 +36,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         // The following condition and clause determines whether the user is looking for an individual card or not
-        if (count($params) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $params[0], $matches)) {
+        if (count($keywords) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $keywords[0], $matches)) {
             $set = $matches[1] ?: 'WTR';
             $identifier = $set . str_pad($matches[2], 3, '0', STR_PAD_LEFT);
 
             $query->where('identifier', $identifier);
-        } elseif (count($params) == 1 && $params[0] === 'missing') {
+        } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
             // do nothing, check below.
         } else {
-            foreach ($params as $param) {
+            foreach ($keywords as $param) {
                 $param = strtolower($param);
 
                 $query->where(function($query) use ($param){
@@ -66,14 +67,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
         }
 
-        $requireMissing = Str::lower(Arr::get($params, 0)) == 'missing';
-
         if ($userId) {
-            switch ($view) {
+            switch ($useCase) {
                 case 'collection':
                     // if we're viewing the collection then it's a straight join, otherwise it's a left join
                     // so that we can do a specific clause against missing cards from the collection.
-                    $join = $requireMissing ? 'leftJoin' : 'join';
+                    $join = in_array($view, ['all', 'need']) ? 'leftJoin' : 'join';
                     break;
                 default:
                     $join = 'leftJoin';
@@ -89,8 +88,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 });
             });
 
-            // If their main search parameter is to find missing cards, then only show cards where there is no record of the owned card
-            if ($requireMissing) {
+            // If their main search parameter is to find needed cards, then only show cards where there is no record of the owned card
+            if ($view == 'need') {
                 $query->whereNull('owned_cards.id');
             }
 
