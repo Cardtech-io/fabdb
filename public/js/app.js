@@ -2016,8 +2016,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardSearch.vue */ "./resources/js/CardDatabase/CardSearch.vue");
 /* harmony import */ var _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardItem.vue */ "./resources/js/CardDatabase/CardItem.vue");
-/* harmony import */ var _CardListItem_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardListItem.vue */ "./resources/js/CardDatabase/CardListItem.vue");
-/* harmony import */ var _Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Paginator.vue */ "./resources/js/CardDatabase/Paginator.vue");
+/* harmony import */ var _Paginator_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Paginator.vue */ "./resources/js/CardDatabase/Paginator.vue");
 //
 //
 //
@@ -2074,48 +2073,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     CardItem: _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CardListItem: _CardListItem_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     CardSearch: _CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Paginator: _Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Paginator: _Paginator_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2127,9 +2092,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     refreshResults: function refreshResults(results) {
       this.results = results;
-    },
-    setView: function setView(view) {
-      this.view = view;
     },
     updatePage: function updatePage(page) {
       this.page = page;
@@ -2150,7 +2112,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
-//
 //
 //
 //
@@ -22254,138 +22215,29 @@ var render = function() {
         _vm.results && _vm.results.data
           ? _c("div", [
               _c("div", { staticClass: "clearfix" }, [
-                _c("div", { staticClass: "clearfix py-4" }, [
-                  _c("div", { staticClass: "float-left w-1/5" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "text-gray-800",
-                        class: {
-                          "text-orange-700 hover:text-gray-500":
-                            _vm.view != "gallery"
-                        },
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.setView("gallery")
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "inline-block fill-current h-4 w-4",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "text-gray-800",
-                        class: {
-                          "text-orange-700 hover:text-gray-500":
-                            _vm.view != "list"
-                        },
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.setView("list")
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "inline-block fill-current h-5 w-5 ml-1",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "float-left w-3/5" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "float-left w-1/5" }, [_vm._v(" ")])
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "clearfix py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.results },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _vm.view == "gallery"
-                  ? _c(
-                      "ul",
-                      { staticClass: "clearfix -mx-4" },
-                      _vm._l(_vm.results.data, function(card) {
-                        return _c("card-item", {
-                          key: card.identifier,
-                          attrs: { card: card, view: _vm.view, path: "/cards" }
-                        })
-                      }),
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.view == "list"
-                  ? _c(
-                      "table",
-                      {
-                        staticClass:
-                          "w-full table-auto border-collapse bg-white"
-                      },
-                      [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.results.data, function(card) {
-                            return _c("card-list-item", {
-                              key: card.identifier,
-                              attrs: { card: card, path: "/cards" }
-                            })
-                          }),
-                          1
-                        )
-                      ]
-                    )
-                  : _vm._e(),
+                _c(
+                  "ul",
+                  { staticClass: "clearfix -mx-4" },
+                  _vm._l(_vm.results.data, function(card) {
+                    return _c("card-item", {
+                      key: card.identifier,
+                      attrs: { card: card, view: _vm.view, path: "/cards" }
+                    })
+                  }),
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -22402,7 +22254,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(2)
       ])
     ])
   ])
@@ -22441,56 +22293,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
-          },
-          [_vm._v("ID")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
-          },
-          [_vm._v("Name")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-          },
-          [_vm._v("Standard")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-          },
-          [_vm._v("Foil")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-          },
-          [_vm._v("Promo")]
-        )
-      ])
-    ])
   },
   function() {
     var _vm = this
@@ -22560,7 +22362,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-4 pb-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
+    { staticClass: "float-left p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
     [
       _c(
         "div",
@@ -22575,9 +22377,7 @@ var render = function() {
                 title: _vm.card.name
               }
             })
-          ]),
-          _vm._v(" "),
-          _c("manage-card", { attrs: { card: _vm.card, view: "list" } })
+          ])
         ],
         1
       )
