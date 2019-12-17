@@ -23064,16 +23064,6 @@ var render = function() {
     _c("div", { staticClass: "bg-gray-200" }, [
       _vm.card
         ? _c("div", { staticClass: "container sm:mx-auto py-8 clearfix" }, [
-            _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
-              _c("img", {
-                staticClass: "w-full max-w-md rounded-xl",
-                attrs: {
-                  src: _vm.cardUrl(_vm.card.identifier, 350),
-                  alt: _vm.card.name
-                }
-              })
-            ]),
-            _vm._v(" "),
             _c(
               "div",
               { staticClass: "md:w-2/3 md:float-right md:pl-8" },
@@ -23122,7 +23112,7 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "link",
-                                  attrs: { to: "/browse/?search=" + keyword }
+                                  attrs: { to: "/browse/?keywords=" + keyword }
                                 },
                                 [_vm._v(_vm._s(keyword))]
                               ),
@@ -23155,7 +23145,17 @@ var render = function() {
                 _c("manage-card", { attrs: { card: _vm.card } })
               ],
               1
-            )
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
+              _c("img", {
+                staticClass: "w-full max-w-md rounded-xl",
+                attrs: {
+                  src: _vm.cardUrl(_vm.card.identifier, 350),
+                  alt: _vm.card.name
+                }
+              })
+            ])
           ])
         : _vm._e()
     ])

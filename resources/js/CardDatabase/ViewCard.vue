@@ -18,10 +18,6 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 clearfix" v-if="card">
-                <div class="md:w-1/3 md:float-left">
-                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
-                </div>
-
                 <div class="md:w-2/3 md:float-right md:pl-8">
                     <h2 class="font-serif text-4xl mb-4 uppercase p-4 bg-white">{{ card.name }} - {{ card.identifier }}</h2>
                     <ul>
@@ -33,7 +29,7 @@
                             <div class="float-left w-1/3">Keywords</div>
                             <div class="float-left w-2/3">
                             <span v-for="(keyword, index) in card.keywords">
-                                <router-link :to="'/browse/?search=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
+                                <router-link :to="'/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                             </span>
                             </div>
                         </li>
@@ -44,6 +40,10 @@
                     </ul>
 
                     <manage-card :card="card"></manage-card>
+                </div>
+
+                <div class="md:w-1/3 md:float-left">
+                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
             </div>
         </div>
