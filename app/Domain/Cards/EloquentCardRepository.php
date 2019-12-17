@@ -85,6 +85,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 $join->where(function($clause) {
                     $clause->where('owned_cards.standard', '>', 0);
                     $clause->orWhere('owned_cards.foil', '>', 0);
+                    $clause->orWhere('owned_cards.promo', '>', 0);
                 });
             });
 
@@ -93,7 +94,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 $query->whereNull('owned_cards.id');
             }
 
-            $query->addSelect('owned_cards.standard', 'owned_cards.foil');
+            $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');
         }
 
         $query->orderBy('cards.identifier');

@@ -3,19 +3,27 @@
         <td class="border border-gray-300 py-2 px-4">{{ card.identifier }}</td>
         <td class="border border-gray-300 py-2 px-4">{{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></td>
         <td class="border border-gray-300 py-2 px-4 text-center">
-            {{ card.standard }}
+            <card-count :card="card" type="standard"></card-count>
         </td>
-        <td class="border border-gray-300 py-2 px-4 text-center">{{ card.foil }}</td>
-        <td class="border border-gray-300 py-2 px-4 text-center">{{ card.promo }}</td>
+        <td class="border border-gray-300 py-2 px-4 text-center">
+            <card-count :card="card" type="foil"></card-count>
+        </td>
+        <td class="border border-gray-300 py-2 px-4 text-center">
+            <card-count :card="card" type="promo"></card-count>
+        </td>
     </tr>
 </template>
 
 <script>
     import Cardable from './Cardable.js';
+    import CardCount from '../Collection/CardCount.vue';
     import ManageCard from './ManageCard.vue';
 
     export default {
-        components: {ManageCard},
+        components: {
+            CardCount,
+            ManageCard
+        },
 
         mixins: [Cardable],
 
