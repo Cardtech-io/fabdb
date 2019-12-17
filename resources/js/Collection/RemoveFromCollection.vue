@@ -1,7 +1,7 @@
 <template>
     <div class="self-center pl-2">
-        <a href="" @click.prevent="remove" class="link">
-            <svg class="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <a :href="count > 0" @click.prevent="remove" :class="classes">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm5-9v2H5V9h10z"/>
             </svg>
         </a>
@@ -12,12 +12,21 @@
     import axios from 'axios';
 
     export default {
-        props: ['identifier', 'type'],
+        props: ['identifier', 'type', 'count'],
 
         data() {
             return {
                 save: null,
                 total: 0
+            }
+        },
+
+        computed: {
+            classes: function() {
+                return {
+                    'link': this.count > 0,
+                    'text-gray-400': this.count == 0
+                }
             }
         },
 

@@ -1,8 +1,8 @@
 <template>
     <div class="flex justify-center">
-        <add :identifier="card.identifier" :type="type" @card-added="increment"></add>
+        <add :identifier="card.identifier" :type="type" :count="total" @card-added="increment"></add>
         <div class="self-center">{{ total }}</div>
-        <remove :identifier="card.identifier" :type="type" @card-removed="decrement"></remove>
+        <remove :identifier="card.identifier" :type="type" :count="total" @card-removed="decrement"></remove>
     </div>
 </template>
 

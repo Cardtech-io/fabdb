@@ -2772,7 +2772,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['identifier', 'type'],
+  props: ['identifier', 'type', 'count'],
   data: function data() {
     return {
       save: null,
@@ -2872,12 +2872,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['identifier', 'type'],
+  props: ['identifier', 'type', 'count'],
   data: function data() {
     return {
       save: null,
       total: 0
     };
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        'link': this.count > 0,
+        'text-gray-400': this.count == 0
+      };
+    }
   },
   methods: {
     remove: function remove() {
@@ -23632,7 +23640,7 @@ var render = function() {
         _c(
           "svg",
           {
-            staticClass: "fill-current h-3 w-3",
+            staticClass: "fill-current h-4 w-4",
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [
@@ -23675,14 +23683,22 @@ var render = function() {
     { staticClass: "flex justify-center" },
     [
       _c("add", {
-        attrs: { identifier: _vm.card.identifier, type: _vm.type },
+        attrs: {
+          identifier: _vm.card.identifier,
+          type: _vm.type,
+          count: _vm.total
+        },
         on: { "card-added": _vm.increment }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "self-center" }, [_vm._v(_vm._s(_vm.total))]),
       _vm._v(" "),
       _c("remove", {
-        attrs: { identifier: _vm.card.identifier, type: _vm.type },
+        attrs: {
+          identifier: _vm.card.identifier,
+          type: _vm.type,
+          count: _vm.total
+        },
         on: { "card-removed": _vm.decrement }
       })
     ],
@@ -23715,8 +23731,8 @@ var render = function() {
     _c(
       "a",
       {
-        staticClass: "link",
-        attrs: { href: "" },
+        class: _vm.classes,
+        attrs: { href: _vm.count > 0 },
         on: {
           click: function($event) {
             $event.preventDefault()
@@ -23728,7 +23744,7 @@ var render = function() {
         _c(
           "svg",
           {
-            staticClass: "fill-current h-3 w-3",
+            staticClass: "fill-current h-4 w-4",
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [

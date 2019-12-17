@@ -18,7 +18,7 @@ class CollectionController extends Controller
             $card->id,
             $request->user()->id,
             new CardType($request->get('type')),
-            $request->get('total')
+            $request->get('total', 1)
         ));
     }
 
@@ -28,7 +28,7 @@ class CollectionController extends Controller
             $card->id,
             $request->user()->id,
             new CardType($request->get('type')),
-            $request->get('total')
+            $request->get('total', 1)
         ));
     }
 }
