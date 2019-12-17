@@ -62,6 +62,7 @@
             return {
                 heroClass: null,
                 keywords: this.$route.query.keywords,
+                thisPage: this.page,
                 type: null
             }
         },
@@ -73,7 +74,7 @@
                         path: this.$route.path,
                         query: {
                             keywords: this.keywords,
-                            page: this.page,
+                            page: this.thisPage,
                             'class': this.heroClass,
                             type: this.type
                         }});
@@ -100,7 +101,7 @@
 
                 params['use-case'] = this.useCase;
                 params.keywords = this.keywords;
-                params.page = this.page;
+                params.page = this.thisPage;
                 params.per_page = this.limit;
                 params['class'] = this.heroClass;
                 params.type = this.type;
@@ -121,10 +122,13 @@
 
         watch: {
             'external.view': function(external) {
+                this.thisPage = 1;
                 this.filterCards();
+
             },
 
             page: function(page) {
+                this.thisPage = page;
                 this.filterCards();
             }
         },

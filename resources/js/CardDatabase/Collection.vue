@@ -115,6 +115,7 @@
 
             filter: function(view) {
                 this.searchDefaults.view = view;
+                this.updatePage(1);
             },
 
             refreshResults: function(results) {

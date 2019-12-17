@@ -2265,6 +2265,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       heroClass: null,
       keywords: this.$route.query.keywords,
+      thisPage: this.page,
       type: null
     };
   },
@@ -2275,7 +2276,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           path: this.$route.path,
           query: {
             keywords: this.keywords,
-            page: this.page,
+            page: this.thisPage,
             'class': this.heroClass,
             type: this.type
           }
@@ -2303,7 +2304,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var params = this.$route.query;
       params['use-case'] = this.useCase;
       params.keywords = this.keywords;
-      params.page = this.page;
+      params.page = this.thisPage;
       params.per_page = this.limit;
       params['class'] = this.heroClass;
       params.type = this.type;
@@ -2320,9 +2321,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   watch: {
     'external.view': function externalView(external) {
+      this.thisPage = 1;
       this.filterCards();
     },
     page: function page(_page) {
+      this.thisPage = _page;
       this.filterCards();
     }
   },
@@ -2460,6 +2463,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     filter: function filter(view) {
       this.searchDefaults.view = view;
+      this.updatePage(1);
     },
     refreshResults: function refreshResults(results) {
       this.results = results;
