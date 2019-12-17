@@ -3401,6 +3401,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -24569,42 +24571,44 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "border-gray-800 rounded-lg border mt-8" },
-      [
-        _c("h1", { staticClass: "font-serif text-2xl p-4" }, [
-          _vm._v("My Decks")
-        ]),
-        _vm._v(" "),
-        _vm.decks
-          ? _c(
-              "ol",
-              _vm._l(_vm.decks, function(deck) {
-                return _c(
-                  "li",
-                  { staticClass: "border-gray-800 border-t p-4" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "link",
-                        attrs: { to: "/deck-builder/" + deck.slug + "/" }
-                      },
-                      [_vm._v(_vm._s(deck.name))]
-                    )
-                  ],
-                  1
-                )
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("add-deck", { on: { "deck-added": _vm.addDeck } })
-      ],
-      1
-    )
+    _c("div", { staticClass: "bg-gray-200" }, [
+      _c(
+        "div",
+        { staticClass: "container sm:mx-auto" },
+        [
+          _c("h1", { staticClass: "font-serif text-2xl p-4" }, [
+            _vm._v("My Decks")
+          ]),
+          _vm._v(" "),
+          _vm.decks
+            ? _c(
+                "ol",
+                _vm._l(_vm.decks, function(deck) {
+                  return _c(
+                    "li",
+                    { staticClass: "border-gray-800 border-t p-4" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "link",
+                          attrs: { to: "/deck-builder/" + deck.slug + "/" }
+                        },
+                        [_vm._v(_vm._s(deck.name))]
+                      )
+                    ],
+                    1
+                  )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("add-deck", { on: { "deck-added": _vm.addDeck } })
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [

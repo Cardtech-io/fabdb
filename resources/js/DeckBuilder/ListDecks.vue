@@ -15,16 +15,18 @@
             </div>
         </div>
 
-        <div class="border-gray-800 rounded-lg border mt-8">
-            <h1 class="font-serif text-2xl p-4">My Decks</h1>
+        <div class="bg-gray-200">
+            <div class="container sm:mx-auto">
+                <h1 class="font-serif text-2xl p-4">My Decks</h1>
 
-            <ol v-if="decks">
-                <li class="border-gray-800 border-t p-4" v-for="deck in decks">
-                    <router-link :to="'/deck-builder/' + deck.slug + '/'" class="link">{{ deck.name }}</router-link>
-                </li>
-            </ol>
+                <ol v-if="decks">
+                    <li class="border-gray-800 border-t p-4" v-for="deck in decks">
+                        <router-link :to="'/deck-builder/' + deck.slug + '/'" class="link">{{ deck.name }}</router-link>
+                    </li>
+                </ol>
 
-            <add-deck @deck-added="addDeck"></add-deck>
+                <add-deck @deck-added="addDeck"></add-deck>
+            </div>
         </div>
     </div>
 </template>
