@@ -1,7 +1,18 @@
 <template>
     <div>
-        <div class="border-gray-800 rounded-lg border p-4">
-            <p class=""><router-link to="/" class="link">Home</router-link> <span class="text-gray-600">&gt;</span> Deck builder</p>
+        <div class="container sm:mx-auto flex">
+            <div class="p-8 py-10 md:px-0">
+                <h1 class="font-serif text-white text-4xl uppercase">Deck Builder</h1>
+            </div>
+        </div>
+
+        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
+            <div class="container sm:mx-auto">
+                <p class="">
+                    <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
+                    <span class="text-orange-300">Deck Builder</span>
+                </p>
+            </div>
         </div>
 
         <div class="border-gray-800 rounded-lg border mt-8">

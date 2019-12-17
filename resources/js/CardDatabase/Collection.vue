@@ -61,7 +61,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
+                                <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
                             </tbody>
                         </table>
 

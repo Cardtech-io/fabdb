@@ -2163,12 +2163,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3338,6 +3332,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddDeck_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddDeck.vue */ "./resources/js/DeckBuilder/AddDeck.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22406,7 +22411,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("tr", [
+  return _c("tr", { staticClass: "odd:bg-gray-100" }, [
     _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
       _vm._v(_vm._s(_vm.card.identifier))
     ]),
@@ -24428,21 +24433,40 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "border-gray-800 rounded-lg border p-4" }, [
-      _c(
-        "p",
-        {},
-        [
-          _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
-            _vm._v("Home")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-          _vm._v(" Deck builder")
-        ],
-        1
-      )
-    ]),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
+      },
+      [
+        _c("div", { staticClass: "container sm:mx-auto" }, [
+          _c(
+            "p",
+            {},
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "text-white hover:text-orange-300",
+                  attrs: { to: "/" }
+                },
+                [_vm._v("Home")]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-orange-300" }, [
+                _vm._v("Deck Builder")
+              ])
+            ],
+            1
+          )
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -24482,7 +24506,20 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container sm:mx-auto flex" }, [
+      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
+        _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
+          _vm._v("Deck Builder")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
