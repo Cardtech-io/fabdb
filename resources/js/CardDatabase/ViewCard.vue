@@ -21,8 +21,9 @@
                 <div class="md:w-1/3 md:float-left">
                     <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
+
                 <div class="md:w-2/3 md:float-right md:pl-8">
-                    <h2 class="font-serif text-4xl mb-4 uppercase">{{ card.name }} - {{ card.identifier }}</h2>
+                    <h2 class="font-serif text-4xl mb-4 uppercase p-4 bg-white">{{ card.name }} - {{ card.identifier }}</h2>
                     <ul>
                         <li class="clearfix">
                             <div class="float-left w-1/3">Rarity</div>
