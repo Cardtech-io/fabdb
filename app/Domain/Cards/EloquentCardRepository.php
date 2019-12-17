@@ -3,6 +3,8 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
@@ -64,8 +66,18 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
         }
 
+        $requireMissing = Str::lower(Arr::get($params, 0)) == 'missing';
+
         if ($userId) {
-            $join = $view !== 'all' && $params[0] !== 'missing' ? 'join' : 'leftJoin';
+            switch ($view) {
+                case 'collection':
+                    // if we're viewing the collection then it's a straight join, otherwise it's a left join
+                    // so that we can do a specific clause against missing cards from the collection.
+                    $join = $requireMissing ? 'leftJoin' : 'join';
+                    break;
+                default:
+                    $join = 'leftJoin';
+            }
 
             $query->$join('owned_cards', function($join) use ($userId) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
@@ -77,7 +89,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             });
 
             // If their main search parameter is to find missing cards, then only show cards where there is no record of the owned card
-            if (count($params) == 1 && $params[0] === 'missing') {
+            if ($requireMissing) {
                 $query->whereNull('owned_cards.id');
             }
 
