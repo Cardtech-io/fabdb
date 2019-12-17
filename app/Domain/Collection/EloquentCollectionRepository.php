@@ -12,7 +12,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
         return new OwnedCard;
     }
 
-    public function add(int $cardId, int $userId, CardType $type)
+    public function add(int $cardId, int $userId, CardType $type, int $total)
     {
         $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
 
@@ -22,31 +22,27 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             $ownedCard = new OwnedCard;
             $ownedCard->card_id = $cardId;
             $ownedCard->user_id = $userId;
-            $ownedCard->$field = 0;
+            $ownedCard->$field = $total;
         }
 
-        $ownedCard->{$field}++;
+        $ownedCard->{$field} += $total;
 
         $ownedCard->save();
 
         return $ownedCard;
     }
 
-    public function remove(int $cardId, int $userId, CardType $type)
+    public function remove(int $cardId, int $userId, CardType $type, int $total)
     {
         $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
 
         $field = $type->name();
 
         if ($ownedCard) {
-            if ($ownedCard->$field) {
-                $ownedCard->{$field}--;
-                $ownedCard->save();
-            }
-            else {
-                if ($ownedCard->hasNone()) {
-                    $ownedCard->delete();
-                }
+            $ownedCard->remove($field, $total);
+
+            if ($ownedCard->hasNone()) {
+                $ownedCard->delete();
             }
         }
     }

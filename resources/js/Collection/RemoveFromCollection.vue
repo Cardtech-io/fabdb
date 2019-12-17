@@ -14,11 +14,27 @@
     export default {
         props: ['identifier', 'type'],
 
+        data() {
+            return {
+                save: null,
+                total: 0
+            }
+        },
+
         methods: {
             remove: function() {
-                axios.delete('/collection/' + this.identifier + '/?type=' + this.type);
-
                 this.$emit('card-removed', this.type);
+                this.total += 1;
+
+                if (this.save) {
+                    clearTimeout(this.save);
+                }
+
+                this.save = setTimeout(() => {
+                    axios.delete('/collection/' + this.identifier + '/?type=' + this.type + '&total=' + this.total);
+
+                    this.total = 0;
+                }, 1000);
             }
         }
     };

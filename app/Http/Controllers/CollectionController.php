@@ -17,7 +17,8 @@ class CollectionController extends Controller
         $this->dispatchNow(new AddCardToCollection(
             $card->id,
             $request->user()->id,
-            new CardType($request->get('type'))
+            new CardType($request->get('type')),
+            $request->get('total')
         ));
     }
 
@@ -26,7 +27,8 @@ class CollectionController extends Controller
         $this->dispatchNow(new RemoveCardFromCollection(
             $card->id,
             $request->user()->id,
-            new CardType($request->get('type'))
+            new CardType($request->get('type')),
+            $request->get('total')
         ));
     }
 }

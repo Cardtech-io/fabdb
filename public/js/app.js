@@ -2773,13 +2773,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['identifier', 'type'],
+  data: function data() {
+    return {
+      save: null,
+      total: 0
+    };
+  },
   methods: {
     add: function add() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/collection/', {
-        identifier: this.identifier,
-        type: this.type
-      });
+      var _this = this;
+
       this.$emit('card-added', this.type);
+      this.total += 1;
+
+      if (this.save) {
+        clearTimeout(this.save);
+      }
+
+      this.save = setTimeout(function () {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/collection/', {
+          identifier: _this.identifier,
+          type: _this.type,
+          total: _this.total
+        });
+        _this.total = 0;
+      }, 1000);
     }
   }
 });
@@ -2855,10 +2873,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['identifier', 'type'],
+  data: function data() {
+    return {
+      save: null,
+      total: 0
+    };
+  },
   methods: {
     remove: function remove() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + this.identifier + '/?type=' + this.type);
+      var _this = this;
+
       this.$emit('card-removed', this.type);
+      this.total += 1;
+
+      if (this.save) {
+        clearTimeout(this.save);
+      }
+
+      this.save = setTimeout(function () {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + _this.identifier + '/?type=' + _this.type + '&total=' + _this.total);
+        _this.total = 0;
+      }, 1000);
     }
   }
 });
