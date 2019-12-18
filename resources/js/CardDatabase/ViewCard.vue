@@ -38,8 +38,6 @@
                             <div class="float-left w-2/3">{{ value }}</div>
                         </li>
                     </ul>
-
-                    <manage-card :card="card"></manage-card>
                 </div>
 
                 <div class="md:w-1/3 md:float-left">
