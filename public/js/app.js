@@ -3424,8 +3424,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3653,6 +3651,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -24621,61 +24621,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container sm:mx-auto text-white" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
-        },
-        [
-          _c("div", { staticClass: "flex pb-8" }, [
-            _c(
-              "h1",
-              {
-                staticClass: "font-serif text-white text-4xl uppercase flex-1"
-              },
-              [_vm._v("Decks")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex-1" },
-              [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
-              1
-            )
-          ]),
+  return _c("div", { staticClass: "container sm:mx-auto text-white" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
+      },
+      [
+        _c("div", { staticClass: "flex pb-8" }, [
+          _c(
+            "h1",
+            { staticClass: "font-serif text-white text-4xl uppercase flex-1" },
+            [_vm._v("Decks")]
+          ),
           _vm._v(" "),
-          _vm.decks
-            ? _c(
-                "ol",
-                { staticClass: "border-black border-b" },
-                _vm._l(_vm.decks, function(deck) {
-                  return _c(
-                    "li",
-                    { staticClass: "border-black border-t py-4" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "link",
-                          attrs: { to: "/deck-builder/" + deck.slug + "/" }
-                        },
-                        [_vm._v(_vm._s(deck.name))]
-                      )
-                    ],
-                    1
-                  )
-                }),
-                0
-              )
-            : _vm._e()
-        ]
-      )
-    ])
+          _c(
+            "div",
+            { staticClass: "flex-1" },
+            [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm.decks
+          ? _c(
+              "ol",
+              { staticClass: "border-black border-b" },
+              _vm._l(_vm.decks, function(deck) {
+                return _c(
+                  "li",
+                  { staticClass: "border-black border-t py-4" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "link",
+                        attrs: { to: "/deck-builder/" + deck.slug + "/" }
+                      },
+                      [_vm._v(_vm._s(deck.name))]
+                    )
+                  ],
+                  1
+                )
+              }),
+              0
+            )
+          : _vm._e()
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -25190,46 +25186,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "border-gray-800 border-b-0 rounded-t-lg border p-4" },
-      [
-        _c(
-          "p",
-          {},
-          [
-            _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
-              _vm._v("Home")
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-            _vm._v(" Support")
-          ],
-          1
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "border-gray-800 rounded-lb-g border p-4 clearfix" },
-      [
-        _c("div", { staticClass: "float-left md:w-2/3" }, [
-          _c("h1", { staticClass: "font-serif text-xl" }, [
-            _vm._v("Support fabdb.net!")
-          ]),
+    return _c("div", { staticClass: "container sm:mx-auto text-white" }, [
+      _c(
+        "div",
+        {
+          staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
+        },
+        [
+          _c(
+            "h1",
+            { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
+            [_vm._v("Support Fab DB")]
+          ),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n            Flesh & Blood DB is run currently funded only through community support and outreach. If you're liking\n            what you're seeing, love using our tools and utilities.etc. please donate!.\n        "
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
+        },
+        [
+          _c(
+            "h1",
+            { staticClass: "font-serif text-white text-4xl uppercase flex-1" },
+            [_vm._v("Why support us?")]
+          ),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
-            _vm._v("To support fabdb.net, go to our\n                "),
+            _vm._v("To support fabdb.net, go to our\n            "),
             _c(
               "a",
               {
@@ -25239,9 +25238,9 @@ var staticRenderFns = [
                   target: "_blank"
                 }
               },
-              [_vm._v("patreon\n                    page")]
+              [_vm._v("patreon\n                page")]
             ),
-            _vm._v(" and sign up there or donate via our\n                "),
+            _vm._v(" and sign up there or donate via our\n            "),
             _c(
               "a",
               {
@@ -25255,28 +25254,28 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "Currently, fabdb is a work of love, a contribution to the broader community to help everyone in\n                researching cards, as well as managing their collections and decks. It is a completely free service, but\n                that doesn't mean it's free to me - time spent, hosting, design, expanding the service, all costs money."
+              "Currently, fabdb is a work of love, a contribution to the broader community to help everyone in\n            researching cards, as well as managing their collections and decks. It is a completely free service, but\n            that doesn't mean it's free to me - time spent, hosting, design, expanding the service, all costs money."
             )
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "For the price of a coffee every month, you can help me in building what I hope to be the\n                ultimate resource and suite of tools for my fellow fleshy, bloody TCG players! Or, you can donate with a\n                one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just\n                spreading the word and telling other players about this website, is super helpful!"
+              "For the price of a coffee every month, you can help me in building what I hope to be the\n            ultimate resource and suite of tools for my fellow fleshy, bloody TCG players! Or, you can donate with a\n            one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just\n            spreading the word and telling other players about this website, is super helpful!"
             )
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              'All money raised as part of this endeavour will go directly into the project, by helping to cover the\n                various costs, and then expanding it further. I badly want this game to be "the new classic" that Legend\n                Story has designed it to be! '
+              'All money raised as part of this endeavour will go directly into the project, by helping to cover the\n            various costs, and then expanding it further. I badly want this game to be "the new classic" that Legend\n            Story has designed it to be! '
             )
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v("Together, we can get it there! :)")
           ])
-        ])
-      ]
-    )
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
