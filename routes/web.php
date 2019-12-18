@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('decks/mine', 'DeckController@mine');
     Route::post('decks/{deck}', 'DeckController@addCard');
     Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
+    Route::delete('decks/{deck}', 'DeckController@removeDeck');
     Route::post('decks', 'DeckController@addDeck');
 });
 

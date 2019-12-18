@@ -8,8 +8,10 @@ use FabDB\Domain\Decks\AddDeck;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
+use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
+use FabDB\Http\Requests\RemoveDeckRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +42,11 @@ class DeckController extends Controller
     public function removeCard(RemoveCardFromDeckRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new RemoveCardFromDeck($deck, $card));
+    }
+
+    public function removeDeck(RemoveDeckRequest $request)
+    {
+        $this->dispatchNow(new RemoveDeck($request->deck));
     }
 
     public function mine()

@@ -3424,6 +3424,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3437,13 +3448,24 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addDeck: function addDeck(deck) {
       this.decks.push(deck);
+    },
+    removeDeck: function removeDeck(deck, key) {
+      var _this = this;
+
+      var confirm = window.confirm('Are you sure you want to remove this deck? This action is not reversible.');
+
+      if (confirm) {
+        axios["delete"]('/decks/' + deck.slug).then(function (response) {
+          _this.decks.splice(key, 1);
+        });
+      }
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/decks/mine/').then(function (response) {
-      _this.decks = response.data;
+      _this2.decks = response.data;
     });
   },
   metaInfo: function metaInfo() {
@@ -24650,22 +24672,63 @@ var render = function() {
           ? _c(
               "ol",
               { staticClass: "border-black border-b" },
-              _vm._l(_vm.decks, function(deck) {
-                return _c(
-                  "li",
-                  { staticClass: "border-black border-t py-4" },
-                  [
+              _vm._l(_vm.decks, function(deck, key) {
+                return _c("li", { staticClass: "border-black border-t py-4" }, [
+                  _c("div", { staticClass: "flex" }, [
                     _c(
-                      "router-link",
-                      {
-                        staticClass: "link",
-                        attrs: { to: "/deck-builder/" + deck.slug + "/" }
-                      },
-                      [_vm._v(_vm._s(deck.name))]
-                    )
-                  ],
-                  1
-                )
+                      "div",
+                      { staticClass: "flex-1" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "link",
+                            attrs: { to: "/deck-builder/" + deck.slug + "/" }
+                          },
+                          [_vm._v(_vm._s(deck.name))]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex-1 text-right" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-gray-400 hover:text-white",
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.removeDeck(deck, key)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "inline-block fill-current h-4 w-5 align-middle",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
               }),
               0
             )

@@ -1,7 +1,7 @@
 <?php
 namespace FabDB\Library;
 
-abstract class EloquentRepository
+abstract class EloquentRepository implements Repository
 {
     protected function newQuery()
     {
@@ -13,5 +13,10 @@ abstract class EloquentRepository
     public function save(Model $model)
     {
         $model->save();
+    }
+
+    public function delete(string $slug)
+    {
+        $this->newQuery()->whereSlug($slug)->delete();
     }
 }
