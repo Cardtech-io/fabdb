@@ -24242,7 +24242,7 @@ var render = function() {
                               },
                               [
                                 _c("img", {
-                                  staticClass: "w-full max-w-md",
+                                  staticClass: "w-full max-w-md rounded-xl",
                                   staticStyle: { "max-width": "350px" },
                                   attrs: {
                                     src: _vm.cardUrl(_vm.hero.identifier, 350),
@@ -24544,8 +24544,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value: _vm.activeTab == "card-selector",
-                expression: "activeTab == 'card-selector'"
+                value: _vm.activeTab == "add-cards",
+                expression: "activeTab == 'add-cards'"
               }
             ]
           },

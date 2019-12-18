@@ -55,7 +55,7 @@
                         <div class="clearfix">
                             <div class="md:w-1/3 md:float-left" v-if="hero">
                                 <div class="mb-8">
-                                    <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md" style="max-width: 350px"></a>
+                                    <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px"></a>
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <div v-show="activeTab == 'card-selector'">
+                <div v-show="activeTab == 'add-cards'">
                     <div class="mb-2">
                         <h2 class="font-serif uppercase">Card selector</h2>
                     </div>
