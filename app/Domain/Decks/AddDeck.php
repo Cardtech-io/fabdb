@@ -1,4 +1,4 @@
-<?php
+\<?php
 namespace FabDB\Domain\Decks;
 
 use FabDB\Library\Dispatchable;

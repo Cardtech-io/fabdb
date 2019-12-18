@@ -1,118 +1,132 @@
 <template>
     <div>
-        <div class="border-gray-800 rounded-lg border p-4">
-            <router-link to="/" class="link">Home</router-link>
-            <span class="text-gray-600">&gt;</span> <router-link to="/deck-builder/" class="link">Deck builder</router-link>
-            <span class="text-gray-600">&gt;</span> <span v-if="deck">{{ deck.name }}</span>
+        <div class="container sm:mx-auto flex">
+            <div class="p-8 py-10 md:px-0">
+                <h1 class="font-serif text-white text-4xl uppercase">Deck Builder</h1>
+            </div>
         </div>
 
-        <ul class="mt-4 clearfix">
-            <li class="float-left"><a href="" class="inline-block p-4 rounded-t-lg hover:bg-gray-800 mr-2" @click.prevent="setTab('deck')" :class="{ 'bg-gray-800': activeTab == 'deck', 'bg-gray-900': activeTab != 'deck' }">Deck</a></li>
-            <li class="float-left"><a href="" class="inline-block p-4 rounded-t-lg hover:bg-gray-800 mr-2" @click.prevent="setTab('card-selector')" :class="{ 'bg-gray-800': activeTab == 'card-selector', 'bg-gray-900': activeTab != 'card-selector' }">Add cards</a></li>
-            <li class="float-left p-4">{{ totalCards }} Cards in deck
-                (
-                <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }} &nbsp;
-                )
-            </li>
-        </ul>
-
-        <div class="border border-gray-800 rounded-lg rounded-tl-none p-4">
-            <div v-show="activeTab == 'deck'">
-                <div v-if="cards && cards.length">
-                    <div class="border-b border-gray-800 mb-4" v-if="hero">
-                        <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
-                        <div class="float-right py-2">
-                            <router-link :to="'/decks/' + deck.slug" class="link">
-                                <svg class="inline-block fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
-                                </svg>
-                            </router-link>
-
-                            &nbsp;
-
-                            <a href="" @click.prevent="copy" class="link" title="Copy deck to text for sharing on social media">
-                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix">
-                        <div class="md:w-1/3 md:float-left" v-if="hero">
-                            <div class="mb-8">
-                                <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md" style="max-width: 350px"></a>
-                            </div>
-                        </div>
-
-                        <div class="md:w-1/3 md:float-left pl-4">
-                            <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
-                                <ol>
-                                    <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
-                                    <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
-                                    <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 2: {{ pitchCount(2) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 1: {{ pitchCount(1) }}</li>
-                                </ol>
-                            </div>
-                            <div v-if="weapons.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
-                                <ol>
-                                    <li v-for="weapon in weapons">
-                                        <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-black p-2 pl-4 w-full">
-                                            <span v-if="weapon.total > 1">({{ weapon.total }})</span>
-                                            <span>{{ weapon.name }}</span>
-                                            <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-
-                            <div v-if="equipment.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
-                                <ol>
-                                    <li v-for="card in equipment">
-                                        <a href="" @click.prevent="removeCard(card)" class="block hover:bg-black p-2 pl-4 w-full">
-                                            <span>{{ card.name }}</span>
-                                            <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="md:w-1/3 md:float-left pl-4">
-                            <div v-if="other.length">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
-                                <ol>
-                                    <li v-for="card in other">
-                                        <a href="" @click.prevent="removeCard(card)" class="block hover:bg-black p-2 pl-4 w-full">
-                                            <span class="">({{ card.total }})</span>
-                                            <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
-                                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
-                                            <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </a>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
+            <div class="container sm:mx-auto flex">
+                <div class="flex-1">
+                    <p>
+                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
+                        <router-link to="/deck-builder/" class="text-white hover:text-orange-300">My Decks</router-link> <span class="text-orange-500">&gt;</span>
+                        <span class="text-orange-300" v-if="deck">{{ deck.name }}</span>
+                    </p>
                 </div>
-                <div v-else class="p-4">
-                    No cards.
+                <div class="flex-1 text-right">
+                    <p>
+                        (
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
+
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div v-show="activeTab == 'card-selector'">
-                <div class="mb-2">
-                    <h2 class="font-serif uppercase">Card selector</h2>
+
+        <div class="bg-gray-200">
+            <div class="container sm:mx-auto py-8">
+                <div v-show="activeTab == 'deck'">
+                    <div v-if="cards && cards.length">
+                        <div class="border-b border-gray-400 mb-8" v-if="hero">
+                            <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
+                            <div class="float-right">
+                                <router-link :to="'/decks/' + deck.slug" class="link">
+                                    <svg class="inline-block fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
+                                    </svg>
+                                </router-link>
+
+                                &nbsp;
+
+                                <a href="" @click.prevent="copy" class="link" title="Copy deck to text for sharing on social media">
+                                    <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="md:w-1/3 md:float-left" v-if="hero">
+                                <div class="mb-8">
+                                    <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md" style="max-width: 350px"></a>
+                                </div>
+                            </div>
+
+                            <div class="md:w-1/3 md:float-left pl-4 md:pr-4">
+                                <div v-if="other.length" class="mb-8">
+                                    <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
+                                    <ol>
+                                        <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
+                                        <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
+                                        <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
+                                        <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>
+                                        <li class="block p-1 pl-4 w-full">Pitch 2: {{ pitchCount(2) }}</li>
+                                        <li class="block p-1 pl-4 w-full">Pitch 1: {{ pitchCount(1) }}</li>
+                                    </ol>
+                                </div>
+                                <div v-if="weapons.length" class="mb-8">
+                                    <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
+                                    <ol>
+                                        <li v-for="weapon in weapons" class="odd:bg-gray-100">
+                                            <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-gray-300 p-2 pl-4 w-full">
+                                                <span v-if="weapon.total > 1">({{ weapon.total }})</span>
+                                                <span>{{ weapon.name }}</span>
+                                                <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div v-if="equipment.length" class="mb-8">
+                                    <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
+                                    <ol>
+                                        <li v-for="card in equipment" class="odd:bg-gray-100">
+                                            <a href="" @click.prevent="removeCard(card)" class="block hover:bg-gray-300 p-2 pl-4 w-full">
+                                                <span>{{ card.name }}</span>
+                                                <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="md:w-1/3 md:float-left pl-4">
+                                <div v-if="other.length">
+                                    <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
+                                    <ol>
+                                        <li v-for="card in other" class="odd:bg-gray-100">
+                                            <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">
+                                                <span class="">({{ card.total }})</span>
+                                                <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
+                                                <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
+                                                <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="p-4">
+                        No cards.
+                    </div>
                 </div>
 
-                <div class="border-gray-800 rounded-lg border">
-                    <card-selector @card-selected="addCard"></card-selector>
+                <div v-show="activeTab == 'card-selector'">
+                    <div class="mb-2">
+                        <h2 class="font-serif uppercase">Card selector</h2>
+                    </div>
+
+                    <div class="border-gray-800 rounded-lg border">
+                        <card-selector @card-selected="addCard"></card-selector>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,6 +249,10 @@
                 return this.deck.cards.filter(function(deckCard) {
                     return deckCard.identifier === card.identifier;
                 })[0];
+            },
+
+            isActive: function(tab) {
+                return this.activeTab == tab ? 'text-orange-300' : '';
             },
 
             setTab: function(tab) {
