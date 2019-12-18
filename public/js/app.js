@@ -3255,7 +3255,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -3488,6 +3487,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -24783,77 +24798,107 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "border-gray-800 rounded-lg border p-4" },
-      [
-        _c("router-link", { staticClass: "link", attrs: { to: "/" } }, [
-          _vm._v("Home")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text-gray-600" }, [_vm._v(">")]),
-        _vm._v(" View deck"),
-        _c("span", { staticClass: "text-gray-600" }, [_vm._v(":")]),
-        _vm._v(" "),
-        _vm.deck ? _c("span", [_vm._v(_vm._s(_vm.deck.name))]) : _vm._e()
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "border border-gray-800 rounded-lg p-4 mt-8" }, [
-      _vm.cards && _vm.cards.length
-        ? _c("div", [
-            _c(
-              "div",
-              { staticClass: "border-b border-gray-800 mb-4 clearfix" },
+    _c("div", { staticClass: "container sm:mx-auto flex" }, [
+      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
+        _vm.deck
+          ? _c(
+              "h1",
+              { staticClass: "font-serif text-white text-4xl uppercase" },
               [
-                _c("h1", { staticClass: "inline-block font-serif text-4xl" }, [
-                  _vm._v(
-                    _vm._s(_vm.hero.name) + " (" + _vm._s(_vm.deck.name) + ")"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "float-right py-2" }, [
-                  _vm._v(
-                    _vm._s(_vm.totalCards) +
-                      " Cards in deck\n                    (\n                    "
-                  ),
-                  _c("span", {
-                    staticClass: "inline-block rounded-lg h-2 w-2",
-                    class: _vm.resourceColour(3)
-                  }),
-                  _vm._v(
-                    " " +
-                      _vm._s(_vm.totalColoured.blue) +
-                      "  \n                    "
-                  ),
-                  _c("span", {
-                    staticClass: "inline-block rounded-lg h-2 w-2",
-                    class: _vm.resourceColour(2)
-                  }),
-                  _vm._v(
-                    " " +
-                      _vm._s(_vm.totalColoured.yellow) +
-                      "  \n                    "
-                  ),
-                  _c("span", {
-                    staticClass: "inline-block rounded-lg h-2 w-2",
-                    class: _vm.resourceColour(1)
-                  }),
-                  _vm._v(
-                    " " +
-                      _vm._s(_vm.totalColoured.red) +
-                      "\n                    )\n                "
-                  )
-                ])
+                _vm._v(
+                  _vm._s(_vm.hero.name) + " (" + _vm._s(_vm.deck.name) + ")"
+                )
               ]
+            )
+          : _vm._e()
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.deck
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
+          },
+          [
+            _c("div", { staticClass: "container sm:mx-auto flex" }, [
+              _c("div", { staticClass: "flex-1" }, [
+                _c(
+                  "p",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "text-white hover:text-orange-300",
+                        attrs: { to: "/" }
+                      },
+                      [_vm._v("Home")]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-orange-500" }, [
+                      _vm._v(">")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-orange-300" }, [
+                      _vm._v("View deck: " + _vm._s(_vm.deck.name))
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-white" }, [
+      _c("div", { staticClass: "container sm:mx-auto py-4" }, [
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "flex-1 font-serif uppercase" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.totalCards) +
+                " Cards in deck   \n                    (\n                    "
             ),
-            _vm._v(" "),
+            _c("span", {
+              staticClass: "inline-block rounded-lg h-2 w-2",
+              class: _vm.resourceColour(3)
+            }),
+            _vm._v(
+              " " + _vm._s(_vm.totalColoured.blue) + "  \n                    "
+            ),
+            _c("span", {
+              staticClass: "inline-block rounded-lg h-2 w-2",
+              class: _vm.resourceColour(2)
+            }),
+            _vm._v(
+              " " +
+                _vm._s(_vm.totalColoured.yellow) +
+                "  \n                    "
+            ),
+            _c("span", {
+              staticClass: "inline-block rounded-lg h-2 w-2",
+              class: _vm.resourceColour(1)
+            }),
+            _vm._v(
+              " " +
+                _vm._s(_vm.totalColoured.red) +
+                "\n                    )\n                "
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-gray-200" }, [
+      _vm.cards && _vm.cards.length
+        ? _c("div", { staticClass: "container sm:mx-auto py-8" }, [
             _c("div", { staticClass: "clearfix" }, [
               _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
                 _c("div", { staticClass: "mb-8" }, [
                   _c("img", {
-                    staticClass: "w-full max-w-md",
+                    staticClass: "w-full max-w-md rounded-xl",
                     staticStyle: { "max-width": "350px" },
                     attrs: {
                       src: _vm.cardUrl(_vm.hero.identifier, 350),
@@ -24873,10 +24918,6 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("ol", [
-                        _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                          _vm._v("Total cards: " + _vm._s(_vm.totalCards))
-                        ]),
-                        _vm._v(" "),
                         _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
                           _vm._v(
                             "Average card cost: " + _vm._s(_vm.averageCost)

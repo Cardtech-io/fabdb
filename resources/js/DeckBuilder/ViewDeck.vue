@@ -1,15 +1,27 @@
 <template>
     <div>
-        <div class="border-gray-800 rounded-lg border p-4">
-            <router-link to="/" class="link">Home</router-link>
-            <span class="text-gray-600">&gt;</span> View deck<span class="text-gray-600">:</span> <span v-if="deck">{{ deck.name }}</span>
+        <div class="container sm:mx-auto flex">
+            <div class="p-8 py-10 md:px-0">
+                <h1 class="font-serif text-white text-4xl uppercase" v-if="deck">{{ hero.name }} ({{ deck.name }})</h1>
+            </div>
         </div>
 
-        <div class="border border-gray-800 rounded-lg p-4 mt-8">
-            <div v-if="cards && cards.length">
-                <div class="border-b border-gray-800 mb-4 clearfix">
-                    <h1 class="inline-block font-serif text-4xl">{{ hero.name }} ({{ deck.name }})</h1>
-                    <div class="float-right py-2">{{ totalCards }} Cards in deck
+        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4" v-if="deck">
+            <div class="container sm:mx-auto flex">
+                <div class="flex-1">
+                    <p>
+                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
+                        <span class="text-orange-300">View deck: {{ deck.name }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white">
+            <div class="container sm:mx-auto py-4">
+                <div class="flex">
+                    <div class="flex-1 font-serif uppercase">
+                        {{ totalCards }} Cards in deck &nbsp; 
                         (
                         <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
                         <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
@@ -17,10 +29,15 @@
                         )
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-200">
+            <div class="container sm:mx-auto py-8" v-if="cards && cards.length">
                 <div class="clearfix">
                     <div class="md:w-1/3 md:float-left">
                         <div class="mb-8">
-                            <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md" style="max-width: 350px">
+                            <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px">
                         </div>
                     </div>
 
@@ -28,7 +45,6 @@
                         <div v-if="other.length" class="mb-8">
                             <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
                             <ol>
-                                <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
                                 <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
                                 <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
                                 <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>

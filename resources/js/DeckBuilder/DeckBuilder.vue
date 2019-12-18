@@ -29,7 +29,6 @@
             </div>
         </div>
 
-
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8" v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
