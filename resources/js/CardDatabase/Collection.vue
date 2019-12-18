@@ -26,7 +26,7 @@
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto">
-                <card-search useCase="collection" @search-completed="refreshResults" :page="page" :refreshable="true" :external="searchDefaults"></card-search>
+                <card-search use-case="collection" @search-completed="refreshResults" :page="page" :refreshable="true" :external="searchDefaults"></card-search>
             </div>
         </div>
 

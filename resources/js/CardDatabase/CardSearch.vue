@@ -54,7 +54,6 @@
                 type: Boolean,
                 default: true
             },
-            size: String,
             wait: Boolean
         },
 
@@ -79,13 +78,18 @@
                             type: this.type
                         }});
                 } else {
-                    if (! this.keywords) {
+                    if (this.emptySearch()) {
+                        console.log('empty search');
                         this.$emit('search-completed', {});
                         return;
                     }
                 }
 
                 this.search();
+            },
+
+            emptySearch: function() {
+                return !this.keywords && !this.type && !this.heroClass;
             },
 
             search: function() {
