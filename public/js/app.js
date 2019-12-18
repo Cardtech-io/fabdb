@@ -2437,6 +2437,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -22465,7 +22469,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
+    { staticClass: "float-left p-6 sm:p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
     [
       _c(
         "div",
@@ -22510,9 +22514,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", { staticClass: "odd:bg-gray-100 hover:bg-gray-200" }, [
-    _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
-      _vm._v(_vm._s(_vm.card.identifier))
-    ]),
+    _c(
+      "td",
+      { staticClass: "border border-gray-300 py-2 px-4 hidden sm:table-cell" },
+      [_vm._v(_vm._s(_vm.card.identifier))]
+    ),
     _vm._v(" "),
     _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
       _vm._v(_vm._s(_vm.card.name) + " "),
@@ -22572,7 +22578,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "block flex flex-wrap -mx-3",
+      staticClass: "block flex flex-wrap mb-4",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -22581,8 +22587,8 @@ var render = function() {
       }
     },
     [
-      _c("div", { staticClass: "flex w-full sm:w-3/4" }, [
-        _c("div", { staticClass: "w-full sm:w-3/5 px-2" }, [
+      _c("div", { staticClass: "flex w-full md:w-3/4" }, [
+        _c("div", { staticClass: "w-full md:w-3/5 px-4 md:pr-2 md:pl-0" }, [
           _c(
             "label",
             {
@@ -22602,7 +22608,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
+              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
             attrs: { type: "text" },
             domProps: { value: _vm.keywords },
             on: {
@@ -22616,7 +22622,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-full sm:w-1/5 px-2" }, [
+        _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
           _c(
             "label",
             {
@@ -22638,7 +22644,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
+                "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -22675,7 +22681,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-full sm:w-1/5 px-2" }, [
+        _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
           _c(
             "label",
             {
@@ -22697,7 +22703,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "input focus:bg-white focus:border-gray-500 py-3 px-4 mb-3 rounded-lg",
+                "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -22744,7 +22750,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full sm:w-1/4 px-4" }, [
+    return _c("div", { staticClass: "w-full md:w-1/4 px-4 md:px-0" }, [
       _c(
         "label",
         {
@@ -22755,7 +22761,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass:
-          "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none hover:bg-orange-500",
+          "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
         attrs: { type: "submit", value: "Search" }
       })
     ])
@@ -22899,9 +22905,9 @@ var render = function() {
       _c("div", { staticClass: "container sm:mx-auto" }, [
         _vm.results && _vm.results.data
           ? _c("div", [
-              _c("div", { staticClass: "clearfix" }, [
+              _c("div", { staticClass: "clearfix py-4" }, [
                 _c("div", { staticClass: "clearfix py-4" }, [
-                  _c("div", { staticClass: "float-left w-1/5" }, [
+                  _c("div", { staticClass: "float-left w-1/5 px-4 md:px-0" }, [
                     _c(
                       "a",
                       {
@@ -22982,7 +22988,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "float-left w-3/5" },
+                    { staticClass: "float-left w-4/5 sm:w-3/5" },
                     [
                       _c("paginator", {
                         attrs: { results: _vm.results },
@@ -22992,7 +22998,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "float-left w-1/5" }, [_vm._v(" ")])
+                  _c("div", { staticClass: "float-left hidden sm:w-1/5" }, [
+                    _vm._v(" ")
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm.view == "gallery"
@@ -23057,7 +23065,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container sm:mx-auto flex" }, [
-      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
+      _c("div", { staticClass: "p-4 py-10 md:px-0" }, [
         _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
           _vm._v("My Collection")
         ])
@@ -23069,7 +23077,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [
+      _c("tr", { staticClass: "hidden sm:table-row" }, [
         _c(
           "th",
           {
@@ -23110,6 +23118,18 @@ var staticRenderFns = [
             staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
           },
           [_vm._v("Promo")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("tr", { staticClass: "table-row sm:hidden" }, [
+        _c(
+          "th",
+          {
+            staticClass:
+              "border border-gray-300 py-2 px-4 font-serif uppercase text-left",
+            attrs: { colspan: "4" }
+          },
+          [_vm._v("Card details")]
         )
       ])
     ])
