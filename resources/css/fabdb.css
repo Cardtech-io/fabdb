@@ -43,11 +43,11 @@ button:focus {
 }
 
 .link {
-    @apply text-orange-700;
+    @apply text-orange-400;
 }
 
 .link:hover {
-    @apply text-gray-800;
+    @apply text-gray-400;
 }
 
 @font-face {

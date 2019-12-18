@@ -2990,8 +2990,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3006,6 +3004,8 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/', {
         name: this.name
       }).then(function (response) {
+        _this.name = null;
+
         _this.$emit('deck-added', response.data);
       });
     }
@@ -3374,15 +3374,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddDeck_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddDeck.vue */ "./resources/js/DeckBuilder/AddDeck.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -23799,49 +23790,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-4 border-gray-800 border-t p-4" }, [
-    _c(
-      "form",
-      {
-        staticClass: "block flex",
+  return _c(
+    "form",
+    {
+      staticClass: "block flex",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.addDeck()
+        }
+      }
+    },
+    [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.name,
+            expression: "name"
+          }
+        ],
+        staticClass: "block bg-black w-2/3 p-2 rounded-l-lg focus:outline-none",
+        attrs: { type: "text", placeholder: "Deck name", required: "" },
+        domProps: { value: _vm.name },
         on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.addDeck()
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.name = $event.target.value
           }
         }
-      },
-      [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.name,
-              expression: "name"
-            }
-          ],
-          staticClass: "block bg-black w-2/3 p-2 rounded-l-lg",
-          attrs: { type: "text", placeholder: "Deck name", required: "" },
-          domProps: { value: _vm.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.name = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "block w-1/3 p-2 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center",
-          attrs: { type: "submit", value: "Add" }
-        })
-      ]
-    )
-  ])
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass:
+          "block w-1/3 p-2 appearance-none block bg-orange-700 text-white rounded-r-lg p-2 leading-tight focus:outline-none hover:bg-orange-500 text-center",
+        attrs: { type: "submit", value: "Add" }
+      })
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24540,57 +24529,41 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
-      },
-      [
-        _c("div", { staticClass: "container sm:mx-auto" }, [
-          _c(
-            "p",
-            {},
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "text-white hover:text-orange-300",
-                  attrs: { to: "/" }
-                },
-                [_vm._v("Home")]
-              ),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-orange-300" }, [
-                _vm._v("Deck Builder")
-              ])
-            ],
-            1
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "bg-gray-200" }, [
+    _c("div", { staticClass: "container sm:mx-auto text-white" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "container sm:mx-auto" },
+        {
+          staticClass:
+            "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
+        },
         [
-          _c("h1", { staticClass: "font-serif text-2xl p-4" }, [
-            _vm._v("My Decks")
+          _c("div", { staticClass: "flex pb-8" }, [
+            _c(
+              "h1",
+              {
+                staticClass: "font-serif text-white text-4xl uppercase flex-1"
+              },
+              [_vm._v("Decks")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex-1" },
+              [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
+              1
+            )
           ]),
           _vm._v(" "),
           _vm.decks
             ? _c(
                 "ol",
+                { staticClass: "border-black border-b" },
                 _vm._l(_vm.decks, function(deck) {
                   return _c(
                     "li",
-                    { staticClass: "border-gray-800 border-t p-4" },
+                    { staticClass: "border-black border-t py-4" },
                     [
                       _c(
                         "router-link",
@@ -24606,11 +24579,8 @@ var render = function() {
                 }),
                 0
               )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("add-deck", { on: { "deck-added": _vm.addDeck } })
-        ],
-        1
+            : _vm._e()
+        ]
       )
     ])
   ])
@@ -24620,13 +24590,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container sm:mx-auto flex" }, [
-      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
-        _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
+    return _c(
+      "div",
+      {
+        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
+      },
+      [
+        _c("h1", { staticClass: "font-serif text-4xl lg:text-4xl uppercase" }, [
           _vm._v("Deck Builder")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play."
+          )
         ])
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -24898,7 +24878,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg-pr-8 lg:py-20"
+        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
       },
       [
         _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [

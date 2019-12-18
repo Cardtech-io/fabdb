@@ -1,31 +1,22 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-8 py-10 md:px-0">
-                <h1 class="font-serif text-white text-4xl uppercase">Deck Builder</h1>
+        <div class="container sm:mx-auto text-white">
+            <div class="p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20">
+                <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
+                <p>The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play.</p>
             </div>
-        </div>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto">
-                <p class="">
-                    <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                    <span class="text-orange-300">Deck Builder</span>
-                </p>
-            </div>
-        </div>
+            <div class="m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20">
+                <div class="flex pb-8">
+                    <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
+                    <div class="flex-1"><add-deck @deck-added="addDeck"></add-deck></div>
+                </div>
 
-        <div class="bg-gray-200">
-            <div class="container sm:mx-auto">
-                <h1 class="font-serif text-2xl p-4">My Decks</h1>
-
-                <ol v-if="decks">
-                    <li class="border-gray-800 border-t p-4" v-for="deck in decks">
+                <ol v-if="decks" class="border-black border-b">
+                    <li class="border-black border-t py-4" v-for="deck in decks">
                         <router-link :to="'/deck-builder/' + deck.slug + '/'" class="link">{{ deck.name }}</router-link>
                     </li>
                 </ol>
-
-                <add-deck @deck-added="addDeck"></add-deck>
             </div>
         </div>
     </div>
