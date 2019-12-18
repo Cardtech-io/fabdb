@@ -43846,7 +43846,7 @@ __webpack_require__.r(__webpack_exports__);
       var set = parts[0].toLowerCase();
       var id = parts[1].replace(/^0+/, '');
       var dimensions = {
-        ira: [22, 22, 421, 603],
+        ira: [23, 24, 419, 603],
         wtr: [22, 22, 406, 584]
       };
       var rect = dimensions[set].join(',');

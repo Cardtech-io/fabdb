@@ -6,7 +6,7 @@ export default {
             const id = parts[1].replace(/^0+/, '');
 
             const dimensions = {
-                ira: [22, 22, 421, 603],
+                ira: [23, 24, 419, 603],
                 wtr: [22, 22, 406, 584]
             };
 
