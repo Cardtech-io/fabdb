@@ -32,15 +32,13 @@ class SeedCardDatabase extends Command
      */
     public function handle()
     {
-        // Resets the database back to zero. This is useful for re-seeding if there are records in the database (such
-        // as for collections, decks.etc. that have already been saved. This ensures that the cards will be re-seeded
-        // with updated information but utilising the same IDs.
-        DB::statement('TRUNCATE cards');
-        DB::statement('ALTER TABLE cards AUTO_INCREMENT = 1;');
+        $set = $this->selectSet();
 
-        $cards = json_decode(Storage::disk('carddb')->get('wtr.json'), true);
+        $cards = json_decode(Storage::disk('carddb')->get("{$set}.json"), true);
 
         foreach ($cards as $card) {
+            $this->line('Registering: '.$card['set'].$card['id']);
+
             Card::register(
                 new Identifier($card['set'], $card['id']),
                 $card['name'],
@@ -50,5 +48,17 @@ class SeedCardDatabase extends Command
                 $card['stats']
             );
         }
+
+        $this->info('Done.');
+    }
+
+    /**
+     * @return string
+     */
+    private function selectSet(): string
+    {
+        $set = $this->choice('Which set would you like to import or update?', ['WTR', 'IRA']);
+
+        return strtolower($set);
     }
 }

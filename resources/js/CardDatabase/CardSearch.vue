@@ -79,8 +79,7 @@
                         }});
                 } else {
                     if (this.emptySearch()) {
-                        console.log('empty search');
-                        this.$emit('search-completed', {});
+                        this.$emit('search-completed', null);
                         return;
                     }
                 }

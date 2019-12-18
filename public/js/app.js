@@ -2282,8 +2282,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       } else {
         if (this.emptySearch()) {
-          console.log('empty search');
-          this.$emit('search-completed', {});
+          this.$emit('search-completed', null);
           return;
         }
       }
@@ -3098,7 +3097,11 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('card-selected', card);
     },
     refreshResults: function refreshResults(results) {
-      this.cards = results.data;
+      if (results == null) {
+        this.cards = [];
+      } else {
+        this.cards = results.data;
+      }
     }
   }
 });
@@ -23981,7 +23984,7 @@ var render = function() {
               0
             )
           : _c("div", [
-              _c("h2", { staticClass: "font-serif text-xl uppercase" }, [
+              _c("h2", { staticClass: "font-serif text-2xl uppercase" }, [
                 _vm._v("Usage")
               ]),
               _vm._v(" "),
@@ -43842,7 +43845,12 @@ __webpack_require__.r(__webpack_exports__);
       var parts = identifier.match(/.{3}/g);
       var set = parts[0].toLowerCase();
       var id = parts[1].replace(/^0+/, '');
-      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=22,22,406,584';
+      var dimensions = {
+        ira: [22, 22, 421, 603],
+        wtr: [22, 22, 406, 584]
+      };
+      var rect = dimensions[set].join(',');
+      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=' + rect;
     },
     resourceColour: function resourceColour(resource) {
       var colours = {

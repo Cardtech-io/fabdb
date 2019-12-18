@@ -5,7 +5,14 @@ export default {
             const set = parts[0].toLowerCase();
             const id = parts[1].replace(/^0+/, '');
 
-            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=22,22,406,584';
+            const dimensions = {
+                ira: [22, 22, 421, 603],
+                wtr: [22, 22, 406, 584]
+            };
+
+            var rect = dimensions[set].join(',');
+
+            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=' + rect;
         },
 
         resourceColour: function(resource) {

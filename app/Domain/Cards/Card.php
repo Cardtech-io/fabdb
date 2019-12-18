@@ -14,7 +14,7 @@ class Card extends Model
 
     public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, array $keywords, array $stats)
     {
-        return static::create(compact('identifier', 'name', 'rarity', 'text', 'keywords', 'stats'));
+        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'keywords', 'stats'));
     }
 
     public function setIdentifierAttribute(Identifier $identifier)

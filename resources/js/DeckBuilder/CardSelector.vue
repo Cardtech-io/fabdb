@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div v-else>
-                    <h2 class="font-serif text-xl uppercase">Usage</h2>
+                    <h2 class="font-serif text-2xl uppercase">Usage</h2>
                     <p>
                         Search for your cards in the usual manner. When you see the card you want to add, click the card's name.<br>
                         This will add one (1) of that card to your deck. You can switch back to your deck at any time.
@@ -44,7 +44,11 @@
             },
 
             refreshResults: function(results) {
-                this.cards = results.data;
+                if (results == null) {
+                    this.cards = []
+                } else {
+                    this.cards = results.data;
+                }
             }
         }
     };
