@@ -2878,7 +2878,8 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     classes: function classes() {
       return {
-        'link': this.count > 0,
+        'text-orange-300': !this.disabled,
+        'hover:text-gray-800': !this.disabled,
         'text-gray-400': this.disabled,
         'cursor-not-allowed': this.disabled
       };
@@ -23603,7 +23604,7 @@ var render = function() {
     _c(
       "a",
       {
-        staticClass: "link",
+        staticClass: "text-orange-300 hover:text-gray-800",
         attrs: { href: "" },
         on: {
           click: function($event) {
@@ -23708,7 +23709,7 @@ var render = function() {
       "a",
       {
         class: _vm.classes,
-        attrs: { href: _vm.disabled },
+        attrs: { href: "" },
         on: {
           click: function($event) {
             $event.preventDefault()
