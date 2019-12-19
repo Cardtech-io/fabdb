@@ -2,10 +2,13 @@
 namespace FabDB\Domain\Users;
 
 use FabDB\Library\Dispatchable;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class AuthenticateUser
+class AuthenticateUser implements Loggable
 {
     use Dispatchable;
+    use LogsParams;
 
     /**
      * @var string

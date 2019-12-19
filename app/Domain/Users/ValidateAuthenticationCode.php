@@ -1,10 +1,14 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 use Illuminate\Support\Facades\Auth;
 
-class ValidateAuthenticationCode
+class ValidateAuthenticationCode implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var string
      */

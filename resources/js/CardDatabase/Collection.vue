@@ -106,7 +106,7 @@
             return {
                 page: 1,
                 results: {},
-                searchDefaults: {view: 'all'},
+                searchDefaults: { view: 'mine' },
                 title: 'My collection',
                 view: 'list'
             }

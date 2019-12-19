@@ -45,7 +45,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         $existing = $deck->card($card->id);
 
-        if ($existing->pivot->total > 1) {
+        if ($existing->pivot && $existing->pivot->total > 1) {
             DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);
         } else {
             DB::delete('DELETE FROM deck_cards WHERE id = ?', [$existing->pivot->id]);

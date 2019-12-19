@@ -2457,7 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
       page: 1,
       results: {},
       searchDefaults: {
-        view: 'all'
+        view: 'mine'
       },
       title: 'My collection',
       view: 'list'
