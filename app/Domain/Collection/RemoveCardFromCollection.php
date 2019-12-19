@@ -2,9 +2,13 @@
 namespace FabDB\Domain\Collection;
 
 use FabDB\Domain\Cards\CardType;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class RemoveCardFromCollection
+class RemoveCardFromCollection implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

@@ -2,10 +2,13 @@
 namespace FabDB\Domain\Decks;
 
 use FabDB\Library\Dispatchable;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class AddDeck
+class AddDeck implements Loggable
 {
     use Dispatchable;
+    use LogsParams;
 
     /**
      * @var int
@@ -28,6 +31,8 @@ class AddDeck
         $deck = Deck::add($this->userId, $this->name);
 
         $decks->save($deck);
+
+        dd($deck);
 
         $this->dispatch($deck->releaseEvents());
 

@@ -22,11 +22,9 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             $ownedCard = new OwnedCard;
             $ownedCard->card_id = $cardId;
             $ownedCard->user_id = $userId;
-            $ownedCard->$field = $total;
         }
 
         $ownedCard->{$field} += $total;
-
         $ownedCard->save();
 
         return $ownedCard;

@@ -3,9 +3,13 @@ namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class AddCardToDeck
+class AddCardToDeck implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var Deck
      */

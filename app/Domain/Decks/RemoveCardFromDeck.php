@@ -2,9 +2,13 @@
 namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class RemoveCardFromDeck
+class RemoveCardFromDeck implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var Deck
      */
