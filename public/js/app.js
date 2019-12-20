@@ -22013,8 +22013,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-8" }, [
-      _c("div", { staticClass: "text-center text-sm text-gray-600" }, [
+    return _c("div", { staticClass: "p-8" }, [
+      _c("div", { staticClass: "sm:text-center text-sm text-gray-600" }, [
         _c("p", [
           _c("a", { staticClass: "link", attrs: { href: "/" } }, [
             _vm._v("fabdb.net")
@@ -22336,7 +22336,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "ul",
-                  { staticClass: "clearfix -mx-4" },
+                  { staticClass: "clearfix sm:-mx-4" },
                   _vm._l(_vm.results.data, function(card) {
                     return _c("card-item", {
                       key: card.identifier,
@@ -22405,7 +22405,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border-t border-gray-300 py-8" }, [
+    return _c("div", { staticClass: "border-t border-gray-300 p-4 py-8" }, [
       _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
         _vm._v("Search tips")
       ]),

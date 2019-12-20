@@ -23,6 +23,6 @@
     <body class="theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
 
-        <script src="/js/app.js"></script>
+        <script src="{{ asset(mix('/js/app.js')) }}"></script>
     </body>
 </html>

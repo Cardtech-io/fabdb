@@ -28,7 +28,7 @@
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
 
-                        <ul class="clearfix -mx-4">
+                        <ul class="clearfix sm:-mx-4">
                             <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
                         </ul>
 
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="border-t border-gray-300 py-8">
+                <div class="border-t border-gray-300 p-4 py-8">
                     <h1 class="font-serif text-xl uppercase">Search tips</h1>
                     <p class="my-4">The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards
                         based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc. using the keywords search field.</p>
