@@ -17,25 +17,25 @@
         </div>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto py-8 clearfix" v-if="card">
+            <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
                 <div class="md:w-2/3 md:float-right md:pl-8">
-                    <h2 class="font-serif text-4xl mb-4 uppercase p-4 bg-white">{{ card.name }} - {{ card.identifier }}</h2>
-                    <ul>
-                        <li class="clearfix">
-                            <div class="float-left w-1/3">Rarity</div>
-                            <div class="float-left w-2/3">{{ rarity }}</div>
+                    <h2 class="font-serif text-4xl uppercase pb-4 hidden md:block">{{ card.name }} - {{ card.identifier }}</h2>
+                    <ul class="py-4">
+                        <li class="clearfix bg-white">
+                            <div class="float-left w-1/3 p-2 px-4">Rarity</div>
+                            <div class="float-left w-2/3 p-2 px-4">{{ rarity }}</div>
                         </li>
-                        <li class="clearfix mb-4">
-                            <div class="float-left w-1/3">Keywords</div>
-                            <div class="float-left w-2/3">
+                        <li class="clearfix">
+                            <div class="float-left w-1/3 p-2 px-4">Keywords</div>
+                            <div class="float-left w-2/3 p-2 px-4">
                             <span v-for="(keyword, index) in card.keywords">
                                 <router-link :to="'/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                             </span>
                             </div>
                         </li>
-                        <li v-for="(value, stat) in card.stats" class="clearfix">
-                            <div class="float-left w-1/3">{{ sentenceCase(stat) }}</div>
-                            <div class="float-left w-2/3">{{ value }}</div>
+                        <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white">
+                            <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
+                            <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                         </li>
                     </ul>
                 </div>
