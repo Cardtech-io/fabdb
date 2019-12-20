@@ -2082,6 +2082,16 @@ __webpack_require__.r(__webpack_exports__);
       view: 'gallery'
     };
   },
+  metaInfo: function metaInfo() {
+    return {
+      title: 'Browse cards',
+      meta: [{
+        vmid: 'description',
+        name: 'description',
+        content: 'Browse and search cards from the Flesh & Blood TCG.'
+      }]
+    };
+  },
   methods: {
     refreshResults: function refreshResults(results) {
       this.results = results;
@@ -2683,7 +2693,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   metaInfo: function metaInfo() {
     return {
-      title: this.card.name + ' - ' + this.card.identifier
+      title: this.card.name + ' - ' + this.card.identifier,
+      meta: [{
+        vmid: 'description',
+        name: 'description',
+        content: 'View Flesh & Blood card, ' + this.card.name + '.'
+      }]
     };
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__["default"])(function (to, callback) {

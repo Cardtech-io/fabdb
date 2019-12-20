@@ -72,6 +72,15 @@
             }
         },
 
+        metaInfo() {
+            return {
+                title: 'Browse cards',
+                meta: [
+                    { vmid: 'description', name: 'description', content: 'Browse and search cards from the Flesh & Blood TCG.' }
+                ]
+            };
+        },
+
         methods: {
             refreshResults: function(results) {
                 this.results = results;

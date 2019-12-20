@@ -100,7 +100,10 @@
 
         metaInfo() {
             return {
-                title: this.card.name + ' - ' + this.card.identifier
+                title: this.card.name + ' - ' + this.card.identifier,
+                meta: [
+                    { vmid: 'description', name: 'description', content: 'View Flesh & Blood card, ' + this.card.name + '.' }
+                ]
             };
         },
 
