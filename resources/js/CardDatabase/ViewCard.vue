@@ -5,7 +5,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
-                <div class="md:w-2/3 md:float-right md:pl-8">
+                <div class="md:w-2/3 md:float-right sm:px-4 md:pl-8">
                     <h2 class="font-serif text-4xl uppercase pb-4 hidden md:block">{{ card.name }} - {{ card.identifier }}</h2>
                     <ul class="py-4">
                         <li class="clearfix bg-white">
