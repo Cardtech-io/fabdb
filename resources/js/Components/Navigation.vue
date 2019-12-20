@@ -1,6 +1,6 @@
 <template>
-    <header class="sm:flex container sm:mx-auto items-center">
-        <div class="flex items-center justify-between px-4 py-2 sm:border-0">
+    <header class="sm:flex container sm:mx-auto items-center px-4">
+        <div class="flex items-center justify-between py-2 sm:border-0">
             <div class="relative overflow-visible logo">
                 <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
                 <router-link to="/"><img src="/img/fab-logo.png" class="h-14"></router-link>

@@ -2099,7 +2099,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
 //
 //
 //
@@ -2108,12 +2107,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     card: Object,
@@ -2140,7 +2135,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Collection_CardCount_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Collection/CardCount.vue */ "./resources/js/Collection/CardCount.vue");
-/* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
 //
 //
 //
@@ -2171,13 +2165,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    CardCount: _Collection_CardCount_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    CardCount: _Collection_CardCount_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
@@ -2441,8 +2433,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2497,69 +2487,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       title: this.title
     };
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['card', 'view'],
-  data: function data() {
-    return {
-      foil: this.card.foil,
-      standard: this.card.standard
-    };
-  },
-  methods: {
-    add: function add(type) {
-      this[type] += 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/collection/', {
-        identifier: this.card.identifier,
-        type: type
-      });
-    },
-    remove: function remove(type) {
-      this[type] -= 1;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/collection/' + this.card.identifier + '/?type=' + type);
-    }
   }
 });
 
@@ -2650,8 +2577,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _ManageCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ManageCard.vue */ "./resources/js/CardDatabase/ManageCard.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 //
 //
 //
@@ -2689,7 +2615,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 
@@ -2698,8 +2623,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   components: {
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    ManageCard: _ManageCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   computed: {
     crumbs: function crumbs() {
@@ -3253,8 +3177,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _CardSelector_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardSelector.vue */ "./resources/js/DeckBuilder/CardSelector.vue");
 /* harmony import */ var _CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3377,16 +3304,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
 
 
 
@@ -3394,9 +3314,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    CardSelector: _CardSelector_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CardSelector: _CardSelector_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   computed: {
     cards: function cards() {
       if (this.deck && this.deck.cards) {
@@ -3410,6 +3332,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return [];
+    },
+    crumbs: function crumbs() {
+      return [{
+        text: 'Home',
+        link: '/'
+      }, {
+        text: 'Deck Builder',
+        link: '/deck-builder/'
+      }, {
+        text: this.deck.name
+      }];
     },
     shareText: function shareText() {
       var weapons = this.weapons.map(function (weapon) {
@@ -3436,7 +3369,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       deck: null
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_7__["mapActions"])('messages', ['addMessage']), {
     shareLine: function shareLine(line) {
       return line + '\n';
     },
@@ -3502,13 +3435,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.activeTab = tab;
     }
   }),
-  mounted: function mounted() {
-    var _this2 = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + this.$route.params.deck + '').then(function (response) {
-      _this2.deck = response.data;
-    });
-  },
   metaInfo: function metaInfo() {
     return {
       title: this.deck ? 'Deck builder - Edit deck (' + this.deck.name + ')' : 'Deck builder - Edit deck',
@@ -3518,7 +3444,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         content: 'Fab DB is a suite of utilities for Flesh & Blood players, including a deck builder, collection manager and more.'
       }]
     };
-  }
+  },
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_5__["default"])(function (to, callback) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + to.params.deck + '').then(function (response) {
+      callback(function () {
+        this.deck = response.data;
+      });
+    });
+  })
 });
 
 /***/ }),
@@ -22406,7 +22339,7 @@ var render = function() {
       _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto" },
+          { staticClass: "container sm:mx-auto md:px-4" },
           [
             _c("card-search", {
               attrs: { useCase: "browse", page: _vm.page, refreshable: true },
@@ -22418,7 +22351,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto" }, [
+        _c("div", { staticClass: "container sm:mx-auto px-4" }, [
           _vm.results && _vm.results.data
             ? _c("div", [
                 _c("div", { staticClass: "clearfix" }, [
@@ -23036,7 +22969,7 @@ var render = function() {
       _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto" },
+          { staticClass: "container sm:mx-auto px-4" },
           [
             _c("card-search", {
               attrs: {
@@ -23056,151 +22989,89 @@ var render = function() {
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
             ? _c("div", [
-                _c("div", { staticClass: "py-4" }, [
-                  _c("div", { staticClass: "clearfix py-4" }, [
+                _c("div", { staticClass: "clearfix p-4" }, [
+                  _c("div", { staticClass: "float-left w-1/4 px-4 md:px-0" }, [
                     _c(
-                      "div",
-                      { staticClass: "float-left w-1/4 px-4 md:px-0" },
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "gallery"
+                        },
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("gallery")
+                          }
+                        }
+                      },
                       [
                         _c(
-                          "a",
+                          "svg",
                           {
-                            staticClass: "text-gray-800",
-                            class: {
-                              "text-orange-700 hover:text-gray-500":
-                                _vm.view != "gallery"
-                            },
-                            attrs: { href: "" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.setView("gallery")
-                              }
+                            staticClass: "inline-block fill-current h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
                             }
                           },
                           [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "inline-block fill-current h-4 w-4",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 20 20"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "text-gray-800",
-                            class: {
-                              "text-orange-700 hover:text-gray-500":
-                                _vm.view != "list"
-                            },
-                            attrs: { href: "" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.setView("list")
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
                               }
-                            }
-                          },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "inline-block fill-current h-5 w-5 ml-1",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 20 20"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
-                                  }
-                                })
-                              ]
-                            )
+                            })
                           ]
                         )
                       ]
                     ),
                     _vm._v(" "),
                     _c(
-                      "div",
-                      { staticClass: "float-left w-3/4 sm:w-2/4" },
-                      [
-                        _c("paginator", {
-                          attrs: { results: _vm.results },
-                          on: { "page-selected": _vm.updatePage }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "float-left hidden sm:w-1/4" }, [
-                      _vm._v(" ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm.view == "gallery"
-                    ? _c(
-                        "ul",
-                        { staticClass: "clearfix -mx-4" },
-                        _vm._l(_vm.results.data, function(card) {
-                          return _c("card-item", {
-                            key: card.identifier,
-                            attrs: {
-                              card: card,
-                              view: _vm.view,
-                              path: "/cards"
-                            }
-                          })
-                        }),
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.view == "list"
-                    ? _c(
-                        "table",
-                        {
-                          staticClass:
-                            "w-full table-auto border-collapse bg-white"
+                      "a",
+                      {
+                        staticClass: "text-gray-800",
+                        class: {
+                          "text-orange-700 hover:text-gray-500":
+                            _vm.view != "list"
                         },
-                        [
-                          _vm._m(0),
-                          _vm._v(" "),
-                          _vm._l(_vm.results.data, function(card) {
-                            return _c("card-list-item", {
-                              key: card.identifier,
-                              attrs: { card: card, path: "/cards" }
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.setView("list")
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass:
+                              "inline-block fill-current h-5 w-5 ml-1",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"
+                              }
                             })
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e(),
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "py-4" },
+                    { staticClass: "float-left w-3/4 sm:w-2/4" },
                     [
                       _c("paginator", {
                         attrs: { results: _vm.results },
@@ -23208,8 +23079,59 @@ var render = function() {
                       })
                     ],
                     1
-                  )
-                ])
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "float-left hidden sm:w-1/4" }, [
+                    _vm._v(" ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm.view == "gallery"
+                  ? _c(
+                      "ul",
+                      { staticClass: "clearfix -mx-4" },
+                      _vm._l(_vm.results.data, function(card) {
+                        return _c("card-item", {
+                          key: card.identifier,
+                          attrs: { card: card, view: _vm.view, path: "/cards" }
+                        })
+                      }),
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.view == "list"
+                  ? _c(
+                      "table",
+                      {
+                        staticClass:
+                          "w-full table-auto border-collapse bg-white"
+                      },
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _vm._l(_vm.results.data, function(card) {
+                          return _c("card-list-item", {
+                            key: card.identifier,
+                            attrs: { card: card, path: "/cards" }
+                          })
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.results },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                )
               ])
             : _vm._e()
         ])
@@ -23282,196 +23204,6 @@ var staticRenderFns = [
     ])
   }
 ]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "flex items-center",
-      class: _vm.view == "list" ? "justify-center" : ""
-    },
-    [
-      _c(
-        "button",
-        {
-          staticClass: "flex p-2 px-4 h-10 items-center",
-          on: {
-            click: function($event) {
-              return _vm.add("standard")
-            }
-          }
-        },
-        [
-          _c(
-            "svg",
-            {
-              staticClass: "fill-current h-4 w-4",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16z"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _vm.view != "list"
-            ? _c("span", { staticClass: "ml-2" }, [_vm._v("Add")])
-            : _vm._e()
-        ]
-      ),
-      _vm._v(" "),
-      _vm.standard
-        ? _c("span", { staticClass: "ml-2" }, [
-            _vm._v("(" + _vm._s(_vm.standard) + ")")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.standard
-        ? _c(
-            "button",
-            {
-              staticClass: "flex p-2 px-4 h-10 items-center",
-              on: {
-                click: function($event) {
-                  return _vm.remove("standard")
-                }
-              }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  staticClass: "fill-current h-4 w-4",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm5-9v2H5V9h10z"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm.view != "list"
-                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Remove")])
-                : _vm._e()
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.view != "list"
-        ? _c(
-            "button",
-            {
-              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
-              on: {
-                click: function($event) {
-                  return _vm.add("foil")
-                }
-              }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  staticClass: "fill-current h-4 w-4",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 110-20 10 10 0 010 20z"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm.view != "list"
-                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Add foil")])
-                : _vm._e()
-            ]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.foil && _vm.view != "list"
-        ? _c(
-            "button",
-            {
-              staticClass: "flex p-2 px-4 ml-4 h-10 items-center",
-              on: {
-                click: function($event) {
-                  return _vm.remove("foil")
-                }
-              }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  staticClass: "fill-current h-4 w-4",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d: "M10 20a10 10 0 110-20 10 10 0 010 20zm5-11H5v2h10V9z"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm.view != "list"
-                ? _c("span", { staticClass: "ml-2" }, [_vm._v("Remove")])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2" }, [
-                _vm._v("(" + _vm._s(_vm.foil) + ")")
-              ])
-            ]
-          )
-        : _vm._e()
-    ]
-  )
-}
-var staticRenderFns = []
 render._withStripped = true
 
 
@@ -24033,13 +23765,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "header",
-    { staticClass: "sm:flex container sm:mx-auto items-center" },
+    { staticClass: "sm:flex container sm:mx-auto items-center px-4" },
     [
       _c(
         "div",
-        {
-          staticClass: "flex items-center justify-between px-4 py-2 sm:border-0"
-        },
+        { staticClass: "flex items-center justify-between py-2 sm:border-0" },
         [
           _c(
             "div",
@@ -24428,56 +24158,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4"
-      },
-      [
-        _c("div", { staticClass: "container sm:mx-auto flex" }, [
-          _c("div", { staticClass: "flex-1" }, [
+  return _c(
+    "div",
+    [
+      _c("header-title", { attrs: { title: "Deck Builder" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "bg-orange-900 text-white font-serif uppercase" },
+        [
+          _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
             _c(
-              "p",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "text-white hover:text-orange-300",
-                    attrs: { to: "/" }
-                  },
-                  [_vm._v("Home")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "text-white hover:text-orange-300",
-                    attrs: { to: "/deck-builder/" }
-                  },
-                  [_vm._v("My Decks")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-orange-500" }, [_vm._v(">")]),
-                _vm._v(" "),
-                _vm.deck
-                  ? _c("span", { staticClass: "text-orange-300" }, [
-                      _vm._v(_vm._s(_vm.deck.name))
-                    ])
-                  : _vm._e()
-              ],
+              "div",
+              { staticClass: "flex-1" },
+              [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
               1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex-1 text-right" }, [
-            _c("p", [
-              _vm._v("\n                    (\n                        "),
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex-1 text-right" }, [
+              _vm._v("\n                (\n                    "),
               _c("span", {
                 staticClass: "inline-block rounded-lg h-2 w-2",
                 class: _vm.resourceColour(3)
@@ -24485,7 +24184,7 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(_vm.totalColoured.blue) +
-                  "  \n                        "
+                  "  \n                    "
               ),
               _c("span", {
                 staticClass: "inline-block rounded-lg h-2 w-2",
@@ -24494,16 +24193,14 @@ var render = function() {
               _vm._v(
                 " " +
                   _vm._s(_vm.totalColoured.yellow) +
-                  "  \n                        "
+                  "  \n                    "
               ),
               _c("span", {
                 staticClass: "inline-block rounded-lg h-2 w-2",
                 class: _vm.resourceColour(1)
               }),
               _vm._v(
-                " " +
-                  _vm._s(_vm.totalColoured.red) +
-                  ")  \n\n                    "
+                " " + _vm._s(_vm.totalColoured.red) + ")  \n\n                "
               ),
               _c(
                 "a",
@@ -24540,311 +24237,374 @@ var render = function() {
               )
             ])
           ])
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "bg-gray-200" }, [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.activeTab == "deck",
-              expression: "activeTab == 'deck'"
-            }
-          ],
-          staticClass: "container sm:mx-auto py-8"
-        },
-        [
-          _vm.cards && _vm.cards.length
-            ? _c("div", [
-                _vm.hero
-                  ? _c(
-                      "div",
-                      { staticClass: "border-b border-gray-400 mb-8" },
-                      [
-                        _vm.hero
-                          ? _c(
-                              "h1",
-                              {
-                                staticClass: "inline-block font-serif text-4xl"
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(_vm.hero.name) +
-                                    " (" +
-                                    _vm._s(_vm.deck.name) +
-                                    ")"
-                                )
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "float-right" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "link",
-                                attrs: { to: "/decks/" + _vm.deck.slug }
-                              },
-                              [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass:
-                                      "inline-block fill-current h-6 w-6",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 20 20"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.activeTab == "deck",
+                expression: "activeTab == 'deck'"
+              }
+            ],
+            staticClass: "container sm:mx-auto py-8 px-4"
+          },
+          [
+            _vm.cards && _vm.cards.length
+              ? _c("div", [
+                  _vm.hero
+                    ? _c(
+                        "div",
+                        { staticClass: "border-b border-gray-400 mb-8" },
+                        [
+                          _vm.hero
+                            ? _c(
+                                "h1",
+                                {
+                                  staticClass:
+                                    "inline-block font-serif text-4xl"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.hero.name) +
+                                      " (" +
+                                      _vm._s(_vm.deck.name) +
+                                      ")"
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "float-right" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "link",
+                                  attrs: { to: "/decks/" + _vm.deck.slug }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "inline-block fill-current h-6 w-6",
                                       attrs: {
-                                        d:
-                                          "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
                                       }
-                                    })
-                                  ]
-                                )
-                              ]
-                            ),
-                            _vm._v(
-                              "\n\n                         \n\n                        "
-                            ),
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n\n                         \n\n                        "
+                              ),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "link",
+                                  attrs: {
+                                    href: "",
+                                    title:
+                                      "Copy deck to text for sharing on social media"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.copy($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "inline-block fill-current h-5 w-5",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "clearfix" }, [
+                    _vm.hero
+                      ? _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
+                          _c("div", { staticClass: "mb-8" }, [
                             _c(
                               "a",
                               {
-                                staticClass: "link",
-                                attrs: {
-                                  href: "",
-                                  title:
-                                    "Copy deck to text for sharing on social media"
-                                },
+                                attrs: { href: "" },
                                 on: {
                                   click: function($event) {
                                     $event.preventDefault()
-                                    return _vm.copy($event)
+                                    return _vm.removeCard(_vm.hero)
                                   }
                                 }
                               },
                               [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass:
-                                      "inline-block fill-current h-5 w-5",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      viewBox: "0 0 20 20"
-                                    }
-                                  },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        d:
-                                          "M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"
-                                      }
-                                    })
-                                  ]
-                                )
+                                _c("img", {
+                                  staticClass: "w-full max-w-md rounded-xl",
+                                  staticStyle: { "max-width": "350px" },
+                                  attrs: {
+                                    src: _vm.cardUrl(_vm.hero.identifier, 350),
+                                    alt: _vm.hero.name
+                                  }
+                                })
                               ]
                             )
-                          ],
-                          1
-                        )
-                      ]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("div", { staticClass: "clearfix" }, [
-                  _vm.hero
-                    ? _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
-                        _c("div", { staticClass: "mb-8" }, [
-                          _c(
-                            "a",
-                            {
-                              attrs: { href: "" },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  return _vm.removeCard(_vm.hero)
-                                }
-                              }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-full max-w-md rounded-xl",
-                                staticStyle: { "max-width": "350px" },
-                                attrs: {
-                                  src: _vm.cardUrl(_vm.hero.identifier, 350),
-                                  alt: _vm.hero.name
-                                }
-                              })
-                            ]
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "md:w-1/3 md:float-left pl-4 md:pr-4" },
-                    [
-                      _vm.other.length
-                        ? _c("div", { staticClass: "mb-8" }, [
-                            _c(
-                              "h3",
-                              {
-                                staticClass: "p-2 font-serif uppercase text-2xl"
-                              },
-                              [_vm._v("Deck stats")]
-                            ),
-                            _vm._v(" "),
-                            _c("ol", [
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Total cards: " + _vm._s(_vm.totalCards)
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Average card cost: " +
-                                      _vm._s(_vm.averageCost)
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Average pitch: " + _vm._s(_vm.averagePitch)
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Pitch 3: " + _vm._s(_vm.pitchCount(3))
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Pitch 2: " + _vm._s(_vm.pitchCount(2))
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                { staticClass: "block p-1 pl-4 w-full" },
-                                [
-                                  _vm._v(
-                                    "Pitch 1: " + _vm._s(_vm.pitchCount(1))
-                                  )
-                                ]
-                              )
-                            ])
                           ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.weapons.length
-                        ? _c("div", { staticClass: "mb-8" }, [
-                            _c(
-                              "h3",
-                              {
-                                staticClass: "p-2 font-serif uppercase text-2xl"
-                              },
-                              [_vm._v("Weapons")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "ol",
-                              _vm._l(_vm.weapons, function(weapon) {
-                                return _c(
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "md:w-1/3 md:float-left pl-4 md:pr-4" },
+                      [
+                        _vm.other.length
+                          ? _c("div", { staticClass: "mb-8" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "p-2 font-serif uppercase text-2xl"
+                                },
+                                [_vm._v("Deck stats")]
+                              ),
+                              _vm._v(" "),
+                              _c("ol", [
+                                _c(
                                   "li",
-                                  { staticClass: "odd:bg-gray-100" },
+                                  { staticClass: "block p-1 pl-4 w-full" },
                                   [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "block hover:bg-gray-300 p-2 pl-4 w-full",
-                                        attrs: { href: "" },
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.removeCard(weapon)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        weapon.total > 1
-                                          ? _c("span", [
-                                              _vm._v(
-                                                "(" + _vm._s(weapon.total) + ")"
-                                              )
-                                            ])
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _c("span", [
-                                          _vm._v(_vm._s(weapon.name))
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "text-gray-600 text-xs"
-                                          },
-                                          [_vm._v(_vm._s(weapon.identifier))]
-                                        )
-                                      ]
+                                    _vm._v(
+                                      "Total cards: " + _vm._s(_vm.totalCards)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Average card cost: " +
+                                        _vm._s(_vm.averageCost)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Average pitch: " +
+                                        _vm._s(_vm.averagePitch)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Pitch 3: " + _vm._s(_vm.pitchCount(3))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Pitch 2: " + _vm._s(_vm.pitchCount(2))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Pitch 1: " + _vm._s(_vm.pitchCount(1))
                                     )
                                   ]
                                 )
-                              }),
-                              0
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.equipment.length
-                        ? _c("div", { staticClass: "mb-8" }, [
+                              ])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.weapons.length
+                          ? _c("div", { staticClass: "mb-8" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "p-2 font-serif uppercase text-2xl"
+                                },
+                                [_vm._v("Weapons")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "ol",
+                                _vm._l(_vm.weapons, function(weapon) {
+                                  return _c(
+                                    "li",
+                                    { staticClass: "odd:bg-gray-100" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "block hover:bg-gray-300 p-2 pl-4 w-full",
+                                          attrs: { href: "" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.removeCard(weapon)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          weapon.total > 1
+                                            ? _c("span", [
+                                                _vm._v(
+                                                  "(" +
+                                                    _vm._s(weapon.total) +
+                                                    ")"
+                                                )
+                                              ])
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _c("span", [
+                                            _vm._v(_vm._s(weapon.name))
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-gray-600 text-xs"
+                                            },
+                                            [_vm._v(_vm._s(weapon.identifier))]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.equipment.length
+                          ? _c("div", { staticClass: "mb-8" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "p-2 font-serif uppercase text-2xl"
+                                },
+                                [_vm._v("Equipment")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "ol",
+                                _vm._l(_vm.equipment, function(card) {
+                                  return _c(
+                                    "li",
+                                    { staticClass: "odd:bg-gray-100" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "block hover:bg-gray-300 p-2 pl-4 w-full",
+                                          attrs: { href: "" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.removeCard(card)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("span", [
+                                            _vm._v(_vm._s(card.name))
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "text-gray-600 text-xs"
+                                            },
+                                            [_vm._v(_vm._s(card.identifier))]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ])
+                          : _vm._e()
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
+                      _vm.other.length
+                        ? _c("div", [
                             _c(
                               "h3",
                               {
                                 staticClass: "p-2 font-serif uppercase text-2xl"
                               },
-                              [_vm._v("Equipment")]
+                              [_vm._v("Other")]
                             ),
                             _vm._v(" "),
                             _c(
                               "ol",
-                              _vm._l(_vm.equipment, function(card) {
+                              _vm._l(_vm.other, function(card) {
                                 return _c(
                                   "li",
                                   { staticClass: "odd:bg-gray-100" },
@@ -24853,7 +24613,7 @@ var render = function() {
                                       "a",
                                       {
                                         staticClass:
-                                          "block hover:bg-gray-300 p-2 pl-4 w-full",
+                                          "block p-2 pl-4 w-full hover:bg-gray-300",
                                         attrs: { href: "" },
                                         on: {
                                           click: function($event) {
@@ -24863,7 +24623,29 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _c("span", [_vm._v(_vm._s(card.name))]),
+                                        _c("span", {}, [
+                                          _vm._v("(" + _vm._s(card.total) + ")")
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            class: {
+                                              "text-red-600": card.total > 3
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(card.name))]
+                                        ),
+                                        _vm._v(" "),
+                                        card.stats.resource
+                                          ? _c("span", {
+                                              staticClass:
+                                                "inline-block rounded-lg h-2 w-2",
+                                              class: _vm.resourceColour(
+                                                card.stats.resource
+                                              )
+                                            })
+                                          : _vm._e(),
                                         _vm._v(" "),
                                         _c(
                                           "span",
@@ -24881,122 +24663,36 @@ var render = function() {
                             )
                           ])
                         : _vm._e()
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
-                    _vm.other.length
-                      ? _c("div", [
-                          _c(
-                            "h3",
-                            {
-                              staticClass: "p-2 font-serif uppercase text-2xl"
-                            },
-                            [_vm._v("Other")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "ol",
-                            _vm._l(_vm.other, function(card) {
-                              return _c(
-                                "li",
-                                { staticClass: "odd:bg-gray-100" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass:
-                                        "block p-2 pl-4 w-full hover:bg-gray-300",
-                                      attrs: { href: "" },
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.removeCard(card)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("span", {}, [
-                                        _vm._v("(" + _vm._s(card.total) + ")")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          class: {
-                                            "text-red-600": card.total > 3
-                                          }
-                                        },
-                                        [_vm._v(_vm._s(card.name))]
-                                      ),
-                                      _vm._v(" "),
-                                      card.stats.resource
-                                        ? _c("span", {
-                                            staticClass:
-                                              "inline-block rounded-lg h-2 w-2",
-                                            class: _vm.resourceColour(
-                                              card.stats.resource
-                                            )
-                                          })
-                                        : _vm._e(),
-                                      _vm._v(" "),
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass: "text-gray-600 text-xs"
-                                        },
-                                        [_vm._v(_vm._s(card.identifier))]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ])
-                      : _vm._e()
+                    ])
                   ])
                 ])
-              ])
-            : _c("div", { staticClass: "p-4" }, [
-                _vm._v("\n                No cards.\n            ")
-              ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.activeTab == "add-cards",
-              expression: "activeTab == 'add-cards'"
-            }
+              : _c("div", { staticClass: "p-4" }, [
+                  _vm._v("\n                No cards.\n            ")
+                ])
           ]
-        },
-        [_c("card-selector", { on: { "card-selected": _vm.addCard } })],
-        1
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container sm:mx-auto flex" }, [
-      _c("div", { staticClass: "p-8 py-10 md:px-0" }, [
-        _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
-          _vm._v("Deck Builder")
-        ])
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.activeTab == "add-cards",
+                expression: "activeTab == 'add-cards'"
+              }
+            ]
+          },
+          [_c("card-selector", { on: { "card-selected": _vm.addCard } })],
+          1
+        )
       ])
-    ])
-  }
-]
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -44441,75 +44137,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Collection_vue_vue_type_template_id_4607db74___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Collection_vue_vue_type_template_id_4607db74___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/ManageCard.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/CardDatabase/ManageCard.vue ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ManageCard.vue?vue&type=template&id=4378eb6b& */ "./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&");
-/* harmony import */ var _ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManageCard.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/CardDatabase/ManageCard.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ManageCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b& ***!
-  \*********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ManageCard.vue?vue&type=template&id=4378eb6b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/ManageCard.vue?vue&type=template&id=4378eb6b&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ManageCard_vue_vue_type_template_id_4378eb6b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -39,7 +39,6 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import LazyLoader from '../Components/LazyLoader';
-    import ManageCard from './ManageCard.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
 
     export default {
@@ -47,8 +46,7 @@
 
         components: {
             Breadcrumbs,
-            HeaderTitle,
-            ManageCard
+            HeaderTitle
         },
 
         computed: {

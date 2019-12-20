@@ -11,13 +11,13 @@
         </div>
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
-            <div class="container sm:mx-auto">
+            <div class="container sm:mx-auto md:px-4">
                 <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
             </div>
         </div>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto">
+            <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data">
                     <div class="clearfix">
                         <div class="clearfix py-4">

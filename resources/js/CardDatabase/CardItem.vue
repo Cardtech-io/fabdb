@@ -8,11 +8,8 @@
 
 <script>
     import Cardable from './Cardable.js';
-    import ManageCard from './ManageCard.vue';
 
     export default {
-        components: {ManageCard},
-
         mixins: [Cardable],
 
         props: {

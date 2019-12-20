@@ -31,12 +31,10 @@
 <script>
     import Cardable from './Cardable.js';
     import CardCount from '../Collection/CardCount.vue';
-    import ManageCard from './ManageCard.vue';
 
     export default {
         components: {
-            CardCount,
-            ManageCard
+            CardCount
         },
 
         mixins: [Cardable],

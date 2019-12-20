@@ -1,36 +1,26 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-8 py-10 md:px-0">
-                <h1 class="font-serif text-white text-4xl uppercase">Deck Builder</h1>
-            </div>
-        </div>
+        <header-title title="Deck Builder"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto flex">
+        <div class="bg-orange-900 text-white font-serif uppercase">
+            <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
-                    <p>
-                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                        <router-link to="/deck-builder/" class="text-white hover:text-orange-300">My Decks</router-link> <span class="text-orange-500">&gt;</span>
-                        <span class="text-orange-300" v-if="deck">{{ deck.name }}</span>
-                    </p>
+                    <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
-                    <p>
-                        (
-                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
+                    (
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
 
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
-                    </p>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
                 </div>
             </div>
         </div>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto py-8" v-show="activeTab == 'deck'">
+            <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
                         <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
@@ -128,11 +118,19 @@
     import axios from 'axios';
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
+    import Crumbs from '../Components/Crumbs.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
+    import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
     import { mapActions } from 'vuex'
 
     export default {
-        components: { CardSelector },
+        components: {
+            CardSelector,
+            Crumbs,
+            HeaderTitle
+        },
+
         mixins: [ Cardable, Viewable ],
 
         computed: {
@@ -149,6 +147,15 @@
 
                 return [];
             },
+
+            crumbs: function() {
+                return [
+                    { text: 'Home', link: '/' },
+                    { text: 'Deck Builder', link: '/deck-builder/' },
+                    { text: this.deck.name },
+                ]
+            },
+
 
             shareText: function() {
                 const weapons = this.weapons.map(weapon => weapon.name).join(', ');
@@ -251,12 +258,6 @@
             }
         },
 
-        mounted() {
-            axios.get('/decks/' + this.$route.params.deck + '').then(response => {
-                this.deck = response.data;
-            });
-        },
-
         metaInfo() {
             return {
                 title: this.deck ? 'Deck builder - Edit deck (' + this.deck.name + ')' : 'Deck builder - Edit deck',
@@ -268,6 +269,14 @@
                     }
                 ]
             }
-        }
+        },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/decks/' + to.params.deck + '').then(response => {
+                callback(function() {
+                    this.deck = response.data;
+                })
+            });
+        })
     };
 </script>
