@@ -23765,7 +23765,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "header",
-    { staticClass: "sm:flex container sm:mx-auto items-center px-4" },
+    { staticClass: "sm:flex container sm:mx-auto items-center sm:px-4" },
     [
       _c(
         "div",
@@ -23773,7 +23773,7 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "relative overflow-visible logo" },
+            { staticClass: "relative overflow-visible logo ml-4 sm:ml-0" },
             [
               _c(
                 "div",
@@ -23797,7 +23797,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "block text-white sm:hidden",
+              staticClass: "block text-white sm:hidden mr-4",
               attrs: { type: "button" },
               on: { click: _vm.toggle }
             },
