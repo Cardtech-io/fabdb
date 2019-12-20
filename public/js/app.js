@@ -2163,6 +2163,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2351,7 +2371,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardListItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardListItem.vue */ "./resources/js/CardDatabase/CardListItem.vue");
 /* harmony import */ var _CardSearch_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardSearch.vue */ "./resources/js/CardDatabase/CardSearch.vue");
 /* harmony import */ var _Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Paginator.vue */ "./resources/js/CardDatabase/Paginator.vue");
-//
 //
 //
 //
@@ -22514,44 +22533,125 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("tr", { staticClass: "odd:bg-gray-100 hover:bg-gray-200" }, [
+  return _c("tbody", [
     _c(
-      "td",
-      { staticClass: "border border-gray-300 py-2 px-4 hidden sm:table-cell" },
-      [_vm._v(_vm._s(_vm.card.identifier))]
+      "tr",
+      { staticClass: "odd:bg-gray-100 hover:bg-gray-200 hidden sm:table-row" },
+      [
+        _c(
+          "td",
+          { staticClass: "border border-gray-300" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "block py-2 px-4 w-full",
+                attrs: { to: "/collection/" + _vm.card.identifier }
+              },
+              [_vm._v(_vm._s(_vm.card.identifier))]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "border border-gray-300" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "block py-2 px-4 w-full",
+                attrs: { to: "/collection/" + _vm.card.identifier }
+              },
+              [
+                _vm._v(_vm._s(_vm.card.name) + " "),
+                _vm.hasResource(_vm.card)
+                  ? _c("span", [
+                      _vm._v(
+                        "(" +
+                          _vm._s(_vm.colourToText(_vm.card.stats.resource)) +
+                          ")"
+                      )
+                    ])
+                  : _vm._e()
+              ]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "border border-gray-300 py-2 px-4 text-center" },
+          [_c("card-count", { attrs: { card: _vm.card, type: "standard" } })],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "border border-gray-300 py-2 px-4 text-center" },
+          [_c("card-count", { attrs: { card: _vm.card, type: "foil" } })],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "border border-gray-300 py-2 px-4 text-center" },
+          [_c("card-count", { attrs: { card: _vm.card, type: "promo" } })],
+          1
+        )
+      ]
     ),
     _vm._v(" "),
-    _c("td", { staticClass: "border border-gray-300 py-2 px-4" }, [
-      _vm._v(_vm._s(_vm.card.name) + " "),
-      _vm.hasResource(_vm.card)
-        ? _c("span", [
-            _vm._v(
-              "(" + _vm._s(_vm.colourToText(_vm.card.stats.resource)) + ")"
-            )
-          ])
-        : _vm._e()
+    _c("tr", { staticClass: "even:bg-gray-100 hover:bg-gray-200 sm:hidden" }, [
+      _c(
+        "td",
+        {
+          staticClass: "border border-gray-300 py-2 px-4",
+          attrs: { colspan: "5" }
+        },
+        [_vm._v(_vm._s(_vm.card.identifer) + " " + _vm._s(_vm.card.name))]
+      )
     ]),
     _vm._v(" "),
-    _c(
-      "td",
-      { staticClass: "border border-gray-300 py-2 px-4 text-center" },
-      [_c("card-count", { attrs: { card: _vm.card, type: "standard" } })],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "td",
-      { staticClass: "border border-gray-300 py-2 px-4 text-center" },
-      [_c("card-count", { attrs: { card: _vm.card, type: "foil" } })],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "td",
-      { staticClass: "border border-gray-300 py-2 px-4 text-center" },
-      [_c("card-count", { attrs: { card: _vm.card, type: "promo" } })],
-      1
-    )
+    _c("tr", { staticClass: "even:bg-gray-100 hover:bg-gray-200 sm:hidden" }, [
+      _c(
+        "td",
+        {
+          staticClass: "border border-gray-300 text-center",
+          attrs: { colspan: "5" }
+        },
+        [
+          _c("div", { staticClass: "flex" }, [
+            _c(
+              "div",
+              { staticClass: "flex-1 p-2" },
+              [
+                _c("card-count", {
+                  attrs: { card: _vm.card, type: "standard" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex-1 p-2 border-l border-r border-gray-300" },
+              [_c("card-count", { attrs: { card: _vm.card, type: "foil" } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex-1 p-2" },
+              [_c("card-count", { attrs: { card: _vm.card, type: "promo" } })],
+              1
+            )
+          ])
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -22906,9 +23006,9 @@ var render = function() {
       _c("div", { staticClass: "container sm:mx-auto" }, [
         _vm.results && _vm.results.data
           ? _c("div", [
-              _c("div", { staticClass: "clearfix py-4" }, [
+              _c("div", { staticClass: "py-4" }, [
                 _c("div", { staticClass: "clearfix py-4" }, [
-                  _c("div", { staticClass: "float-left w-1/5 px-4 md:px-0" }, [
+                  _c("div", { staticClass: "float-left w-1/4 px-4 md:px-0" }, [
                     _c(
                       "a",
                       {
@@ -22989,7 +23089,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "float-left w-4/5 sm:w-3/5" },
+                    { staticClass: "float-left w-3/4 sm:w-2/4" },
                     [
                       _c("paginator", {
                         attrs: { results: _vm.results },
@@ -22999,7 +23099,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "float-left hidden sm:w-1/5" }, [
+                  _c("div", { staticClass: "float-left hidden sm:w-1/4" }, [
                     _vm._v(" ")
                   ])
                 ]),
@@ -23028,17 +23128,14 @@ var render = function() {
                       [
                         _vm._m(1),
                         _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.results.data, function(card) {
-                            return _c("card-list-item", {
-                              key: card.identifier,
-                              attrs: { card: card, path: "/cards" }
-                            })
-                          }),
-                          1
-                        )
-                      ]
+                        _vm._l(_vm.results.data, function(card) {
+                          return _c("card-list-item", {
+                            key: card.identifier,
+                            attrs: { card: card, path: "/cards" }
+                          })
+                        })
+                      ],
+                      2
                     )
                   : _vm._e(),
                 _vm._v(" "),
@@ -23128,7 +23225,7 @@ var staticRenderFns = [
           {
             staticClass:
               "border border-gray-300 py-2 px-4 font-serif uppercase text-left",
-            attrs: { colspan: "4" }
+            attrs: { colspan: "5" }
           },
           [_vm._v("Card details")]
         )

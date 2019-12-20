@@ -33,9 +33,9 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto">
                 <div v-if="results && results.data">
-                    <div class="clearfix py-4">
+                    <div class="py-4">
                         <div class="clearfix py-4">
-                            <div class="float-left w-1/5 px-4 md:px-0">
+                            <div class="float-left w-1/4 px-4 md:px-0">
                                 <a href="" @click.prevent="setView('gallery')" class="text-gray-800" :class="{ 'text-orange-700 hover:text-gray-500': view != 'gallery' }">
                                     <svg class="inline-block fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                         <path d="M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"/>
@@ -48,11 +48,11 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="float-left w-4/5 sm:w-3/5">
+                            <div class="float-left w-3/4 sm:w-2/4">
                                 <paginator :results="results" @page-selected="updatePage"></paginator>
                             </div>
 
-                            <div class="float-left hidden sm:w-1/5">&nbsp;</div>
+                            <div class="float-left hidden sm:w-1/4">&nbsp;</div>
                         </div>
 
                         <ul class="clearfix -mx-4"v-if="view == 'gallery'">
@@ -70,12 +70,11 @@
                                 </tr>
 
                                 <tr class="table-row sm:hidden">
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left" colspan="4">Card details</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left" colspan="5">Card details</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
-                            </tbody>
+
+                            <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
                         </table>
 
                         <div class="py-4">
