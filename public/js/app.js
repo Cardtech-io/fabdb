@@ -23949,7 +23949,12 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
-              attrs: { to: "/" }
+              attrs: { to: "/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
             },
             [_vm._v("Home")]
           ),
@@ -23959,7 +23964,12 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
-              attrs: { to: "/browse/" }
+              attrs: { to: "/browse/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
             },
             [_vm._v("Browse")]
           ),
@@ -23969,7 +23979,12 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
-              attrs: { to: "/collection/" }
+              attrs: { to: "/collection/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
             },
             [_vm._v("My collection")]
           ),
@@ -23979,7 +23994,12 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
-              attrs: { to: "/deck-builder/" }
+              attrs: { to: "/deck-builder/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
             },
             [_vm._v("Deck builder")]
           ),
@@ -23989,7 +24009,12 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
-              attrs: { to: "/support/" }
+              attrs: { to: "/support/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
             },
             [_vm._v("Support")]
           )

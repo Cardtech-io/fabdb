@@ -13,11 +13,11 @@
             </button>
         </div>
         <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent">
-            <router-link to="/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700">Home</router-link>
-            <router-link to="/browse/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700">Browse</router-link>
-            <router-link to="/collection/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700">My collection</router-link>
-            <router-link to="/deck-builder/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700">Deck builder</router-link>
-            <router-link to="/support/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700">Support</router-link>
+            <router-link to="/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Home</router-link>
+            <router-link to="/browse/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Browse</router-link>
+            <router-link to="/collection/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">My collection</router-link>
+            <router-link to="/deck-builder/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Deck builder</router-link>
+            <router-link to="/support/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Support</router-link>
         </div>
 
         <!--<router-link to="/support/" class="text-center text-white font-serif uppercase px-3 hover:text-orange-700">Support</router-link>-->
