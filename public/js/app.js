@@ -24075,7 +24075,7 @@ var render = function() {
     _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
       _c(
         "div",
-        { staticClass: "container sm:mx-auto" },
+        { staticClass: "container sm:mx-auto px-4" },
         [
           _c("card-search", {
             attrs: {
@@ -24092,7 +24092,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "bg-gray-200 py-8" }, [
-      _c("div", { staticClass: "container sm:mx-auto" }, [
+      _c("div", { staticClass: "container sm:mx-auto px-4" }, [
         _vm.cards.length
           ? _c(
               "div",
