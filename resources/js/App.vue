@@ -3,19 +3,8 @@
         <authenticator></authenticator>
 
         <!-- Header -->
-        <div>
-            <div class="py-4 navigation">
-                <div class="clearfix container sm:mx-auto">
-                    <div class="sm:float-left overflow-visible">
-                        <div class="mx-auto relative overflow-visible logo">
-                            <div class="font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute">Card Database</div>
-                            <router-link to="/"><img src="/img/fab-logo.png" class="h-16"></router-link>
-                        </div>
-                    </div>
-
-                    <navigation></navigation>
-                </div>
-            </div>
+        <div class="navigation">
+            <navigation></navigation>
         </div>
 
         <!-- Content -->

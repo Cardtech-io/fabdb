@@ -22,14 +22,17 @@ html, body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+.nav-items {
+    background: rgba(0, 0, 0, 0.45);
+}
+
 .logo {
     width: 123px;
-    @apply mb-4;
 }
 
 .logo-text {
     transform: rotate(-10deg);
-    top: 50px;
+    top: 40px;
     left: 10px;
     width: 120px;
 }

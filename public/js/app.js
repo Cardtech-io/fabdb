@@ -1871,17 +1871,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2992,7 +2981,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    toggle: function toggle() {
+      this.isOpen = !this.isOpen;
+    }
+  }
+});
 
 /***/ }),
 
@@ -21981,43 +21997,7 @@ var render = function() {
     [
       _c("authenticator"),
       _vm._v(" "),
-      _c("div", [
-        _c("div", { staticClass: "py-4 navigation" }, [
-          _c(
-            "div",
-            { staticClass: "clearfix container sm:mx-auto" },
-            [
-              _c("div", { staticClass: "sm:float-left overflow-visible" }, [
-                _c(
-                  "div",
-                  { staticClass: "mx-auto relative overflow-visible logo" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute"
-                      },
-                      [_vm._v("Card Database")]
-                    ),
-                    _vm._v(" "),
-                    _c("router-link", { attrs: { to: "/" } }, [
-                      _c("img", {
-                        staticClass: "h-16",
-                        attrs: { src: "/img/fab-logo.png" }
-                      })
-                    ])
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("navigation")
-            ],
-            1
-          )
-        ])
-      ]),
+      _c("div", { staticClass: "navigation" }, [_c("navigation")], 1),
       _vm._v(" "),
       _c("div", { staticClass: "clearfix" }, [_c("router-view")], 1),
       _vm._v(" "),
@@ -23883,60 +23863,140 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "nav",
-    { staticClass: "flex sm:ml-4 mt-6 sm:float-left sm:flex-none" },
+    "header",
+    { staticClass: "sm:flex container sm:mx-auto items-center" },
     [
       _c(
-        "router-link",
+        "div",
         {
-          staticClass:
-            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/" }
+          staticClass: "flex items-center justify-between px-4 py-2 sm:border-0"
         },
-        [_vm._v("Home")]
+        [
+          _c(
+            "div",
+            { staticClass: "relative overflow-visible logo" },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "font-serif text-xs font-bold text-gray-200 uppercase logo-text absolute"
+                },
+                [_vm._v("Card Database")]
+              ),
+              _vm._v(" "),
+              _c("router-link", { attrs: { to: "/" } }, [
+                _c("img", {
+                  staticClass: "h-14",
+                  attrs: { src: "/img/fab-logo.png" }
+                })
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "block text-white sm:hidden",
+              attrs: { type: "button" },
+              on: { click: _vm.toggle }
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass:
+                    "fill-current h-6 w-6 focus:text-orange-300 hover:text-orange-300 focus:outline-none",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _vm.isOpen
+                    ? _c("path", {
+                        attrs: {
+                          d:
+                            "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isOpen
+                    ? _c("path", {
+                        attrs: {
+                          d: "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+                        }
+                      })
+                    : _vm._e()
+                ]
+              )
+            ]
+          )
+        ]
       ),
       _vm._v(" "),
       _c(
-        "router-link",
+        "div",
         {
-          staticClass:
-            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/browse/" }
+          staticClass: "nav-items sm:flex sm:bg-transparent",
+          class: _vm.isOpen ? "block" : "hidden"
         },
-        [_vm._v("Browse")]
-      ),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        {
-          staticClass:
-            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/collection/" }
-        },
-        [_vm._v("My collection")]
-      ),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        {
-          staticClass:
-            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/deck-builder/" }
-        },
-        [_vm._v("Deck builder")]
-      ),
-      _vm._v(" "),
-      _c(
-        "router-link",
-        {
-          staticClass:
-            "text-center text-white font-serif uppercase px-3 hover:text-orange-700",
-          attrs: { to: "/support/" }
-        },
-        [_vm._v("Support")]
+        [
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+              attrs: { to: "/" }
+            },
+            [_vm._v("Home")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+              attrs: { to: "/browse/" }
+            },
+            [_vm._v("Browse")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+              attrs: { to: "/collection/" }
+            },
+            [_vm._v("My collection")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+              attrs: { to: "/deck-builder/" }
+            },
+            [_vm._v("Deck builder")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+              attrs: { to: "/support/" }
+            },
+            [_vm._v("Support")]
+          )
+        ],
+        1
       )
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = []
