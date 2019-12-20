@@ -1,20 +1,8 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-8 py-10 md:px-0">
-                <h1 class="font-serif text-white text-4xl uppercase" v-if="card">{{ card.name }}</h1>
-            </div>
-        </div>
+        <header-title :title="card.name"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto">
-                <p class="">
-                    <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                    <router-link :to="$route.meta.parent.path" class="text-white hover:text-orange-300">{{ $route.meta.parent.name }}</router-link> <span class="text-orange-500">&gt;</span>
-                    <span v-if="card" class="text-orange-300">{{ card.name }}</span>
-                </p>
-            </div>
-        </div>
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
@@ -40,7 +28,7 @@
                     </ul>
                 </div>
 
-                <div class="md:w-1/3 md:float-left p-4">
+                <div class="md:w-1/3 md:float-left p-4 md:py-0">
                     <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
             </div>
@@ -49,17 +37,30 @@
 </template>
 
 <script>
+    import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
+    import LazyLoader from '../Components/LazyLoader';
     import ManageCard from './ManageCard.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
 
     export default {
         mixins: [Cardable],
 
         components: {
+            Breadcrumbs,
+            HeaderTitle,
             ManageCard
         },
 
         computed: {
+            crumbs: function() {
+                return [
+                    { text: 'Home', link: '/' },
+                    { text: this.$route.meta.parent.name, link: this.$route.meta.parent.path },
+                    { text: this.card.name }
+                ];
+            },
+
             rarity: function() {
                 const levels = {
                     C: 'Common',
@@ -100,16 +101,18 @@
             }
         },
 
-        created() {
-            axios.get('/cards/' + this.$route.params.identifier).then(response => {
-                this.card = response.data;
-            });
-        },
-
         metaInfo() {
             return {
-                title: this.card ? this.card.name + ' - ' + this.card.identifier : null
-            }
-        }
+                title: this.card.name + ' - ' + this.card.identifier
+            };
+        },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/cards/' + to.params.identifier).then(response => {
+                callback(function() {
+                    this.card = response.data;
+                })
+            });
+        })
     }
 </script>
