@@ -1882,7 +1882,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   metaInfo: {
     title: 'Home, Browse Cards',
-    titleTemplate: '%s | fabdb.net'
+    titleTemplate: '%s | fabdb.net',
+    meta: [{
+      vmid: 'description',
+      name: 'description',
+      content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.'
+    }]
   }
 });
 
@@ -2485,7 +2490,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   metaInfo: function metaInfo() {
     return {
-      title: this.title
+      title: this.title,
+      meta: [{
+        vmid: 'description',
+        name: 'description',
+        content: 'Manage your Flesh & Blood card collection.'
+      }]
     };
   }
 });

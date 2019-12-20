@@ -38,7 +38,10 @@
 
         metaInfo: {
             title: 'Home, Browse Cards',
-            titleTemplate: '%s | fabdb.net'
+            titleTemplate: '%s | fabdb.net',
+            meta: [
+                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.' }
+            ]
         }
     };
 </script>

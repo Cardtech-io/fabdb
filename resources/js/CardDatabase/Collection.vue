@@ -136,7 +136,10 @@
 
         metaInfo() {
             return {
-                title: this.title
+                title: this.title,
+                meta: [
+                    { vmid: 'description', name: 'description', content: 'Manage your Flesh & Blood card collection.' }
+                ]
             }
         }
     };
