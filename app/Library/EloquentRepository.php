@@ -1,6 +1,8 @@
 <?php
 namespace FabDB\Library;
 
+use Illuminate\Support\Collection;
+
 abstract class EloquentRepository implements Repository
 {
     protected function newQuery()
@@ -18,5 +20,10 @@ abstract class EloquentRepository implements Repository
     public function delete(string $slug)
     {
         $this->newQuery()->whereSlug($slug)->delete();
+    }
+
+    public function all(): Collection
+    {
+        return $this->newQuery()->get();
     }
 }
