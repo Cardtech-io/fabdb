@@ -1,18 +1,11 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-4 py-10 md:px-0">
-                <h1 class="font-serif text-white text-4xl uppercase">My Collection</h1>
-            </div>
-        </div>
+        <header-title title="My Collection"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto flex">
+        <div class="bg-orange-900 text-white font-serif uppercase">
+            <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
-                    <p class="">
-                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                        <span class="text-orange-300">My Collection</span>
-                    </p>
+                    <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
@@ -91,6 +84,8 @@
     import CardItem from './CardItem.vue';
     import CardListItem from './CardListItem.vue';
     import CardSearch from './CardSearch.vue';
+    import Crumbs from '../Components/Crumbs.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from './Paginator.vue';
 
     export default {
@@ -98,11 +93,18 @@
             CardItem,
             CardListItem,
             CardSearch,
+            Crumbs,
+            HeaderTitle,
             Paginator
         },
 
         data() {
             return {
+                crumbs: [
+                    { text: 'Home', link: '/' },
+                    { text: 'My Collection'}
+                ],
+
                 page: 1,
                 results: {},
                 searchDefaults: { view: 'mine' },

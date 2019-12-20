@@ -1,7 +1,6 @@
 <template>
     <div>
         <header-title :title="card.name"></header-title>
-
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">

@@ -1,13 +1,9 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-8 py-10 md:px-0">
-                <h1 class="font-serif text-white text-4xl uppercase">Browse cards</h1>
-            </div>
-        </div>
+        <header-title title="Browse cards"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase">
-            <div class="container sm:mx-auto">
+        <div class="bg-orange-900 text-white font-serif uppercase">
+            <div class="container sm:mx-auto px-4">
                 <ul class="flex">
                     <li class="float-left active border-b-4 border-white p-4">Welcome to Rathe</li>
                 </ul>
@@ -57,12 +53,14 @@
 <script>
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from './Paginator.vue';
 
     export default {
         components: {
             CardItem,
             CardSearch,
+            HeaderTitle,
             Paginator
         },
 
