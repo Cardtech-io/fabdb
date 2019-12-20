@@ -40,7 +40,7 @@
                     </ul>
                 </div>
 
-                <div class="md:w-1/3 md:float-left">
+                <div class="md:w-1/3 md:float-left p-4">
                     <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
             </div>

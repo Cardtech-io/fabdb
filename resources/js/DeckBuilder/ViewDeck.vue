@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="container sm:mx-auto flex">
-            <div class="p-8 py-10 md:px-0">
+        <div class="container sm:mx-auto">
+            <div class="p-8 py-10">
                 <h1 class="font-serif text-white text-4xl uppercase" v-if="deck">{{ hero.name }} ({{ deck.name }})</h1>
             </div>
         </div>
@@ -18,16 +18,14 @@
         </div>
 
         <div class="bg-white">
-            <div class="container sm:mx-auto py-4">
-                <div class="flex">
-                    <div class="flex-1 font-serif uppercase">
-                        {{ totalCards }} Cards in deck &nbsp; 
-                        (
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
-                        )
-                    </div>
+            <div class="container sm:mx-auto">
+                <div class="flex-1 font-serif uppercase p-4 md:px-0">
+                    {{ totalCards }} Cards in deck &nbsp;
+                    (
+                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
+                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
+                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
+                    )
                 </div>
             </div>
         </div>
@@ -35,9 +33,9 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8" v-if="cards && cards.length">
                 <div class="clearfix">
-                    <div class="md:w-1/3 md:float-left">
+                    <div class="p-4 md:w-1/3 md:float-left">
                         <div class="mb-8">
-                            <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px">
+                            <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
                         </div>
                     </div>
 
@@ -57,8 +55,10 @@
                             <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
                             <ol>
                                 <li v-for="weapon in weapons" class="p-2 pl-4">
-                                    <span>{{ weapon.name }}</span>
-                                    <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
+                                    <router-link :to="/cards/ + weapon.identifier">
+                                        <span>{{ weapon.name }}</span>
+                                        <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
+                                    </router-link>
                                 </li>
                             </ol>
                         </div>
@@ -67,8 +67,10 @@
                             <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
                             <ol>
                                 <li v-for="card in equipment" class="p-2 pl-4">
-                                    <span>{{ card.name }}</span>
-                                    <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                    <router-link :to="/cards/ + card.identifier">
+                                        <span>{{ card.name }}</span>
+                                        <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                    </router-link>
                                 </li>
                             </ol>
                         </div>
@@ -79,10 +81,12 @@
                             <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                             <ol>
                                 <li v-for="card in other" class="p-2 pl-4">
-                                    <span class="">({{ card.total }})</span>
-                                    <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
-                                    <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                    <router-link :to="/cards/ + card.identifier">
+                                        <span class="">({{ card.total }})</span>
+                                        <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
+                                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
+                                        <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
+                                    </router-link>
                                 </li>
                             </ol>
                         </div>
