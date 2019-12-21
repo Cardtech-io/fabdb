@@ -17,9 +17,12 @@ class ExportController extends Controller
 
         Storage::put($filename, $pdf);
 
-        Mail::send('emails.deck-registration', [], function($message) use ($deck, $filename) {
+        $fullPath = Storage::path($filename);
+
+        Mail::send('emails.deck-registration', [], function($message) use ($deck, $fullPath) {
             $message->to($deck->user->email);
-            $message->attach($filename);
+            $message->subject('PDF for Deck Registration | fabdb.net');
+            $message->attach($fullPath);
         });
     }
 

@@ -19,7 +19,7 @@ class Welcome extends Notification
     public function toMail()
     {
         $message = new MailMessage;
-        $message->subject('Welcome!');
+        $message->subject('Welcome | fabdb.net');
         $message->view('emails.welcome', ['code' => $this->user->token]);
 
         return $message;

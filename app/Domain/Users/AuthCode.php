@@ -17,7 +17,7 @@ class AuthCode extends Mailable
 
     public function build()
     {
-        $this->subject('Authentication code');
+        $this->subject('Authentication code | fabdb.net');
         $this->view('emails.auth', ['code' => $this->user->token]);
     }
 }
