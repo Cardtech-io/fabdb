@@ -8,9 +8,6 @@
     <body class="text-sm">
         <!-- Header -->
         <header>
-            <div class="text-right">
-                Logo here
-            </div>
             <h1 class="font-serif text-4xl text-center uppercase">Deck registration sheet</h1>
         </header>
 
@@ -61,7 +58,7 @@
                             <div class=" float-left p-2 h-8">Pitch 3 (Blue)</div>
                         </td>
                     </tr>
-                    @for ($i = 0; $i < 18; $i++)
+                    @for ($i = 0; $i < 16; $i++)
                     <tr>
                         <?php $pitch1 = $deck->other(1)->get($i); ?>
                         <?php $pitch2 = $deck->other(2)->get($i); ?>
