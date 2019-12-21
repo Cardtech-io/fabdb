@@ -14,13 +14,10 @@
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
         "hashids/hashids": "^4.0",
-        "knplabs/knp-snappy": "^1.2",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^1.0",
         "laravel/vapor-cli": "^1.4",
         "laravel/vapor-core": "^2.2",
-        "mikehaertl/phpwkhtmltopdf": "^2.4",
-        "mpdf/mpdf": "^8.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

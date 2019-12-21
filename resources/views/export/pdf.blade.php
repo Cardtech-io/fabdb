@@ -15,7 +15,7 @@
         </header>
 
         <!-- Player Details -->
-        <table cellspacing="5" class="w-full border-separate mb-8">
+        <table cellspacing="5" class="w-full border-separate mb-4">
             <tbody>
                 <tr>
                     <td class="w-1/2 px-2 py-1 border border-gray-500 font-serif">Full name</td>
@@ -30,7 +30,7 @@
         </table>
 
         <!-- Equipment -->
-        <div class="mx-1 mb-8">
+        <div class="mx-1 mb-4">
             <table class="w-full border-collapse">
                 <tbody>
                     <tr>
@@ -44,7 +44,7 @@
         </div>
 
         <!-- Cards -->
-        <div class="mx-1 mb-8">
+        <div class="mx-1 mb-4">
             <table class="w-full border-collapse">
                 <tbody>
                     <tr>
@@ -86,7 +86,7 @@
             </table>
         </div>
 
-        <div class="mx-1 mb-8 clearfix">
+        <div class="mx-1 mb-4 clearfix">
             <div class="float-right border-2 border-black px-2 py-1 font-serif text-xl w-2/5">Card Total: {{  $deck->equipmentTotal() + $deck->otherTotal() }}</div>
         </div>
     </body>
