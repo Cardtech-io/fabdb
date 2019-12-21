@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Unit\Domain\Decks\Validation;
 
+use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\Validation\SupportsWeapon;
 use Tests\TestCase;
@@ -29,7 +30,7 @@ class SupportsWeaponTest extends TestCase
     function test_passes_when_deck_has_no_weapons()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect([]));
+        $deck->setRelation('cards', new Cards([]));
 
         $validator = new SupportsWeapon($deck);
 
@@ -41,7 +42,7 @@ class SupportsWeaponTest extends TestCase
     function test_passes_when_deck_has_1h_weapon_and_chosen_weapon_is_also_1h()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$this->card('weapon', ['weapon', '1h'])]));
+        $deck->setRelation('cards', new Cards([$this->card('weapon', ['weapon', '1h'])]));
 
         $validator = new SupportsWeapon($deck);
 
@@ -53,7 +54,7 @@ class SupportsWeaponTest extends TestCase
     function test_it_fails_when_deck_has_1h_weapon_and_chosen_weapon_is_2h()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$this->card('weapon', ['weapon', '1h'])]));
+        $deck->setRelation('cards', new Cards([$this->card('weapon', ['weapon', '1h'])]));
 
         $validator = new SupportsWeapon($deck);
 

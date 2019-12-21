@@ -2,6 +2,7 @@
 namespace Tests\Unit\Domain\Decks\Validation;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\Validation\HasHero;
 use Tests\TestCase;
@@ -27,7 +28,7 @@ class HasHeroTest extends TestCase
         $card->keywords = ['weapon'];
 
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$hero]));
+        $deck->setRelation('cards', new Cards([$hero]));
 
         $validator = new HasHero($deck);
         
@@ -45,7 +46,7 @@ class HasHeroTest extends TestCase
         $hero->keywords = ['hero'];
 
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$weapon]));
+        $deck->setRelation('cards', new Cards([$weapon]));
 
         $validator = new HasHero($deck);
 

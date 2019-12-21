@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Unit\Domain\Decks\Validation;
 
+use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\Validation\MatchesKeywords;
 use Tests\TestCase;
@@ -20,7 +21,7 @@ class MatchesKeywordsTest extends TestCase
     function test_card_added_matches_required_keywords()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect([$this->card('hero', ['guardian', 'hero'])]));
+        $deck->setRelation('cards', new Cards([$this->card('hero', ['guardian', 'hero'])]));
 
         $card1 = $this->card('WTR001', ['guardian', 'weapon', '1h']);
         $card2 = $this->card('WTR002', ['ninja', 'weapon', '1h']);
@@ -42,7 +43,7 @@ class MatchesKeywordsTest extends TestCase
     function test_when_card_added_is_hero()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', collect());
+        $deck->setRelation('cards', new Cards);
 
         $card = $this->card('hero', ['guardian', 'hero']);
         $validator = new MatchesKeywords($deck, $card);

@@ -19,6 +19,11 @@ class Deck extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function deckCards()
+    {
+        return $this->hasMany(DeckCard::class);
+    }
+
     public function cards()
     {
         return $this->belongsToMany(Card::class, 'deck_cards')
@@ -53,22 +58,36 @@ class Deck extends Model
 
     public function hasWeapon()
     {
-        return $this->cards->first(function(Card $card) {
-            return $card->isWeapon();
-        });
+        return $this->cards->hasWeapon();
     }
 
     public function hero()
     {
-        return $this->cards->first(function(Card $card) {
-            return $card->isHero();
-        });
+        return $this->cards->hero();
     }
 
     public function weapons()
     {
-        return $this->cards->filter(function(Card $card) {
-            return $card->isWeapon();
-        });
+        return $this->cards->weapons();
+    }
+
+    public function equipment()
+    {
+        return $this->cards->equipment()->values();
+    }
+
+    public function other($pitch = null)
+    {
+        return $this->cards->other($pitch)->values();
+    }
+
+    public function equipmentTotal()
+    {
+        return $this->equipment()->sum('total') + $this->weapons()->sum('total');
+    }
+
+    public function otherTotal()
+    {
+        return $this->other()->sum('total');
     }
 }

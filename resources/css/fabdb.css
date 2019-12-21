@@ -78,3 +78,11 @@ button:focus {
     -moz-border-radius: 1em;
     border-radius: 1em;
 }
+
+.pdf-totals-right {
+    border-color: #a0aec0 #000 #a0aec0 #a0aec0;
+}
+
+.pdf-totals-bottom {
+    border-color: #a0aec0 #a0aec0 #000 #a0aec0;
+}

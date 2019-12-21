@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="/css/fabdb.css">
+        <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet"><x></x>
 
         @if (env('ANALYTICS_ID'))

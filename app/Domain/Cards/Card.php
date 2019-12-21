@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Cards;
 use FabDB\Library\Model;
 
 class Card extends Model
@@ -11,6 +12,11 @@ class Card extends Model
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'keywords', 'stats'];
     protected $hidden = ['id'];
     protected $appends = ['total'];
+
+    public function newCollection(array $models = [])
+    {
+        return new Cards($models);
+    }
 
     public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, array $keywords, array $stats)
     {

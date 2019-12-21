@@ -14,27 +14,32 @@
 Route::get('sitemap', 'SitemapController@view');
 
 Route::middleware(['web'])->group(function() {
-    Route::get('cards', 'CardController@list');
-    Route::get('cards/{card}', 'CardController@view');
+    Route::get('export/{deck}.pdf', 'ExportController@pdf');
+    Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
 
-    Route::post('authenticate', 'AuthController@authenticate');
-    Route::post('validate', 'AuthController@validateCode');
+    Route::middleware(['spa'])->group(function() {
+        Route::get('cards', 'CardController@list');
+        Route::get('cards/{card}', 'CardController@view');
 
-    Route::middleware(['auth'])->group(function(){
-        Route::get('collection', 'CollectionController@list');
-        Route::post('collection', 'CollectionController@addCard');
-        Route::delete('collection/{card}', 'CollectionController@removeCard');
+        Route::post('authenticate', 'AuthController@authenticate');
+        Route::post('validate', 'AuthController@validateCode');
 
-        Route::get('decks/mine', 'DeckController@mine');
-        Route::post('decks/{deck}', 'DeckController@addCard');
-        Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
-        Route::delete('decks/{deck}', 'DeckController@removeDeck');
-        Route::post('decks', 'DeckController@addDeck');
+        Route::middleware(['auth'])->group(function () {
+            Route::get('collection', 'CollectionController@list');
+            Route::post('collection', 'CollectionController@addCard');
+            Route::delete('collection/{card}', 'CollectionController@removeCard');
+
+            Route::get('decks/mine', 'DeckController@mine');
+            Route::post('decks/{deck}', 'DeckController@addCard');
+            Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
+            Route::delete('decks/{deck}', 'DeckController@removeDeck');
+            Route::post('decks', 'DeckController@addDeck');
+        });
+
+        Route::get('decks/{deck}', 'DeckController@view');
+
+        Route::get('{anything}', function () {
+            return view('welcome');
+        })->where('anything', '.*');
     });
-
-    Route::get('decks/{deck}', 'DeckController@view');
-
-    Route::get('{anything}', function() {
-        return view('welcome');
-    })->where('anything', '.*');
 });
