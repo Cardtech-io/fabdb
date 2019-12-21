@@ -13,8 +13,8 @@
         </div>
 
         <!-- Footer -->
-        <div class="p-8">
-            <div class="sm:text-center text-sm text-gray-600">
+        <footer class="footer p-8">
+            <div class="sm:text-center text-sm text-gray-400">
                 <p><a href="/" class="link">fabdb.net</a> is a free online resource for the Flesh &amp; Blood™ TCG by <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
                 <p><a href="/" class="link">fabdb.net</a> is in no way affiliated with <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
                 <p>All intellectual IP belongs to <a href="https://legendstory.com" class="link">Legend Story Studios®</a>, Flesh &amp; Blood™, and set names are trademarks of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>. Flesh and Blood™ characters, cards, logos, and art are property of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
@@ -22,7 +22,7 @@
                 <br>
                 <p>An application and community project by <a href="https://kirkbushell.me" class="link">Kirk Bushell</a>.</p>
             </div>
-        </div>
+        </footer>
 
         <messages></messages>
     </div>

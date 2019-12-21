@@ -20,8 +20,8 @@
                 </tr>
                 <tr>
                     <td class="w-1/2 px-2 py-1 border border-gray-500 font-serif">{{ $deck->hero()->name}}</td>
-                    <td class="w-1/4 px-2 py-1 border border-gray-500 font-serif">Date</td>
-                    <td class="w-1/4 px-2 py-1 border border-gray-500 font-serif">Event</td>
+                    <td class="w-1/4 px-2 py-1 border border-gray-500 font-serif">{{ date('jS F Y') }}</td>
+                    <td class="w-1/4 px-2 py-1 border border-gray-500 font-serif"></td>
                 </tr>
             </tbody>
         </table>

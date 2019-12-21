@@ -25,7 +25,7 @@
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
                         <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
                         <div class="float-right">
-                            <router-link :to="'/decks/' + deck.slug" class="link">
+                            <router-link :to="'/decks/' + deck.slug" class="link" title="Shareable link">
                                 <svg class="inline-block fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
                                 </svg>
@@ -33,9 +33,17 @@
 
                             &nbsp;
 
-                            <a href="" @click.prevent="copy" class="link" title="Copy deck to text for sharing on social media">
+                            <a href="" @click.native="copy" class="link" title="Copy deck build to text for sharing on social media, messenger.etc.">
                                 <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"/>
+                                    <path d="M7.03 2.6a3 3 0 015.94 0L15 3v1h1a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h1V3l2.03-.4zM5 6H4v12h12V6h-1v1H5V6zm5-2a1 1 0 100-2 1 1 0 000 2z"/>
+                                </svg>
+                            </a>
+
+                            &nbsp;
+
+                            <a href="" @click.prevent="exportToPdf" class="link">
+                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
                                 </svg>
                             </a>
                         </div>

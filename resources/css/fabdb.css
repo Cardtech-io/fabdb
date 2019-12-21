@@ -50,7 +50,19 @@ button:focus {
 }
 
 .link:hover {
-    @apply text-gray-400;
+    @apply text-gray-800;
+}
+
+footer.footer {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+footer.footer .link {
+    @apply text-orange-400;
+}
+
+footer.footer .link:hover {
+    @apply text-white;
 }
 
 @font-face {

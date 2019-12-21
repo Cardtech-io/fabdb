@@ -39,6 +39,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         } else {
             DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deck->id, $card->id]);
         }
+
+        $deck->touch();
     }
 
     public function removeCardFromDeck(Deck $deck, Card $card)
@@ -50,5 +52,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         } else {
             DB::delete('DELETE FROM deck_cards WHERE id = ?', [$existing->pivot->id]);
         }
+
+        $deck->touch();
     }
 }

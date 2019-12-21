@@ -3329,6 +3329,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -22069,8 +22077,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-8" }, [
-      _c("div", { staticClass: "sm:text-center text-sm text-gray-600" }, [
+    return _c("footer", { staticClass: "footer p-8" }, [
+      _c("div", { staticClass: "sm:text-center text-sm text-gray-400" }, [
         _c("p", [
           _c("a", { staticClass: "link", attrs: { href: "/" } }, [
             _vm._v("fabdb.net")
@@ -24313,7 +24321,10 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "link",
-                                  attrs: { to: "/decks/" + _vm.deck.slug }
+                                  attrs: {
+                                    to: "/decks/" + _vm.deck.slug,
+                                    title: "Shareable link"
+                                  }
                                 },
                                 [
                                   _c(
@@ -24347,11 +24358,10 @@ var render = function() {
                                   attrs: {
                                     href: "",
                                     title:
-                                      "Copy deck to text for sharing on social media"
+                                      "Copy deck build to text for sharing on social media, messenger.etc."
                                   },
-                                  on: {
+                                  nativeOn: {
                                     click: function($event) {
-                                      $event.preventDefault()
                                       return _vm.copy($event)
                                     }
                                   }
@@ -24371,7 +24381,44 @@ var render = function() {
                                       _c("path", {
                                         attrs: {
                                           d:
-                                            "M5.08 12.16A2.99 2.99 0 010 10a3 3 0 015.08-2.16l8.94-4.47a3 3 0 11.9 1.79L5.98 9.63a3.03 3.03 0 010 .74l8.94 4.47A2.99 2.99 0 0120 17a3 3 0 11-5.98-.37l-8.94-4.47z"
+                                            "M7.03 2.6a3 3 0 015.94 0L15 3v1h1a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h1V3l2.03-.4zM5 6H4v12h12V6h-1v1H5V6zm5-2a1 1 0 100-2 1 1 0 000 2z"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(
+                                "\n\n                         \n\n                        "
+                              ),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "link",
+                                  attrs: { href: "" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.exportToPdf($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass:
+                                        "inline-block fill-current h-5 w-5",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 20 20"
+                                      }
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
                                         }
                                       })
                                     ]

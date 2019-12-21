@@ -12190,7 +12190,19 @@ button:focus {
 }
 
 .link:hover {
-  color: #cbd5e0;
+  color: #2d3748;
+}
+
+footer.footer {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+footer.footer .link {
+  color: #f6ad55;
+}
+
+footer.footer .link:hover {
+  color: #fff;
 }
 
 @font-face {
