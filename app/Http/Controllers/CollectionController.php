@@ -12,7 +12,7 @@ class CollectionController extends Controller
 {
     public function addCard(Request $request, CardRepository $cards)
     {
-        $card = $cards->find($request->get('identifier'), $request->user()->id);
+        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
 
         $this->dispatchNow(new AddCardToCollection(
             $card->id,

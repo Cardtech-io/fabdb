@@ -11,7 +11,7 @@ interface DeckRepository extends Repository
 
     public function bySlug(string $slug, bool $includeCards = false);
 
-    public function addCardToDeck(Deck $deck, Card $card);
+    public function addCardToDeck(int $deckId, int $cardId);
 
-    public function removeCardFromDeck(Deck $deck, Card $card);
+    public function removeCardFromDeck(int $deckId, int $cardId);
 }

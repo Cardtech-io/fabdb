@@ -26,6 +26,6 @@ class RemoveCardFromDeck implements Loggable
 
     public function handle(DeckRepository $decks)
     {
-        $decks->removeCardFromDeck($this->deck, $this->card);
+        $decks->removeCardFromDeck($this->deck->id, $this->card->id);
     }
 }

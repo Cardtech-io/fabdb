@@ -2,7 +2,6 @@
 namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
-use FabDB\Domain\Cards\CardRepository;
 use FabDB\Library\Loggable;
 use FabDB\Library\LogsParams;
 
@@ -28,6 +27,6 @@ class AddCardToDeck implements Loggable
 
     public function handle(DeckRepository $decks)
     {
-        $decks->addCardToDeck($this->deck, $this->card);
+        $decks->addCardToDeck($this->deck->id, $this->card->id);
     }
 }

@@ -26,4 +26,9 @@ abstract class EloquentRepository implements Repository
     {
         return $this->newQuery()->get();
     }
+
+    public function find(int $id): Model
+    {
+        return $this->newQuery()->whereId($id)->first();
+    }
 }

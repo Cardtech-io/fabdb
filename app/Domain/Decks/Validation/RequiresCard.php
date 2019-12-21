@@ -8,6 +8,6 @@ trait RequiresCard
 {
     private function getCard(string $identifier): Card
     {
-        return app(CardRepository::class)->find($identifier);
+        return app(CardRepository::class)->findByIdentifier($identifier);
     }
 }

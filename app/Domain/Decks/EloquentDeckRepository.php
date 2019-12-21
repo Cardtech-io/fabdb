@@ -30,22 +30,24 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return $query->firstOrFail();
     }
 
-    public function addCardToDeck(Deck $deck, Card $card)
+    public function addCardToDeck(int $deckId, int $cardId)
     {
-        $existing = $deck->card($card->id);
+        $deck = $this->find($deckId);
+        $existing = $deck->card($cardId);
 
         if ($existing) {
-            DB::update('UPDATE deck_cards SET total = total + 1 WHERE id = ?', [$existing->pivot->id]);
+            DB::update('UPDATE deck_cards SET total = total + 1 WHERE deck_id = ? AND card_id = ?', [$deckId, $cardId]);
         } else {
-            DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deck->id, $card->id]);
+            DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deckId, $cardId]);
         }
 
         $deck->touch();
     }
 
-    public function removeCardFromDeck(Deck $deck, Card $card)
+    public function removeCardFromDeck(int $deckId, int $cardId)
     {
-        $existing = $deck->card($card->id);
+        $deck = $this->find($deckId);
+        $existing = $deck->card($cardId);
 
         if ($existing->pivot && $existing->pivot->total > 1) {
             DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);

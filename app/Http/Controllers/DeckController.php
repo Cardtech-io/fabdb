@@ -34,7 +34,7 @@ class DeckController extends Controller
 
     public function addCard(AddCardToDeckRequest $request, Deck $deck, CardRepository $cards)
     {
-        $card = $cards->find($request->get('card'));
+        $card = $cards->findByIdentifier($request->get('card'));
 
         $this->dispatchNow(new AddCardToDeck($deck, $card));
     }

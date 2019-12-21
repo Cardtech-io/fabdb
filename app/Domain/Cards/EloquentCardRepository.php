@@ -108,7 +108,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * @param int $userId
      * @return
      */
-    public function find(string $identifier, int $userId = null)
+    public function findByIdentifier(string $identifier, int $userId = null)
     {
         $select = [
             'cards.id',
