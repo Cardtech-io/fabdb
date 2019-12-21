@@ -14,6 +14,6 @@ class PDF
 
         $response = $client->post($url);
 
-        dd((string) $response->getBody());
+        return (string) $response->getBody();
     }
 }
