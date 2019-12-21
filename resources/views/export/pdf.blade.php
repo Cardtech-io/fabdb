@@ -63,11 +63,11 @@
                         <?php $pitch1 = $deck->other(1)->get($i); ?>
                         <?php $pitch2 = $deck->other(2)->get($i); ?>
                         <?php $pitch3 = $deck->other(3)->get($i); ?>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 17) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch1, 'total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch1, 'total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch1, 'name', '&nbsp;') !!}</td>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 17) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch2, 'total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch2, 'total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch2, 'name', '&nbsp;') !!}</td>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 17) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch3, 'total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch3, 'total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch3, 'name', '&nbsp;') !!}</td>
                     </tr>
                     @endfor
