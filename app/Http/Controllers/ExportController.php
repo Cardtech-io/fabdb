@@ -14,10 +14,10 @@ class ExportController extends Controller
         $pdf = PDF::generate($url);
 
         $filename = "tmp/{$deck->slug}.pdf";
-        
+
         Storage::put($filename, $pdf);
 
-        Mail::send('emails.deck-registration', function($message) use ($deck, $filename) {
+        Mail::send('emails.deck-registration', [], function($message) use ($deck, $filename) {
             $message->to($deck->user->email);
             $message->attach($filename);
         });
