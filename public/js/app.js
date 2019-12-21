@@ -24387,43 +24387,6 @@ var render = function() {
                                     ]
                                   )
                                 ]
-                              ),
-                              _vm._v(
-                                "\n\n                         \n\n                        "
-                              ),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "link",
-                                  attrs: { href: "" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.exportToPdf($event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass:
-                                        "inline-block fill-current h-5 w-5",
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        viewBox: "0 0 20 20"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
                               )
                             ],
                             1
