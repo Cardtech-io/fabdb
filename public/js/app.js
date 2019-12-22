@@ -23814,7 +23814,7 @@ var render = function() {
                 _c(
                   "svg",
                   {
-                    staticClass: "fill-current h-10",
+                    staticClass: "fill-current",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       viewBox: "0 0 109 45"
@@ -23905,7 +23905,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
               attrs: { to: "/" },
               nativeOn: {
                 click: function($event) {
@@ -23920,7 +23920,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
               attrs: { to: "/browse/" },
               nativeOn: {
                 click: function($event) {
@@ -23935,7 +23935,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
               attrs: { to: "/collection/" },
               nativeOn: {
                 click: function($event) {
@@ -23950,7 +23950,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
               attrs: { to: "/deck-builder/" },
               nativeOn: {
                 click: function($event) {
@@ -23965,7 +23965,7 @@ var render = function() {
             "router-link",
             {
               staticClass:
-                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700",
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
               attrs: { to: "/support/" },
               nativeOn: {
                 click: function($event) {
