@@ -7,7 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
-        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet"><x></x>
+        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 
         @if (env('ANALYTICS_ID'))
             <!-- Global site tag (gtag.js) - Google Analytics -->
