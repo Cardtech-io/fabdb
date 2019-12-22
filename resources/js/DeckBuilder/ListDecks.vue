@@ -1,11 +1,11 @@
 <template>
-    <div class="container sm:mx-auto text-white">
-        <div class="p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20">
+    <div class="container sm:mx-auto text-white md:flex">
+        <div class="px-4 py-8 md:my-20 md:w-1/2">
             <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
             <p>The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play.</p>
         </div>
 
-        <div class="m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20">
+        <div class="mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2">
             <div class="flex pb-8">
                 <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
                 <div class="flex-1"><add-deck @deck-added="addDeck"></add-deck></div>

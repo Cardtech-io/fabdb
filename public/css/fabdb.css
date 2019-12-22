@@ -12242,6 +12242,15 @@ footer.footer .link:hover {
   border-color: #a0aec0 #a0aec0 #000 #a0aec0;
 }
 
+.open-enter-active, .open-leave-active {
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+}
+
+.open-enter, .open-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  max-height: 100%;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

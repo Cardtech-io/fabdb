@@ -3779,9 +3779,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -23746,7 +23743,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container sm:mx-auto" }, [
-    _c("div", { staticClass: "p-8 py-10 px-4" }, [
+    _c("div", { staticClass: "p-4 md:py-8" }, [
       _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
         _vm._v(_vm._s(_vm.title))
       ])
@@ -23900,7 +23897,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "nav-items sm:flex sm:bg-transparent",
+          staticClass: "nav-items sm:flex sm:bg-transparent sm:ml-2",
           class: _vm.isOpen ? "block" : "hidden"
         },
         [
@@ -24777,14 +24774,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container sm:mx-auto text-white" }, [
+  return _c("div", { staticClass: "container sm:mx-auto text-white md:flex" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
       "div",
       {
         staticClass:
-          "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
+          "mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2"
       },
       [
         _c("div", { staticClass: "flex pb-8" }, [
@@ -24876,23 +24873,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
-      },
-      [
-        _c("h1", { staticClass: "font-serif text-4xl lg:text-4xl uppercase" }, [
-          _vm._v("Deck Builder")
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play."
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "px-4 py-8 md:my-20 md:w-1/2" }, [
+      _c("h1", { staticClass: "font-serif text-4xl lg:text-4xl uppercase" }, [
+        _vm._v("Deck Builder")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play."
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -25217,78 +25208,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container sm:mx-auto text-white" }, [
-    _c(
-      "div",
-      {
-        staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
-      },
-      [
-        _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
-          _vm._v("Welcome")
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          { staticClass: "my-4" },
-          [
-            _vm._v(
-              "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
-            ),
-            _c(
-              "router-link",
-              {
-                staticClass: "underline hover:text-orange-300",
-                attrs: { to: "/deck-builder/" }
-              },
-              [_vm._v("deck builder")]
-            ),
-            _vm._v(", "),
-            _c(
-              "router-link",
-              {
-                staticClass: "underline hover:text-orange-300",
-                attrs: { to: "/collection/" }
-              },
-              [_vm._v("collection manager")]
-            ),
-            _vm._v(" and more.")
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "p",
-          { staticClass: "my-4" },
-          [
-            _vm._v(
-              "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
-            ),
-            _c(
-              "router-link",
-              {
-                staticClass: "underline hover:text-orange-300",
-                attrs: { to: "/support/" }
-              },
-              [_vm._v("Support page")]
-            ),
-            _vm._v(".")
-          ],
-          1
-        )
-      ]
-    ),
+  return _c("div", { staticClass: "container sm:mx-auto text-white lg:flex" }, [
+    _c("div", { staticClass: "px-4 py-8 lg:my-20" }, [
+      _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
+        _vm._v("Welcome")
+      ]),
+      _vm._v(" "),
+      _c(
+        "p",
+        { staticClass: "my-4" },
+        [
+          _vm._v(
+            "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
+          ),
+          _c(
+            "router-link",
+            {
+              staticClass: "underline hover:text-orange-300",
+              attrs: { to: "/deck-builder/" }
+            },
+            [_vm._v("deck builder")]
+          ),
+          _vm._v(", "),
+          _c(
+            "router-link",
+            {
+              staticClass: "underline hover:text-orange-300",
+              attrs: { to: "/collection/" }
+            },
+            [_vm._v("collection manager")]
+          ),
+          _vm._v(" and more.")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        { staticClass: "my-4" },
+        [
+          _vm._v(
+            "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
+          ),
+          _c(
+            "router-link",
+            {
+              staticClass: "underline hover:text-orange-300",
+              attrs: { to: "/support/" }
+            },
+            [_vm._v("Support page")]
+          ),
+          _vm._v(".")
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _c(
       "div",
-      {
-        staticClass:
-          "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg py-8 px-4 lg:m-0 lg:my-20"
-      },
+      { staticClass: "mx-4 mb-8 bg-semi-black rounded-lg p-4 lg:my-20" },
       [
         _c(
           "h1",
-          { staticClass: "font-serif text-white text-4xl uppercase pl-4" },
+          { staticClass: "font-serif text-white text-4xl uppercase px-4" },
           [_vm._v("Features")]
         ),
         _vm._v(" "),
@@ -25411,9 +25393,7 @@ var render = function() {
             ],
             1
           )
-        ]),
-        _vm._v(" "),
-        _c("p")
+        ])
       ]
     )
   ])

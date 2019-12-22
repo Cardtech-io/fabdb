@@ -17,7 +17,7 @@
                 </svg>
             </button>
         </div>
-        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent">
+        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2">
             <router-link to="/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Home</router-link>
             <router-link to="/browse/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">Browse</router-link>
             <router-link to="/collection/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black sm:hover:bg-transparent sm:hover:text-orange-700" @click.native="toggle">My collection</router-link>

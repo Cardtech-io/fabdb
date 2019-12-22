@@ -1,13 +1,13 @@
 <template>
-    <div class="container sm:mx-auto text-white">
-        <div class="p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20">
+    <div class="container sm:mx-auto text-white lg:flex">
+        <div class="px-4 py-8 lg:my-20">
             <h1 class="font-serif text-4xl lg:text-6xl uppercase">Welcome</h1>
             <p class="my-4">FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as <router-link to="/deck-builder/" class="underline hover:text-orange-300">deck builder</router-link>, <router-link to="/collection/" class="underline hover:text-orange-300">collection manager</router-link> and more.</p>
             <p class="my-4">FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our <router-link to="/support/" class="underline hover:text-orange-300">Support page</router-link>.</p>
         </div>
 
-        <div class="m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg py-8 px-4 lg:m-0 lg:my-20">
-            <h1 class="font-serif text-white text-4xl uppercase pl-4">Features</h1>
+        <div class="mx-4 mb-8 bg-semi-black rounded-lg p-4 lg:my-20">
+            <h1 class="font-serif text-white text-4xl uppercase px-4">Features</h1>
             <ol class="text-white">
                 <li>
                     <router-link to="/browse/">
@@ -48,9 +48,6 @@
                     </router-link>
                 </li>
             </ol>
-            <p>
-
-            </p>
         </div>
     </div>
 </template>
