@@ -8,7 +8,7 @@ html, body {
 
 .theme-bg {
     background:
-        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
         url('/img/background.jpg')
         no-repeat top center fixed;
     background-size: cover;
@@ -51,10 +51,6 @@ button:focus {
 
 .link:hover {
     @apply text-gray-800;
-}
-
-footer.footer {
-    background: rgba(0, 0, 0, 0.5);
 }
 
 footer.footer .link {

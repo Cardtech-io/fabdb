@@ -9,6 +9,7 @@ import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
+import Profile from './Identity/Profile.vue';
 
 Vue.use(VueRouter);
 
@@ -54,7 +55,8 @@ const router = new VueRouter({
                 title: 'View deck'
             }
         },
-        { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} }
+        { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} },
+        { path: "/profile/", component: Profile, name: 'profile', meta: { title: 'Your user profile' } }
     ]
 });
 

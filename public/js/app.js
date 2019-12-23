@@ -1869,8 +1869,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -3044,7 +3042,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3780,6 +3777,97 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Identity/Profile.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Identity/Profile.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      crumbs: [{
+        text: 'Home',
+        link: '/'
+      }, {
+        text: 'Profile Update'
+      }],
+      email: null,
+      gemId: null,
+      name: null
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var data = {
+        email: this.email,
+        gemId: this.gemId,
+        name: this.name
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('profile', data).then(function (response) {});
+    }
+  }
+});
 
 /***/ }),
 
@@ -22080,76 +22168,86 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "footer p-8" }, [
-      _c("div", { staticClass: "sm:text-center text-sm text-gray-400" }, [
-        _c("p", [
-          _c("a", { staticClass: "link", attrs: { href: "/" } }, [
-            _vm._v("fabdb.net")
+      _c(
+        "div",
+        {
+          staticClass:
+            "container sm:mx-auto sm:text-center text-sm text-gray-400"
+        },
+        [
+          _c("p", [
+            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+              _vm._v("fabdb.net")
+            ]),
+            _vm._v(" is a free online resource for the Flesh & Blood™ TCG by "),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: { href: "https://legendstory.com" }
+              },
+              [_vm._v("Legend Story Studios®")]
+            ),
+            _vm._v(".")
           ]),
-          _vm._v(" is a free online resource for the Flesh & Blood™ TCG by "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://legendstory.com" } },
-            [_vm._v("Legend Story Studios®")]
-          ),
-          _vm._v(".")
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c("a", { staticClass: "link", attrs: { href: "/" } }, [
-            _vm._v("fabdb.net")
+          _vm._v(" "),
+          _c("p", [
+            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+              _vm._v("fabdb.net")
+            ]),
+            _vm._v(" is in no way affiliated with "),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: { href: "https://legendstory.com" }
+              },
+              [_vm._v("Legend Story Studios®")]
+            ),
+            _vm._v(".")
           ]),
-          _vm._v(" is in no way affiliated with "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://legendstory.com" } },
-            [_vm._v("Legend Story Studios®")]
-          ),
-          _vm._v(".")
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v("All intellectual IP belongs to "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://legendstory.com" } },
-            [_vm._v("Legend Story Studios®")]
-          ),
-          _vm._v(", Flesh & Blood™, and set names are trademarks of "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://legendstory.com" } },
-            [_vm._v("Legend Story Studios®")]
-          ),
-          _vm._v(
-            ". Flesh and Blood™ characters, cards, logos, and art are property of "
-          ),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://legendstory.com" } },
-            [_vm._v("Legend Story Studios®")]
-          ),
-          _vm._v(".")
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c("a", { staticClass: "link", attrs: { href: "/" } }, [
-            _vm._v("fabdb.net")
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("All intellectual IP belongs to "),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: { href: "https://legendstory.com" }
+              },
+              [_vm._v("Legend Story Studios®")]
+            ),
+            _vm._v(", Flesh & Blood™, and set names are trademarks of "),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: { href: "https://legendstory.com" }
+              },
+              [_vm._v("Legend Story Studios®")]
+            ),
+            _vm._v(
+              ". Flesh and Blood™ characters, cards, logos, and art are property of "
+            ),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: { href: "https://legendstory.com" }
+              },
+              [_vm._v("Legend Story Studios®")]
+            ),
+            _vm._v(".")
           ]),
-          _vm._v(" is not a digital gaming product.")
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v("An application and community project by "),
-          _c(
-            "a",
-            { staticClass: "link", attrs: { href: "https://kirkbushell.me" } },
-            [_vm._v("Kirk Bushell")]
-          ),
-          _vm._v(".")
-        ])
-      ])
+          _vm._v(" "),
+          _c("p", [
+            _c("a", { staticClass: "link", attrs: { href: "/" } }, [
+              _vm._v("fabdb.net")
+            ]),
+            _vm._v(" is not a digital gaming product.")
+          ])
+        ]
+      )
     ])
   }
 ]
@@ -23814,7 +23912,7 @@ var render = function() {
                 _c(
                   "svg",
                   {
-                    staticClass: "fill-current",
+                    staticClass: "fill-current h-8",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       viewBox: "0 0 109 45"
@@ -23974,6 +24072,21 @@ var render = function() {
               }
             },
             [_vm._v("Support")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
+              attrs: { to: "/profile/" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.toggle($event)
+                }
+              }
+            },
+            [_vm._v("Profile")]
           )
         ],
         1
@@ -25405,6 +25518,200 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("header-title", { attrs: { title: "Profile Update" } }),
+      _vm._v(" "),
+      _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c(
+          "div",
+          { staticClass: "container sm:mx-auto bg-white py-8 px-8 md:flex" },
+          [
+            _c("div", { staticClass: "md:w-1/2 pr-8" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.submit($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "w-full" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("Email address")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.email,
+                          expression: "email"
+                        }
+                      ],
+                      staticClass:
+                        "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      attrs: { type: "email", required: "required" },
+                      domProps: { value: _vm.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.email = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-full mt-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("Name")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.name,
+                          expression: "name"
+                        }
+                      ],
+                      staticClass:
+                        "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.name = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-full mt-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("GEM player ID")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gemId,
+                          expression: "gemId"
+                        }
+                      ],
+                      staticClass:
+                        "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.gemId },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.gemId = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-8 md:w-1/2 md:mt-0" }, [
+      _c("h2", { staticClass: "text-xl font-serif uppercase" }, [
+        _vm._v("What data do we collect?")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-4" }, [
+        _vm._v(
+          "At fabdb.net, we endeavour to collect as little information about you as possible."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-4" }, [
+        _vm._v(
+          "Some details, such as email address, are absolutely essential. Not for marketing, but\n                    purely for identification purposes, and application notifications."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Other details, like name, gem id.etc. are only required if you use certain features. You will be\n                    prompted for these if and when that occurs."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-4" }, [
+        _vm._v(
+          "Name for example, is only needed if you participate within the community, providing feedback and\n                    starting threads.etc. Your gem ID is only needed when you export your decks to PDF format, which\n                    can be handed in at tournaments. If you like, your gem ID does not need to be saved, and instead\n                    will be asked when generating a PDF. When asked for in this manner, your gem ID is not saved in\n                    our database."
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Support.vue?vue&type=template&id=73ebbe21&":
 /*!***********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Support.vue?vue&type=template&id=73ebbe21& ***!
@@ -25431,7 +25738,8 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
+          staticClass:
+            "py-8 px-4 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20"
         },
         [
           _c(
@@ -25452,7 +25760,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
+            "mx-4 my-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20"
         },
         [
           _c(
@@ -45519,6 +45827,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Identity/Profile.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/Identity/Profile.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profile.vue?vue&type=template&id=0d510454& */ "./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454&");
+/* harmony import */ var _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Profile.vue?vue&type=script&lang=js& */ "./resources/js/Identity/Profile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Identity/Profile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Identity/Profile.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/Identity/Profile.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Identity/Profile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=template&id=0d510454& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Identity/Profile.vue?vue&type=template&id=0d510454&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_0d510454___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/Store/Application.js":
 /*!*******************************************!*\
   !*** ./resources/js/Store/Application.js ***!
@@ -45785,6 +46162,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeckBuilder/DeckBuilder.vue */ "./resources/js/DeckBuilder/DeckBuilder.vue");
 /* harmony import */ var _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./DeckBuilder/ViewDeck.vue */ "./resources/js/DeckBuilder/ViewDeck.vue");
 /* harmony import */ var _Support_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Support.vue */ "./resources/js/Support.vue");
+/* harmony import */ var _Identity_Profile_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Identity/Profile.vue */ "./resources/js/Identity/Profile.vue");
+
 
 
 
@@ -45864,6 +46243,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'support',
     meta: {
       title: 'Support options'
+    }
+  }, {
+    path: "/profile/",
+    component: _Identity_Profile_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    name: 'profile',
+    meta: {
+      title: 'Your user profile'
     }
   }]
 });

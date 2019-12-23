@@ -1,6 +1,6 @@
 <template>
     <div class="container sm:mx-auto text-white">
-        <div class="p-8 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20">
+        <div class="py-8 px-4 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20">
             <h1 class="font-serif text-4xl lg:text-4xl uppercase">Support Fab DB</h1>
             <p>
                 Flesh & Blood DB is run currently funded only through community support and outreach. If you're liking
@@ -8,7 +8,7 @@
             </p>
         </div>
 
-        <div class="m-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20">
+        <div class="mx-4 my-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:m-0 lg:my-20">
             <h1 class="font-serif text-white text-4xl uppercase flex-1">Why support us?</h1>
 
             <p class="my-4">To support fabdb.net, go to our
