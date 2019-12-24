@@ -5,8 +5,6 @@ export default {
         messages: []
     },
 
-    timeouts: {},
-
     mutations: {
         acknowledge(state , { index }) {
             state.messages.splice(index, 1);

@@ -24222,7 +24222,7 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "block hover:bg-black p-2 w-full",
+      staticClass: "block hover:bg-white px-4 py-2 w-full",
       attrs: { href: "" },
       on: {
         click: function($event) {
@@ -24308,7 +24308,7 @@ var render = function() {
               _vm._l(_vm.cards, function(card) {
                 return _c(
                   "div",
-                  { staticClass: "flex odd:bg-gray-100" },
+                  { staticClass: "flex odd:bg-gray-100 even:bg-gray-200" },
                   [
                     _c("card-item", {
                       attrs: { action: _vm.addCard, card: card }
@@ -45958,6 +45958,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Messages */ "./resources/js/Store/Messages.js");
+/* harmony import */ var _Session__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Session */ "./resources/js/Store/Session.js");
+
 
 
 
@@ -45965,7 +45967,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   strict: true,
   modules: {
-    messages: _Messages__WEBPACK_IMPORTED_MODULE_2__["default"]
+    messages: _Messages__WEBPACK_IMPORTED_MODULE_2__["default"],
+    session: _Session__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 }));
 
@@ -45985,7 +45988,6 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     messages: []
   },
-  timeouts: {},
   mutations: {
     acknowledge: function acknowledge(state, _ref) {
       var index = _ref.index;
@@ -46023,6 +46025,39 @@ __webpack_require__.r(__webpack_exports__);
           index: index
         });
       }, 3000);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/Store/Session.js":
+/*!***************************************!*\
+  !*** ./resources/js/Store/Session.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: {
+    user: null
+  },
+  mutations: {
+    setUser: function setUser(state, _ref) {
+      var userData = _ref.userData;
+      state.user = userData;
+    }
+  },
+  actions: {
+    setUser: function setUser(_ref2, _ref3) {
+      var commit = _ref2.commit;
+      var userData = _ref3.userData;
+      commit('setUser', {
+        userData: userData
+      });
     }
   }
 });
