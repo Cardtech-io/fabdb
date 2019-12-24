@@ -11,7 +11,7 @@ export default {
         },
 
         addMessage(state, { status, message }) {
-            state.messages.push({ status: status, message: message });
+            state.messages.unshift({ status: status, message: message });
         }
     },
 

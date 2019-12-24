@@ -40,6 +40,6 @@ class MatchesKeywords implements Rule
      */
     public function message()
     {
-        return 'Card does not contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
+        return 'Card must contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
     }
 }

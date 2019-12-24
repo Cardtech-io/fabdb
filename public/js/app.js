@@ -2993,8 +2993,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['acknowledge']), {
     backgroundClass: function backgroundClass(status) {
       var colours = {
-        error: 'bg-red-500',
-        success: 'bg-green-500'
+        error: 'bg-red-700',
+        success: 'bg-green-700'
       };
       return colours[status];
     }
@@ -45996,7 +45996,7 @@ __webpack_require__.r(__webpack_exports__);
     addMessage: function addMessage(state, _ref2) {
       var status = _ref2.status,
           message = _ref2.message;
-      state.messages.push({
+      state.messages.unshift({
         status: status,
         message: message
       });
