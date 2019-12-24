@@ -23890,7 +23890,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed bottom-0 md:bottom-1/2 md:right-0 w-full md:w-1/2 z-10 overflow-visible p-4"
+            "fixed bottom-0 md:right-0 md:mb-64 w-full md:w-1/2 z-10 overflow-visible p-4"
         },
         _vm._l(_vm.messages, function(message, i) {
           return _c(
