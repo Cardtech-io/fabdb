@@ -1,10 +1,8 @@
 <template>
-    <div v-if="messages" class="fixed bottom w-full z-10">
-        <!--<ol>-->
-            <!--<li v-for="(message, i) in messages" :key="'key-' + i" class="p-4" :class="backgroundClass(message.status)" @click="acknowledge(i)">-->
-                <!--{{ message.message }}-->
-            <!--</li>-->
-        <!--</ol>-->
+    <div v-if="messages && messages.length" class="fixed bottom-0 md:bottom-1/2 md:right-0 w-full md:w-1/2 z-10 overflow-visible p-4">
+        <div v-for="(message, i) in messages" :key="'key-' + i" class="p-2 mb-4 rounded-lg text-white cursor-pointer" :class="backgroundClass(message.status)" @click="acknowledge(i)">
+            {{ message.message }}
+        </div>
     </div>
 </template>
 
@@ -27,7 +25,8 @@
 
             backgroundClass: function(status) {
                 const colours = {
-                    error: 'bg-red-800'
+                    error: 'bg-red-500',
+                    success: 'bg-green-500'
                 };
 
                 return colours[status];

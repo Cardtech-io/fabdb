@@ -220,6 +220,8 @@
                         card.total = 1;
                         this.deck.cards.push(card);
                     }
+
+                    this.addMessage({ status: 'success', message: 'Card added.' });
                 }).catch(error => {
                     if (error.response.status == 422) {
                         this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });

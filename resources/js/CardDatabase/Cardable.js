@@ -1,9 +1,8 @@
 export default {
     methods: {
-        cardUrl: function(identifier, width) {
-            const parts = identifier.match(/.{3}/g)
-            const set = parts[0].toLowerCase();
-            const id = parts[1].replace(/^0+/, '');
+        cardUrl: function(identifier, width) {;
+            const set = this.set(identifier);
+            const id = this.id(identifier);
 
             const dimensions = {
                 ira: [23, 24, 419, 603],
@@ -30,12 +29,33 @@ export default {
             return colours[resource];
         },
 
+        id: function(identifier) {
+            return this.identifierParts(identifier)[1].replace(/^0+/, '');
+        },
+
+        identifierParts: function(identifier) {
+            return identifier.match(/.{3}/g);
+        },
+
         ucfirst: function(string) {
             return string[0].toUpperCase() + string.slice(1);
         },
 
         hasResource: function(card) {
             return card.stats.hasOwnProperty('resource');
+        },
+
+        set: function(identifier) {
+            return this.identifierParts(identifier)[0].toLowerCase();
+        },
+
+        setToString: function(set) {
+            const sets = {
+                ira: "Welcome Deck 2019",
+                wtr: "Welcome to Rathe"
+            };
+
+            return sets[set];
         }
     }
 };

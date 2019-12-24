@@ -5,6 +5,8 @@ export default {
         messages: []
     },
 
+    timeouts: {},
+
     mutations: {
         acknowledge(state , { index }) {
             state.messages.splice(index, 1);
@@ -26,7 +28,7 @@ export default {
             setTimeout(function() {
                 let index = state.messages.length - 1;
                 commit('acknowledge', { index });
-            }, 5000);
+            }, 3000);
         }
     }
 };

@@ -6,6 +6,10 @@ html, body {
     height: 100%;
 }
 
+#app {
+    height: 100%;
+}
+
 .theme-bg {
     background:
         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
@@ -95,9 +99,6 @@ footer.footer .link:hover {
     border-color: #a0aec0 #a0aec0 #000 #a0aec0;
 }
 
-.open-enter-active, .open-leave-active {
-    transition: max-height 1s;
-}
-.open-enter, .open-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    max-height: 100%;
+.bottom-1\/2 {
+    bottom: 50%;
 }

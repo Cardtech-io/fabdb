@@ -2633,6 +2633,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2983,8 +2984,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2994,7 +2993,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['acknowledge']), {
     backgroundClass: function backgroundClass(status) {
       var colours = {
-        error: 'bg-red-800'
+        error: 'bg-red-500',
+        success: 'bg-green-500'
       };
       return colours[status];
     }
@@ -3426,6 +3426,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this.deck.cards.push(card);
         }
+
+        _this.addMessage({
+          status: 'success',
+          message: 'Card added.'
+        });
       })["catch"](function (error) {
         if (error.response.status == 422) {
           _this.addMessage({
@@ -23463,7 +23468,7 @@ var render = function() {
                       "h2",
                       {
                         staticClass:
-                          "font-serif text-4xl uppercase pb-4 hidden md:block"
+                          "font-serif text-4xl uppercase hidden md:block"
                       },
                       [
                         _vm._v(
@@ -23473,6 +23478,16 @@ var render = function() {
                         )
                       ]
                     ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "my-4" }, [
+                      _vm._v(
+                        'This card is from the "' +
+                          _vm._s(
+                            _vm.setToString(_vm.set(_vm.card.identifier))
+                          ) +
+                          '" set of the Flesh & Blood TCG.'
+                      )
+                    ]),
                     _vm._v(" "),
                     _c(
                       "ul",
@@ -23870,8 +23885,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.messages
-    ? _c("div", { staticClass: "fixed bottom w-full z-10" })
+  return _vm.messages && _vm.messages.length
+    ? _c(
+        "div",
+        {
+          staticClass:
+            "fixed bottom-0 md:bottom-1/2 md:right-0 w-full md:w-1/2 z-10 overflow-visible p-4"
+        },
+        _vm._l(_vm.messages, function(message, i) {
+          return _c(
+            "div",
+            {
+              key: "key-" + i,
+              staticClass: "p-2 mb-4 rounded-lg text-white cursor-pointer",
+              class: _vm.backgroundClass(message.status),
+              on: {
+                click: function($event) {
+                  return _vm.acknowledge(i)
+                }
+              }
+            },
+            [_vm._v("\n        " + _vm._s(message.message) + "\n    ")]
+          )
+        }),
+        0
+      )
     : _vm._e()
 }
 var staticRenderFns = []
@@ -44383,9 +44421,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     cardUrl: function cardUrl(identifier, width) {
-      var parts = identifier.match(/.{3}/g);
-      var set = parts[0].toLowerCase();
-      var id = parts[1].replace(/^0+/, '');
+      ;
+      var set = this.set(identifier);
+      var id = this.id(identifier);
       var dimensions = {
         ira: [23, 24, 419, 603],
         wtr: [22, 22, 406, 584]
@@ -44413,11 +44451,27 @@ __webpack_require__.r(__webpack_exports__);
       };
       return colours[resource];
     },
+    id: function id(identifier) {
+      return this.identifierParts(identifier)[1].replace(/^0+/, '');
+    },
+    identifierParts: function identifierParts(identifier) {
+      return identifier.match(/.{3}/g);
+    },
     ucfirst: function ucfirst(string) {
       return string[0].toUpperCase() + string.slice(1);
     },
     hasResource: function hasResource(card) {
       return card.stats.hasOwnProperty('resource');
+    },
+    set: function set(identifier) {
+      return this.identifierParts(identifier)[0].toLowerCase();
+    },
+    setToString: function setToString(set) {
+      var sets = {
+        ira: "Welcome Deck 2019",
+        wtr: "Welcome to Rathe"
+      };
+      return sets[set];
     }
   }
 });
@@ -45230,12 +45284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   track: function track(category, action, label, value) {
     if (typeof ga !== 'undefined') {
-      ga('send', 'event', {
-        eventCategory: category,
-        eventAction: action,
-        eventLabel: label,
-        eventValue: value
-      });
+      ga('send', 'event', category, action, value);
     }
   }
 });
@@ -45936,6 +45985,7 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     messages: []
   },
+  timeouts: {},
   mutations: {
     acknowledge: function acknowledge(state, _ref) {
       var index = _ref.index;
@@ -45972,7 +46022,7 @@ __webpack_require__.r(__webpack_exports__);
         commit('acknowledge', {
           index: index
         });
-      }, 5000);
+      }, 3000);
     }
   }
 });
