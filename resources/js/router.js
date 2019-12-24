@@ -10,6 +10,7 @@ import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
+import Login from './Auth/Login.vue';
 
 Vue.use(VueRouter);
 
@@ -17,47 +18,55 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
-        { path: "/browse/", component: BrowseCards, name: 'cards', meta: {title: 'Browse cards'} },
+        { path: "/browse", component: BrowseCards, name: 'cards', meta: {title: 'Browse cards'} },
         {
-            path: "/cards/:identifier/",
+            path: "/cards/:identifier",
             component: ViewCard,
             name: 'card-view',
             meta: { title: 'View card', parent: { name: 'Browse', path: '/browse/' } }
         },
         {
-            path: "/collection/",
+            path: "/collection",
             component: Collection,
             name: 'collection',
-            meta: { title: 'My collection' }
+            meta: { title: 'My collection', auth: true },
         },
         {
-            path: "/collection/:identifier/",
+            path: "/collection/:identifier",
             component: ViewCard,
             name: 'collection-view',
             meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } }
         },
         {
-            path: "/deck-builder/",
+            path: "/deck-builder",
             component: ListDecks,
-            name: 'list-decks'
+            name: 'list-decks',
+            meta: { auth: true }
         },
         {
-            path: "/deck-builder/:deck/",
+            path: "/deck-builder/:deck",
             component: DeckBuilder,
-            meta: {
-                title: 'Deck builder &gt; Edit deck'
-            }
+            meta: { title: 'Deck builder &gt; Edit deck', auth: true }
         },
         {
-            path: "/decks/:deck/",
+            path: "/decks/:deck",
             component: ViewDeck,
             meta: {
                 title: 'View deck'
             }
         },
-        { path: "/support/", component: Support, name: 'support', meta: {title: 'Support options'} },
-        { path: "/profile/", component: Profile, name: 'profile', meta: { title: 'Your user profile' } }
+        { path: "/login", component: Login, name: 'login' },
+        { path: "/support", component: Support, name: 'support', meta: {title: 'Support options'} },
+        { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } }
     ]
+});
+
+router.beforeResolve(function(to, from, next) {
+    if (to.meta && to.meta.auth && !window.session.user) {
+        next({ path: '/login', query: { from: to.path } });
+    }
+
+    next();
 });
 
 router.beforeResolve((to, from, next) => {

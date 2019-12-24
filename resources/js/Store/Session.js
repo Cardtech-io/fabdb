@@ -2,18 +2,24 @@ export default {
     namespaced: true,
 
     state: {
-        user: null
+        session: null
     },
 
     mutations: {
-        setUser: function(state, {userData}) {
-            state.user = userData;
+        setSession: function(state, {sessionData}) {
+            state.session = sessionData;
         }
     },
 
     actions: {
-        setUser: function({commit}, {userData}) {
-            commit('setUser', {userData});
+        setSession: function({commit}, {sessionData}) {
+            commit('setSession', {sessionData});
+        }
+    },
+
+    getters: {
+        user: state => {
+            return state.session.user;
         }
     }
 };

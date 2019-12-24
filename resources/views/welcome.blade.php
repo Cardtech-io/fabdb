@@ -27,9 +27,9 @@
     <body class="theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
 
-        <script src="{{ asset(mix('/js/app.js')) }}"></script>
         <script>
-            const session = {"user": <?php echo auth()->user()->toJson(); ?>};
+            window.session = {"user": <?php echo auth()->user()->toJson(); ?>};
         </script>
+        <script src="{{ asset(mix('/js/app.js')) }}"></script>
     </body>
 </html>

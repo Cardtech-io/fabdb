@@ -1,7 +1,5 @@
 <template>
     <div id="app">
-        <authenticator></authenticator>
-
         <!-- Header -->
         <div class="navigation">
             <navigation></navigation>
@@ -27,12 +25,13 @@
 </template>
 
 <script>
-    import Authenticator from './Auth/Authenticator.vue';
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
 
+    import { mapActions } from 'vuex';
+
     export default {
-        components: { Authenticator, Messages, Navigation },
+        components: { Messages, Navigation },
 
         metaInfo: {
             title: 'Home, Browse Cards',
@@ -40,6 +39,10 @@
             meta: [
                 { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.' }
             ]
+        },
+
+        methods: {
+            ...mapActions('session', ['setSession']),
         },
 
         created() {
