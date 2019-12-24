@@ -3,6 +3,7 @@ namespace FabDB\Domain\Users;
 
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
+use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -12,6 +13,7 @@ class User extends Model implements Authenticatable
     use Notifiable;
     use Raiseable;
     use UserAuthenticatable;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +22,13 @@ class User extends Model implements Authenticatable
      */
     protected $fillable = [
         'email',
+    ];
+
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
+        'token'
     ];
 
     public static function register($email)

@@ -28,5 +28,8 @@
         <div id="app"></div>
 
         <script src="{{ asset(mix('/js/app.js')) }}"></script>
+        <script>
+            const session = {"user": <?php echo auth()->user()->toJson(); ?>};
+        </script>
     </body>
 </html>

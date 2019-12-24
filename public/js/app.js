@@ -1886,6 +1886,11 @@ __webpack_require__.r(__webpack_exports__);
       name: 'description',
       content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.'
     }]
+  },
+  created: function created() {
+    if (window.session) {
+      this.setSession(window.session);
+    }
   }
 });
 

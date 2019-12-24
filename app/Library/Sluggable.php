@@ -1,8 +1,6 @@
 <?php
 namespace FabDB\Library;
 
-use Hashids\Hashids;
-
 trait Sluggable
 {
     /**

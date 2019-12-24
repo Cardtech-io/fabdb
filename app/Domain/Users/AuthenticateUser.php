@@ -41,5 +41,7 @@ class AuthenticateUser implements Loggable
         $users->save($user);
 
         $this->dispatch($user->releaseEvents());
+
+        return $user;
     }
 }
