@@ -50,19 +50,6 @@
             if (window.session) {
                 this.setSession({ session: window.session });
             }
-
-            axios.interceptors.response.use(null, error => {
-                if (error) {
-                    if (error.response.status === 401) {
-                        NProgress.done();
-                        this.$router.go('/login');
-                    }
-                }
-                else {
-                    NProgress.done();
-                    return Promise.reject(error);
-                }
-            });
         }
     };
 </script>

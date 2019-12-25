@@ -1895,26 +1895,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
   created: function created() {
-    var _this = this;
-
     if (window.session) {
       this.setSession({
         session: window.session
       });
     }
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.response.use(null, function (error) {
-      if (error) {
-        if (error.response.status === 401) {
-          NProgress.done();
-
-          _this.$router.go('/login');
-        }
-      } else {
-        NProgress.done();
-        return Promise.reject(error);
-      }
-    });
   }
 });
 
@@ -46124,7 +46109,6 @@ __webpack_require__.r(__webpack_exports__);
       var param = _ref3.param,
           value = _ref3.value;
       state.session.user[param] = value;
-      console.log(state.session.user);
     }
   },
   actions: {
@@ -46276,6 +46260,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_App_vue__WEBPACK_IMPORTED_MODULE
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined;
+
  // before a request is made start the nprogress
 
 axios.interceptors.request.use(function (config) {
@@ -46286,6 +46272,15 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
   return response;
+}, function (error) {
+  if (error.response.status === 401) {
+    nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
+
+    _this.$router.go('/login');
+  }
+
+  nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
+  return Promise.reject(error);
 });
 
 /***/ }),

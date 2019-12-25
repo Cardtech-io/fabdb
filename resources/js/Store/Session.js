@@ -16,10 +16,9 @@ export default {
 
         setUserParam: function(state, { param, value }) {
             state.session.user[param] = value;
-            console.log(state.session.user);
         }
     },
-
+    
     actions: {
         setSession: function({ commit }, { session }) {
             commit('setSession', { session });
