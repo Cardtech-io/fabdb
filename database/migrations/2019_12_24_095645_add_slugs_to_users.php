@@ -20,7 +20,7 @@ class AddSlugsToUsers extends Migration
         });
 
         User::each(function(User $user) {
-            $user->generateIdSlug();
+            $user->generateSlug();
             $user->save();
         });
 
