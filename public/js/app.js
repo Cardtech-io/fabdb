@@ -25306,7 +25306,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(
-                      "\n\n                        Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,\n                        or add to that touranment-winning deck!\n                    "
+                      "\n\n                        Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,\n                        or add to that tournament-winning deck!\n                    "
                     )
                   ]
                 )
@@ -25385,7 +25385,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(
-                      "\n\n                        Craft decks, by selecting your hero, weapons & equipment and the cards they'll\n                        need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!\n                    "
+                      "\n\n                        Craft decks by selecting your hero, weapons & equipment and the cards they'll\n                        need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!\n                    "
                     )
                   ]
                 )

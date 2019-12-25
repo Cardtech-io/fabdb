@@ -17,7 +17,7 @@
                             </svg>
 
                             Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,
-                            or add to that touranment-winning deck!
+                            or add to that tournament-winning deck!
                         </span>
                     </router-link>
                 </li>
@@ -42,7 +42,7 @@
                                 <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
                             </svg>
 
-                            Craft decks, by selecting your hero, weapons & equipment and the cards they'll
+                            Craft decks by selecting your hero, weapons & equipment and the cards they'll
                             need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!
                         </span>
                     </router-link>
