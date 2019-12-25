@@ -120,7 +120,7 @@
 
         methods: {
             ...mapActions('session', ['setUserParam']),
-            
+
             exportToPdf: function() {
                 const payload = {
                     name: this.name,

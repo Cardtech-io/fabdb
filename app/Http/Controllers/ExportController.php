@@ -17,8 +17,13 @@ class ExportController extends Controller
         ));
     }
 
-    public function html(Deck $deck)
+    public function html(Request $request, Deck $deck)
     {
-        return view('export/pdf', compact('deck'));
+        // Params consists of name, gem id and event - constructed via the PDF exporter.
+        $params = json_decode(base64_decode($request->get('params')));
+
+        $params['deck'] = $deck;
+
+        return view('export/pdf', $params);
     }
 }
