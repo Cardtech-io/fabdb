@@ -10,12 +10,13 @@ export default {
             state.session = session;
         },
 
-        setUser: function(state, {user}) {
+        setUser: function(state, { user }) {
             state.session.user = user;
         },
 
         setUserParam: function(state, { param, value }) {
             state.session.user[param] = value;
+            console.log(state.session.user);
         }
     },
 

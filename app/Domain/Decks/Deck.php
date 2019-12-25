@@ -1,11 +1,11 @@
 <?php
 namespace FabDB\Domain\Decks;
 
-use Eloquence\Behaviours\Sluggable;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
+use FabDB\Library\Sluggable;
 
 class Deck extends Model
 {

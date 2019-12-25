@@ -1,9 +1,9 @@
 <?php
 namespace FabDB\Domain\Users;
 
-use Eloquence\Behaviours\Sluggable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
+use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;

@@ -3941,19 +3941,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.saving = true;
       var data = {
         email: this.email,
-        gemId: this.gemId,
-        name: this.name
+        name: this.name,
+        gemId: this.gemId
       };
-      setTimeout(function () {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/profile', data).then(function (response) {
-          _this.addMessage({
-            status: 'success',
-            message: 'Profile updated'
-          });
-
-          _this.saving = false;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/profile', data).then(function (response) {
+        _this.addMessage({
+          status: 'success',
+          message: 'Profile updated'
         });
-      }, 3000);
+
+        _this.saving = false;
+      });
     }
   })
 });
@@ -46115,6 +46113,7 @@ __webpack_require__.r(__webpack_exports__);
       var param = _ref3.param,
           value = _ref3.value;
       state.session.user[param] = value;
+      console.log(state.session.user);
     }
   },
   actions: {

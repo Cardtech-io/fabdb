@@ -41,6 +41,8 @@ class UpdateProfile
 
         $user->updateProfile($this->email, $this->name, $this->gemId);
 
+        $users->save($user);
+
         $this->dispatch($user->releaseEvents());
     }
 }

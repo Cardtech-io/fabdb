@@ -106,15 +106,14 @@
 
                 const data = {
                     email: this.email,
+                    name: this.name,
                     gemId: this.gemId,
-                    name: this.name
                 };
-                setTimeout(() => {
-                    axios.put('/profile', data).then(response => {
-                        this.addMessage({ status: 'success', message: 'Profile updated' });
-                        this.saving = false;
-                    });
-                }, 3000);
+
+                axios.put('/profile', data).then(response => {
+                    this.addMessage({ status: 'success', message: 'Profile updated' });
+                    this.saving = false;
+                });
             }
         },
     };
