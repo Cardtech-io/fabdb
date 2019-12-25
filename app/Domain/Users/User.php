@@ -26,6 +26,10 @@ class User extends Model implements Authenticatable
         'gemId'
     ];
 
+    protected $casts = [
+        'slug' => 'string'
+    ];
+
     protected $hidden = [
         'id',
         'created_at',
