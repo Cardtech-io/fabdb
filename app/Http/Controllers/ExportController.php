@@ -20,7 +20,7 @@ class ExportController extends Controller
     public function html(Request $request, Deck $deck)
     {
         // Params consists of name, gem id and event - constructed via the PDF exporter.
-        $params = json_decode(base64_decode($request->get('params')));
+        $params = json_decode(base64_decode($request->get('params')), true);
 
         $params['deck'] = $deck;
 

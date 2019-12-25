@@ -38,7 +38,8 @@ class ExportDeckToPdf
     {
         $deck = $decks->find($this->deckId);
 
-        $url = route('export.html', ['deck' => $deck, 'params' => base64_encode(json_encode(['name' => $this->name, 'gemId' => $this->gemId, 'event' => $this->event]))]);
+        $url = route('export.html', ['deck' => $deck->slug, 'params' => base64_encode(json_encode(['name' => $this->name, 'gemId' => $this->gemId, 'event' => $this->event]))]);
+        dd($url);
         $pdf = PDF::generate($url);
 
         $filename = "tmp/{$deck->slug}.pdf";
