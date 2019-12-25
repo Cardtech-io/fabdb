@@ -29,7 +29,9 @@ class DeckController extends Controller
 
     public function addDeck(Request $request)
     {
-        return $this->dispatchNow(new AddDeck($request->user()->id, $request->get('name')));
+        $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name')));
+        
+        return $command->deck();
     }
 
     public function addCard(AddCardToDeckRequest $request, Deck $deck, CardRepository $cards)
