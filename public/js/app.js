@@ -1838,9 +1838,11 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Components_Navigation_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/Navigation.vue */ "./resources/js/Components/Navigation.vue");
-/* harmony import */ var _Components_Messages_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Messages.vue */ "./resources/js/Components/Messages.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_Navigation_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Navigation.vue */ "./resources/js/Components/Navigation.vue");
+/* harmony import */ var _Components_Messages_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Messages.vue */ "./resources/js/Components/Messages.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1876,10 +1878,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Messages: _Components_Messages_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Navigation: _Components_Navigation_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Messages: _Components_Messages_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Navigation: _Components_Navigation_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   metaInfo: {
     title: 'Home, Browse Cards',
@@ -1890,13 +1893,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.'
     }]
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('session', ['setSession'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
   created: function created() {
+    var _this = this;
+
     if (window.session) {
       this.setSession({
         session: window.session
       });
     }
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.response.use(null, function (error) {
+      if (error) {
+        if (error.response.status === 401) {
+          NProgress.done();
+
+          _this.$router.go('/login');
+        }
+      } else {
+        NProgress.done();
+        return Promise.reject(error);
+      }
+    });
   }
 });
 
@@ -2000,28 +2018,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         code: this.code
       }).then(function (response) {
         _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__["default"].track('Authentication', 'Authenticated');
+        var user = response.data.user;
+        var from = _this2.$route.query.from || '/';
+        window.session.user = user;
 
         _this2.setUser({
-          user: response.data
+          user: user
         });
 
-        _this2.$router.go(_this2.$route.query.from);
+        _this2.$router.push(from);
       });
     }
-  }),
-  mounted: function mounted() {
-    var _this3 = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.response.use(null, function (error) {
-      if (error && error.response.status === 401) {
-        _this3.submitted = false;
-        nprogress__WEBPACK_IMPORTED_MODULE_3___default.a.done();
-      } else {
-        nprogress__WEBPACK_IMPORTED_MODULE_3___default.a.done();
-        return Promise.reject(error);
-      }
-    });
-  }
+  })
 });
 
 /***/ }),
@@ -22446,7 +22454,10 @@ var render = function() {
                           ],
                           staticClass:
                             "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
-                          attrs: { type: "text", placeholder: "" },
+                          attrs: {
+                            type: "text",
+                            placeholder: "Enter your authentication code"
+                          },
                           domProps: { value: _vm.code },
                           on: {
                             input: function($event) {
@@ -46437,16 +46448,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }]
 });
 router.beforeResolve(function (to, from, next) {
-  if (to.meta && to.meta.auth && !window.session.user) {
+  if (to.meta && to.meta.auth && !(window.session.user && window.session.user != null)) {
     next({
       path: '/login',
       query: {
         from: to.path
       }
     });
+  } else {
+    next();
   }
-
-  next();
 });
 router.beforeResolve(function (to, from, next) {
   // If this isn't an initial page load.

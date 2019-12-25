@@ -25,6 +25,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
 
@@ -49,6 +50,19 @@
             if (window.session) {
                 this.setSession({ session: window.session });
             }
+
+            axios.interceptors.response.use(null, error => {
+                if (error) {
+                    if (error.response.status === 401) {
+                        NProgress.done();
+                        this.$router.go('/login');
+                    }
+                }
+                else {
+                    NProgress.done();
+                    return Promise.reject(error);
+                }
+            });
         }
     };
 </script>

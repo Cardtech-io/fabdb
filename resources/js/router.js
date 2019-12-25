@@ -56,17 +56,17 @@ const router = new VueRouter({
             }
         },
         { path: "/login", component: Login, name: 'login' },
-        { path: "/support", component: Support, name: 'support', meta: {title: 'Support options'} },
+        { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } }
     ]
 });
 
 router.beforeResolve(function(to, from, next) {
-    if (to.meta && to.meta.auth && !window.session.user) {
+    if (to.meta && to.meta.auth && !(window.session.user && window.session.user != null)) {
         next({ path: '/login', query: { from: to.path } });
+    } else {
+        next();
     }
-
-    next();
 });
 
 router.beforeResolve((to, from, next) => {

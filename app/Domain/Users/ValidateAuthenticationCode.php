@@ -19,8 +19,14 @@ class ValidateAuthenticationCode implements Loggable
      */
     private $code;
 
-    public function __construct(string $email, string $code)
+    /**
+     * @var AuthObserver
+     */
+    private $observer;
+
+    public function __construct(AuthObserver $observer, string $email, string $code)
     {
+        $this->observer = $observer;
         $this->email = $email;
         $this->code = $code;
     }
@@ -28,9 +34,11 @@ class ValidateAuthenticationCode implements Loggable
     public function handle(UserRepository $users)
     {
         $user = $users->findByEmailAndToken($this->email, $this->code);
-        $user->clearToken();
 
+        //$user->clearToken();
         $users->save($user);
+
+        $this->observer->codeValidated($user);
 
         Auth::login($user);
     }

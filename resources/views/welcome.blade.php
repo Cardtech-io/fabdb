@@ -1,3 +1,4 @@
+<?php $user = auth()->user(); ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -28,7 +29,7 @@
         <div id="app"></div>
 
         <script>
-            window.session = {"user": <?php echo auth()->user()->toJson(); ?>};
+            window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
         </script>
         <script src="{{ asset(mix('/js/app.js')) }}"></script>
     </body>

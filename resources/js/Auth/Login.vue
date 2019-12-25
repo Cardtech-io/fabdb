@@ -25,7 +25,7 @@
                     <div v-else>
                         <form @submit.prevent="submitCode()">
                             <div class="flex mb-8">
-                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="" v-model="code">
+                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code">
                                 <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login">
                             </div>
 
@@ -60,7 +60,7 @@
             ...mapActions('session', ['setUser']),
 
             submitEmail: function() {
-                axios.post('/authenticate/', {email: this.email}).then(response => {
+                axios.post('/authenticate/', { email: this.email }).then(response => {
                     this.submitted = true;
 
                     const action = response.data.registered ? 'Registered' : 'Code requested';
@@ -68,26 +68,20 @@
                     Tracker.track('Authentication', action);
                 });
             },
+
             submitCode: function() {
-                axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
+                axios.post('/validate/', { email: this.email, code: this.code }).then(response => {
                     Tracker.track('Authentication', 'Authenticated');
-                    this.setUser({ user: response.data });
-                    this.$router.go(this.$route.query.from);
+
+                    const user = response.data.user;
+                    const from = this.$route.query.from || '/';
+
+                    window.session.user = user;
+
+                    this.setUser({ user: user });
+                    this.$router.push(from);
                 });
             }
         },
-
-        mounted() {
-            axios.interceptors.response.use(null, error => {
-                if (error && error.response.status === 401) {
-                    this.submitted = false;
-                    NProgress.done();
-                }
-                else {
-                    NProgress.done();
-                    return Promise.reject(error);
-                }
-            });
-        }
     }
 </script>
