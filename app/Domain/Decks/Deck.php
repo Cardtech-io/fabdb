@@ -12,6 +12,10 @@ class Deck extends Model
     use Raiseable;
     use Sluggable;
 
+    protected $casts = [
+        'slug' => 'string'
+    ];
+
     protected $hidden = ['id'];
 
     public function user()

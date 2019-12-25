@@ -40,6 +40,6 @@ class MatchesKeywords implements Rule
      */
     public function message()
     {
-        return 'Your chosen card is not allowed in your deck (does not contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
+        return 'Card must contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
     }
 }

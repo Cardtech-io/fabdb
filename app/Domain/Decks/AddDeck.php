@@ -20,6 +20,11 @@ class AddDeck implements Loggable
      */
     private $name;
 
+    /**
+     * @var Deck
+     */
+    private $deck;
+
     public function __construct(int $userId, string $name)
     {
         $this->userId = $userId;
@@ -28,14 +33,15 @@ class AddDeck implements Loggable
 
     public function handle(DeckRepository $decks)
     {
-        $deck = Deck::add($this->userId, $this->name);
+        $this->deck = Deck::add($this->userId, $this->name);
 
-        $decks->save($deck);
+        $decks->save($this->deck);
 
-        dd($deck);
+        $this->dispatch($this->deck->releaseEvents());
+    }
 
-        $this->dispatch($deck->releaseEvents());
-
-        return $deck;
+    public function deck(): Deck
+    {
+        return $this->deck;
     }
 }

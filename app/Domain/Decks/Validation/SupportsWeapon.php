@@ -41,6 +41,6 @@ class SupportsWeapon implements Rule
      */
     public function message()
     {
-        return 'When adding a weapon to a deck, the following rules apply: either a single two-handed weapon, or up to two one-handed weapons.';
+        return 'You already have weapons equipped.';
     }
 }

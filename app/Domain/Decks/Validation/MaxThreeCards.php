@@ -37,6 +37,6 @@ class MaxThreeCards implements Rule
      */
     public function message()
     {
-        return 'You cannot add more than 3 of the same card to a deck.';
+        return 'Max 3 unique cards per deck.';
     }
 }

@@ -6,7 +6,8 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
                 <div class="md:w-2/3 md:float-right sm:px-4 md:pl-8">
-                    <h2 class="font-serif text-4xl uppercase pb-4 hidden md:block">{{ card.name }} - {{ card.identifier }}</h2>
+                    <h2 class="font-serif text-4xl uppercase hidden md:block">{{ card.name }} - {{ card.identifier }}</h2>
+                    <p class="my-4">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
                     <ul class="py-4">
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/3 p-2 px-4">Rarity</div>

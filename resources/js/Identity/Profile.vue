@@ -1,0 +1,120 @@
+<template>
+    <div>
+        <header-title title="Profile Update"></header-title>
+
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+
+        <div class="bg-gray-200">
+            <div class="container sm:mx-auto bg-white py-8 px-8 md:flex">
+                <div class="md:w-1/2 md:pr-8">
+                    <form @submit.prevent="save">
+                        <div class="w-full">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Email address</label>
+                            <input type="email" v-model="email" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                        </div>
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
+                            <input type="text" v-model="name" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        </div>
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">GEM player ID</label>
+                            <input type="text" v-model="gemId" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        </div>
+
+                        <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
+                    </form>
+                </div>
+
+                <div class="mt-8 md:w-1/2 md:mt-0">
+                    <h2 class="text-xl font-serif uppercase">What data do we collect?</h2>
+                    <p class="my-4">At fabdb.net, we endeavour to collect as little information about you as possible.</p>
+                    <p class="my-4">Some details, such as email address, are absolutely essential. Not for marketing, but
+                        purely for identification purposes, and application notifications.</p>
+                    <p>Other details, like name, gem id.etc. are only required if you use certain features. You will be
+                        prompted for these if and when that occurs.</p>
+                    <p class="my-4">Name for example, is only needed if you participate within the community, providing feedback and
+                        starting threads.etc. Your gem ID is only needed when you export your decks to PDF format, which
+                        can be handed in at tournaments. If you like, your gem ID does not need to be saved, and instead
+                        will be asked when generating a PDF. When asked for in this manner, your gem ID is not saved in
+                        our database.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import axios from 'axios';
+    import { mapGetters, mapActions } from 'vuex';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Breadcrumbs from '../Components/Breadcrumbs.vue';
+
+    export default {
+        components: { Breadcrumbs, HeaderTitle },
+
+        computed: {
+            ...mapGetters('session', ['user']),
+
+            email: {
+                get() {
+                    return this.user.email;
+                },
+
+                set(email) {
+                    this.setUserParam({ param: 'email', value: email });
+                }
+            },
+
+            name: {
+                get() {
+                    return this.user.name;
+                },
+
+                set(name) {
+                    this.setUserParam({ param: 'name', value: name });
+                }
+            },
+
+            gemId: {
+                get() {
+                    return this.user.gemId;
+                },
+
+                set(gemId) {
+                    this.setUserParam({ param: 'gemId', value: gemId });
+                }
+            },
+        },
+
+        data() {
+            return {
+                crumbs: [
+                    { text: 'Home', link: '/' },
+                    { text: 'Profile Update' }
+                ],
+
+                saving: false
+            }
+        },
+
+        methods: {
+            ...mapActions('session', ['setUserParam']),
+            ...mapActions('messages', ['addMessage']),
+
+            save: function() {
+                this.saving = true;
+
+                const data = {
+                    email: this.email,
+                    name: this.name,
+                    gemId: this.gemId,
+                };
+
+                axios.put('/profile', data).then(response => {
+                    this.addMessage({ status: 'success', message: 'Profile updated' });
+                    this.saving = false;
+                });
+            }
+        },
+    };
+</script>

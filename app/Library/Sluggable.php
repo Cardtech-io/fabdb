@@ -1,7 +1,8 @@
 <?php
 namespace FabDB\Library;
 
-use Hashids\Hashids;
+use Eloquence\Behaviours\Slug;
+use Eloquence\Exceptions\UnableToCreateSlugException;
 
 trait Sluggable
 {
@@ -12,65 +13,43 @@ trait Sluggable
     public static function bootSluggable()
     {
         static::creating(function ($model) {
-            $model->generateIdSlug();
+            $model->generateSlug();
         });
     }
 
     /**
      * Generate a slug based on the main model key.
      */
-    public function generateIdSlug()
+    public function generateSlug()
     {
-        $slug = $this->createSlug();
+        $slug = Slug::fromId($this->getKey() ?? rand());
 
         // Ensure slug is unique (since the fromId() algorithm doesn't produce unique slugs)
         $attempts = 10;
-        while ($this->slugExists($slug)) {
+
+        while ($this->isExistingSlug($slug)) {
             if ($attempts <= 0) {
-                throw new \Exception("Unable to find unique slug for record '{$this->getKey()}', tried 10 times...");
+                throw new UnableToCreateSlugException(
+                    "Unable to find unique slug for record '{$this->getKey()}', tried 10 times..."
+                );
             }
 
-            $slug = $this->createSlug();
+            $slug = Slug::random();
             $attempts--;
         }
 
-        $this->slug = $slug;
-    }
-
-    protected function createSlug(): string
-    {
-        $exclude = ['/', '+', '=', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        $length = 8;
-        $string = '';
-
-        while (($len = strlen($string)) < $length) {
-            $size = $length - $len;
-            $bytes = random_bytes($size);
-            $string .= substr(str_replace($exclude, '', base64_encode($bytes)), 0, $size);
-        }
-
-        return $string;
+        $this->slug = (string) $slug;
     }
 
     /**
-     * Allows laravel to start using the sluggable field as the string for routes.
-     *
-     * @return mixed
-     */
-    public function getRouteKey()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * @param string $slug
+     * @param Slug $slug
      * @return bool
      */
-    private function slugExists(string $slug): bool
+    private function isExistingSlug(Slug $slug)
     {
         return $this->newQuery()
-            ->where('slug', $slug)
-            ->where($this->getQualifiedKeyName(), '!=', $this->getKey())
+            ->where('slug', (string) $slug)
+            ->where('id', '!=', $this->id)
             ->exists();
     }
 }

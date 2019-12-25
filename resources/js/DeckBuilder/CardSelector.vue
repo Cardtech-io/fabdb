@@ -9,7 +9,7 @@
         <div class="bg-gray-200 py-8">
             <div class="container sm:mx-auto px-4">
                 <div v-if="cards.length">
-                    <div class="flex odd:bg-gray-100" v-for="card in cards">
+                    <div class="flex odd:bg-gray-100 even:bg-gray-200" v-for="card in cards">
                         <card-item :action="addCard" :card="card"></card-item>
                     </div>
                 </div>

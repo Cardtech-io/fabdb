@@ -10,13 +10,19 @@ class AuthController extends Controller
 {
     public function authenticate(Request $request)
     {
-        $this->dispatchNow(new AuthenticateUser($request->get('email'), $observer = new AuthObserver));
+        $this->dispatchNow(new AuthenticateUser($observer = new AuthObserver, $request->get('email')));
 
         return ['registered' => $observer->result()];
     }
 
     public function validateCode(Request $request)
     {
-        $this->dispatchNow(new ValidateAuthenticationCode($request->get('email'), $request->get('code')));
+        $this->dispatchNow(new ValidateAuthenticationCode(
+            $observer = new AuthObserver,
+            $request->get('email'),
+            $request->get('code')
+        ));
+
+        return ['user' => $observer->user()];
     }
 }

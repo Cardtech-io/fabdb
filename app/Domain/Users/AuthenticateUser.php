@@ -20,10 +20,10 @@ class AuthenticateUser implements Loggable
      */
     private $observer;
 
-    public function __construct(string $email, AuthObserver $observer)
+    public function __construct(AuthObserver $observer, string $email)
     {
-        $this->email = $email;
         $this->observer = $observer;
+        $this->email = $email;
     }
 
     public function handle(UserRepository $users)
@@ -35,11 +35,13 @@ class AuthenticateUser implements Loggable
             $this->observer->registered();
         } else {
             $user->auth();
-            $this->observer->authenticated();
+            $this->observer->codeRequested();
         }
 
         $users->save($user);
 
         $this->dispatch($user->releaseEvents());
+
+        return $user;
     }
 }
