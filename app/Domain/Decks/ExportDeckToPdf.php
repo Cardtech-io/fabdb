@@ -26,7 +26,7 @@ class ExportDeckToPdf
      */
     private $event;
 
-    public function __construct(int $deckId, string $name, $gemId, string $event)
+    public function __construct(int $deckId, $name, $gemId, $event)
     {
         $this->deckId = $deckId;
         $this->name = $name;
