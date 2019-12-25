@@ -7,5 +7,6 @@ module.exports = {
 
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
+        opacity: ['disabled']
     }
 };

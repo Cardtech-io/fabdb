@@ -40,6 +40,7 @@
 
 <script>
     import axios from 'axios';
+    import { mapActions } from 'vuex';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import NProgress from 'nprogress';
     import Tracker from '../Components/Tracker';
@@ -56,6 +57,8 @@
         },
 
         methods: {
+            ...mapActions('session', ['setUser']),
+
             submitEmail: function() {
                 axios.post('/authenticate/', {email: this.email}).then(response => {
                     this.submitted = true;
@@ -68,6 +71,7 @@
             submitCode: function() {
                 axios.post('/validate/', {email: this.email, code: this.code}).then(response => {
                     Tracker.track('Authentication', 'Authenticated');
+                    this.setUser({ user: response.data });
                     this.$router.go(this.$route.query.from);
                 });
             }

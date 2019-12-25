@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f66da0c579c6148a206c70060bede20c",
+    "content-hash": "24570cea372f1ac67f3ced83361b507a",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.130.1",
+            "version": "3.130.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d426a86391c5d7f1a979dad0fd3bd0fd48ba7575"
+                "reference": "35289d9dd5184dd1106e49f99ef5074a84635b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d426a86391c5d7f1a979dad0fd3bd0fd48ba7575",
-                "reference": "d426a86391c5d7f1a979dad0fd3bd0fd48ba7575",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/35289d9dd5184dd1106e49f99ef5074a84635b5c",
+                "reference": "35289d9dd5184dd1106e49f99ef5074a84635b5c",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-12-20T19:17:37+00:00"
+            "time": "2019-12-23T19:12:28+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -716,16 +716,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.0",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5"
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
                 "shasum": ""
             },
             "require": {
@@ -779,7 +779,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-12-07T18:20:45+00:00"
+            "time": "2019-12-23T11:57:10+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -904,39 +904,82 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
-            "name": "hashids/hashids",
-            "version": "4.0.0",
+            "name": "hanneskod/classtools",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vinkla/hashids.git",
-                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2"
+                "url": "https://github.com/hanneskod/classtools.git",
+                "reference": "4fba4476ff140af08ddd5ed1a42332b4bc8dcca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/hashids/zipball/43bb2407f16a631f0128f47bcb67ff986c63dde2",
-                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2",
+                "url": "https://api.github.com/repos/hanneskod/classtools/zipball/4fba4476ff140af08ddd5ed1a42332b4bc8dcca9",
+                "reference": "4fba4476ff140af08ddd5ed1a42332b4bc8dcca9",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
-                "php": "^7.2"
+                "nikic/php-parser": "^4",
+                "php": ">=7.1",
+                "symfony/finder": "^4"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0"
+                "hanneskod/readme-tester": "dev-master"
             },
-            "suggest": {
-                "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
-                "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hanneskod\\classtools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Hannes Forsgård",
+                    "email": "hannes.forsgard@fripost.org"
+                }
+            ],
+            "description": "Find, extract and process classes from file system",
+            "homepage": "https://github.com/hanneskod/classtools",
+            "keywords": [
+                "class finder",
+                "code generator",
+                "metaprogramming",
+                "minimizer"
+            ],
+            "time": "2018-10-25T09:31:36+00:00"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
+                "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Hashids\\": "src/"
+                    "Hashids\\": "lib/Hashids/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -948,14 +991,9 @@
                     "name": "Ivan Akimov",
                     "email": "ivan@barreleye.com",
                     "homepage": "https://twitter.com/IvanAkimov"
-                },
-                {
-                    "name": "Vincent Klaiber",
-                    "email": "hello@doubledip.se",
-                    "homepage": "https://doubledip.se"
                 }
             ],
-            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers",
+            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers.",
             "homepage": "http://hashids.org/php",
             "keywords": [
                 "bitly",
@@ -968,7 +1006,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2019-04-03T13:40:29+00:00"
+            "time": "2016-01-21T04:26:38+00:00"
         },
         {
             "name": "hollodotme/fast-cgi-client",
@@ -1119,6 +1157,60 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "kirkbushell/eloquence",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kirkbushell/eloquence.git",
+                "reference": "1bafb834a9a02a1ec01c71d2b8b3138895ddccd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kirkbushell/eloquence/zipball/1bafb834a9a02a1ec01c71d2b8b3138895ddccd9",
+                "reference": "1bafb834a9a02a1ec01c71d2b8b3138895ddccd9",
+                "shasum": ""
+            },
+            "require": {
+                "hanneskod/classtools": "~1.0",
+                "hashids/hashids": "^1.0",
+                "illuminate/database": "~6.0",
+                "illuminate/support": "~6.0",
+                "php": ">=7.0",
+                "ramsey/uuid": "^3.3"
+            },
+            "require-dev": {
+                "illuminate/events": "~6.0",
+                "mockery/mockery": "1.1.0",
+                "orchestra/testbench": "~4",
+                "phpunit/phpunit": "~8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquence\\": "src/",
+                    "Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kirk Bushell",
+                    "email": "torm3nt@gmail.com"
+                }
+            ],
+            "description": "A set of extensions adding additional functionality and consistency to Laravel's awesome Eloquent library.",
+            "keywords": [
+                "camel",
+                "camelcase",
+                "case",
+                "eloquent",
+                "laravel",
+                "snake",
+                "snake_case"
+            ],
+            "time": "2019-12-17T23:18:57+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5054,16 +5146,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "d638ebbb58daba25a6a0dc7969e1358a0e3c6682"
+                "reference": "cbe1df668b3fe136bcc909126a0f529a78d4cbbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d638ebbb58daba25a6a0dc7969e1358a0e3c6682",
-                "reference": "d638ebbb58daba25a6a0dc7969e1358a0e3c6682",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/cbe1df668b3fe136bcc909126a0f529a78d4cbbc",
+                "reference": "cbe1df668b3fe136bcc909126a0f529a78d4cbbc",
                 "shasum": ""
             },
             "require": {
@@ -5113,7 +5205,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-12-17T16:54:23+00:00"
+            "time": "2019-12-22T21:05:45+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

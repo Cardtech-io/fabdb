@@ -47,7 +47,7 @@
 
         created() {
             if (window.session) {
-                this.setSession(window.session);
+                this.setSession({ session: window.session });
             }
         }
     };

@@ -1893,7 +1893,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('session', ['setSession'])),
   created: function created() {
     if (window.session) {
-      this.setSession(window.session);
+      this.setSession({
+        session: window.session
+      });
     }
   }
 });
@@ -1911,10 +1913,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Tracker */ "./resources/js/Components/Tracker.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Tracker */ "./resources/js/Components/Tracker.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1955,13 +1964,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -1970,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
       submitted: false
     };
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser']), {
     submitEmail: function submitEmail() {
       var _this = this;
 
@@ -1979,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.submitted = true;
         var action = response.data.registered ? 'Registered' : 'Code requested';
-        _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__["default"].track('Authentication', action);
+        _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__["default"].track('Authentication', action);
       });
     },
     submitCode: function submitCode() {
@@ -1989,21 +1999,25 @@ __webpack_require__.r(__webpack_exports__);
         email: this.email,
         code: this.code
       }).then(function (response) {
-        _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__["default"].track('Authentication', 'Authenticated');
+        _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__["default"].track('Authentication', 'Authenticated');
+
+        _this2.setUser({
+          user: response.data
+        });
 
         _this2.$router.go(_this2.$route.query.from);
       });
     }
-  },
+  }),
   mounted: function mounted() {
     var _this3 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.interceptors.response.use(null, function (error) {
       if (error && error.response.status === 401) {
         _this3.submitted = false;
-        nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default.a.done();
       } else {
-        nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default.a.done();
         return Promise.reject(error);
       }
     });
@@ -3811,8 +3825,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3856,14 +3877,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+    email: {
+      get: function get() {
+        return this.user.email;
+      },
+      set: function set(email) {
+        this.setUserParam({
+          param: 'email',
+          value: email
+        });
+      }
+    },
+    name: {
+      get: function get() {
+        return this.user.name;
+      },
+      set: function set(name) {
+        this.setUserParam({
+          param: 'name',
+          value: name
+        });
+      }
+    },
+    gemId: {
+      get: function get() {
+        return this.user.gemId;
+      },
+      set: function set(gemId) {
+        this.setUserParam({
+          param: 'gemId',
+          value: gemId
+        });
+      }
+    }
+  }),
   data: function data() {
     return {
       crumbs: [{
@@ -3872,21 +3931,31 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Profile Update'
       }],
-      email: null,
-      gemId: null,
-      name: null
+      saving: false
     };
   },
-  methods: {
-    submit: function submit() {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+    save: function save() {
+      var _this = this;
+
+      this.saving = true;
       var data = {
         email: this.email,
         gemId: this.gemId,
         name: this.name
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('profile', data).then(function (response) {});
+      setTimeout(function () {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/profile', data).then(function (response) {
+          _this.addMessage({
+            status: 'success',
+            message: 'Profile updated'
+          });
+
+          _this.saving = false;
+        });
+      }, 3000);
     }
-  }
+  })
 });
 
 /***/ }),
@@ -25562,14 +25631,14 @@ var render = function() {
           "div",
           { staticClass: "container sm:mx-auto bg-white py-8 px-8 md:flex" },
           [
-            _c("div", { staticClass: "md:w-1/2 pr-8" }, [
+            _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
               _c(
                 "form",
                 {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
-                      return _vm.submit($event)
+                      return _vm.save($event)
                     }
                   }
                 },
@@ -25674,7 +25743,17 @@ var render = function() {
                         }
                       }
                     })
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                    attrs: {
+                      type: "submit",
+                      value: "Save",
+                      disabled: _vm.saving
+                    }
+                  })
                 ]
               )
             ]),
@@ -45944,7 +46023,6 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  strict: true,
   modules: {
     messages: _Messages__WEBPACK_IMPORTED_MODULE_2__["default"],
     session: _Session__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -46022,20 +46100,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
-    session: null
+    session: {}
   },
   mutations: {
     setSession: function setSession(state, _ref) {
-      var sessionData = _ref.sessionData;
-      state.session = sessionData;
+      var session = _ref.session;
+      state.session = session;
+    },
+    setUser: function setUser(state, _ref2) {
+      var user = _ref2.user;
+      state.session.user = user;
+    },
+    setUserParam: function setUserParam(state, _ref3) {
+      var param = _ref3.param,
+          value = _ref3.value;
+      state.session.user[param] = value;
     }
   },
   actions: {
-    setSession: function setSession(_ref2, _ref3) {
-      var commit = _ref2.commit;
-      var sessionData = _ref3.sessionData;
+    setSession: function setSession(_ref4, _ref5) {
+      var commit = _ref4.commit;
+      var session = _ref5.session;
       commit('setSession', {
-        sessionData: sessionData
+        session: session
+      });
+    },
+    setUser: function setUser(_ref6, _ref7) {
+      var commit = _ref6.commit;
+      var user = _ref7.user;
+      commit('setUser', {
+        user: user
+      });
+    },
+    setUserParam: function setUserParam(_ref8, _ref9) {
+      var commit = _ref8.commit;
+      var param = _ref9.param,
+          value = _ref9.value;
+      commit('setUserParam', {
+        param: param,
+        value: value
       });
     }
   },

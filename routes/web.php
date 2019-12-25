@@ -34,6 +34,8 @@ Route::middleware(['web'])->group(function() {
             Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
             Route::delete('decks/{deck}', 'DeckController@removeDeck');
             Route::post('decks', 'DeckController@addDeck');
+
+            Route::put('profile', 'UserController@updateProfile');
         });
 
         Route::get('decks/{deck}', 'DeckController@view');

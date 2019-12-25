@@ -7,8 +7,6 @@ import session from './Session';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    strict: true,
-
     modules: {
         messages,
         session

@@ -1,9 +1,9 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use Eloquence\Behaviours\Sluggable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
-use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -22,6 +22,8 @@ class User extends Model implements Authenticatable
      */
     protected $fillable = [
         'email',
+        'name',
+        'gemId'
     ];
 
     protected $hidden = [
@@ -49,6 +51,17 @@ class User extends Model implements Authenticatable
     public function clearToken()
     {
         $this->token = null;
+    }
+
+    public function updateProfile($email, $name, $gemId)
+    {
+        $this->email = $email;
+        $this->name = $name;
+        $this->gemId = $gemId;
+
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId));
+
+        return $this;
     }
 
     private function generateAuthToken()

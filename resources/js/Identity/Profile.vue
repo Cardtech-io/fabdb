@@ -6,8 +6,8 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto bg-white py-8 px-8 md:flex">
-                <div class="md:w-1/2 pr-8">
-                    <form @submit.prevent="submit">
+                <div class="md:w-1/2 md:pr-8">
+                    <form @submit.prevent="save">
                         <div class="w-full">
                             <label class="block font-serif uppercase tracking-wide mb-1">Email address</label>
                             <input type="email" v-model="email" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
@@ -20,6 +20,8 @@
                             <label class="block font-serif uppercase tracking-wide mb-1">GEM player ID</label>
                             <input type="text" v-model="gemId" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         </div>
+
+                        <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
                     </form>
                 </div>
 
@@ -43,11 +45,46 @@
 
 <script>
     import axios from 'axios';
+    import { mapGetters, mapActions } from 'vuex';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
 
     export default {
         components: { Breadcrumbs, HeaderTitle },
+
+        computed: {
+            ...mapGetters('session', ['user']),
+
+            email: {
+                get() {
+                    return this.user.email;
+                },
+
+                set(email) {
+                    this.setUserParam({ param: 'email', value: email });
+                }
+            },
+
+            name: {
+                get() {
+                    return this.user.name;
+                },
+
+                set(name) {
+                    this.setUserParam({ param: 'name', value: name });
+                }
+            },
+
+            gemId: {
+                get() {
+                    return this.user.gemId;
+                },
+
+                set(gemId) {
+                    this.setUserParam({ param: 'gemId', value: gemId });
+                }
+            },
+        },
 
         data() {
             return {
@@ -56,24 +93,29 @@
                     { text: 'Profile Update' }
                 ],
 
-                email: null,
-                gemId: null,
-                name: null,
+                saving: false
             }
         },
 
         methods: {
-            submit: function() {
+            ...mapActions('session', ['setUserParam']),
+            ...mapActions('messages', ['addMessage']),
+
+            save: function() {
+                this.saving = true;
+
                 const data = {
                     email: this.email,
                     gemId: this.gemId,
                     name: this.name
                 };
-
-                axios.put('profile', data).then(response => {
-
-                });
+                setTimeout(() => {
+                    axios.put('/profile', data).then(response => {
+                        this.addMessage({ status: 'success', message: 'Profile updated' });
+                        this.saving = false;
+                    });
+                }, 3000);
             }
-        }
+        },
     };
 </script>
