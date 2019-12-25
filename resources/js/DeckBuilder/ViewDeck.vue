@@ -1,10 +1,6 @@
 <template>
     <div>
-        <div class="container sm:mx-auto">
-            <div class="p-8 py-10">
-                <h1 class="font-serif text-white text-4xl uppercase" v-if="deck">{{ hero.name }} ({{ deck.name }})</h1>
-            </div>
-        </div>
+        <header-title :title="hero.name + ' (' + deck.name + ')'"></header-title>
 
         <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4" v-if="deck">
             <div class="container sm:mx-auto flex">
@@ -99,10 +95,14 @@
 
 <script>
     import Cardable from '../CardDatabase/Cardable';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
+    import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
 
     export default {
         mixins: [ Cardable, Viewable ],
+
+        components: { HeaderTitle },
 
         data() {
             return {
@@ -111,17 +111,19 @@
             }
         },
 
-        mounted() {
-            axios.get('/decks/' + this.$route.params.deck + '').then(response => {
-                this.deck = response.data;
-                this.cards = this.deck.cards;
-            });
-        },
-
         metaInfo() {
             return {
                 title: this.deck ? 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')' : 'Loading...'
             }
-        }
+        },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/decks/' + to.params.deck + '').then(response => {
+                callback(function() {
+                    this.deck = response.data;
+                    this.cards = this.deck.cards;
+                })
+            });
+        })
     };
 </script>

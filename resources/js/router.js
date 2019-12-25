@@ -4,9 +4,10 @@ import NProgress from 'nprogress';
 import Home from './Home.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
-import Collection from './CardDatabase/Collection.vue';
+import Collection from './Collection/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import ExportDeck from './DeckBuilder/ExportDeck.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
@@ -47,6 +48,11 @@ const router = new VueRouter({
             path: "/deck-builder/:deck",
             component: DeckBuilder,
             meta: { title: 'Deck builder &gt; Edit deck', auth: true }
+        },
+        {
+            path: "/deck-builder/:deck/export",
+            component: ExportDeck,
+            meta: { title: 'Deck builder &gt; Export', auth: true }
         },
         {
             path: "/decks/:deck",

@@ -14,7 +14,7 @@
 Route::get('sitemap', 'SitemapController@view');
 
 Route::middleware(['web'])->group(function() {
-    Route::get('export/{deck}.pdf', 'ExportController@pdf');
+    Route::post('export/{deck}.pdf', 'ExportController@pdf');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
 
     Route::middleware(['spa'])->group(function() {
