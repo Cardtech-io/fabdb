@@ -3614,17 +3614,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
-    email: {
-      get: function get() {
-        return this.user.email;
-      },
-      set: function set(email) {
-        this.setUserParam({
-          param: 'email',
-          value: email
-        });
-      }
-    },
     name: {
       get: function get() {
         return this.user.name;
@@ -3669,7 +3658,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       exportRequested: false
     };
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {
     exportToPdf: function exportToPdf() {
       var _this = this;
 
@@ -3682,7 +3671,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.exportRequested = true;
       });
     }
-  },
+  }),
   metaInfo: function metaInfo() {
     return {
       title: 'Deck builder - Export deck'

@@ -56,7 +56,7 @@
 
 <script>
     import axios from 'axios';
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
 
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
@@ -76,16 +76,6 @@
 
         computed: {
             ...mapGetters('session', ['user']),
-
-            email: {
-                get() {
-                    return this.user.email;
-                },
-
-                set(email) {
-                    this.setUserParam({ param: 'email', value: email });
-                }
-            },
 
             name: {
                 get() {
@@ -129,6 +119,8 @@
         },
 
         methods: {
+            ...mapActions('session', ['setUserParam']),
+            
             exportToPdf: function() {
                 const payload = {
                     name: this.name,
