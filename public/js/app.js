@@ -22692,7 +22692,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-title", { attrs: { title: "Login" } }),
+      _c("header-title", { attrs: { title: "Login / Register" } }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
