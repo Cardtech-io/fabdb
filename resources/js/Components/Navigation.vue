@@ -34,21 +34,37 @@
             return {
                 activeItem: null,
                 isOpen: false,
-                items: [
+            }
+        },
+
+        computed: {
+            ...mapGetters('session', ['user']),
+
+            items: function() {
+                var items = [
                     { link: '/', text: 'Home' },
                     { text: 'Cards', children: [
                         { link: '/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },
                         { link: '/deck-builder', text: 'Deck Builder' }
                     ]},
-                    { link: '/support', text: 'Support' },
-                    { link: '/profile', text: 'Profile' }
-                ],
-            }
-        },
+                    { link: '/support', text: 'Support' }
+                ];
 
-        computed: {
-            ...mapGetters('session', ['user'])
+                if (this.user) {
+                    items.push({
+                        text: 'Account',
+                        children: [
+                            { link: '/profile', text: 'Profile' },
+                            { link: '/logout', text: 'Logout' },
+                        ]
+                    });
+                } else {
+                    items.push({ link: '/login', text: 'Login / Register' });
+                }
+
+                return items;
+            }
         },
 
         methods: {

@@ -23,6 +23,7 @@ Route::middleware(['web'])->group(function() {
 
         Route::post('authenticate', 'AuthController@authenticate');
         Route::post('validate', 'AuthController@validateCode');
+        Route::delete('authenticate', 'AuthController@logout');
 
         Route::middleware(['auth'])->group(function () {
             Route::get('collection', 'CollectionController@list');

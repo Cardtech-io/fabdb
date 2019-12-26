@@ -5,7 +5,7 @@
     <div v-else>
         <div class="z-50 overflow-visible" :class="{ 'bg-black': open }">
             <span @click="toggleChildren" class="block relative cursor-pointer px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" :class="{ 'bg-black': isActive }">{{ item.text }}</span>
-            <div v-if="open" class="sm:absolute bg-black py-1">
+            <div v-if="open" class="sm:absolute bg-black py-1" style="min-width: 120px">
                 <router-link :to="child.link" class="block px-8 py-1 sm:px-4 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="clicked(child)" v-for="child in item.children" :key="child.link">{{ child.text }}</router-link>
             </div>
         </div>

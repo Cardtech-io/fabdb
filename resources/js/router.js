@@ -12,6 +12,7 @@ import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
 import Login from './Auth/Login.vue';
+import Logout from './Auth/Logout.vue';
 
 Vue.use(VueRouter);
 
@@ -62,6 +63,7 @@ const router = new VueRouter({
             }
         },
         { path: "/login", component: Login, name: 'login' },
+        { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } }
     ]

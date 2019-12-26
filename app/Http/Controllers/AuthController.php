@@ -5,6 +5,7 @@ use FabDB\Domain\Users\AuthenticateUser;
 use FabDB\Domain\Users\AuthObserver;
 use FabDB\Domain\Users\ValidateAuthenticationCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -24,5 +25,10 @@ class AuthController extends Controller
         ));
 
         return ['user' => $observer->user()];
+    }
+
+    public function logout()
+    {
+        Auth::logout();
     }
 }

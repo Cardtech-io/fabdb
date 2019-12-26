@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-title title="Login"></header-title>
+        <header-title title="Login / Register"></header-title>
 
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4">&nbsp;</div>
