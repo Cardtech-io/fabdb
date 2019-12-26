@@ -3049,13 +3049,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['item', 'toggle'],
+  props: ['item', 'toggle', 'active'],
   data: function data() {
     return {
+      selected: false,
       open: false
     };
   },
+  computed: {
+    isActive: function isActive() {
+      return this.selected || this.active && (this.active.link == this.item.link || this.hasChild(this.active));
+    }
+  },
   methods: {
+    hasChild: function hasChild(item) {
+      return this.item.children && this.item.children.filter(function (child) {
+        return child.link == item.link;
+      }).length;
+    },
     toggleChildren: function toggleChildren() {
       this.open = !this.open;
     },
@@ -3064,6 +3075,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeChildren: function closeChildren() {
       this.open = false;
+    },
+    clicked: function clicked(item) {
+      this.$emit('clicked', item);
+      this.selected = true;
+      this.closeChildren();
+    }
+  },
+  watch: {
+    active: function active(newValue, oldValue) {
+      this.closeChildren();
+      this.selected = false;
     }
   }
 });
@@ -3120,6 +3142,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      activeItem: null,
       isOpen: false,
       items: [{
         link: '/',
@@ -3147,6 +3170,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
   methods: {
+    clicked: function clicked(item) {
+      this.activeItem = item;
+    },
     toggle: function toggle() {
       this.isOpen = !this.isOpen;
     }
@@ -24235,10 +24261,11 @@ var render = function() {
             {
               staticClass:
                 "block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
+              class: { "bg-black": _vm.isActive },
               attrs: { to: _vm.item.link },
               nativeOn: {
                 click: function($event) {
-                  return _vm.toggle($event)
+                  return _vm.clicked(_vm.item)
                 }
               }
             },
@@ -24260,6 +24287,7 @@ var render = function() {
               {
                 staticClass:
                   "block relative cursor-pointer px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400",
+                class: { "bg-black": _vm.isActive },
                 on: { click: _vm.toggleChildren }
               },
               [_vm._v(_vm._s(_vm.item.text))]
@@ -24279,7 +24307,7 @@ var render = function() {
                         attrs: { to: child.link },
                         nativeOn: {
                           click: function($event) {
-                            return _vm.toggle($event)
+                            return _vm.clicked(child)
                           }
                         }
                       },
@@ -24420,7 +24448,8 @@ var render = function() {
         _vm._l(_vm.items, function(item) {
           return _c("nav-item", {
             key: item.link,
-            attrs: { item: item, toggle: _vm.toggle }
+            attrs: { item: item, active: _vm.activeItem },
+            on: { clicked: _vm.clicked }
           })
         }),
         1

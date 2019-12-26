@@ -18,7 +18,7 @@
             </button>
         </div>
         <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2">
-            <nav-item :item="item" v-for="item in items" :toggle="toggle" :key="item.link"></nav-item>
+            <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" @clicked="clicked"></nav-item>
         </div>
     </header>
 </template>
@@ -32,6 +32,7 @@
 
         data() {
             return {
+                activeItem: null,
                 isOpen: false,
                 items: [
                     { link: '/', text: 'Home' },
@@ -51,6 +52,10 @@
         },
 
         methods: {
+            clicked: function(item) {
+                this.activeItem = item;
+            },
+
             toggle: function() {
                 this.isOpen = !this.isOpen;
             }
