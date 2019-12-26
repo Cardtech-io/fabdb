@@ -18,22 +18,36 @@
             </button>
         </div>
         <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2">
-            <router-link to="/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">Home</router-link>
-            <router-link to="/browse/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">Browse</router-link>
-            <router-link to="/collection/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">My collection</router-link>
-            <router-link to="/deck-builder/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">Deck builder</router-link>
-            <router-link to="/support/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">Support</router-link>
-            <router-link to="/profile/" class="block px-4 sm:px-2 py-2 text-white font-serif uppercase hover:bg-black hover:text-orange-400" @click.native="toggle">Profile</router-link>
+            <nav-item :item="item" v-for="item in items" :toggle="toggle" :key="item.link"></nav-item>
         </div>
     </header>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
+    import NavItem from './NavItem.vue';
+
     export default {
+        components: { NavItem },
+
         data() {
             return {
-                isOpen: false
+                isOpen: false,
+                items: [
+                    { link: '/', text: 'Home' },
+                    { text: 'Cards', children: [
+                        { link: '/browse', text: 'Browse' },
+                        { link: '/collection', text: 'My Collection' },
+                        { link: '/deck-builder', text: 'Deck Builder' }
+                    ]},
+                    { link: '/support', text: 'Support' },
+                    { link: '/profile', text: 'Profile' }
+                ],
             }
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         methods: {

@@ -20,7 +20,8 @@
                     <div class="md:w-2/3 md:pr-8">
                         <div v-if="!exportRequested">
                             <p class="mb-4 p-4 bg-blue-500 rounded-lg text-white">
-                                The information collected below is not saved, but is required for PDF export.
+                                The information collected below is not saved, but is required for PDF export. We will email
+                                you your PDF when it's been generated.
                             </p>
 
                             <form @submit.prevent="exportToPdf">
