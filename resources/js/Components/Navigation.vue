@@ -70,6 +70,7 @@
         methods: {
             clicked: function(item) {
                 this.activeItem = item;
+                this.toggle();
             },
 
             toggle: function() {

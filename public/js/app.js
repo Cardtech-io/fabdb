@@ -3235,6 +3235,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     clicked: function clicked(item) {
       this.activeItem = item;
+      this.toggle();
     },
     toggle: function toggle() {
       this.isOpen = !this.isOpen;
