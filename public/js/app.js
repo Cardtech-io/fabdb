@@ -3898,6 +3898,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -25714,7 +25715,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play."
+          "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks\n            for constructed play, and then export them to PDF for tournament registration!"
         )
       ])
     ])

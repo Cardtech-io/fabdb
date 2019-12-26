@@ -2,7 +2,8 @@
     <div class="container sm:mx-auto text-white md:flex">
         <div class="px-4 py-8 md:my-20 md:w-1/2">
             <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
-            <p>The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks for constructed play.</p>
+            <p>The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks
+                for constructed play, and then export them to PDF for tournament registration!</p>
         </div>
 
         <div class="mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2">
