@@ -25486,10 +25486,7 @@ var render = function() {
                                 {
                                   staticClass: "link",
                                   attrs: {
-                                    to:
-                                      "/decks/build/" +
-                                      _vm.deck.slug +
-                                      "/export"
+                                    to: "/decks/export/" + _vm.deck.slug
                                   }
                                 },
                                 [
