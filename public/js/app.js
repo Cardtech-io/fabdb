@@ -23130,8 +23130,10 @@ var render = function() {
                 return _c(
                   "div",
                   {
-                    staticClass: "overflow-hidden rounded-xl cursor-pointer",
+                    staticClass:
+                      "overflow-hidden rounded-xl cursor-pointer mb-1",
                     class: _vm.height(card),
+                    staticStyle: { "max-width": "350px" },
                     on: {
                       click: function($event) {
                         return _vm.toggle(card)
