@@ -174,6 +174,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $this->newQuery()
             ->select('identifier', 'name')
             ->where('rarity', '!=', 'T')
+            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), '<>', 'hero')
             ->orderBy(\DB::raw('RAND()'))
             ->first();
     }
