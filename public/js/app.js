@@ -23145,7 +23145,7 @@ var render = function() {
                       staticClass: "w-full rounded-xl",
                       staticStyle: { "max-width": "350px" },
                       attrs: {
-                        src: _vm.cardUrl(card.identifier, 250),
+                        src: _vm.cardUrl(card.identifier, 350),
                         alt: card.name,
                         title: card.name
                       }
@@ -23355,7 +23355,7 @@ var render = function() {
             _c("img", {
               staticClass: "w-full rounded-xl",
               attrs: {
-                src: _vm.cardUrl(_vm.card.identifier, 250),
+                src: _vm.cardUrl(_vm.card.identifier, 350),
                 alt: _vm.card.name,
                 title: _vm.card.name
               }

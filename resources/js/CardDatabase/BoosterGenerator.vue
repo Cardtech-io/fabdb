@@ -19,7 +19,7 @@
 
                 <div class="sm:w-1/2 sm:float-left">
                     <div v-for="card in cards" class="overflow-hidden rounded-xl cursor-pointer mb-1 mx-auto sm:mx-0" @click="toggle(card)" :class="height(card)" style="max-width: 350px">
-                        <img :src="cardUrl(card.identifier, 250)" :alt="card.name" :title="card.name" class="w-full rounded-xl" style="max-width: 350px">
+                        <img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-xl" style="max-width: 350px">
                     </div>
                 </div>
             </div>
