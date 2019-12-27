@@ -24,7 +24,7 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
         { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
         { path: "/cards/draft", component: DraftMode, name: 'draft', meta: { title: 'Draft mode', auth: true } },
-        { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator' } },
+        { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator', auth: true } },
         {
             path: "/cards/:identifier",
             component: ViewCard,

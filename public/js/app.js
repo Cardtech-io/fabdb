@@ -47876,7 +47876,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _CardDatabase_BoosterGenerator_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     name: 'generator',
     meta: {
-      title: 'Booster generator'
+      title: 'Booster generator',
+      auth: true
     }
   }, {
     path: "/cards/:identifier",
