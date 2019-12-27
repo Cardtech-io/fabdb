@@ -18,12 +18,12 @@ class Packs
     public function generate()
     {
         // The first 5 slots, are class-specific common cards. We want to make sure we get distinct cards.
-        $first5 = $this->cards->getRandomCommons('other', 5);
+        $first5 = $this->cards->getRandomCommons('other', 4);
         $equipment = $this->cards->getRandomEquipmentCommon();
         $rare1 = $this->cards->getRandom(new Rarity('R'));
         $rare2 = $this->cards->getRandom(new Rarity($this->randomRarity()));
         $foil = $this->cards->getRandomFoil();
-        $generics = $this->cards->getRandomCommons('generic', 5);
+        $generics = $this->cards->getRandomCommons('generic', 6);
         $token1 = $this->cards->getRandom(new Rarity('T'));
         $token2 = $this->cards->getRandom(new Rarity('T'));
 
