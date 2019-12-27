@@ -2,7 +2,7 @@
     <div class="container sm:mx-auto text-white lg:flex">
         <div class="px-4 py-8 lg:my-20">
             <h1 class="font-serif text-4xl lg:text-6xl uppercase">Welcome</h1>
-            <p class="my-4">FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as <router-link to="/deck-builder/" class="underline hover:text-orange-300">deck builder</router-link>, <router-link to="/collection/" class="underline hover:text-orange-300">collection manager</router-link> and more.</p>
+            <p class="my-4">FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as <router-link to="/decks/build/" class="underline hover:text-orange-300">deck builder</router-link>, <router-link to="/collection/" class="underline hover:text-orange-300">collection manager</router-link> and more.</p>
             <p class="my-4">FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our <router-link to="/support/" class="underline hover:text-orange-300">Support page</router-link>.</p>
         </div>
 
@@ -36,7 +36,7 @@
                 </li>
 
                 <li class="mt-4">
-                    <router-link to="/deck-builder/">
+                    <router-link to="/decks/build/">
                         <span class="inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block float-left fill-current w-10 h-10 mt-1 mr-4">
                                 <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>

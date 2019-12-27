@@ -39,10 +39,10 @@ Route::middleware(['web'])->group(function() {
             Route::put('profile', 'UserController@updateProfile');
         });
 
-        Route::get('decks/{deck}', 'DeckController@view');
+        Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build).)+');
+    });
 
-        Route::get('{anything}', function () {
-            return view('welcome');
-        })->where('anything', '.*');
+    Route::fallback(function () {
+        return view('welcome');
     });
 });

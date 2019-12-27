@@ -105,7 +105,7 @@
             crumbs: function() {
                 return [
                     { text: 'Home', link: '/' },
-                    { text: 'Deck Builder', link: '/deck-builder/' + this.deck.slug },
+                    { text: 'Deck Builder', link: '/decks/build/' + this.deck.slug },
                     { text: 'Export deck' },
                 ]
             },

@@ -3203,7 +3203,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           link: '/collection',
           text: 'My Collection'
         }, {
-          link: '/deck-builder',
+          link: '/decks/build',
           text: 'Deck Builder'
         }]
       }, {
@@ -3562,7 +3562,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         link: '/'
       }, {
         text: 'Deck Builder',
-        link: '/deck-builder/'
+        link: '/decks/build/'
       }, {
         text: this.deck.name
       }];
@@ -3812,7 +3812,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         link: '/'
       }, {
         text: 'Deck Builder',
-        link: '/deck-builder/' + this.deck.slug
+        link: '/decks/build/' + this.deck.slug
       }, {
         text: 'Export deck'
       }];
@@ -24990,7 +24990,7 @@ var render = function() {
                                   staticClass: "link",
                                   attrs: {
                                     to:
-                                      "/deck-builder/" +
+                                      "/decks/build/" +
                                       _vm.deck.slug +
                                       "/export"
                                   }
@@ -25649,7 +25649,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "link",
-                            attrs: { to: "/deck-builder/" + deck.slug + "/" }
+                            attrs: { to: "/decks/build/" + deck.slug + "/" }
                           },
                           [_vm._v(_vm._s(deck.name))]
                         )
@@ -26062,7 +26062,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "underline hover:text-orange-300",
-              attrs: { to: "/deck-builder/" }
+              attrs: { to: "/decks/build/" }
             },
             [_vm._v("deck builder")]
           ),
@@ -26194,7 +26194,7 @@ var render = function() {
             "li",
             { staticClass: "mt-4" },
             [
-              _c("router-link", { attrs: { to: "/deck-builder/" } }, [
+              _c("router-link", { attrs: { to: "/decks/build/" } }, [
                 _c(
                   "span",
                   {
@@ -47257,21 +47257,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       }
     }
   }, {
-    path: "/deck-builder",
+    path: "/decks/build",
     component: _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     name: 'list-decks',
     meta: {
       auth: true
     }
   }, {
-    path: "/deck-builder/:deck",
+    path: "/deck-builder",
+    redirect: "/decks/build"
+  }, {
+    path: "/decks/build/:deck",
     component: _DeckBuilder_DeckBuilder_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     meta: {
       title: 'Deck builder &gt; Edit deck',
       auth: true
     }
   }, {
-    path: "/deck-builder/:deck/export",
+    path: "/deck-builder/:deck",
+    redirect: "/decks/build/:deck"
+  }, {
+    path: "/decks/export/:deck",
     component: _DeckBuilder_ExportDeck_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       title: 'Deck builder &gt; Export',

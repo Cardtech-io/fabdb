@@ -16,7 +16,7 @@
                 <li class="border-black border-t py-4" v-for="(deck, key) in decks">
                     <div class="flex">
                         <div class="flex-1">
-                            <router-link :to="'/deck-builder/' + deck.slug + '/'" class="link">{{ deck.name }}</router-link>
+                            <router-link :to="'/decks/build/' + deck.slug + '/'" class="link">{{ deck.name }}</router-link>
                         </div>
                         <div class="flex-1 text-right">
                             <a href="" class="text-gray-400 hover:text-white" @click.prevent="removeDeck(deck, key)">

@@ -40,18 +40,26 @@ const router = new VueRouter({
             meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } }
         },
         {
-            path: "/deck-builder",
+            path: "/decks/build",
             component: ListDecks,
             name: 'list-decks',
             meta: { auth: true }
         },
         {
-            path: "/deck-builder/:deck",
+            path: "/deck-builder",
+            redirect: "/decks/build"
+        },
+        {
+            path: "/decks/build/:deck",
             component: DeckBuilder,
             meta: { title: 'Deck builder &gt; Edit deck', auth: true }
         },
         {
-            path: "/deck-builder/:deck/export",
+            path: "/deck-builder/:deck",
+            redirect: "/decks/build/:deck"
+        },
+        {
+            path: "/decks/export/:deck",
             component: ExportDeck,
             meta: { title: 'Deck builder &gt; Export', auth: true }
         },

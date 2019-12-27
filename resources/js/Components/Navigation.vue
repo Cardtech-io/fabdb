@@ -46,7 +46,7 @@
                     { text: 'Cards', children: [
                         { link: '/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },
-                        { link: '/deck-builder', text: 'Deck Builder' }
+                        { link: '/decks/build', text: 'Deck Builder' }
                     ]},
                     { link: '/support', text: 'Support' }
                 ];
