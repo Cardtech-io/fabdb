@@ -23093,7 +23093,7 @@ var render = function() {
           "div",
           { staticClass: "container sm:mx-auto px-4 py-8 sm:clearfix" },
           [
-            _c("div", { staticClass: "sm:w-1/2 sm:pl-4 sm:float-right" }, [
+            _c("div", { staticClass: "sm:w-1/2 sm:pl-8 sm:float-right" }, [
               _c("p", [
                 _vm._v(
                   "This tool is just for a little bit of fun. Generate a pack, check your cards, see if you can find\n                a Heart of Fyendal! I've tried to make this as close and accurate as possible to a real booster pack\n                in terms of rarities and chances. Let me know if you think something is off."
@@ -23131,7 +23131,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "overflow-hidden rounded-xl cursor-pointer mb-1",
+                      "overflow-hidden rounded-xl cursor-pointer mb-1 mx-auto sm:mx-0",
                     class: _vm.height(card),
                     staticStyle: { "max-width": "350px" },
                     on: {

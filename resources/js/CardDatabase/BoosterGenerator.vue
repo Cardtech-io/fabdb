@@ -6,7 +6,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4 py-8 sm:clearfix">
-                <div class="sm:w-1/2 sm:pl-4 sm:float-right">
+                <div class="sm:w-1/2 sm:pl-8 sm:float-right">
                     <p>This tool is just for a little bit of fun. Generate a pack, check your cards, see if you can find
                     a Heart of Fyendal! I've tried to make this as close and accurate as possible to a real booster pack
                     in terms of rarities and chances. Let me know if you think something is off.</p>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="sm:w-1/2 sm:float-left">
-                    <div v-for="card in cards" class="overflow-hidden rounded-xl cursor-pointer mb-1" @click="toggle(card)" :class="height(card)" style="max-width: 350px">
+                    <div v-for="card in cards" class="overflow-hidden rounded-xl cursor-pointer mb-1 mx-auto sm:mx-0" @click="toggle(card)" :class="height(card)" style="max-width: 350px">
                         <img :src="cardUrl(card.identifier, 250)" :alt="card.name" :title="card.name" class="w-full rounded-xl" style="max-width: 350px">
                     </div>
                 </div>
