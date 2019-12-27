@@ -19,7 +19,8 @@ Route::middleware(['web'])->group(function() {
 
     Route::middleware(['spa'])->group(function() {
         Route::get('cards', 'CardController@list');
-        Route::get('cards/{card}', 'CardController@view');
+        Route::get('cards/{card}', 'CardController@view')->where('card', '^((?!draft).)+');
+        Route::get('packs/generate', 'CardController@generatePack');
 
         Route::post('authenticate', 'AuthController@authenticate');
         Route::post('validate', 'AuthController@validateCode');

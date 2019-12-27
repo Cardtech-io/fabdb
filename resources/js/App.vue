@@ -35,10 +35,10 @@
         components: { Messages, Navigation },
 
         metaInfo: {
-            title: 'Home, Browse Cards',
+            title: 'Flesh & Blood TCG Card Manager, Deck Builder and more!',
             titleTemplate: '%s | fabdb.net',
             meta: [
-                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck building solution for the fantastic TCG, Flesh & Blood.' }
+                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' }
             ]
         },
 

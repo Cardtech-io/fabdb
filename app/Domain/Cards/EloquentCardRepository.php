@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -133,5 +134,47 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         return $query->firstOrFail();
+    }
+
+    public function getRandomCommons($class, int $num): Collection
+    {
+        $operator = $class == 'generic' ? '=' : '<>';
+
+        return $this->newQuery()
+            ->select('identifier', 'name')
+            ->whereRarity('C')
+            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[0]')"), $operator, 'generic')
+            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), '<>', 'equipment')
+            ->orderBy(\DB::raw('RAND()'))
+            ->take($num)
+            ->get();
+    }
+
+    public function getRandomEquipmentCommon(): Card
+    {
+        return $this->newQuery()
+            ->select('identifier', 'name')
+            ->whereRarity('C')
+            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), 'equipment')
+            ->orderBy(\DB::raw('RAND()'))
+            ->first();
+    }
+
+    public function getRandom(Rarity $rarity): Card
+    {
+        return $this->newQuery()
+            ->select('identifier', 'name')
+            ->whereRarity($rarity)
+            ->orderBy(\DB::raw('RAND()'))
+            ->first();
+    }
+
+    public function getRandomFoil(): Card
+    {
+        return $this->newQuery()
+            ->select('identifier', 'name')
+            ->where('rarity', '!=', 'T')
+            ->orderBy(\DB::raw('RAND()'))
+            ->first();
     }
 }

@@ -3,6 +3,7 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Domain\Cards\Packs;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -26,5 +27,10 @@ class CardController extends Controller
     public function view(Card $card)
     {
         return $card;
+    }
+
+    public function generatePack(Packs $packs)
+    {
+        return $packs->generate();
     }
 }
