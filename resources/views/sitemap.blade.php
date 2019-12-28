@@ -7,7 +7,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>{{ url('/browse/') }}</loc>
+        <loc>{{ url('/cards/browse/') }}</loc>
         <lastmod>2019-12-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>

@@ -24095,7 +24095,7 @@ var render = function() {
                                     {
                                       staticClass: "link",
                                       attrs: {
-                                        to: "/browse/?keywords=" + keyword
+                                        to: "/cards/browse/?keywords=" + keyword
                                       }
                                     },
                                     [_vm._v(_vm._s(keyword))]
@@ -26609,7 +26609,7 @@ var render = function() {
           _c(
             "li",
             [
-              _c("router-link", { attrs: { to: "/browse/" } }, [
+              _c("router-link", { attrs: { to: "/cards/browse/" } }, [
                 _c(
                   "span",
                   {
@@ -47886,7 +47886,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'View card',
       parent: {
         name: 'Browse',
-        path: '/browse/'
+        path: '/cards/browse/'
       }
     }
   }, {

@@ -29,7 +29,7 @@ const router = new VueRouter({
             path: "/cards/:identifier",
             component: ViewCard,
             name: 'card-view',
-            meta: { title: 'View card', parent: { name: 'Browse', path: '/browse/' } }
+            meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } }
         },
         {
             path: "/collection",

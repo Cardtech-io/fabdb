@@ -10,7 +10,7 @@
             <h1 class="font-serif text-white text-4xl uppercase px-4">Features</h1>
             <ol class="text-white">
                 <li>
-                    <router-link to="/browse/">
+                    <router-link to="/cards/browse/">
                         <span class="inline-block hover:bg-black hover:text-orange-300 rounded-lg p-4">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block float-left fill-current w-10 h-10 mt-1 mr-4">
                                 <path d="M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
