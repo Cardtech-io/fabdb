@@ -143,8 +143,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $this->newQuery()
             ->select('identifier', 'name')
             ->whereRarity('C')
-            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[0]')"), $operator, 'generic')
-            ->whereNotIn(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), ['hero', 'equipment'])
+            ->whereRaw("JSON_EXTRACT(keywords, '$[0]') $operator 'generic'")
+            ->whereRaw("JSON_EXTRACT(keywords, '$[1]') NOT IN ('hero', 'equipment')")
             ->orderBy(\DB::raw('RAND()'))
             ->take($num)
             ->get();
