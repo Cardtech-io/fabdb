@@ -28,10 +28,11 @@ interface CardRepository
     /**
      * Retrieve a single random rare from the database.
      *
-     * @param $rarity
+     * @param Rarity $rarity
+     * @param array $exclude
      * @return Card
      */
-    public function getRandom(Rarity $rarity): Card;
+    public function getRandom(Rarity $rarity, array $exclude = []): Card;
 
     /**
      * Returns a random card as a foil.

@@ -25,7 +25,6 @@ class Packs
         $foil = $this->cards->getRandomFoil();
         $generics = $this->cards->getRandomCommons('generic', 6);
         $token1 = $this->cards->getRandom(new Rarity('T'));
-        $token2 = $this->cards->getRandom(new Rarity('T'));
 
         $pack = $first5
             ->add($equipment)
@@ -36,7 +35,12 @@ class Packs
         $pack = $this->merge($pack, $generics);
 
         $pack->add($token1);
-        $pack->add($token2);
+
+        // When cracked bauble is generated, this is the only token available, as it's not double-sided, unlike others.
+        if ($token1->id != 224) {
+            $token2 = $this->cards->getRandom(new Rarity('T'), [$token1->id, 224]); // 224 is cracked bauble
+            $pack->add($token2);
+        }
 
         return $pack;
     }

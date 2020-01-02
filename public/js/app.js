@@ -2138,7 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       setTimeout(function () {
         _this.disabled = false;
-      }, 5000);
+      }, 1000);
     },
     height: function height(card) {
       return {
