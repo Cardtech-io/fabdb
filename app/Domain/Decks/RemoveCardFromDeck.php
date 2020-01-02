@@ -12,20 +12,21 @@ class RemoveCardFromDeck implements Loggable
     /**
      * @var Deck
      */
-    private $deck;
+    private $deckId;
+
     /**
      * @var Card
      */
-    private $card;
+    private $cardId;
 
-    public function __construct(Deck $deck, Card $card)
+    public function __construct(int $deckId, int $cardId)
     {
-        $this->deck = $deck;
-        $this->card = $card;
+        $this->deckId = $deckId;
+        $this->cardId = $cardId;
     }
 
     public function handle(DeckRepository $decks)
     {
-        $decks->removeCardFromDeck($this->deck->id, $this->card->id);
+        $decks->removeCardFromDeck($this->deckId, $this->cardId);
     }
 }

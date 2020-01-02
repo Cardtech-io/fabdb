@@ -38,12 +38,12 @@ class DeckController extends Controller
     {
         $card = $cards->findByIdentifier($request->get('card'));
 
-        $this->dispatchNow(new AddCardToDeck($deck, $card));
+        $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
     }
 
     public function removeCard(RemoveCardFromDeckRequest $request, Deck $deck, Card $card)
     {
-        $this->dispatchNow(new RemoveCardFromDeck($deck, $card));
+        $this->dispatchNow(new RemoveCardFromDeck($deck->id, $card->id));
     }
 
     public function removeDeck(RemoveDeckRequest $request)
