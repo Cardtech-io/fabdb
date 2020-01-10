@@ -130,7 +130,7 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
-    import { mapActions } from 'vuex'
+    import { mapActions } from 'vuex';
 
     export default {
         components: {
