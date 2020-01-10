@@ -8,7 +8,7 @@
             <td class="border border-gray-300 py-2 px-4 text-center"><card-count :card="card" type="promo"></card-count></td>
         </tr>
         <tr class="even:bg-gray-100 hover:bg-gray-200 sm:hidden">
-            <td class="border border-gray-300 py-2 px-4" colspan="5">{{ card.identifer }} {{ card.name }}</td>
+            <td class="border border-gray-300 py-2 px-4" colspan="5">{{ card.identifer }} {{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></td>
         </tr>
         <tr class="even:bg-gray-100 hover:bg-gray-200 sm:hidden">
             <td class="border border-gray-300 text-center" colspan="5">

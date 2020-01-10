@@ -23,6 +23,15 @@ export default {
             }
         },
 
+        resourceColourLight: function(resource) {
+            const colours = {1: 'red-100', 2: 'yellow-100', 3: 'blue-100'};
+            const colour = colours[resource];
+
+            if (colour) {
+                return 'bg-' + colour;
+            }
+        },
+
         colourToText: function(resource) {
             const colours = {1: 'red', 2: 'yellow', 3: 'blue'};
 

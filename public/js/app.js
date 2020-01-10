@@ -23471,7 +23471,18 @@ var render = function() {
           staticClass: "border border-gray-300 py-2 px-4",
           attrs: { colspan: "5" }
         },
-        [_vm._v(_vm._s(_vm.card.identifer) + " " + _vm._s(_vm.card.name))]
+        [
+          _vm._v(
+            _vm._s(_vm.card.identifer) + " " + _vm._s(_vm.card.name) + " "
+          ),
+          _vm.hasResource(_vm.card)
+            ? _c("span", [
+                _vm._v(
+                  "(" + _vm._s(_vm.colourToText(_vm.card.stats.resource)) + ")"
+                )
+              ])
+            : _vm._e()
+        ]
       )
     ]),
     _vm._v(" "),
@@ -45789,6 +45800,18 @@ __webpack_require__.r(__webpack_exports__);
         1: 'red-600',
         2: 'yellow-300',
         3: 'blue-400'
+      };
+      var colour = colours[resource];
+
+      if (colour) {
+        return 'bg-' + colour;
+      }
+    },
+    resourceColourLight: function resourceColourLight(resource) {
+      var colours = {
+        1: 'red-100',
+        2: 'yellow-100',
+        3: 'blue-100'
       };
       var colour = colours[resource];
 
