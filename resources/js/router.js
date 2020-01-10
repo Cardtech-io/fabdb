@@ -9,6 +9,7 @@ import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import TestDeck from './DeckBuilder/TestDeck.vue';
 import ExportDeck from './DeckBuilder/ExportDeck.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
@@ -57,6 +58,11 @@ const router = new VueRouter({
             path: "/decks/build/:deck",
             component: DeckBuilder,
             meta: { title: 'Deck builder &gt; Edit deck', auth: true }
+        },
+        {
+            path: "/decks/test/:deck",
+            component: TestDeck,
+            meta: { auth: true }
         },
         {
             path: "/deck-builder/:deck",

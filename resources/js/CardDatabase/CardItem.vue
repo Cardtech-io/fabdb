@@ -14,7 +14,6 @@
 
         props: {
             card: Object,
-            view: String,
             path: String
         },
 

@@ -40,7 +40,7 @@ Route::middleware(['web'])->group(function() {
             Route::put('profile', 'UserController@updateProfile');
         });
 
-        Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build).)+');
+        Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build|test).)+');
     });
 
     Route::fallback(function () {
