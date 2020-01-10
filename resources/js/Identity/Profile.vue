@@ -26,7 +26,18 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
+                    <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
+
+                    <div class="pb-8">
+                        <div v-if="user.subscription">
+                            <badge :subscription-level="user.subscription"></badge>
+                        </div>
+                        <p v-else>If you love what you're doing, please <a href="https://www.patreon.com/fabdb" class="link">support us on Patreon.</a></p>
+                    </div>
+
+
                     <h2 class="text-xl font-serif uppercase">What data do we collect?</h2>
+
                     <p class="my-4">At fabdb.net, we endeavour to collect as little information about you as possible.</p>
                     <p class="my-4">Some details, such as email address, are absolutely essential. Not for marketing, but
                         purely for identification purposes, and application notifications.</p>
@@ -46,11 +57,13 @@
 <script>
     import axios from 'axios';
     import { mapGetters, mapActions } from 'vuex';
+
+    import Badge from './Badge.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
 
     export default {
-        components: { Breadcrumbs, HeaderTitle },
+        components: { Badge, Breadcrumbs, HeaderTitle },
 
         computed: {
             ...mapGetters('session', ['user']),
@@ -83,7 +96,7 @@
                 set(gemId) {
                     this.setUserParam({ param: 'gemId', value: gemId });
                 }
-            },
+            }
         },
 
         data() {
