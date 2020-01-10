@@ -3512,6 +3512,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -25134,42 +25138,66 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "a",
+    "li",
     {
-      staticClass: "block hover:bg-white px-4 py-2 w-full",
-      attrs: { href: "" },
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.action(_vm.card)
-        }
-      }
+      staticClass:
+        "odd:bg-gray-100 even:bg-gray-200 sm:bg-transparent sm:odd:bg-transparent sm:float-left sm:p-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
     },
     [
-      _c("span", [_vm._v(_vm._s(_vm.card.name))]),
-      _vm._v(" "),
-      _vm.card.stats.resource
-        ? _c("span", {
-            staticClass: "inline-block rounded-lg h-2 w-2",
-            class: _vm.resourceColour(_vm.card.stats.resource)
+      _c(
+        "a",
+        {
+          staticClass: "block hover:bg-white px-4 py-2 w-full sm:hidden",
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.action(_vm.card)
+            }
+          }
+        },
+        [
+          _c("span", [_vm._v(_vm._s(_vm.card.name))]),
+          _vm._v(" "),
+          _vm.card.stats.resource
+            ? _c("span", {
+                staticClass: "inline-block rounded-lg h-2 w-2",
+                class: _vm.resourceColour(_vm.card.stats.resource)
+              })
+            : _vm._e(),
+          _c("br"),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600 text-xs" }, [
+            _vm._v(_vm._s(_vm.card.identifier))
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.card.keywords, function(keyword, index) {
+            return _c("span", { staticClass: "text-sm" }, [
+              _vm._v(_vm._s(_vm.ucfirst(keyword))),
+              index < _vm.card.keywords.length - 1
+                ? _c("span", [_vm._v(", ")])
+                : _vm._e()
+            ])
           })
-        : _vm._e(),
-      _c("br"),
+        ],
+        2
+      ),
       _vm._v(" "),
-      _c("span", { staticClass: "text-gray-600 text-xs" }, [
-        _vm._v(_vm._s(_vm.card.identifier))
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.card.keywords, function(keyword, index) {
-        return _c("span", { staticClass: "text-sm" }, [
-          _vm._v(_vm._s(_vm.ucfirst(keyword))),
-          index < _vm.card.keywords.length - 1
-            ? _c("span", [_vm._v(", ")])
-            : _vm._e()
-        ])
+      _c("img", {
+        staticClass: "w-full rounded-xl hidden sm:block cursor-pointer",
+        attrs: {
+          src: _vm.cardUrl(_vm.card.identifier, 350),
+          alt: _vm.card.name,
+          title: _vm.card.name
+        },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.action(_vm.card)
+          }
+        }
       })
-    ],
-    2
+    ]
   )
 }
 var staticRenderFns = []
@@ -25205,7 +25233,7 @@ var render = function() {
               "use-case": "browse",
               wait: true,
               refreshable: false,
-              limit: 50
+              limit: 25
             },
             on: { "search-completed": _vm.refreshResults }
           })
@@ -25217,22 +25245,19 @@ var render = function() {
     _c("div", { staticClass: "bg-gray-200 py-8" }, [
       _c("div", { staticClass: "container sm:mx-auto px-4" }, [
         _vm.cards.length
-          ? _c(
-              "div",
-              _vm._l(_vm.cards, function(card) {
-                return _c(
-                  "div",
-                  { staticClass: "flex odd:bg-gray-100 even:bg-gray-200" },
-                  [
-                    _c("card-item", {
-                      attrs: { action: _vm.addCard, card: card }
-                    })
-                  ],
-                  1
-                )
-              }),
-              0
-            )
+          ? _c("div", [
+              _c(
+                "ol",
+                { staticClass: "clearfix" },
+                _vm._l(_vm.cards, function(card) {
+                  return _c("card-item", {
+                    key: card.identifier,
+                    attrs: { action: _vm.addCard, card: card }
+                  })
+                }),
+                1
+              )
+            ])
           : _c("div", [
               _c("h2", { staticClass: "font-serif text-2xl uppercase" }, [
                 _vm._v("Usage")

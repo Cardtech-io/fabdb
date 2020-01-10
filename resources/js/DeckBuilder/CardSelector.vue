@@ -2,16 +2,16 @@
     <div>
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto px-4">
-                <card-search use-case="browse" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="50"></card-search>
+                <card-search use-case="browse" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
             </div>
         </div>
 
         <div class="bg-gray-200 py-8">
             <div class="container sm:mx-auto px-4">
                 <div v-if="cards.length">
-                    <div class="flex odd:bg-gray-100 even:bg-gray-200" v-for="card in cards">
-                        <card-item :action="addCard" :card="card"></card-item>
-                    </div>
+                    <ol class="clearfix">
+                        <card-item :action="addCard" :card="card" v-for="card in cards" :key="card.identifier"></card-item>
+                    </ol>
                 </div>
                 <div v-else>
                     <h2 class="font-serif text-2xl uppercase">Usage</h2>
