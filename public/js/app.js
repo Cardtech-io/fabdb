@@ -23564,7 +23564,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    { staticClass: "float-left p-6 sm:p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" },
+    { staticClass: "float-left p-2 sm:p-4 w-1/2 md:w-1/3 lg:w-1/4" },
     [
       _c(
         "div",
@@ -23572,7 +23572,7 @@ var render = function() {
         [
           _c("router-link", { attrs: { to: _vm.viewUrl() } }, [
             _c("img", {
-              staticClass: "w-full rounded-xl",
+              staticClass: "w-full rounded-lg sm:rounded-xl",
               attrs: {
                 src: _vm.cardUrl(_vm.card.identifier, 350),
                 alt: _vm.card.name,
@@ -26568,7 +26568,7 @@ var render = function() {
                   _vm.drawn.length
                     ? _c(
                         "ol",
-                        { staticClass: "clearfix" },
+                        { staticClass: "clearfix -mx-2 sm:-mx-4" },
                         _vm._l(_vm.drawn, function(card) {
                           return _c("card-item", {
                             key: card.identifier,

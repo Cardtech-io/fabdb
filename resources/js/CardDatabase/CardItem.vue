@@ -1,7 +1,7 @@
 <template>
-    <li  class="float-left p-6 sm:p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+    <li  class="float-left p-2 sm:p-4 w-1/2 md:w-1/3 lg:w-1/4">
         <div class="bg-white rounded-xl">
-            <router-link :to="viewUrl()"><img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-xl"></router-link>
+            <router-link :to="viewUrl()"><img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl"></router-link>
         </div>
     </li>
 </template>

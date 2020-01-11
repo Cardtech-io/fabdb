@@ -85,12 +85,6 @@ footer.footer .link:hover {
     @apply outline-none;
 }
 
-.rounded-xl {
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    border-radius: 1em;
-}
-
 .pdf-totals-right {
     border-color: #a0aec0 #000 #a0aec0 #a0aec0;
 }

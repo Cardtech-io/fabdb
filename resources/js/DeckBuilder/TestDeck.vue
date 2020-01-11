@@ -17,7 +17,7 @@
                             <button @click="draw" class="inline-block appearance-none block w-full sm:w-auto bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
                         </div>
 
-                        <ol v-if="drawn.length" class="clearfix">
+                        <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
                             <card-item v-for="card in drawn" :card="card" path="/cards" :key="card.identifier"></card-item>
                         </ol>
                     </div>
