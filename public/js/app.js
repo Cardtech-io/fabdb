@@ -4137,12 +4137,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -26494,41 +26488,27 @@ var render = function() {
                         _c(
                           "router-link",
                           {
-                            staticClass: "text-gray-400 hover:text-white",
+                            staticClass: "link",
                             attrs: {
                               to: "/decks/test/" + deck.slug,
                               title: "Test deck"
                             }
                           },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "inline-block fill-current h-4 w-5 align-middle",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 20 20"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
+                          [_vm._v("Test")]
                         ),
+                        _vm._v(
+                          "\n                         \n                        "
+                        ),
+                        _c("span", { staticClass: "text-gray-500" }, [
+                          _vm._v("|")
+                        ]),
                         _vm._v(
                           "\n                         \n                        "
                         ),
                         _c(
                           "a",
                           {
-                            staticClass: "text-gray-400 hover:text-white",
+                            staticClass: "link",
                             attrs: { href: "", title: "Delete deck" },
                             on: {
                               click: function($event) {
@@ -26537,27 +26517,7 @@ var render = function() {
                               }
                             }
                           },
-                          [
-                            _c(
-                              "svg",
-                              {
-                                staticClass:
-                                  "inline-block fill-current h-4 w-5 align-middle",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 20 20"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"
-                                  }
-                                })
-                              ]
-                            )
-                          ]
+                          [_vm._v("Delete")]
                         )
                       ],
                       1

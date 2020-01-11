@@ -19,17 +19,11 @@
                             <router-link :to="'/decks/build/' + deck.slug" class="link">{{ deck.name }}</router-link>
                         </div>
                         <div class="flex-1 text-right">
-                            <router-link :to="'/decks/test/' + deck.slug" class="text-gray-400 hover:text-white" title="Test deck">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="inline-block fill-current h-4 w-5 align-middle">
-                                    <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
-                                </svg>
-                            </router-link>
+                            <router-link :to="'/decks/test/' + deck.slug" class="link" title="Test deck">Test</router-link>
                             &nbsp;
-                            <a href="" class="text-gray-400 hover:text-white" @click.prevent="removeDeck(deck, key)" title="Delete deck">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="inline-block fill-current h-4 w-5 align-middle">
-                                    <path d="M6 2l2-2h4l2 2h4v2H2V2h4zM3 6h14l-1 14H4L3 6zm5 2v10h1V8H8zm3 0v10h1V8h-1z"/>
-                                </svg>
-                            </a>
+                            <span class="text-gray-500">|</span>
+                            &nbsp;
+                            <a href="" class="link" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                         </div>
                     </div>
                 </li>
