@@ -37,6 +37,9 @@
                             <card-image :card="card" @clicked="addToArsenal"></card-image>
                         </li>
                     </ol>
+                    <div v-else class="text-center">
+                        There are no cards in hand.
+                    </div>
                 </div>
             <!--</div>-->
 

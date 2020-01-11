@@ -4259,6 +4259,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -26685,7 +26688,11 @@ var render = function() {
                   }),
                   0
                 )
-              : _vm._e()
+              : _c("div", { staticClass: "text-center" }, [
+                  _vm._v(
+                    "\n                    There are no cards in hand.\n                "
+                  )
+                ])
           ]
         )
       ])
