@@ -1,16 +1,15 @@
 <template>
     <li  class="float-left p-2 sm:p-4 w-1/2 md:w-1/3 lg:w-1/4">
-        <div class="bg-white rounded-xl">
-            <router-link :to="viewUrl()"><img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl"></router-link>
-        </div>
+        <router-link :to="viewUrl()" v-if="path"><card-image :card="card"></card-image></router-link>
+        <card-image :card="card" v-else></card-image>
     </li>
 </template>
 
 <script>
-    import Cardable from './Cardable.js';
+    import CardImage from './CardImage.vue';
 
     export default {
-        mixins: [Cardable],
+        components: { CardImage },
 
         props: {
             card: Object,

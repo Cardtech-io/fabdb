@@ -2,38 +2,54 @@
     <div>
         <header-title title="Test Deck"></header-title>
 
-            <div class="bg-orange-900 text-white font-serif uppercase">
-                <div class="container sm:mx-auto p-4 flex">
-                    <div class="flex-1">
-                        <crumbs :crumbs="crumbs"></crumbs>
+        <div class="bg-orange-900 text-white font-serif uppercase">
+            <div class="container sm:mx-auto p-4 flex">
+                <div class="flex-1">
+                    <crumbs :crumbs="crumbs"></crumbs>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-200">
+            <div v-if="user.subscription">
+                <div class="container sm:mx-auto py-8 px-4 text-center">
+                    <ol class="flex -mx-2 sm:-mx-4 mb-4 items-stretch">
+                        <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
+                            <card-image :card="hero"></card-image>
+                        </li>
+                        <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4">
+                            <button @click="draw" class="inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-24">Draw {{ hero.stats['hand-size'] }}</button>
+                        </li>
+                        <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
+                            <div v-if="arsenal">
+                                <card-image :card="arsenal" @clicked="removeFromArsenal"></card-image>
+                            </div>
+                            <div class="bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24" v-else>Arsenal</div>
+                        </li>
+                    </ol>
+
+                    <div class="mb-4 sm:hidden">
+                        <button @click="draw" class="inline-block appearance-none block w-full sm:w-auto bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
                     </div>
+
+                    <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
+                        <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn">
+                            <card-image :card="card" @clicked="addToArsenal"></card-image>
+                        </li>
+                    </ol>
                 </div>
             </div>
 
-            <div class="bg-gray-200">
-                <div v-if="user.subscription">
-                    <div class="container sm:mx-auto py-8 px-4 text-center">
-                        <div class="mb-4">
-                            <button @click="draw" class="inline-block appearance-none block w-full sm:w-auto bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
-                        </div>
+            <div v-else>
+                <div class="px-4 py-8">
+                    <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
 
-                        <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
-                            <card-item v-for="card in drawn" :card="card" path="/cards" :key="card.identifier"></card-item>
-                        </ol>
-                    </div>
-                </div>
-
-                <div v-else>
-                    <div class="px-4 py-8">
-                        <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
-
-                        <p>
-                            Testing your deck's draw capabilities is a premium access feature. In order to use this feature,
-                            you must be a patreon supporter. Check out <router-link to="/support" class="link">our support page</router-link> or
-                            go directly to our <a href="https://www.patreon.com/fabdb" class="link">patreon page</a>. Memberships start as
-                            low as $3/month!
-                        </p>
-                    </div>
+                    <p>
+                        Testing your deck's draw capabilities is a premium access feature. In order to use this feature,
+                        you must be a patreon supporter. Check out <router-link to="/support" class="link">our support page</router-link> or
+                        go directly to our <a href="https://www.patreon.com/fabdb" class="link">patreon page</a>. Memberships start as
+                        low as $3/month!
+                    </p>
                 </div>
             </div>
         </div>
@@ -43,6 +59,7 @@
 <script>
     import { mapGetters } from 'vuex'
 
+    import CardImage from '../CardDatabase/CardImage.vue';
     import CardItem from '../CardDatabase/CardItem.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -50,7 +67,7 @@
     import Viewable from './Viewable';
 
     export default {
-        components: { CardItem, Crumbs, HeaderTitle },
+        components: { CardImage, CardItem, Crumbs, HeaderTitle },
         mixins: [ Viewable ],
 
         computed: {
@@ -75,6 +92,7 @@
 
         data() {
             return {
+                arsenal: null,
                 deck: null,
                 deckCards: [],
                 drawn: [],
@@ -83,11 +101,17 @@
         },
 
         methods: {
+            addToArsenal: function(card) {
+                this.arsenal = card;
+            },
+
             draw: function() {
                 this.drawn = []
 
                 if (this.drawnCards.length >= this.deckCards.length) {
+                    // this is our draw reset cycle
                     this.drawnCards = [];
+                    return;
                 }
 
                 for (var i = 0; i < this.hero.stats['hand-size']; i++) {
@@ -106,6 +130,10 @@
                 });
 
                 return available[Math.floor(Math.random() * available.length)];
+            },
+
+            removeFromArsenal: function() {
+                this.arsenal = null;
             },
 
             shuffle: function(array) {
