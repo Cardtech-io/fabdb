@@ -4262,6 +4262,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -4309,8 +4311,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addToArsenal: function addToArsenal(card) {
       this.arsenal = card;
     },
-    draw: function draw() {
-      this.drawn = [];
+    draw: function draw(number) {
+      if (number > 1) {
+        this.drawn = [];
+      }
 
       if (this.drawnCards.length >= this.deckCards.length) {
         // this is our draw reset cycle
@@ -4318,7 +4322,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return;
       }
 
-      for (var i = 0; i < this.hero.stats['hand-size']; i++) {
+      for (var i = 0; i < number; i++) {
         if (this.drawnCards.length >= this.deckCards.length) continue;
         var randomCard = this.randomCard();
         this.drawnCards.push(randomCard.identifier);
@@ -26609,15 +26613,33 @@ var render = function() {
                   "li",
                   {
                     staticClass:
-                      "hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4"
+                      "hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24"
                   },
                   [
                     _c(
                       "button",
                       {
                         staticClass:
-                          "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-24",
-                        on: { click: _vm.draw }
+                          "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
+                        on: {
+                          click: function($event) {
+                            return _vm.draw(1)
+                          }
+                        }
+                      },
+                      [_vm._v("Draw 1")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-2",
+                        on: {
+                          click: function($event) {
+                            return _vm.draw(4)
+                          }
+                        }
                       },
                       [_vm._v("Draw " + _vm._s(_vm.hero.stats["hand-size"]))]
                     )
@@ -26652,13 +26674,31 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-4 sm:hidden" }, [
+            _c("div", { staticClass: "mb-4 flex sm:hidden" }, [
               _c(
                 "button",
                 {
                   staticClass:
-                    "inline-block appearance-none block w-full sm:w-auto bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                  on: { click: _vm.draw }
+                    "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-l-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                  on: {
+                    click: function($event) {
+                      return _vm.draw(1)
+                    }
+                  }
+                },
+                [_vm._v("Draw 1")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-r-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                  on: {
+                    click: function($event) {
+                      return _vm.draw(4)
+                    }
+                  }
                 },
                 [_vm._v("Draw " + _vm._s(_vm.hero.stats["hand-size"]))]
               )

@@ -17,8 +17,9 @@
                         <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
                             <card-image :card="hero"></card-image>
                         </li>
-                        <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4">
-                            <button @click="draw" class="inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-24">Draw {{ hero.stats['hand-size'] }}</button>
+                        <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24">
+                            <button @click="draw(1)" class="inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500">Draw 1</button>
+                            <button @click="draw(4)" class="inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-2">Draw {{ hero.stats['hand-size'] }}</button>
                         </li>
                         <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
                             <div v-if="arsenal">
@@ -28,8 +29,9 @@
                         </li>
                     </ol>
 
-                    <div class="mb-4 sm:hidden">
-                        <button @click="draw" class="inline-block appearance-none block w-full sm:w-auto bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
+                    <div class="mb-4 flex sm:hidden">
+                        <button @click="draw(1)" class="appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-l-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw 1</button>
+                        <button @click="draw(4)" class="appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-r-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
                     </div>
 
                     <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
@@ -108,8 +110,10 @@
                 this.arsenal = card;
             },
 
-            draw: function() {
-                this.drawn = []
+            draw: function(number) {
+                if (number > 1) {
+                    this.drawn = []
+                }
 
                 if (this.drawnCards.length >= this.deckCards.length) {
                     // this is our draw reset cycle
@@ -117,7 +121,7 @@
                     return;
                 }
 
-                for (var i = 0; i < this.hero.stats['hand-size']; i++) {
+                for (var i = 0; i < number; i++) {
                     if (this.drawnCards.length >= this.deckCards.length) continue;
 
                     const randomCard = this.randomCard();
