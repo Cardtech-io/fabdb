@@ -35,8 +35,8 @@
                     </div>
 
                     <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
-                        <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn">
-                            <card-image :card="card" @clicked="addToArsenal"></card-image>
+                        <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn" :class="pcWidth">
+                            <drawn-card :card="card" @arsenaled="addToArsenal(card)"></drawn-card>
                         </li>
                     </ol>
                     <div v-else class="text-center">
@@ -67,12 +67,13 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import CardItem from '../CardDatabase/CardItem.vue';
     import Crumbs from '../Components/Crumbs.vue';
+    import DrawnCard from './DrawnCard.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
 
     export default {
-        components: { CardImage, CardItem, Crumbs, HeaderTitle },
+        components: { CardImage, CardItem, Crumbs, DrawnCard, HeaderTitle },
         mixins: [ Viewable ],
 
         computed: {
@@ -92,6 +93,16 @@
 
             empty: function() {
                 return !this.deckCards;
+            },
+
+            pcWidth: function() {
+                let width = 4;
+
+                if (this.drawnCards.length > 4) {
+                    width = this.drawnCards.length;
+                }
+
+                return 'sm:w-1/' + width;
             }
         },
 
@@ -171,6 +182,13 @@
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
+                    response.data.cards.forEach(card => {
+                        // Setting some default values for testing
+                        card.arsenaled = false;
+                        card.pitched = false;
+                        card.played = false;
+                    });
+
                     this.deck = response.data;
                     this.deckCards = this.deck.cards.filter(card => {
                         return !card.keywords.includes('equipment')

@@ -96,3 +96,8 @@ footer.footer .link:hover {
 .bottom-1\/2 {
     bottom: 50%;
 }
+
+.deck-test-card .buttons {
+    position: absolute;
+    top: 25%;
+}
