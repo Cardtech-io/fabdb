@@ -11,7 +11,7 @@
         </div>
 
         <div class="bg-gray-200">
-            <!--<div v-if="user.subscription">-->
+            <div v-if="user.subscription">
                 <div class="container sm:mx-auto py-8 px-4 text-center">
                     <ol class="flex -mx-2 sm:-mx-4 mb-4 items-stretch">
                         <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
@@ -43,20 +43,20 @@
                         There are no cards in hand.
                     </div>
                 </div>
-            <!--</div>-->
+            </div>
 
-            <!--<div v-else>-->
-                <!--<div class="px-4 py-8">-->
-                    <!--<h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>-->
+            <div v-else>
+                <div class="container px-4 py-8 sm:mx-auto">
+                    <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
 
-                    <!--<p>-->
-                        <!--Testing your deck's draw capabilities is a premium access feature. In order to use this feature,-->
-                        <!--you must be a patreon supporter. Check out <router-link to="/support" class="link">our support page</router-link> or-->
-                        <!--go directly to our <a href="https://www.patreon.com/fabdb" class="link">patreon page</a>. Memberships start as-->
-                        <!--low as $3/month!-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</div>-->
+                    <p>
+                        Testing your deck's draw capabilities is a premium access feature. In order to use this feature,
+                        you must be a patreon supporter. Check out <router-link to="/support" class="link">our support page</router-link> or
+                        go directly to our <a href="https://www.patreon.com/fabdb" class="link">patreon page</a>. Memberships start as
+                        low as $3/month!
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </template>

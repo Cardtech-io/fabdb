@@ -26751,33 +26751,98 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto py-8 px-4 text-center" },
-          [
-            _c(
-              "ol",
-              { staticClass: "flex -mx-2 sm:-mx-4 mb-4 items-stretch" },
-              [
-                _c(
-                  "li",
-                  { staticClass: "p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4" },
-                  [_c("card-image", { attrs: { card: _vm.hero } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24"
-                  },
-                  [
+        _vm.user.subscription
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "container sm:mx-auto py-8 px-4 text-center" },
+                [
+                  _c(
+                    "ol",
+                    { staticClass: "flex -mx-2 sm:-mx-4 mb-4 items-stretch" },
+                    [
+                      _c(
+                        "li",
+                        { staticClass: "p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4" },
+                        [_c("card-image", { attrs: { card: _vm.hero } })],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        {
+                          staticClass:
+                            "hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24"
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
+                              on: {
+                                click: function($event) {
+                                  return _vm.draw(1)
+                                }
+                              }
+                            },
+                            [_vm._v("Draw 1")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-2",
+                              on: {
+                                click: function($event) {
+                                  return _vm.draw(4)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "Draw " + _vm._s(_vm.hero.stats["hand-size"])
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        { staticClass: "p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4" },
+                        [
+                          _vm.arsenal
+                            ? _c(
+                                "div",
+                                [
+                                  _c("card-image", {
+                                    attrs: { card: _vm.arsenal },
+                                    on: { clicked: _vm.removeFromArsenal }
+                                  })
+                                ],
+                                1
+                              )
+                            : _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24"
+                                },
+                                [_vm._v("Arsenal")]
+                              )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mb-4 flex sm:hidden" }, [
                     _c(
                       "button",
                       {
                         staticClass:
-                          "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
+                          "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-l-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
                         on: {
                           click: function($event) {
                             return _vm.draw(1)
@@ -26791,7 +26856,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "inline-block appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-2",
+                          "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-r-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
                         on: {
                           click: function($event) {
                             return _vm.draw(4)
@@ -26800,100 +26865,77 @@ var render = function() {
                       },
                       [_vm._v("Draw " + _vm._s(_vm.hero.stats["hand-size"]))]
                     )
-                  ]
-                ),
+                  ]),
+                  _vm._v(" "),
+                  _vm.drawn.length
+                    ? _c(
+                        "ol",
+                        { staticClass: "clearfix -mx-2 sm:-mx-4" },
+                        _vm._l(_vm.drawn, function(card) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass:
+                                "float-left p-2 sm:p-4 w-1/2 sm:w-1/4",
+                              class: _vm.pcWidth
+                            },
+                            [
+                              _c("drawn-card", {
+                                attrs: { card: card },
+                                on: {
+                                  arsenaled: function($event) {
+                                    return _vm.addToArsenal(card)
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _c("div", { staticClass: "text-center" }, [
+                        _vm._v(
+                          "\n                    There are no cards in hand.\n                "
+                        )
+                      ])
+                ]
+              )
+            ])
+          : _c("div", [
+              _c("div", { staticClass: "container px-4 py-8 sm:mx-auto" }, [
+                _c("h2", { staticClass: "font-serif uppercase text-xl mb-4" }, [
+                  _vm._v("Membership required")
+                ]),
                 _vm._v(" "),
                 _c(
-                  "li",
-                  { staticClass: "p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4" },
+                  "p",
                   [
-                    _vm.arsenal
-                      ? _c(
-                          "div",
-                          [
-                            _c("card-image", {
-                              attrs: { card: _vm.arsenal },
-                              on: { clicked: _vm.removeFromArsenal }
-                            })
-                          ],
-                          1
-                        )
-                      : _c(
-                          "div",
-                          {
-                            staticClass:
-                              "bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24"
-                          },
-                          [_vm._v("Arsenal")]
-                        )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-4 flex sm:hidden" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-l-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                  on: {
-                    click: function($event) {
-                      return _vm.draw(1)
-                    }
-                  }
-                },
-                [_vm._v("Draw 1")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "appearance-none inline-block w-1/2 bg-orange-700 text-white rounded-r-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                  on: {
-                    click: function($event) {
-                      return _vm.draw(4)
-                    }
-                  }
-                },
-                [_vm._v("Draw " + _vm._s(_vm.hero.stats["hand-size"]))]
-              )
-            ]),
-            _vm._v(" "),
-            _vm.drawn.length
-              ? _c(
-                  "ol",
-                  { staticClass: "clearfix -mx-2 sm:-mx-4" },
-                  _vm._l(_vm.drawn, function(card) {
-                    return _c(
-                      "li",
+                    _vm._v(
+                      "\n                    Testing your deck's draw capabilities is a premium access feature. In order to use this feature,\n                    you must be a patreon supporter. Check out "
+                    ),
+                    _c(
+                      "router-link",
+                      { staticClass: "link", attrs: { to: "/support" } },
+                      [_vm._v("our support page")]
+                    ),
+                    _vm._v(" or\n                    go directly to our "),
+                    _c(
+                      "a",
                       {
-                        staticClass: "float-left p-2 sm:p-4 w-1/2 sm:w-1/4",
-                        class: _vm.pcWidth
+                        staticClass: "link",
+                        attrs: { href: "https://www.patreon.com/fabdb" }
                       },
-                      [
-                        _c("drawn-card", {
-                          attrs: { card: card },
-                          on: {
-                            arsenaled: function($event) {
-                              return _vm.addToArsenal(card)
-                            }
-                          }
-                        })
-                      ],
-                      1
+                      [_vm._v("patreon page")]
+                    ),
+                    _vm._v(
+                      ". Memberships start as\n                    low as $3/month!\n                "
                     )
-                  }),
-                  0
+                  ],
+                  1
                 )
-              : _c("div", { staticClass: "text-center" }, [
-                  _vm._v(
-                    "\n                    There are no cards in hand.\n                "
-                  )
-                ])
-          ]
-        )
+              ])
+            ])
       ])
     ],
     1
