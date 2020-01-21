@@ -98,10 +98,14 @@
             pcWidth: function() {
                 let width = 4;
 
-                if (this.drawnCards.length > 4) {
-                    width = this.drawnCards.length;
+                if (this.drawn.length > 4) {
+                    width = this.drawn.length;
                 }
 
+                if (this.drawn.length >= 6) {
+                    width = 4;
+                }
+                
                 return 'sm:w-1/' + width;
             }
         },

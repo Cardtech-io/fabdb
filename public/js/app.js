@@ -4368,8 +4368,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     pcWidth: function pcWidth() {
       var width = 4;
 
-      if (this.drawnCards.length > 4) {
-        width = this.drawnCards.length;
+      if (this.drawn.length > 4) {
+        width = this.drawn.length;
+      }
+
+      if (this.drawn.length >= 6) {
+        width = 4;
       }
 
       return 'sm:w-1/' + width;
