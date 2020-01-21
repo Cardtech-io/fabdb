@@ -102,10 +102,10 @@
                     width = this.drawn.length;
                 }
 
-                if (this.drawn.length >= 6) {
+                if (this.drawn.length > 6) {
                     width = 4;
                 }
-                
+
                 return 'sm:w-1/' + width;
             }
         },

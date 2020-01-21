@@ -4372,7 +4372,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         width = this.drawn.length;
       }
 
-      if (this.drawn.length >= 6) {
+      if (this.drawn.length > 6) {
         width = 4;
       }
 
