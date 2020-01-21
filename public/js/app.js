@@ -4394,16 +4394,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     draw: function draw(number) {
       if (number > 1) {
-        this.drawn = [];
+        // Remove from the drawn array those that were played, pitched, or arsenaled.
+        this.drawn = this.drawn.filter(function (card) {
+          return !(card.played || card.pitched || card.arsenaled);
+        });
       }
 
       if (this.drawnCards.length >= this.deckCards.length) {
         // this is our draw reset cycle
         this.drawnCards = [];
         return;
-      }
+      } // If we're just drawing 1, always draw 1, else draw up to hand size
 
-      for (var i = 0; i < number; i++) {
+
+      var start = number == 1 ? 0 : this.drawn.length;
+
+      for (var i = start; i < number; i++) {
         if (this.drawnCards.length >= this.deckCards.length) continue;
         var randomCard = this.randomCard();
         this.drawnCards.push(randomCard.identifier);

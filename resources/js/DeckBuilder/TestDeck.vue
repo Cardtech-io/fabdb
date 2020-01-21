@@ -127,7 +127,10 @@
 
             draw: function(number) {
                 if (number > 1) {
-                    this.drawn = []
+                    // Remove from the drawn array those that were played, pitched, or arsenaled.
+                    this.drawn = this.drawn.filter(card => {
+                        return !(card.played || card.pitched || card.arsenaled);
+                    });
                 }
 
                 if (this.drawnCards.length >= this.deckCards.length) {
@@ -136,7 +139,10 @@
                     return;
                 }
 
-                for (var i = 0; i < number; i++) {
+                // If we're just drawing 1, always draw 1, else draw up to hand size
+                let start = number == 1 ? 0 : this.drawn.length;
+
+                for (var i = start; i < number; i++) {
                     if (this.drawnCards.length >= this.deckCards.length) continue;
 
                     const randomCard = this.randomCard();
