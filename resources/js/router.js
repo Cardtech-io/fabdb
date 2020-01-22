@@ -14,6 +14,7 @@ import ExportDeck from './DeckBuilder/ExportDeck.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
+import Privacy from './Privacy.vue';
 import Login from './Auth/Login.vue';
 import Logout from './Auth/Logout.vue';
 
@@ -84,11 +85,8 @@ const router = new VueRouter({
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
-        ,
-        {
-            path: "/fabdb",
-            redirect: "/"
-        }
+        { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
+        { path: "/fabdb", redirect: "/" }
     ]
 });
 
