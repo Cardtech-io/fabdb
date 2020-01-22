@@ -49052,6 +49052,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'Your user profile',
       auth: true
     }
+  },, {
+    path: "/fabdb",
+    redirect: "/"
   }]
 });
 router.beforeResolve(function (to, from, next) {
