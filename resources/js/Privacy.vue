@@ -12,7 +12,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
-                <h2 class="text-lg font-serif mb-4 uppercase">Privacy Policy</h2>
+                <h2 class="text-4xl font-serif mb-4 uppercase sm:hidden">Privacy Policy</h2>
                 <p class="my-4">
                     Your privacy is important to us. And we actually mean that. It is FaB DB's policy to respect your
                     privacy regarding any information we may collect from you across our website, https://fabdb.net,

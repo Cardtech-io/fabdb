@@ -27898,9 +27898,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "bg-gray-200" }, [
       _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
-        _c("h2", { staticClass: "text-lg font-serif mb-4 uppercase" }, [
-          _vm._v("Privacy Policy")
-        ]),
+        _c(
+          "h2",
+          { staticClass: "text-4xl font-serif mb-4 uppercase sm:hidden" },
+          [_vm._v("Privacy Policy")]
+        ),
         _vm._v(" "),
         _c("p", { staticClass: "my-4" }, [
           _vm._v(
