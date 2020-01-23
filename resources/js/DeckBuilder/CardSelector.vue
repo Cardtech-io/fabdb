@@ -2,7 +2,7 @@
     <div>
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto px-4">
-                <card-search use-case="browse" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
+                <card-search use-case="build" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
             </div>
         </div>
 

@@ -55,6 +55,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
         }
 
+        if ($useCase == 'build') {
+            $query->whereNotIn('identifier', config('cards.banned'));
+        }
+
         if ($class) {
             $query->where(\DB::raw("JSON_EXTRACT(keywords, '$[0]')"), $class);
         }
@@ -97,7 +101,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');
         }
 
-        $query->orderBy('cards.identifier');
+        $query->orderBy('cards.id');
 
         return $query;
     }

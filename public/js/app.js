@@ -25752,7 +25752,7 @@ var render = function() {
         [
           _c("card-search", {
             attrs: {
-              "use-case": "browse",
+              "use-case": "build",
               wait: true,
               refreshable: false,
               limit: 25
