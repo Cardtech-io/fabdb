@@ -39,7 +39,7 @@ export default {
         },
 
         id: function(identifier) {
-            return this.identifierParts(identifier)[1].replace(/^0+/, '');
+            return this.identifierParts(identifier)[1].replace(/^0{1,2}/, '');
         },
 
         identifierParts: function(identifier) {

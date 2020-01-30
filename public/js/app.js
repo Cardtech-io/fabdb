@@ -46882,7 +46882,7 @@ __webpack_require__.r(__webpack_exports__);
       return colours[resource];
     },
     id: function id(identifier) {
-      return this.identifierParts(identifier)[1].replace(/^0+/, '');
+      return this.identifierParts(identifier)[1].replace(/^0{1,2}/, '');
     },
     identifierParts: function identifierParts(identifier) {
       return identifier.match(/.{3}/g);

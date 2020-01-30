@@ -1,5 +1,16 @@
 [
   {
+    "id": "000",
+    "set": "WTR",
+    "name": "Heart of Fyendal",
+    "rarity": "F",
+    "text": "When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1 [life].",
+    "keywords": ["generic", "resource", "gem"],
+    "stats": {
+      "resource": 3
+    }
+  },
+  {
     "id": "001",
     "set": "WTR",
     "name": "Rhinar, Reckless Rampage",
