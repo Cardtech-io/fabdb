@@ -15,7 +15,7 @@ mix.postCss('resources/css/fabdb.css', 'public/css', [
     require('tailwindcss')
 ]);
 
-mix.js('resources/js/app.js', 'public/js');
+mix.js('resources/js/app.js', 'public/js').version();
 
 if (mix.inProduction()) {
     mix.version();
