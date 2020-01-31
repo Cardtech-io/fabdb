@@ -48493,7 +48493,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     averageCost: function averageCost() {
       var totalCost = this.other.reduce(function (total, card) {
-        return total + card.stats.cost * card.total;
+        if (card.stats.cost) {
+          return total + card.stats.cost * card.total;
+        }
+
+        return total;
       }, 0);
       return (totalCost / this.totalOther).toFixed(2);
     },

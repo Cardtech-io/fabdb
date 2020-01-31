@@ -2,7 +2,11 @@ export default {
     computed: {
         averageCost: function() {
             const totalCost = this.other.reduce((total, card) => {
-                return total + card.stats.cost * card.total;
+                if (card.stats.cost) {
+                    return total + card.stats.cost * card.total;
+                }
+
+                return total;
             }, 0);
 
             return (totalCost / this.totalOther).toFixed(2);
