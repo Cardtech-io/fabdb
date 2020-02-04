@@ -4589,6 +4589,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -27255,6 +27265,43 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
+                  _vm.other.length
+                    ? _c("div", { staticClass: "mb-8" }, [
+                        _c(
+                          "h3",
+                          { staticClass: "p-2 font-serif uppercase text-2xl" },
+                          [_vm._v("Card totals")]
+                        ),
+                        _vm._v(" "),
+                        _c("ol", [
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v("Total cards: " + _vm._s(_vm.totalCards))
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v(
+                              "Attack actions: " +
+                                _vm._s(_vm.totalAttackActions)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v(
+                              "Attack reactions: " +
+                                _vm._s(_vm.totalAttackReactions)
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v(
+                              "Defense reactions: " +
+                                _vm._s(_vm.totalDefenseReactions)
+                            )
+                          ])
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _vm.other.length
                     ? _c("div", { staticClass: "mb-8" }, [
                         _c(

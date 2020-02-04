@@ -37,6 +37,16 @@
 
                     <div class="md:w-1/3 md:float-left pl-4">
                         <div v-if="other.length" class="mb-8">
+                            <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
+                            <ol>
+                                <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
+                                <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
+                                <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
+                                <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
+                            </ol>
+                        </div>
+
+                        <div v-if="other.length" class="mb-8">
                             <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
                             <ol>
                                 <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
