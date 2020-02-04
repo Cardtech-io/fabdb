@@ -3766,6 +3766,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -26107,7 +26117,7 @@ var render = function() {
                                   staticClass:
                                     "p-2 font-serif uppercase text-2xl"
                                 },
-                                [_vm._v("Deck stats")]
+                                [_vm._v("Card totals")]
                               ),
                               _vm._v(" "),
                               _c("ol", [
@@ -26121,6 +26131,54 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Attack actions: " +
+                                        _vm._s(_vm.totalAttackActions)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Attack reactions: " +
+                                        _vm._s(_vm.totalAttackReactions)
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Defense reactions: " +
+                                        _vm._s(_vm.totalDefenseReactions)
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.other.length
+                          ? _c("div", { staticClass: "mb-8" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "p-2 font-serif uppercase text-2xl"
+                                },
+                                [_vm._v("Deck stats")]
+                              ),
+                              _vm._v(" "),
+                              _c("ol", [
                                 _c(
                                   "li",
                                   { staticClass: "block p-1 pl-4 w-full" },
@@ -48547,6 +48605,15 @@ __webpack_require__.r(__webpack_exports__);
 
       return count + this.equipment.length + this.weapons.length;
     },
+    totalAttackActions: function totalAttackActions() {
+      return this.totalCardType(this.other, ['action', 'attack']);
+    },
+    totalAttackReactions: function totalAttackReactions() {
+      return this.totalCardType(this.other, ['attack', 'reaction']);
+    },
+    totalDefenseReactions: function totalDefenseReactions() {
+      return this.totalCardType(this.other, ['defense', 'reaction']);
+    },
     totalColoured: function totalColoured() {
       return {
         'blue': this.countColoured('blue'),
@@ -48578,6 +48645,23 @@ __webpack_require__.r(__webpack_exports__);
         return card.stats.resource == type;
       });
       return cards.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
+    },
+    totalCardType: function totalCardType(cards, keywords) {
+      return cards.reduce(function (total, card) {
+        var matches = 0;
+
+        for (var i = 0; i < keywords.length; i++) {
+          if (card.keywords.includes(keywords[i])) {
+            matches++;
+          }
+        }
+
+        if (matches < keywords.length) {
+          return total;
+        }
+
         return total + card.total;
       }, 0);
     }

@@ -67,6 +67,18 @@ export default {
             return count + this.equipment.length + this.weapons.length;
         },
 
+        totalAttackActions: function() {
+            return this.totalCardType(this.other, ['action', 'attack']);
+        },
+
+        totalAttackReactions: function() {
+            return this.totalCardType(this.other, ['attack', 'reaction']);
+        },
+
+        totalDefenseReactions: function() {
+            return this.totalCardType(this.other, ['defense', 'reaction']);
+        },
+
         totalColoured: function() {
             return {
                 'blue': this.countColoured('blue'),
@@ -96,6 +108,24 @@ export default {
             });
 
             return cards.reduce((total, card) => {
+                return total + card.total;
+            }, 0);
+        },
+
+        totalCardType: function(cards, keywords) {
+            return cards.reduce((total, card) => {
+                let matches = 0;
+
+                for (let i = 0; i < keywords.length; i++) {
+                    if (card.keywords.includes(keywords[i])) {
+                        matches++;
+                    }
+                }
+
+                if (matches < keywords.length) {
+                    return total;
+                }
+
                 return total + card.total;
             }, 0);
         }
