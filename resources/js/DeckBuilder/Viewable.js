@@ -89,6 +89,20 @@ export default {
     },
 
     methods: {
+        costCount: function(cost) {
+            const cards = this.other.filter(card => {
+                if (cost < 3) {
+                    return card.stats.cost == cost;
+                }
+
+                return card.stats.cost >= cost;
+            });
+
+            return cards.reduce((total, card) => {
+                return total + card.total;
+            }, 0);
+        },
+
         countColoured: function(colour) {
             const resources = {blue: 3, yellow: 2, red: 1};
             const cards = this.other.filter(card => { return card.stats.resource == resources[colour]});

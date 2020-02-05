@@ -3776,6 +3776,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -4494,6 +4498,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+//
+//
+//
+//
 //
 //
 //
@@ -26216,7 +26224,7 @@ var render = function() {
                                   { staticClass: "block p-1 pl-4 w-full" },
                                   [
                                     _vm._v(
-                                      "Pitch 3: " + _vm._s(_vm.pitchCount(3))
+                                      "Pitch 1: " + _vm._s(_vm.pitchCount(1))
                                     )
                                   ]
                                 ),
@@ -26236,7 +26244,47 @@ var render = function() {
                                   { staticClass: "block p-1 pl-4 w-full" },
                                   [
                                     _vm._v(
-                                      "Pitch 1: " + _vm._s(_vm.pitchCount(1))
+                                      "Pitch 3: " + _vm._s(_vm.pitchCount(3))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Cost 0: " + _vm._s(_vm.costCount(0))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Cost 1: " + _vm._s(_vm.costCount(1))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Cost 2: " + _vm._s(_vm.costCount(2))
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "li",
+                                  { staticClass: "block p-1 pl-4 w-full" },
+                                  [
+                                    _vm._v(
+                                      "Cost 3+: " + _vm._s(_vm.costCount(3))
                                     )
                                   ]
                                 )
@@ -27322,7 +27370,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Pitch 3: " + _vm._s(_vm.pitchCount(3)))
+                            _vm._v("Pitch 1: " + _vm._s(_vm.pitchCount(1)))
                           ]),
                           _vm._v(" "),
                           _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
@@ -27330,7 +27378,23 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Pitch 1: " + _vm._s(_vm.pitchCount(1)))
+                            _vm._v("Pitch 3: " + _vm._s(_vm.pitchCount(3)))
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v("Cost 0: " + _vm._s(_vm.costCount(0)))
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v("Cost 1: " + _vm._s(_vm.costCount(1)))
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v("Cost 2: " + _vm._s(_vm.costCount(2)))
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
+                            _vm._v("Cost 3+: " + _vm._s(_vm.costCount(3)))
                           ])
                         ])
                       ])
@@ -48670,6 +48734,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    costCount: function costCount(cost) {
+      var cards = this.other.filter(function (card) {
+        if (cost < 3) {
+          return card.stats.cost == cost;
+        }
+
+        return card.stats.cost >= cost;
+      });
+      return cards.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
+    },
     countColoured: function countColoured(colour) {
       var resources = {
         blue: 3,
