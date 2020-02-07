@@ -57,13 +57,14 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId)
+    public function updateProfile($email, $name, $gemId, $need)
     {
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
+        $this->need = $need;
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId));
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need));
 
         return $this;
     }

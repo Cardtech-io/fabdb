@@ -12,7 +12,8 @@ class UserController extends Controller
             $request->user()->id,
             $request->get('email'),
             $request->get('name'),
-            $request->get('gemId')
+            $request->get('gemId'),
+            $request->get('need')
         ));
     }
 }

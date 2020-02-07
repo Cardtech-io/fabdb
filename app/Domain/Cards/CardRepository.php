@@ -1,11 +1,12 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Users\User;
 use Illuminate\Database\Eloquent\Collection;
 
 interface CardRepository
 {
-    public function search(string $useCase, array $keywords, $class, $type, $view, int $userId = null);
+    public function search(string $useCase, array $keywords, $class, $type, $view, User $user = null);
 
     public function findByIdentifier(string $identifier, int $userId = null);
 

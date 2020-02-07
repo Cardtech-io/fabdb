@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Packs;
+use FabDB\Domain\Users\User;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -20,7 +21,7 @@ class CardController extends Controller
             $request->get('class'),
             $request->get('type'),
             $request->get('view', 'all'),
-            @$request->user()->id
+            $request->user() ?? new User
         )->paginate($request->get('per_page', 12))->appends($request->except('page'));
     }
 

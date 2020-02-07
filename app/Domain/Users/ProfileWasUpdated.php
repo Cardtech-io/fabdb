@@ -23,12 +23,18 @@ class ProfileWasUpdated
      */
     private $gemId;
 
-    public function __construct(int $userId, $email, $name, $gemId)
+    /**
+     * @var int
+     */
+    private $need;
+
+    public function __construct(int $userId, $email, $name, $gemId, $need)
     {
         $this->userId = $userId;
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
+        $this->need = $need;
     }
 
     public function userId(): int
@@ -49,5 +55,10 @@ class ProfileWasUpdated
     public function gemId()
     {
         return $this->gemId;
+    }
+
+    public function need(): int
+    {
+        return $this->need;
     }
 }

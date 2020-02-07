@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -22,11 +23,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * @param $class
      * @param $type
      * @param string $view
-     * @param int $userId
+     * @param User $user
      * @return \Illuminate\Database\Eloquent\Builder
-     * @internal param bool $restrict If provided, will restrict results to only those owned by the user.
      */
-    public function search(string $useCase, array $keywords, $class, $type, $view = 'all', int $userId = null)
+    public function search(string $useCase, array $keywords, $class, $type, $view = 'all', User $user = null)
     {
         $query = $this->newQuery();
         $query->select([
@@ -72,7 +72,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
         }
 
-        if ($userId) {
+        if ($user->id) {
             switch ($useCase) {
                 case 'collection':
                     // if we're viewing the collection then it's a straight join, otherwise it's a left join
@@ -83,9 +83,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                     $join = 'leftJoin';
             }
 
-            $query->$join('owned_cards', function($join) use ($userId) {
+            $query->$join('owned_cards', function($join) use ($user) {
                 $join->on('owned_cards.card_id', '=', 'cards.id');
-                $join->where('owned_cards.user_id', $userId);
+                $join->where('owned_cards.user_id', $user->id);
                 $join->where(function($clause) {
                     $clause->where('owned_cards.standard', '>', 0);
                     $clause->orWhere('owned_cards.foil', '>', 0);
@@ -95,7 +95,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
             // If their main search parameter is to find needed cards, then only show cards where there is no record of the owned card
             if ($view == 'need') {
-                $query->whereNull('owned_cards.id');
+                $query->where(function($clause) use ($user) {
+                    $clause->whereNull('owned_cards.id');
+                    $clause->orWhere('owned_cards.standard', '<', $user->need);
+                });
             }
 
             $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');

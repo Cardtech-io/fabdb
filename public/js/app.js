@@ -4816,6 +4816,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4860,6 +4877,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           value: gemId
         });
       }
+    },
+    need: {
+      get: function get() {
+        return this.user.need;
+      },
+      set: function set(need) {
+        this.setUserParam({
+          param: 'need',
+          value: need
+        });
+      }
     }
   }),
   data: function data() {
@@ -4881,7 +4909,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var data = {
         email: this.email,
         name: this.name,
-        gemId: this.gemId
+        gemId: this.gemId,
+        need: this.need
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/profile', data).then(function (response) {
         _this.addMessage({
@@ -27823,6 +27852,10 @@ var render = function() {
           { staticClass: "container sm:mx-auto bg-white py-8 px-8 md:flex" },
           [
             _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
+              _c("h2", { staticClass: "font-serif text-xl uppercase mb-4" }, [
+                _vm._v("Details")
+              ]),
+              _vm._v(" "),
               _c(
                 "form",
                 {
@@ -27936,6 +27969,67 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c(
+                    "h2",
+                    { staticClass: "font-serif text-xl uppercase mt-8 mb-4" },
+                    [_vm._v("Collection management")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-full mb-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("Cards required until no longer needed")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.need,
+                            expression: "need"
+                          }
+                        ],
+                        staticClass:
+                          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.need = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "3" } }, [_vm._v("3")])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-sm mt-2" }, [
+                      _vm._v(
+                        '\n                            When managing your collection, the default minimum cards required to satisfy the "need"\n                            metric, is 1. For example, setting this to 2, means the manager will continue to show\n                            those cards until you have 2 in your collection.\n                        '
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
                   _c("input", {
                     staticClass:
                       "appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
@@ -27990,7 +28084,7 @@ var render = function() {
               _vm._v(" "),
               _c("p", { staticClass: "my-4" }, [
                 _vm._v(
-                  "Some details, such as email address, are absolutely essential. Not for marketing, but\n                    purely for identification purposes, and application notifications."
+                  "Some details, such as email address, are absolutely essential. Not for marketing, but\n                    purely for identification purposes and application notifications."
                 )
               ]),
               _vm._v(" "),

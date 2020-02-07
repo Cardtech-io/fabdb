@@ -7,6 +7,7 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto bg-white py-8 px-8 md:flex">
                 <div class="md:w-1/2 md:pr-8">
+                    <h2 class="font-serif text-xl uppercase mb-4">Details</h2>
                     <form @submit.prevent="save">
                         <div class="w-full">
                             <label class="block font-serif uppercase tracking-wide mb-1">Email address</label>
@@ -19,6 +20,22 @@
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">GEM player ID</label>
                             <input type="text" v-model="gemId" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        </div>
+
+                        <h2 class="font-serif text-xl uppercase mt-8 mb-4">Collection management</h2>
+
+                        <div class="w-full mb-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Cards required until no longer needed</label>
+                            <select v-model="need" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <div class="text-sm mt-2">
+                                When managing your collection, the default minimum cards required to satisfy the "need"
+                                metric, is 1. For example, setting this to 2, means the manager will continue to show
+                                those cards until you have 2 in your collection.
+                            </div>
                         </div>
 
                         <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
@@ -40,7 +57,7 @@
 
                     <p class="my-4">At fabdb.net, we endeavour to collect as little information about you as possible.</p>
                     <p class="my-4">Some details, such as email address, are absolutely essential. Not for marketing, but
-                        purely for identification purposes, and application notifications.</p>
+                        purely for identification purposes and application notifications.</p>
                     <p>Other details, like name, gem id.etc. are only required if you use certain features. You will be
                         prompted for these if and when that occurs.</p>
                     <p class="my-4">Name for example, is only needed if you participate within the community, providing feedback and
@@ -96,6 +113,16 @@
                 set(gemId) {
                     this.setUserParam({ param: 'gemId', value: gemId });
                 }
+            },
+
+            need: {
+                get() {
+                    return this.user.need;
+                },
+
+                set(need) {
+                    this.setUserParam({ param: 'need', value: need });
+                }
             }
         },
 
@@ -121,6 +148,7 @@
                     email: this.email,
                     name: this.name,
                     gemId: this.gemId,
+                    need: this.need,
                 };
 
                 axios.put('/profile', data).then(response => {
