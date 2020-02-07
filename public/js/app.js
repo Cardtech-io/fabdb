@@ -48115,7 +48115,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   track: function track(category, action, label, value) {
     if (typeof ga !== 'undefined') {
-      ga('send', 'event', category, action, value);
+      gtag('event', action, {
+        'event_category': category,
+        'event_label': label,
+        'value': value
+      });
     }
   }
 });
