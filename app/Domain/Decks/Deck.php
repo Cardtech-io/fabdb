@@ -12,11 +12,10 @@ class Deck extends Model
     use Raiseable;
     use Sluggable;
 
-    protected $casts = [
-        'slug' => 'string'
-    ];
-
+    protected $appends = ['hero'];
+    protected $casts = ['slug' => 'string'];
     protected $hidden = ['id'];
+    protected $with = ['cards'];
 
     public function user()
     {
@@ -63,6 +62,11 @@ class Deck extends Model
     public function hasWeapon()
     {
         return $this->cards->hasWeapon();
+    }
+
+    public function getHeroAttribute()
+    {
+        return $this->cards->hero();
     }
 
     public function hero()

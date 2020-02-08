@@ -22,6 +22,8 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/{card}', 'CardController@view')->where('card', '^((?!(draft)|(browse)).)+');
         Route::get('packs/generate', 'CardController@generatePack');
 
+        Route::get('featured/top', 'FeatureController@top');
+
         Route::post('authenticate', 'AuthController@authenticate');
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');

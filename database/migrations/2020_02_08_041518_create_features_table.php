@@ -15,8 +15,10 @@ class CreateFeaturesTable extends Migration
     {
         Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->char('slug', 8);
             $table->bigInteger('featureable_id')->index();
             $table->string('featureable_type');
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }

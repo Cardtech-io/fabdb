@@ -3480,6 +3480,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['feature']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/AddDeck.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/AddDeck.vue?vue&type=script&lang=js& ***!
@@ -4648,6 +4678,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Content_FeaturedDeck_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Content/FeaturedDeck.vue */ "./resources/js/Content/FeaturedDeck.vue");
 //
 //
 //
@@ -4664,45 +4696,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    FeaturedDeck: _Content_FeaturedDeck_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      featured: null
+    };
+  },
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_0__["default"])(function (to, callback) {
+    axios.get('/featured/top').then(function (response) {
+      callback(function () {
+        this.featured = response.data;
+      });
+    });
+  })
+});
 
 /***/ }),
 
@@ -25636,6 +25648,44 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "sm:flex lg:block" },
+    [
+      _c("card-image", {
+        staticClass: "sm:w-1/2 lg:w-full",
+        attrs: { card: _vm.feature.featureable.hero }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-4 sm:w-1/2 sm:ml-2 lg:w-full font-serif" }, [
+        _vm._v(_vm._s(_vm.feature.title))
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/AddDeck.vue?vue&type=template&id=9e7bd282&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/AddDeck.vue?vue&type=template&id=9e7bd282& ***!
@@ -27596,195 +27646,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container sm:mx-auto text-white lg:flex" }, [
-    _c("div", { staticClass: "px-4 py-8 lg:my-20" }, [
-      _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
-        _vm._v("Welcome")
-      ]),
-      _vm._v(" "),
-      _c(
-        "p",
-        { staticClass: "my-4" },
-        [
-          _vm._v(
-            "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
-          ),
-          _c(
-            "router-link",
-            {
-              staticClass: "underline hover:text-orange-300",
-              attrs: { to: "/decks/build/" }
-            },
-            [_vm._v("deck builder")]
-          ),
-          _vm._v(", "),
-          _c(
-            "router-link",
-            {
-              staticClass: "underline hover:text-orange-300",
-              attrs: { to: "/collection/" }
-            },
-            [_vm._v("collection manager")]
-          ),
-          _vm._v(" and more.")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        { staticClass: "my-4" },
-        [
-          _vm._v(
-            "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
-          ),
-          _c(
-            "router-link",
-            {
-              staticClass: "underline hover:text-orange-300",
-              attrs: { to: "/support/" }
-            },
-            [_vm._v("Support page")]
-          ),
-          _vm._v(".")
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "mx-4 mb-8 bg-semi-black rounded-lg p-4 lg:my-20" },
-      [
+  return _c(
+    "div",
+    { staticClass: "container sm:mx-auto text-white lg:flex lg:my-20" },
+    [
+      _c("div", { staticClass: "px-4 py-8 lg:w-2/3" }, [
+        _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
+          _vm._v("Welcome")
+        ]),
+        _vm._v(" "),
         _c(
-          "h1",
-          { staticClass: "font-serif text-white text-4xl uppercase px-4" },
-          [_vm._v("Features")]
+          "p",
+          { staticClass: "my-4" },
+          [
+            _vm._v(
+              "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
+            ),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/decks/build/" }
+              },
+              [_vm._v("deck builder")]
+            ),
+            _vm._v(", "),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/collection/" }
+              },
+              [_vm._v("collection manager")]
+            ),
+            _vm._v(" and more.")
+          ],
+          1
         ),
         _vm._v(" "),
-        _c("ol", { staticClass: "text-white" }, [
-          _c(
-            "li",
+        _c(
+          "p",
+          { staticClass: "my-4" },
+          [
+            _vm._v(
+              "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
+            ),
+            _c(
+              "router-link",
+              {
+                staticClass: "underline hover:text-orange-300",
+                attrs: { to: "/support/" }
+              },
+              [_vm._v("Support page")]
+            ),
+            _vm._v(".")
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _vm.featured
+        ? _c(
+            "div",
+            { staticClass: "mx-4 mb-8 bg-semi-black rounded-lg p-4" },
             [
-              _c("router-link", { attrs: { to: "/cards/browse/" } }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "inline-block hover:bg-black hover:text-orange-300 rounded-lg p-4"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass:
-                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          viewBox: "0 0 20 20"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12z"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(
-                      "\n\n                        Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,\n                        or add to that tournament-winning deck!\n                    "
-                    )
-                  ]
-                )
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "mt-4" },
-            [
-              _c("router-link", { attrs: { to: "/collection/" } }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass:
-                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          viewBox: "0 0 20 20"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: { d: "M0 11l2-2 5 5L18 3l2 2L7 18z" }
-                        })
-                      ]
-                    ),
-                    _vm._v(
-                      "\n\n                        Manage your collection by adding and removing cards, recording the foils and promos you own, and share what you are\n                        looking for, or willing to trade!\n                    "
-                    )
-                  ]
-                )
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "mt-4" },
-            [
-              _c("router-link", { attrs: { to: "/decks/build/" } }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass:
-                          "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          viewBox: "0 0 20 20"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(
-                      "\n\n                        Craft decks by selecting your hero, weapons & equipment and the cards they'll\n                        need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!\n                    "
-                    )
-                  ]
-                )
-              ])
+              _c(
+                "router-link",
+                { attrs: { to: "/featured/" + _vm.featured.slug } },
+                [
+                  _vm.featured.isDeck
+                    ? _c("featured-deck", { attrs: { feature: _vm.featured } })
+                    : _vm._e()
+                ],
+                1
+              )
             ],
             1
           )
-        ])
-      ]
-    )
-  ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48123,6 +48064,75 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/Content/FeaturedDeck.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Content/FeaturedDeck.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FeaturedDeck.vue?vue&type=template&id=51cfb9ea& */ "./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea&");
+/* harmony import */ var _FeaturedDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FeaturedDeck.vue?vue&type=script&lang=js& */ "./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FeaturedDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Content/FeaturedDeck.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FeaturedDeck.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Content/FeaturedDeck.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FeaturedDeck.vue?vue&type=template&id=51cfb9ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Content/FeaturedDeck.vue?vue&type=template&id=51cfb9ea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FeaturedDeck_vue_vue_type_template_id_51cfb9ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
