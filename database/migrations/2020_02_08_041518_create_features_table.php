@@ -15,8 +15,8 @@ class CreateFeaturesTable extends Migration
     {
         Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('foreign_id')->index();
-            $table->string('type');
+            $table->bigInteger('featureable_id')->index();
+            $table->string('featureable_type');
             $table->timestamps();
         });
     }
