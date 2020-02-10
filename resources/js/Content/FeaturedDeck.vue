@@ -1,7 +1,10 @@
 <template>
     <div class="sm:flex lg:block">
         <card-image :card="feature.featureable.hero" class="sm:w-1/2 lg:w-full"></card-image>
-        <div class="mt-4 sm:w-1/2 sm:ml-2 lg:w-full font-serif">{{ feature.title }}</div>
+        <div class="mt-4 sm:w-1/2 sm:ml-2 lg:w-full">
+            <h2 class="font-serif uppercase text-lg mb-2">Winning the Calling $10k</h2>
+            <p class="text-gray-400">{{ feature.title }}</p>
+        </div>
     </div>
 </template>
 

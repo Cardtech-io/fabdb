@@ -3498,6 +3498,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4680,6 +4683,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Content_FeaturedDeck_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Content/FeaturedDeck.vue */ "./resources/js/Content/FeaturedDeck.vue");
+//
+//
 //
 //
 //
@@ -25672,8 +25677,14 @@ var render = function() {
         attrs: { card: _vm.feature.featureable.hero }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-4 sm:w-1/2 sm:ml-2 lg:w-full font-serif" }, [
-        _vm._v(_vm._s(_vm.feature.title))
+      _c("div", { staticClass: "mt-4 sm:w-1/2 sm:ml-2 lg:w-full" }, [
+        _c("h2", { staticClass: "font-serif uppercase text-lg mb-2" }, [
+          _vm._v("Winning the Calling $10k")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-gray-400" }, [
+          _vm._v(_vm._s(_vm.feature.title))
+        ])
       ])
     ],
     1
@@ -27705,25 +27716,29 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm.featured
-        ? _c(
-            "div",
-            { staticClass: "mx-4 mb-8 bg-semi-black rounded-lg p-4" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/featured/" + _vm.featured.slug } },
-                [
-                  _vm.featured.isDeck
-                    ? _c("featured-deck", { attrs: { feature: _vm.featured } })
-                    : _vm._e()
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _vm._e()
+      _c("div", { staticClass: "mx-4 lg:w-1/3" }, [
+        _vm.featured
+          ? _c(
+              "div",
+              { staticClass: "mb-8 bg-semi-black rounded-lg p-4" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/featured/" + _vm.featured.slug } },
+                  [
+                    _vm.featured.isDeck
+                      ? _c("featured-deck", {
+                          attrs: { feature: _vm.featured }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          : _vm._e()
+      ])
     ]
   )
 }

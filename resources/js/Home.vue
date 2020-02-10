@@ -6,10 +6,12 @@
             <p class="my-4">FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our <router-link to="/support/" class="underline hover:text-orange-300">Support page</router-link>.</p>
         </div>
 
-        <div class="mx-4 mb-8 bg-semi-black rounded-lg p-4" v-if="featured">
-            <router-link :to="'/featured/' + featured.slug">
-                <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
-            </router-link>
+        <div class="mx-4 lg:w-1/3">
+            <div class="mb-8 bg-semi-black rounded-lg p-4" v-if="featured">
+                <router-link :to="'/featured/' + featured.slug">
+                    <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
