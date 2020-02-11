@@ -5,9 +5,12 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
-                <div class="md:w-2/3 md:float-right sm:px-4 md:pl-8">
-                    <h2 class="font-serif text-4xl uppercase hidden md:block">{{ card.name }} - {{ card.identifier }}</h2>
-                    <p class="p-4 sm:px-0 sm:pb-0">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
+                <div class="md:w-1/3 md:float-left p-4 md:py-0">
+                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
+                </div>
+
+                <div class="md:w-2/3 md:float-right">
+                    <p class="p-4 pt-0 sm:p-0">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/3 p-2 px-4">Rarity</div>
@@ -16,9 +19,9 @@
                         <li class="clearfix">
                             <div class="float-left w-1/3 p-2 px-4">Keywords</div>
                             <div class="float-left w-2/3 p-2 px-4">
-                            <span v-for="(keyword, index) in card.keywords">
-                                <router-link :to="'/cards/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
-                            </span>
+                                <span v-for="(keyword, index) in card.keywords">
+                                    <router-link :to="'/cards/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
+                                </span>
                             </div>
                         </li>
                         <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white">
@@ -26,11 +29,17 @@
                             <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                         </li>
                     </ul>
+
+                    <div>
+                        <hr class="text-gray-500">
+                        <!-- comments -->
+                        <div></div>
+
+                        <!-- post a comment -->
+                        <respond type="card" :slug="card.slug"></respond>
+                    </div>
                 </div>
 
-                <div class="md:w-1/3 md:float-left p-4 md:py-0">
-                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
-                </div>
             </div>
         </div>
     </div>
@@ -41,13 +50,15 @@
     import Cardable from './Cardable.js';
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Respond from '../Discussion/Respond.vue';
 
     export default {
         mixins: [Cardable],
 
         components: {
             Breadcrumbs,
-            HeaderTitle
+            HeaderTitle,
+            Respond
         },
 
         computed: {

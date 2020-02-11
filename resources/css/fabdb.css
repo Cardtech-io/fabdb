@@ -85,6 +85,18 @@ footer.footer .link:hover {
     @apply outline-none;
 }
 
+.input-white {
+    @apply appearance-none;
+    @apply block;
+    @apply w-full;
+    @apply bg-white;
+    @apply text-gray-700;
+    @apply border;
+    @apply border-gray-200;
+    @apply leading-tight;
+    @apply outline-none;
+}
+
 .pdf-totals-right {
     border-color: #a0aec0 #000 #a0aec0 #a0aec0;
 }

@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Cards;
+use FabDB\Domain\Comments\Comment;
 use FabDB\Library\Model;
 
 class Card extends Model
@@ -12,6 +13,11 @@ class Card extends Model
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'keywords', 'stats'];
     protected $hidden = ['id'];
     protected $appends = ['total'];
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 
     public function newCollection(array $models = [])
     {
