@@ -43610,7 +43610,7 @@ var render = function() {
                 "mt-4 sm:mt-0 lg:mt-4 sm:w-1/2 sm:ml-4 lg:ml-0 lg:w-full"
             },
             [
-              _c("h2", { staticClass: "font-serif uppercase text-lg mb-2" }, [
+              _c("h2", { staticClass: "font-serif uppercase text-2xl mb-2" }, [
                 _vm._v(_vm._s(_vm.feature.title))
               ]),
               _vm._v(" "),
