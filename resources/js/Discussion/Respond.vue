@@ -19,7 +19,7 @@
     import axios from 'axios';
 
     export default {
-        props: [ 'type', 'slug' ],
+        props: [ 'type', 'foreign' ],
 
         computed: {
             ...mapGetters('session', ['user']),
@@ -57,11 +57,12 @@
 
                 axios.post('/comment/', {
                     type: this.type,
-                    slug: this.slug,
+                    foreign: this.foreign,
                     content: this.content
                 }).then(response => {
                     this.addMessage({ status: 'success', message: 'Comment posted.' });
                     this.saving = false;
+                    this.$emit('comment-posted', response.data);
                 });
             }
         }

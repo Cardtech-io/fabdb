@@ -33,13 +33,12 @@
                     <div>
                         <hr class="text-gray-500">
                         <!-- comments -->
-                        <div></div>
+                        <comment v-for="comment in card.comments" :key="comment.slug" :comment="comment"></comment>
 
                         <!-- post a comment -->
-                        <respond type="card" :slug="card.slug"></respond>
+                        <respond type="card" :foreign="card.identifier" @comment-posted="addComment"></respond>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -51,12 +50,14 @@
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Respond from '../Discussion/Respond.vue';
+    import Comment from '../Discussion/Comment.vue';
 
     export default {
         mixins: [Cardable],
 
         components: {
             Breadcrumbs,
+            Comment,
             HeaderTitle,
             Respond
         },
@@ -93,6 +94,10 @@
         },
 
         methods: {
+            addComment: function(comment) {
+                this.card.comments.push(comment);
+            },
+
             keywords: function() {
                 var keywords = this.card.keywords;
 

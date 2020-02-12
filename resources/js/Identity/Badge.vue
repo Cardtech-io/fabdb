@@ -1,5 +1,5 @@
 <template>
-    <span class="inline-block rounded-full text-white px-4 py-2" :class="subscriptionColour">{{ ucfirst(subscriptionLevel) }}</span>
+    <span class="inline-block rounded-full text-white" :class="classes">{{ ucfirst(subscriptionLevel) }}</span>
 </template>
 
 <script>
@@ -7,10 +7,10 @@
 
     export default {
         mixins: [Cardable],
-        props: ['subscriptionLevel'],
+        props: ['subscriptionLevel', 'size'],
 
         computed: {
-            subscriptionColour: function () {
+            classes: function () {
                 const levels = {
                     supporter: 'bg-blue-400',
                     majestic: 'bg-yellow-500',
@@ -18,7 +18,20 @@
                     fabled: 'bg-green-400'
                 };
 
-                return levels[this.subscriptionLevel];
+                let classes = {};
+
+                classes[levels[this.subscriptionLevel]] = true;
+
+                if (this.size === 'small') {
+                    classes['px-3'] = true;
+                    classes['py-1'] = true;
+                    classes['text-xs'] = true;
+                } else {
+                    classes['px-4'] = true;
+                    classes['py-2'] = true;
+                }
+
+                return classes;
             }
         }
     };

@@ -174,9 +174,10 @@ return [
         FabDB\Providers\EventServiceProvider::class,
         FabDB\Providers\RouteServiceProvider::class,
         FabDB\Domain\Cards\CardsServiceProvider::class,
-        FabDB\Domain\Users\UsersServiceProvider::class,
         FabDB\Domain\Collection\CollectionServiceProvider::class,
+        FabDB\Domain\Comments\CommentServiceProvider::class,
         FabDB\Domain\Decks\DecksServiceProvider::class,
+        FabDB\Domain\Users\UsersServiceProvider::class,
     ],
 
     /*

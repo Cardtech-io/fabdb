@@ -27,6 +27,10 @@ class CardController extends Controller
 
     public function view(Card $card)
     {
+        $card->load(['comments', 'comments.user' => function($with) {
+            $with->select('users.id', 'users.name', 'users.slug', 'users.subscription');
+        }]);
+
         return $card;
     }
 

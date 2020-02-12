@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->char('slug', 8)->index();
             $table->string('commentable_type');
             $table->bigInteger('commentable_id');
+            $table->bigInteger('user_id')->index();
             $table->text('content');
             $table->timestamps();
             $table->index(['commentable_type', 'commentable_id']);
