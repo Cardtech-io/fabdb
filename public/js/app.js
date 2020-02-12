@@ -43557,15 +43557,22 @@ var render = function() {
             attrs: { card: _vm.feature.featureable }
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-4 sm:w-1/2 sm:ml-2 lg:w-full" }, [
-            _c("h2", { staticClass: "font-serif uppercase text-lg mb-2" }, [
-              _vm._v(_vm._s(_vm.feature.title))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-400" }, [
-              _vm._v(_vm._s(_vm.feature.excerpt))
-            ])
-          ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "mt-4 sm:mt-0 lg:mt-4 sm:w-1/2 sm:ml-4 lg:ml-0 lg:w-full"
+            },
+            [
+              _c("h2", { staticClass: "font-serif uppercase text-lg mb-2" }, [
+                _vm._v(_vm._s(_vm.feature.title))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-gray-400" }, [
+                _vm._v(_vm._s(_vm.feature.excerpt))
+              ])
+            ]
+          )
         ],
         1
       )
