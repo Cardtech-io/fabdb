@@ -4,7 +4,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" v-if="card">
+            <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix">
                 <div class="md:w-1/3 md:float-left p-4 md:py-0">
                     <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
@@ -30,8 +30,9 @@
                         </li>
                     </ul>
 
-                    <hr class="text-gray-500">
-                    <h2 class="font-serif uppercase text-lg mt-4 px-4 sm:px-0">{{ comments ? comments.length : 0 }} comments.</h2>
+                    <hr class="text-gray-500 mt-4">
+
+                    <comment-count :comments="comments"></comment-count>
 
                     <div v-if="comments">
                         <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
@@ -46,19 +47,23 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Respond from '../Discussion/Respond.vue';
     import Comment from '../Discussion/Comment.vue';
+    import CommentCount from '../Discussion/CommentCount.vue';
 
     export default {
-        mixins: [Cardable],
+        mixins: [ Cardable ],
 
         components: {
             Breadcrumbs,
             Comment,
+            CommentCount,
             HeaderTitle,
             Respond
         },

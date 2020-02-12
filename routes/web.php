@@ -40,9 +40,10 @@ Route::middleware(['web'])->group(function() {
             Route::put('profile/name', 'UserController@updateName');
             Route::put('profile', 'UserController@updateProfile');
 
-            Route::get('comments/{type}/{foreign}', 'CommentController@list');
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
         });
+
+        Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
         Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build|test).)+');
     });
