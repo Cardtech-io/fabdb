@@ -35,7 +35,7 @@ class ValidateAuthenticationCode implements Loggable
     {
         $user = $users->findByEmailAndToken($this->email, $this->code);
 
-        //$user->clearToken();
+        $user->clearToken();
         $users->save($user);
 
         $this->observer->codeValidated($user);
