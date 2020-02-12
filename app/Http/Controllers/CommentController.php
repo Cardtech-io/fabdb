@@ -6,11 +6,12 @@ use FabDB\Domain\Comments\CommentableType;
 use FabDB\Domain\Comments\CommentRepository;
 use FabDB\Domain\Comments\PostComment;
 use FabDB\Domain\Comments\PostCommentObserver;
+use FabDB\Http\Requests\PostCommentRequest;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function post(Request $request)
+    public function post(PostCommentRequest $request)
     {
         $this->dispatchNow(new PostComment(
             $observer = new PostCommentObserver,
