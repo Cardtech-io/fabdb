@@ -69,6 +69,13 @@ class User extends Model implements Authenticatable
         return $this;
     }
 
+    public function updateName(string $name)
+    {
+        $this->name = $name;
+
+        $this->raise(new NameWasUpdated($this->id, $name));
+    }
+
     private function generateAuthToken()
     {
         $parts = [];

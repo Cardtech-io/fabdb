@@ -8,9 +8,8 @@
 
         <div class="mx-4 lg:w-1/3">
             <div class="mb-8 bg-semi-black rounded-lg p-4" v-if="featured">
-                <router-link :to="'/featured/' + featured.slug">
-                    <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
-                </router-link>
+                <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
+                <featured-card :feature="featured" v-if="featured.isCard"></featured-card>
             </div>
         </div>
     </div>
@@ -18,10 +17,11 @@
 
 <script>
     import LazyLoader from './Components/LazyLoader';
+    import FeaturedCard from './Content/FeaturedCard.vue';
     import FeaturedDeck from './Content/FeaturedDeck.vue';
 
     export default {
-        components: { FeaturedDeck },
+        components: { FeaturedCard, FeaturedDeck },
 
         data() {
             return {

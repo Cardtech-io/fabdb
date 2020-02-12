@@ -21,7 +21,7 @@
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '{{env('ANALYTICS_ID')}}');
+                gtag('config', '{{ env('ANALYTICS_ID') }}');
             </script>
         @endif
     </head>

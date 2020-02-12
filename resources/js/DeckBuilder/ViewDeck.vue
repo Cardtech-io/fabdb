@@ -1,8 +1,8 @@
 <template>
     <div>
-        <header-title :title="hero.name + ' (' + deck.name + ')'"></header-title>
+        <header-title :title="deck.name + ' (' + hero.name + ')'"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4" v-if="deck">
+        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
             <div class="container sm:mx-auto flex">
                 <div class="flex-1">
                     <p>
@@ -102,42 +102,76 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="">
+                    <hr class="text-gray-500 mt-4">
+
+                    <comment-count :comments="comments"></comment-count>
+
+                    <div v-if="comments">
+                        <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
+                    </div>
+
+                    <!-- post a comment -->
+                    <respond type="deck" :foreign="deck.slug" @comment-posted="addComment"></respond>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import axios from 'axios';
+
     import Cardable from '../CardDatabase/Cardable';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
+    import Respond from '../Discussion/Respond.vue';
+    import Comment from '../Discussion/Comment.vue';
+    import CommentCount from '../Discussion/CommentCount.vue';
 
     export default {
         mixins: [ Cardable, Viewable ],
 
-        components: { HeaderTitle },
+        components: {
+            Comment,
+            CommentCount,
+            HeaderTitle,
+            Respond
+        },
 
         data() {
             return {
+                cards: [],
+                comments: null,
                 deck: null,
-                cards: []
+            }
+        },
+
+        methods: {
+            addComment: function(comment) {
+                this.comments.push(comment);
             }
         },
 
         metaInfo() {
             return {
-                title: this.deck ? 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')' : 'Loading...'
-            }
+                title: this.hero ? 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')' : 'Loading...'
+            };
         },
 
         extends: LazyLoader((to, callback) => {
-            axios.get('/decks/' + to.params.deck + '').then(response => {
+            let deck = axios.get('/decks/' + to.params.deck);
+            let comments = axios.get('/comments/deck/' + to.params.deck);
+
+            axios.all([deck, comments]).then(axios.spread((...responses) => {
                 callback(function() {
-                    this.deck = response.data;
+                    this.deck = responses[0].data;
                     this.cards = this.deck.cards;
+                    this.comments = responses[1].data;
                 })
-            });
+            }));
         })
     };
 </script>
