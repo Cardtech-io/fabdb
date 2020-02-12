@@ -45842,7 +45842,7 @@ var render = function() {
         "div",
         {
           staticClass: "px-4 py-8 lg:w-2/3",
-          class: _vm.featured ? "w-1/2" : ""
+          class: _vm.featured ? "w-1/4" : ""
         },
         [
           _c(
@@ -45919,7 +45919,7 @@ var render = function() {
               1
             )
           ])
-        : _c("div", { staticClass: "px-4 w-full lg:w-1/2 lg-my-10" }, [
+        : _c("div", { staticClass: "px-4 w-full lg:w-3/4 lg-my-10" }, [
             _c("div", { staticClass: "bg-semi-black rounded-lg p-4" }, [
               _c(
                 "h1",
