@@ -65,6 +65,7 @@
                 }).then(response => {
                     this.addMessage({ status: 'success', message: 'Comment posted.' });
                     this.saving = false;
+                    this.content = '';
                     this.$emit('comment-posted', response.data);
                 });
             }

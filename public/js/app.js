@@ -4928,6 +4928,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
 
         _this.saving = false;
+        _this.content = '';
 
         _this.$emit('comment-posted', response.data);
       });
