@@ -6,7 +6,7 @@
             </div>
 
             <div class="w-full mt-1">
-                <textarea type="text" v-model="content" class="input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" placeholder="When commenting, please refrain from using coarse language or saying anything rude, thank you. Comments can and will be removed at moderator discretion."></textarea>
+                <textarea type="text" v-model="content" class="input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" :placeholder="'Type here to comment on this ' + type + '.'"></textarea>
             </div>
 
             <input type="submit" value="Comment" class="appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
@@ -55,7 +55,7 @@
                     axios.put('/profile/name', { name: this.name });
                 }
 
-                axios.post('/comment/', {
+                axios.post('/comments/', {
                     type: this.type,
                     foreign: this.foreign,
                     content: this.content

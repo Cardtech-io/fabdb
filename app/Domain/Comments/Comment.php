@@ -15,28 +15,26 @@ class Comment extends Model
 
     protected $hidden = ['id', 'userId', 'commentableType', 'commentableId'];
 
-    static $typeMap = [
-        'card' => Card::class,
-        'deck' => Deck::class,
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public static function post(string $type, int $foreignId, int $userId, string $content)
+    public static function post(CommentableType $type, int $foreignId, int $userId, string $content)
     {
-        $commentableType = static::$typeMap[$type];
-
         $comment = new Comment;
-        $comment->commentableType = $commentableType;
+        $comment->commentableType = $type;
         $comment->commentableId = $foreignId;
         $comment->userId = $userId;
         $comment->content = $content;
 
-        $comment->raise(new CommentWasPosted($commentableType, $foreignId, $userId, $content));
+        $comment->raise(new CommentWasPosted($type, $foreignId, $userId, $content));
 
         return $comment;
+    }
+
+    public static function setCommentableType(CommentableType $type)
+    {
+        $this->attributes['commentableType'] = (string) $type;
     }
 }

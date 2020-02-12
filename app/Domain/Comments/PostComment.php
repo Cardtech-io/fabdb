@@ -41,7 +41,7 @@ class PostComment
     {
         $foreignId = $commentable->getId($this->type, $this->foreign);
 
-        $comment = Comment::post($this->type, $foreignId, $this->userId, $this->content);
+        $comment = Comment::post(CommentableType::fromRaw($this->type), $foreignId, $this->userId, $this->content);
 
         $comments->save($comment);
 

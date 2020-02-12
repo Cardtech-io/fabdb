@@ -9,7 +9,7 @@
                     <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
 
-                <div class="md:w-2/3 md:float-right">
+                <div class="md:w-2/3 md:float-right sm:px-4">
                     <p class="p-4 pt-0 sm:p-0">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
@@ -30,14 +30,15 @@
                         </li>
                     </ul>
 
-                    <div>
-                        <hr class="text-gray-500">
-                        <!-- comments -->
-                        <comment v-for="comment in card.comments" :key="comment.slug" :comment="comment"></comment>
+                    <hr class="text-gray-500">
+                    <h2 class="font-serif uppercase text-xl mt-4 px-4 sm:px-0">{{ comments ? comments.length : 0 }} comments.</h2>
 
-                        <!-- post a comment -->
-                        <respond type="card" :foreign="card.identifier" @comment-posted="addComment"></respond>
+                    <div v-if="comments">
+                        <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
                     </div>
+
+                    <!-- post a comment -->
+                    <respond type="card" :foreign="card.identifier" @comment-posted="addComment"></respond>
                 </div>
             </div>
         </div>
@@ -89,13 +90,14 @@
 
         data() {
             return {
-                card: null
+                card: null,
+                comments: null,
             }
         },
 
         methods: {
             addComment: function(comment) {
-                this.card.comments.push(comment);
+                this.comments.push(comment);
             },
 
             keywords: function() {
@@ -125,11 +127,15 @@
         },
 
         extends: LazyLoader((to, callback) => {
-            axios.get('/cards/' + to.params.identifier).then(response => {
+            let card = axios.get('/cards/' + to.params.identifier);
+            let comments = axios.get('/comments/card/' + to.params.identifier);
+
+            axios.all([card, comments]).then(axios.spread((...responses) => {
                 callback(function() {
-                    this.card = response.data;
+                    this.card = responses[0].data;
+                    this.comments = responses[1].data;
                 })
-            });
+            }));
         })
     }
 </script>

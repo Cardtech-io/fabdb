@@ -1,6 +1,9 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Comments\Commentable;
+use FabDB\Domain\Comments\CommentableType;
+use FabDB\Domain\Comments\CommentRepository;
 use FabDB\Domain\Comments\PostComment;
 use FabDB\Domain\Comments\PostCommentObserver;
 use Illuminate\Http\Request;
@@ -18,5 +21,14 @@ class CommentController extends Controller
         ));
 
         return $observer->comment();
+    }
+
+    public function list(Request $request, CommentRepository $comments, Commentable $commentable)
+    {
+        $commentableType = CommentableType::fromRaw($request->type);
+
+        $foreignId = $commentable->getId($request->type, $request->foreign);
+
+        return $comments->get($commentableType, $foreignId, 10);
     }
 }

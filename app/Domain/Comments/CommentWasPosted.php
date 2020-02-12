@@ -4,7 +4,7 @@ namespace FabDB\Domain\Comments;
 class CommentWasPosted
 {
     /**
-     * @var string
+     * @var CommentableType
      */
     private $commentableType;
 
@@ -23,7 +23,7 @@ class CommentWasPosted
      */
     private $content;
 
-    public function __construct(string $commentableType, int $foreignId, int $userId, string $content)
+    public function __construct(CommentableType $commentableType, int $foreignId, int $userId, string $content)
     {
         $this->commentableType = $commentableType;
         $this->foreignId = $foreignId;
