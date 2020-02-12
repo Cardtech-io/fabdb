@@ -42500,7 +42500,7 @@ var render = function() {
                       "h2",
                       {
                         staticClass:
-                          "font-serif uppercase text-xl mt-4 px-4 sm:px-0"
+                          "font-serif uppercase text-lg mt-4 px-4 sm:px-0"
                       },
                       [
                         _vm._v(
@@ -45761,7 +45761,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "span",
-    { staticClass: "inline-block rounded-full text-white", class: _vm.classes },
+    {
+      staticClass: "inline-block rounded-full text-white uppercase font-serif",
+      class: _vm.classes
+    },
     [_vm._v(_vm._s(_vm.ucfirst(_vm.subscriptionLevel)))]
   )
 }

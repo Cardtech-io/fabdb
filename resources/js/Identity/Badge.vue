@@ -1,5 +1,5 @@
 <template>
-    <span class="inline-block rounded-full text-white" :class="classes">{{ ucfirst(subscriptionLevel) }}</span>
+    <span class="inline-block rounded-full text-white uppercase font-serif" :class="classes">{{ ucfirst(subscriptionLevel) }}</span>
 </template>
 
 <script>

@@ -31,7 +31,7 @@
                     </ul>
 
                     <hr class="text-gray-500">
-                    <h2 class="font-serif uppercase text-xl mt-4 px-4 sm:px-0">{{ comments ? comments.length : 0 }} comments.</h2>
+                    <h2 class="font-serif uppercase text-lg mt-4 px-4 sm:px-0">{{ comments ? comments.length : 0 }} comments.</h2>
 
                     <div v-if="comments">
                         <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
