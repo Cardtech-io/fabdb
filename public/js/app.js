@@ -2862,19 +2862,19 @@ __webpack_require__.r(__webpack_exports__);
         content: 'View Flesh & Blood card, ' + this.card.name + '.'
       }, {
         vmid: 'og:url',
-        name: 'og:url',
+        property: 'og:url',
         content: window.location.href
       }, {
         vmid: 'og:type',
-        name: 'og:type',
+        property: 'og:type',
         content: 'website'
       }, {
         vmid: 'og:title',
-        name: 'og:title',
+        property: 'og:title',
         content: this.card.name + ' - ' + this.card.identifier
       }, {
         vmid: 'og:image',
-        name: 'og:image',
+        property: 'og:image',
         content: this.cardUrl(this.card.identifier, 450, true)
       }]
     };
