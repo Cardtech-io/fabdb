@@ -1907,15 +1907,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'og:image',
       property: 'og:image',
-      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo-small.png'
+      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png'
     }, {
       vmid: 'og:width',
       property: 'og:width',
-      content: 150
+      content: 210
     }, {
       vmid: 'og:height',
       property: 'og:height',
-      content: 145
+      content: 202
     }]
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
