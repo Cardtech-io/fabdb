@@ -7,7 +7,7 @@
                 <p class="text-gray-400">{{ feature.title }}</p>
             </div>
         </div>
-    <router-link>
+    </router-link>
 </template>
 
 <script>

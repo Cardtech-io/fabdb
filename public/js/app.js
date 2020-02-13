@@ -1886,7 +1886,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Navigation: _Components_Navigation_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   metaInfo: {
-    title: 'Flesh & Blood TCG Card Manager, Deck Builder and more!',
+    title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
     titleTemplate: '%s | fabdb.net',
     meta: [{
       vmid: 'description',
@@ -2860,6 +2860,22 @@ __webpack_require__.r(__webpack_exports__);
         vmid: 'description',
         name: 'description',
         content: 'View Flesh & Blood card, ' + this.card.name + '.'
+      }, {
+        vmid: 'og:url',
+        name: 'og:url',
+        content: window.location.href
+      }, {
+        vmid: 'og:type',
+        name: 'og:type',
+        content: 'website'
+      }, {
+        vmid: 'og:title',
+        name: 'og:title',
+        content: this.card.name + ' - ' + this.card.identifier
+      }, {
+        vmid: 'og:image',
+        name: 'og:image',
+        content: this.cardUrl(this.card.identifier, 450)
       }]
     };
   },
@@ -43644,8 +43660,40 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "router-link",
+    { attrs: { to: "/featured/" + _vm.featured.slug } },
+    [
+      _c(
+        "div",
+        { staticClass: "sm:flex lg:block" },
+        [
+          _c("card-image", {
+            staticClass: "sm:w-1/2 lg:w-full",
+            attrs: { card: _vm.feature.featureable.hero }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-4 sm:w-1/2 sm:ml-2 lg:w-full" }, [
+            _c("h2", { staticClass: "font-serif uppercase text-lg mb-2" }, [
+              _vm._v("Winning the Calling $10k")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-400" }, [
+              _vm._v(_vm._s(_vm.feature.title))
+            ])
+          ])
+        ],
+        1
+      )
+    ]
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
