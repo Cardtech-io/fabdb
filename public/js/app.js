@@ -2879,7 +2879,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:description',
         property: 'og:description',
-        content: this.card.description
+        content: this.card.text
       }, {
         vmid: 'og:image',
         property: 'og:image',
