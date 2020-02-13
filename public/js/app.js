@@ -1903,11 +1903,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'og:description',
       property: 'og:description',
-      content: 'fabdb.net is your one-stop shop for all your Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.'
+      content: 'fabdb.net is the #1 website for any Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.'
     }, {
       vmid: 'og:image',
       property: 'og:image',
-      content: 'https://' + window.location.host + '/img/fab-facebook-logo.png'
+      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png'
     }]
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
