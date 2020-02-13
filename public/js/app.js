@@ -1907,7 +1907,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'og:image',
       property: 'og:image',
-      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png'
+      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202'
     }, {
       vmid: 'og:width',
       property: 'og:width',

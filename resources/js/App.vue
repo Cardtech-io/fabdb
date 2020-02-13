@@ -43,7 +43,7 @@
                 { vmid: 'fb:app_id', property: 'fb:app_id', content: 269161470718107 },
                 { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood TCG deck builder, collection manager,and more!' },
                 { vmid: 'og:description', property: 'og:description', content: 'fabdb.net is the #1 website for any Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.' },
-                { vmid: 'og:image', property: 'og:image', content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png' },
+                { vmid: 'og:image', property: 'og:image', content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202' },
                 { vmid: 'og:width', property: 'og:width', content: 210 },
                 { vmid: 'og:height', property: 'og:height', content: 202 }
             ]
