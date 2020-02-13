@@ -4,7 +4,8 @@ import NProgress from 'nprogress';
 import Home from './Home.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
-import DraftConfiguration from './DraftMode/Configuration.vue';
+import Configuration from './DraftMode/Configuration.vue';
+import SelectCards from './DraftMode/SelectCards.vue';
 import PreviousDrafts from './DraftMode/PreviousDrafts.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
@@ -38,7 +39,11 @@ const router = new VueRouter({
             children: [
                 {
                     path: '',
-                    component: DraftConfiguration
+                    component: Configuration
+                },
+                {
+                    path: 'select',
+                    component: SelectCards
                 }
             ]
         },

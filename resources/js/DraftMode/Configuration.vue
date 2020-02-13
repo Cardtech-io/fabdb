@@ -28,7 +28,7 @@
                 <div class="md:w-1/2 md:pr-8">
                     <form @submit.prevent="saveConfig">
                         <label class="block font-serif uppercase tracking-wide mb-1 text-sm">How many players?</label>
-                        <select class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <select v-model="players" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" required>
                             <option value=""></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -74,7 +74,11 @@
 </template>
 
 <script>
+    import Submit from '../Components/Form/Submit.vue';
+
     export default {
+        components: { Submit },
+
         data() {
             return {
                 mode: 'draft'

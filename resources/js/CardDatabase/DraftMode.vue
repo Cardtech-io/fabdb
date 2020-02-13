@@ -1,7 +1,6 @@
 <template>
     <div>
-        <header-title title="Draft"></header-title>
-
+        <header-title title="Draft mode"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <router-view></router-view>
@@ -22,7 +21,8 @@
 
                 crumbs: [
                     { text: 'Home', link: '/' },
-                    { text: 'Draft' }
+                    { text: 'Draft mode', link: '/cards/draft' },
+                    { text: 'New draft' }
                 ]
             }
         }
