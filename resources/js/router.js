@@ -4,6 +4,8 @@ import NProgress from 'nprogress';
 import Home from './Home.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
+import DraftConfiguration from './DraftMode/Configuration.vue';
+import PreviousDrafts from './DraftMode/PreviousDrafts.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
@@ -25,8 +27,27 @@ const router = new VueRouter({
     routes: [
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
         { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
-        { path: "/cards/draft", component: DraftMode, name: 'draft', meta: { title: 'Draft mode', auth: true } },
-        { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator', auth: true } },
+        {
+            path: "/cards/draft",
+            component: PreviousDrafts
+        },
+        {
+            path: "/cards/draft/start",
+            component: DraftMode,
+            meta: { title: 'Draft mode', auth: true },
+            children: [
+                {
+                    path: '',
+                    component: DraftConfiguration
+                }
+            ]
+        },
+        {
+            path: "/packs/generate",
+            component: BoosterGenerator,
+            name: 'generator',
+            meta: { title: 'Booster generator', auth: true }
+        },
         {
             path: "/cards/:identifier",
             component: ViewCard,

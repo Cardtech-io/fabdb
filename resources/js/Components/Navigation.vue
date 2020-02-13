@@ -47,8 +47,8 @@
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },
                         { link: '/decks/build', text: 'Deck Builder' },
-                        { link: '/packs/generate', text: 'Booster generator' }
-//                        { link: '/cards/draft', text: 'Draft' }
+                        { link: '/packs/generate', text: 'Booster generator' },
+                        { link: '/cards/draft', text: 'Draft' }
                     ]},
                     { link: '/support', text: 'Support' }
                 ];
