@@ -2876,6 +2876,14 @@ __webpack_require__.r(__webpack_exports__);
         vmid: 'og:image',
         property: 'og:image',
         content: this.cardUrl(this.card.identifier, 450, true)
+      }, {
+        vmid: 'og:image:width',
+        property: 'og:image:width',
+        content: '450'
+      }, {
+        vmid: 'og:image:height',
+        property: 'og:image:height',
+        content: '628'
       }]
     };
   },
