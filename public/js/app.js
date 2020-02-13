@@ -5063,7 +5063,7 @@ __webpack_require__.r(__webpack_exports__);
       meta: [{
         vmid: 'og:title',
         property: 'og:title',
-        content: 'Flesh & Blood TCG deck builder, collection manager,and more!'
+        content: 'Flesh & Blood TCG deck builder, collection manager, and more!'
       }, {
         vmid: 'og:type',
         property: 'og:type',
@@ -5071,7 +5071,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:description',
         property: 'og:description',
-        content: 'fabdb.net is the #1 website for any Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.'
+        content: 'At fabdb.net, you can browse cards, manage your decks, test your latest builds, and more - all within a gorgeous user experience. FaB DB is a project by players, for players.'
       }, {
         vmid: 'og:image',
         property: 'og:image',
