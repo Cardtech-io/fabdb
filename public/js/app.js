@@ -45843,7 +45843,7 @@ var render = function() {
         "div",
         {
           staticClass: "px-4 py-8 lg:w-2/3",
-          class: _vm.featured ? "w-1/4" : ""
+          class: _vm.featured ? "w-full" : ""
         },
         [
           _c(
