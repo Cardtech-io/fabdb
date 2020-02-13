@@ -1892,6 +1892,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       vmid: 'description',
       name: 'description',
       content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.'
+    }, {
+      vmid: 'fb:app_id',
+      property: 'fb:app_id',
+      content: 269161470718107
     }]
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
