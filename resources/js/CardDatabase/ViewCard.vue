@@ -130,6 +130,7 @@
                     { vmid: 'og:url', property: 'og:url', content: window.location.href },
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:title', property: 'og:title', content: this.card.name + ' - ' + this.card.identifier },
+                    { vmid: 'og:description', property: 'og:description', content: this.card.description },
                     { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.card.identifier, 450, true) },
                     { vmid: 'og:image:width', property: 'og:image:width', content: '450' },
                     { vmid: 'og:image:height', property: 'og:image:height', content: '628' }

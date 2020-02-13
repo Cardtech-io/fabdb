@@ -2877,6 +2877,10 @@ __webpack_require__.r(__webpack_exports__);
         property: 'og:title',
         content: this.card.name + ' - ' + this.card.identifier
       }, {
+        vmid: 'og:description',
+        property: 'og:description',
+        content: this.card.description
+      }, {
         vmid: 'og:image',
         property: 'og:image',
         content: this.cardUrl(this.card.identifier, 450, true)
