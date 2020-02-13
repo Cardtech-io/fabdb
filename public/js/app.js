@@ -1889,6 +1889,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
     titleTemplate: '%s | fabdb.net',
     meta: [{
+      vmid: 'og:url',
+      property: 'og:url',
+      content: window.location.href
+    }, {
       vmid: 'description',
       name: 'description',
       content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.'
@@ -1896,26 +1900,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       vmid: 'fb:app_id',
       property: 'fb:app_id',
       content: 269161470718107
-    }, {
-      vmid: 'og:title',
-      property: 'og:title',
-      content: 'Flesh & Blood TCG deck builder, collection manager,and more!'
-    }, {
-      vmid: 'og:description',
-      property: 'og:description',
-      content: 'fabdb.net is the #1 website for any Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.'
-    }, {
-      vmid: 'og:image',
-      property: 'og:image',
-      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202'
-    }, {
-      vmid: 'og:width',
-      property: 'og:width',
-      content: 210
-    }, {
-      vmid: 'og:height',
-      property: 'og:height',
-      content: 202
     }]
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
@@ -2885,13 +2869,9 @@ __webpack_require__.r(__webpack_exports__);
         name: 'description',
         content: 'View Flesh & Blood card, ' + this.card.name + '.'
       }, {
-        vmid: 'og:url',
-        property: 'og:url',
-        content: window.location.href
-      }, {
         vmid: 'og:type',
         property: 'og:type',
-        content: 'website'
+        content: 'card'
       }, {
         vmid: 'og:title',
         property: 'og:title',
@@ -5076,6 +5056,35 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       featured: null
+    };
+  },
+  metaInfo: function metaInfo() {
+    return {
+      meta: [{
+        vmid: 'og:title',
+        property: 'og:title',
+        content: 'Flesh & Blood TCG deck builder, collection manager,and more!'
+      }, {
+        vmid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      }, {
+        vmid: 'og:description',
+        property: 'og:description',
+        content: 'fabdb.net is the #1 website for any Flesh & Blood TCG utilities, including a deck builder, collection manager, deck tester, social features and more. Browse cards, manage your decks and test your latest builds within a gorgeous user experience.'
+      }, {
+        vmid: 'og:image',
+        property: 'og:image',
+        content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202'
+      }, {
+        vmid: 'og:width',
+        property: 'og:width',
+        content: 210
+      }, {
+        vmid: 'og:height',
+        property: 'og:height',
+        content: 202
+      }]
     };
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_0__["default"])(function (to, callback) {
