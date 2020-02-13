@@ -1,6 +1,6 @@
 export default {
     methods: {
-        cardUrl: function(identifier, width) {;
+        cardUrl: function(identifier, width, withBorder) {;
             const set = this.set(identifier);
             const id = this.id(identifier);
 
@@ -11,7 +11,13 @@ export default {
 
             var rect = dimensions[set].join(',');
 
-            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=' + rect;
+            let url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+
+            if (!withBorder) {
+                url += '&rect=' + rect;
+            }
+
+            return url;
         },
 
         resourceColour: function(resource) {

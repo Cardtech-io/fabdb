@@ -2875,7 +2875,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:image',
         name: 'og:image',
-        content: this.cardUrl(this.card.identifier, 450)
+        content: this.cardUrl(this.card.identifier, 450, true)
       }]
     };
   },
@@ -65418,7 +65418,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
-    cardUrl: function cardUrl(identifier, width) {
+    cardUrl: function cardUrl(identifier, width, withBorder) {
       ;
       var set = this.set(identifier);
       var id = this.id(identifier);
@@ -65427,7 +65427,13 @@ __webpack_require__.r(__webpack_exports__);
         wtr: [22, 22, 406, 584]
       };
       var rect = dimensions[set].join(',');
-      return '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=' + rect;
+      var url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+
+      if (!withBorder) {
+        url += '&rect=' + rect;
+      }
+
+      return url;
     },
     resourceColour: function resourceColour(resource) {
       var colours = {

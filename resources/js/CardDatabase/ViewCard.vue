@@ -130,7 +130,7 @@
                     { vmid: 'og:url', name: 'og:url', content: window.location.href },
                     { vmid: 'og:type', name: 'og:type', content: 'website' },
                     { vmid: 'og:title', name: 'og:title', content: this.card.name + ' - ' + this.card.identifier },
-                    { vmid: 'og:image', name: 'og:image', content: this.cardUrl(this.card.identifier, 450) }
+                    { vmid: 'og:image', name: 'og:image', content: this.cardUrl(this.card.identifier, 450, true) }
                 ]
             };
         },
