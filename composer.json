@@ -7,6 +7,9 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/keliix06/Laravel-Prerender" }
+    ],
     "require": {
         "php": "^7.2",
         "aws/aws-sdk-php": "^3.117",
