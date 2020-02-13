@@ -2871,7 +2871,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:type',
         property: 'og:type',
-        content: 'card'
+        content: 'article'
       }, {
         vmid: 'og:title',
         property: 'og:title',

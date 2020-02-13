@@ -127,7 +127,7 @@
                 title: this.card.name + ' - ' + this.card.identifier,
                 meta: [
                     { vmid: 'description', name: 'description', content: 'View Flesh & Blood card, ' + this.card.name + '.' },
-                    { vmid: 'og:type', property: 'og:type', content: 'card' },
+                    { vmid: 'og:type', property: 'og:type', content: 'article' },
                     { vmid: 'og:title', property: 'og:title', content: this.card.name + ' - ' + this.card.identifier },
                     { vmid: 'og:description', property: 'og:description', content: this.card.text },
                     { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.card.identifier, 450, true) },
