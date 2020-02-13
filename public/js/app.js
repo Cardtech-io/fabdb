@@ -5071,7 +5071,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:description',
         property: 'og:description',
-        content: 'At fabdb.net, you can browse cards, manage your decks, test your latest builds, and more - all within a gorgeous user experience. FaB DB is a project by players, for players.'
+        content: 'Browse cards, manage your decks, test your latest builds and more - all within a gorgeous user experience. FaB DB is a project by players, for players.'
       }, {
         vmid: 'og:image',
         property: 'og:image',
