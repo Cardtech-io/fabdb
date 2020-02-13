@@ -1899,7 +1899,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'og:title',
       property: 'og:title',
-      content: 'Flesh &Blood TCG deck builder, collection manager,and more!'
+      content: 'Flesh & Blood TCG deck builder, collection manager,and more!'
     }, {
       vmid: 'og:description',
       property: 'og:description',
@@ -1907,7 +1907,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'og:image',
       property: 'og:image',
-      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png'
+      content: 'https://fabdb.imgix.net/assets/fab-facebook-logo-small.png'
+    }, {
+      vmid: 'og:width',
+      property: 'og:width',
+      content: 150
+    }, {
+      vmid: 'og:height',
+      property: 'og:height',
+      content: 145
     }]
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('session', ['setSession'])),
