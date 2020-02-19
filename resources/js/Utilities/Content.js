@@ -9,6 +9,10 @@ export default {
                 return '<p class="my-4">' + text + '</p>';
             };
 
+            renderer.link = function(href, title, text) {
+                return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
+            };
+
             // First we're gonna search for custom syntax
             let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
             let matches = [...string.matchAll(regexp)][0][1].split(',');

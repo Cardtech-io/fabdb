@@ -45832,6 +45832,7 @@ var render = function() {
       _c("div", { staticClass: "sm:flex lg:block" }, [
         _c("img", {
           staticClass: "w-full rounded-lg sm:rounded-xl cursor-pointer",
+          staticStyle: { "max-width": "380px" },
           attrs: {
             src: _vm.imageUrl(_vm.article.image, 350),
             alt: _vm.article.name,
@@ -70582,6 +70583,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
       renderer.paragraph = function (text) {
         return '<p class="my-4">' + text + '</p>';
+      };
+
+      renderer.link = function (href, title, text) {
+        return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
       }; // First we're gonna search for custom syntax
 
 
