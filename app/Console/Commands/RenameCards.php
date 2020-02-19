@@ -29,14 +29,14 @@ class RenameCards extends Command
     {
         $disk = Storage::disk('scraped');
 
-        $cards = $disk->files('wtr/');
+        $cards = $disk->files('arc/');
 
         foreach ($cards as $name => $src) {
-            if (!(preg_match_all('/wtr\/WTR([0-9]+)/', $src, $matches))) continue;
+            if (!(preg_match_all('/arc\/ARC([0-9]+)/', $src, $matches))) continue;
 
             $cardId = $matches[1][0] - 1;
-            $dest = 'wtr/'.$cardId.'.png';
-
+            $dest = 'arc/'.$cardId.'.png';
+            
             $disk->move($src, $dest);
         }
     }
