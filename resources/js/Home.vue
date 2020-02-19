@@ -10,6 +10,7 @@
             <div class="mb-8 bg-semi-black rounded-lg p-4">
                 <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
                 <featured-card :feature="featured" v-if="featured.isCard"></featured-card>
+                <featured-article :feature="featured" v-if="featured.isArticle"></featured-article>
             </div>
         </div>
 
@@ -63,11 +64,12 @@
 
 <script>
     import LazyLoader from './Components/LazyLoader';
+    import FeaturedArticle from './Content/FeaturedArticle.vue';
     import FeaturedCard from './Content/FeaturedCard.vue';
     import FeaturedDeck from './Content/FeaturedDeck.vue';
 
     export default {
-        components: { FeaturedCard, FeaturedDeck },
+        components: { FeaturedArticle, FeaturedCard, FeaturedDeck },
 
         data() {
             return {

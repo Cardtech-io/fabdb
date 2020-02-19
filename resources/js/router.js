@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
+import ViewArticle from './Content/ViewArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
@@ -24,6 +25,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
+        { path: "/articles/:title/:article", component: ViewArticle, name: 'view-article' },
         { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
         { path: "/cards/draft", component: DraftMode, name: 'draft', meta: { title: 'Draft mode', auth: true } },
         { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator', auth: true } },

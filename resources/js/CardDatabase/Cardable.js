@@ -1,19 +1,20 @@
 export default {
     methods: {
-        cardUrl: function(identifier, width, withBorder) {;
+        cardUrl: function(identifier, width, withBorder) {
             const set = this.set(identifier);
             const id = this.id(identifier);
-
-            const dimensions = {
-                ira: [23, 24, 419, 603],
-                wtr: [22, 22, 406, 584]
-            };
-
-            var rect = dimensions[set].join(',');
 
             let url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
             if (!withBorder) {
+                const dimensions = {
+                    arc: [19, 21, 362, 519],
+                    ira: [23, 24, 419, 603],
+                    wtr: [22, 22, 406, 584],
+                };
+
+                let rect = dimensions[set].join(',');
+
                 url += '&rect=' + rect;
             }
 

@@ -18,6 +18,8 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
 
     Route::middleware(['spa'])->group(function() {
+        Route::get('articles/{article}', 'ArticleController@view');
+
         Route::get('cards', 'CardController@list');
         Route::get('cards/{card}', 'CardController@view')->where('card', '^((?!(draft)|(browse)).)+');
         Route::get('packs/generate', 'CardController@generatePack');

@@ -3,6 +3,7 @@ namespace FabDB\Domain\Content;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Facades\DB;
 
 class EloquentFeatureRepository extends EloquentRepository implements FeatureRepository
 {
@@ -20,6 +21,10 @@ class EloquentFeatureRepository extends EloquentRepository implements FeatureRep
     {
         return $this->newQuery()
             ->with('featureable')
+            ->where(function($where) {
+                $where->whereNull('publish_at');
+                $where->orWhere('publish_at', '<=', DB::raw('NOW()'));
+            })
             ->orderBy('created_at', 'desc')
             ->limit(1)
             ->first();

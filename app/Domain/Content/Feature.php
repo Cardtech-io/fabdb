@@ -11,8 +11,9 @@ class Feature extends Model
     use Sluggable;
 
     protected $appends = [
+        'isArticle',
+        'isCard',
         'isDeck',
-        'isCard'
     ];
 
     /**
@@ -31,5 +32,10 @@ class Feature extends Model
     public function getIsCardAttribute()
     {
         return $this->featureableType === Card::class;
+    }
+
+    public function getIsArticleAttribute()
+    {
+        return $this->featureableType === Article::class;
     }
 }

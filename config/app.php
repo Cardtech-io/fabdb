@@ -177,7 +177,7 @@ return [
         FabDB\Domain\Collection\CollectionServiceProvider::class,
         FabDB\Domain\Comments\CommentServiceProvider::class,
         FabDB\Domain\Decks\DecksServiceProvider::class,
-        FabDB\Domain\Content\FeatureServiceProvider::class,
+        FabDB\Domain\Content\ContentServiceProvider::class,
         FabDB\Domain\Users\UsersServiceProvider::class,
     ],
 
