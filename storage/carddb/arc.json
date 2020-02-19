@@ -1,0 +1,84 @@
+[
+  {
+    "id": "147",
+    "set": "ARC",
+    "name": "Voltic Bolt",
+    "rarity": "C",
+    "text": "Deal 5 arcane damage to target hero.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "148",
+    "set": "ARC",
+    "name": "Voltic Bolt",
+    "rarity": "C",
+    "text": "Deal 4 arcane damage to target hero.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "149",
+    "set": "ARC",
+    "name": "Voltic Bolt",
+    "rarity": "C",
+    "text": "Deal 3 arcane damage to target hero.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+
+  {
+    "id": "164",
+    "set": "ARC",
+    "name": "Life for a Life",
+    "rarity": "R",
+    "text": "",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "165",
+    "set": "ARC",
+    "name": "Life for a Life",
+    "rarity": "R",
+    "text": "",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "166",
+    "set": "ARC",
+    "name": "Life for a Life",
+    "rarity": "R",
+    "text": "",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2,
+      "attack": 2
+    }
+  }
+]

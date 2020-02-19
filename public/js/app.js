@@ -2232,6 +2232,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2247,6 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       page: 1,
       results: {},
+      set: 'wtr',
       view: 'gallery'
     };
   },
@@ -2261,11 +2267,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    isActive: function isActive(set) {
+      return {
+        'border-white': this.set == set,
+        'border-orange-900': this.set != set
+      };
+    },
     refreshResults: function refreshResults(results) {
       this.results = results;
     },
     updatePage: function updatePage(page) {
       this.page = page;
+    },
+    switchSet: function switchSet(set) {
+      this.set = set;
     }
   }
 });
@@ -2450,6 +2465,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     external: {
@@ -2532,6 +2548,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.search();
   },
   watch: {
+    'external.set': function externalSet(external) {
+      this.thisPage = 1;
+      this.filterCards();
+    },
     'external.view': function externalView(external) {
       this.thisPage = 1;
       this.filterCards();
@@ -43858,7 +43878,51 @@ var render = function() {
     [
       _c("header-title", { attrs: { title: "Browse cards" } }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "bg-orange-900 text-white font-serif uppercase" },
+        [
+          _c("div", { staticClass: "container sm:mx-auto px-4" }, [
+            _c("ul", { staticClass: "flex" }, [
+              _c("li", { staticClass: "float-left" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "block border-b-4 border-white p-4",
+                    class: _vm.isActive("wtr"),
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.switchSet("wtr")
+                      }
+                    }
+                  },
+                  [_vm._v("Welcome to Rathe")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "float-left" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "block border-b-4 border-white p-4",
+                    class: _vm.isActive("arc"),
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.switchSet("arc")
+                      }
+                    }
+                  },
+                  [_vm._v("Arcane Rising")]
+                )
+              ])
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
         _c(
@@ -43866,7 +43930,12 @@ var render = function() {
           { staticClass: "container sm:mx-auto md:px-4" },
           [
             _c("card-search", {
-              attrs: { useCase: "browse", page: _vm.page, refreshable: true },
+              attrs: {
+                useCase: "browse",
+                page: _vm.page,
+                refreshable: true,
+                external: { set: _vm.set }
+              },
               on: { "search-completed": _vm.refreshResults }
             })
           ],
@@ -43918,7 +43987,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ])
       ])
     ],
@@ -43926,26 +43995,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-orange-900 text-white font-serif uppercase" },
-      [
-        _c("div", { staticClass: "container sm:mx-auto px-4" }, [
-          _c("ul", { staticClass: "flex" }, [
-            _c(
-              "li",
-              { staticClass: "float-left active border-b-4 border-white p-4" },
-              [_vm._v("Welcome to Rathe")]
-            )
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44325,6 +44374,10 @@ var render = function() {
             [
               _c("option", { attrs: { value: "" } }),
               _vm._v(" "),
+              _c("option", { attrs: { value: "generic" } }, [
+                _vm._v("Generic")
+              ]),
+              _vm._v(" "),
               _c("option", { attrs: { value: "brute" } }, [_vm._v("Brute")]),
               _vm._v(" "),
               _c("option", { attrs: { value: "guardian" } }, [
@@ -44337,7 +44390,7 @@ var render = function() {
                 _vm._v("Warrior")
               ]),
               _vm._v(" "),
-              _c("option", { attrs: { value: "generic" } }, [_vm._v("Generic")])
+              _c("option", { attrs: { value: "wizard" } }, [_vm._v("Wizard")])
             ]
           )
         ]),
@@ -67737,7 +67790,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!withBorder) {
         var dimensions = {
-          arc: [19, 21, 362, 519],
+          arc: [19, 21, 343, 490],
           ira: [23, 24, 419, 603],
           wtr: [22, 22, 406, 584]
         };

@@ -10,11 +10,12 @@
                 <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Class</label>
                 <select v-model="heroClass" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                     <option value=""></option>
+                    <option value="generic">Generic</option>
                     <option value="brute">Brute</option>
                     <option value="guardian">Guardian</option>
                     <option value="ninja">Ninja</option>
                     <option value="warrior">Warrior</option>
-                    <option value="generic">Generic</option>
+                    <option value="wizard">Wizard</option>
                 </select>
             </div>
 
@@ -124,10 +125,14 @@
         },
 
         watch: {
+            'external.set': function(external) {
+                this.thisPage = 1;
+                this.filterCards();
+            },
+
             'external.view': function(external) {
                 this.thisPage = 1;
                 this.filterCards();
-
             },
 
             page: function(page) {

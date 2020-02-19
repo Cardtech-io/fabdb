@@ -22,11 +22,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * @param array $keywords
      * @param $class
      * @param $type
+     * @param $set string
      * @param string $view
      * @param User $user
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function search(string $useCase, array $keywords, $class, $type, $view = 'all', User $user = null)
+    public function search(string $useCase, array $keywords, $class, $type, $set, $view = 'all', User $user = null)
     {
         $query = $this->newQuery();
         $query->select([
@@ -35,6 +36,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
         ]);
+
+        $query->where('identifier', 'LIKE', $set.'%');
 
         // The following condition and clause determines whether the user is looking for an individual card or not
         if (count($keywords) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $keywords[0], $matches)) {

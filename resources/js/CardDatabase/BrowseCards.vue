@@ -5,14 +5,19 @@
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
-                    <li class="float-left active border-b-4 border-white p-4">Welcome to Rathe</li>
+                    <li class="float-left">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet('wtr')" :class="isActive('wtr')">Welcome to Rathe</a>
+                    </li>
+                    <li class="float-left">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet('arc')" :class="isActive('arc')">Arcane Rising</a>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set }"></card-search>
             </div>
         </div>
 
@@ -68,6 +73,7 @@
             return {
                 page: 1,
                 results: {},
+                set: 'wtr',
                 view: 'gallery'
             }
         },
@@ -82,12 +88,22 @@
         },
 
         methods: {
+            isActive: function(set) {
+                return {
+                    'border-white': this.set == set,
+                    'border-orange-900': this.set != set
+                }
+            },
             refreshResults: function(results) {
                 this.results = results;
             },
 
             updatePage: function(page) {
                 this.page = page;
+            },
+
+            switchSet: function(set) {
+                this.set = set;
             }
         }
     };

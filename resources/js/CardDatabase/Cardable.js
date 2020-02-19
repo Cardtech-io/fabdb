@@ -8,7 +8,7 @@ export default {
 
             if (!withBorder) {
                 const dimensions = {
-                    arc: [19, 21, 362, 519],
+                    arc: [19, 21, 343, 490],
                     ira: [23, 24, 419, 603],
                     wtr: [22, 22, 406, 584],
                 };

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface CardRepository
 {
-    public function search(string $useCase, array $keywords, $class, $type, $view, User $user = null);
+    public function search(string $useCase, array $keywords, $class, $type, $set, $view = 'all', User $user = null);
 
     public function findByIdentifier(string $identifier, int $userId = null);
 

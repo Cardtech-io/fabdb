@@ -20,6 +20,7 @@ class CardController extends Controller
             $keywords,
             $request->get('class'),
             $request->get('type'),
+            $request->get('set'),
             $request->get('view', 'all'),
             $request->user() ?? new User
         )->paginate($request->get('per_page', 12))->appends($request->except('page'));

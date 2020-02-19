@@ -57,7 +57,7 @@ class SeedCardDatabase extends Command
      */
     private function selectSet(): string
     {
-        $set = $this->choice('Which set would you like to import or update?', ['WTR', 'IRA']);
+        $set = $this->choice('Which set would you like to import or update?', ['ARC', 'IRA', 'WTR']);
 
         return strtolower($set);
     }

@@ -36,7 +36,7 @@ class RenameCards extends Command
 
             $cardId = $matches[1][0] - 1;
             $dest = 'arc/'.$cardId.'.png';
-            
+
             $disk->move($src, $dest);
         }
     }
