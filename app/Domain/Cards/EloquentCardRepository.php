@@ -37,7 +37,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.stats',
         ]);
 
-        $query->where('identifier', 'LIKE', $set.'%');
+        if ($set && $set != 'all') {
+            $query->where('identifier', 'LIKE', $set . '%');
+        }
 
         // The following condition and clause determines whether the user is looking for an individual card or not
         if (count($keywords) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $keywords[0], $matches)) {
