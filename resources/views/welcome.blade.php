@@ -31,6 +31,6 @@
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
         </script>
-        <script src="{{ asset(mix('/js/app.js')) }}"></script>
+        <script src="{{ fab_asset('/js/app.js') }}"></script>
     </body>
 </html>
