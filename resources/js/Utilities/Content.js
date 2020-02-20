@@ -45,10 +45,9 @@ export default {
                 return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
             });
 
-            // let content = '<div class="text-center">' + matches.join('\n') + '</div>';
-            let content = '';
+            let content = '<div class="text-center">' + matches.join('\n') + '</div>';
 
-            string = string.replace(regexp, content);
+            string = string.replace(/#\[cards\]\([A-Z0-9,]+\)/g, content);
 
             return marked(string, { renderer: renderer });
         }

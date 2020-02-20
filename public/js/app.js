@@ -70939,11 +70939,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
       var matches = _toConsumableArray(string.matchAll(regexp))[0][1].split(',').map(function (cardIdentifier) {
         return '<img src="' + _this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-      }); // let content = '<div class="text-center">' + matches.join('\n') + '</div>';
+      });
 
-
-      var content = '';
-      string = string.replace(regexp, content);
+      var content = '<div class="text-center">' + matches.join('\n') + '</div>';
+      string = string.replace(/#\[cards\]\([A-Z0-9,]+\)/g, content);
       return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
         renderer: renderer
       });
