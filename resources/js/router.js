@@ -90,8 +90,7 @@ const router = new VueRouter({
         },
         {
             path: "/test-articles/:title/:article",
-            component: TestArticle,
-            name: 'view-article'
+            component: TestArticle
         },
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },

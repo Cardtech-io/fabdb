@@ -71214,8 +71214,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'view-article'
   }, {
     path: "/test-articles/:title/:article",
-    component: _Content_TestArticle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    name: 'view-article'
+    component: _Content_TestArticle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   }, {
     path: "/login",
     component: _Auth_Login_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
