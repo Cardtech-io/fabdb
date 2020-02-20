@@ -48,7 +48,11 @@ export default {
 
             let content = '<div class="text-center">' + cards.join('\n') + '</div>';
 
+            alert(content);
+            
             string = string.replace('#[cards](' + identifiers + ')', content);
+
+            alert(string);
 
             return marked(string, { renderer: renderer });
         }
