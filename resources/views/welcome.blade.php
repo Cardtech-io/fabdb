@@ -28,6 +28,17 @@
     <body class="theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
 
+        @ifj (env('DATADOG_TOKEN))
+            <script src = 'https://www.datadoghq-browser-agent.com/datadog-logs-us.js'></script>
+            <script>
+                window.DD_LOGS.init({
+                    clientToken: 'pubdee16a4cab85ed70d1a5d55a00335d45',
+                    datacenter: 'us',
+                    forwardErrorsToLogs: true,
+                    sampleRate: 100
+                });
+            </script>
+        @endif
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
         </script>
