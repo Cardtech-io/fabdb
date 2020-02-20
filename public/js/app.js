@@ -3707,6 +3707,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -46141,10 +46154,39 @@ var render = function() {
             _vm._v(" "),
             _c("div", {
               domProps: {
-                innerHTML: _vm._s(_vm.parseMarkdown(_vm.article.content))
+                innerHTML: _vm._s(_vm.newParser(_vm.article.content))
               }
             })
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {},
+            [
+              _c("hr", { staticClass: "text-gray-500 mt-4" }),
+              _vm._v(" "),
+              _c("comment-count", { attrs: { comments: _vm.comments } }),
+              _vm._v(" "),
+              _vm.comments
+                ? _c(
+                    "div",
+                    _vm._l(_vm.comments, function(comment) {
+                      return _c("comment", {
+                        key: comment.slug,
+                        attrs: { comment: comment }
+                      })
+                    }),
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("respond", {
+                attrs: { type: "article", foreign: _vm.article.slug },
+                on: { "comment-posted": _vm.addComment }
+              })
+            ],
+            1
+          )
         ])
       ])
     ],
@@ -70857,6 +70899,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
         renderer: renderer
       });
+    },
+    newParser: function newParser(string) {
+      return marked__WEBPACK_IMPORTED_MODULE_0___default()(string);
     }
   }
 });

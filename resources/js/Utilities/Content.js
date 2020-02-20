@@ -26,6 +26,10 @@ export default {
             string = string.replace(regexp, content);
 
             return marked(string, { renderer: renderer });
+        },
+
+        newParser: function(string) {
+            return marked(string);
         }
     }
 };

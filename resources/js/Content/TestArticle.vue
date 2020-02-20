@@ -8,7 +8,20 @@
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
                     <img :src="imageUrl(article.image, 350)" :alt="article.name" :title="article.title" class="w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8">
-                    <div v-html="parseMarkdown(article.content)"></div>
+                    <div v-html="newParser(article.content)"></div>
+                </div>
+
+                <div class="">
+                    <hr class="text-gray-500 mt-4">
+
+                    <comment-count :comments="comments"></comment-count>
+
+                    <div v-if="comments">
+                        <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
+                    </div>
+
+                    <!-- post a comment -->
+                    <respond type="article" :foreign="article.slug" @comment-posted="addComment"></respond>
                 </div>
             </div>
         </div>
