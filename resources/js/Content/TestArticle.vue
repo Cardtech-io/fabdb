@@ -8,7 +8,7 @@
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
                     <img :src="imageUrl(article.image, 350)" :alt="article.name" :title="article.title" class="w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8">
-                    <div v-html="newParser(article.content)"></div>
+                    <div>{{ article.content }}</div>
                 </div>
 
                 <div class="">
