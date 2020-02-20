@@ -29,15 +29,15 @@ export default {
         },
 
         newParser: function(string) {
-            const renderer = new marked.Renderer();
-
-            renderer.paragraph = function(text) {
-                return '<p class="my-4">' + text + '</p>';
-            };
-
-            renderer.link = function(href, title, text) {
-                return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
-            };
+            // const renderer = new marked.Renderer();
+            //
+            // renderer.paragraph = function(text) {
+            //     return '<p class="my-4">' + text + '</p>';
+            // };
+            //
+            // renderer.link = function(href, title, text) {
+            //     return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
+            // };
 
             // First we're gonna search for custom syntax
             //let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
@@ -51,7 +51,7 @@ export default {
             //
             // string = string.replace(regexp, content);
 
-            return marked(string, { renderer: renderer });
+            return marked(string);
         }
     }
 };
