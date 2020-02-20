@@ -28,7 +28,7 @@
     <body class="theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
 
-        @ifj (env('DATADOG_TOKEN))
+        @if (env('DATADOG_TOKEN'))
             <script src = 'https://www.datadoghq-browser-agent.com/datadog-logs-us.js'></script>
             <script>
                 window.DD_LOGS.init({
