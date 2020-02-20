@@ -24,21 +24,19 @@
                 gtag('config', '{{ env('ANALYTICS_ID') }}');
             </script>
         @endif
+
+        @if (env('SENTRY_LARAVEL_DSN'))
+            <script
+                src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+                integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+                crossorigin="anonymous"></script>
+            <script>
+                Sentry.init({ dsn: '{{ env('SENTRY_LARAVEL_DSN') }}' });
+            </script>
+        @endif
     </head>
     <body class="theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
-
-        @if (env('DATADOG_TOKEN'))
-            <script src = 'https://www.datadoghq-browser-agent.com/datadog-logs-us.js'></script>
-            <script>
-                window.DD_LOGS.init({
-                    clientToken: 'pubdee16a4cab85ed70d1a5d55a00335d45',
-                    datacenter: 'us',
-                    forwardErrorsToLogs: true,
-                    sampleRate: 100
-                });
-            </script>
-        @endif
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
         </script>
