@@ -40,7 +40,7 @@ export default {
             };
 
             // First we're gonna search for custom syntax
-            let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
+            //let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
             // let matches = [...string.matchAll(regexp)][0][1].split(',');
 
             // for (let i = 0; i < matches.length; i++) {
