@@ -1,4 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=9594a6e0922e9bc5f939",
-    "/css/fabdb.css": "/css/fabdb.css?id=0fefae6546ac730108c7"
+    "/js/app.min.js": "/js/app.min.js",
+    "/css/fabdb.css": "/css/fabdb.css",
+    "/js/app.min.js.map": "/js/app.min.js.map"
 }
