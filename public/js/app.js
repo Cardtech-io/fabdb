@@ -70937,15 +70937,18 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
       var regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
 
-      var matches = _toConsumableArray(string.matchAll(regexp))[0][1].split(',');
+      var matches = _toConsumableArray(string.matchAll(regexp))[0][1].split(','); // for (let i = 0; i < matches.length; i++) {
+      //     matches[i] = '<img src="' + this.cardUrl(matches[i], 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+      // }
+      //
+      // let content = '<div class="text-center">' + matches.join('\n') + '</div>'
+      //
+      // string = string.replace(regexp, content);
 
-      for (var i = 0; i < matches.length; i++) {
-        matches[i] = '<img src="' + this.cardUrl(matches[i], 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-      }
 
-      var content = '<div class="text-center">' + matches.join('\n') + '</div>';
-      string = string.replace(regexp, content);
-      return marked__WEBPACK_IMPORTED_MODULE_0___default()(string);
+      return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
+        renderer: renderer
+      });
     }
   }
 });
