@@ -70912,8 +70912,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       });
     },
     newParser: function newParser(string) {
-      var _this2 = this;
-
       var renderer = new marked__WEBPACK_IMPORTED_MODULE_0___default.a.Renderer();
 
       renderer.paragraph = function (text) {
@@ -70923,19 +70921,18 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       renderer.link = function (href, title, text) {
         return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
       }; // First we're gonna search for custom syntax
-
-
-      var regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
-
-      var identifiers = _toConsumableArray(string.matchAll(regexp))[0][1];
-
-      var cards = identifiers.split(',').map(function (cardIdentifier) {
-        return '<img src="' + _this2.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-      });
-      alert(cards); // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
+      // let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
+      // let identifiers = [...string.matchAll(regexp)][0][1];
+      // let cards = identifiers.split(',').map(cardIdentifier => {
+      //     return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+      // });
+      //
+      // alert(cards);
+      // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
       //
       // alert(content);
       // string = string.replace('#[cards](' + identifiers + ')', content);
+
 
       return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
         renderer: renderer
