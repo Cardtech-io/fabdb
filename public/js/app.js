@@ -3858,7 +3858,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -46231,21 +46230,11 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto pb-8 clearfix p-4" }, [
+        _c("div", { staticClass: "container sm:mx-auto py-8 clearfix p-4" }, [
           _c("div", [
             _c("h1", { staticClass: "text-4xl uppercase font-serif" }, [
               _vm._v(_vm._s(_vm.article.title))
             ]),
-            _vm._v(" "),
-            _c("img", {
-              staticClass:
-                "w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8",
-              attrs: {
-                src: _vm.imageUrl(_vm.article.image, 350),
-                alt: _vm.article.name,
-                title: _vm.article.title
-              }
-            }),
             _vm._v(" "),
             _c("div", {
               domProps: {
@@ -70943,8 +70932,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       var cards = identifiers.split(',').map(function (cardIdentifier) {
         return '<img src="' + _this2.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
       });
-      var content = '<div class="text-center">' + cards.join('\n') + '</div>';
-      alert(content); // string = string.replace('#[cards](' + identifiers + ')', content);
+      console.log(cards); // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
+      //
+      // alert(content);
+      // string = string.replace('#[cards](' + identifiers + ')', content);
 
       return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
         renderer: renderer

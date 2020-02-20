@@ -4,10 +4,9 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto pb-8 clearfix p-4">
+            <div class="container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
-                    <img :src="imageUrl(article.image, 350)" :alt="article.name" :title="article.title" class="w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8">
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
