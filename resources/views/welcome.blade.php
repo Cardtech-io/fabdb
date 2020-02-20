@@ -31,7 +31,11 @@
                 integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
                 crossorigin="anonymous"></script>
             <script>
-                Sentry.init({ dsn: '{{ env('SENTRY_LARAVEL_DSN') }}' });
+                <?php $version = 'fab-db@'.fab_version(); ?>
+                Sentry.init({
+                    release: '{{ $version }}',
+                    dsn: '{{ env('SENTRY_LARAVEL_DSN') }}'
+                });
             </script>
         @endif
     </head>

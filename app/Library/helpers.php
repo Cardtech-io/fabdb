@@ -33,7 +33,7 @@ function cloudfront_url(string $object, int $expires = 3600): string
  */
 function fab_asset(string $asset): string
 {
-    $version = trim(shell_exec('git rev-parse --short HEAD'));
+    $version = fab_version();
     $versionedAsset = preg_replace('/([a-z]+).([a-z]+)$/i', "$version.$2", $asset);
 
     if (File::exists(public_path($versionedAsset))) {
@@ -41,4 +41,14 @@ function fab_asset(string $asset): string
     }
 
     return $asset;
+}
+
+/**
+ * Returns the current version of the application that is deployed.
+ *
+ * @return string
+ */
+function fab_version(): string
+{
+    return trim(shell_exec('git rev-parse --short HEAD'));
 }
