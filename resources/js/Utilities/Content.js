@@ -15,15 +15,14 @@ export default {
 
             // First we're gonna search for custom syntax
             let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
-            let matches = [...string.matchAll(regexp)][0][1].split(',');
+            let identifiers = [...string.matchAll(regexp)][0][1];
+            let cards = identifiers.split(',').map(cardIdentifier => {
+                return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+            });
 
-            for (let i = 0; i < matches.length; i++) {
-                matches[i] = '<img src="' + this.cardUrl(matches[i], 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-            }
+            let content = '<div class="text-center">' + cards.join('\n') + '</div>';
 
-            let content = '<div class="text-center">' + matches.join('\n') + '</div>'
-
-            string = string.replace(regexp, content);
+            string = string.replace('#[cards](' + identifiers + ')', content);
 
             return marked(string, { renderer: renderer });
         },
@@ -45,14 +44,12 @@ export default {
             let cards = identifiers.split(',').map(cardIdentifier => {
                 return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
             });
-            //
-            // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
-            //
-            // alert(content);
-            //
-            // // string = string.replace('#[cards](' + identifiers + ')', content);
-            //
-            // // alert(string);
+
+            let content = '<div class="text-center">' + cards.join('\n') + '</div>';
+
+            alert(content);
+
+            // string = string.replace('#[cards](' + identifiers + ')', content);
 
             return marked(string, { renderer: renderer });
         }
