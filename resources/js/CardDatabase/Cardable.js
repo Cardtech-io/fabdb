@@ -67,6 +67,7 @@ export default {
 
         setToString: function(set) {
             const sets = {
+                arc: "Arcane Rising",
                 ira: "Welcome Deck 2019",
                 wtr: "Welcome to Rathe"
             };
