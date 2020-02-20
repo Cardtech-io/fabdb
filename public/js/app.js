@@ -70945,7 +70945,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'FaB DB Privacy Policy'
     }
   }, {
-    path: "/fabdb",
+    path: "*",
     redirect: "/"
   }]
 });

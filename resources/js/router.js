@@ -88,7 +88,7 @@ const router = new VueRouter({
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
-        { path: "/fabdb", redirect: "/" }
+        { path: "*", redirect: "/" }
     ]
 });
 
