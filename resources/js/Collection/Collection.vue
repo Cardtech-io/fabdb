@@ -84,7 +84,7 @@
     import CardSearch from '../CardDatabase/CardSearch.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Paginator from '../CardDatabase/Paginator.vue';
+    import Paginator from '../Components/Paginator.vue';
 
     export default {
         components: {

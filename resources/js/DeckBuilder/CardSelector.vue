@@ -2,16 +2,19 @@
     <div>
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto px-4">
-                <card-search use-case="build" :wait="true" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
+                <card-search use-case="build" :wait="true" :page="page" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
             </div>
         </div>
 
         <div class="bg-gray-200 py-8">
             <div class="container sm:mx-auto px-4">
-                <div v-if="cards.length">
+                <div v-if="cards.data">
                     <ol class="clearfix">
-                        <card-item :action="addCard" :card="card" v-for="card in cards" :key="card.identifier"></card-item>
+                        <card-item :action="addCard" :card="card" v-for="card in cards.data" :key="card.identifier"></card-item>
                     </ol>
+                    <div class="py-4">
+                        <paginator :results="cards" @page-selected="updatePage"></paginator>
+                    </div>
                 </div>
                 <div v-else>
                     <h2 class="font-serif text-2xl uppercase">Usage</h2>
@@ -28,13 +31,15 @@
 <script>
     import CardSearch from '../CardDatabase/CardSearch.vue';
     import CardItem from './CardItem.vue';
+    import Paginator from '../Components/Paginator.vue';
 
     export default {
-        components: { CardItem, CardSearch },
+        components: { CardItem, CardSearch, Paginator },
 
         data() {
             return {
-                cards: []
+                page: 1,
+                cards: {}
             }
         },
 
@@ -45,10 +50,14 @@
 
             refreshResults: function(results) {
                 if (results == null) {
-                    this.cards = []
+                    this.cards = {};
                 } else {
-                    this.cards = results.data;
+                    this.cards = results;
                 }
+            },
+
+            updatePage: function(page) {
+                this.page = page;
             }
         }
     };

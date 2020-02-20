@@ -59,7 +59,7 @@
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Paginator from './Paginator.vue';
+    import Paginator from '../Components/Paginator.vue';
 
     export default {
         components: {
