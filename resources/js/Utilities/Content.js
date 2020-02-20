@@ -46,8 +46,8 @@ export default {
             });
 
             let content = '<div class="text-center">' + matches.join('\n') + '</div>'
-            
-            string = string.replace(regexp, content);
+
+            // string = string.replace(regexp, content);
 
             return marked(string, { renderer: renderer });
         }
