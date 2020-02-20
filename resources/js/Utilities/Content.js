@@ -45,7 +45,7 @@ export default {
                 return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
             });
 
-            console.log(cards);
+            alert(cards);
 
             // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
             //
