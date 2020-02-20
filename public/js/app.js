@@ -3703,6 +3703,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -46118,21 +46122,36 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c("div", { staticClass: "container sm:mx-auto pb-8 clearfix p-4" }, [
+          _c("div", [
+            _c("h1", { staticClass: "text-4xl uppercase font-serif" }, [
+              _vm._v(_vm._s(_vm.article.title))
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass:
+                "w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8",
+              attrs: {
+                src: _vm.imageUrl(_vm.article.image, 350),
+                alt: _vm.article.name,
+                title: _vm.article.title
+              }
+            }),
+            _vm._v(" "),
+            _c("div", {
+              domProps: {
+                innerHTML: _vm._s(_vm.parseMarkdown(_vm.article.content))
+              }
+            })
+          ])
+        ])
+      ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-gray-200" }, [
-      _c("div", { staticClass: "container sm:mx-auto pb-8 clearfix p-4" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
