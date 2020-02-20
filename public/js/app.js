@@ -70941,10 +70941,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
       var cards = identifiers.split(',').map(function (cardIdentifier) {
         return '<img src="' + _this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-      });
-      var content = '<div class="text-center">' + cards.join('\n') + '</div>';
-      alert(content); // string = string.replace('#[cards](' + identifiers + ')', content);
-      // alert(string);
+      }); //
+      // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
+      //
+      // alert(content);
+      //
+      // // string = string.replace('#[cards](' + identifiers + ')', content);
+      //
+      // // alert(string);
 
       return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
         renderer: renderer
