@@ -51,7 +51,7 @@ export default {
             //
             // string = string.replace(regexp, content);
 
-            return marked(string, { renderer: renderer });
+            return marked(string);
         }
     }
 };

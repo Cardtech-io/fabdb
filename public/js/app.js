@@ -46157,12 +46157,19 @@ var render = function() {
                 "w-full mt-4 mb-8 sm:my-0 sm:w-auto sm:p-0 rounded-lg sm:rounded-xl sm:float-right sm:ml-8",
               attrs: {
                 src: _vm.imageUrl(_vm.article.image, 350),
-                alt: _vm.article.name,
-                title: _vm.article.title
+                alt: _vm.article.title
               }
             }),
             _vm._v(" "),
-            _c("div", [_vm._v(_vm._s(_vm.article.content))])
+            _c(
+              "div",
+              {
+                domProps: {
+                  innerHTML: _vm._s(_vm.newParser(_vm.article.content))
+                }
+              },
+              [_vm._v(_vm._s(_vm.article.content))]
+            )
           ]),
           _vm._v(" "),
           _c(
@@ -70941,9 +70948,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       // let content = '<div class="text-center">' + matches.join('\n') + '</div>'
       //
       // string = string.replace(regexp, content);
-      return marked__WEBPACK_IMPORTED_MODULE_0___default()(string, {
-        renderer: renderer
-      });
+      return marked__WEBPACK_IMPORTED_MODULE_0___default()(string);
     }
   }
 });
