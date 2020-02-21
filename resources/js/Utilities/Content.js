@@ -39,21 +39,24 @@ export default {
             };
 
             // First we're gonna search for custom syntax
-            let regexp = /#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/g;
-            let identifiers = [...string.matchAll(regexp)][0][1];
-            // let cards = identifiers.split(',').map(cardIdentifier => {
-            //     return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-            // });
-            //
-            // alert(cards);
+            let content = string.split('\n').map(line => {
+                let regexp = /^#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/;
+                let matches = line.match(regexp);
 
-            // let content = '<div class="text-center">' + cards.join('\n') + '</div>';
-            //
-            // alert(content);
+                if (!matches) {
+                    return line;
+                }
 
-            // string = string.replace('#[cards](' + identifiers + ')', content);
+                let identifiers = matches[1].split(',');
+                
+                let cards = identifiers.map(cardIdentifier => {
+                    return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+                });
 
-            return marked(string, { renderer: renderer });
+                return '<div class="text-center">' + cards.join('\n') + '</div>';
+            });
+
+            return marked(content.join('\n'), { renderer: renderer });
         }
     }
 };
