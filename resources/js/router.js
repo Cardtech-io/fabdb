@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
 import ViewArticle from './Content/ViewArticle.vue';
-import TestArticle from './Content/TestArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
@@ -87,10 +86,6 @@ const router = new VueRouter({
             path: "/articles/:title/:article",
             component: ViewArticle,
             name: 'view-article'
-        },
-        {
-            path: "/test-articles/:title/:article",
-            component: TestArticle
         },
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },
