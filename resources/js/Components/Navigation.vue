@@ -43,6 +43,7 @@
             items: function() {
                 var items = [
                     { link: '/', text: 'Home' },
+                    { link: '/articles', text: 'Articles' },
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },

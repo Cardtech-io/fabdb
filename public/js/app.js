@@ -3438,6 +3438,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         link: '/',
         text: 'Home'
       }, {
+        link: '/articles',
+        text: 'Articles'
+      }, {
         text: 'Cards',
         children: [{
           link: '/cards/browse',

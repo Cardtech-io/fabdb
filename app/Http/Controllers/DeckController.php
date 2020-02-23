@@ -48,7 +48,7 @@ class DeckController extends Controller
 
     public function removeDeck(RemoveDeckRequest $request)
     {
-        $this->dispatchNow(new RemoveDeck($request->deck));
+        $this->dispatchNow(new RemoveDeck($request->deck->slug));
     }
 
     public function mine()
