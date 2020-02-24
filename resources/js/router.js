@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
 import ViewArticle from './Content/ViewArticle.vue';
+import MyArticles from './Content/MyArticles.vue';
+import WriteArticle from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
@@ -81,6 +83,16 @@ const router = new VueRouter({
             meta: {
                 title: 'View deck'
             }
+        },
+        {
+            path: "/articles/mine",
+            component: MyArticles,
+            name: 'my-articles'
+        },
+        {
+            path: "/articles/write",
+            component: WriteArticle,
+            name: 'write-article'
         },
         {
             path: "/articles/:title/:article",

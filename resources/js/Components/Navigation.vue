@@ -58,6 +58,7 @@
                     items.push({
                         text: 'Account',
                         children: [
+                            { link: '/articles/mine', text: 'My articles' },
                             { link: '/profile', text: 'Profile' },
                             { link: '/logout', text: 'Logout' },
                         ]
