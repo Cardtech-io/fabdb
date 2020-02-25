@@ -20,4 +20,25 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             ->where('publish_at', '<=', DB::raw('NOW()'))
             ->firstOrFail();
     }
+
+    public function search($keywords, int $perPage, int $userId = null)
+    {
+        $query = $this->newQuery();
+
+        if ($userId) {
+            $query->where('user_id', $userId);
+        }
+
+        if ($keywords) {
+            $query->where(function($clause) use ($keywords) {
+                $keywords = explode(' ', $keywords);
+
+                foreach ($keywords as $keyword) {
+                    $clause->orWhere('title', 'LIKE', '%'.addslashes($keyword).'%');
+                }
+            });
+        }
+
+        return $query->paginate($perPage);
+    }
 }

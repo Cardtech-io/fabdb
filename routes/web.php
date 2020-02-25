@@ -31,6 +31,9 @@ Route::middleware(['web'])->group(function() {
         Route::delete('authenticate', 'AuthController@logout');
 
         Route::middleware(['auth'])->group(function () {
+            Route::get('articles/mine', 'ArticleController@mine');
+            Route::post('articles', 'ArticleController@draft');
+
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{card}', 'CollectionController@removeCard');
 

@@ -3687,7 +3687,42 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3718,15 +3753,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      articles: null
+      articles: null,
+      crumbs: [{
+        text: 'Home',
+        link: '/'
+      }, {
+        text: 'My articles'
+      }],
+      page: 1
     };
-  }
+  },
+  methods: {
+    search: function search() {
+      var _this = this;
+
+      axios.get('/articles/mine?page=' + this.page).then(function (response) {
+        _this.articles = response.data;
+      });
+    },
+    updatePage: function updatePage(page) {
+      this.page = page;
+      this.search();
+    }
+  },
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__["default"])(function (to, callback) {
+    axios.get('/articles/mine').then(function (response) {
+      callback(function () {
+        this.articles = response.data;
+      });
+    });
+  })
 });
 
 /***/ }),
@@ -3878,9 +3945,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
 //
 //
 //
@@ -3928,14 +3997,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -3943,6 +4015,7 @@ __webpack_require__.r(__webpack_exports__);
       excerpt: null,
       content: null,
       saving: false,
+      slug: null,
       view: 'edit'
     };
   },
@@ -3962,9 +4035,29 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     activeView: function activeView(view) {
       return this.view == view ? 'text-orange-300' : '';
+    },
+    save: function save() {
+      var _this = this;
+
+      this.saving = true;
+      var payload = {
+        title: this.title,
+        excerpt: this.excerpt,
+        content: this.content
+      };
+
+      if (this.slug) {
+        var _request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/articles/' + this.slug, payload);
+      } else {
+        var _request2 = axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/articles', payload);
+      }
+
+      request.then(function (response) {
+        _this.saving = false;
+        _this.slug = response.data.slug;
+      });
     }
-  },
-  mounted: function mounted() {}
+  }
 });
 
 /***/ }),
@@ -62145,14 +62238,164 @@ var render = function() {
     [
       _c("header-title", { attrs: { title: "My articles" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto p-4 bg-white" }, [
-          _vm.articles
-            ? _c(
-                "table",
-                { staticClass: "w-full table-auto border-collapse bg-white" },
-                [_vm._m(0)]
+      _c(
+        "div",
+        { staticClass: "bg-orange-900 text-white font-serif uppercase" },
+        [
+          _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
+            _c(
+              "div",
+              { staticClass: "flex-1" },
+              [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex-1 text-right" }, [
+              _c(
+                "p",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "text-white hover:text-orange-300",
+                      attrs: { to: "/articles/write" }
+                    },
+                    [_vm._v("Write article")]
+                  )
+                ],
+                1
               )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c("div", { staticClass: "container sm:mx-auto p-4" }, [
+          _vm.articles.total
+            ? _c("div", [
+                _c(
+                  "div",
+                  { staticClass: "py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.articles },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "table",
+                  { staticClass: "w-full table-auto border-collapse bg-white" },
+                  [
+                    _c(
+                      "thead",
+                      [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _vm._l(_vm.articles.data, function(article) {
+                          return _c(
+                            "tr",
+                            {
+                              staticClass:
+                                "odd:bg-gray-100 hover:bg-gray-200 hidden sm:table-row"
+                            },
+                            [
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 py-2 px-4"
+                                },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "link",
+                                      attrs: {
+                                        to:
+                                          "/articles/" + article.slug + "/edit"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(article.slug))]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 py-2 px-4"
+                                },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "link",
+                                      attrs: {
+                                        to:
+                                          "/articles/" + article.slug + "/edit"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(article.title))]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 py-2 px-4 text-center"
+                                },
+                                [_vm._v(_vm._s(article.status))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 py-2 px-4"
+                                },
+                                [_vm._v("actions")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 py-2 px-4 text-right"
+                                },
+                                [_vm._v(_vm._s(article.publishAt))]
+                              )
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.articles },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                )
+              ])
             : _c(
                 "div",
                 [
@@ -62179,44 +62422,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "hidden sm:table-row" }, [
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
-          },
-          [_vm._v("ID")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
-          },
-          [_vm._v("Title")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-          },
-          [_vm._v("Status")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-          },
-          [_vm._v("Actions")]
-        )
-      ]),
+    return _c("tr", { staticClass: "hidden sm:table-row" }, [
+      _c(
+        "th",
+        {
+          staticClass:
+            "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+        },
+        [_vm._v("ID")]
+      ),
       _vm._v(" "),
-      _c("tr", { staticClass: "table-row sm:hidden" }, [
+      _c(
+        "th",
+        {
+          staticClass:
+            "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+        },
+        [_vm._v("Title")]
+      ),
+      _vm._v(" "),
+      _c(
+        "th",
+        {
+          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+        },
+        [_vm._v("Status")]
+      ),
+      _vm._v(" "),
+      _c(
+        "th",
+        {
+          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+        },
+        [_vm._v("Actions")]
+      ),
+      _vm._v(" "),
+      _c(
+        "th",
+        {
+          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+        },
+        [_vm._v("Published")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "tr",
+      { staticClass: "odd:bg-gray-100 hover:bg-gray-200 sm:hidden table-row" },
+      [
         _c(
           "th",
           {
@@ -62226,8 +62483,8 @@ var staticRenderFns = [
           },
           [_vm._v("Card details")]
         )
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -62387,7 +62644,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto p-4 bg-white" }, [
+        _c("div", { staticClass: "container sm:mx-auto px-4 py-8 bg-white" }, [
           _vm.view == "edit"
             ? _c(
                 "form",
@@ -62495,15 +62752,17 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("input", {
-                    staticClass:
-                      "appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                    attrs: {
-                      type: "submit",
-                      value: "Save",
-                      disabled: _vm.saving
-                    }
-                  })
+                  _c("div", { staticClass: "flex" }, [
+                    _c("input", {
+                      staticClass:
+                        "appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50 mr-2",
+                      attrs: {
+                        type: "submit",
+                        value: "Save",
+                        disabled: _vm.saving
+                      }
+                    })
+                  ])
                 ]
               )
             : _vm._e()

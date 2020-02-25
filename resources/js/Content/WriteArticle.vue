@@ -17,7 +17,7 @@
         </div>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto p-4 bg-white">
+            <div class="container sm:mx-auto px-4 py-8 bg-white">
                 <form @submit.prevent="save" v-if="view == 'edit'">
                     <div class="w-full">
                         <label class="block font-serif uppercase tracking-wide mb-1">Title</label>
@@ -34,7 +34,9 @@
                         <vue-simplemde v-model="content" ref="markdownEditor"></vue-simplemde>
                     </div>
 
-                    <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
+                    <div class="flex">
+                        <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50 mr-2" :disabled="saving">
+                    </div>
                 </form>
             </div>
         </div>
@@ -46,6 +48,8 @@
 </style>
 
 <script>
+    import axios from 'axios';
+
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import VueSimplemde from 'vue-simplemde';
@@ -59,6 +63,7 @@
                 excerpt: null,
                 content: null,
                 saving: false,
+                slug: null,
                 view: 'edit'
             }
         },
@@ -76,11 +81,28 @@
         methods: {
             activeView: function(view) {
                 return this.view == view ? 'text-orange-300' : '';
+            },
+
+            save: function() {
+                this.saving = true;
+
+                let payload = {
+                    title: this.title,
+                    excerpt: this.excerpt,
+                    content: this.content
+                };
+
+                if (this.slug) {
+                    let request = axios.put('/articles/' + this.slug, payload);
+                } else {
+                    let request = axios.post('/articles', payload);
+                }
+
+                request.then(response => {
+                    this.saving = false;
+                    this.slug = response.data.slug;
+                });
             }
-        },
-
-        mounted() {
-
         }
     };
 </script>
