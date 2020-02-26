@@ -5,7 +5,9 @@ use FabDB\Domain\Content\Article;
 use FabDB\Domain\Content\ArticleObserver;
 use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Content\DraftArticle;
+use FabDB\Domain\Content\UpdateArticle;
 use FabDB\Http\Requests\DraftArticleRequest;
+use FabDB\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -28,15 +30,16 @@ class ArticleController extends Controller
         return $observer->article();
     }
 
-//    public function update(UpdateArticleRequest $request)
-//    {
-//        $this->dispatchNow(new UpdateArticle(
-//            $request->article->slug,
-//            $request->get('title'),
-//            $request->get('excerpt'),
-//            $request->get('content')
-//        ));
-//    }
+    public function update(UpdateArticleRequest $request)
+    {
+        $this->dispatchNow(new UpdateArticle(
+            $request->article->slug,
+            $request->user()->id,
+            $request->get('title'),
+            $request->get('excerpt'),
+            $request->get('content')
+        ));
+    }
 
     public function mine(Request $request, ArticleRepository $articles)
     {

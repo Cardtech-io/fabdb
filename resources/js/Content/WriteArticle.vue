@@ -21,23 +21,30 @@
                 <form @submit.prevent="save" v-if="view == 'edit'">
                     <div class="w-full">
                         <label class="block font-serif uppercase tracking-wide mb-1">Title</label>
-                        <input type="text" v-model="title" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                        <input type="text" v-model="article.title" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
                     </div>
 
                     <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Excerpt</label>
-                        <textarea type="text" v-model="excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg"></textarea>
+                        <textarea type="text" v-model="article.excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4"></textarea>
                     </div>
 
                     <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Content</label>
-                        <vue-simplemde v-model="content" ref="markdownEditor"></vue-simplemde>
+                        <vue-simplemde v-model="article.content" ref="markdownEditor"></vue-simplemde>
                     </div>
 
                     <div class="flex">
                         <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50 mr-2" :disabled="saving">
                     </div>
                 </form>
+
+                <div v-else>
+                    <div>
+                        <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
+                        <div v-html="parseMarkdown(article.content)"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -54,17 +61,17 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import VueSimplemde from 'vue-simplemde';
+    import Content from '../Utilities/Content';
+    import Cardable from '../CardDatabase/Cardable';
 
     export default {
         components: { Crumbs, HeaderTitle, VueSimplemde },
+        mixins: [ Cardable, Content ],
 
         data() {
             return {
-                title: null,
-                excerpt: null,
-                content: null,
+                article: {},
                 saving: false,
-                slug: null,
                 view: 'edit'
             }
         },
@@ -87,21 +94,17 @@
             save: function() {
                 this.saving = true;
 
-                let payload = {
-                    title: this.title,
-                    excerpt: this.excerpt,
-                    content: this.content
-                };
+                let payload = this.article;
 
-                if (this.slug) {
-                    let request = axios.put('/articles/' + this.slug, payload);
-                } else {
-                    let request = axios.post('/articles', payload);
-                }
+                let request = this.article.slug ?
+                    axios.put('/articles/' + this.article.slug, payload) :
+                    axios.post('/articles', payload);
 
                 request.then(response => {
                     this.saving = false;
-                    this.slug = response.data.slug;
+                    if (!this.article.slug) {
+                        this.article.slug = response.data.slug;
+                    }
                 });
             }
         },

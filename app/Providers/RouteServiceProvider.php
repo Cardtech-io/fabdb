@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('deck', function($slug) {
-            return app(DeckRepository::class)->bySlug($slug, true);
+            return app(DeckRepository::class)->bySlugWithCards($slug, true);
         });
     }
 

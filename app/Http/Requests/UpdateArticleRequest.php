@@ -3,7 +3,7 @@ namespace FabDB\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DraftArticleRequest extends FormRequest
+class UpdateArticleRequest extends FormRequest
 {
     public function rules()
     {

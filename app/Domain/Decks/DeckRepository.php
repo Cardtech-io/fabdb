@@ -9,7 +9,7 @@ interface DeckRepository extends Repository
 {
     public function forUser(int $userId): Collection;
 
-    public function bySlug(string $slug, bool $includeCards = false);
+    public function bySlugWithCards(string $slug, bool $includeCards = false);
 
     public function addCardToDeck(int $deckId, int $cardId);
 

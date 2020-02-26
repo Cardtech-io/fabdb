@@ -12,4 +12,6 @@ interface Repository
     public function all(): Collection;
 
     public function find(int $id): Model;
+
+    public function bySlug(string $slug): Model;
 }

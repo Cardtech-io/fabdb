@@ -3951,6 +3951,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
+/* harmony import */ var _Utilities_Content__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Utilities/Content */ "./resources/js/Utilities/Content.js");
+/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 //
 //
 //
@@ -4000,6 +4002,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -4011,13 +4022,11 @@ __webpack_require__.r(__webpack_exports__);
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_6__["default"], _Utilities_Content__WEBPACK_IMPORTED_MODULE_5__["default"]],
   data: function data() {
     return {
-      title: null,
-      excerpt: null,
-      content: null,
+      article: {},
       saving: false,
-      slug: null,
       view: 'edit'
     };
   },
@@ -4042,21 +4051,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.saving = true;
-      var payload = {
-        title: this.title,
-        excerpt: this.excerpt,
-        content: this.content
-      };
-
-      if (this.slug) {
-        var _request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/articles/' + this.slug, payload);
-      } else {
-        var _request2 = axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/articles', payload);
-      }
-
+      var payload = this.article;
+      var request = this.article.slug ? axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/articles/' + this.article.slug, payload) : axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/articles', payload);
       request.then(function (response) {
         _this.saving = false;
-        _this.slug = response.data.slug;
+
+        if (!_this.article.slug) {
+          _this.article.slug = response.data.slug;
+        }
       });
     }
   },
@@ -62685,20 +62687,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.title,
-                          expression: "title"
+                          value: _vm.article.title,
+                          expression: "article.title"
                         }
                       ],
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                       attrs: { type: "text", required: "required" },
-                      domProps: { value: _vm.title },
+                      domProps: { value: _vm.article.title },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.title = $event.target.value
+                          _vm.$set(_vm.article, "title", $event.target.value)
                         }
                       }
                     })
@@ -62719,20 +62721,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.excerpt,
-                          expression: "excerpt"
+                          value: _vm.article.excerpt,
+                          expression: "article.excerpt"
                         }
                       ],
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.excerpt },
+                      attrs: { type: "text", rows: "4" },
+                      domProps: { value: _vm.article.excerpt },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.excerpt = $event.target.value
+                          _vm.$set(_vm.article, "excerpt", $event.target.value)
                         }
                       }
                     })
@@ -62754,11 +62756,11 @@ var render = function() {
                       _c("vue-simplemde", {
                         ref: "markdownEditor",
                         model: {
-                          value: _vm.content,
+                          value: _vm.article.content,
                           callback: function($$v) {
-                            _vm.content = $$v
+                            _vm.$set(_vm.article, "content", $$v)
                           },
-                          expression: "content"
+                          expression: "article.content"
                         }
                       })
                     ],
@@ -62778,7 +62780,19 @@ var render = function() {
                   ])
                 ]
               )
-            : _vm._e()
+            : _c("div", [
+                _c("div", [
+                  _c("h1", { staticClass: "text-4xl uppercase font-serif" }, [
+                    _vm._v(_vm._s(_vm.article.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    domProps: {
+                      innerHTML: _vm._s(_vm.parseMarkdown(_vm.article.content))
+                    }
+                  })
+                ])
+              ])
         ])
       ])
     ],
