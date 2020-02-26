@@ -3949,7 +3949,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
 //
 //
 //
@@ -3999,6 +4000,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -4007,7 +4009,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_3__["default"]
+    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -4057,7 +4059,18 @@ __webpack_require__.r(__webpack_exports__);
         _this.slug = response.data.slug;
       });
     }
-  }
+  },
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__["default"])(function (to, callback) {
+    if (to.params.article) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/articles/' + to.params.article).then(function (response) {
+        callback(function () {
+          this.article = response.data;
+        });
+      });
+    } else {
+      callback();
+    }
+  })
 });
 
 /***/ }),
@@ -87892,6 +87905,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/articles/write",
     component: _Content_WriteArticle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     name: 'write-article'
+  }, {
+    path: "/articles/:article/edit",
+    component: _Content_WriteArticle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    name: 'edit-article'
   }, {
     path: "/articles/:title/:article",
     component: _Content_ViewArticle_vue__WEBPACK_IMPORTED_MODULE_4__["default"],

@@ -95,6 +95,11 @@ const router = new VueRouter({
             name: 'write-article'
         },
         {
+            path: "/articles/:article/edit",
+            component: WriteArticle,
+            name: 'edit-article'
+        },
+        {
             path: "/articles/:title/:article",
             component: ViewArticle,
             name: 'view-article'

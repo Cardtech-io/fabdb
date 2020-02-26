@@ -52,6 +52,7 @@
 
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import LazyLoader from '../Components/LazyLoader';
     import VueSimplemde from 'vue-simplemde';
 
     export default {
@@ -103,6 +104,18 @@
                     this.slug = response.data.slug;
                 });
             }
-        }
+        },
+
+        extends: LazyLoader((to, callback) => {
+            if (to.params.article) {
+                axios.get('/articles/' + to.params.article).then(response => {
+                    callback(function() {
+                        this.article = response.data;
+                    });
+                });
+            } else {
+                callback();
+            }
+        })
     };
 </script>
