@@ -35,6 +35,8 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             });
         }
 
+        $query->orderBy('created_at', 'desc');
+
         return $query->paginate($perPage);
     }
 }

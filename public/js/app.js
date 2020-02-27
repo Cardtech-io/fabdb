@@ -3742,16 +3742,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -62286,46 +62276,29 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto p-4" }, [
+        _c("div", { staticClass: "container sm:mx-auto p-4 pt-8" }, [
           _vm.articles.total
             ? _c("div", [
                 _c(
-                  "div",
-                  { staticClass: "py-4" },
-                  [
-                    _c("paginator", {
-                      attrs: { results: _vm.articles },
-                      on: { "page-selected": _vm.updatePage }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
                   "table",
-                  { staticClass: "w-full table-auto border-collapse bg-white" },
+                  { staticClass: "w-full table-auto border-collapse" },
                   [
                     _c(
                       "thead",
                       [
                         _vm._m(0),
                         _vm._v(" "),
-                        _vm._m(1),
-                        _vm._v(" "),
                         _vm._l(_vm.articles.data, function(article) {
                           return _c(
                             "tr",
                             {
                               staticClass:
-                                "odd:bg-gray-100 hover:bg-gray-200 hidden sm:table-row"
+                                "odd:bg-gray-100 hover:bg-gray-200 sm:table-row"
                             },
                             [
                               _c(
                                 "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 py-2 px-4"
-                                },
+                                { staticClass: "p-2" },
                                 [
                                   _c(
                                     "router-link",
@@ -62344,10 +62317,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 py-2 px-4"
-                                },
+                                { staticClass: "p-2" },
                                 [
                                   _c(
                                     "router-link",
@@ -62364,32 +62334,13 @@ var render = function() {
                                 1
                               ),
                               _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 py-2 px-4 text-center"
-                                },
-                                [_vm._v(_vm._s(article.status))]
-                              ),
+                              _c("td", { staticClass: "p-2" }, [
+                                _vm._v(_vm._s(article.status))
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 py-2 px-4"
-                                },
-                                [_vm._v("actions")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 py-2 px-4 text-right"
-                                },
-                                [_vm._v(_vm._s(article.publishAt))]
-                              )
+                              _c("td", { staticClass: "p-2" }, [
+                                _vm._v(_vm._s(article.publishAt))
+                              ])
                             ]
                           )
                         })
@@ -62437,12 +62388,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "hidden sm:table-row" }, [
+    return _c("tr", { staticClass: "hidden sm:table-row bg-gray-100" }, [
       _c(
         "th",
         {
           staticClass:
-            "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+            "font-serif uppercase text-left p-2 border-b border-gray-300"
         },
         [_vm._v("ID")]
       ),
@@ -62451,7 +62402,7 @@ var staticRenderFns = [
         "th",
         {
           staticClass:
-            "border border-gray-300 py-2 px-4 font-serif uppercase text-left"
+            "font-serif uppercase text-left p-2 border-b border-gray-300"
         },
         [_vm._v("Title")]
       ),
@@ -62459,7 +62410,8 @@ var staticRenderFns = [
       _c(
         "th",
         {
-          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+          staticClass:
+            "font-serif uppercase text-left p-2 border-b border-gray-300"
         },
         [_vm._v("Status")]
       ),
@@ -62467,39 +62419,12 @@ var staticRenderFns = [
       _c(
         "th",
         {
-          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
-        },
-        [_vm._v("Actions")]
-      ),
-      _vm._v(" "),
-      _c(
-        "th",
-        {
-          staticClass: "border border-gray-300 py-2 px-4 font-serif uppercase"
+          staticClass:
+            "font-serif uppercase text-left p-2 border-b border-gray-300"
         },
         [_vm._v("Published")]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "tr",
-      { staticClass: "odd:bg-gray-100 hover:bg-gray-200 sm:hidden table-row" },
-      [
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 py-2 px-4 font-serif uppercase text-left",
-            attrs: { colspan: "5" }
-          },
-          [_vm._v("Card details")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
