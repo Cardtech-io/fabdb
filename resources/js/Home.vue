@@ -1,5 +1,5 @@
 <template>
-    <div class="container sm:mx-auto text-white lg:flex lg:my-20">
+    <div class="container sm:mx-auto text-white lg:flex lg:py-20">
         <div class="px-4 py-8 lg:w-2/3" :class="featured ? 'w-full' : ''">
             <h1 class="font-serif text-4xl lg:text-6xl uppercase">Welcome</h1>
             <p class="my-4">FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as <router-link to="/decks/build/" class="underline hover:text-orange-300">deck builder</router-link>, <router-link to="/collection/" class="underline hover:text-orange-300">collection manager</router-link> and more.</p>

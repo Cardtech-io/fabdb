@@ -17,6 +17,14 @@ class ArticleController extends Controller
         return $article;
     }
 
+    public function search(Request $request, ArticleRepository $articles)
+    {
+        return $articles->search(
+            $request->get('keywords'),
+            $request->get('per_page', 6)
+        );
+    }
+
     public function draft(DraftArticleRequest $request)
     {
         $this->dispatchNow(new DraftArticle(

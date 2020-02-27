@@ -52,8 +52,9 @@
         computed: {
             crumbs: function () {
                 return [
-                    {text: 'Home', link: '/'},
-                    {text: this.article.title}
+                    { text: 'Home', link: '/' },
+                    { text: 'Articles', link: '/articles' },
+                    { text: this.article.title }
                 ];
             },
         },

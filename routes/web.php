@@ -18,6 +18,7 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
 
     Route::middleware(['spa'])->group(function() {
+        Route::get('articles', 'ArticleController@search');
         Route::get('articles/{article}', 'ArticleController@view')->where('article', '^((?!(mine)|(write)).)+');
 
         Route::get('cards', 'CardController@list');

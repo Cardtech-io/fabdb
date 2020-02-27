@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
+import Articles from './Content/Articles.vue';
 import ViewArticle from './Content/ViewArticle.vue';
 import MyArticles from './Content/MyArticles.vue';
 import WriteArticle from './Content/WriteArticle.vue';
@@ -88,6 +89,11 @@ const router = new VueRouter({
             path: "/articles/mine",
             component: MyArticles,
             name: 'my-articles'
+        },
+        {
+            path: "/articles",
+            component: Articles,
+            name: 'articles'
         },
         {
             path: "/articles/write",
