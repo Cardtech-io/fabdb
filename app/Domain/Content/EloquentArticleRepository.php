@@ -37,7 +37,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         $query->whereNotNull('publish_at');
 
-        $query->orderBy('created_at', 'desc');
+        $query->orderBy('publish_at', 'desc');
 
         return $query->paginate($perPage);
     }
