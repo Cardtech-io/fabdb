@@ -84,12 +84,29 @@
     "name": "Life for a Life",
     "rarity": "R",
     "text": "",
-    "keywords": ["generic", "action", "attack"],
+    "keywords": [
+      "generic",
+      "action",
+      "attack"
+    ],
     "stats": {
       "resource": 3,
       "cost": 1,
       "defense": 2,
       "attack": 2
+    }
+  },
+  {
+    "id": "170",
+    "set": "ARC",
+    "name": "Plunder Run",
+    "rarity": "R",
+    "text": "The next time an attack action card you control hits this turn, draw a card.\nIf plunder run is played from arsenal, then next attack action card you play this turn gains [+3 attack].\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
     }
   }
 ]
