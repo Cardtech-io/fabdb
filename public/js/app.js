@@ -4070,7 +4070,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     } else {
-      callback();
+      callback(function () {});
     }
   })
 });

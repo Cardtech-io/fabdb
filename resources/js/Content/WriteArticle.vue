@@ -117,7 +117,7 @@
                     });
                 });
             } else {
-                callback();
+                callback(function(){});
             }
         })
     };
