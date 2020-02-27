@@ -62786,11 +62786,15 @@ var render = function() {
                     _vm._v(_vm._s(_vm.article.title))
                   ]),
                   _vm._v(" "),
-                  _c("div", {
-                    domProps: {
-                      innerHTML: _vm._s(_vm.parseMarkdown(_vm.article.content))
-                    }
-                  })
+                  _vm.article.content
+                    ? _c("div", {
+                        domProps: {
+                          innerHTML: _vm._s(
+                            _vm.parseMarkdown(_vm.article.content)
+                          )
+                        }
+                      })
+                    : _vm._e()
                 ])
               ])
         ])

@@ -42,7 +42,7 @@
                 <div v-else>
                     <div>
                         <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
-                        <div v-html="parseMarkdown(article.content)"></div>
+                        <div v-html="parseMarkdown(article.content)" v-if="article.content"></div>
                     </div>
                 </div>
             </div>
