@@ -34,7 +34,6 @@ class ArticleController extends Controller
     {
         $this->dispatchNow(new UpdateArticle(
             $request->article->slug,
-            $request->user()->id,
             $request->get('title'),
             $request->get('excerpt'),
             $request->get('content')

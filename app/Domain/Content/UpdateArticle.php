@@ -13,11 +13,6 @@ class UpdateArticle
     private $slug;
 
     /**
-     * @var int
-     */
-    private $author;
-
-    /**
      * @var string
      */
     private $title;
@@ -32,10 +27,9 @@ class UpdateArticle
      */
     private $content;
 
-    public function __construct(string $slug, int $author, string $title, string $excerpt, string $content)
+    public function __construct(string $slug, string $title, string $excerpt, string $content)
     {
         $this->slug = $slug;
-        $this->author = $author;
         $this->title = $title;
         $this->excerpt = $excerpt;
         $this->content = $content;
@@ -45,7 +39,6 @@ class UpdateArticle
     {
         $article = $articles->bySlug($this->slug);
 
-        $article->userId = $this->author;
         $article->title = $this->title;
         $article->excerpt = $this->excerpt;
         $article->content = $this->content;

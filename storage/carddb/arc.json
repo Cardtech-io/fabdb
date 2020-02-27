@@ -38,7 +38,18 @@
       "defense": 2
     }
   },
-
+  {
+    "id": "160",
+    "set": "ARC",
+    "name": "Art of War",
+    "rarity": "M",
+    "text": "",
+    "keywords": ["generic", "instant"],
+    "stats": {
+      "resource": 2,
+      "cost": 1
+    }
+  },
   {
     "id": "164",
     "set": "ARC",
