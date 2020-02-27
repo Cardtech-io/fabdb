@@ -5626,9 +5626,11 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: function metaInfo() {
     return {
       meta: [{
+        keywords: 'Flesh and Blood TCG,TCG,deck builder,Flesh & Blood TCG,Flesh and Blood'
+      }, {
         vmid: 'og:title',
         property: 'og:title',
-        content: 'Flesh & Blood TCG deck builder, collection manager, and more!'
+        content: 'Flesh and Blood TCG deck builder, collection manager, and more!'
       }, {
         vmid: 'og:type',
         property: 'og:type',
@@ -5636,7 +5638,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:description',
         property: 'og:description',
-        content: 'Browse cards, manage your decks, test your latest builds and more - all within a gorgeous user experience. FaB DB is a project by players, for players.'
+        content: 'Browse your Flesh and Blood cards, manage your decks, test your latest builds and more - all within a gorgeous user experience. By players, for players.'
       }, {
         vmid: 'og:image',
         property: 'og:image',
@@ -62147,13 +62149,14 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto px-4 py-8" }, [
+        _c("div", { staticClass: "container sm:mx-auto py-8" }, [
           _c(
             "ol",
+            { staticClass: "clearfix" },
             _vm._l(_vm.articles.data, function(article) {
               return _c(
                 "li",
-                { staticClass: "w-1/3 bg-white rounded-xl" },
+                { staticClass: "w-1/3 bg-white rounded-xl float-left mx-4" },
                 [
                   _c(
                     "router-link",
@@ -65105,7 +65108,7 @@ var render = function() {
             { staticClass: "my-4" },
             [
               _vm._v(
-                "FaB DB is an unofficial Flesh & Blood TCG community project, with various features such as "
+                "FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as "
               ),
               _c(
                 "router-link",
@@ -65776,14 +65779,14 @@ var staticRenderFns = [
         },
         [
           _c(
-            "h1",
+            "h2",
             { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
             [_vm._v("Support Fab DB")]
           ),
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n            Flesh & Blood DB is run currently funded only through community support and outreach. If you're liking\n            what you're seeing, love using our tools and utilities.etc. please donate!.\n        "
+              "\n            Flesh and Blood DB is run currently funded only through community support and outreach. If you're liking\n            what you're seeing, love using our tools and utilities.etc. please donate!.\n        "
             )
           ])
         ]
@@ -65797,7 +65800,7 @@ var staticRenderFns = [
         },
         [
           _c(
-            "h1",
+            "h2",
             { staticClass: "font-serif text-white text-4xl uppercase flex-1" },
             [_vm._v("Why support us?")]
           ),
