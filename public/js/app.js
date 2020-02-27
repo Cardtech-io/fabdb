@@ -87512,6 +87512,14 @@ __webpack_require__.r(__webpack_exports__);
 
       renderer.link = function (href, title, text) {
         return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
+      };
+
+      renderer.list = function (body, ordered, start) {
+        return ordered ? '<ol class="list-decimal ml-8">' + body + '</ol>' : '<ul class="list-disc ml-8">' + body + '</ul>';
+      };
+
+      renderer.listitem = function (text, task, checked) {
+        return '<li>' + text + '</li>';
       }; // First we're gonna search for custom syntax
 
 
