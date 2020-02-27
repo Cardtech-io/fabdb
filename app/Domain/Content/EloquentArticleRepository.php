@@ -35,9 +35,15 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             });
         }
 
-        $query->whereNotNull('publish_at');
+        // If we're looking at a specific user, let's order by created at.
+        // Otherwise, this is public, so we want to order by most recently published.
+        if ($userId === null) {
+            $query->whereNotNull('publish_at');
+            $query->orderBy('publish_at', 'desc');
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
 
-        $query->orderBy('publish_at', 'desc');
 
         return $query->paginate($perPage);
     }
