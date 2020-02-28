@@ -62149,14 +62149,17 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto py-8" }, [
+        _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
           _c(
             "ol",
-            { staticClass: "clearfix" },
+            { staticClass: "clearfix sm:-mx-4" },
             _vm._l(_vm.articles.data, function(article) {
               return _c(
                 "li",
-                { staticClass: "w-1/3 bg-white rounded-xl float-left mx-4" },
+                {
+                  staticClass:
+                    "w-full sm:w-1/3 bg-white rounded-xl float-left sm:mx-4 mb-8"
+                },
                 [
                   _c(
                     "router-link",

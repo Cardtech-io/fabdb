@@ -4,9 +4,9 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto py-8">
-                <ol class="clearfix">
-                    <li v-for="article in articles.data" class="w-1/3 bg-white rounded-xl float-left mx-4">
+            <div class="container sm:mx-auto py-8 px-4">
+                <ol class="clearfix sm:-mx-4">
+                    <li v-for="article in articles.data" class="w-full sm:w-1/3 bg-white rounded-xl float-left sm:mx-4 mb-8">
                         <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
                             <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-xl">
                             <div class="p-6">
