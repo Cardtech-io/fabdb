@@ -44,6 +44,21 @@
             }
         },
 
+        metaInfo() {
+            let title = 'Flesh & Blood articles';
+            let description = 'Articles, content, analysis and more for Flesh & Blood TCG.';
+
+            return {
+                title: title,
+                meta: [
+                    { vmid: 'description', name: 'description', content: description },
+                    { vmid: 'og:type', property: 'og:type', content: 'website' },
+                    { vmid: 'og:title', property: 'og:title', content: title },
+                    { vmid: 'og:description', property: 'og:description', content: description }
+                ]
+            };
+        },
+
         extends: LazyLoader((to, callback) => {
             axios.get('/articles/').then(response => {
                 callback(function() {

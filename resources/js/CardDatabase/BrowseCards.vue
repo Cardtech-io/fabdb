@@ -68,7 +68,7 @@
             HeaderTitle,
             Paginator
         },
-
+        
         data() {
             return {
                 page: 1,
@@ -80,9 +80,9 @@
 
         metaInfo() {
             return {
-                title: 'Browse cards',
+                title: 'Flesh and Blood Card Database',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Browse and search cards from the Flesh & Blood TCG.' }
+                    { vmid: 'description', name: 'description', content: 'Browse Flesh and Blood TCG cards, their rules, and more.' }
                 ]
             };
         },

@@ -2258,11 +2258,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   metaInfo: function metaInfo() {
     return {
-      title: 'Browse cards',
+      title: 'Flesh and Blood Card Database',
       meta: [{
         vmid: 'description',
         name: 'description',
-        content: 'Browse and search cards from the Flesh & Blood TCG.'
+        content: 'Browse Flesh and Blood TCG cards, their rules, and more.'
       }]
     };
   },
@@ -3629,6 +3629,30 @@ __webpack_require__.r(__webpack_exports__);
         link: '/'
       }, {
         text: 'Articles'
+      }]
+    };
+  },
+  metaInfo: function metaInfo() {
+    var title = 'Flesh & Blood articles';
+    var description = 'Articles, content, analysis and more for Flesh & Blood TCG.';
+    return {
+      title: title,
+      meta: [{
+        vmid: 'description',
+        name: 'description',
+        content: description
+      }, {
+        vmid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      }, {
+        vmid: 'og:title',
+        property: 'og:title',
+        content: title
+      }, {
+        vmid: 'og:description',
+        property: 'og:description',
+        content: description
       }]
     };
   },
