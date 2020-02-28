@@ -6,14 +6,16 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
                 <ol class="clearfix sm:-mx-4">
-                    <li v-for="article in articles.data" class="w-full sm:w-1/3 bg-white rounded-xl float-left sm:mx-4 mb-8">
-                        <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                            <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-xl">
-                            <div class="p-6">
-                                <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
-                                <p>{{ article.excerpt }}</p>
-                            </div>
-                        </router-link>
+                    <li v-for="article in articles.data" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
+                        <div class="bg-white rounded-lg">
+                            <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
+                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-lg">
+                                <div class="p-6">
+                                    <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
+                                    <p>{{ article.excerpt }}</p>
+                                </div>
+                            </router-link>
+                        </div>
                     </li>
                 </ol>
             </div>

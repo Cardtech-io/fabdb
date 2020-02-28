@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('sitemap', 'SitemapController@view');
 
 Route::middleware(['web'])->group(function() {
@@ -19,10 +21,9 @@ Route::middleware(['web'])->group(function() {
 
     Route::middleware(['spa'])->group(function() {
         Route::get('articles', 'ArticleController@search');
-        Route::get('articles/{article}', 'ArticleController@view')->where('article', '^((?!(mine)|(write)).)+');
 
         Route::get('cards', 'CardController@list');
-        Route::get('cards/{card}', 'CardController@view')->where('card', '^((?!(draft)|(browse)).)+');
+        Route::get('cards/{card}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 
         Route::get('featured/top', 'FeatureController@top');
@@ -52,12 +53,32 @@ Route::middleware(['web'])->group(function() {
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
         });
 
+        Route::get('articles/{article}', 'ArticleController@view');
+
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
-        Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build|test).)+');
+        Route::get('decks/{deck}', 'DeckController@view');
     });
 
-    Route::fallback(function () {
-        return view('welcome');
+    // This is our 404 route. We only want to support routes that actually have a client-facing path.
+    Route::fallback(function(Request $request) {
+        function pathMatches(string $path) {
+            dd($path);
+            foreach (config('spa.client') as $pattern) {
+                $pattern = str_replace('/', '\/', $pattern);
+
+                if (preg_match("/^{$pattern}/i", $path)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if (!$request->wantsJson() && pathMatches($request->path())) {
+            return response()->view('welcome');
+        }
+
+        abort(404);
     });
 });

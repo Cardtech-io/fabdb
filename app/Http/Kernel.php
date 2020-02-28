@@ -27,11 +27,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \FabDB\Http\Middleware\Prerender::class,
             \FabDB\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \FabDB\Http\Middleware\IgnoreClientUrls::class,
+            \FabDB\Http\Middleware\Prerender::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \FabDB\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,

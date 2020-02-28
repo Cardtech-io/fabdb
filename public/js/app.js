@@ -3608,6 +3608,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5626,7 +5628,7 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: function metaInfo() {
     return {
       meta: [{
-        keywords: 'Flesh and Blood TCG,TCG,deck builder,Flesh & Blood TCG,Flesh and Blood'
+        keywords: 'Flesh and Blood TCG,TCG,deck builder,Flesh & Blood TCG,Flesh and Blood,Flesh and blood cards,Cards'
       }, {
         vmid: 'og:title',
         property: 'og:title',
@@ -62158,39 +62160,50 @@ var render = function() {
                 "li",
                 {
                   staticClass:
-                    "w-full sm:w-1/3 bg-white rounded-xl float-left sm:mx-4 mb-8"
+                    "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
                 },
                 [
                   _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to:
-                          "/articles/" +
-                          _vm.kebabCase(article.title) +
-                          "/" +
-                          article.slug
-                      }
-                    },
+                    "div",
+                    { staticClass: "bg-white rounded-lg" },
                     [
-                      _c("img", {
-                        staticClass: "w-full rounded-t-xl",
-                        attrs: { src: _vm.thumbUrl(article.image, 400, 150) }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "p-6" }, [
-                        _c(
-                          "h3",
-                          { staticClass: "font-serif uppercase text-2xl mb-2" },
-                          [_vm._v(_vm._s(article.title))]
-                        ),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(article.excerpt))])
-                      ])
-                    ]
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to:
+                              "/articles/" +
+                              _vm.kebabCase(article.title) +
+                              "/" +
+                              article.slug
+                          }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "w-full rounded-t-lg",
+                            attrs: {
+                              src: _vm.thumbUrl(article.image, 400, 150)
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "p-6" }, [
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "font-serif uppercase text-2xl mb-2"
+                              },
+                              [_vm._v(_vm._s(article.title))]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(article.excerpt))])
+                          ])
+                        ]
+                      )
+                    ],
+                    1
                   )
-                ],
-                1
+                ]
               )
             }),
             0
@@ -88081,10 +88094,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'View deck'
     }
   }, {
-    path: "/articles/mine",
-    component: _Content_MyArticles_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    name: 'my-articles'
-  }, {
     path: "/articles",
     component: _Content_Articles_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: 'articles'
@@ -88092,6 +88101,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/articles/write",
     component: _Content_WriteArticle_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     name: 'write-article'
+  }, {
+    path: "/articles/mine",
+    component: _Content_MyArticles_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    name: 'my-articles'
   }, {
     path: "/articles/:article/edit",
     component: _Content_WriteArticle_vue__WEBPACK_IMPORTED_MODULE_7__["default"],

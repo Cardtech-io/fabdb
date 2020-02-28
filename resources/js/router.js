@@ -86,11 +86,6 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/articles/mine",
-            component: MyArticles,
-            name: 'my-articles'
-        },
-        {
             path: "/articles",
             component: Articles,
             name: 'articles'
@@ -99,6 +94,11 @@ const router = new VueRouter({
             path: "/articles/write",
             component: WriteArticle,
             name: 'write-article'
+        },
+        {
+            path: "/articles/mine",
+            component: MyArticles,
+            name: 'my-articles'
         },
         {
             path: "/articles/:article/edit",

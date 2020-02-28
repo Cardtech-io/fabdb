@@ -15,7 +15,7 @@
     "set": "WTR",
     "name": "Rhinar, Reckless Rampage",
     "rarity": "T",
-    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "text": "When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",
     "keywords": [
       "brute",
       "hero"
@@ -30,7 +30,7 @@
     "set": "WTR",
     "name": "Rhinar",
     "rarity": "T",
-    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "text": "When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",
     "keywords": ["brute", "hero", "young"],
     "stats": {
       "life": 20,
