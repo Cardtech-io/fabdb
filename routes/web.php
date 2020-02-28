@@ -63,7 +63,6 @@ Route::middleware(['web'])->group(function() {
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
     Route::fallback(function(Request $request) {
         function pathMatches(string $path) {
-            dd($path);
             foreach (config('spa.client') as $pattern) {
                 $pattern = str_replace('/', '\/', $pattern);
 

@@ -2252,7 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       page: 1,
       results: {},
-      set: 'wtr',
+      set: this.$route.query.set || 'wtr',
       view: 'gallery'
     };
   },

@@ -68,12 +68,12 @@
             HeaderTitle,
             Paginator
         },
-        
+
         data() {
             return {
                 page: 1,
                 results: {},
-                set: 'wtr',
+                set: this.$route.query.set || 'wtr',
                 view: 'gallery'
             }
         },
