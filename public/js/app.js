@@ -3955,6 +3955,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -62705,6 +62706,10 @@ var render = function() {
               _vm._v(_vm._s(_vm.article.title))
             ]),
             _vm._v(" "),
+            _c("div", [
+              _vm._v("Written by " + _vm._s(_vm.article.author.name))
+            ]),
+            _vm._v(" "),
             _c("div", {
               domProps: {
                 innerHTML: _vm._s(_vm.parseMarkdown(_vm.article.content))
@@ -62712,12 +62717,16 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _vm.article.author.blurb
+            ? _c("div", { staticClass: "border-t border-gray-400 py-4" }, [
+                _vm._v(_vm._s(_vm.article.author.blurb))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c(
             "div",
-            {},
+            { staticClass: "border-t border-gray-400" },
             [
-              _c("hr", { staticClass: "text-gray-500 mt-4" }),
-              _vm._v(" "),
               _c("comment-count", { attrs: { comments: _vm.comments } }),
               _vm._v(" "),
               _vm.comments

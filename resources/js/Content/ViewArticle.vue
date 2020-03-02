@@ -7,12 +7,13 @@
             <div class="container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
+                    <div>Written by {{ article.author.name }}</div>
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
-                <div class="">
-                    <hr class="text-gray-500 mt-4">
+                <div class="border-t border-gray-400 py-4" v-if="article.author.blurb">{{ article.author.blurb }}</div>
 
+                <div class="border-t border-gray-400">
                     <comment-count :comments="comments"></comment-count>
 
                     <div v-if="comments">

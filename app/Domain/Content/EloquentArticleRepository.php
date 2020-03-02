@@ -14,7 +14,10 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
     public function view($slug): Article
     {
-        return $this->newQuery()->whereSlug($slug)->firstOrFail();
+        return $this->newQuery()
+            ->with('author')
+            ->whereSlug($slug)
+            ->firstOrFail();
     }
 
     public function search($keywords, int $perPage, string $useCase, int $userId = null)
