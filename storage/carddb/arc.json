@@ -237,10 +237,14 @@
     "name": "Whisper of the Oracle",
     "rarity": "C",
     "text": "**Opt 2** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)\n\n**Go again**",
-    "keywords": ["generic", "action"],
+    "keywords": [
+      "generic",
+      "action"
+    ],
     "stats": {
       "resource": 3,
       "cost": 0,
       "defense": 3
     }
+  }
 ]

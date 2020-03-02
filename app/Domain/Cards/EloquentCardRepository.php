@@ -109,7 +109,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');
         }
 
-        $query->orderBy('cards.id');
+        $query->orderBy('cards.identifier');
 
         return $query;
     }
