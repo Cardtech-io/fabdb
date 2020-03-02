@@ -94,7 +94,12 @@
             save: function() {
                 this.saving = true;
 
-                let payload = this.article;
+                let payload = {
+                    slug: this.article.slug,
+                    title: this.article.title,
+                    excerpt: this.article.excerpt,
+                    content: this.article.content
+                };
 
                 let request = this.article.slug ?
                     axios.put('/articles/' + this.article.slug, payload) :

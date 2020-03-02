@@ -4165,7 +4165,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.saving = true;
-      var payload = this.article;
+      var payload = {
+        slug: this.article.slug,
+        title: this.article.title,
+        excerpt: this.article.excerpt,
+        content: this.article.content
+      };
       var request = this.article.slug ? axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/articles/' + this.article.slug, payload) : axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/articles', payload);
       request.then(function (response) {
         _this.saving = false;
