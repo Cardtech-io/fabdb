@@ -2519,7 +2519,7 @@
     "set": "WTR",
     "name": "Fyendal's Spring Tunic",
     "rarity": "L",
-    "text": "",
+    "text": "At the start of your turn, if Fyendal's Spring Tunic has less than 3 energy counters, you may put an energy counter on it.\n\n**Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]\n\n**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",
     "keywords": [
       "generic",
       "equipment",
