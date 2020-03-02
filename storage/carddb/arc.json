@@ -122,7 +122,7 @@
     "set": "ARC",
     "name": "Art of War",
     "rarity": "M",
-    "text": "",
+    "text": "Choose 2;\n\n* Attack action cards you control gain +1[attack] and +1[defense] this turn.\n* The next attack action card you play this turn, gains **go again**.\n* Until end of turn, you may defend with attack action cards from arsenal.\n* You may banish an attack action card from your hand. If you do, draw 2 cards.",
     "keywords": ["generic", "instant"],
     "stats": {
       "resource": 2,
@@ -134,7 +134,7 @@
     "set": "ARC",
     "name": "Life for a Life",
     "rarity": "R",
-    "text": "",
+    "text": "If Life for a Life hits, gain 1 [life].\n\nWhen you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",
     "keywords": ["generic", "action", "attack"],
     "stats": {
       "resource": 1,
@@ -148,7 +148,7 @@
     "set": "ARC",
     "name": "Life for a Life",
     "rarity": "R",
-    "text": "",
+    "text": "If Life for a Life hits, gain 1 [life].\n\nWhen you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",
     "keywords": ["generic", "action", "attack"],
     "stats": {
       "resource": 2,
@@ -162,7 +162,7 @@
     "set": "ARC",
     "name": "Life for a Life",
     "rarity": "R",
-    "text": "",
+    "text": "If Life for a Life hits, gain 1 [life].\n\nWhen you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",
     "keywords": [
       "generic",
       "action",

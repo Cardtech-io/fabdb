@@ -10,7 +10,10 @@
                 </div>
 
                 <div class="md:w-2/3 md:float-right sm:px-4">
-                    <p class="p-4 pt-0 sm:p-0">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
+                    <div class="p-4 pt-0 sm:p-0">
+                        <div v-if="card.text" v-html="prettyText(card.text)" class="-mt-4 mb-8"></div>
+                        <span v-else>This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</span>
+                    </div>
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/3 p-2 px-4">Rarity</div>
@@ -56,9 +59,10 @@
     import Respond from '../Discussion/Respond.vue';
     import Comment from '../Discussion/Comment.vue';
     import CommentCount from '../Discussion/CommentCount.vue';
+    import Strings from '../Utilities/Strings';
 
     export default {
-        mixins: [ Cardable ],
+        mixins: [ Cardable, Strings ],
 
         components: {
             Breadcrumbs,

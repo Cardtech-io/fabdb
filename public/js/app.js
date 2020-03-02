@@ -2693,6 +2693,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Discussion/Respond.vue */ "./resources/js/Discussion/Respond.vue");
 /* harmony import */ var _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Discussion/Comment.vue */ "./resources/js/Discussion/Comment.vue");
 /* harmony import */ var _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Discussion/CommentCount.vue */ "./resources/js/Discussion/CommentCount.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -2741,6 +2742,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -2750,7 +2755,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__["default"]],
   components: {
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Comment: _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -61073,12 +61078,23 @@ var render = function() {
               "div",
               { staticClass: "md:w-2/3 md:float-right sm:px-4" },
               [
-                _c("p", { staticClass: "p-4 pt-0 sm:p-0" }, [
-                  _vm._v(
-                    'This card is from the "' +
-                      _vm._s(_vm.setToString(_vm.set(_vm.card.identifier))) +
-                      '" set of the Flesh & Blood TCG.'
-                  )
+                _c("div", { staticClass: "p-4 pt-0 sm:p-0" }, [
+                  _vm.card.text
+                    ? _c("div", {
+                        staticClass: "-mt-4 mb-8",
+                        domProps: {
+                          innerHTML: _vm._s(_vm.prettyText(_vm.card.text))
+                        }
+                      })
+                    : _c("span", [
+                        _vm._v(
+                          'This card is from the "' +
+                            _vm._s(
+                              _vm.setToString(_vm.set(_vm.card.identifier))
+                            ) +
+                            '" set of the Flesh & Blood TCG.'
+                        )
+                      ])
                 ]),
                 _vm._v(" "),
                 _c(
@@ -87849,10 +87865,102 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! marked */ "./node_modules/marked/src/marked.js");
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     kebabCase: function kebabCase(string) {
       return this.snakeCase(string, '-');
+    },
+    _renderer: function _renderer() {
+      var renderer = new marked__WEBPACK_IMPORTED_MODULE_0___default.a.Renderer();
+
+      renderer.paragraph = function (text) {
+        return '<p class="my-4">' + text + '</p>';
+      };
+
+      renderer.link = function (href, title, text) {
+        return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
+      };
+
+      renderer.list = function (body, ordered, start) {
+        return ordered ? '<ol class="list-decimal ml-8">' + body + '</ol>' : '<ul class="list-disc ml-8">' + body + '</ul>';
+      };
+
+      renderer.listitem = function (text, task, checked) {
+        return '<li>' + text + '</li>';
+      };
+
+      return renderer;
+    },
+    parseMarkdown: function parseMarkdown(string) {
+      var _this = this;
+
+      var renderer = this._renderer(); // First we're gonna search for custom syntax
+
+
+      var content = string.split('\n').map(function (line) {
+        var regexp = /^#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/;
+        var matches = line.match(regexp);
+
+        if (!matches) {
+          return line;
+        }
+
+        var identifiers = matches[1].split(',');
+        var cards = identifiers.map(function (cardIdentifier) {
+          return '<img src="' + _this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+        });
+        return '<div class="text-center">' + cards.join('\n') + '</div>';
+      });
+      return marked__WEBPACK_IMPORTED_MODULE_0___default()(content.join('\n'), {
+        renderer: renderer
+      });
+    },
+    prettyText: function prettyText(text) {
+      function chunk(arr, len) {
+        var chunks = [],
+            i = 0,
+            n = arr.length;
+
+        while (i < n) {
+          chunks.push(arr.slice(i, i += len));
+        }
+
+        return chunks;
+      }
+
+      var content = text.split('\n');
+      content = content.map(function (line) {
+        var regex = new RegExp(/\[([+-])?(([X0-9]{1})\s)?([a-z]+)\]/);
+
+        while (true) {
+          var matches = regex.exec(line);
+
+          if (!matches) {
+            return line;
+          }
+
+          var modifier = matches[1];
+          var amount = matches[3];
+          var effect = matches[4];
+          var string = '';
+
+          if (modifier) {
+            string = modifier + amount + '<img src="/img/' + effect + '.png" class="inline-block h-5 align-middle">';
+          } else if (amount) {
+            for (var x = 0; x < amount; x++) {
+              string += '<img src="/img/' + effect + '.png" class="inline-block h-5">';
+            }
+          } else {
+            string += '<img src="/img/' + effect + '.png" class="inline-block h-5">';
+          }
+
+          line = line.replace(matches[0], string, line);
+        }
+      });
+      return this.parseMarkdown(content.join('\n'));
     },
     snakeCase: function snakeCase(string, delimiter) {
       if (!delimiter) delimiter = '_';
