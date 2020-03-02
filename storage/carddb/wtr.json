@@ -22,7 +22,7 @@
     ],
     "stats": {
       "life": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -34,7 +34,7 @@
     "keywords": ["brute", "hero", "young"],
     "stats": {
       "life": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -614,7 +614,7 @@
     ],
     "stats": {
       "life": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -630,7 +630,7 @@
     ],
     "stats": {
       "life": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -1269,7 +1269,7 @@
       "hero"
     ],
     "stats": {
-      "hand-size": 4,
+      "intellect": 4,
       "life": 40
     }
   },
@@ -1285,7 +1285,7 @@
       "young"
     ],
     "stats": {
-      "hand-size": 4,
+      "intellect": 4,
       "life": 20
     }
   },
@@ -1919,7 +1919,7 @@
     ],
     "stats": {
       "health": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -1935,7 +1935,7 @@
     ],
     "stats": {
       "health": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {

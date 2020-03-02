@@ -1,5 +1,29 @@
 [
   {
+    "id": "113",
+    "set": "ARC",
+    "name": "Kano, Dracei of Aether",
+    "rarity": "T",
+    "text": "**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",
+    "keywords": ["wizard", "hero"],
+    "stats": {
+      "life": 30,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "114",
+    "set": "ARC",
+    "name": "Kano, Dracei of Aether",
+    "rarity": "T",
+    "text": "**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",
+    "keywords": ["wizard", "hero", "young"],
+    "stats": {
+      "life": 15,
+      "intellect": 4
+    }
+  },
+  {
     "id": "147",
     "set": "ARC",
     "name": "Voltic Bolt",
@@ -36,6 +60,61 @@
       "resource": 3,
       "cost": 2,
       "defense": 2
+    }
+  },
+  {
+    "id": "153",
+    "set": "ARC",
+    "name": "Bracers of Belief",
+    "rarity": "C",
+    "text": "**Action** - Destroy Bracers of Belief: Real the top card of your deck. If you do, the next attack action card you play this turn gets [+X attack], where X is 3 minus the pitch value of the card revealed this way. **Go again**",
+    "keywords": ["generic", "equipment", "arms"],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "155",
+    "set": "ARC",
+    "name": "Nullrune Hood",
+    "rarity": "C",
+    "text": "**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",
+    "keywords": ["generic", "equipment", "head"],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "156",
+    "set": "ARC",
+    "name": "Nullrune Robe",
+    "rarity": "C",
+    "text": "**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",
+    "keywords": ["generic", "equipment", "chest"],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "157",
+    "set": "ARC",
+    "name": "Nullrune Gloves",
+    "rarity": "C",
+    "text": "**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",
+    "keywords": ["generic", "equipment", "arms"],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "158",
+    "set": "ARC",
+    "name": "Nullrune Boots",
+    "rarity": "C",
+    "text": "**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",
+    "keywords": ["generic", "equipment", "legs"],
+    "stats": {
+      "defense": 0
     }
   },
   {
@@ -101,12 +180,67 @@
     "set": "ARC",
     "name": "Plunder Run",
     "rarity": "R",
-    "text": "The next time an attack action card you control hits this turn, draw a card.\nIf plunder run is played from arsenal, then next attack action card you play this turn gains [+3 attack].\n**Go again**",
-    "keywords": ["generic", "action"],
+    "text": "The next time an attack action card you control hits this turn, draw a card.\nIf plunder run is played from arsenal, then next attack action card you play this turn gains [+3 attack].\n\n**Go again**",
+    "keywords": [
+      "generic",
+      "action"
+    ],
     "stats": {
       "resource": 1,
       "cost": 0,
       "defense": 2
     }
-  }
+  },
+  {
+    "id": "191",
+    "set": "ARC",
+    "name": "Ravenous Rabble",
+    "rarity": "C",
+    "text": "Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.\n\n**Go again**",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "215",
+    "set": "ARC",
+    "name": "Whisper of the Oracle",
+    "rarity": "C",
+    "text": "**Opt 4** (Look at the top 4 cards of your deck. You may put them on the top and/or bottom in any order.)\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "216",
+    "set": "ARC",
+    "name": "Whisper of the Oracle",
+    "rarity": "C",
+    "text": "**Opt 3** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "217",
+    "set": "ARC",
+    "name": "Whisper of the Oracle",
+    "rarity": "C",
+    "text": "**Opt 2** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3
+    }
 ]
