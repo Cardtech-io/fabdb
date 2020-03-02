@@ -21,7 +21,8 @@ class ArticleController extends Controller
     {
         return $articles->search(
             $request->get('keywords'),
-            $request->get('per_page', 6)
+            $request->get('per_page', 6),
+            'search'
         );
     }
 
@@ -50,10 +51,13 @@ class ArticleController extends Controller
 
     public function mine(Request $request, ArticleRepository $articles)
     {
+        $userId = $request->user()->role == 'editor' ? null : $request->user()->id;
+
         return $articles->search(
             $request->get('keywords'),
             $request->get('per_page', 12),
-            $request->user()->id
+            'manage',
+            $userId
         );
     }
 }

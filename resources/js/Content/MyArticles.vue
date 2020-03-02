@@ -22,6 +22,7 @@
                         <thead>
                             <tr class="hidden sm:table-row bg-gray-100">
                                 <th class="font-serif uppercase text-left p-2 border-b border-gray-300">ID</th>
+                                <th class="font-serif uppercase text-left p-2 border-b border-gray-300" v-if="user.role == 'editor'">Author</th>
                                 <th class="font-serif uppercase text-left p-2 border-b border-gray-300">Title</th>
                                 <th class="font-serif uppercase text-left p-2 border-b border-gray-300">Status</th>
                                 <th class="font-serif uppercase text-left p-2 border-b border-gray-300">Published</th>
@@ -29,6 +30,7 @@
 
                             <tr v-for="article in articles.data" class="odd:bg-gray-100 hover:bg-gray-200 sm:table-row">
                                 <td class="p-2"><router-link :to="'/articles/' + article.slug + '/edit'" class="link">{{ article.slug }}</router-link></td>
+                                <td class="p-2" v-if="user.role == 'editor'">{{ article.author.name }}</td>
                                 <td class="p-2"><router-link :to="'/articles/' + article.slug + '/edit'" class="link">{{ article.title }}</router-link></td>
                                 <td class="p-2">{{ article.status }}</td>
                                 <td class="p-2">{{ article.publishAt }}</td>
@@ -54,6 +56,7 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Paginator from '../Components/Paginator.vue';
+    import { mapGetters } from 'vuex';
 
     export default {
         components: { Crumbs, HeaderTitle, Paginator },
@@ -67,6 +70,10 @@
                 ],
                 page: 1
             };
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         methods: {

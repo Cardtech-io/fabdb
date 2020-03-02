@@ -17,9 +17,12 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         return $this->newQuery()->whereSlug($slug)->firstOrFail();
     }
 
-    public function search($keywords, int $perPage, int $userId = null)
+    public function search($keywords, int $perPage, string $useCase, int $userId = null)
     {
-        $query = $this->newQuery();
+
+        $query = $this->newQuery()
+            ->with('author')
+            ->select('id', 'slug', 'user_id', 'title', 'excerpt', 'status', 'publish_at', 'created_at');
 
         if ($userId) {
             $query->where('user_id', $userId);
@@ -37,13 +40,12 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         // If we're looking at a specific user, let's order by created at.
         // Otherwise, this is public, so we want to order by most recently published.
-        if ($userId === null) {
+        if ($useCase == 'search') {
             $query->whereNotNull('publish_at');
             $query->orderBy('publish_at', 'desc');
         } else {
             $query->orderBy('created_at', 'desc');
         }
-
 
         return $query->paginate($perPage);
     }

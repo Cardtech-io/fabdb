@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Content;
 
 use FabDB\Domain\Comments\Comment;
+use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -19,6 +20,11 @@ class Article extends Model
         'id',
         'userId'
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public static function draft(int $author, string $title, string $excerpt, string $content)
     {

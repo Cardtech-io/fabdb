@@ -3800,6 +3800,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3851,6 +3858,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
@@ -3873,6 +3883,7 @@ __webpack_require__.r(__webpack_exports__);
       page: 1
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])('session', ['user'])),
   methods: {
     search: function search() {
       var _this = this;
@@ -62504,7 +62515,58 @@ var render = function() {
                     _c(
                       "thead",
                       [
-                        _vm._m(0),
+                        _c(
+                          "tr",
+                          { staticClass: "hidden sm:table-row bg-gray-100" },
+                          [
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "font-serif uppercase text-left p-2 border-b border-gray-300"
+                              },
+                              [_vm._v("ID")]
+                            ),
+                            _vm._v(" "),
+                            _vm.user.role == "editor"
+                              ? _c(
+                                  "th",
+                                  {
+                                    staticClass:
+                                      "font-serif uppercase text-left p-2 border-b border-gray-300"
+                                  },
+                                  [_vm._v("Author")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "font-serif uppercase text-left p-2 border-b border-gray-300"
+                              },
+                              [_vm._v("Title")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "font-serif uppercase text-left p-2 border-b border-gray-300"
+                              },
+                              [_vm._v("Status")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "th",
+                              {
+                                staticClass:
+                                  "font-serif uppercase text-left p-2 border-b border-gray-300"
+                              },
+                              [_vm._v("Published")]
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
                         _vm._l(_vm.articles.data, function(article) {
                           return _c(
@@ -62532,6 +62594,12 @@ var render = function() {
                                 ],
                                 1
                               ),
+                              _vm._v(" "),
+                              _vm.user.role == "editor"
+                                ? _c("td", { staticClass: "p-2" }, [
+                                    _vm._v(_vm._s(article.author.name))
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _c(
                                 "td",
@@ -62601,50 +62669,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "hidden sm:table-row bg-gray-100" }, [
-      _c(
-        "th",
-        {
-          staticClass:
-            "font-serif uppercase text-left p-2 border-b border-gray-300"
-        },
-        [_vm._v("ID")]
-      ),
-      _vm._v(" "),
-      _c(
-        "th",
-        {
-          staticClass:
-            "font-serif uppercase text-left p-2 border-b border-gray-300"
-        },
-        [_vm._v("Title")]
-      ),
-      _vm._v(" "),
-      _c(
-        "th",
-        {
-          staticClass:
-            "font-serif uppercase text-left p-2 border-b border-gray-300"
-        },
-        [_vm._v("Status")]
-      ),
-      _vm._v(" "),
-      _c(
-        "th",
-        {
-          staticClass:
-            "font-serif uppercase text-left p-2 border-b border-gray-300"
-        },
-        [_vm._v("Published")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

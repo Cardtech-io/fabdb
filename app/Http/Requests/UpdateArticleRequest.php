@@ -7,7 +7,7 @@ class UpdateArticleRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->id == $this->article->userId;
+        return $this->user()->id == $this->article->userId || $this->user()->isEditor();
     }
 
     public function rules()

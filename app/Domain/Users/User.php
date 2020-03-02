@@ -69,6 +69,11 @@ class User extends Model implements Authenticatable
         return $this;
     }
 
+    public function isEditor()
+    {
+        return $this->role === 'editor';
+    }
+
     public function updateName(string $name)
     {
         $this->name = $name;
