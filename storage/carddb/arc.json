@@ -24,6 +24,14 @@
     }
   },
   {
+    "id": "115",
+    "set": "ARC",
+    "name": "Crucible of Aetherweave",
+    "rarity": "T",
+    "text": "**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",
+    "keywords": ["wizard", "weapon", "staff", "2h"]
+  },
+  {
     "id": "147",
     "set": "ARC",
     "name": "Voltic Bolt",

@@ -6,6 +6,7 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\Rarity;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,7 +46,7 @@ class SeedCardDatabase extends Command
                 new Rarity($card['rarity']),
                 $card['text'],
                 $card['keywords'],
-                $card['stats']
+                Arr::get($card, 'stats', [])
             );
         }
 
