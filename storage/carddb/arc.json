@@ -213,6 +213,38 @@
     }
   },
   {
+    "id": "171",
+    "set": "ARC",
+    "name": "Plunder Run",
+    "rarity": "R",
+    "text": "The next time an attack action card you control hits this turn, draw a card.\nIf plunder run is played from arsenal, then next attack action card you play this turn gains [+2 attack].\n\n**Go again**",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "172",
+    "set": "ARC",
+    "name": "Plunder Run",
+    "rarity": "R",
+    "text": "The next time an attack action card you control hits this turn, draw a card.\nIf plunder run is played from arsenal, then next attack action card you play this turn gains [+1 attack].\n\n**Go again**",
+    "keywords": [
+      "generic",
+      "action"
+    ],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
     "id": "191",
     "set": "ARC",
     "name": "Ravenous Rabble",
@@ -224,6 +256,34 @@
       "cost": 0,
       "defense": 2,
       "attack": 5
+    }
+  },
+  {
+    "id": "192",
+    "set": "ARC",
+    "name": "Ravenous Rabble",
+    "rarity": "C",
+    "text": "Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.\n\n**Go again**",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "193",
+    "set": "ARC",
+    "name": "Ravenous Rabble",
+    "rarity": "C",
+    "text": "Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.\n\n**Go again**",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2,
+      "attack": 3
     }
   },
   {
