@@ -32,6 +32,19 @@
     "keywords": ["wizard", "weapon", "staff", "2h"]
   },
   {
+    "id": "132",
+    "set": "ARC",
+    "name": "Aether Flare",
+    "rarity": "C",
+    "text": "Deal 3 arcane damage to target opposing hero.\n\nThe next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
     "id": "147",
     "set": "ARC",
     "name": "Voltic Bolt",
