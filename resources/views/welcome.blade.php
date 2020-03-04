@@ -7,6 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
 
@@ -46,7 +47,7 @@
             </script>
         @endif
     </head>
-    <body class="theme-bg bg-gray-200 text-gray-800">
+    <body class="font-sans theme-bg bg-gray-200 text-gray-800">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
