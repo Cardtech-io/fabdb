@@ -29,6 +29,26 @@
                         <textarea type="text" v-model="article.excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4"></textarea>
                     </div>
 
+                    <div v-if="user.role == 'editor'">
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Image</label>
+                            <input type="text" v-model="article.image" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        </div>
+
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Publish at</label>
+                            <input type="text" v-model="article.publishAt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        </div>
+
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Status</label>
+                            <select v-model="article.status" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                                <option value="draft">Draft</option>
+                                <option value="approved">Approved</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Content</label>
                         <vue-simplemde v-model="article.content" ref="markdownEditor"></vue-simplemde>
@@ -56,6 +76,7 @@
 
 <script>
     import axios from 'axios';
+    import { mapGetters } from 'vuex';
 
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -77,6 +98,8 @@
         },
 
         computed: {
+            ...mapGetters('session', ['user']),
+
             crumbs: function() {
                 return [
                     { text: 'Home', link: '/' },
@@ -98,6 +121,9 @@
                     slug: this.article.slug,
                     title: this.article.title,
                     excerpt: this.article.excerpt,
+                    image: this.article.image,
+                    publishAt: this.article.publishAt,
+                    status: this.article.status,
                     content: this.article.content
                 };
 

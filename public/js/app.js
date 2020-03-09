@@ -4061,12 +4061,19 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
-/* harmony import */ var _Utilities_Content__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Utilities/Content */ "./resources/js/Utilities/Content.js");
-/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
+/* harmony import */ var _Utilities_Content__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Utilities/Content */ "./resources/js/Utilities/Content.js");
+/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -4123,6 +4130,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -4132,11 +4160,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_6__["default"], _Utilities_Content__WEBPACK_IMPORTED_MODULE_5__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_7__["default"], _Utilities_Content__WEBPACK_IMPORTED_MODULE_6__["default"]],
   data: function data() {
     return {
       article: {},
@@ -4144,7 +4172,7 @@ __webpack_require__.r(__webpack_exports__);
       view: 'edit'
     };
   },
-  computed: {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
     crumbs: function crumbs() {
       return [{
         text: 'Home',
@@ -4156,7 +4184,7 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Write'
       }];
     }
-  },
+  }),
   methods: {
     activeView: function activeView(view) {
       return this.view == view ? 'text-orange-300' : '';
@@ -4169,6 +4197,9 @@ __webpack_require__.r(__webpack_exports__);
         slug: this.article.slug,
         title: this.article.title,
         excerpt: this.article.excerpt,
+        image: this.article.image,
+        publishAt: this.article.publishAt,
+        status: this.article.status,
         content: this.article.content
       };
       var request = this.article.slug ? axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/articles/' + this.article.slug, payload) : axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/articles', payload);
@@ -4181,7 +4212,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__["default"])(function (to, callback) {
     if (to.params.article) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/articles/' + to.params.article).then(function (response) {
         callback(function () {
@@ -62921,6 +62952,143 @@ var render = function() {
                       }
                     })
                   ]),
+                  _vm._v(" "),
+                  _vm.user.role == "editor"
+                    ? _c("div", [
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("Image")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.article.image,
+                                expression: "article.image"
+                              }
+                            ],
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.article.image },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.article,
+                                  "image",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("Publish at")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.article.publishAt,
+                                expression: "article.publishAt"
+                              }
+                            ],
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.article.publishAt },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.article,
+                                  "publishAt",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("Status")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.article.status,
+                                  expression: "article.status"
+                                }
+                              ],
+                              staticClass:
+                                "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                              attrs: { required: "required" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.article,
+                                    "status",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "draft" } }, [
+                                _vm._v("Draft")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "approved" } }, [
+                                _vm._v("Approved")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "div",

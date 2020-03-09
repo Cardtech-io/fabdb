@@ -33,6 +33,9 @@ class ArticleController extends Controller
             $request->user()->id,
             $request->get('title'),
             $request->get('excerpt'),
+            $request->get('image'),
+            $request->get('publishAt'),
+            $request->get('status'),
             $request->get('content')
         ));
 
@@ -45,6 +48,9 @@ class ArticleController extends Controller
             $request->article->slug,
             $request->get('title'),
             $request->get('excerpt'),
+            $request->get('image'),
+            $request->get('publishAt'),
+            $request->get('status'),
             $request->get('content')
         ));
     }
