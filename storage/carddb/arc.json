@@ -1,5 +1,217 @@
 [
   {
+    "id": "001",
+    "set": "ARC",
+    "name": "Dash, Inventor Extraordinaire",
+    "rarity": "T",
+    "text": "You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*",
+    "keywords": ["mechanologist", "hero"],
+    "stats": {
+      "life": 40,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "002",
+    "set": "ARC",
+    "name": "Dash",
+    "rarity": "T",
+    "text": "You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*",
+    "keywords": ["mechanologist", "hero", "young"],
+    "stats": {
+      "life": 20,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "003",
+    "set": "ARC",
+    "name": "Teklo Plasma Pistol",
+    "rarity": "T",
+    "text": "**Action** - Remove a steam counter from Teklo Plasma Pistol: **Attack**\n\n**Action** - [resource]: If there are no steam counters on Teklo Plasma Pistol, put a steam counter on it. **Go again**",
+    "keywords": ["mechanologist", "weapon", "pistol", "2h"],
+    "stats": {
+      "attack": 2
+    }
+  },
+  {
+    "id": "011",
+    "set": "ARC",
+    "name": "Pedal to the Metal",
+    "rarity": "R",
+    "text": "If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "012",
+    "set": "ARC",
+    "name": "Pedal to the Metal",
+    "rarity": "R",
+    "text": "If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "013",
+    "set": "ARC",
+    "name": "Pedal to the Metal",
+    "rarity": "R",
+    "text": "If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
+    "id": "017",
+    "set": "ARC",
+    "name": "Aether Sink",
+    "rarity": "R",
+    "text": "Aether Sink enters the arena with a steam counter on it.\n\n**Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**\n\n**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "018",
+    "set": "ARC",
+    "name": "Cognition Nodes",
+    "rarity": "R",
+    "text": "Aether Sink enters the arena with a steam counter on it.\n\n**Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**\n\n**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "020",
+    "set": "ARC",
+    "name": "Over Loop",
+    "rarity": "C",
+    "text": "If Over Loop hits, put it on the bottom of your deck.\n\n**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Over Loop gains **go again**.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "021",
+    "set": "ARC",
+    "name": "Over Loop",
+    "rarity": "C",
+    "text": "If Over Loop hits, put it on the bottom of your deck.\n\n**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Over Loop gains **go again**.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "022",
+    "set": "ARC",
+    "name": "Over Loop",
+    "rarity": "C",
+    "text": "If Over Loop hits, put it on the bottom of your deck.\n\n**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Over Loop gains **go again**.)*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "023",
+    "set": "ARC",
+    "name": "Throttle",
+    "rarity": "C",
+    "text": "**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Throttle gains **go again**.)*",
+    "flavour": "*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "024",
+    "set": "ARC",
+    "name": "Throttle",
+    "rarity": "C",
+    "text": "**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Throttle gains **go again**.)*",
+    "flavour": "*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "025",
+    "set": "ARC",
+    "name": "Throttle",
+    "rarity": "C",
+    "text": "**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Throttle gains **go again**.)*",
+    "flavour": "*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "036",
+    "set": "ARC",
+    "name": "Hyper Driver",
+    "rarity": "C",
+    "text": "Hyper Driver enters the arena with 3 steam counters on it. When Hyper Driver has no steam counters on it, destroy it.\n\n**Once per turn effect** - When you **boost** a card, remove a steam counter from Hyper Driver and gain [resource].",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 1,
+      "cost": 1
+    }
+  },
+  {
+    "id": "037",
+    "set": "ARC",
+    "name": "Optekal Monocle",
+    "rarity": "C",
+    "text": "Optekal Monocle enters the arena with 5 steam counters on it. When Optekal Monocle has no steam counters on it, destroy it.\n\n**Action** - Remove a steam counter from Optekal Monocle: **Opt 1. Go again** *(Look at the top card of your deck. You may put it on the bottom.)*",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 3,
+      "cost": 0
+    }
+  },
+  {
     "id": "113",
     "set": "ARC",
     "name": "Kano, Dracei of Aether",

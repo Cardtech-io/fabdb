@@ -11,7 +11,7 @@ class UpdateArticle
      * @var string
      */
     private $slug;
-    
+
     /**
      * @var string
      */
