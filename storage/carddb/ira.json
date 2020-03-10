@@ -4,7 +4,7 @@
     "set": "IRA",
     "name": "Ira, Crimson Haze",
     "rarity": "P",
-    "text": "Your second attack each turn gains +1 [dmg]",
+    "text": "Your second attack each turn gains +1[attack].",
     "keywords": [
       "ninja",
       "hero"
