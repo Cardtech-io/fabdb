@@ -14,6 +14,7 @@
                     <option value="brute">Brute</option>
                     <option value="guardian">Guardian</option>
                     <option value="ninja">Ninja</option>
+                    <option value="mechanologist">Mechanologist</option>
                     <option value="warrior">Warrior</option>
                     <option value="wizard">Wizard</option>
                 </select>

@@ -2466,6 +2466,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     external: {
@@ -60796,6 +60797,10 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("option", { attrs: { value: "ninja" } }, [_vm._v("Ninja")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "mechanologist" } }, [
+                _vm._v("Mechanologist")
+              ]),
               _vm._v(" "),
               _c("option", { attrs: { value: "warrior" } }, [
                 _vm._v("Warrior")
