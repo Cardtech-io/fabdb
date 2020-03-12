@@ -69,6 +69,17 @@
             Paginator
         },
 
+        computed: {
+            setDescription: function() {
+                let descriptions = {
+                    arc: 'Arcane Rising',
+                    wtr: 'Welcome to Rathe'
+                };
+
+                return 'Browse Flesh & Blood cards for the set, ' + descriptions[this.set] + '.';
+            }
+        },
+
         data() {
             return {
                 page: 1,
@@ -79,10 +90,12 @@
         },
 
         metaInfo() {
+            let description = this.setDescription;
+
             return {
                 title: 'Flesh and Blood Card Database',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Browse Flesh and Blood TCG cards, their rules, and more.' }
+                    { vmid: 'description', name: 'description', content: this.setDescription }
                 ]
             };
         },

@@ -52,8 +52,7 @@ const router = new VueRouter({
         {
             path: "/decks/build",
             component: ListDecks,
-            name: 'list-decks',
-            meta: { auth: true }
+            name: 'list-decks'
         },
         {
             path: "/deck-builder",

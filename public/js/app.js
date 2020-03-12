@@ -2248,6 +2248,15 @@ __webpack_require__.r(__webpack_exports__);
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  computed: {
+    setDescription: function setDescription() {
+      var descriptions = {
+        arc: 'Arcane Rising',
+        wtr: 'Welcome to Rathe'
+      };
+      return 'Browse Flesh & Blood cards for the set, ' + descriptions[this.set] + '.';
+    }
+  },
   data: function data() {
     return {
       page: 1,
@@ -2257,12 +2266,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   metaInfo: function metaInfo() {
+    var description = this.setDescription;
     return {
       title: 'Flesh and Blood Card Database',
       meta: [{
         vmid: 'description',
         name: 'description',
-        content: 'Browse Flesh and Blood TCG cards, their rules, and more.'
+        content: this.setDescription
       }]
     };
   },
@@ -4940,7 +4950,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AddDeck_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddDeck.vue */ "./resources/js/DeckBuilder/AddDeck.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _AddDeck_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddDeck.vue */ "./resources/js/DeckBuilder/AddDeck.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -4976,10 +4997,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AddDeck: _AddDeck_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AddDeck: _AddDeck_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
   data: function data() {
     return {
       decks: null
@@ -5004,13 +5027,15 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
+    if (!this.user) return;
     axios.get('/decks/mine/').then(function (response) {
       _this2.decks = response.data;
     });
   },
   metaInfo: function metaInfo() {
     return {
-      title: 'Deck builder'
+      title: 'Flesh & Blood Deck builder',
+      description: 'Create and customise tournament-winning decks for Flesh & Blood TCG.'
     };
   }
 });
@@ -64421,91 +64446,116 @@ var render = function() {
           "mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2"
       },
       [
-        _c("div", { staticClass: "flex pb-8" }, [
-          _c(
-            "h1",
-            { staticClass: "font-serif text-white text-4xl uppercase flex-1" },
-            [_vm._v("Decks")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex-1" },
-            [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _vm.decks
-          ? _c(
-              "ol",
-              { staticClass: "border-black border-b" },
-              _vm._l(_vm.decks, function(deck, key) {
-                return _c("li", { staticClass: "border-black border-t py-4" }, [
-                  _c("div", { staticClass: "flex" }, [
-                    _c(
-                      "div",
-                      { staticClass: "flex-1" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "link",
-                            attrs: { to: "/decks/build/" + deck.slug }
-                          },
-                          [_vm._v(_vm._s(deck.name))]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "flex-1 text-right" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "link",
-                            attrs: {
-                              to: "/decks/test/" + deck.slug,
-                              title: "Test deck"
-                            }
-                          },
-                          [_vm._v("Test")]
-                        ),
-                        _vm._v(
-                          "\n                         \n                        "
-                        ),
-                        _c("span", { staticClass: "text-gray-500" }, [
-                          _vm._v("|")
-                        ]),
-                        _vm._v(
-                          "\n                         \n                        "
-                        ),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "link",
-                            attrs: { href: "", title: "Delete deck" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.removeDeck(deck, key)
-                              }
-                            }
-                          },
-                          [_vm._v("Delete")]
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
-              }),
-              0
+        _vm.user
+          ? _c("div", [
+              _c("div", { staticClass: "flex pb-8" }, [
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "font-serif text-white text-4xl uppercase flex-1"
+                  },
+                  [_vm._v("Decks")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex-1" },
+                  [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _vm.decks
+                ? _c(
+                    "ol",
+                    { staticClass: "border-black border-b" },
+                    _vm._l(_vm.decks, function(deck, key) {
+                      return _c(
+                        "li",
+                        { staticClass: "border-black border-t py-4" },
+                        [
+                          _c("div", { staticClass: "flex" }, [
+                            _c(
+                              "div",
+                              { staticClass: "flex-1" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link",
+                                    attrs: { to: "/decks/build/" + deck.slug }
+                                  },
+                                  [_vm._v(_vm._s(deck.name))]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "flex-1 text-right" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link",
+                                    attrs: {
+                                      to: "/decks/test/" + deck.slug,
+                                      title: "Test deck"
+                                    }
+                                  },
+                                  [_vm._v("Test")]
+                                ),
+                                _vm._v(
+                                  "\n                             \n                            "
+                                ),
+                                _c("span", { staticClass: "text-gray-500" }, [
+                                  _vm._v("|")
+                                ]),
+                                _vm._v(
+                                  "\n                             \n                            "
+                                ),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "link",
+                                    attrs: { href: "", title: "Delete deck" },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.removeDeck(deck, key)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Delete")]
+                                )
+                              ],
+                              1
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ])
+          : _c(
+              "p",
+              [
+                _vm._v(
+                  "The deck builder is available to registered users only, so if you do not yet have an account, you\n            must "
+                ),
+                _c(
+                  "router-link",
+                  { staticClass: "link", attrs: { to: "/login" } },
+                  [_vm._v("register or login")]
+                ),
+                _vm._v(".")
+              ],
+              1
             )
-          : _vm._e()
       ]
     )
   ])
@@ -64520,7 +64570,7 @@ var staticRenderFns = [
         _vm._v("Deck Builder")
       ]),
       _vm._v(" "),
-      _c("p", [
+      _c("p", { staticClass: "mt-4" }, [
         _vm._v(
           "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks\n            for constructed play, and then export them to PDF for tournament registration!"
         )
@@ -88408,10 +88458,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/build",
     component: _DeckBuilder_ListDecks_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
-    name: 'list-decks',
-    meta: {
-      auth: true
-    }
+    name: 'list-decks'
   }, {
     path: "/deck-builder",
     redirect: "/decks/build"
