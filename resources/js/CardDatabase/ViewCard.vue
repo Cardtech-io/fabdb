@@ -6,7 +6,7 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix">
                 <div class="md:w-1/3 md:float-left p-4 md:py-0">
-                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
+                    <img :src="cardUrl(card.identifier, 450)" :alt="card.name" class="w-full max-w-md rounded-xl">
                 </div>
 
                 <div class="md:w-2/3 md:float-right sm:px-4">

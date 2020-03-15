@@ -1,6 +1,8 @@
 <?php
 namespace FabDB\Console\Commands;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,6 +23,17 @@ class RenameCards extends Command
     protected $description = 'Command description';
 
     /**
+     * @var Client
+     */
+    private $client;
+
+    public function __construct(Client $client)
+    {
+        parent::__construct();
+        $this->client = $client;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
@@ -32,18 +45,16 @@ class RenameCards extends Command
         $cards = $disk->files('arc/');
 
         foreach ($cards as $name => $src) {
-            if (!(preg_match_all('/arc\/ARC([0-9]+)/', $src, $matches))) continue;
+            if (!preg_match_all('/arc\/ARC([0-9]+)/', $src, $matches)) continue;
 
             $cardId = $matches[1][0];
             $dest = 'arc/'.$cardId.'.png';
 
-            if ($disk->exists($dest)) {
+            if ($disk->exists($dest) && $src) {
                 $disk->delete($dest);
+                $disk->move($src, $dest);
+                $this->info("Moved $src to $dest.");
             }
-
-            $disk->move($src, $dest);
-
-            $this->info("Moved $src to $dest.");
         }
     }
 }

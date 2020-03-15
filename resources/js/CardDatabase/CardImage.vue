@@ -1,5 +1,5 @@
 <template>
-    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl cursor-pointer" @click="clicked">
+    <img :src="cardUrl(card.identifier, 450)" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl cursor-pointer" @click="clicked">
 </template>
 
 <script>

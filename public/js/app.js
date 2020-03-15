@@ -2477,6 +2477,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     external: {
@@ -60501,7 +60503,7 @@ var render = function() {
   return _c("img", {
     staticClass: "w-full rounded-lg sm:rounded-xl cursor-pointer",
     attrs: {
-      src: _vm.cardUrl(_vm.card.identifier, 350),
+      src: _vm.cardUrl(_vm.card.identifier, 450),
       alt: _vm.card.name,
       title: _vm.card.name
     },
@@ -60827,6 +60829,12 @@ var render = function() {
                 _vm._v("Mechanologist")
               ]),
               _vm._v(" "),
+              _c("option", { attrs: { value: "ranger" } }, [_vm._v("Ranger")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "runeblade" } }, [
+                _vm._v("Runeblade")
+              ]),
+              _vm._v(" "),
               _c("option", { attrs: { value: "warrior" } }, [
                 _vm._v("Warrior")
               ]),
@@ -61146,7 +61154,7 @@ var render = function() {
               _c("img", {
                 staticClass: "w-full max-w-md rounded-xl",
                 attrs: {
-                  src: _vm.cardUrl(_vm.card.identifier, 350),
+                  src: _vm.cardUrl(_vm.card.identifier, 450),
                   alt: _vm.card.name
                 }
               })
@@ -85045,9 +85053,9 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!withBorder) {
         var dimensions = {
-          arc: [20, 21, 410, 586],
+          arc: [20, 21, 409, 586],
           ira: [23, 24, 419, 603],
-          wtr: [20, 21, 410, 586]
+          wtr: [20, 21, 409, 586]
         };
         var rect = dimensions[set].join(',');
         url += '&rect=' + rect;

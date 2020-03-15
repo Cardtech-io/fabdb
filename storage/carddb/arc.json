@@ -332,6 +332,133 @@
     }
   },
   {
+    "id": "038",
+    "set": "ARC",
+    "name": "Azalea, Ace in the Hole",
+    "rarity": "T",
+    "text": "**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",
+    "keywords": ["ranger", "hero"],
+    "stats": {
+      "life": 40,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "039",
+    "set": "ARC",
+    "name": "Azalea, Ace in the Hole",
+    "rarity": "T",
+    "text": "**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",
+    "keywords": ["ranger", "hero", "young"],
+    "stats": {
+      "life": 20,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "040",
+    "set": "ARC",
+    "name": "Death Dealer",
+    "rarity": "T",
+    "text": "**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",
+    "keywords": ["ranger", "weapon", "bow", "2h"]
+  },
+  {
+    "id": "042",
+    "set": "ARC",
+    "name": "Bull's Eye Bracers",
+    "rarity": "C",
+    "text": "**Action** - Destroy Bull's Eye Bracers: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. It gains +1[attack] until end of turn. **Go again**\n\n**Arcane Barrier 1** *(If you rhero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",
+    "keywords": ["ranger", "equipment", "arms"],
+    "stats": {
+      "defense": 0
+    }
+  },
+  {
+    "id": "060",
+    "set": "ARC",
+    "name": "Hamstring Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "061",
+    "set": "ARC",
+    "name": "Hamstring Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "062",
+    "set": "ARC",
+    "name": "Hamstring Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "069",
+    "set": "ARC",
+    "name": "Searing Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Searing Shot hits a hero, they lose 1[life].",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "070",
+    "set": "ARC",
+    "name": "Searing Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Searing Shot hits a hero, they lose 1[life].",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "071",
+    "set": "ARC",
+    "name": "Searing Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Searing Shot hits a hero, they lose 1[life].",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
     "id": "113",
     "set": "ARC",
     "name": "Kano, Dracei of Aether",
@@ -364,6 +491,191 @@
     "keywords": ["wizard", "weapon", "staff", "2h"]
   },
   {
+    "id": "118",
+    "set": "ARC",
+    "name": "Blazing Aether",
+    "rarity": "M",
+    "text": "**Kano Specialization** *(You may only have Blazing Aether in your deck if your hero is Kano.)*\n\nDeal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "119",
+    "set": "ARC",
+    "name": "Sonic Boom",
+    "rarity": "S",
+    "text": "Deal 3 arcane damage to target opposing hero.\n\nIf Sonic Boom deals damage, look at the top card of your deck. If it's a Wizard 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant and it costs X resource points less to play, where X is the damage dealt by Sonic Boom.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "120",
+    "set": "ARC",
+    "name": "Forked Lightning",
+    "rarity": "S",
+    "text": "Deal 2 arcane damage to target hero.\n\nDeal 2 arcane damage to target hero.\n\n*(Effects that modify damage, modify both damage effects of Forked Lightning. Forked Lightning is considered a single source of damage.)*",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3
+    }
+  },
+  {
+    "id": "121",
+    "set": "ARC",
+    "name": "Lesson in Lava",
+    "rarity": "S",
+    "text": "**Kano Specialization** *(You may only have Lesson in Lava in your deck if your hero is Kano.)*\n\nDeal 3 arcane damage to target opposing hero.\n\nIf Lesson in Lava deals damage, you may search your deck for a Wizard card with [resource] cost equal to or less than the damaage dealt by Lesson in Lava, reveal it, then shuffle your deck and put it on top of your deck.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "122",
+    "set": "ARC",
+    "name": "Tome of Aetherwind",
+    "rarity": "S",
+    "text": "Choose 2. You may choose the same mode more than once;\n\n* The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.\n\n* Draw a card.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "123",
+    "set": "ARC",
+    "name": "Absorb in Aether",
+    "rarity": "R",
+    "text": "The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.",
+    "flavour": "The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",
+    "keywords": ["wizard", "defense", "reaction"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 4
+    }
+  },
+  {
+    "id": "124",
+    "set": "ARC",
+    "name": "Absorb in Aether",
+    "rarity": "R",
+    "text": "The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.",
+    "flavour": "The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",
+    "keywords": ["wizard", "defense", "reaction"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "125",
+    "set": "ARC",
+    "name": "Absorb in Aether",
+    "rarity": "R",
+    "text": "The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.",
+    "flavour": "The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",
+    "keywords": ["wizard", "defense", "reaction"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "126",
+    "set": "ARC",
+    "name": "Aether Spindle",
+    "rarity": "R",
+    "text": "Deal 4 arcane damage to the target opposing hero.\n\n**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "127",
+    "set": "ARC",
+    "name": "Aether Spindle",
+    "rarity": "R",
+    "text": "Deal 3 arcane damage to the target opposing hero.\n\n**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "128",
+    "set": "ARC",
+    "name": "Aether Spindle",
+    "rarity": "R",
+    "text": "Deal 2 arcane damage to the target opposing hero.\n\n**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3
+    }
+  },
+  {
+    "id": "129",
+    "set": "ARC",
+    "name": "Stir the Aetherwinds",
+    "rarity": "R",
+    "text": "You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 3.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "130",
+    "set": "ARC",
+    "name": "Stir the Aetherwinds",
+    "rarity": "R",
+    "text": "You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 2.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "131",
+    "set": "ARC",
+    "name": "Stir the Aetherwinds",
+    "rarity": "R",
+    "text": "You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 1.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
     "id": "132",
     "set": "ARC",
     "name": "Aether Flare",
@@ -372,6 +684,71 @@
     "keywords": ["wizard", "action"],
     "stats": {
       "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "133",
+    "set": "ARC",
+    "name": "Aether Flare",
+    "rarity": "C",
+    "text": "Deal 2 arcane damage to target opposing hero.\n\nThe next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "134",
+    "set": "ARC",
+    "name": "Aether Flare",
+    "rarity": "C",
+    "text": "Deal 3 arcane damage to target opposing hero.\n\nThe next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "138",
+    "set": "ARC",
+    "name": "Reverberate",
+    "rarity": "C",
+    "text": "Deal 3 arcane damage to target opposing hero.\n\nIf Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "139",
+    "set": "ARC",
+    "name": "Reverberate",
+    "rarity": "C",
+    "text": "Deal 2 arcane damage to target opposing hero.\n\nIf Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "140",
+    "set": "ARC",
+    "name": "Reverberate",
+    "rarity": "C",
+    "text": "Deal 1 arcane damage to target opposing hero.\n\nIf Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",
+    "keywords": ["wizard", "action"],
+    "stats": {
+      "resource": 3,
       "cost": 1,
       "defense": 3
     }
@@ -413,6 +790,17 @@
       "resource": 3,
       "cost": 2,
       "defense": 2
+    }
+  },
+  {
+    "id": "151",
+    "set": "ARC",
+    "name": "Talismanic Lens",
+    "rarity": "C",
+    "text": "**Instant** - Destroy Talismanic Lens: **Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*",
+    "keywords": ["generic", "equipment", "head"],
+    "stats": {
+      "defense": 0
     }
   },
   {
@@ -471,6 +859,20 @@
     }
   },
   {
+    "id": "159",
+    "set": "ARC",
+    "name": "Command and Conquer",
+    "rarity": "M",
+    "text": "Defense reactions can't be played to Command and Conquers chain link.\n\nIf Command and Conquer hits a hero, destroy all cards in their arsenal.",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
     "id": "160",
     "set": "ARC",
     "name": "Art of War",
@@ -480,6 +882,20 @@
     "stats": {
       "resource": 2,
       "cost": 1
+    }
+  },
+  {
+    "id": "161",
+    "set": "ARC",
+    "name": "Pursuit of Knowledge",
+    "rarity": "S",
+    "text": "If Pursuit of Knowledge hits, your hero gains +1[intellect] until end of turn.",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
     }
   },
   {
@@ -526,6 +942,45 @@
       "cost": 1,
       "defense": 2,
       "attack": 2
+    }
+  },
+  {
+    "id": "167",
+    "set": "ARC",
+    "name": "Enchanting Melody",
+    "rarity": "R",
+    "text": "*(Auras stay in the arena yntil they are destroyed.)*\n\n**Go again**\n\nIf you would be dealt damage, instead destroy Enchanting Melody and prevent 4 of that damage.\n\nAt the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",
+    "keywords": ["generic", "action", "aura"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "168",
+    "set": "ARC",
+    "name": "Enchanting Melody",
+    "rarity": "R",
+    "text": "*(Auras stay in the arena yntil they are destroyed.)*\n\n**Go again**\n\nIf you would be dealt damage, instead destroy Enchanting Melody and prevent 3 of that damage.\n\nAt the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",
+    "keywords": ["generic", "action", "aura"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2
+    }
+  },
+  {
+    "id": "169",
+    "set": "ARC",
+    "name": "Enchanting Melody",
+    "rarity": "R",
+    "text": "*(Auras stay in the arena yntil they are destroyed.)*\n\n**Go again**\n\nIf you would be dealt damage, instead destroy Enchanting Melody and prevent 2 of that damage.\n\nAt the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",
+    "keywords": ["generic", "action", "aura"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2
     }
   },
   {
@@ -577,6 +1032,84 @@
     }
   },
   {
+    "id": "173",
+    "set": "ARC",
+    "name": "Eirina's Prayer",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "instant"],
+    "stats": {
+      "resource": 1,
+      "cost": 1
+    }
+  },
+  {
+    "id": "174",
+    "set": "ARC",
+    "name": "Eirina's Prayer",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 5 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "instant"],
+    "stats": {
+      "resource": 2,
+      "cost": 1
+    }
+  },
+  {
+    "id": "175",
+    "set": "ARC",
+    "name": "Eirina's Prayer",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 4 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "instant"],
+    "stats": {
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "185",
+    "set": "ARC",
+    "name": "Moon Wish",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 2,
+      "attack": 5
+    }
+  },
+  {
+    "id": "186",
+    "set": "ARC",
+    "name": "Moon Wish",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 2,
+      "attack": 4
+    }
+  },
+  {
+    "id": "187",
+    "set": "ARC",
+    "name": "Moon Wish",
+    "rarity": "R",
+    "text": "Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",
+    "keywords": ["generic", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 2,
+      "attack": 3
+    }
+  },
+  {
     "id": "191",
     "set": "ARC",
     "name": "Ravenous Rabble",
@@ -616,6 +1149,87 @@
       "cost": 0,
       "defense": 2,
       "attack": 3
+    }
+  },
+  {
+    "id": "206",
+    "set": "ARC",
+    "name": "Force Sight",
+    "rarity": "C",
+    "text": "The next attack action card you play this turn gains +3[attack].\n\nIf Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "207",
+    "set": "ARC",
+    "name": "Force Sight",
+    "rarity": "C",
+    "text": "The next attack action card you play this turn gains +2[attack].\n\nIf Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "208",
+    "set": "ARC",
+    "name": "Force Sight",
+    "rarity": "C",
+    "text": "The next attack action card you play this turn gains +1[attack].\n\nIf Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*\n\n**Go again**",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "212",
+    "set": "ARC",
+    "name": "Sun Kiss",
+    "rarity": "C",
+    "text": "Gain 3[life].\n\nIf you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.",
+    "flavour": "Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "213",
+    "set": "ARC",
+    "name": "Sun Kiss",
+    "rarity": "C",
+    "text": "Gain 2[life].\n\nIf you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.",
+    "flavour": "Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "214",
+    "set": "ARC",
+    "name": "Sun Kiss",
+    "rarity": "C",
+    "text": "Gain 2[life].\n\nIf you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.",
+    "flavour": "Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",
+    "keywords": ["generic", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
     }
   },
   {

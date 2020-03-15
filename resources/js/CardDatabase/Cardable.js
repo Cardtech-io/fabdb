@@ -8,9 +8,9 @@ export default {
 
             if (!withBorder) {
                 const dimensions = {
-                    arc: [20, 21, 410, 586],
+                    arc: [20, 21, 409, 586],
                     ira: [23, 24, 419, 603],
-                    wtr: [20, 21, 410, 586],
+                    wtr: [20, 21, 409, 586],
                 };
 
                 let rect = dimensions[set].join(',');
