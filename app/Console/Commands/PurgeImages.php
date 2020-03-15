@@ -46,29 +46,15 @@ class PurgeImages extends Command
         foreach ($cards as $name => $src) {
             if (preg_match('/DS_Store$/i', $src)) continue;
 
-            $this->info('Purging... '.$src);
             $this->purge($src);
         }
     }
 
     private function purge(string $dest)
     {
-        $that = $this;
-        $url = "http://fabdb.imgix.net/{$dest}";
+        $url = "https://fabdb.imgix.net/cards/{$dest}";
 
-        $request = new Request(
-            'POST',
-            'https://api.imgix.com/v2/image/purger',
-            [
-                'auth' => [
-                    env('IMGIX_API_KEY'),
-                    ''
-                ],
-                'json' => [
-                    'url' => $url
-                ]
-            ]
-        );
+        $this->info('Purging... '.$url);
 
         $response = $this->client->post('https://api.imgix.com/v2/image/purger', [
             'auth' => [env('IMGIX_API_KEY'), ''],
