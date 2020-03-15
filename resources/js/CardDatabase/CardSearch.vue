@@ -76,6 +76,7 @@
                     this.$router.push({
                         path: this.$route.path,
                         query: {
+                            set: this.external.set,
                             keywords: this.keywords,
                             page: this.thisPage,
                             'class': this.heroClass,

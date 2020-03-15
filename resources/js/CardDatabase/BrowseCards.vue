@@ -5,11 +5,8 @@
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
-                    <li class="float-left">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet('wtr')" :class="isActive('wtr')">Welcome to Rathe</a>
-                    </li>
-                    <li class="float-left">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet('arc')" :class="isActive('arc')">Arcane Rising</a>
+                    <li class="float-left" v-for="(name, set) in sets" :class="isActive(set)">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set)" :class="isActive(set)">{{ name }}</a>
                     </li>
                 </ul>
             </div>
@@ -71,20 +68,20 @@
 
         computed: {
             setDescription: function() {
-                let descriptions = {
-                    arc: 'Arcane Rising',
-                    wtr: 'Welcome to Rathe'
-                };
-
-                return 'Browse Flesh & Blood cards for the set, ' + descriptions[this.set] + '.';
+                return 'Browse Flesh & Blood cards for the set, ' + this.sets[this.set] + '.';
             }
         },
 
         data() {
             return {
-                page: 1,
+                page: Number(this.$route.query.page) || 1,
                 results: {},
-                set: this.$route.query.set || 'wtr',
+                sets: {
+                    all: 'All cards',
+                    arc: 'Arcane Rising',
+                    wtr: 'Welcome to Rathe'
+                },
+                set: this.$route.query.set || 'all',
                 view: 'gallery'
             }
         },
@@ -117,6 +114,7 @@
 
             switchSet: function(set) {
                 this.set = set;
+                this.updatePage(1);
             }
         }
     };

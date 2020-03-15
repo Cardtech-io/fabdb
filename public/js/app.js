@@ -2234,9 +2234,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -2250,18 +2247,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     setDescription: function setDescription() {
-      var descriptions = {
-        arc: 'Arcane Rising',
-        wtr: 'Welcome to Rathe'
-      };
-      return 'Browse Flesh & Blood cards for the set, ' + descriptions[this.set] + '.';
+      return 'Browse Flesh & Blood cards for the set, ' + this.sets[this.set] + '.';
     }
   },
   data: function data() {
     return {
-      page: 1,
+      page: Number(this.$route.query.page) || 1,
       results: {},
-      set: this.$route.query.set || 'wtr',
+      sets: {
+        all: 'All cards',
+        arc: 'Arcane Rising',
+        wtr: 'Welcome to Rathe'
+      },
+      set: this.$route.query.set || 'all',
       view: 'gallery'
     };
   },
@@ -2291,6 +2289,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     switchSet: function switchSet(set) {
       this.set = set;
+      this.updatePage(1);
     }
   }
 });
@@ -2513,6 +2512,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.$router.push({
           path: this.$route.path,
           query: {
+            set: this.external.set,
             keywords: this.keywords,
             page: this.thisPage,
             'class': this.heroClass,
@@ -60327,43 +60327,34 @@ var render = function() {
         { staticClass: "bg-orange-900 text-white font-serif uppercase" },
         [
           _c("div", { staticClass: "container sm:mx-auto px-4" }, [
-            _c("ul", { staticClass: "flex" }, [
-              _c("li", { staticClass: "float-left" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "block border-b-4 border-white p-4",
-                    class: _vm.isActive("wtr"),
-                    attrs: { href: "" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.switchSet("wtr")
-                      }
-                    }
-                  },
-                  [_vm._v("Welcome to Rathe")]
+            _c(
+              "ul",
+              { staticClass: "flex" },
+              _vm._l(_vm.sets, function(name, set) {
+                return _c(
+                  "li",
+                  { staticClass: "float-left", class: _vm.isActive(set) },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "block border-b-4 border-white p-4",
+                        class: _vm.isActive(set),
+                        attrs: { href: "" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.switchSet(set)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(name))]
+                    )
+                  ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "float-left" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "block border-b-4 border-white p-4",
-                    class: _vm.isActive("arc"),
-                    attrs: { href: "" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.switchSet("arc")
-                      }
-                    }
-                  },
-                  [_vm._v("Arcane Rising")]
-                )
-              ])
-            ])
+              }),
+              0
+            )
           ])
         ]
       ),
