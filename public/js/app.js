@@ -2247,7 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     setDescription: function setDescription() {
-      return 'Browse Flesh & Blood cards for the set, ' + this.sets[this.set] + '.';
+      return 'Browse the Flesh & Blood card list for the set, "' + this.sets[this.set] + '".';
     }
   },
   data: function data() {
@@ -2256,8 +2256,8 @@ __webpack_require__.r(__webpack_exports__);
       results: {},
       sets: {
         all: 'All cards',
-        arc: 'Arcane Rising',
-        wtr: 'Welcome to Rathe'
+        wtr: 'Welcome to Rathe',
+        arc: 'Arcane Rising'
       },
       set: this.$route.query.set || 'all',
       view: 'gallery'
@@ -2266,7 +2266,7 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: function metaInfo() {
     var description = this.setDescription;
     return {
-      title: 'Flesh and Blood Card Database',
+      title: 'Flesh and Blood Card List',
       meta: [{
         vmid: 'description',
         name: 'description',
