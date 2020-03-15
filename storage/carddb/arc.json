@@ -35,6 +35,75 @@
     }
   },
   {
+    "id": "006",
+    "set": "ARC",
+    "name": "High Octane",
+    "rarity": "M",
+    "text": "Whenever you **boost** a card this turn, gain 1 action point.\n\nDraw a card.\n\n**Go again**",
+    "flavour": "\"Now that's what I call blowing off steam!\" - Dash",
+    "keywords": ["mechanologist", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "007",
+    "set": "ARC",
+    "name": "Teklo Core",
+    "rarity": "M",
+    "text": "**Dash specialization** *(You may only have Teklo Core in your deck if your hero is Dash.)*\n\nTeklo Core enters the arena with 2 steam counters on it. When Teklo Core has no steam counters on it, destroy it.\n\nAt the beginning of your action phase, remove a steam counter from Teklo Core and gain [resource][resource].",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3
+    }
+  },
+  {
+    "id": "008",
+    "set": "ARC",
+    "name": "Maximum Velocity",
+    "rarity": "S",
+    "text": "Play Maximum Velocity only if you have boosted 3 or more times this turn.",
+    "flavour": "Zoom! Zip! Kazam! Ever wanted to show 'ol Joey what for? Now you can, with the Velocitator 60-T! Turn that pesky rival into a smear on the pavement!",
+    "keywords": ["mechanologist", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 10
+    }
+  },
+  {
+    "id": "009",
+    "set": "ARC",
+    "name": "Spark of Genius",
+    "rarity": "S",
+    "text": "**Dash specialization** *(You may only have Teklo Core in your deck if your hero is Dash.)*\n\nSearch your deck for a Mechanologist item card with cost X, put into the arena, then shuffle your deck.\n\nIf you have boosted this turn, draw a card.",
+    "flavour": "\"So if I grab... then connect... That's it!\" - Dash",
+    "keywords": ["mechanologist", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": "xx",
+      "defense": 3
+    }
+  },
+  {
+    "id": "010",
+    "set": "ARC",
+    "name": "Induction Chamber",
+    "rarity": "S",
+    "text": "**Action - [resource]**: If there are no steam counters on Induction Chamber, put a steam counter on it. **Go again**\n\n**Once per Turn Attack Reaction** - Remove a steam counter from Induction Chamber: Target Mechanologist pistol attaack gains **go again**.",
+    "flavour": "\"So if I grab... then connect... That's it!\" - Dash",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 1,
+      "cost": 2
+    }
+  },
+  {
     "id": "011",
     "set": "ARC",
     "name": "Pedal to the Metal",
@@ -74,6 +143,45 @@
       "cost": 2,
       "defense": 2,
       "attack": 3
+    }
+  },
+  {
+    "id": "014",
+    "set": "ARC",
+    "name": "Pour the Mould",
+    "rarity": "R",
+    "text": "Put a Mechanologist item with cost [2 resource] or less from your hand into the arena.\n\nIf you have **boosted** this turn, put a steam counter on it.\n\n**Go again**",
+    "keywords": ["mechanologist", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "015",
+    "set": "ARC",
+    "name": "Pour the Mould",
+    "rarity": "R",
+    "text": "Put a Mechanologist item with cost [resource] or less from your hand into the arena.\n\nIf you have **boosted** this turn, put a steam counter on it.\n\n**Go again**",
+    "keywords": ["mechanologist", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "016",
+    "set": "ARC",
+    "name": "Pour the Mould",
+    "rarity": "R",
+    "text": "Put a Mechanologist item with cost 0 or less from your hand into the arena.\n\nIf you have **boosted** this turn, put a steam counter on it.\n\n**Go again**",
+    "keywords": ["mechanologist", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3
     }
   },
   {
@@ -185,6 +293,18 @@
       "cost": 2,
       "defense": 3,
       "attack": 4
+    }
+  },
+  {
+    "id": "035",
+    "set": "ARC",
+    "name": "Dissipation Shield",
+    "rarity": "C",
+    "text": "Dissipation Shield enters the arena with 4 steam counters on it.\n\nAt the beginning of your action phase, destroy Dissipation Shield unless you remove a steam counter from it.\n\n**Instant** - Destroy Dissipation Shield: The next time your hero would be dealt damaage this turn, prevent X damage, where X is the number of steam counters on Dissipation Shield.",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 2,
+      "cost": 2
     }
   },
   {

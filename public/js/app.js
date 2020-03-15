@@ -85045,9 +85045,9 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!withBorder) {
         var dimensions = {
-          arc: [17, 17, 345, 496],
+          arc: [20, 21, 410, 586],
           ira: [23, 24, 419, 603],
-          wtr: [20, 20, 410, 586]
+          wtr: [20, 21, 410, 586]
         };
         var rect = dimensions[set].join(',');
         url += '&rect=' + rect;

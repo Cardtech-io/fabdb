@@ -34,10 +34,16 @@ class RenameCards extends Command
         foreach ($cards as $name => $src) {
             if (!(preg_match_all('/arc\/ARC([0-9]+)/', $src, $matches))) continue;
 
-            $cardId = $matches[1][0] - 1;
+            $cardId = $matches[1][0];
             $dest = 'arc/'.$cardId.'.png';
 
+            if ($disk->exists($dest)) {
+                $disk->delete($dest);
+            }
+
             $disk->move($src, $dest);
+
+            $this->info("Moved $src to $dest.");
         }
     }
 }
