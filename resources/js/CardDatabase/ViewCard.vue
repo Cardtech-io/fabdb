@@ -11,8 +11,13 @@
 
                 <div class="md:w-2/3 md:float-right sm:px-4">
                     <div class="p-4 pt-0 sm:p-0">
-                        <div v-if="card.text" v-html="prettyText(card.text)" class="-mt-4 mb-8"></div>
-                        <span v-else>This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</span>
+                        <div v-if="card.text" v-html="prettyText(card.text)" class="border bg-gray-300 border-gray-500 px-4 rounded-lg mb-8"></div>
+
+                        <article>
+                            <p class="mb-4">
+                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(set(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                            </p>
+                        </article>
                     </div>
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">

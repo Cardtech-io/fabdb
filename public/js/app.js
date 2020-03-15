@@ -2758,6 +2758,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -61167,20 +61172,31 @@ var render = function() {
                 _c("div", { staticClass: "p-4 pt-0 sm:p-0" }, [
                   _vm.card.text
                     ? _c("div", {
-                        staticClass: "-mt-4 mb-8",
+                        staticClass:
+                          "border bg-gray-300 border-gray-500 px-4 rounded-lg mb-8",
                         domProps: {
                           innerHTML: _vm._s(_vm.prettyText(_vm.card.text))
                         }
                       })
-                    : _c("span", [
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("article", [
+                    _c("p", { staticClass: "mb-4" }, [
+                      _c("strong", [_vm._v('"' + _vm._s(_vm.card.name) + '"')]),
+                      _vm._v(" is a trading card from the "),
+                      _c("strong", [
                         _vm._v(
-                          'This card is from the "' +
+                          '"' +
                             _vm._s(
                               _vm.setToString(_vm.set(_vm.card.identifier))
                             ) +
-                            '" set of the Flesh & Blood TCG.'
+                            '"'
                         )
-                      ])
+                      ]),
+                      _vm._v(" set of the trading card game, "),
+                      _c("strong", [_vm._v("Flesh & Blood.")])
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
