@@ -50,7 +50,7 @@ class UpdateArticle
         $article->content = $this->content;
         $article->image = $this->image;
         $article->status = $this->status;
-        
+
         if ($this->publishAt) {
             $article->publishAt = $this->publishAt;
         }
