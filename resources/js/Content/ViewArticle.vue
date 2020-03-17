@@ -7,7 +7,7 @@
             <div class="container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
-                    <div>Written by {{ article.author.name }}</div>
+                    <div><span>Written by {{ article.author.name }}</span> on <span>{{ published }}</span></div>
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+    import moment from 'moment';
+
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import Comment from '../Discussion/Comment.vue';
@@ -58,6 +60,10 @@
                     { text: this.article.title }
                 ];
             },
+
+            published: function() {
+                return moment.utc(this.article.publishAt).format('Do MMMM YYYY');
+            }
         },
 
         data() {
