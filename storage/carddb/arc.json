@@ -664,7 +664,7 @@
     "set": "ARC",
     "name": "Tome of the Arknight",
     "rarity": "S",
-    "text": "Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.",
+    "text": "Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.\n\n**Go again**",
     "flavour": "\"And in abandoning the Light, I am consumed by the Shadow, and gifted true power...\" - Eldon, Lost Knight",
     "keywords": ["runeblade", "action"],
     "stats": {
