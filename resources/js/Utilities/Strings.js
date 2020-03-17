@@ -10,8 +10,8 @@ export default {
             const renderer = new marked.Renderer();
 
             renderer.blockquote = quote => {
-                return '<blockquote class="relative py-4 px-8 text-xl italic border-l-4 border-neutral-500 quote">' +
-                    '<div class="stylistic-quote-mark" aria-hidden="true">&ldquo;</div>' +
+                return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border-l-4 border-neutral-500 quote">' +
+                    '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' +
                     '<p>' + this.prettyText(quote) + '</p>' +
                     '</blockquote>';
             };
@@ -50,7 +50,7 @@ export default {
                 let identifiers = matches[1].split(',');
 
                 let cards = identifiers.map(cardIdentifier => {
-                    return '<img src="' + this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+                    return '<img src="' + this.cardUrl(cardIdentifier, 450) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
                 });
 
                 return '<div class="text-center">' + cards.join('\n') + '</div>';

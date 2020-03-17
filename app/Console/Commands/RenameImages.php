@@ -2,25 +2,24 @@
 namespace FabDB\Console\Commands;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-class RenameCards extends Command
+class RenameImages extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'fabdb:rename-cards';
+    protected $signature = 'fabdb:rename-images';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Renames images within the selected set folder.';
 
     /**
      * @var Client
@@ -52,9 +51,10 @@ class RenameCards extends Command
 
             if ($disk->exists($dest) && $src) {
                 $disk->delete($dest);
-                $disk->move($src, $dest);
-                $this->info("Moved $src to $dest.");
             }
+
+            $this->info("Moved $src to $dest.");
+            $disk->move($src, $dest);
         }
     }
 }

@@ -116,7 +116,7 @@ footer.footer .link:hover {
 
 .stylistic-quote-mark {
     font-size: 5rem;
-    right: 98%;
+    right: 98.5%;
     top: -1em;
     @apply hidden mt-4 ml-4 text-gray-400 absolute top-0 leading-none;
 }

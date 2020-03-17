@@ -459,6 +459,179 @@
     }
   },
   {
+    "id": "075",
+    "set": "ARC",
+    "name": "Viserai, Rune Blood",
+    "rarity": "T",
+    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token.*(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
+    "keywords": ["runeblade", "hero"],
+    "stats": {
+      "life": 40,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "076",
+    "set": "ARC",
+    "name": "Viserai",
+    "rarity": "T",
+    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token.*(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
+    "keywords": ["runeblade", "hero", "young"],
+    "stats": {
+      "life": 20,
+      "intellect": 4
+    }
+  },
+  {
+    "id": "084",
+    "set": "ARC",
+    "name": "Tome of the Arknight",
+    "rarity": "S",
+    "text": "Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.",
+    "flavour": "\"And in abandoning the Light, I am consumed by the Shadow, and gifted true power...\" - Eldon, Lost Knight",
+    "keywords": ["runeblade", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "094",
+    "set": "ARC",
+    "name": "Amplify the Arknight",
+    "rarity": "C",
+    "text": "Amplify the Arknight costs [resource] less to play for each Runechant you control.",
+    "flavour": "As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3,
+      "attack": 6
+    }
+  },
+  {
+    "id": "095",
+    "set": "ARC",
+    "name": "Amplify the Arknight",
+    "rarity": "C",
+    "text": "Amplify the Arknight costs [resource] less to play for each Runechant you control.",
+    "flavour": "As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "096",
+    "set": "ARC",
+    "name": "Amplify the Arknight",
+    "rarity": "C",
+    "text": "Amplify the Arknight costs [resource] less to play for each Runechant you control.",
+    "flavour": "As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "097",
+    "set": "ARC",
+    "name": "Drawn to the Dark Dimension",
+    "rarity": "C",
+    "text": "Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.\n\nDraw a card.",
+    "flavour": "Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 2,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "098",
+    "set": "ARC",
+    "name": "Drawn to the Dark Dimension",
+    "rarity": "C",
+    "text": "Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.\n\nDraw a card.",
+    "flavour": "Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 2,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
+    "id": "099",
+    "set": "ARC",
+    "name": "Drawn to the Dark Dimension",
+    "rarity": "C",
+    "text": "Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.\n\nDraw a card.",
+    "flavour": "Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 2,
+      "defense": 3,
+      "attack": 1
+    }
+  },
+  {
+    "id": "100",
+    "set": "ARC",
+    "name": "Rune Flash",
+    "rarity": "C",
+    "text": "Rune Flash costs [resource] less to play for each Runechant you control.\n\n**Go again**",
+    "flavour": "Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 3,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "101",
+    "set": "ARC",
+    "name": "Rune Flash",
+    "rarity": "C",
+    "text": "Rune Flash costs [resource] less to play for each Runechant you control.\n\n**Go again**",
+    "flavour": "Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 3,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "102",
+    "set": "ARC",
+    "name": "Rune Flash",
+    "rarity": "C",
+    "text": "Rune Flash costs [resource] less to play for each Runechant you control.\n\n**Go again**",
+    "flavour": "Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",
+    "keywords": ["runeblade", "action", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 3,
+      "defense": 3,
+      "attack": 2
+    }
+  },
+  {
     "id": "113",
     "set": "ARC",
     "name": "Kano, Dracei of Aether",
