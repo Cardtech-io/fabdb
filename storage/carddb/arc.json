@@ -375,6 +375,141 @@
     }
   },
   {
+    "id": "043",
+    "set": "ARC",
+    "name": "Red in the Ledger",
+    "rarity": "M",
+    "text": "**Azalea Specialization** *(You may only have Red in the lEdger in your deck if your hero is Azalea.)*\n\n*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Red in the Ledger hits a hero, they can't play or activate more than 1 action during their next turn.",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 3,
+      "attack": 5
+    }
+  },
+  {
+    "id": "044",
+    "set": "ARC",
+    "name": "Three of a Kind",
+    "rarity": "M",
+    "text": "Draw 3 cards. Until end of turn, you may only play cards from arsenal.\n\n**Go again**",
+    "flavour": "\"Finally. Time to take out the trash.\" - Azalea",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 1,
+      "defense": 2
+    }
+  },
+  {
+    "id": "046",
+    "set": "ARC",
+    "name": "Nock the Deathwhistle",
+    "rarity": "S",
+    "text": "**Azalea Specialization** *(You may only have Red in the lEdger in your deck if your hero is Azalea.)*\n\nSearch your deck for an arrow card, reveal it, then shuffle your deck and put it on top of your deck.\n\n**Reload** *(If you have no cards in your arsenal, you mayp ut a card from your hand face down into your arsenal.)*\n\n**Go again**",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "047",
+    "set": "ARC",
+    "name": "Rapid Fire",
+    "rarity": "S",
+    "text": "Until end of turn, arrows you control gain **go again**.\n\n**Reload** *(If you have no cards in your arsenal, you mayp ut a card from your hand face down into your arsenal.)*\n\n**Go again**",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "048",
+    "set": "ARC",
+    "name": "Take Cover",
+    "rarity": "R",
+    "text": "**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*",
+    "flavour": "In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",
+    "keywords": ["ranger", "defense", "reaction"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 4
+    }
+  },
+  {
+    "id": "049",
+    "set": "ARC",
+    "name": "Take Cover",
+    "rarity": "R",
+    "text": "**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*",
+    "flavour": "In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",
+    "keywords": ["ranger", "defense", "reaction"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3
+    }
+  },
+  {
+    "id": "050",
+    "set": "ARC",
+    "name": "Take Cover",
+    "rarity": "R",
+    "text": "**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*",
+    "flavour": "In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",
+    "keywords": ["ranger", "defense", "reaction"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "054",
+    "set": "ARC",
+    "name": "Take Aim",
+    "rarity": "R",
+    "text": "The next Ranger attack action card you play this turn gains +3[attack].\n\n**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*\n\n**Go again**",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "055",
+    "set": "ARC",
+    "name": "Take Aim",
+    "rarity": "R",
+    "text": "The next Ranger attack action card you play this turn gains +2[attack].\n\n**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*\n\n**Go again**",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
+    "id": "056",
+    "set": "ARC",
+    "name": "Take Aim",
+    "rarity": "R",
+    "text": "The next Ranger attack action card you play this turn gains +1[attack].\n\n**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*\n\n**Go again**",
+    "keywords": ["ranger", "action"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 2
+    }
+  },
+  {
     "id": "060",
     "set": "ARC",
     "name": "Hamstring Shot",
@@ -414,6 +549,48 @@
       "cost": 1,
       "defense": 3,
       "attack": 3
+    }
+  },
+  {
+    "id": "063",
+    "set": "ARC",
+    "name": "Ridge Rider Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 1,
+      "cost": 0,
+      "defense": 3,
+      "attack": 4
+    }
+  },
+  {
+    "id": "064",
+    "set": "ARC",
+    "name": "Ridge Rider Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 2,
+      "cost": 0,
+      "defense": 3,
+      "attack": 3
+    }
+  },
+  {
+    "id": "065",
+    "set": "ARC",
+    "name": "Ridge Rider Shot",
+    "rarity": "C",
+    "text": "*(Arrows can only be played from arsenal and only if you control a bow.)*\n\nIf Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",
+    "keywords": ["ranger", "action", "arrow", "attack"],
+    "stats": {
+      "resource": 3,
+      "cost": 0,
+      "defense": 3,
+      "attack": 2
     }
   },
   {
