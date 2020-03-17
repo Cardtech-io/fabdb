@@ -3939,7 +3939,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Discussion/Comment.vue */ "./resources/js/Discussion/Comment.vue");
 /* harmony import */ var _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Discussion/CommentCount.vue */ "./resources/js/Discussion/CommentCount.vue");
-/* harmony import */ var _Utilities_Content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Content */ "./resources/js/Utilities/Content.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
@@ -3991,7 +3991,7 @@ __webpack_require__.r(__webpack_exports__);
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Content__WEBPACK_IMPORTED_MODULE_4__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_6__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_6__["default"]],
   computed: {
     crumbs: function crumbs() {
       return [{
@@ -4084,7 +4084,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
-/* harmony import */ var _Utilities_Content__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Utilities/Content */ "./resources/js/Utilities/Content.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -4182,7 +4182,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     VueSimplemde: vue_simplemde__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_7__["default"], _Utilities_Content__WEBPACK_IMPORTED_MODULE_6__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_7__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_6__["default"]],
   data: function data() {
     return {
       article: {},
@@ -88051,65 +88051,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Utilities/Content.js":
-/*!*******************************************!*\
-  !*** ./resources/js/Utilities/Content.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! marked */ "./node_modules/marked/src/marked.js");
-/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    parseMarkdown: function parseMarkdown(string) {
-      var _this = this;
-
-      var renderer = new marked__WEBPACK_IMPORTED_MODULE_0___default.a.Renderer();
-
-      renderer.paragraph = function (text) {
-        return '<p class="my-4">' + text + '</p>';
-      };
-
-      renderer.link = function (href, title, text) {
-        return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
-      };
-
-      renderer.list = function (body, ordered, start) {
-        return ordered ? '<ol class="list-decimal ml-8">' + body + '</ol>' : '<ul class="list-disc ml-8">' + body + '</ul>';
-      };
-
-      renderer.listitem = function (text, task, checked) {
-        return '<li>' + text + '</li>';
-      }; // First we're gonna search for custom syntax
-
-
-      var content = string.split('\n').map(function (line) {
-        var regexp = /^#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/;
-        var matches = line.match(regexp);
-
-        if (!matches) {
-          return line;
-        }
-
-        var identifiers = matches[1].split(',');
-        var cards = identifiers.map(function (cardIdentifier) {
-          return '<img src="' + _this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
-        });
-        return '<div class="text-center">' + cards.join('\n') + '</div>';
-      });
-      return marked__WEBPACK_IMPORTED_MODULE_0___default()(content.join('\n'), {
-        renderer: renderer
-      });
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/Utilities/Imagery.js":
 /*!*******************************************!*\
   !*** ./resources/js/Utilities/Imagery.js ***!
@@ -88150,7 +88091,13 @@ __webpack_require__.r(__webpack_exports__);
       return this.snakeCase(string, '-');
     },
     _renderer: function _renderer() {
+      var _this = this;
+
       var renderer = new marked__WEBPACK_IMPORTED_MODULE_0___default.a.Renderer();
+
+      renderer.blockquote = function (quote) {
+        return '<blockquote class="relative py-4 px-8 text-xl italic border-l-4 border-neutral-500 quote">' + '<div class="stylistic-quote-mark" aria-hidden="true">&ldquo;</div>' + '<p>' + _this.prettyText(quote) + '</p>' + '</blockquote>';
+      };
 
       renderer.paragraph = function (text) {
         return '<p class="my-4">' + text + '</p>';
@@ -88171,7 +88118,7 @@ __webpack_require__.r(__webpack_exports__);
       return renderer;
     },
     parseMarkdown: function parseMarkdown(string) {
-      var _this = this;
+      var _this2 = this;
 
       var renderer = this._renderer(); // First we're gonna search for custom syntax
 
@@ -88186,7 +88133,7 @@ __webpack_require__.r(__webpack_exports__);
 
         var identifiers = matches[1].split(',');
         var cards = identifiers.map(function (cardIdentifier) {
-          return '<img src="' + _this.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
+          return '<img src="' + _this2.cardUrl(cardIdentifier, 300) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4">';
         });
         return '<div class="text-center">' + cards.join('\n') + '</div>';
       });

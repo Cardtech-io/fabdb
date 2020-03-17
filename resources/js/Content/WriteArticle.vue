@@ -82,12 +82,12 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import VueSimplemde from 'vue-simplemde';
-    import Content from '../Utilities/Content';
+    import Strings from '../Utilities/Strings';
     import Cardable from '../CardDatabase/Cardable';
 
     export default {
         components: { Crumbs, HeaderTitle, VueSimplemde },
-        mixins: [ Cardable, Content ],
+        mixins: [ Cardable, Strings ],
 
         data() {
             return {

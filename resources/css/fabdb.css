@@ -113,3 +113,16 @@ footer.footer .link:hover {
     position: absolute;
     top: 25%;
 }
+
+.stylistic-quote-mark {
+    font-size: 5rem;
+    right: 98%;
+    top: -1em;
+    @apply hidden mt-4 ml-4 text-gray-400 absolute top-0 leading-none;
+}
+
+@screen sm {
+    .stylistic-quote-mark {
+        @apply block;
+    }
+}

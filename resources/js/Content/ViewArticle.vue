@@ -33,7 +33,7 @@
     import Cardable from '../CardDatabase/Cardable';
     import Comment from '../Discussion/Comment.vue';
     import CommentCount from '../Discussion/CommentCount.vue';
-    import Content from '../Utilities/Content';
+    import Strings from '../Utilities/Strings';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
@@ -48,7 +48,7 @@
             Respond
         },
 
-        mixins: [ Cardable, Content, Imagery ],
+        mixins: [ Cardable, Strings, Imagery ],
 
         computed: {
             crumbs: function () {

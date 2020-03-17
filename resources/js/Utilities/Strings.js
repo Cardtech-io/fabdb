@@ -9,6 +9,13 @@ export default {
         _renderer: function() {
             const renderer = new marked.Renderer();
 
+            renderer.blockquote = quote => {
+                return '<blockquote class="relative py-4 px-8 text-xl italic border-l-4 border-neutral-500 quote">' +
+                    '<div class="stylistic-quote-mark" aria-hidden="true">&ldquo;</div>' +
+                    '<p>' + this.prettyText(quote) + '</p>' +
+                    '</blockquote>';
+            };
+
             renderer.paragraph = function(text) {
                 return '<p class="my-4">' + text + '</p>';
             };
