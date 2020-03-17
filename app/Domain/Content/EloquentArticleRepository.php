@@ -44,7 +44,8 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         // If we're looking at a specific user, let's order by created at.
         // Otherwise, this is public, so we want to order by most recently published.
         if ($useCase == 'search') {
-            $query->whereNotNull('publish_at');
+            $query->where('publish_at', '<=', \DB::raw('NOW()'));
+            $query->whereStatus('approved');
             $query->orderBy('publish_at', 'desc');
         } else {
             $query->orderBy('created_at', 'desc');
