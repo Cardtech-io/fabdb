@@ -3647,6 +3647,11 @@ __webpack_require__.r(__webpack_exports__);
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"]],
+  computed: {
+    firstThree: function firstThree() {
+      return this.articles.data.slice(0, 3);
+    }
+  },
   data: function data() {
     return {
       articles: {},
@@ -62315,62 +62320,67 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
         _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
-          _c(
-            "ol",
-            { staticClass: "clearfix sm:-mx-4" },
-            _vm._l(_vm.articles.data, function(article) {
-              return _c(
-                "li",
-                {
-                  staticClass:
-                    "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "bg-white rounded-lg" },
+          _vm.articles.current_page == 1
+            ? _c(
+                "ol",
+                { staticClass: "clearfix sm:-mx-4" },
+                _vm._l(_vm.firstThree, function(article) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass:
+                        "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
+                    },
                     [
                       _c(
-                        "router-link",
+                        "div",
                         {
-                          attrs: {
-                            to:
-                              "/articles/" +
-                              _vm.kebabCase(article.title) +
-                              "/" +
-                              article.slug
-                          }
+                          staticClass: "bg-white",
+                          staticStyle: { "min-height": "380px" }
                         },
                         [
-                          _c("img", {
-                            staticClass: "w-full rounded-t-lg",
-                            attrs: {
-                              src: _vm.thumbUrl(article.image, 400, 150)
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "p-6" }, [
-                            _c(
-                              "h3",
-                              {
-                                staticClass:
-                                  "font-serif uppercase text-2xl mb-2"
-                              },
-                              [_vm._v(_vm._s(article.title))]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [_vm._v(_vm._s(article.excerpt))])
-                          ])
-                        ]
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to:
+                                  "/articles/" +
+                                  _vm.kebabCase(article.title) +
+                                  "/" +
+                                  article.slug
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "w-full",
+                                attrs: {
+                                  src: _vm.thumbUrl(article.image, 400, 150)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "p-6" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "font-serif uppercase text-2xl mb-2"
+                                  },
+                                  [_vm._v(_vm._s(article.title))]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v(_vm._s(article.excerpt))])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
+                    ]
                   )
-                ]
+                }),
+                0
               )
-            }),
-            0
-          )
+            : _vm._e()
         ])
       ])
     ],

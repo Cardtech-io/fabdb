@@ -5,11 +5,11 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
-                <ol class="clearfix sm:-mx-4">
-                    <li v-for="article in articles.data" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
-                        <div class="bg-white rounded-lg">
+                <ol class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
+                    <li v-for="article in firstThree" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
+                        <div class="bg-white" style="min-height: 380px">
                             <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-lg">
+                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full">
                                 <div class="p-6">
                                     <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
                                     <p>{{ article.excerpt }}</p>
@@ -33,6 +33,12 @@
     export default {
         components: { Breadcrumbs, HeaderTitle },
         mixins: [ Imagery, Strings ],
+
+        computed: {
+            firstThree: function() {
+                return this.articles.data.slice(0, 3);
+            }
+        },
 
         data() {
             return {
