@@ -2763,6 +2763,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -61162,13 +61165,32 @@ var render = function() {
               [
                 _c("div", { staticClass: "p-4 pt-0 sm:p-0" }, [
                   _vm.card.text
-                    ? _c("div", {
-                        staticClass:
-                          "border bg-gray-300 border-gray-500 px-4 rounded-lg mb-8",
-                        domProps: {
-                          innerHTML: _vm._s(_vm.prettyText(_vm.card.text))
-                        }
-                      })
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "border bg-gray-300 border-gray-500 rounded-lg mb-8"
+                        },
+                        [
+                          _c("div", {
+                            staticClass: "px-4",
+                            domProps: {
+                              innerHTML: _vm._s(_vm.prettyText(_vm.card.text))
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.card.flavour
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "italic border-t border-gray-400 p-4 text-gray-600"
+                                },
+                                [_vm._v(_vm._s(_vm.card.flavour))]
+                              )
+                            : _vm._e()
+                        ]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _c("article", [

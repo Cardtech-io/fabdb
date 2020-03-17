@@ -11,7 +11,10 @@
 
                 <div class="md:w-2/3 md:float-right sm:px-4">
                     <div class="p-4 pt-0 sm:p-0">
-                        <div v-if="card.text" v-html="prettyText(card.text)" class="border bg-gray-300 border-gray-500 px-4 rounded-lg mb-8"></div>
+                        <div v-if="card.text" class="border bg-gray-300 border-gray-500 rounded-lg mb-8">
+                            <div v-html="prettyText(card.text)" class="px-4"></div>
+                            <div class="italic border-t border-gray-400 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                        </div>
 
                         <article>
                             <p class="mb-4">

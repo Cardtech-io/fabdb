@@ -45,6 +45,7 @@ class SeedCardDatabase extends Command
                 $card['name'],
                 new Rarity($card['rarity']),
                 $card['text'],
+                Arr::get($card, 'flavour'),
                 $card['keywords'],
                 Arr::get($card, 'stats', [])
             );

@@ -463,7 +463,7 @@
     "set": "ARC",
     "name": "Viserai, Rune Blood",
     "rarity": "T",
-    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token.*(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
+    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
     "keywords": ["runeblade", "hero"],
     "stats": {
       "life": 40,
@@ -475,7 +475,7 @@
     "set": "ARC",
     "name": "Viserai",
     "rarity": "T",
-    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token.*(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
+    "text": "Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with \"When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.\")*",
     "keywords": ["runeblade", "hero", "young"],
     "stats": {
       "life": 20,
