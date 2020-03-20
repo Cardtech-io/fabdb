@@ -5,8 +5,8 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
-                <ol class="clearfix sm:-mx-4">
-                    <li v-for="article in articles.data" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
+                <ol class="clearfix sm:-mx-4" v-masonry="containerId">
+                    <li v-masonry-tile v-for="article in articles.data" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
                         <div class="bg-white rounded-lg">
                             <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
                                 <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-lg">
