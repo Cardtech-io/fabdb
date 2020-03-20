@@ -3636,6 +3636,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3649,7 +3658,18 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"]],
   computed: {
     firstThree: function firstThree() {
-      return this.articles.data.slice(0, 3);
+      if (this.articles.current_page == 1) {
+        return this.articles.data.slice(0, 3);
+      }
+
+      return [];
+    },
+    remainder: function remainder() {
+      if (this.articles.current_page == 1) {
+        return this.articles.data.slice(3, 7);
+      }
+
+      return this.articles.data;
     }
   },
   data: function data() {
@@ -62320,67 +62340,107 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
         _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
-          _vm.articles.current_page == 1
-            ? _c(
-                "ol",
-                { staticClass: "clearfix sm:-mx-4" },
-                _vm._l(_vm.firstThree, function(article) {
-                  return _c(
-                    "li",
-                    {
-                      staticClass:
-                        "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "bg-white",
-                          staticStyle: { "min-height": "380px" }
-                        },
-                        [
-                          _c(
-                            "router-link",
-                            {
+          _c(
+            "ol",
+            { staticClass: "clearfix sm:-mx-4" },
+            [
+              _vm._l(_vm.firstThree, function(article) {
+                return _c(
+                  "li",
+                  {
+                    staticClass:
+                      "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "bg-white rounded-lg",
+                        staticStyle: { height: "390px" }
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to:
+                                "/articles/" +
+                                _vm.kebabCase(article.title) +
+                                "/" +
+                                article.slug
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-full rounded-t-lg",
                               attrs: {
-                                to:
-                                  "/articles/" +
-                                  _vm.kebabCase(article.title) +
-                                  "/" +
-                                  article.slug
+                                src: _vm.thumbUrl(article.image, 400, 150)
                               }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "w-full",
-                                attrs: {
-                                  src: _vm.thumbUrl(article.image, 400, 150)
-                                }
-                              }),
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "p-6" }, [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "font-serif uppercase text-2xl mb-2"
+                                },
+                                [_vm._v(_vm._s(article.title))]
+                              ),
                               _vm._v(" "),
-                              _c("div", { staticClass: "p-6" }, [
-                                _c(
-                                  "h3",
-                                  {
-                                    staticClass:
-                                      "font-serif uppercase text-2xl mb-2"
-                                  },
-                                  [_vm._v(_vm._s(article.title))]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v(_vm._s(article.excerpt))])
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                }),
-                0
-              )
-            : _vm._e()
+                              _c("p", [_vm._v(_vm._s(article.excerpt))])
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _vm._l(_vm.remainder, function(article) {
+                return _c(
+                  "li",
+                  { staticClass: "clearfix w-full mx-4" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to:
+                            "/articles/" +
+                            _vm.kebabCase(article.title) +
+                            "/" +
+                            article.slug
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "rounded-lg float-left mr-4",
+                          attrs: { src: _vm.thumbUrl(article.image, 150, 150) }
+                        }),
+                        _vm._v(" "),
+                        _c("div", [
+                          _c(
+                            "h3",
+                            {
+                              staticClass: "font-serif uppercase text-2xl mb-2"
+                            },
+                            [_vm._v(_vm._s(article.title))]
+                          ),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(article.excerpt))])
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          )
         ])
       ])
     ],

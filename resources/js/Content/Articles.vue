@@ -5,17 +5,26 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
-                <ol class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
+                <ol class="clearfix sm:-mx-4">
                     <li v-for="article in firstThree" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
-                        <div class="bg-white" style="min-height: 380px">
+                        <div class="bg-white rounded-lg" style="height: 390px">
                             <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full">
+                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-lg">
                                 <div class="p-6">
                                     <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
                                     <p>{{ article.excerpt }}</p>
                                 </div>
                             </router-link>
                         </div>
+                    </li>
+                    <li v-for="article in remainder" class="clearfix w-full mx-4">
+                        <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
+                            <img :src="thumbUrl(article.image, 150, 150)" class="rounded-lg float-left mr-4">
+                            <div>
+                                <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
+                                <p>{{ article.excerpt }}</p>
+                            </div>
+                        </router-link>
                     </li>
                 </ol>
             </div>
@@ -36,7 +45,19 @@
 
         computed: {
             firstThree: function() {
-                return this.articles.data.slice(0, 3);
+                if (this.articles.current_page == 1) {
+                    return this.articles.data.slice(0, 3);
+                }
+
+                return [];
+            },
+
+            remainder: function() {
+                if (this.articles.current_page == 1) {
+                    return this.articles.data.slice(3, 7);
+                }
+
+                return this.articles.data;
             }
         },
 
