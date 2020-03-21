@@ -20,7 +20,7 @@ class CardViewer
                 $identifier = str_pad($parts[1] + 1, 3, 0, STR_PAD_LEFT);
 
                 if ($identifier > $this->setMax($set)) {
-                    $identifier = $this->cards()->getFirstIdentifier($set);
+                    $identifier = $set.$this->cards()->getFirstIdentifier($set);
                 } else {
                     $identifier = $set.$identifier;
                 }
