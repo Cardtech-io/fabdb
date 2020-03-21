@@ -63915,25 +63915,29 @@ var render = function() {
                 "div",
                 { staticClass: "flex mt-2" },
                 [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2",
-                      attrs: { to: "/cards/" + _vm.card.prev }
-                    },
-                    [_vm._v("Previous")]
-                  ),
+                  _vm.card.prev
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2",
+                          attrs: { to: "/cards/" + _vm.card.prev }
+                        },
+                        [_vm._v("Previous")]
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
-                      attrs: { to: "/cards/" + _vm.card.next }
-                    },
-                    [_vm._v("Next")]
-                  )
+                  _vm.card.next
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
+                          attrs: { to: "/cards/" + _vm.card.next }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    : _vm._e()
                 ],
                 1
               )
