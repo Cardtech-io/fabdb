@@ -26,9 +26,9 @@ class CardController extends Controller
         )->paginate($request->get('per_page', 12))->appends($request->except('page'));
     }
 
-    public function view(Card $card)
+    public function view(Request $request, CardRepository $cards)
     {
-        return $card;
+        return $cards->view($request->card->identifier);
     }
 
     public function generatePack(Packs $packs)

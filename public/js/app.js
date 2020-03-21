@@ -2766,6 +2766,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -63897,13 +63901,42 @@ var render = function() {
           { staticClass: "container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" },
           [
             _c("div", { staticClass: "md:w-1/3 md:float-left p-4 md:py-0" }, [
-              _c("img", {
-                staticClass: "w-full max-w-md rounded-xl",
-                attrs: {
-                  src: _vm.cardUrl(_vm.card.identifier, 450),
-                  alt: _vm.card.name
-                }
-              })
+              _c("div", [
+                _c("img", {
+                  staticClass: "w-full max-w-md rounded-xl",
+                  attrs: {
+                    src: _vm.cardUrl(_vm.card.identifier, 450),
+                    alt: _vm.card.name
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex mt-2" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2",
+                      attrs: { to: "/cards/" + _vm.card.prev }
+                    },
+                    [_vm._v("Previous")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
+                      attrs: { to: "/cards/" + _vm.card.next }
+                    },
+                    [_vm._v("Next")]
+                  )
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c(

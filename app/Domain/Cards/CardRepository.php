@@ -41,4 +41,20 @@ interface CardRepository
      * @return Card
      */
     public function getRandomFoil(): Card;
+
+    /**
+     * View a specific card, and retrieve the previous/next card ids, as well.
+     *
+     * @param string $identifier
+     * @return Card
+     */
+    public function view(string $identifier): Card;
+
+    /**
+     * Returns the first available identifier for a card set.
+     *
+     * @param string $set
+     * @return string
+     */
+    public function getFirstIdentifier(string $set): string;
 }

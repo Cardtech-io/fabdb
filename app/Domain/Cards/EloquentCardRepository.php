@@ -5,11 +5,22 @@ use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
+    /**
+     * @var CardViewer
+     */
+    private $cardViewer;
+
+    public function __construct(CardViewer $cardViewer)
+    {
+        $this->cardViewer = $cardViewer;
+    }
+
     protected function model(): Model
     {
         return new Card;
@@ -194,5 +205,39 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), '<>', 'hero')
             ->orderBy(\DB::raw('RAND()'))
             ->first();
+    }
+
+    public function view(string $identifier): Card
+    {
+        $card = $this->findByIdentifier($identifier);
+
+        $card->next = $this->nav(function() use ($identifier) {
+            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '+'))->identifier;
+        });
+
+        $card->prev = $this->nav(function() use ($identifier) {
+            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '-'))->identifier;
+        });
+
+        return $card;
+    }
+
+    public function getFirstIdentifier(string $set): string
+    {
+        $identifier = $this->newQuery()
+            ->where('identifier', 'LIKE', "$set%")
+            ->select('identifier')
+            ->orderBy('identifier', 'asc')
+            ->limit(1)
+            ->pluck('identifier')
+            ->first();
+
+        return str_split($identifier, 3)[1];
+    }
+
+    private function nav(\Closure $exec)
+    {
+        try { return $exec(); }
+        catch (ModelNotFoundException $e) {}
     }
 }

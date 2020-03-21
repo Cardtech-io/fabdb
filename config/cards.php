@@ -10,5 +10,10 @@ return [
         'IRA006',
         'IRA007',
         'IRA010',
+    ],
+
+    'set_max_ids' => [
+        'wtr' => 225,
+        'arc' => 218
     ]
 ];
