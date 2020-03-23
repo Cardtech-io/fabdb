@@ -6,7 +6,7 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix">
                 <div class="md:w-1/3 md:float-left p-4 md:py-0">
-                    <div><img :src="cardUrl(card.identifier, 450)" :alt="card.name" class="w-full max-w-md rounded-xl"></div>
+                    <card-image :card="card"></card-image>
                     <div class="flex mt-2">
                         <router-link :to="'/cards/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>
                         <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2" v-if="card.next">Next</router-link>
@@ -66,6 +66,7 @@
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
+    import CardImage from './CardImage.vue';
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Respond from '../Discussion/Respond.vue';
@@ -78,6 +79,7 @@
 
         components: {
             Breadcrumbs,
+            CardImage,
             Comment,
             CommentCount,
             HeaderTitle,

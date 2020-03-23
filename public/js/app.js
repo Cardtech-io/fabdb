@@ -2710,12 +2710,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Discussion/Respond.vue */ "./resources/js/Discussion/Respond.vue");
-/* harmony import */ var _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Discussion/Comment.vue */ "./resources/js/Discussion/Comment.vue");
-/* harmony import */ var _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Discussion/CommentCount.vue */ "./resources/js/Discussion/CommentCount.vue");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _CardImage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Discussion/Respond.vue */ "./resources/js/Discussion/Respond.vue");
+/* harmony import */ var _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Discussion/Comment.vue */ "./resources/js/Discussion/Comment.vue");
+/* harmony import */ var _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Discussion/CommentCount.vue */ "./resources/js/Discussion/CommentCount.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -2779,6 +2780,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2789,13 +2791,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_9__["default"]],
   components: {
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Comment: _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    CommentCount: _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    CardImage: _CardImage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Comment: _Discussion_Comment_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    CommentCount: _Discussion_CommentCount_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   computed: {
     crumbs: function crumbs() {
@@ -2881,7 +2884,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__["default"])(function (to, callback) {
     var card = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/' + to.params.identifier);
     var comments = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/comments/card/' + to.params.identifier);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.all([card, comments]).then(axios__WEBPACK_IMPORTED_MODULE_0___default.a.spread(function () {
@@ -63935,48 +63938,45 @@ var render = function() {
           "div",
           { staticClass: "container sm:mx-auto pt-0 pb-8 md:py-8 clearfix" },
           [
-            _c("div", { staticClass: "md:w-1/3 md:float-left p-4 md:py-0" }, [
-              _c("div", [
-                _c("img", {
-                  staticClass: "w-full max-w-md rounded-xl",
-                  attrs: {
-                    src: _vm.cardUrl(_vm.card.identifier, 450),
-                    alt: _vm.card.name
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "flex mt-2" },
-                [
-                  _vm.card.prev
-                    ? _c(
-                        "router-link",
-                        {
-                          staticClass:
-                            "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2",
-                          attrs: { to: "/cards/" + _vm.card.prev }
-                        },
-                        [_vm._v("Previous")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.card.next
-                    ? _c(
-                        "router-link",
-                        {
-                          staticClass:
-                            "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
-                          attrs: { to: "/cards/" + _vm.card.next }
-                        },
-                        [_vm._v("Next")]
-                      )
-                    : _vm._e()
-                ],
-                1
-              )
-            ]),
+            _c(
+              "div",
+              { staticClass: "md:w-1/3 md:float-left p-4 md:py-0" },
+              [
+                _c("card-image", { attrs: { card: _vm.card } }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex mt-2" },
+                  [
+                    _vm.card.prev
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2",
+                            attrs: { to: "/cards/" + _vm.card.prev }
+                          },
+                          [_vm._v("Previous")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.card.next
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
+                            attrs: { to: "/cards/" + _vm.card.next }
+                          },
+                          [_vm._v("Next")]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
