@@ -22,6 +22,16 @@
                             <input type="text" v-model="gemId" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         </div>
 
+                        <h2 class="font-serif text-xl uppercase mt-8 mb-4">Cards</h2>
+
+                        <div class="w-full mb-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Card view</label>
+                            <select v-model="view" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                                <option value="borderless">Borderless</option>
+                                <option value="bordered">Bordered</option>
+                            </select>
+                        </div>
+
                         <h2 class="font-serif text-xl uppercase mt-8 mb-4">Collection management</h2>
 
                         <div class="w-full mb-4">
@@ -123,7 +133,17 @@
                 set(need) {
                     this.setUserParam({ param: 'need', value: need });
                 }
-            }
+            },
+
+            view: {
+                get() {
+                    return this.user.view;
+                },
+
+                set(view) {
+                    this.setUserParam({ param: 'view', value: view });
+                }
+            },
         },
 
         data() {
@@ -149,6 +169,7 @@
                     name: this.name,
                     gemId: this.gemId,
                     need: this.need,
+                    view: this.view,
                 };
 
                 axios.put('/profile', data).then(response => {

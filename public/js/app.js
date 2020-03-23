@@ -2305,15 +2305,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['card', 'clickHandler'],
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
   methods: {
     clicked: function clicked() {
       this.$emit('clicked', this.card);
@@ -5937,6 +5946,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5992,6 +6011,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           value: need
         });
       }
+    },
+    view: {
+      get: function get() {
+        return this.user.view;
+      },
+      set: function set(view) {
+        this.setUserParam({
+          param: 'view',
+          value: view
+        });
+      }
     }
   }),
   data: function data() {
@@ -6014,7 +6044,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: this.email,
         name: this.name,
         gemId: this.gemId,
-        need: this.need
+        need: this.need,
+        view: this.view
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/profile', data).then(function (response) {
         _this.addMessage({
@@ -63253,7 +63284,11 @@ var render = function() {
   return _c("img", {
     staticClass: "w-full rounded-lg sm:rounded-xl cursor-pointer",
     attrs: {
-      src: _vm.cardUrl(_vm.card.identifier, 450),
+      src: _vm.cardUrl(
+        _vm.card.identifier,
+        450,
+        !!(_vm.user.view == "bordered")
+      ),
       alt: _vm.card.name,
       title: _vm.card.name
     },
@@ -68655,6 +68690,63 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "h2",
+                    { staticClass: "font-serif text-xl uppercase mt-8 mb-4" },
+                    [_vm._v("Cards")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-full mb-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("Card view")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.view,
+                            expression: "view"
+                          }
+                        ],
+                        staticClass:
+                          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.view = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "borderless" } }, [
+                          _vm._v("Borderless")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "bordered" } }, [
+                          _vm._v("Bordered")
+                        ])
+                      ]
+                    )
                   ]),
                   _vm._v(" "),
                   _c(
