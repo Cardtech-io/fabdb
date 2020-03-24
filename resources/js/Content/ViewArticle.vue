@@ -30,6 +30,7 @@
 
 <script>
     import moment from 'moment';
+    import { mapGetters } from 'vuex';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
@@ -53,6 +54,8 @@
         mixins: [ Cardable, Strings, Imagery ],
 
         computed: {
+            ...mapGetters('session', ['user']),
+            
             crumbs: function () {
                 return [
                     { text: 'Home', link: '/' },

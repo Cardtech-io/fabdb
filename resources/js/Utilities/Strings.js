@@ -47,10 +47,11 @@ export default {
                     return line;
                 }
 
+                let userBorders = this.user && this.user.view == 'bordered';
                 let identifiers = matches[1].split(',');
 
                 let cards = identifiers.map(cardIdentifier => {
-                    return '<img src="' + this.cardUrl(cardIdentifier, 450) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
+                    return '<img src="' + this.cardUrl(cardIdentifier, 450, userBorders) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
                 });
 
                 return '<div class="text-center">' + cards.join('\n') + '</div>';
