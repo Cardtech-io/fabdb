@@ -53,10 +53,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         // The following condition and clause determines whether the user is looking for an individual card or not
-        if (count($keywords) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $keywords[0], $matches)) {
-            $identifier = str_pad($matches[2], 3, '0', STR_PAD_LEFT);
-
-            $query->where('identifier', 'LIKE', '%'.$identifier);
+        if (count($keywords) && $keywords[0] != 'missing') {
+            $keywords = implode(' ', $keywords);
+            
+            $query->whereRaw("MATCH(search_text) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE)");
         } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
             // do nothing, check below.
         } else {
