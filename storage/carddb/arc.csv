@@ -255,6 +255,30 @@ ARC,84,Tome of the Arknight,S,"Reveal the top 2 cards of your deck. If you revea
 ARC,85,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,1,2,3,4
 ARC,86,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,2,2,3,3
 ARC,87,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,3,2,3,2
+ARC,88,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,defense,reaction",,,1,1,4,
+ARC,89,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,defense,reaction",,,2,1,3,
+ARC,90,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,defense,reaction",,,3,1,2,
+ARC,91,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +3[attack].
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
+
+**Go again**",,"runeblade,action",,,1,2,3,
+ARC,92,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +2[attack].
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
+
+**Go again**",,"runeblade,action",,,2,2,2,
+ARC,93,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +1[attack].
+
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
+
+**Go again**",,"runeblade,action",,,3,2,1,
 ARC,94,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.","runeblade,action,attack",,,1,3,3,6
 ARC,95,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.","runeblade,action,attack",,,2,3,3,5
 ARC,96,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.","runeblade,action,attack",,,3,3,3,4
@@ -276,6 +300,30 @@ ARC,101,Rune Flash,C,"Rune Flash costs [resource] less to play for each Runechan
 ARC,102,Rune Flash,C,"Rune Flash costs [resource] less to play for each Runechant you control.
 
 **Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.","runeblade,action,attack",,,3,3,3,2
+ARC,103,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,1,1,3,4
+ARC,104,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,2,1,3,3
+ARC,105,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,attack",,,3,1,3,2
+ARC,106,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
+
+**Go again**
+
+When an attack action card you control hits, destroy Bloodspill Invocation then create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,aura",,,1,1,2,
+ARC,107,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
+
+**Go again**
+
+When an attack action card you control hits, destroy Bloodspill Invocation then create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,aura",,,2,1,2,
+ARC,108,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
+
+**Go again**
+
+When an attack action card you control hits, destroy Bloodspill Invocation then create a Runechant token. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action,aura",,,3,1,2,
+ARC,109,Read the Runes,C,"Create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action",,,1,0,2,
+ARC,110,Read the Runes,C,"Create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action",,,2,0,2,
+ARC,111,Read the Runes,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,"runeblade,action",,,3,0,2,
+ARC,112,Runechant,T,"*(Auras stay in the arena until they are destroyed.)*
+
+When you play an attack action card, or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.",,"runeblade,token,aura",,,,,,
 ARC,113,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,"wizard,hero",30,4,,,,
 ARC,114,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,"wizard,hero,young",15,4,,,,
 ARC,115,Crucible of Aetherweave,T,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,"wizard,weapon,staff,2h",,,,,,
