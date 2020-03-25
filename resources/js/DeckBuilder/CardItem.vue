@@ -6,16 +6,20 @@
             <span v-for="(keyword, index) in card.keywords" class="text-sm">{{ ucfirst(keyword) }}<span v-if="index < card.keywords.length - 1">, </span></span>
         </a>
 
-        <img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-xl hidden sm:block cursor-pointer" @click.prevent="action(card)">
+        <img :src="cardUrl(card.identifier, 350, user.view == 'bordered')" :alt="card.name" :title="card.name" class="w-full rounded-xl hidden sm:block cursor-pointer" @click.prevent="action(card)">
     </li>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     import Cardable from '../CardDatabase/Cardable';
 
     export default {
         mixins: [Cardable],
+        props: ['action', 'card'],
 
-        props: ['action', 'card']
+        computed: {
+            ...mapGetters('session', ['user'])
+        }
     }
 </script>

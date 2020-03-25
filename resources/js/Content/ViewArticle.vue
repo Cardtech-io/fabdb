@@ -41,7 +41,7 @@
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
     import Respond from '../Discussion/Respond.vue';
-    
+
     export default {
         components: {
             Breadcrumbs,

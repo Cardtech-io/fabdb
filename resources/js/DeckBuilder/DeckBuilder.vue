@@ -51,7 +51,7 @@
                     <div class="clearfix">
                         <div class="md:w-1/3 md:float-left" v-if="hero">
                             <div class="mb-8">
-                                <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px"></a>
+                                <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350, user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px"></a>
                             </div>
                         </div>
 
@@ -138,6 +138,8 @@
 
 <script>
     import axios from 'axios';
+    import { mapGetters } from 'vuex';
+
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Crumbs from '../Components/Crumbs.vue';
@@ -156,6 +158,8 @@
         mixins: [ Cardable, Viewable ],
 
         computed: {
+            ...mapGetters('session', ['user']),
+
             cards: function() {
                 if (this.deck && this.deck.cards) {
                     function compare(a, b) {

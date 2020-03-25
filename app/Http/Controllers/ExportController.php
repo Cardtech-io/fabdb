@@ -17,6 +17,19 @@ class ExportController extends Controller
         ));
     }
 
+    /**
+     * Provides a tabletop simulator compliant JSON file.
+     *
+     * @param Request $request
+     * @param Deck $deck
+     */
+    public function tts(Request $request, Deck $deck)
+    {
+        $this->dispatch(new ExportDeckToTTS(
+            $deck->id
+        ));
+    }
+
     public function html(Request $request, Deck $deck)
     {
         // Params consists of name, gem id and event - constructed via the PDF exporter.
