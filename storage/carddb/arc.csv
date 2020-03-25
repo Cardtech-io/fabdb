@@ -327,6 +327,12 @@ When you play an attack action card, or attack with a weapon, destroy Runechant 
 ARC,113,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,"wizard,hero",30,4,,,,
 ARC,114,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,"wizard,hero,young",15,4,,,,
 ARC,115,Crucible of Aetherweave,T,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,"wizard,weapon,staff,2h",,,,,,
+ARC,116,Storm Striders,L,"**Instant** - [resource], destroy Storm Striders: You may play your next Wizard ‘non-attack’ action card this turn as though it were an instant.
+
+**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,"wizard,equipment,legs",,,,,0,
+ARC,117,Robe of Rapture,C,"**Action** - Destroy Robe of Rapture: Gain [2 resource]
+
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,,,,,0,
 ARC,118,Blazing Aether,M,"**Kano Specialization** *(You may only have Blazing Aether in your deck if your hero is Kano.)*
 
 Deal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",,"wizard,action",,,1,1,3,
@@ -372,6 +378,9 @@ The next card you play this turn with an effect that deals arcane damage, instea
 ARC,134,Aether Flare,C,"Deal 3 arcane damage to target opposing hero.
 
 The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,"wizard,action",,,3,1,3,
+ARC,135,Index,C,"Look at the top 5 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe","wizard,action",,,1,0,2,
+ARC,136,Index,C,"Look at the top 4 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe","wizard,action",,,2,0,2,
+ARC,137,Index,C,"Look at the top 3 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe","wizard,action",,,3,0,2,
 ARC,138,Reverberate,C,"Deal 3 arcane damage to target opposing hero.
 
 If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,"wizard,action",,,1,1,3,
@@ -381,11 +390,20 @@ If Reverberate deals damage, you may banish a Wizard 'non-attack' action card fr
 ARC,140,Reverberate,C,"Deal 1 arcane damage to target opposing hero.
 
 If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,"wizard,action",,,3,1,3,
+ARC,141,Scalding Ran,C,Deal 4 arcane damage to target hero.,,"wizard,action",,,1,1,3,
+ARC,142,Scalding Ran,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,2,1,3,
+ARC,143,Scalding Ran,C,Deal 2 arcane damage to target hero.,,"wizard,action",,,3,1,3,
+ARC,144,Zap,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,1,0,3,
+ARC,145,Zap,C,Deal 2 arcane damage to target hero.,,"wizard,action",,,2,0,3,
+ARC,146,Zap,C,Deal 1 arcane damage to target hero.,,"wizard,action",,,3,0,3,
 ARC,147,Voltic Bolt,C,Deal 5 arcane damage to target hero.,,"wizard,action",,,1,2,2,
 ARC,148,Voltic Bolt,C,Deal 4 arcane damage to target hero.,,"wizard,action",,,2,2,2,
 ARC,149,Voltic Bolt,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,3,2,2,
+ARC,150,Arcanite Skullcap,L,"If you have less [life] than your opponent, Arcanite Skullcap gains +1[defense] and **Arcane Barrier 3.** *(If your hero would be dealt arcane damage, you may pay [3 resource] instead. If you do, prevent 3 arcane damage that source would deal.)*",,"generic,equipment,head",,,,,1,
 ARC,151,Talismanic Lens,C,**Instant** - Destroy Talismanic Lens: **Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*,,"generic,equipment,head",,,,,0,
+ARC,152,Vest of the First Fist,C,"When an attack action card you control hits, you may destroy Vest of the First Fist. If you do, gain [2 resource].",,"generic,equipment,chest",,,,,0,
 ARC,153,Bracers of Belief,C,"**Action** - Destroy Bracers of Belief: Real the top card of your deck. If you do, the next attack action card you play this turn gets [+X attack], where X is 3 minus the pitch value of the card revealed this way. **Go again**",,"generic,equipment,arms",,,,,0,
+ARC,154,Mage Master Boots,C,"**Action** - [resource], destroy Mage Master Boots: The next ‘non-attack’ action card you play this turn gains **go again. Go again**",,"generic,equipment,legs",,,,,0,
 ARC,155,Nullrune Hood,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,"generic,equipment,head",,,,,0,
 ARC,156,Nullrune Robe,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,"generic,equipment,chest",,,,,0,
 ARC,157,Nullrune Gloves,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,"generic,equipment,arms",,,,,0,
@@ -400,6 +418,12 @@ ARC,160,Art of War,M,"Choose 2;
 * Until end of turn, you may defend with attack action cards from arsenal.
 * You may banish an attack action card from your hand. If you do, draw 2 cards.",,"generic,instant",,,2,1,,
 ARC,161,Pursuit of Knowledge,S,"If Pursuit of Knowledge hits, your hero gains +1[intellect] until end of turn.",,"generic,action,attack",,,3,2,2,4
+ARC,162,Chains of Eminence,S,"**Go again**
+
+When Chains of Eminence enters the arena, name a card. The named card can’t be pitched, played, or used to defend while Chains of Eminence is in the arena.
+
+At the beginning of your action phase, destroy Chains of Eminence.",,"generic,action,aura",,,1,0,2,
+ARC,163,Rusted Relic,S,"**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,,,3,0,,
 ARC,164,Life for a Life,R,"If Life for a Life hits, gain 1 [life].
 
 When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,"generic,action,attack",,,1,1,2,4
@@ -445,9 +469,27 @@ If plunder run is played from arsenal, then next attack action card you play thi
 ARC,173,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,instant",,,1,1,,
 ARC,174,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 5 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,instant",,,2,1,,
 ARC,175,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 4 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,instant",,,3,1,,
-ARC,185,Moon Wish,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,1,2,2,5
-ARC,186,Moon Wish,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,2,2,2,4
-ARC,187,Moon Wish,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,3,2,2,3
+ARC,176,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’","generic,action,attack",,,1,1,2,5
+ARC,177,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’","generic,action,attack",,,2,1,2,4
+ARC,178,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’","generic,action,attack",,,3,1,2,3
+ARC,179,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,"generic,action,attack",,,1,2,2,6
+ARC,180,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,"generic,action,attack",,,2,2,2,5
+ARC,181,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,"generic,action,attack",,,3,2,2,4
+ARC,182,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
+
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,"generic,action,attack",,,1,0,2,3
+ARC,183,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
+
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,"generic,action,attack",,,2,0,2,2
+ARC,184,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
+
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,"generic,action,attack",,,3,0,2,1
+ARC,185,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,1,2,2,5
+ARC,186,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,2,2,2,4
+ARC,187,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,"generic,action,attack",,,3,2,2,3
+ARC,188,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,"generic,action,attack",,,1,1,2,4
+ARC,189,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,"generic,action,attack",,,2,1,2,3
+ARC,190,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,"generic,action,attack",,,3,1,2,2
 ARC,191,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.
 
 **Go again**",,"generic,action,attack",,,1,0,2,5
@@ -457,6 +499,24 @@ ARC,192,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble get
 ARC,193,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.
 
 **Go again**",,"generic,action,attack",,,3,0,2,3
+ARC,194,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves","generic,action,attack",,,1,2,2,6
+ARC,195,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves","generic,action,attack",,,2,2,2,5
+ARC,196,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves","generic,action,attack",,,3,2,2,4
+ARC,197,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,"generic,action,attack",,,1,1,2,4
+ARC,198,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,"generic,action,attack",,,2,1,2,3
+ARC,199,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,"generic,action,attack",,,3,1,2,2
+ARC,200,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera","generic,defense,reaction",,,1,0,4,
+ARC,201,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera","generic,defense,reaction",,,2,0,3,
+ARC,202,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera","generic,defense,reaction",,,3,0,2,
+ARC,203,Come to Fight,C,"The next attack action card you play this turn gains +3[attack].
+
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.","generic,action",,,1,1,3,
+ARC,204,Come to Fight,C,"The next attack action card you play this turn gains +2[attack].
+
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.","generic,action",,,2,1,3,
+ARC,205,Come to Fight,C,"The next attack action card you play this turn gains +1[attack].
+
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.","generic,action",,,3,1,3,
 ARC,206,Force Sight,C,"The next attack action card you play this turn gains +3[attack].
 
 If Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
@@ -472,6 +532,15 @@ ARC,208,Force Sight,C,"The next attack action card you play this turn gains +1[a
 If Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
 **Go again**",,"generic,action",,,3,1,2,
+ARC,209,Lead the Charge,C,"The next time you play an action card with cost 0 or greater this turn, gain 1 action point.
+
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,,,1,0,2,
+ARC,210,Lead the Charge,C,"The next time you play an action card with cost [resource] or greater this turn, gain 1 action point.
+
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,,,2,0,2,
+ARC,211,Lead the Charge,C,"The next time you play an action card with cost [2 resource] or greater this turn, gain 1 action point.
+
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,,,3,0,2,
 ARC,212,Sun Kiss,C,"Gain 3[life].
 
 If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.","generic,action",,,1,0,2,
@@ -490,3 +559,4 @@ ARC,216,Whisper of the Oracle,C,"**Opt 3** (Look at the top 3 cards of your deck
 ARC,217,Whisper of the Oracle,C,"**Opt 2** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)
 
 **Go again**",,"generic,action",,,3,0,3,
+ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,"generic,resource",,,2,,,
