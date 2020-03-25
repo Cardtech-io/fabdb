@@ -3,6 +3,7 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\ExportDeckToPdf;
+use FabDB\Domain\Decks\ExportDeckToTTS;
 use Illuminate\Http\Request;
 
 class ExportController extends Controller

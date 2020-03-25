@@ -21,7 +21,7 @@ class ExportDeckToTTS
 
         $json = $this->generateJson($deck);
 
-        
+        dd($json);
     }
 
     private function generateJson($deck)

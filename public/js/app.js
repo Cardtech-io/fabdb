@@ -66525,8 +66525,9 @@ var render = function() {
                                     title:
                                       "Copy deck build to text for sharing on social media, messenger.etc."
                                   },
-                                  nativeOn: {
+                                  on: {
                                     click: function($event) {
+                                      $event.preventDefault()
                                       return _vm.copy($event)
                                     }
                                   }
