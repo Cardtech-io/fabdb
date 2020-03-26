@@ -28,6 +28,9 @@ class ExportDeckToTTS
     public function handle(DeckRepository $decks)
     {
         $deck = $decks->find($this->deckId);
+
+        $this->createTTSIDs($deck->cards);
+
         $json = $this->generateJson($deck);
 
         $this->observer->send($json);
@@ -81,7 +84,7 @@ class ExportDeckToTTS
                     'Name' => 'Card',
                     'Nickname' => $card->name,
                     'Transform' => $this->cardTransform(),
-                    'CardID' => (string) $card->identifier
+                    'CardID' => (string) $card->ttsId
                 ];
             }
         }
@@ -106,7 +109,7 @@ class ExportDeckToTTS
 
     private function cardIds(Cards $cards): array
     {
-        return $cards->pluck('identifier')->toArray();
+        return $cards->pluck('ttsId')->toArray();
     }
 
     /**
@@ -154,5 +157,12 @@ class ExportDeckToTTS
     private function deckSheetPath(string $deckSlug)
     {
         return Storage::path('tmp/'.$deckSlug.'.png');
+    }
+
+    private function createTTSIDs(Cards $cards)
+    {
+        foreach ($cards as $id => $card) {
+            $card->ttsId = 1000 + $id;
+        }
     }
 }
