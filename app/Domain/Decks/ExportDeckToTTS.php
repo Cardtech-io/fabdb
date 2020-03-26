@@ -1,9 +1,7 @@
 <?php
 namespace FabDB\Domain\Decks;
 
-use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Cards;
-use Illuminate\Support\Facades\Storage;
 
 class ExportDeckToTTS
 {

@@ -33,7 +33,7 @@
                             <div class="flex mt-2 mb-8">
                                 <router-link :to="'/decks/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
                                 <button @click.prevent="copy" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
-                                <a :href="'/export/' + deck.slug + '.tts'" target="_blank" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</a>
+                                <a :href="'/export/' + deck.slug + '.tts'" target="_blank" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</a>
                                 <router-link :to="'/decks/export/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
                             </div>
                         </div>

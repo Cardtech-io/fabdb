@@ -66537,7 +66537,7 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass:
-                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
                                   attrs: {
                                     href: "/export/" + _vm.deck.slug + ".tts",
                                     target: "_blank"
