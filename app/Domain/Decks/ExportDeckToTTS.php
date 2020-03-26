@@ -44,7 +44,9 @@ class ExportDeckToTTS
         $images = $this->deckImages($deck);
 
         $this->execute($deck->slug, $images);
-
+        
+        $grid = $this->determineGrid(count($images));
+        
         $json = [
             'ObjectStates' => [
                 [
@@ -59,22 +61,22 @@ class ExportDeckToTTS
                         'scaleY' => 1,
                         'scaleZ' => 1
                     ],
-                    'Name' => 'DeckCustom',
+                    'Name' => $deck->name,
                     'ContainedObjects' => $this->cardsToTTS($deck->cards),
                     'DeckIDs' => $this->cardIds($deck->cards),
                     'CustomDeck' => [
                         1 => [
-                            'NumWidth' => $deck->cards->count(),
-                            'NumHeight' => 1,
-                            'FaceURL' => 'https://fabdb.imgix.net/decks/tts/'.$deck->slug.'.png',
-                            'FaceBack' => 'https://fabdb.imgix.net/cards/backs/card-back-1.png'
+                            'NumWidth' => $grid['width'],
+                            'NumHeight' => $grid['height'],
+                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->slug.'.png',
+                            'BackURL' => 'http://fabdb.imgix.net/cards/backs/card-back-1.png'
                         ]
                     ]
                 ]
             ]
         ];
         
-        return json_encode($json, JSON_UNESCAPED_SLASHES);
+        return json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 
     private function cardsToTTS(Cards $cards): array
@@ -87,7 +89,7 @@ class ExportDeckToTTS
                     'Name' => 'Card',
                     'Nickname' => $card->name,
                     'Transform' => $this->cardTransform(),
-                    'CardID' => (string) $card->ttsId
+                    'CardID' => $card->ttsId
                 ];
             }
         }
@@ -99,7 +101,7 @@ class ExportDeckToTTS
     {
         return [
             'posX' => 0,
-            'posY' => 1,
+            'posY' => 0,
             'posZ' => 0,
             'rotX' => 0,
             'rotY' => 180,
@@ -146,7 +148,12 @@ class ExportDeckToTTS
 
     private function execute(string $deckSlug, array $images)
     {
-        $arguments = array_merge(['gm', 'convert'], $images, ['+append', $this->deckSheetPath($deckSlug)]);
+        $grid = $this->determineGrid(count($images));
+
+        $imageWidth = 450;
+        $imageHeight = 628;
+
+        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$this->deckSheetPath($deckSlug)]);
 
         $process = new Process($arguments);
         $process->run();
@@ -167,7 +174,18 @@ class ExportDeckToTTS
     private function createTTSIDs(Cards $cards)
     {
         foreach ($cards as $id => $card) {
-            $card->ttsId = 1000 + $id;
+            $card->ttsId = 100 + $id;
         }
+    }
+
+    private function determineGrid(int $cardCount)
+    {
+        for ($i = 1; $i <= 7; $i++) {
+            for ($b = 1; $b <= 10; $b++) {
+                if ($i * $b >= $cardCount) return ['height' => $i, 'width' => $b];
+            }
+        }
+
+        throw new \Exception('Impossible grid.');
     }
 }
