@@ -10,7 +10,7 @@ export default {
             const renderer = new marked.Renderer();
 
             renderer.blockquote = quote => {
-                return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border-l-4 border-neutral-500 quote">' +
+                return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border border-l-4 border-neutral-500 quote bg-gray-100 rounded-lg">' +
                     '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' +
                     '<p>' + this.prettyText(quote) + '</p>' +
                     '</blockquote>';

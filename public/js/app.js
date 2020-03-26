@@ -63340,12 +63340,7 @@ var render = function() {
       alt: _vm.card.name,
       title: _vm.card.name
     },
-    on: {
-      click: function($event) {
-        $event.preventDefault()
-        return _vm.clicked($event)
-      }
-    }
+    on: { click: _vm.clicked }
   })
 }
 var staticRenderFns = []
@@ -69047,7 +69042,7 @@ var staticRenderFns = [
             _c(
               "a",
               {
-                staticClass: "text-orange-700 hover:text-gray-300",
+                staticClass: "link",
                 attrs: {
                   href: "https://www.patreon.com/fabdb",
                   target: "_blank"
@@ -69059,7 +69054,7 @@ var staticRenderFns = [
             _c(
               "a",
               {
-                staticClass: "text-orange-700 hover:text-gray-300",
+                staticClass: "link",
                 attrs: { href: "https://www.paypal.me/kirkbushell" }
               },
               [_vm._v("paypal page")]
@@ -91125,7 +91120,7 @@ __webpack_require__.r(__webpack_exports__);
       var renderer = new marked__WEBPACK_IMPORTED_MODULE_0___default.a.Renderer();
 
       renderer.blockquote = function (quote) {
-        return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border-l-4 border-neutral-500 quote">' + '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' + '<p>' + _this.prettyText(quote) + '</p>' + '</blockquote>';
+        return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border border-l-4 border-neutral-500 quote bg-gray-100 rounded-lg">' + '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' + '<p>' + _this.prettyText(quote) + '</p>' + '</blockquote>';
       };
 
       renderer.paragraph = function (text) {

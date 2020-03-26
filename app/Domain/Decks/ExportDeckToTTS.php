@@ -1,7 +1,11 @@
 <?php
 namespace FabDB\Domain\Decks;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Cards;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
 
 class ExportDeckToTTS
 {
@@ -30,6 +34,10 @@ class ExportDeckToTTS
 
     private function generateJson($deck)
     {
+        $images = $this->deckImages($deck);
+
+        $this->execute($deck->slug, $images);
+
         $json = [
             'ObjectStates' => [
                 [
@@ -45,7 +53,16 @@ class ExportDeckToTTS
                         'scaleZ' => 1
                     ],
                     'Name' => 'DeckCustom',
-                    'ContainedObjects' => $this->cardsToTTS($deck->cards)
+                    'ContainedObjects' => $this->cardsToTTS($deck->cards),
+                    'DeckIDs' => $this->cardIds($deck->cards),
+                    'CustomDeck' => [
+                        1 => [
+                            'NumWidth' => $deck->cards->count(),
+                            'NumHeight' => 1,
+                            'FaceURL' => 'https://fabdb.imgix.net/decks/tts/'.$this->deck->slug.'.png',
+                            'FaceBack' => 'https://fabdb.imgix.net/cards/backs/card-back-1.png'
+                        ]
+                    ]
                 ]
             ]
         ];
@@ -58,12 +75,14 @@ class ExportDeckToTTS
         $json = [];
 
         foreach ($cards as $card) {
-            $json[] = [
-                'Name' => 'Card',
-                'Nickname' => $card->name,
-                'Transform' => $this->cardTransform(),
-                'CardID' => (string) $card->identifier
-            ];
+            for ($i = 1; $i <= $card->pivot->total; $i++) {
+                $json[] = [
+                    'Name' => 'Card',
+                    'Nickname' => $card->name,
+                    'Transform' => $this->cardTransform(),
+                    'CardID' => (string) $card->identifier
+                ];
+            }
         }
 
         return $json;
@@ -82,5 +101,49 @@ class ExportDeckToTTS
             'scaleY' => 1,
             'scaleZ' => 1
         ];
+    }
+
+    private function cardIds(Cards $cards): array
+    {
+        return $cards->pluck('identifier')->toArray();
+    }
+
+    /**
+     * Creates the image necessary for rendering the custom deck for TTS.
+     *
+     * @param Deck $deck
+     * @return array
+     */
+    private function deckImages(Deck $deck): array
+    {
+        $images = $deck->cards->map(function(Card $card) {
+            return $this->cardImagePath($card->identifier);
+        })->toArray();
+
+        // Now we push the "hidden" card back:
+        $images[] = Storage::disk('scraped')->path('card-back-1.png');
+
+        return $images;
+    }
+
+    private function cardImagePath($identifier): string
+    {
+        list($set, $id) = str_split($identifier, 3);
+
+        return Storage::disk('scraped')->path("$set/$id.png");
+    }
+
+    private function execute(string $deckSlug, array $images)
+    {
+        $process = new Process(['gm', 'convert', implode(' ', $images). '+append', $this->deckSheetPath($deckSlug)]);
+        $process->run();
+        
+        // Now we send it to AWS
+        Storage::putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug), $deckSlug.'.png'));
+    }
+
+    private function deckSheetPath(string $deckSlug)
+    {
+        return Storage::path('tmp/'.$deckSlug.'.png');
     }
 }
