@@ -47,7 +47,7 @@
             </script>
         @endif
     </head>
-    <body class="font-sans theme-bg bg-gray-200 text-gray-800">
+    <body class="font-sans theme-bg bg-gray-200 text-gray-800 md:text-lg">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};

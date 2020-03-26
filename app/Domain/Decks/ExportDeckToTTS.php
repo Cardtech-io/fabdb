@@ -2,6 +2,8 @@
 namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Cards\Cards;
+use Illuminate\Support\Facades\Storage;
 
 class ExportDeckToTTS
 {
@@ -9,19 +11,23 @@ class ExportDeckToTTS
      * @var int
      */
     private $deckId;
+    /**
+     * @var TTSObserver
+     */
+    private $observer;
 
-    public function __construct(int $deckId)
+    public function __construct(int $deckId, TTSObserver $observer)
     {
         $this->deckId = $deckId;
+        $this->observer = $observer;
     }
 
     public function handle(DeckRepository $decks)
     {
         $deck = $decks->find($this->deckId);
-
         $json = $this->generateJson($deck);
 
-        dd($json);
+        $this->observer->send($json);
     }
 
     private function generateJson($deck)
@@ -49,7 +55,7 @@ class ExportDeckToTTS
         return json_encode($json);
     }
 
-    private function cardsToTTS(Card $cards): array
+    private function cardsToTTS(Cards $cards): array
     {
         $json = [];
 

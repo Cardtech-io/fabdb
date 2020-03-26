@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\ExportDeckToPdf;
 use FabDB\Domain\Decks\ExportDeckToTTS;
+use FabDB\Domain\Decks\TTSObserver;
 use Illuminate\Http\Request;
 
 class ExportController extends Controller
@@ -27,8 +28,13 @@ class ExportController extends Controller
     public function tts(Request $request, Deck $deck)
     {
         $this->dispatch(new ExportDeckToTTS(
-            $deck->id
+            $deck->id,
+            $observer = new TTSObserver
         ));
+
+        return response()->streamDownload(function() use ($observer) {
+            echo $observer->json();
+        }, $deck->slug.'.json');
     }
 
     public function html(Request $request, Deck $deck)

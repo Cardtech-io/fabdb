@@ -1,5 +1,5 @@
 <template>
-    <img :src="cardUrl(card.identifier, 450, !!(user.view == 'bordered'))" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl cursor-pointer" @click="clicked">
+    <img :src="cardUrl(card.identifier, 450, !!(user.view == 'bordered'))" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl" @click.prevent="clicked" :class="clickClass">
 </template>
 
 <script>
@@ -12,12 +12,22 @@
         props: ['card', 'clickHandler'],
 
         computed: {
-            ...mapGetters('session', ['user'])
+            ...mapGetters('session', ['user']),
+
+            clickClass: function() {
+                return this.handlerProvided() ? 'cursor-pointer' : '';
+            }
         },
 
         methods: {
             clicked: function() {
-                this.$emit('clicked', this.card);
+                if (this.handlerProvided()) {
+                    this.clickHandler(this.card);
+                }
+            },
+
+            handlerProvided: function() {
+                return !!this.clickHandler;
             }
         }
     };

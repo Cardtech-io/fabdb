@@ -18,6 +18,7 @@ Route::get('sitemap', 'SitemapController@view');
 Route::middleware(['web'])->group(function() {
     Route::post('export/{deck}.pdf', 'ExportController@pdf');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
+    Route::get('export/{deck}.tts', 'ExportController@tts');
 
     Route::middleware(['spa'])->group(function() {
         Route::get('articles', 'ArticleController@search');

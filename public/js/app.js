@@ -2322,10 +2322,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['card', 'clickHandler'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+    clickClass: function clickClass() {
+      return this.handlerProvided() ? 'cursor-pointer' : '';
+    }
+  }),
   methods: {
     clicked: function clicked() {
-      this.$emit('clicked', this.card);
+      if (this.handlerProvided()) {
+        this.clickHandler(this.card);
+      }
+    },
+    handlerProvided: function handlerProvided() {
+      return !!this.clickHandler;
     }
   }
 });
@@ -4331,6 +4340,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4351,9 +4361,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['action', 'card'],
+  components: {
+    CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']))
 });
 
@@ -4447,12 +4461,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _CardSelector_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardSelector.vue */ "./resources/js/DeckBuilder/CardSelector.vue");
-/* harmony import */ var _CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../CardDatabase/Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
+/* harmony import */ var _CardSelector_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardSelector.vue */ "./resources/js/DeckBuilder/CardSelector.vue");
+/* harmony import */ var _CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CardDatabase/Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4580,23 +4595,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -4608,11 +4607,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    CardSelector: _CardSelector_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CardSelector: _CardSelector_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
+  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_4__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
     cards: function cards() {
       if (this.deck && this.deck.cards) {
@@ -4669,6 +4669,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     copy: function copy() {
       this.$copyText(this.shareText);
+      this.addMessage({
+        status: 'success',
+        message: 'Deck share text copied to clipboard.'
+      });
     },
     addCard: function addCard(card) {
       var _this = this;
@@ -4697,6 +4701,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             message: error.response.data.errors.card[0]
           });
         }
+      });
+    },
+    exportToTTS: function exportToTTS() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/export/' + this.deck.slug + '.tts').then(function (response) {
+        _this2.addMessage({
+          status: 'success',
+          message: 'Please check your email for your deck\'s TTS file.'
+        });
       });
     },
     removeCard: function removeCard(card) {
@@ -4744,7 +4758,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }]
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__["default"])(function (to, callback) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
         this.deck = response.data;
@@ -4834,10 +4848,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardSelector_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardSelector.vue */ "./resources/js/DeckBuilder/CardSelector.vue");
 /* harmony import */ var _CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../CardDatabase/Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4909,13 +4924,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
+    CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     CardSelector: _CardSelector_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
+  mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
     name: {
       get: function get() {
@@ -4980,7 +4997,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       title: 'Deck builder - Export deck'
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__["default"])(function (to, callback) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
         this.deck = response.data;
@@ -63312,7 +63329,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("img", {
-    staticClass: "w-full rounded-lg sm:rounded-xl cursor-pointer",
+    staticClass: "w-full rounded-lg sm:rounded-xl",
+    class: _vm.clickClass,
     attrs: {
       src: _vm.cardUrl(
         _vm.card.identifier,
@@ -63322,7 +63340,12 @@ var render = function() {
       alt: _vm.card.name,
       title: _vm.card.name
     },
-    on: { click: _vm.clicked }
+    on: {
+      click: function($event) {
+        $event.preventDefault()
+        return _vm.clicked($event)
+      }
+    }
   })
 }
 var staticRenderFns = []
@@ -66216,25 +66239,9 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("img", {
-        staticClass: "w-full rounded-xl hidden sm:block cursor-pointer",
-        attrs: {
-          src: _vm.cardUrl(
-            _vm.card.identifier,
-            350,
-            _vm.user.view == "bordered"
-          ),
-          alt: _vm.card.name,
-          title: _vm.card.name
-        },
-        on: {
-          click: function($event) {
-            $event.preventDefault()
-            return _vm.action(_vm.card)
-          }
-        }
-      })
-    ]
+      _c("card-image", { attrs: { card: _vm.card, clickHandler: _vm.action } })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -66476,120 +66483,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "float-right" },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link",
-                                  attrs: {
-                                    to: "/decks/" + _vm.deck.slug,
-                                    title: "Shareable link"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass:
-                                        "inline-block fill-current h-6 w-6",
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        viewBox: "0 0 20 20"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(
-                                "\n\n                         \n\n                        "
-                              ),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "link",
-                                  attrs: {
-                                    href: "",
-                                    title:
-                                      "Copy deck build to text for sharing on social media, messenger.etc."
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.copy($event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass:
-                                        "inline-block fill-current h-5 w-5",
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        viewBox: "0 0 20 20"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M7.03 2.6a3 3 0 015.94 0L15 3v1h1a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h1V3l2.03-.4zM5 6H4v12h12V6h-1v1H5V6zm5-2a1 1 0 100-2 1 1 0 000 2z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(
-                                "\n\n                         \n\n                        "
-                              ),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link",
-                                  attrs: {
-                                    to: "/decks/export/" + _vm.deck.slug
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      staticClass:
-                                        "inline-block fill-current h-5 w-5",
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        viewBox: "0 0 20 20"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          d:
-                                            "M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
+                            : _vm._e()
                         ]
                       )
                     : _vm._e(),
@@ -66597,40 +66491,81 @@ var render = function() {
                   _c("div", { staticClass: "clearfix" }, [
                     _vm.hero
                       ? _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
-                          _c("div", { staticClass: "mb-8" }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: { href: "" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.removeCard(_vm.hero)
-                                  }
+                          _c(
+                            "div",
+                            [
+                              _c("card-image", {
+                                attrs: {
+                                  card: _vm.hero,
+                                  clickHandler: _vm.removeCard
                                 }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "w-full max-w-md rounded-xl",
-                                  staticStyle: { "max-width": "350px" },
-                                  attrs: {
-                                    src: _vm.cardUrl(
-                                      _vm.hero.identifier,
-                                      350,
-                                      _vm.user.view == "bordered"
-                                    ),
-                                    alt: _vm.hero.name
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex mt-2 mb-8" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass:
+                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                  attrs: { to: "/decks/" + _vm.deck.slug }
+                                },
+                                [_vm._v("Share")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.copy($event)
+                                    }
                                   }
-                                })
-                              ]
-                            )
-                          ])
+                                },
+                                [_vm._v("Text")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                  attrs: {
+                                    href: "/export/" + _vm.deck.slug + ".tts",
+                                    target: "_blank"
+                                  }
+                                },
+                                [_vm._v("TTS")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass:
+                                    "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500",
+                                  attrs: {
+                                    to: "/decks/export/" + _vm.deck.slug
+                                  }
+                                },
+                                [_vm._v("PDF")]
+                              )
+                            ],
+                            1
+                          )
                         ])
                       : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "md:w-1/3 md:float-left pl-4 md:pr-4" },
+                      { staticClass: "md:w-1/3 md:float-left md:pl-8 md:pr-4" },
                       [
                         _vm.other.length
                           ? _c("div", { staticClass: "mb-8" }, [
@@ -66917,79 +66852,87 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
-                      _vm.other.length
-                        ? _c("div", [
-                            _c(
-                              "h3",
-                              {
-                                staticClass: "p-2 font-serif uppercase text-2xl"
-                              },
-                              [_vm._v("Other")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "ol",
-                              _vm._l(_vm.other, function(card) {
-                                return _c(
-                                  "li",
-                                  { staticClass: "odd:bg-gray-100" },
-                                  [
-                                    _c(
-                                      "a",
-                                      {
-                                        staticClass:
-                                          "block p-2 pl-4 w-full hover:bg-gray-300",
-                                        attrs: { href: "" },
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.removeCard(card)
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("span", {}, [
-                                          _vm._v("(" + _vm._s(card.total) + ")")
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            class: {
-                                              "text-red-600": card.total > 3
+                    _c(
+                      "div",
+                      { staticClass: "md:w-1/3 md:float-left md:pl-4" },
+                      [
+                        _vm.other.length
+                          ? _c("div", [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "p-2 font-serif uppercase text-2xl"
+                                },
+                                [_vm._v("Other")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "ol",
+                                _vm._l(_vm.other, function(card) {
+                                  return _c(
+                                    "li",
+                                    { staticClass: "odd:bg-gray-100" },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "block p-2 pl-4 w-full hover:bg-gray-300",
+                                          attrs: { href: "" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.removeCard(card)
                                             }
-                                          },
-                                          [_vm._v(_vm._s(card.name))]
-                                        ),
-                                        _vm._v(" "),
-                                        card.stats.resource
-                                          ? _c("span", {
+                                          }
+                                        },
+                                        [
+                                          _c("span", {}, [
+                                            _vm._v(
+                                              "(" + _vm._s(card.total) + ")"
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              class: {
+                                                "text-red-600": card.total > 3
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(card.name))]
+                                          ),
+                                          _vm._v(" "),
+                                          card.stats.resource
+                                            ? _c("span", {
+                                                staticClass:
+                                                  "inline-block rounded-lg h-2 w-2",
+                                                class: _vm.resourceColour(
+                                                  card.stats.resource
+                                                )
+                                              })
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
                                               staticClass:
-                                                "inline-block rounded-lg h-2 w-2",
-                                              class: _vm.resourceColour(
-                                                card.stats.resource
-                                              )
-                                            })
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "text-gray-600 text-xs"
-                                          },
-                                          [_vm._v(_vm._s(card.identifier))]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          ])
-                        : _vm._e()
-                    ])
+                                                "text-gray-600 text-xs"
+                                            },
+                                            [_vm._v(_vm._s(card.identifier))]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ])
+                          : _vm._e()
+                      ]
+                    )
                   ])
                 ])
               : _c("div", { staticClass: "p-4" }, [
@@ -67171,7 +67114,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            The information collected below is not saved, but is required for PDF export. We will email\n                            you your PDF when it's been generated.\n                        "
+                          "\n                            The information collected below is not saved, but is required for PDF export.\n                            We will email you your PDF when it's been generated.\n                        "
                         )
                       ]
                     ),
@@ -67306,16 +67249,12 @@ var render = function() {
                   ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "hidden md:block md:w-1/3" }, [
-              _c("img", {
-                staticClass: "w-full max-w-md rounded-xl",
-                staticStyle: { "max-width": "350px" },
-                attrs: {
-                  src: _vm.cardUrl(_vm.hero.identifier, 350),
-                  alt: _vm.hero.name
-                }
-              })
-            ])
+            _c(
+              "div",
+              { staticClass: "hidden md:block md:w-1/3" },
+              [_c("card-image", { attrs: { card: _vm.hero } })],
+              1
+            )
           ])
         ])
       ])
@@ -67596,8 +67535,10 @@ var render = function() {
                                 "div",
                                 [
                                   _c("card-image", {
-                                    attrs: { card: _vm.arsenal },
-                                    on: { clicked: _vm.removeFromArsenal }
+                                    attrs: {
+                                      card: _vm.arsenal,
+                                      clickHandler: _vm.removeFromArsenal
+                                    }
                                   })
                                 ],
                                 1

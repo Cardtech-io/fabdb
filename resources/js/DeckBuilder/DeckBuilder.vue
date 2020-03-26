@@ -24,38 +24,21 @@
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
                         <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
-                        <div class="float-right">
-                            <router-link :to="'/decks/' + deck.slug" class="link" title="Shareable link">
-                                <svg class="inline-block fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
-                                </svg>
-                            </router-link>
-
-                            &nbsp;
-
-                            <a href="" @click.prevent="copy" class="link" title="Copy deck build to text for sharing on social media, messenger.etc.">
-                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M7.03 2.6a3 3 0 015.94 0L15 3v1h1a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h1V3l2.03-.4zM5 6H4v12h12V6h-1v1H5V6zm5-2a1 1 0 100-2 1 1 0 000 2z"/>
-                                </svg>
-                            </a>
-
-                            &nbsp;
-
-                            <router-link :to="'/decks/export/' + deck.slug" class="link">
-                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-                                </svg>
-                            </router-link>
-                        </div>
                     </div>
                     <div class="clearfix">
                         <div class="md:w-1/3 md:float-left" v-if="hero">
-                            <div class="mb-8">
-                                <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350, user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px"></a>
+                            <div>
+                                <card-image :card="hero" :clickHandler="removeCard"></card-image>
+                            </div>
+                            <div class="flex mt-2 mb-8">
+                                <router-link :to="'/decks/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
+                                <button @click.prevent="copy" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
+                                <a :href="'/export/' + deck.slug + '.tts'" target="_blank" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</a>
+                                <router-link :to="'/decks/export/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left pl-4 md:pr-4">
+                        <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">
                             <div v-if="other.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
                                 <ol>
@@ -107,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left pl-4">
+                        <div class="md:w-1/3 md:float-left md:pl-4">
                             <div v-if="other.length">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
@@ -140,6 +123,7 @@
     import axios from 'axios';
     import { mapGetters } from 'vuex';
 
+    import CardImage from '../CardDatabase/CardImage.vue';
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Crumbs from '../Components/Crumbs.vue';
@@ -150,6 +134,7 @@
 
     export default {
         components: {
+            CardImage,
             CardSelector,
             Crumbs,
             HeaderTitle
@@ -226,6 +211,7 @@
 
             copy: function() {
                 this.$copyText(this.shareText);
+                this.addMessage({ status: 'success', message: 'Deck share text copied to clipboard.' });
             },
 
             addCard: function(card) {
@@ -244,6 +230,12 @@
                     if (error.response.status == 422) {
                         this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                     }
+                });
+            },
+
+            exportToTTS: function() {
+                axios.get('/export/' + this.deck.slug + '.tts').then(response => {
+                    this.addMessage({ status: 'success', message: 'Please check your email for your deck\'s TTS file.' });
                 });
             },
 
