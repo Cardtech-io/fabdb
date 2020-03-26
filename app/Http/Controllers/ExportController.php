@@ -6,6 +6,7 @@ use FabDB\Domain\Decks\ExportDeckToPdf;
 use FabDB\Domain\Decks\ExportDeckToTTS;
 use FabDB\Domain\Decks\TTSObserver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ExportController extends Controller
 {
@@ -34,7 +35,7 @@ class ExportController extends Controller
 
         return response()->streamDownload(function() use ($observer) {
             echo $observer->json();
-        }, $deck->slug.'.json');
+        }, $deck->name.'.json');
     }
 
     public function html(Request $request, Deck $deck)
