@@ -57,11 +57,12 @@ class ExportDeckToTTS
                         'rotX' => 0,
                         'rotY' => 180,
                         'rotZ' => 180,
-                        'scaleX' => 1,
+                        'scaleX' => 1.64,
                         'scaleY' => 1,
-                        'scaleZ' => 1
+                        'scaleZ' => 1.64
                     ],
-                    'Name' => $deck->name,
+                    'Name' => 'DeckCustom',
+                    'Nickname' => $deck->name,
                     'ContainedObjects' => $this->cardsToTTS($deck->cards),
                     'DeckIDs' => $this->cardIds($deck->cards),
                     'CustomDeck' => [
