@@ -148,7 +148,7 @@ class ExportDeckToTTS
         }
         
         // Now we send it to AWS
-        Storage::putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'.png');
+        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'.png');
     }
 
     private function deckSheetPath(string $deckSlug)
