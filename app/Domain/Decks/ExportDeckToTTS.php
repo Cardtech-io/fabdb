@@ -154,9 +154,7 @@ class ExportDeckToTTS
         $imageWidth = 450;
         $imageHeight = 628;
 
-        $deckImage = $this->deckSheetPath($deckSlug);
-
-        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$deckImage]);
+        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$this->deckSheetPath($deckSlug)]);
 
         $process = new Process($arguments);
         $process->run();
@@ -166,7 +164,7 @@ class ExportDeckToTTS
         }
 
         // Now we send it to AWS
-        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckImage);
+        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $this->deckImage($deckSlug));
     }
 
     private function deckSheetPath(string $deckSlug): string
