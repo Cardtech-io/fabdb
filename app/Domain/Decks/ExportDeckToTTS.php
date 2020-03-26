@@ -69,7 +69,7 @@ class ExportDeckToTTS
                         1 => [
                             'NumWidth' => $grid['width'],
                             'NumHeight' => $grid['height'],
-                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->slug.'.png',
+                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->slug.'-'.time().'.png',
                             'BackURL' => 'http://fabdb.imgix.net/cards/backs/card-back-1.png'
                         ]
                     ]
@@ -164,7 +164,7 @@ class ExportDeckToTTS
         }
         
         // Now we send it to AWS
-        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'.png');
+        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'-'.time().'.png');
     }
 
     private function deckSheetPath(string $deckSlug)
