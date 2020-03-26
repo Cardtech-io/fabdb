@@ -332,7 +332,7 @@ ARC,116,Storm Striders,L,"**Instant** - [resource], destroy Storm Striders: You 
 **Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,"wizard,equipment,legs",,,,,0,
 ARC,117,Robe of Rapture,C,"**Action** - Destroy Robe of Rapture: Gain [2 resource]
 
-**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,,,,,0,
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,"wizard,equipment,chest",,,0,,0,
 ARC,118,Blazing Aether,M,"**Kano Specialization** *(You may only have Blazing Aether in your deck if your hero is Kano.)*
 
 Deal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",,"wizard,action",,,1,1,3,
