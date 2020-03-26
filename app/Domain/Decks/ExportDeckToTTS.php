@@ -5,6 +5,7 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Cards;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 class ExportDeckToTTS
@@ -59,7 +60,7 @@ class ExportDeckToTTS
                         1 => [
                             'NumWidth' => $deck->cards->count(),
                             'NumHeight' => 1,
-                            'FaceURL' => 'https://fabdb.imgix.net/decks/tts/'.$this->deck->slug.'.png',
+                            'FaceURL' => 'https://fabdb.imgix.net/decks/tts/'.$deck->slug.'.png',
                             'FaceBack' => 'https://fabdb.imgix.net/cards/backs/card-back-1.png'
                         ]
                     ]
@@ -128,18 +129,26 @@ class ExportDeckToTTS
 
     private function cardImagePath($identifier): string
     {
-        list($set, $id) = str_split($identifier, 3);
+        list($set, $id) = str_split(strtolower($identifier), 3);
+
+        $id = preg_replace('/^0+/', '', $id);
 
         return Storage::disk('scraped')->path("$set/$id.png");
     }
 
     private function execute(string $deckSlug, array $images)
     {
-        $process = new Process(['gm', 'convert', implode(' ', $images). '+append', $this->deckSheetPath($deckSlug)]);
+        $arguments = array_merge(['gm', 'convert'], $images, ['+append', $this->deckSheetPath($deckSlug)]);
+
+        $process = new Process($arguments);
         $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
         
         // Now we send it to AWS
-        Storage::putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug), $deckSlug.'.png'));
+        Storage::putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'.png');
     }
 
     private function deckSheetPath(string $deckSlug)
