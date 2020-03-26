@@ -69,7 +69,7 @@ class ExportDeckToTTS
                         1 => [
                             'NumWidth' => $grid['width'],
                             'NumHeight' => $grid['height'],
-                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->slug.'-'.time().'.png',
+                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$this->deckImage($deck->slug),
                             'BackURL' => 'http://fabdb.imgix.net/cards/backs/card-back-1.png'
                         ]
                     ]
@@ -154,7 +154,9 @@ class ExportDeckToTTS
         $imageWidth = 450;
         $imageHeight = 628;
 
-        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$this->deckSheetPath($deckSlug)]);
+        $deckImage = $this->deckSheetPath($deckSlug);
+
+        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$deckImage]);
 
         $process = new Process($arguments);
         $process->run();
@@ -162,14 +164,31 @@ class ExportDeckToTTS
         if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
-        
+
         // Now we send it to AWS
-        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckSlug.'-'.time().'.png');
+        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $deckImage);
     }
 
-    private function deckSheetPath(string $deckSlug)
+    private function deckSheetPath(string $deckSlug): string
     {
-        return Storage::path('tmp/'.$deckSlug.'.png');
+        return Storage::path('tmp/'.$this->deckImage($deckSlug));
+    }
+
+    /**
+     * Creates the deck's image filename.
+     *
+     * @param string $deckSlug
+     * @return string
+     */
+    private function deckImage(string $deckSlug): string
+    {
+        static $filename;
+
+        if (!$filename) {
+            $filename = $deckSlug.'-'.time().'.png';
+        }
+
+        return $filename;
     }
 
     private function createTTSIDs(Cards $cards)
