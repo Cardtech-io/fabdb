@@ -71,7 +71,7 @@ class ExportDeckToTTS
             ]
         ];
         
-        return json_encode($json);
+        return json_encode($json, JSON_UNESCAPED_SLASHES);
     }
 
     private function cardsToTTS(Cards $cards): array

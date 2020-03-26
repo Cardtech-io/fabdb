@@ -25,6 +25,7 @@ class ExportController extends Controller
      *
      * @param Request $request
      * @param Deck $deck
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function tts(Request $request, Deck $deck)
     {
