@@ -63340,12 +63340,7 @@ var render = function() {
       alt: _vm.card.name,
       title: _vm.card.name
     },
-    on: {
-      click: function($event) {
-        $event.preventDefault()
-        return _vm.clicked($event)
-      }
-    }
+    on: { click: _vm.clicked }
   })
 }
 var staticRenderFns = []
