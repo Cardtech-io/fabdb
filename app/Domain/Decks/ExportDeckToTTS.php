@@ -4,6 +4,7 @@ namespace FabDB\Domain\Decks;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Cards;
 use Illuminate\Http\File;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
@@ -30,6 +31,8 @@ class ExportDeckToTTS
         $deck = $decks->find($this->deckId);
 
         $this->createTTSIDs($deck->cards);
+
+        $this->cardIds($deck->cards);
 
         $json = $this->generateJson($deck);
 
@@ -109,7 +112,9 @@ class ExportDeckToTTS
 
     private function cardIds(Cards $cards): array
     {
-        return $cards->pluck('ttsId')->toArray();
+        return Arr::flatten($cards->reduce(function($carry, $card) {
+            return array_merge($carry, array_fill(0, $card->pivot->total, [$card->ttsId]));
+        }, []));
     }
 
     /**
