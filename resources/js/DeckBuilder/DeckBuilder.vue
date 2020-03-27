@@ -33,9 +33,11 @@
                             <div class="flex mt-2 mb-8">
                                 <router-link :to="'/decks/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
                                 <button @click.prevent="copy" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
-                                <button @click.prevent="exportToTTS" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200" :class="exportingTts ? 'disabled' : ''">{{ exportingTts ? 'Wait...' : 'TTS' }}</button>
+                                <button @click.prevent="exportingToTts = !exportingToTts" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</button>
                                 <router-link :to="'/decks/export/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
                             </div>
+
+                            <tts-exporter :deck="deck" v-if="exportingToTts"></tts-exporter>
                         </div>
 
                         <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">
@@ -129,6 +131,7 @@
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
     import { mapActions } from 'vuex';
 
@@ -137,7 +140,8 @@
             CardImage,
             CardSelector,
             Crumbs,
-            HeaderTitle
+            HeaderTitle,
+            TtsExporter
         },
 
         mixins: [ Cardable, Viewable ],
@@ -199,7 +203,7 @@
             return {
                 activeTab: 'deck',
                 deck: null,
-                exportingTts: false
+                exportingToTts: false
             }
         },
 
@@ -231,16 +235,6 @@
                     if (error.response.status == 422) {
                         this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                     }
-                });
-            },
-
-            exportToTTS: function() {
-                this.exportingTts = true;
-
-                axios.get('/export/' + this.deck.slug + '/tts-images').then(response => {
-                    this.exportingTts = false;
-
-                    window.open('/export/' + this.deck.slug + '/tts-json');
                 });
             },
 

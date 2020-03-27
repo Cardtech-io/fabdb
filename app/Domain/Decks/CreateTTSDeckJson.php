@@ -12,14 +12,20 @@ class CreateTTSDeckJson
     private $deckId;
 
     /**
+     * @var mixed
+     */
+    private $cardBack;
+
+    /**
      * @var TTSObserver
      */
     private $observer;
 
-    public function __construct(int $deckId, TTSObserver $observer)
+    public function __construct(int $deckId, $cardBack, TTSObserver $observer)
     {
         $this->deckId = $deckId;
         $this->observer = $observer;
+        $this->cardBack = $cardBack;
     }
 
     public function handle(DeckRepository $decks)
@@ -28,6 +34,7 @@ class CreateTTSDeckJson
         $deck = $decks->find($this->deckId);
 
         $exporter = new TTSExporter($deck);
+        $exporter->setCardBack($this->cardBack);
 
         $json = $exporter->generateJson($deck);
 

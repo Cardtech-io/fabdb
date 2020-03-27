@@ -31,13 +31,15 @@ class ExportController extends Controller
     /**
      * Provides a tabletop simulator compliant JSON file.
      *
+     * @param Request $request
      * @param Deck $deck
      * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
-    public function ttsJson(Deck $deck)
+    public function ttsJson(Request $request, Deck $deck)
     {
         $this->dispatch(new CreateTTSDeckJson(
             $deck->id,
+            $request->get('card-back'),
             $observer = new TTSObserver
         ));
 

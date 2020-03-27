@@ -16,10 +16,14 @@ class TTSExporter
      */
     private $deck;
 
+    /**
+     * @var string
+     */
+    private $cardBack = 'card-back-1.png';
+
     public function __construct(Deck $deck)
     {
         $this->deck = $deck;
-
         $this->createIds();
     }
 
@@ -53,6 +57,20 @@ class TTSExporter
         app(DeckRepository::class)->save($this->deck);
     }
 
+    public function setCardBack($cardBack)
+    {
+        if (!$cardBack) return;
+
+        $backs = [
+            1 => 'card-back-1.png',
+            2 => 'card-back-2.jpg',
+            3 => 'card-back-3.jpg',
+            4 => 'card-back-4.jpg',
+        ];
+
+        $this->cardBack = $backs[$cardBack];
+    }
+
     public function generateJson(Deck $deck)
     {
         $grid = $this->determineGrid($deck->cards->count() + 1);
@@ -80,7 +98,8 @@ class TTSExporter
                             'NumWidth' => $grid['width'],
                             'NumHeight' => $grid['height'],
                             'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->decksheet,
-                            'BackURL' => 'http://fabdb.imgix.net/cards/backs/card-back-1.png'
+                            'BackURL' => 'http://fabdb.imgix.net/cards/backs/'.$this->cardBack,
+                            'BackIsHidden' => true
                         ]
                     ]
                 ]
