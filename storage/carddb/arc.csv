@@ -423,7 +423,7 @@ ARC,162,Chains of Eminence,S,"**Go again**
 When Chains of Eminence enters the arena, name a card. The named card can’t be pitched, played, or used to defend while Chains of Eminence is in the arena.
 
 At the beginning of your action phase, destroy Chains of Eminence.",,"generic,action,aura",,,1,0,2,
-ARC,163,Rusted Relic,S,"**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,,,3,0,,
+ARC,163,Rusted Relic,S,"**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,"generic,action,item",,,3,0,,
 ARC,164,Life for a Life,R,"If Life for a Life hits, gain 1 [life].
 
 When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,"generic,action,attack",,,1,1,2,4

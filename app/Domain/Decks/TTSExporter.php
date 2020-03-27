@@ -1,52 +1,62 @@
 <?php
 namespace FabDB\Domain\Decks;
 
+use Carbon\Carbon;
 use FabDB\Domain\Cards\Card;
-use FabDB\Domain\Cards\Cards;
 use Illuminate\Http\File;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
-class ExportDeckToTTS
+class TTSExporter
 {
     /**
-     * @var int
+     * @var Deck
      */
-    private $deckId;
+    private $deck;
+
+    public function __construct(Deck $deck)
+    {
+        $this->deck = $deck;
+
+        $this->createIds();
+    }
+
     /**
-     * @var TTSObserver
+     * Constructs the necessary deck id structure for the JSON document.
+     *
+     * @return array
      */
-    private $observer;
-
-    public function __construct(int $deckId, TTSObserver $observer)
+    public function deckIds(): array
     {
-        $this->deckId = $deckId;
-        $this->observer = $observer;
+        return Arr::flatten($this->deck->cards->reduce(function($carry, $card) {
+            return array_merge($carry, array_fill(0, $card->pivot->total, [$card->ttsId]));
+        }, []));
     }
 
-    public function handle(DeckRepository $decks)
+    /**
+     * Creates the required tabletop simulator ids for the deck.
+     */
+    private function createIds()
     {
-        $deck = $decks->find($this->deckId);
-
-        $this->createTTSIDs($deck->cards);
-
-        $this->cardIds($deck->cards);
-
-        $json = $this->generateJson($deck);
-
-        $this->observer->send($json);
+        foreach ($this->deck->cards as $id => $card) {
+            $card->ttsId = 100 + $id;
+        }
     }
 
-    private function generateJson($deck)
+    public function save()
     {
-        $images = $this->deckImages($deck);
+        $this->deck->decksheet = $this->deckSheetName();
+        $this->deck->decksheetCreatedAt = new Carbon;
 
-        $this->execute($deck->slug, $images);
-        
-        $grid = $this->determineGrid(count($images));
-        
+        app(DeckRepository::class)->save($this->deck);
+    }
+
+    public function generateJson(Deck $deck)
+    {
+        $grid = $this->determineGrid($deck->cards->count());
+
         $json = [
             'ObjectStates' => [
                 [
@@ -63,28 +73,28 @@ class ExportDeckToTTS
                     ],
                     'Name' => 'DeckCustom',
                     'Nickname' => $deck->name,
-                    'ContainedObjects' => $this->cardsToTTS($deck->cards),
-                    'DeckIDs' => $this->cardIds($deck->cards),
+                    'ContainedObjects' => $this->cardsToTTS(),
+                    'DeckIDs' => $this->deckIds(),
                     'CustomDeck' => [
                         1 => [
                             'NumWidth' => $grid['width'],
                             'NumHeight' => $grid['height'],
-                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$this->deckImage($deck->slug),
+                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->decksheet,
                             'BackURL' => 'http://fabdb.imgix.net/cards/backs/card-back-1.png'
                         ]
                     ]
                 ]
             ]
         ];
-        
+
         return json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 
-    private function cardsToTTS(Cards $cards): array
+    private function cardsToTTS(): array
     {
         $json = [];
 
-        foreach ($cards as $card) {
+        foreach ($this->deck->cards as $card) {
             for ($i = 1; $i <= $card->pivot->total; $i++) {
                 $json[] = [
                     'Name' => 'Card',
@@ -113,22 +123,14 @@ class ExportDeckToTTS
         ];
     }
 
-    private function cardIds(Cards $cards): array
-    {
-        return Arr::flatten($cards->reduce(function($carry, $card) {
-            return array_merge($carry, array_fill(0, $card->pivot->total, [$card->ttsId]));
-        }, []));
-    }
-
     /**
      * Creates the image necessary for rendering the custom deck for TTS.
      *
-     * @param Deck $deck
      * @return array
      */
-    private function deckImages(Deck $deck): array
+    public function deckImages(): array
     {
-        $images = $deck->cards->map(function(Card $card) {
+        $images = $this->deck->cards->map(function(Card $card) {
             return $this->cardImagePath($card->identifier);
         })->toArray();
 
@@ -147,14 +149,18 @@ class ExportDeckToTTS
         return Storage::disk('scraped')->path("$set/$id.png");
     }
 
-    private function execute(string $deckSlug, array $images)
+    /**
+     * Creates the image montage for the deck sheet and uploads to S3.
+     */
+    public function execute()
     {
-        $grid = $this->determineGrid(count($images));
+        $images = $this->deckImages();
+        $grid = $this->determineGrid(count($this->deck->cards));
 
         $imageWidth = 450;
         $imageHeight = 628;
 
-        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$this->deckSheetPath($deckSlug)]);
+        $arguments = array_merge(['gm', 'montage', "-tile", "{$grid['width']}x{$grid['height']}", "-geometry", "{$imageWidth}x{$imageHeight}+0+0"], $images, [$this->deckSheetPath()]);
 
         $process = new Process($arguments);
         $process->run();
@@ -164,38 +170,37 @@ class ExportDeckToTTS
         }
 
         // Now we send it to AWS
-        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath($deckSlug)), $this->deckImage($deckSlug));
+        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
     }
 
-    private function deckSheetPath(string $deckSlug): string
+    private function deckSheetPath(): string
     {
-        return Storage::path('tmp/'.$this->deckImage($deckSlug));
+        return Storage::path('tmp/'.$this->deckSheetName());
     }
 
     /**
      * Creates the deck's image filename.
      *
-     * @param string $deckSlug
      * @return string
      */
-    private function deckImage(string $deckSlug): string
+    private function deckSheetName(): string
     {
         static $filename;
 
         if (!$filename) {
-            $filename = $deckSlug.'-'.time().'.png';
+            $filename = $this->deck->slug.'-'.time().'.png';
         }
 
         return $filename;
     }
 
-    private function createTTSIDs(Cards $cards)
-    {
-        foreach ($cards as $id => $card) {
-            $card->ttsId = 100 + $id;
-        }
-    }
-
+    /**
+     * Determines the minimum grid size for the deck sheet image.
+     *
+     * @param int $cardCount
+     * @return array
+     * @throws \Exception
+     */
     private function determineGrid(int $cardCount)
     {
         for ($i = 1; $i <= 7; $i++) {

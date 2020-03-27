@@ -13,7 +13,7 @@ class Deck extends Model
     use Sluggable;
 
     protected $appends = ['hero'];
-    protected $casts = ['slug' => 'string'];
+    protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
     protected $hidden = ['id'];
     protected $with = ['cards'];
 
@@ -97,5 +97,10 @@ class Deck extends Model
     public function otherTotal()
     {
         return $this->other()->sum('total');
+    }
+
+    public function requiresNewSheet()
+    {
+        return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
     }
 }

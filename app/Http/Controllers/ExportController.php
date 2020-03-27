@@ -1,9 +1,10 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Decks\CreateTTSDeckJson;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\ExportDeckToPdf;
-use FabDB\Domain\Decks\ExportDeckToTTS;
+use FabDB\Domain\Decks\CreateTTSDeckSheet;
 use FabDB\Domain\Decks\TTSObserver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -20,16 +21,22 @@ class ExportController extends Controller
         ));
     }
 
+    public function ttsImages(Deck $deck)
+    {
+        $this->dispatch(new CreateTTSDeckSheet(
+            $deck->id
+        ));
+    }
+
     /**
      * Provides a tabletop simulator compliant JSON file.
      *
-     * @param Request $request
      * @param Deck $deck
      * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
-    public function tts(Request $request, Deck $deck)
+    public function ttsJson(Deck $deck)
     {
-        $this->dispatch(new ExportDeckToTTS(
+        $this->dispatch(new CreateTTSDeckJson(
             $deck->id,
             $observer = new TTSObserver
         ));

@@ -4660,7 +4660,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       activeTab: 'deck',
-      deck: null
+      deck: null,
+      exportingTts: false
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
@@ -4706,11 +4707,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     exportToTTS: function exportToTTS() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/export/' + this.deck.slug + '.tts').then(function (response) {
-        _this2.addMessage({
-          status: 'success',
-          message: 'Please check your email for your deck\'s TTS file.'
-        });
+      this.exportingTts = true;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/export/' + this.deck.slug + '/tts-images').then(function (response) {
+        _this2.exportingTts = false;
+        window.open('/export/' + _this2.deck.slug + '/tts-json');
       });
     },
     removeCard: function removeCard(card) {
@@ -66529,16 +66529,23 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _c(
-                                "a",
+                                "button",
                                 {
                                   staticClass:
                                     "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                  attrs: {
-                                    href: "/export/" + _vm.deck.slug + ".tts",
-                                    target: "_blank"
+                                  class: _vm.exportingTts ? "disabled" : "",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.exportToTTS($event)
+                                    }
                                   }
                                 },
-                                [_vm._v("TTS")]
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.exportingTts ? "Wait..." : "TTS")
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
@@ -66857,7 +66864,7 @@ var render = function() {
                                 "h3",
                                 {
                                   staticClass:
-                                    "p-2 font-serif uppercase text-2xl"
+                                    "p-2 font-serif uppercase tex t-2xl"
                                 },
                                 [_vm._v("Other")]
                               ),

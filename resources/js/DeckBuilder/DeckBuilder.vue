@@ -33,7 +33,7 @@
                             <div class="flex mt-2 mb-8">
                                 <router-link :to="'/decks/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
                                 <button @click.prevent="copy" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
-                                <a :href="'/export/' + deck.slug + '.tts'" target="_blank" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</a>
+                                <button @click.prevent="exportToTTS" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200" :class="exportingTts ? 'disabled' : ''">{{ exportingTts ? 'Wait...' : 'TTS' }}</button>
                                 <router-link :to="'/decks/export/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
 
                         <div class="md:w-1/3 md:float-left md:pl-4">
                             <div v-if="other.length">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
+                                <h3 class="p-2 font-serif uppercase tex t-2xl">Other</h3>
                                 <ol>
                                     <li v-for="card in other" class="odd:bg-gray-100">
                                         <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">
@@ -198,7 +198,8 @@
         data() {
             return {
                 activeTab: 'deck',
-                deck: null
+                deck: null,
+                exportingTts: false
             }
         },
 
@@ -234,8 +235,12 @@
             },
 
             exportToTTS: function() {
-                axios.get('/export/' + this.deck.slug + '.tts').then(response => {
-                    this.addMessage({ status: 'success', message: 'Please check your email for your deck\'s TTS file.' });
+                this.exportingTts = true;
+
+                axios.get('/export/' + this.deck.slug + '/tts-images').then(response => {
+                    this.exportingTts = false;
+
+                    window.open('/export/' + this.deck.slug + '/tts-json');
                 });
             },
 
