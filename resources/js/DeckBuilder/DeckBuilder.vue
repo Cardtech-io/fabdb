@@ -94,7 +94,7 @@
 
                         <div class="md:w-1/3 md:float-left md:pl-4">
                             <div v-if="other.length">
-                                <h3 class="p-2 font-serif uppercase tex t-2xl">Other</h3>
+                                <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
                                     <li v-for="card in other" class="odd:bg-gray-100">
                                         <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">

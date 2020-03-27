@@ -66914,7 +66914,7 @@ var render = function() {
                                 "h3",
                                 {
                                   staticClass:
-                                    "p-2 font-serif uppercase tex t-2xl"
+                                    "p-2 font-serif uppercase text-2xl"
                                 },
                                 [_vm._v("Other")]
                               ),
