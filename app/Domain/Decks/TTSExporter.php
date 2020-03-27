@@ -55,7 +55,7 @@ class TTSExporter
 
     public function generateJson(Deck $deck)
     {
-        $grid = $this->determineGrid($deck->cards->count());
+        $grid = $this->determineGrid($deck->cards->count() + 1);
 
         $json = [
             'ObjectStates' => [
@@ -155,7 +155,7 @@ class TTSExporter
     public function execute()
     {
         $images = $this->deckImages();
-        $grid = $this->determineGrid(count($this->deck->cards));
+        $grid = $this->determineGrid(count($images));
 
         $imageWidth = 450;
         $imageHeight = 628;
