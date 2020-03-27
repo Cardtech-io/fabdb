@@ -144,7 +144,7 @@ class TTSExporter
     {
         list($set, $id) = str_split(strtolower($identifier), 3);
 
-        $id = preg_replace('/^0+/', '', $id);
+        $id = preg_replace('/^0{1,2}/', '', $id);
 
         return Storage::disk('scraped')->path("$set/$id.png");
     }
@@ -171,6 +171,8 @@ class TTSExporter
 
         // Now we send it to AWS
         Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
+
+        $this->cleanup($this->deckSheetPath());
     }
 
     private function deckSheetPath(): string
@@ -210,5 +212,15 @@ class TTSExporter
         }
 
         throw new \Exception('Impossible grid.');
+    }
+
+    /**
+     * Cleans up any left over artifacts from the deck sheet creation, freeing up a lot of space on the HDD.
+     *
+     * @param string $deckSheetPath
+     */
+    private function cleanup(string $deckSheetPath)
+    {
+        Storage::delete($deckSheetPath);
     }
 }
