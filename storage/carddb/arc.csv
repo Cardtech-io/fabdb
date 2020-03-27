@@ -393,9 +393,9 @@ If Reverberate deals damage, you may banish a Wizard 'non-attack' action card fr
 ARC,140,Reverberate,C,"Deal 1 arcane damage to target opposing hero.
 
 If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,"wizard,action",,,3,1,3,
-ARC,141,Scalding Ran,C,Deal 4 arcane damage to target hero.,,"wizard,action",,,1,1,3,
-ARC,142,Scalding Ran,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,2,1,3,
-ARC,143,Scalding Ran,C,Deal 2 arcane damage to target hero.,,"wizard,action",,,3,1,3,
+ARC,141,Scalding Rain,C,Deal 4 arcane damage to target hero.,,"wizard,action",,,1,1,3,
+ARC,142,Scalding Rain,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,2,1,3,
+ARC,143,Scalding Rain,C,Deal 2 arcane damage to target hero.,,"wizard,action",,,3,1,3,
 ARC,144,Zap,C,Deal 3 arcane damage to target hero.,,"wizard,action",,,1,0,3,
 ARC,145,Zap,C,Deal 2 arcane damage to target hero.,,"wizard,action",,,2,0,3,
 ARC,146,Zap,C,Deal 1 arcane damage to target hero.,,"wizard,action",,,3,0,3,
