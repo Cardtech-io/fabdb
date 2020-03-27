@@ -1,4 +1,7 @@
 Set,ID,Name,Rarity,Text,Flavour,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
+ARC,0,Eye of Ophidia,F,"**Legendary** *(You may only have 1 Eye of Ophidia in your deck.)*
+
+When you pitch Eye of Ophidia, **opt 2**.",,"generic,resource,gem",,,3,,,
 ARC,1,"Dash, Inventor Extraordinaire",T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,"mechanologist,hero",40,4,,,,
 ARC,2,Dash,T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,"mechanologist,hero,young",20,4,,,,
 ARC,3,Teklo Plasma Pistol,T,"**Action** - Remove a steam counter from Teklo Plasma Pistol: **Attack**
