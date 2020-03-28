@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Search\KeywordSearchFilter;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
@@ -41,6 +42,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function search(string $useCase, array $keywords, $class, $type, $set, $view = 'all', User $user = null)
     {
         $query = $this->newQuery();
+
         $query->select([
             'cards.identifier',
             'cards.name',
@@ -52,23 +54,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $query->where('identifier', 'LIKE', $set . '%');
         }
 
-        // The following condition and clause determines whether the user is looking for an individual card or not
-        if (count($keywords) && $keywords[0] != 'missing') {
-            $keywords = implode(' ', $keywords);
-            
-            $query->whereRaw("MATCH(search_text) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE)");
-        } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
-            // do nothing, check below.
-        } else {
-            foreach ($keywords as $param) {
-                $param = strtolower($param);
-
-                $query->where(function($query) use ($param){
-                    $query->orWhere('name', 'LIKE', "%{$param}%");
-                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
-                });
-            }
-        }
+        $this->keywordSearch($keywords, $query);
 
         if ($useCase == 'build') {
             $query->whereNotIn('identifier', config('cards.banned'));
@@ -239,5 +225,66 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         try { return $exec(); }
         catch (ModelNotFoundException $e) {}
+    }
+
+    /**
+     * @param array $keywords
+     * @param $query
+     */
+    private function keywordSearch(array $keywords, $query)
+    {
+        // The following condition and clause determines whether the user is looking for an individual card or not
+        if (count($keywords) && $keywords[0] != 'missing') {
+            // First let's only get keywords that do not have a colon (these are special param searches)
+            $words = implode(' ', $this->getWords($keywords));
+            $params = $this->getParams($keywords);
+
+            if ($words) {
+                $query->whereRaw("MATCH(search_text) AGAINST ('$words' IN NATURAL LANGUAGE MODE)");
+            }
+
+            foreach ($params as $param) {
+                $query->where('stats->'.$param[1], $param[2], $param[3]);
+            }
+        } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
+            // do nothing, check below.
+        } else {
+            foreach ($keywords as $param) {
+                $param = strtolower($param);
+
+                $query->where(function ($query) use ($param) {
+                    $query->orWhere('name', 'LIKE', "%{$param}%");
+                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
+                });
+            }
+        }
+    }
+
+    /**
+     * Filter for keywords for words only.
+     *
+     * @param array $keywords
+     * @return array
+     */
+    private function getWords(array $keywords): array
+    {
+        return array_filter($keywords, function($keyword) {
+            return preg_match('/^[a-z]+$/', $keyword);
+        });
+    }
+
+    private function getParams(array $keywords)
+    {
+        return collect($keywords)->filter(function($keyword) {
+            return preg_match('/[a-z]+[=><][0-9]{1,2}/i', $keyword);
+        })->map(function($keyword) {
+            preg_match('/([a-z]+)([=><])([0-9]{1,2})/i', $keyword, $matches);
+
+            if ($matches[1] == 'pitch') {
+                $matches[1] = 'resource';
+            }
+
+            return $matches;
+        });
     }
 }
