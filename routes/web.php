@@ -34,7 +34,7 @@ Route::middleware(['web'])->group(function() {
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');
 
-        Route::middleware(['auth'])->group(function () {
+        Route::middleware(['auth', 'strip'])->group(function () {
             Route::get('articles/mine', 'ArticleController@mine');
             Route::put('articles/{article}', 'ArticleController@update');
 

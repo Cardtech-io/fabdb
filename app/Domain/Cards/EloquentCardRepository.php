@@ -1,14 +1,11 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-use FabDB\Domain\Cards\Search\KeywordSearchFilter;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
@@ -244,7 +241,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             }
 
             foreach ($params as $param) {
-                $query->where('stats->'.$param[1], $param[2], $param[3]);
+                $field = addslashes($param[1]);
+                $operator = addslashes($param[2]);
+                $value = addslashes($param[3]);
+                
+                $query->where("stats->{$field}", $operator, $value);
             }
         } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
             // do nothing, check below.

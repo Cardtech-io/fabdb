@@ -1,44 +1,46 @@
 <template>
-    <form @submit.prevent="filterCards" class="block flex flex-wrap mb-4">
-        <div class="flex w-full md:w-3/4">
-            <div class="w-full md:w-3/5 px-4 md:pr-2 md:pl-0">
-                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Keywords</label>
-                <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-            </div>
+    <div>
+        <form @submit.prevent="filterCards" class="block flex flex-wrap mb-4">
+            <div class="flex w-full md:w-3/4">
+                <div class="w-full md:w-3/5 px-4 md:pr-2 md:pl-0">
+                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Keywords</label>
+                    <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                </div>
 
-            <div class="w-full md:w-1/5 px-4 md:px-2">
-                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Class</label>
-                <select v-model="heroClass" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                    <option value=""></option>
-                    <option value="generic">Generic</option>
-                    <option value="brute">Brute</option>
-                    <option value="guardian">Guardian</option>
-                    <option value="ninja">Ninja</option>
-                    <option value="mechanologist">Mechanologist</option>
-                    <option value="ranger">Ranger</option>
-                    <option value="runeblade">Runeblade</option>
-                    <option value="warrior">Warrior</option>
-                    <option value="wizard">Wizard</option>
-                </select>
-            </div>
+                <div class="w-full md:w-1/5 px-4 md:px-2">
+                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Class</label>
+                    <select v-model="heroClass" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value=""></option>
+                        <option value="generic">Generic</option>
+                        <option value="brute">Brute</option>
+                        <option value="guardian">Guardian</option>
+                        <option value="ninja">Ninja</option>
+                        <option value="mechanologist">Mechanologist</option>
+                        <option value="ranger">Ranger</option>
+                        <option value="runeblade">Runeblade</option>
+                        <option value="warrior">Warrior</option>
+                        <option value="wizard">Wizard</option>
+                    </select>
+                </div>
 
-            <div class="w-full md:w-1/5 px-4 md:px-2">
-                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Card type</label>
-                <select v-model="type" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                    <option value=""></option>
-                    <option value="action">Action</option>
-                    <option value="attack">Attack</option>
-                    <option value="attack reaction">Attack reaction</option>
-                    <option value="defense reaction">Defense reaction</option>
-                    <option value="instant">Instant</option>
-                </select>
+                <div class="w-full md:w-1/5 px-4 md:px-2">
+                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Card type</label>
+                    <select v-model="type" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value=""></option>
+                        <option value="action">Action</option>
+                        <option value="attack">Attack</option>
+                        <option value="attack reaction">Attack reaction</option>
+                        <option value="defense reaction">Defense reaction</option>
+                        <option value="instant">Instant</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="w-full md:w-1/4 px-4 md:px-0">
-            <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
-            <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500">
-        </div>
-    </form>
+            <div class="w-full md:w-1/4 px-4 md:px-0">
+                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
+                <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500">
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>

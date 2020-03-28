@@ -2180,6 +2180,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardItem.vue */ "./resources/js/CardDatabase/CardItem.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _SearchTips_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchTips.vue */ "./resources/js/CardDatabase/SearchTips.vue");
 //
 //
 //
@@ -2224,16 +2225,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -2243,7 +2235,8 @@ __webpack_require__.r(__webpack_exports__);
     CardItem: _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardSearch: _CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    SearchTips: _SearchTips_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   computed: {
     setDescription: function setDescription() {
@@ -2453,6 +2446,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -63363,102 +63358,62 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto px-4" }, [
-          _vm.results && _vm.results.data
-            ? _c("div", [
-                _c("div", { staticClass: "clearfix" }, [
-                  _c(
-                    "div",
-                    { staticClass: "clearfix py-4" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "clearfix sm:-mx-4" },
-                    _vm._l(_vm.results.data, function(card) {
-                      return _c("card-item", {
-                        key: card.identifier,
-                        attrs: { card: card, view: _vm.view, path: "/cards" }
-                      })
-                    }),
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "py-4" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  )
+        _c(
+          "div",
+          { staticClass: "container sm:mx-auto px-4" },
+          [
+            _vm.results && _vm.results.data
+              ? _c("div", [
+                  _c("div", { staticClass: "clearfix" }, [
+                    _c(
+                      "div",
+                      { staticClass: "clearfix py-4" },
+                      [
+                        _c("paginator", {
+                          attrs: { results: _vm.results },
+                          on: { "page-selected": _vm.updatePage }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "clearfix sm:-mx-4" },
+                      _vm._l(_vm.results.data, function(card) {
+                        return _c("card-item", {
+                          key: card.identifier,
+                          attrs: { card: card, view: _vm.view, path: "/cards" }
+                        })
+                      }),
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "py-4" },
+                      [
+                        _c("paginator", {
+                          attrs: { results: _vm.results },
+                          on: { "page-selected": _vm.updatePage }
+                        })
+                      ],
+                      1
+                    )
+                  ])
                 ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._m(0)
-        ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("search-tips")
+          ],
+          1
+        )
       ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border-t border-gray-300 p-4 py-8" }, [
-      _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
-        _vm._v("Search tips")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "my-4" }, [
-        _vm._v(
-          "The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards\n                    based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc. using the keywords search field."
-        )
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "list-disc ml-4" }, [
-        _c("li", [
-          _c("strong", [_vm._v("hero")]),
-          _vm._v(
-            ": list all cards that have the keyword 'hero'. This applies to any keyword you search for."
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("strong", [_vm._v("WTR011")]),
-          _vm._v(": Look for card #11 within the Welcome to Rathe set")
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("strong", [_vm._v("1")]),
-          _vm._v(
-            ": Load card #1 in any set (can also be formatted as 01 or 001"
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("strong", [_vm._v("guardian action")]),
-          _vm._v(
-            ': Find all cards that have the keywords "guardian" and "action"'
-          )
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -63709,189 +63664,199 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      staticClass: "block flex flex-wrap mb-4",
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.filterCards($event)
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass: "block flex flex-wrap mb-4",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.filterCards($event)
+          }
         }
-      }
-    },
-    [
-      _c("div", { staticClass: "flex w-full md:w-3/4" }, [
-        _c("div", { staticClass: "w-full md:w-3/5 px-4 md:pr-2 md:pl-0" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block font-serif uppercase tracking-wide mb-1 text-sm"
-            },
-            [_vm._v("Keywords")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+      },
+      [
+        _c("div", { staticClass: "flex w-full md:w-3/4" }, [
+          _c("div", { staticClass: "w-full md:w-3/5 px-4 md:pr-2 md:pl-0" }, [
+            _c(
+              "label",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.keywords,
-                expression: "keywords"
-              }
-            ],
-            staticClass:
-              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-            attrs: { type: "text" },
-            domProps: { value: _vm.keywords },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.keywords = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block font-serif uppercase tracking-wide mb-1 text-sm"
-            },
-            [_vm._v("Class")]
-          ),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
+                staticClass:
+                  "block font-serif uppercase tracking-wide mb-1 text-sm"
+              },
+              [_vm._v("Keywords")]
+            ),
+            _vm._v(" "),
+            _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.heroClass,
-                  expression: "heroClass"
+                  value: _vm.keywords,
+                  expression: "keywords"
                 }
               ],
               staticClass:
                 "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              attrs: { type: "text" },
+              domProps: { value: _vm.keywords },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.heroClass = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.keywords = $event.target.value
                 }
               }
-            },
-            [
-              _c("option", { attrs: { value: "" } }),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "generic" } }, [
-                _vm._v("Generic")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "brute" } }, [_vm._v("Brute")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "guardian" } }, [
-                _vm._v("Guardian")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "ninja" } }, [_vm._v("Ninja")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "mechanologist" } }, [
-                _vm._v("Mechanologist")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "ranger" } }, [_vm._v("Ranger")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "runeblade" } }, [
-                _vm._v("Runeblade")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "warrior" } }, [
-                _vm._v("Warrior")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "wizard" } }, [_vm._v("Wizard")])
-            ]
-          )
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block font-serif uppercase tracking-wide mb-1 text-sm"
+              },
+              [_vm._v("Class")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.heroClass,
+                    expression: "heroClass"
+                  }
+                ],
+                staticClass:
+                  "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.heroClass = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "generic" } }, [
+                  _vm._v("Generic")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "brute" } }, [_vm._v("Brute")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "guardian" } }, [
+                  _vm._v("Guardian")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ninja" } }, [_vm._v("Ninja")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "mechanologist" } }, [
+                  _vm._v("Mechanologist")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ranger" } }, [
+                  _vm._v("Ranger")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "runeblade" } }, [
+                  _vm._v("Runeblade")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "warrior" } }, [
+                  _vm._v("Warrior")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "wizard" } }, [_vm._v("Wizard")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
+            _c(
+              "label",
+              {
+                staticClass:
+                  "block font-serif uppercase tracking-wide mb-1 text-sm"
+              },
+              [_vm._v("Card type")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.type,
+                    expression: "type"
+                  }
+                ],
+                staticClass:
+                  "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.type = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "action" } }, [
+                  _vm._v("Action")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "attack" } }, [
+                  _vm._v("Attack")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "attack reaction" } }, [
+                  _vm._v("Attack reaction")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "defense reaction" } }, [
+                  _vm._v("Defense reaction")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "instant" } }, [
+                  _vm._v("Instant")
+                ])
+              ]
+            )
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block font-serif uppercase tracking-wide mb-1 text-sm"
-            },
-            [_vm._v("Card type")]
-          ),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              staticClass:
-                "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.type = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "action" } }, [_vm._v("Action")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "attack" } }, [_vm._v("Attack")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "attack reaction" } }, [
-                _vm._v("Attack reaction")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "defense reaction" } }, [
-                _vm._v("Defense reaction")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "instant" } }, [_vm._v("Instant")])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ]
-  )
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -64097,6 +64062,85 @@ var staticRenderFns = [
               "In order to operate this mode, select the mode above, then select the number of players you'll be\n                drafting with/against. Finally, state whether you will draft all cards in these packs, or you would like\n                AI players to pick the others. In the latter, it will be you vs the computer. In the former, it's you\n                and your friends, together in one room."
             )
           ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "border-t border-gray-300 p-4 py-8" }, [
+      _c("h1", { staticClass: "font-serif text-xl uppercase" }, [
+        _vm._v("Search tips")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-4" }, [
+        _vm._v(
+          "\n        The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to\n        search for cards based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon,\n        sword.etc. using the keywords search field. You can also find cards based on their various stats, and\n        modifiers, such as: cost>0 attack=1 pitch<3 .etc. Mix and match to find the cards you need, fast!\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "list-disc ml-4" }, [
+        _c("li", [
+          _c("strong", [_vm._v("hero")]),
+          _vm._v(
+            ": list all cards that have the keyword 'hero'. This applies to any keyword you search for."
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("WTR011")]),
+          _vm._v(": Look for card #11 within the Welcome to Rathe set")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("1")]),
+          _vm._v(
+            ": Load card #1 in any set (can also be formatted as 01 or 001"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("guardian action")]),
+          _vm._v(
+            ': Find all cards that have the keywords "guardian" and "action"'
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("attack=1")]),
+          _vm._v(": Find cards that have an attack power of 1")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("pitch<2")]),
+          _vm._v(": Find cards that have a pitch value less than 2")
         ])
       ])
     ])
@@ -88720,6 +88764,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DraftMode_vue_vue_type_template_id_17c61304___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DraftMode_vue_vue_type_template_id_17c61304___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/SearchTips.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/CardDatabase/SearchTips.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchTips.vue?vue&type=template&id=3e1944d6& */ "./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/CardDatabase/SearchTips.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SearchTips.vue?vue&type=template&id=3e1944d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/SearchTips.vue?vue&type=template&id=3e1944d6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchTips_vue_vue_type_template_id_3e1944d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
