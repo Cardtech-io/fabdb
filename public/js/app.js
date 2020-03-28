@@ -4374,6 +4374,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/CardSearch.vue */ "./resources/js/CardDatabase/CardSearch.vue");
 /* harmony import */ var _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardItem.vue */ "./resources/js/DeckBuilder/CardItem.vue");
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _CardDatabase_SearchTips_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../CardDatabase/SearchTips.vue */ "./resources/js/CardDatabase/SearchTips.vue");
 //
 //
 //
@@ -4400,10 +4401,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
+
 
 
 
@@ -4411,7 +4409,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     CardItem: _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardSearch: _CardDatabase_CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    SearchTips: _CardDatabase_SearchTips_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -66462,33 +66461,12 @@ var render = function() {
                 1
               )
             ])
-          : _c("div", [
-              _c("h2", { staticClass: "font-serif text-2xl uppercase" }, [
-                _vm._v("Usage")
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ])
+          : _c("div", [_c("search-tips")], 1)
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v(
-        "\n                    Search for your cards in the usual manner. When you see the card you want to add, click the card's name."
-      ),
-      _c("br"),
-      _vm._v(
-        "\n                    This will add one (1) of that card to your deck. You can switch back to your deck at any time.\n                "
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -17,11 +17,7 @@
                     </div>
                 </div>
                 <div v-else>
-                    <h2 class="font-serif text-2xl uppercase">Usage</h2>
-                    <p>
-                        Search for your cards in the usual manner. When you see the card you want to add, click the card's name.<br>
-                        This will add one (1) of that card to your deck. You can switch back to your deck at any time.
-                    </p>
+                    <search-tips></search-tips>
                 </div>
             </div>
         </div>
@@ -32,9 +28,15 @@
     import CardSearch from '../CardDatabase/CardSearch.vue';
     import CardItem from './CardItem.vue';
     import Paginator from '../Components/Paginator.vue';
+    import SearchTips from '../CardDatabase/SearchTips.vue';
 
     export default {
-        components: { CardItem, CardSearch, Paginator },
+        components: {
+            CardItem,
+            CardSearch,
+            Paginator,
+            SearchTips
+        },
 
         data() {
             return {
