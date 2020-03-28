@@ -1,5 +1,5 @@
 <template>
-    <div class="container sm:mx-auto bg-white py-8 px-8 md:flex">
+    <div class="container sm:mx-auto bg-white py-8 px-4 md:flex">
         <div class="md:w-1/2 md:pr-8">
             <form @submit.prevent="saveDeckSettings" class="block">
                 <div class="w-full mb-4">

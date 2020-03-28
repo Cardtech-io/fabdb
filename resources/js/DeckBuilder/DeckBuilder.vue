@@ -4,15 +4,10 @@
 
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
-                <div class="flex-1">
+                <div class="flex-auto">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
-                <div class="flex-1 text-right hidden sm:block">
-                    (
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
-
+                <div class="text-right hidden sm:block flex-auto">
                     <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
                     <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="text-orange-500">|</span>
                     <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
@@ -21,21 +16,43 @@
         </div>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto sm:hidden bg-white flex">
-                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('deck')" :class="isActive('deck')">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-8 w-8 focus:text-orange-300 hover:text-orange-300 focus:outline-none">
+            <div class="container sm:mx-auto sm:hidden bg-white flex border-b border-gray-200">
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('deck')" :class="activeTab == 'deck' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
                         <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
                     </svg>
-                    <span>Deck</span>
+                    <div class="mt-1">Deck</div>
                 </button>
-                <a href="" class="block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
-                <a href="" class="block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
+
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('add-cards')" :class="activeTab == 'add-cards' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
+                        <path d="M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"/>
+                    </svg>
+                    <div class="mt-1">Add cards</div>
+                </button>
+
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('settings')" :class="activeTab == 'settings' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
+                        <path d="M3.94 6.5L2.22 3.64l1.42-1.42L6.5 3.94c.52-.3 1.1-.54 1.7-.7L9 0h2l.8 3.24c.6.16 1.18.4 1.7.7l2.86-1.72 1.42 1.42-1.72 2.86c.3.52.54 1.1.7 1.7L20 9v2l-3.24.8c-.16.6-.4 1.18-.7 1.7l1.72 2.86-1.42 1.42-2.86-1.72c-.52.3-1.1.54-1.7.7L11 20H9l-.8-3.24c-.6-.16-1.18-.4-1.7-.7l-2.86 1.72-1.42-1.42 1.72-2.86c-.3-.52-.54-1.1-.7-1.7L0 11V9l3.24-.8c.16-.6.4-1.18.7-1.7zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
+                    </svg>
+                    <div class="mt-1">Settings</div>
+                </button>
             </div>
 
             <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
-                        <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
+                        <div class="flex-auto">
+                            <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }}</h1>
+                            <div class="text-gray-500 text-2xl font-serif uppercase -mt-2 mb-2">
+                                {{ deck.name }}
+                                <span class="inline-block bg-white text-lg rounded-full px-4 align-middle -mt-1 ml-2">
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div class="clearfix">
                         <div class="md:w-1/3 md:float-left" v-if="hero">
@@ -43,13 +60,12 @@
                                 <card-image :card="hero" :clickHandler="removeCard"></card-image>
                             </div>
                             <div class="flex mt-2 mb-8">
-                                <router-link :to="'/decks/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
-                                <button @click.prevent="copy" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
-                                <button @click.prevent="exportingToTts = !exportingToTts" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">TTS</button>
-                                <router-link :to="'/decks/export/' + deck.slug" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
+                                <router-link :to="'/decks/' + deck.slug" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</router-link>
+                                <button @click.prevent="copy" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
+                                <tts-exporter :deck="deck"></tts-exporter>
+                                <router-link :to="'/decks/export/' + deck.slug" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
                             </div>
 
-                            <tts-exporter :deck="deck" v-if="exportingToTts"></tts-exporter>
                         </div>
 
                         <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">

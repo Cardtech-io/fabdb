@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-white py-4 border-b-4 border-gray-300">
-            <div class="container sm:mx-auto px-4">
+            <div class="container sm:mx-auto md:px-4">
                 <card-search use-case="build" :wait="true" :page="page" @search-completed="refreshResults" :refreshable="false" :limit="25"></card-search>
             </div>
         </div>
@@ -9,9 +9,9 @@
         <div class="bg-gray-200 py-8">
             <div class="container sm:mx-auto px-4">
                 <div v-if="cards.data">
-                    <ol class="clearfix">
+                    <ul class="clearfix sm:-mx-4">
                         <card-item :action="addCard" :card="card" v-for="card in cards.data" :key="card.identifier"></card-item>
-                    </ol>
+                    </ul>
                     <div class="py-4">
                         <paginator :results="cards" @page-selected="updatePage"></paginator>
                     </div>

@@ -4353,12 +4353,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4476,6 +4470,22 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5442,21 +5452,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['deck'],
   data: function data() {
     return {
-      cardBack: 1,
       exporting: false
     };
   },
@@ -5467,7 +5466,7 @@ __webpack_require__.r(__webpack_exports__);
       this.exporting = true;
       axios.get('/export/' + this.deck.slug + '/tts-images').then(function (response) {
         _this.exporting = false;
-        window.open('/export/' + _this.deck.slug + '/tts-json?card-back=' + _this.cardBack);
+        window.open('/export/' + _this.deck.slug + '/tts-json');
       });
     }
   }
@@ -66330,52 +66329,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "li",
-    {
-      staticClass:
-        "odd:bg-gray-100 even:bg-gray-200 sm:bg-transparent sm:odd:bg-transparent sm:float-left sm:p-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
-    },
-    [
-      _c(
-        "a",
-        {
-          staticClass: "block hover:bg-white px-4 py-2 w-full sm:hidden",
-          attrs: { href: "" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.action(_vm.card)
-            }
-          }
-        },
-        [
-          _c("span", [_vm._v(_vm._s(_vm.card.name))]),
-          _vm._v(" "),
-          _vm.card.stats.resource
-            ? _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(_vm.card.stats.resource)
-              })
-            : _vm._e(),
-          _c("br"),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-gray-600 text-xs" }, [
-            _vm._v(_vm._s(_vm.card.identifier))
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.card.keywords, function(keyword, index) {
-            return _c("span", { staticClass: "text-sm" }, [
-              _vm._v(_vm._s(_vm.ucfirst(keyword))),
-              index < _vm.card.keywords.length - 1
-                ? _c("span", [_vm._v(", ")])
-                : _vm._e()
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("card-image", { attrs: { card: _vm.card, clickHandler: _vm.action } })
-    ],
+    { staticClass: "float-left p-2 sm:p-4 w-1/2 md:w-1/3 lg:w-1/4" },
+    [_c("card-image", { attrs: { card: _vm.card, clickHandler: _vm.action } })],
     1
   )
 }
@@ -66405,7 +66360,7 @@ var render = function() {
     _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
       _c(
         "div",
-        { staticClass: "container sm:mx-auto px-4" },
+        { staticClass: "container sm:mx-auto md:px-4" },
         [
           _c("card-search", {
             attrs: {
@@ -66427,8 +66382,8 @@ var render = function() {
         _vm.cards.data
           ? _c("div", [
               _c(
-                "ol",
-                { staticClass: "clearfix" },
+                "ul",
+                { staticClass: "clearfix sm:-mx-4" },
                 _vm._l(_vm.cards.data, function(card) {
                   return _c("card-item", {
                     key: card.identifier,
@@ -66510,38 +66465,12 @@ var render = function() {
           _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
             _c(
               "div",
-              { staticClass: "flex-1" },
+              { staticClass: "flex-auto" },
               [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "flex-1 text-right hidden sm:block" }, [
-              _vm._v("\n                (\n                    "),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(3)
-              }),
-              _vm._v(
-                " " +
-                  _vm._s(_vm.totalColoured.blue) +
-                  "  \n                    "
-              ),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(2)
-              }),
-              _vm._v(
-                " " +
-                  _vm._s(_vm.totalColoured.yellow) +
-                  "  \n                    "
-              ),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(1)
-              }),
-              _vm._v(
-                " " + _vm._s(_vm.totalColoured.red) + ")  \n\n                "
-              ),
+            _c("div", { staticClass: "text-right hidden sm:block flex-auto" }, [
               _c(
                 "a",
                 {
@@ -66604,14 +66533,17 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "container sm:mx-auto sm:hidden bg-white flex" },
+            {
+              staticClass:
+                "container sm:mx-auto sm:hidden bg-white flex border-b border-gray-200"
+            },
             [
               _c(
                 "button",
                 {
                   staticClass:
-                    "w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4",
-                  class: _vm.isActive("deck"),
+                    "w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200",
+                  class: _vm.activeTab == "deck" ? "bg-gray-200" : "",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -66624,7 +66556,7 @@ var render = function() {
                     "svg",
                     {
                       staticClass:
-                        "fill-current h-8 w-8 focus:text-orange-300 hover:text-orange-300 focus:outline-none",
+                        "fill-current h-10 w-10 focus:outline-none mx-auto",
                       attrs: {
                         xmlns: "http://www.w3.org/2000/svg",
                         viewBox: "0 0 20 20"
@@ -66640,17 +66572,16 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Deck")])
+                  _c("div", { staticClass: "mt-1" }, [_vm._v("Deck")])
                 ]
               ),
               _vm._v(" "),
               _c(
-                "a",
+                "button",
                 {
                   staticClass:
-                    "block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4",
-                  class: _vm.isActive("add-cards"),
-                  attrs: { href: "" },
+                    "w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200",
+                  class: _vm.activeTab == "add-cards" ? "bg-gray-200" : "",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -66658,16 +66589,37 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Add Cards")]
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass:
+                        "fill-current h-10 w-10 focus:outline-none mx-auto",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-1" }, [_vm._v("Add cards")])
+                ]
               ),
               _vm._v(" "),
               _c(
-                "a",
+                "button",
                 {
                   staticClass:
-                    "block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4",
-                  class: _vm.isActive("settings"),
-                  attrs: { href: "" },
+                    "w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200",
+                  class: _vm.activeTab == "settings" ? "bg-gray-200" : "",
                   on: {
                     click: function($event) {
                       $event.preventDefault()
@@ -66675,7 +66627,29 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Settings")]
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass:
+                        "fill-current h-10 w-10 focus:outline-none mx-auto",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M3.94 6.5L2.22 3.64l1.42-1.42L6.5 3.94c.52-.3 1.1-.54 1.7-.7L9 0h2l.8 3.24c.6.16 1.18.4 1.7.7l2.86-1.72 1.42 1.42-1.72 2.86c.3.52.54 1.1.7 1.7L20 9v2l-3.24.8c-.16.6-.4 1.18-.7 1.7l1.72 2.86-1.42 1.42-2.86-1.72c-.52.3-1.1.54-1.7.7L11 20H9l-.8-3.24c-.6-.16-1.18-.4-1.7-.7l-2.86 1.72-1.42-1.42 1.72-2.86c-.3-.52-.54-1.1-.7-1.7L0 11V9l3.24-.8c.16-.6.4-1.18.7-1.7zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-1" }, [_vm._v("Settings")])
+                ]
               )
             ]
           ),
@@ -66701,113 +66675,140 @@ var render = function() {
                           "div",
                           { staticClass: "border-b border-gray-400 mb-8" },
                           [
-                            _vm.hero
-                              ? _c(
-                                  "h1",
-                                  {
-                                    staticClass:
-                                      "inline-block font-serif text-4xl"
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.hero.name) +
-                                        " (" +
-                                        _vm._s(_vm.deck.name) +
-                                        ")"
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
+                            _c("div", { staticClass: "flex-auto" }, [
+                              _vm.hero
+                                ? _c(
+                                    "h1",
+                                    {
+                                      staticClass:
+                                        "inline-block font-serif text-4xl uppercase"
+                                    },
+                                    [_vm._v(_vm._s(_vm.hero.name))]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-gray-500 text-2xl font-serif uppercase -mt-2 mb-2"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            " +
+                                      _vm._s(_vm.deck.name) +
+                                      "\n                            "
+                                  ),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "inline-block bg-white text-lg rounded-full px-4 align-middle -mt-1 ml-2"
+                                    },
+                                    [
+                                      _c("span", {
+                                        staticClass:
+                                          "inline-block rounded-lg h-2 w-2",
+                                        class: _vm.resourceColour(3)
+                                      }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(_vm.totalColoured.blue) +
+                                          "  \n                                "
+                                      ),
+                                      _c("span", {
+                                        staticClass:
+                                          "inline-block rounded-lg h-2 w-2",
+                                        class: _vm.resourceColour(2)
+                                      }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(_vm.totalColoured.yellow) +
+                                          "  \n                                "
+                                      ),
+                                      _c("span", {
+                                        staticClass:
+                                          "inline-block rounded-lg h-2 w-2",
+                                        class: _vm.resourceColour(1)
+                                      }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(_vm.totalColoured.red) +
+                                          "\n                            "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
                           ]
                         )
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "clearfix" }, [
                       _vm.hero
-                        ? _c(
-                            "div",
-                            { staticClass: "md:w-1/3 md:float-left" },
-                            [
-                              _c(
-                                "div",
-                                [
-                                  _c("card-image", {
-                                    attrs: {
-                                      card: _vm.hero,
-                                      clickHandler: _vm.removeCard
+                        ? _c("div", { staticClass: "md:w-1/3 md:float-left" }, [
+                            _c(
+                              "div",
+                              [
+                                _c("card-image", {
+                                  attrs: {
+                                    card: _vm.hero,
+                                    clickHandler: _vm.removeCard
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "flex mt-2 mb-8" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass:
+                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                    attrs: { to: "/decks/" + _vm.deck.slug }
+                                  },
+                                  [_vm._v("Share")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.copy($event)
+                                      }
                                     }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "flex mt-2 mb-8" },
-                                [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass:
-                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                      attrs: { to: "/decks/" + _vm.deck.slug }
-                                    },
-                                    [_vm._v("Share")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.copy($event)
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Text")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          _vm.exportingToTts = !_vm.exportingToTts
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("TTS")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      staticClass:
-                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500",
-                                      attrs: {
-                                        to: "/decks/export/" + _vm.deck.slug
-                                      }
-                                    },
-                                    [_vm._v("PDF")]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _vm.exportingToTts
-                                ? _c("tts-exporter", {
-                                    attrs: { deck: _vm.deck }
-                                  })
-                                : _vm._e()
-                            ],
-                            1
-                          )
+                                  },
+                                  [_vm._v("Text")]
+                                ),
+                                _vm._v(" "),
+                                _c("tts-exporter", {
+                                  attrs: { deck: _vm.deck }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass:
+                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500",
+                                    attrs: {
+                                      to: "/decks/export/" + _vm.deck.slug
+                                    }
+                                  },
+                                  [_vm._v("PDF")]
+                                )
+                              ],
+                              1
+                            )
+                          ])
                         : _vm._e(),
                       _vm._v(" "),
                       _c(
@@ -67244,7 +67245,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container sm:mx-auto bg-white py-8 px-8 md:flex" },
+    { staticClass: "container sm:mx-auto bg-white py-8 px-4 md:flex" },
     [
       _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
         _c(
@@ -68127,71 +68128,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mt-4 mb-8" }, [
-    _c(
-      "form",
-      {
-        staticClass: "block flex",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.exportToTTS($event)
-          }
+  return _c(
+    "button",
+    {
+      staticClass:
+        "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+      class: _vm.exporting ? "disabled" : "",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.exportToTTS($event)
         }
-      },
-      [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.cardBack,
-                expression: "cardBack"
-              }
-            ],
-            staticClass:
-              "input-white focus:border-gray-500 py-2 px-3 rounded-l-lg rounded-r-none",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.cardBack = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", [_vm._v("Card back")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Original")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("Light")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "4" } }, [_vm._v("Old fashioned")])
-          ]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "appearance-none block w-full bg-orange-700 text-white rounded-r-lg py-2 px-3 leading-tight focus:outline-none hover:bg-orange-500",
-          class: _vm.exporting ? "disabled" : "",
-          attrs: { type: "submit" },
-          domProps: { value: _vm.exporting ? "Wait..." : "Export" }
-        })
-      ]
-    )
-  ])
+      }
+    },
+    [_vm._v("\n    " + _vm._s(_vm.exporting ? "Wait..." : "TTS") + "\n")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

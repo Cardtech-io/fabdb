@@ -39,7 +39,7 @@ class ExportController extends Controller
     {
         $this->dispatch(new CreateTTSDeckJson(
             $deck->id,
-            $request->get('card-back'),
+
             $observer = new TTSObserver
         ));
 
