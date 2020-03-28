@@ -106,6 +106,9 @@ class Deck extends Model
 
     public function saveSettings(string $visibility, int $cardBack)
     {
+        // We don't want timestamps updated as this shouldn't trigger a re-render of all the images when
+        // downloading the deck sheet for tabletop simulator.
+        $this->timestamps = false;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
 
