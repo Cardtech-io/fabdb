@@ -41,6 +41,7 @@
 
 <script>
     import axios from 'axios';
+    import { mapActions } from 'vuex';
 
     export default {
         props: ['deck'],
@@ -54,10 +55,13 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
+
             saveDeckSettings: function() {
                 this.saving = true;
 
                 axios.put('/decks/' + this.$route.params.deck + '/settings', { visibility: this.visibility, cardBack: this.cardBack }).then(response => {
+                    this.addMessage({ status: 'success', message: 'Settings saved.' });
                     this.saving = false;
                 });
             }
