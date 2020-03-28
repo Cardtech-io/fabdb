@@ -9,9 +9,11 @@ use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
 use FabDB\Domain\Decks\RemoveDeck;
+use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
+use FabDB\Http\Requests\SaveDeckSettingsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,5 +61,14 @@ class DeckController extends Controller
     public function view(Deck $deck)
     {
         return $deck;
+    }
+
+    public function saveSettings(SaveDeckSettingsRequest $request)
+    {
+        $this->dispatchNow(new SaveDeckSettings(
+            $request->deck->id,
+            $request->get('visibility'),
+            (int) $request->get('cardBack')
+        ));
     }
 }

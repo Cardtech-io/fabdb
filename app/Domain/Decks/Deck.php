@@ -103,4 +103,12 @@ class Deck extends Model
     {
         return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
     }
+
+    public function saveSettings(string $visibility, int $cardBack)
+    {
+        $this->visibility = $visibility;
+        $this->cardBack = $cardBack;
+
+        $this->raise(new DeckSettingsSaved($this->id, $visibility, $cardBack));
+    }
 }

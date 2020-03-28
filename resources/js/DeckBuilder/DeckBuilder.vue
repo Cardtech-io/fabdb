@@ -7,19 +7,31 @@
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
-                <div class="flex-1 text-right">
+                <div class="flex-1 text-right hidden sm:block">
                     (
                         <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
                         <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
                         <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
 
                     <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
-                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="text-orange-500">|</span>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
                 </div>
             </div>
         </div>
 
         <div class="bg-gray-200">
+            <div class="container sm:mx-auto sm:hidden bg-white flex">
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('deck')" :class="isActive('deck')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-8 w-8 focus:text-orange-300 hover:text-orange-300 focus:outline-none">
+                        <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
+                    </svg>
+                    <span>Deck</span>
+                </button>
+                <a href="" class="block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
+                <a href="" class="block w-1/3 text-center font-serif uppercase text-gray-800 hover:text-orange-300 p-4" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
+            </div>
+
             <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
@@ -117,6 +129,8 @@
             <div v-show="activeTab == 'add-cards'">
                 <card-selector @card-selected="addCard"></card-selector>
             </div>
+
+            <deck-settings :deck="deck" v-if="activeTab == 'settings'"></deck-settings>
         </div>
     </div>
 </template>
@@ -129,6 +143,7 @@
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Crumbs from '../Components/Crumbs.vue';
+    import DeckSettings from './DeckSettings.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import TtsExporter from './TtsExporter.vue';
@@ -140,6 +155,7 @@
             CardImage,
             CardSelector,
             Crumbs,
+            DeckSettings,
             HeaderTitle,
             TtsExporter
         },
