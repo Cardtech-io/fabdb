@@ -3461,7 +3461,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             link: '/articles/mine',
             text: 'My articles'
           }, {
-            link: '/events',
+            link: '/events/mine',
             text: 'My events'
           }, {
             link: '/profile',

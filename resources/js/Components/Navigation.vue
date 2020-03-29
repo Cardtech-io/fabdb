@@ -39,7 +39,7 @@
 
         computed: {
             ...mapGetters('session', ['user']),
-
+            
             items: function() {
                 var items = [
                     { link: '/', text: 'Home' },
@@ -58,7 +58,7 @@
                         text: 'Account',
                         children: [
                             { link: '/articles/mine', text: 'My articles' },
-                            { link: '/events', text: 'My events' },
+                            { link: '/events/mine', text: 'My events' },
                             { link: '/profile', text: 'Profile' },
                             { link: '/logout', text: 'Logout' },
                         ]
