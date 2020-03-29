@@ -29,7 +29,7 @@
                             <td class="border border-gray-300"><router-link :to="'/events/' + event.slug" class="block py-2 px-4 w-full link">{{ event.slug}}</router-link></td>
                             <td class="border border-gray-300"><router-link :to="'/events/' + event.slug" class="block py-2 px-4 w-fullm link">{{ event.name }}</router-link></td>
                             <td class="border border-gray-300 py-2 px-4 text-center">{{ event.type }}</td>
-                            <td class="border border-gray-300 py-2 px-4 text-center">{{ event.startsAt }}</td>
+                            <td class="border border-gray-300 py-2 px-4 text-center">{{ time.calendar(event.startsAt) }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -43,10 +43,12 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import Crumbs from '../Components/Crumbs.vue';
     import Button from '../Components/Form/Button.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import Time from '../Utilities/Time';
 
     export default {
         components: { Button, Crumbs, HeaderTitle },
@@ -58,7 +60,8 @@
                     { text: 'Events' }
                 ],
 
-                events: []
+                events: [],
+                time: Time
             }
         },
 

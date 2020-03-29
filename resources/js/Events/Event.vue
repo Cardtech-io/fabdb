@@ -40,7 +40,6 @@
                     <form @submit.prevent="saveEvent">
                         <input v-model="event.name" placeholder="Event name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" required>
 
-                        {{ event.startsAt }}
                         <datetime v-model="event.startsAt" input-class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" format="yyyy-MM-dd HH:mm:ss" type="datetime" :use12-hour="true" :minute-step="15"></datetime>
 
                         <div class="py-8">
@@ -65,6 +64,7 @@
 
 <script>
     import axios from 'axios';
+    import moment from 'moment';
     import { mapGetters } from 'vuex';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
@@ -112,7 +112,7 @@
                     slug: this.event.slug,
                     name: this.event.name,
                     type: this.event.type,
-                    when: this.event.when,
+                    startsAt: this.event.startsAt,
                 };
 
                 let request = this.event.slug ?
@@ -140,8 +140,7 @@
                 axios.get('/events/' + to.params.event).then(response => {
                     callback(function() {
                         this.event = response.data;
-                        this.event.startsAt += '.000Z';
-                        console.log(this.event.startsAt);
+                        this.event.startsAt = moment.utc(this.event.startsAt).local().toISOString();
                     });
                 });
             } else {

@@ -23,7 +23,7 @@ class EventController extends Controller
             $request->user()->id,
             $request->get('name'),
             new EventType($request->get('type')),
-            Carbon::createFromTimestamp($request->get('startsAt'))->utc()
+            new Carbon($request->get('startsAt'))
         ));
     }
 
@@ -38,7 +38,7 @@ class EventController extends Controller
             $request->event->slug,
             $request->get('name'),
             new EventType($request->get('type')),
-            (new Carbon($request->get('startsAt')))->utc()
+            new Carbon($request->get('startsAt'))
         ));
     }
 }
