@@ -1,5 +1,5 @@
 Set,ID,Name,Rarity,Text,Flavour,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
-WTR,0,Heart of Fyendal,F,"**Legendary** *(You may only have 1 Eye of Ophidia in your deck.)*
+WTR,0,Heart of Fyendal,F,"**Legendary** *(You may only have 1 Heart of Fyendal in your deck.)*
 
 When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].",,"generic,resource,gem",,,3,,,
 WTR,1,"Rhinar, Reckless Rampage",T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,"brute,hero",40,4,,,,
