@@ -41,7 +41,7 @@ class Cards extends Collection
         })->filter(function(Card $card) use ($pitch) {
             if (!$pitch) return true;
 
-            return Arr::get($card->stats, 'resource') === $pitch;
+            return Arr::get($card->stats, 'resource') == $pitch;
         })->values();
     }
 
