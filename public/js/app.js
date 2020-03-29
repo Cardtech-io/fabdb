@@ -4701,6 +4701,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         message: 'Deck share text copied to clipboard.'
       });
     },
+    copyShareURL: function copyShareURL() {
+      this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
+      this.addMessage({
+        status: 'success',
+        message: 'URL copied to clipboard.'
+      });
+    },
     addCard: function addCard(card) {
       var _this = this;
 
@@ -66801,11 +66808,16 @@ var render = function() {
                               { staticClass: "flex mt-2 mb-8" },
                               [
                                 _c(
-                                  "router-link",
+                                  "button",
                                   {
                                     staticClass:
                                       "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                    attrs: { to: "/decks/" + _vm.deck.slug }
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.copyShareURL($event)
+                                      }
+                                    }
                                   },
                                   [_vm._v("Share")]
                                 ),
