@@ -48,8 +48,7 @@
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },
                         { link: '/decks/build', text: 'Deck Builder' },
-                        { link: '/packs/generate', text: 'Booster generator' },
-                        { link: '/events', text: 'Events' }
+                        { link: '/packs/generate', text: 'Booster generator' }
                     ]},
                     { link: '/support', text: 'Support' }
                 ];
@@ -59,6 +58,7 @@
                         text: 'Account',
                         children: [
                             { link: '/articles/mine', text: 'My articles' },
+                            { link: '/events', text: 'My events' },
                             { link: '/profile', text: 'Profile' },
                             { link: '/logout', text: 'Logout' },
                         ]

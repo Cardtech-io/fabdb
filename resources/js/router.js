@@ -9,6 +9,7 @@ import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import Event from './Events/Event.vue';
 import Events from './Events/Events.vue';
+import EventView from './Events/ViewEvent.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
@@ -29,114 +30,42 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
+
         { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
-        {
-            path: "/events",
-            component: Events,
-            meta: { title: 'Events', auth: true },
-            name: 'events'
-        },
-        {
-            path: "/events/start",
-            component: Event,
-            meta: { title: 'Events', auth: true },
-            name: 'events-start'
-        },
-        {
-            path: "/events/:event",
-            component: Event,
-            meta: { title: 'Edit Event', auth: true },
-            name: 'events-edit'
-        },
-        {
-            path: "/packs/generate",
-            component: BoosterGenerator,
-            name: 'generator',
-            meta: { title: 'Booster generator', auth: true }
-        },
-        {
-            path: "/cards/:identifier",
-            component: ViewCard,
-            name: 'card-view',
-            meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } }
-        },
-        {
-            path: "/collection",
-            component: Collection,
-            name: 'collection',
-            meta: { title: 'My collection', auth: true },
-        },
-        {
-            path: "/collection/:identifier",
-            component: ViewCard,
-            name: 'collection-view',
-            meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } }
-        },
-        {
-            path: "/decks/build",
-            component: ListDecks,
-            name: 'list-decks'
-        },
-        {
-            path: "/deck-builder",
-            redirect: "/decks/build"
-        },
-        {
-            path: "/decks/build/:deck",
-            component: DeckBuilder,
-            meta: { title: 'Deck builder &gt; Edit deck', auth: true }
-        },
-        {
-            path: "/decks/test/:deck",
-            component: TestDeck,
-            meta: { auth: true }
-        },
-        {
-            path: "/deck-builder/:deck",
-            redirect: "/decks/build/:deck"
-        },
-        {
-            path: "/decks/export/:deck",
-            component: ExportDeck,
-            meta: { title: 'Deck builder &gt; Export', auth: true }
-        },
-        {
-            path: "/decks/:deck",
-            component: ViewDeck,
-            meta: {
-                title: 'View deck'
-            }
-        },
-        {
-            path: "/articles",
-            component: Articles,
-            name: 'articles'
-        },
-        {
-            path: "/articles/write",
-            component: ArticleWrite,
-            name: 'write-article'
-        },
-        {
-            path: "/articles/mine",
-            component: ArticlesMine,
-            name: 'my-articles'
-        },
-        {
-            path: "/articles/:article/edit",
-            component: ArticleWrite,
-            name: 'edit-article'
-        },
-        {
-            path: "/articles/:title/:article",
-            component: ArticleView,
-            name: 'view-article'
-        },
+        { path: "/cards/:identifier", component: ViewCard, name: 'card-view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
+
+        { path: "/events/mine", component: Events, meta: { title: 'My Events', auth: true }, name: 'events.mine' },
+        { path: "/events/start", component: Event, meta: { title: 'Events', auth: true }, name: 'events.start' },
+        { path: "/events/:event", component: EventView, meta: { title: 'View Event' }, name: 'events.view' },
+        { path: "/events/:event/edit", component: Event, meta: { title: 'Edit Event', auth: true }, name: 'events.edit' },
+
+        { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator', auth: true } },
+
+        { path: "/collection", component: Collection, name: 'collection', meta: { title: 'My collection', auth: true } },
+        { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
+
+        { path: "/decks/build", component: ListDecks, name: 'list-decks' },
+        { path: "/decks/build/:deck", component: DeckBuilder, meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
+        { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
+        { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
+        { path: "/decks/:deck", component: ViewDeck, meta: { title: 'View deck' } },
+
+        { path: "/articles", component: Articles, name: 'articles' },
+        { path: "/articles/write", component: ArticleWrite, name: 'articles.write' },
+        { path: "/articles/mine", component: ArticlesMine, name: 'articles.mine' },
+        { path: "/articles/:article/edit", component: ArticleWrite, name: 'articles.edit' },
+        { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
+
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
+
+        // Deprecated
+        { path: "/deck-builder", redirect: "/decks/build" },
+        { path: "/deck-builder/:deck", redirect: "/decks/build/:deck" },
+
         { path: "*", redirect: "/" }
     ]
 });

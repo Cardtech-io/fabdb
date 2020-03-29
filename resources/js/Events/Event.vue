@@ -5,7 +5,7 @@
 
         <div class="bg-white border-b-4 border-gray-300">
             <div class="container sm:mx-auto px-4 flex items-center">
-                <ul class="w-1/2">
+                <ul class="flex-auto">
                     <li class="inline-block text-center font-serif uppercase">
                         <a href="" class="block p-4 mr-8" @click.prevent="setType('constructed')" :class="activeType('constructed')">
                             <svg class="fill-current h-10 w-10 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -32,7 +32,7 @@
                     </li>
                 </ul>
 
-                <div class="w-1/2 text-right" v-if="event.slug">
+                <div class="flex-auto text-right" v-if="event.slug">
                     <cancel-event :event="event"></cancel-event>
                 </div>
             </div>
@@ -98,8 +98,8 @@
         data() {
             return {
                 crumbs: [
-                    { text: 'Home', link: '/' },
-                    { text: 'Events', link: '/events' },
+                    { text: 'Home', name: 'home' },
+                    { text: 'My Events', name: 'events.mine' },
                     { text: 'Setup event' }
                 ],
                 event: { type: 'constructed' }
