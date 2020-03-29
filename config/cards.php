@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'sets' => [
+        'arc',
+        'ira',
+        'wtr',
+    ],
+    
     'banned' => [
         'IRA001',
         'IRA002',

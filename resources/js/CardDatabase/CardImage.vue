@@ -4,7 +4,6 @@
 
 <script>
     import { mapGetters } from 'vuex';
-
     import Cardable from './Cardable.js';
 
     export default {

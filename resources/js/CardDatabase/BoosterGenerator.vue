@@ -11,10 +11,18 @@
                     a Heart of Fyendal! I've tried to make this as close and accurate as possible to a real booster pack
                     in terms of rarities and chances. Let me know if you think something is off.</p>
 
-                    <div class="py-4">
-                        <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
-                        <input type="button" value="Generate pack" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" @click="generatePack" :disabled="disabled">
-                    </div>
+                    <form @submit.prevent="generatePack" class="block mt-4">
+                        <label class="block font-serif uppercase tracking-wide mb-1">Set</label>
+                        <select v-model="set" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                            <option value="arc">Arcane Rising</option>
+                            <option value="wtr">Welcome to Rathe</option>
+                        </select>
+
+                        <div class="mb-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
+                            <input type="submit" value="Generate pack" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="disabled">
+                        </div>
+                    </form>
                 </div>
 
                 <div class="sm:w-1/2 sm:float-left">
@@ -46,6 +54,7 @@
                     { text: 'Home', link: '/' },
                     { text: 'Booster pack generator' }
                 ],
+                set: 'arc',
                 viewing: null
             }
         },
@@ -54,7 +63,7 @@
             generatePack: function() {
                 this.disabled = true;
 
-                axios.get('/packs/generate').then(response => {
+                axios.get('/packs/generate', { params: { set: this.set } }).then(response => {
                     this.cards = response.data
                 });
 

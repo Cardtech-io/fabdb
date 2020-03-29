@@ -22,7 +22,7 @@
 
                         <article>
                             <p class="mb-4">
-                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(set(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
                             </p>
                         </article>
                     </div>

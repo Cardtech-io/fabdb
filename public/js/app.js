@@ -2114,6 +2114,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2134,6 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Booster pack generator'
       }],
+      set: 'arc',
       viewing: null
     };
   },
@@ -2142,7 +2151,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.disabled = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/packs/generate').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/packs/generate', {
+        params: {
+          set: this.set
+        }
+      }).then(function (response) {
         _this.cards = response.data;
       });
       setTimeout(function () {
@@ -63218,27 +63231,89 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "py-4" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass:
-                      "block font-serif uppercase tracking-wide mb-1 text-sm"
-                  },
-                  [_vm._v(" ")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass:
-                    "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                  attrs: {
-                    type: "button",
-                    value: "Generate pack",
-                    disabled: _vm.disabled
-                  },
-                  on: { click: _vm.generatePack }
-                })
-              ])
+              _c(
+                "form",
+                {
+                  staticClass: "block mt-4",
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.generatePack($event)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("Set")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.set,
+                          expression: "set"
+                        }
+                      ],
+                      staticClass:
+                        "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.set = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "arc" } }, [
+                        _vm._v("Arcane Rising")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "wtr" } }, [
+                        _vm._v("Welcome to Rathe")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mb-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1 text-sm"
+                      },
+                      [_vm._v(" ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                      attrs: {
+                        type: "submit",
+                        value: "Generate pack",
+                        disabled: _vm.disabled
+                      }
+                    })
+                  ])
+                ]
+              )
             ]),
             _vm._v(" "),
             _c(
@@ -64267,7 +64342,9 @@ var render = function() {
                         _vm._v(
                           '"' +
                             _vm._s(
-                              _vm.setToString(_vm.set(_vm.card.identifier))
+                              _vm.setToString(
+                                _vm.setFromIdentifier(_vm.card.identifier)
+                              )
                             ) +
                             '"'
                         )
@@ -88614,7 +88691,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     cardUrl: function cardUrl(identifier, width, withBorder) {
-      var set = this.set(identifier);
+      var set = this.setFromIdentifier(identifier);
       var id = this.id(identifier);
       var url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
@@ -88674,7 +88751,7 @@ __webpack_require__.r(__webpack_exports__);
     hasResource: function hasResource(card) {
       return card.stats.hasOwnProperty('resource');
     },
-    set: function set(identifier) {
+    setFromIdentifier: function setFromIdentifier(identifier) {
       return this.identifierParts(identifier)[0].toLowerCase();
     },
     setToString: function setToString(set) {
