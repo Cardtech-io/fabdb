@@ -11,15 +11,21 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('sitemap', 'SitemapController@view');
 
 Route::middleware(['web'])->group(function() {
     Route::post('export/{deck}.pdf', 'ExportController@pdf');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
+    Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
+    Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
     Route::middleware(['spa'])->group(function() {
+        Route::get('articles', 'ArticleController@search');
+
         Route::get('cards', 'CardController@list');
-        Route::get('cards/{card}', 'CardController@view')->where('card', '^((?!(draft)|(browse)).)+');
+        Route::get('cards/{card}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 
         Route::get('featured/top', 'FeatureController@top');
@@ -28,13 +34,18 @@ Route::middleware(['web'])->group(function() {
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');
 
-        Route::middleware(['auth'])->group(function () {
-            Route::get('collection', 'CollectionController@list');
+        Route::middleware(['auth', 'strip'])->group(function () {
+            Route::get('articles/mine', 'ArticleController@mine');
+            Route::put('articles/{article}', 'ArticleController@update');
+
+            Route::post('articles', 'ArticleController@draft');
+
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{card}', 'CollectionController@removeCard');
 
             Route::get('decks/mine', 'DeckController@mine');
             Route::post('decks/{deck}', 'DeckController@addCard');
+            Route::put('decks/{deck}/settings', 'DeckController@saveSettings');
             Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
             Route::delete('decks/{deck}', 'DeckController@removeDeck');
             Route::post('decks', 'DeckController@addDeck');
@@ -45,12 +56,31 @@ Route::middleware(['web'])->group(function() {
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
         });
 
+        Route::get('articles/{article}', 'ArticleController@view');
+
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
-        Route::get('decks/{deck}', 'DeckController@view')->where('deck', '^((?!build|test).)+');
+        Route::get('decks/{deck}', 'DeckController@view');
     });
 
-    Route::fallback(function () {
-        return view('welcome');
+    // This is our 404 route. We only want to support routes that actually have a client-facing path.
+    Route::fallback(function(Request $request) {
+        function pathMatches(string $path) {
+            foreach (config('spa.client') as $pattern) {
+                $pattern = str_replace('/', '\/', $pattern);
+
+                if (preg_match("/^{$pattern}/i", $path)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        if (!$request->wantsJson() && pathMatches($request->path())) {
+            return response()->view('welcome');
+        }
+
+        abort(404);
     });
 });

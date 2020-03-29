@@ -2,6 +2,7 @@
 namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\Packs;
+use FabDB\Domain\Cards\Set;
 use Illuminate\Console\Command;
 
 class GeneratePack extends Command
@@ -28,7 +29,7 @@ class GeneratePack extends Command
      */
     public function handle(Packs $packs)
     {
-        $pack = $packs->generate();
+        $pack = $packs->generate(new Set('wtr'));
 
         dd($pack->toArray());
     }

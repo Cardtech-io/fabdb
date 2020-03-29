@@ -31,4 +31,11 @@ abstract class EloquentRepository implements Repository
     {
         return $this->newQuery()->whereId($id)->first();
     }
+
+    public function bySlug(string $slug): Model
+    {
+        return $this->newQuery()
+            ->whereSlug($slug)
+            ->first();
+    }
 }

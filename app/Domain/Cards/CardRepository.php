@@ -6,39 +6,23 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface CardRepository
 {
-    public function search(string $useCase, array $keywords, $class, $type, $view, User $user = null);
+    public function search(string $useCase, array $keywords, $class, $type, $set, $view = 'all', User $user = null);
 
     public function findByIdentifier(string $identifier, int $userId = null);
 
     /**
-     * Look for a number of class commons.
+     * View a specific card, and retrieve the previous/next card ids, as well.
      *
-     * @param $class - Can be generic or other
-     * @param int $num
-     * @return Collection
-     */
-    public function getRandomCommons($class, int $num): Collection;
-
-    /**
-     * Pull 1 random equipment common.
-     *
+     * @param string $identifier
      * @return Card
      */
-    public function getRandomEquipmentCommon(): Card;
+    public function view(string $identifier): Card;
 
     /**
-     * Retrieve a single random rare from the database.
+     * Returns the first available identifier for a card set.
      *
-     * @param Rarity $rarity
-     * @param array $exclude
-     * @return Card
+     * @param string $set
+     * @return string
      */
-    public function getRandom(Rarity $rarity, array $exclude = []): Card;
-
-    /**
-     * Returns a random card as a foil.
-     *
-     * @return Card
-     */
-    public function getRandomFoil(): Card;
+    public function getFirstIdentifier(string $set): string;
 }

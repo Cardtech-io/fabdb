@@ -9,17 +9,17 @@ class RemoveDeck implements Loggable
     use LogsParams;
 
     /**
-     * @var Deck
+     * @var string
      */
     private $deck;
 
-    public function __construct(Deck $deck)
+    public function __construct($deck)
     {
         $this->deck = $deck;
     }
 
     public function handle(DeckRepository $decks)
     {
-        $decks->delete($this->deck->slug);
+        $decks->delete($this->deck);
     }
 }

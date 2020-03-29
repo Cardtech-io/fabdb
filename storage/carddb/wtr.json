@@ -4,7 +4,7 @@
     "set": "WTR",
     "name": "Heart of Fyendal",
     "rarity": "F",
-    "text": "When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1 [life].",
+    "text": "When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].",
     "keywords": ["generic", "resource", "gem"],
     "stats": {
       "resource": 3
@@ -15,14 +15,14 @@
     "set": "WTR",
     "name": "Rhinar, Reckless Rampage",
     "rarity": "T",
-    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "text": "When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",
     "keywords": [
       "brute",
       "hero"
     ],
     "stats": {
       "life": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -30,11 +30,11 @@
     "set": "WTR",
     "name": "Rhinar",
     "rarity": "T",
-    "text": "When you discard a card with 6 or more [dmg] during your action phase, *intimidate*.",
+    "text": "When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",
     "keywords": ["brute", "hero", "young"],
     "stats": {
       "life": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -614,7 +614,7 @@
     ],
     "stats": {
       "life": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -630,7 +630,7 @@
     ],
     "stats": {
       "life": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -1269,7 +1269,7 @@
       "hero"
     ],
     "stats": {
-      "hand-size": 4,
+      "intellect": 4,
       "life": 40
     }
   },
@@ -1285,7 +1285,7 @@
       "young"
     ],
     "stats": {
-      "hand-size": 4,
+      "intellect": 4,
       "life": 20
     }
   },
@@ -1919,7 +1919,7 @@
     ],
     "stats": {
       "health": 40,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -1935,7 +1935,7 @@
     ],
     "stats": {
       "health": 20,
-      "hand-size": 4
+      "intellect": 4
     }
   },
   {
@@ -2519,7 +2519,7 @@
     "set": "WTR",
     "name": "Fyendal's Spring Tunic",
     "rarity": "L",
-    "text": "",
+    "text": "At the start of your turn, if Fyendal's Spring Tunic has less than 3 energy counters, you may put an energy counter on it.\n\n**Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]\n\n**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",
     "keywords": [
       "generic",
       "equipment",

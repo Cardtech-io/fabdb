@@ -23,7 +23,8 @@ class User extends Model implements Authenticatable
     protected $fillable = [
         'email',
         'name',
-        'gemId'
+        'gemId',
+        'view',
     ];
 
     protected $casts = [
@@ -57,16 +58,22 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $need)
+    public function updateProfile($email, $name, $gemId, $need, $view)
     {
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
         $this->need = $need;
+        $this->view = $view;
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need));
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need, $view));
 
         return $this;
+    }
+
+    public function isEditor()
+    {
+        return $this->role === 'editor';
     }
 
     public function updateName(string $name)

@@ -4,12 +4,20 @@ namespace FabDB\Domain\Cards;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
+    /**
+     * @var CardViewer
+     */
+    private $cardViewer;
+
+    public function __construct(CardViewer $cardViewer)
+    {
+        $this->cardViewer = $cardViewer;
+    }
+
     protected function model(): Model
     {
         return new Card;
@@ -22,13 +30,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      * @param array $keywords
      * @param $class
      * @param $type
+     * @param $set string
      * @param string $view
      * @param User $user
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function search(string $useCase, array $keywords, $class, $type, $view = 'all', User $user = null)
+    public function search(string $useCase, array $keywords, $class, $type, $set, $view = 'all', User $user = null)
     {
         $query = $this->newQuery();
+
         $query->select([
             'cards.identifier',
             'cards.name',
@@ -36,24 +46,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.stats',
         ]);
 
-        // The following condition and clause determines whether the user is looking for an individual card or not
-        if (count($keywords) == 1 && preg_match('/([A-Z]{3})?([0-9]{1,3})/i', $keywords[0], $matches)) {
-            $set = $matches[1] ?: 'WTR';
-            $identifier = $set . str_pad($matches[2], 3, '0', STR_PAD_LEFT);
-
-            $query->where('identifier', $identifier);
-        } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
-            // do nothing, check below.
-        } else {
-            foreach ($keywords as $param) {
-                $param = strtolower($param);
-
-                $query->where(function($query) use ($param){
-                    $query->orWhere('name', 'LIKE', "%{$param}%");
-                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
-                });
-            }
+        if ($set && $set != 'all') {
+            $query->where('identifier', 'LIKE', $set . '%');
         }
+
+        $this->keywordSearch($keywords, $query);
 
         if ($useCase == 'build') {
             $query->whereNotIn('identifier', config('cards.banned'));
@@ -97,14 +94,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             if ($view == 'need') {
                 $query->where(function($clause) use ($user) {
                     $clause->whereNull('owned_cards.id');
-                    $clause->orWhere('owned_cards.standard', '<', $user->need);
+                    $clause->orWhereRaw('owned_cards.standard + owned_cards.foil < '.(int) $user->need);
                 });
             }
 
             $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');
         }
 
-        $query->orderBy('cards.id');
+        $query->orderBy('cards.identifier');
 
         return $query;
     }
@@ -126,6 +123,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
+            'cards.flavour',
         ];
 
         $query = $this->newQuery()
@@ -143,51 +141,102 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $query->firstOrFail();
     }
 
-    public function getRandomCommons($class, int $num): Collection
+    public function view(string $identifier): Card
     {
-        $operator = $class == 'generic' ? '=' : '<>';
+        $card = $this->findByIdentifier($identifier);
 
-        return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity('C')
-            ->whereRaw("REPLACE(JSON_EXTRACT(keywords, '$[0]'), '\"', '') $operator 'generic'")
-            ->whereRaw("REPLACE(JSON_EXTRACT(keywords, '$[1]'), '\"', '') NOT IN ('hero', 'equipment')")
-            ->orderBy(\DB::raw('RAND()'))
-            ->take($num)
-            ->get();
+        $card->next = $this->nav(function() use ($identifier) {
+            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '+'))->identifier;
+        });
+
+        $card->prev = $this->nav(function() use ($identifier) {
+            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '-'))->identifier;
+        });
+
+        return $card;
     }
 
-    public function getRandomEquipmentCommon(): Card
+    public function getFirstIdentifier(string $set): string
     {
-        return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity('C')
-            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), 'equipment')
-            ->orderBy(\DB::raw('RAND()'))
+        $identifier = $this->newQuery()
+            ->where('identifier', 'LIKE', "$set%")
+            ->select('identifier')
+            ->orderBy('identifier', 'asc')
+            ->limit(1)
+            ->pluck('identifier')
             ->first();
+
+        return str_split($identifier, 3)[1];
     }
 
-    public function getRandom(Rarity $rarity, array $exclude = []): Card
+    private function nav(\Closure $exec)
     {
-        $query = $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity($rarity)
-            ->orderBy(\DB::raw('RAND()'));
+        try { return $exec(); }
+        catch (ModelNotFoundException $e) {}
+    }
 
-        if ($exclude) {
-            $query->whereNotIn('id', $exclude);
+    /**
+     * @param array $keywords
+     * @param $query
+     */
+    private function keywordSearch(array $keywords, $query)
+    {
+        // The following condition and clause determines whether the user is looking for an individual card or not
+        if (count($keywords) && $keywords[0] != 'missing') {
+            // First let's only get keywords that do not have a colon (these are special param searches)
+            $words = implode(' ', $this->getWords($keywords));
+            $params = $this->getParams($keywords);
+
+            if ($words) {
+                $query->whereRaw("MATCH(search_text) AGAINST ('$words' IN NATURAL LANGUAGE MODE)");
+            }
+
+            foreach ($params as $param) {
+                $field = addslashes($param[1]);
+                $operator = addslashes($param[2]);
+                $value = addslashes($param[3]);
+
+                $query->where("stats->{$field}", $operator, $value);
+            }
+        } elseif (count($keywords) == 1 && $keywords[0] === 'missing') {
+            // do nothing, check below.
+        } else {
+            foreach ($keywords as $param) {
+                $param = strtolower($param);
+
+                $query->where(function ($query) use ($param) {
+                    $query->orWhere('name', 'LIKE', "%{$param}%");
+                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$param}') IS NOT NULL");
+                });
+            }
         }
-
-        return $query->first();
     }
 
-    public function getRandomFoil(): Card
+    /**
+     * Filter for keywords for words only.
+     *
+     * @param array $keywords
+     * @return array
+     */
+    private function getWords(array $keywords): array
     {
-        return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->where('rarity', '!=', 'T')
-            ->where(\DB::raw("JSON_EXTRACT(keywords, '$[1]')"), '<>', 'hero')
-            ->orderBy(\DB::raw('RAND()'))
-            ->first();
+        return array_filter($keywords, function($keyword) {
+            return preg_match('/^[a-z]+$/', $keyword);
+        });
+    }
+
+    private function getParams(array $keywords)
+    {
+        return collect($keywords)->filter(function($keyword) {
+            return preg_match('/[a-z]+[=><]{1,2}[0-9]{1,2}/i', $keyword);
+        })->map(function($keyword) {
+            preg_match('/([a-z]+)([=><]{1,2})([0-9]{1,2})/i', $keyword, $matches);
+
+            if ($matches[1] == 'pitch') {
+                $matches[1] = 'resource';
+            }
+
+            return $matches;
+        });
     }
 }

@@ -1,17 +1,24 @@
 export default {
     methods: {
-        cardUrl: function(identifier, width) {;
-            const set = this.set(identifier);
+        cardUrl: function(identifier, width, withBorder) {
+            const set = this.setFromIdentifier(identifier);
             const id = this.id(identifier);
 
-            const dimensions = {
-                ira: [23, 24, 419, 603],
-                wtr: [22, 22, 406, 584]
-            };
+            let url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
-            var rect = dimensions[set].join(',');
+            if (!withBorder) {
+                const dimensions = {
+                    arc: [20, 21, 409, 586],
+                    ira: [23, 24, 419, 603],
+                    wtr: [20, 21, 409, 586]
+                };
 
-            return '//fabdb.imgix.net/cards/' + set +'/' + id + '.png?w=' + width + '&fit=clip&auto=compress&rect=' + rect;
+                let rect = dimensions[set].join(',');
+
+                url += '&rect=' + rect;
+            }
+
+            return url;
         },
 
         resourceColour: function(resource) {
@@ -54,12 +61,13 @@ export default {
             return card.stats.hasOwnProperty('resource');
         },
 
-        set: function(identifier) {
+        setFromIdentifier: function(identifier) {
             return this.identifierParts(identifier)[0].toLowerCase();
         },
 
         setToString: function(set) {
             const sets = {
+                arc: "Arcane Rising",
                 ira: "Welcome Deck 2019",
                 wtr: "Welcome to Rathe"
             };

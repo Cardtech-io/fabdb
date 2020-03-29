@@ -20,8 +20,8 @@
                     <div class="md:w-2/3 md:pr-8">
                         <div v-if="!exportRequested">
                             <p class="mb-4 p-4 bg-blue-500 rounded-lg text-white">
-                                The information collected below is not saved, but is required for PDF export. We will email
-                                you your PDF when it's been generated.
+                                The information collected below is not saved, but is required for PDF export.
+                                We will email you your PDF when it's been generated.
                             </p>
 
                             <form @submit.prevent="exportToPdf">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="hidden md:block md:w-1/3">
-                        <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px">
+                        <card-image :card="hero"></card-image>
                     </div>
                 </div>
             </div>
@@ -61,6 +61,7 @@
 
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
+    import CardImage from '../CardDatabase/CardImage.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
@@ -68,6 +69,7 @@
 
     export default {
         components: {
+            CardImage,
             CardSelector,
             Crumbs,
             HeaderTitle

@@ -19,7 +19,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return $this->newQuery()->whereUserId($userId)->get();
     }
 
-    public function bySlug(string $slug, bool $includeCards = false): Model
+    public function bySlugWithCards(string $slug, bool $includeCards = false): Model
     {
         $query = $this->newQuery()->whereSlug($slug);
 
@@ -48,6 +48,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         $deck = $this->find($deckId);
         $existing = $deck->card($cardId);
+
+        if (!$existing) return;
 
         if ($existing->pivot && $existing->pivot->total > 1) {
             DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);

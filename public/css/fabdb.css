@@ -4429,6 +4429,10 @@ video {
   clear: both;
 }
 
+.font-sans {
+  font-family: Raleway, Helvetica, Helvetica\ Neue, Arial, sans-serif;
+}
+
 .font-serif {
   font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
 }
@@ -12329,6 +12333,25 @@ footer.footer .link:hover {
   top: 25%;
 }
 
+.stylistic-quote-mark {
+  font-size: 5rem;
+  right: 98.5%;
+  top: -1em;
+  display: none;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: #cbd5e0;
+  position: absolute;
+  top: 0;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .stylistic-quote-mark {
+    display: block;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -16130,6 +16153,10 @@ footer.footer .link:hover {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .sm\:font-sans {
+    font-family: Raleway, Helvetica, Helvetica\ Neue, Arial, sans-serif;
   }
 
   .sm\:font-serif {
@@ -27672,6 +27699,10 @@ footer.footer .link:hover {
     clear: both;
   }
 
+  .md\:font-sans {
+    font-family: Raleway, Helvetica, Helvetica\ Neue, Arial, sans-serif;
+  }
+
   .md\:font-serif {
     font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
@@ -39212,6 +39243,10 @@ footer.footer .link:hover {
     clear: both;
   }
 
+  .lg\:font-sans {
+    font-family: Raleway, Helvetica, Helvetica\ Neue, Arial, sans-serif;
+  }
+
   .lg\:font-serif {
     font-family: Capitolium, Georgia, Cambria, Times New Roman, Times, serif;
   }
@@ -50750,6 +50785,10 @@ footer.footer .link:hover {
     content: "";
     display: table;
     clear: both;
+  }
+
+  .xl\:font-sans {
+    font-family: Raleway, Helvetica, Helvetica\ Neue, Arial, sans-serif;
   }
 
   .xl\:font-serif {

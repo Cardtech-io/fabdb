@@ -5,14 +5,16 @@
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
-                    <li class="float-left active border-b-4 border-white p-4">Welcome to Rathe</li>
+                    <li class="float-left" v-for="(name, set) in sets" :class="isActive(set)">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set)" :class="isActive(set)">{{ name }}</a>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set }"></card-search>
             </div>
         </div>
 
@@ -34,17 +36,7 @@
                     </div>
                 </div>
 
-                <div class="border-t border-gray-300 p-4 py-8">
-                    <h1 class="font-serif text-xl uppercase">Search tips</h1>
-                    <p class="my-4">The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards
-                        based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc. using the keywords search field.</p>
-                    <ul class="list-disc ml-4">
-                        <li><strong>hero</strong>: list all cards that have the keyword 'hero'. This applies to any keyword you search for.</li>
-                        <li><strong>WTR011</strong>: Look for card #11 within the Welcome to Rathe set</li>
-                        <li><strong>1</strong>: Load card #1 in any set (can also be formatted as 01 or 001</li>
-                        <li><strong>guardian action</strong>: Find all cards that have the keywords "guardian" and "action"</li>
-                    </ul>
-                </div>
+                <search-tips></search-tips>
             </div>
         </div>
     </div>
@@ -54,40 +46,67 @@
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Paginator from './Paginator.vue';
+    import Paginator from '../Components/Paginator.vue';
+    import SearchTips from './SearchTips.vue';
 
     export default {
         components: {
             CardItem,
             CardSearch,
             HeaderTitle,
-            Paginator
+            Paginator,
+            SearchTips
+        },
+
+        computed: {
+            setDescription: function() {
+                return 'Browse the Flesh & Blood card list for the set, "' + this.sets[this.set] + '".';
+            }
         },
 
         data() {
             return {
-                page: 1,
+                page: Number(this.$route.query.page) || 1,
                 results: {},
+                sets: {
+                    all: 'All cards',
+                    wtr: 'Welcome to Rathe',
+                    arc: 'Arcane Rising'
+                },
+                set: this.$route.query.set || 'all',
                 view: 'gallery'
             }
         },
 
         metaInfo() {
+            let description = this.setDescription;
+
             return {
-                title: 'Browse cards',
+                title: 'Flesh and Blood Card List',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Browse and search cards from the Flesh & Blood TCG.' }
+                    { vmid: 'description', name: 'description', content: this.setDescription }
                 ]
             };
         },
 
         methods: {
+            isActive: function(set) {
+                return {
+                    'border-white': this.set == set,
+                    'border-orange-900': this.set != set
+                }
+            },
             refreshResults: function(results) {
                 this.results = results;
             },
 
             updatePage: function(page) {
                 this.page = page;
+            },
+
+            switchSet: function(set) {
+                this.set = set;
+                this.updatePage(1);
             }
         }
     };

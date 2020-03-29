@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Comments;
 
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
 
 class Commentable
@@ -16,8 +17,14 @@ class Commentable
      */
     private $decks;
 
-    public function __construct(CardRepository $cards, DeckRepository $decks)
+    /**
+     * @var ArticleRepository
+     */
+    private $articles;
+
+    public function __construct(ArticleRepository $articles, CardRepository $cards, DeckRepository $decks)
     {
+        $this->articles = $articles;
         $this->cards = $cards;
         $this->decks = $decks;
     }
@@ -25,10 +32,14 @@ class Commentable
     public function getId(string $type, $foreign)
     {
         switch ($type) {
+            case 'article':
+                return $this->articles->view($foreign)->id;
             case 'card':
                 return $this->cards->findByIdentifier($foreign)->id;
             case 'deck':
                 return $this->decks->bySlug($foreign)->id;
         }
+
+        throw new InvalidCommentType;
     }
 }

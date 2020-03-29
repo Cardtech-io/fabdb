@@ -2,6 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
+import Articles from './Content/Articles.vue';
+import ViewArticle from './Content/ViewArticle.vue';
+import MyArticles from './Content/MyArticles.vue';
+import WriteArticle from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import DraftMode from './CardDatabase/DraftMode.vue';
 import Configuration from './DraftMode/Configuration.vue';
@@ -74,8 +78,7 @@ const router = new VueRouter({
         {
             path: "/decks/build",
             component: ListDecks,
-            name: 'list-decks',
-            meta: { auth: true }
+            name: 'list-decks'
         },
         {
             path: "/deck-builder",
@@ -107,12 +110,37 @@ const router = new VueRouter({
                 title: 'View deck'
             }
         },
+        {
+            path: "/articles",
+            component: Articles,
+            name: 'articles'
+        },
+        {
+            path: "/articles/write",
+            component: WriteArticle,
+            name: 'write-article'
+        },
+        {
+            path: "/articles/mine",
+            component: MyArticles,
+            name: 'my-articles'
+        },
+        {
+            path: "/articles/:article/edit",
+            component: WriteArticle,
+            name: 'edit-article'
+        },
+        {
+            path: "/articles/:title/:article",
+            component: ViewArticle,
+            name: 'view-article'
+        },
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
-        { path: "/fabdb", redirect: "/" }
+        { path: "*", redirect: "/" }
     ]
 });
 

@@ -32,20 +32,26 @@ class UpdateProfile
      */
     private $need;
 
-    public function __construct(int $userId, $email, $name, $gemId, $need)
+    /**
+     * @var string
+     */
+    private $view;
+
+    public function __construct(int $userId, $email, $name, $gemId, $need, string $view)
     {
         $this->userId = $userId;
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
         $this->need = $need;
+        $this->view = $view;
     }
 
     public function handle(UserRepository $users)
     {
         $user = $users->find($this->userId);
 
-        $user->updateProfile($this->email, $this->name, $this->gemId, $this->need);
+        $user->updateProfile($this->email, $this->name, $this->gemId, $this->need, $this->view);
 
         $users->save($user);
 

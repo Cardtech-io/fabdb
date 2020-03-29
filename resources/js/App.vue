@@ -36,10 +36,12 @@
         components: { Messages, Navigation },
 
         metaInfo: {
-            title: 'Flesh & Blood TCG Card Manager, Deck Builder and more!',
+            title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
             titleTemplate: '%s | fabdb.net',
             meta: [
-                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' }
+                { vmid: 'og:url', property: 'og:url', content: window.location.href },
+                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' },
+                { vmid: 'fb:app_id', property: 'fb:app_id', content: 269161470718107 }
             ]
         },
 

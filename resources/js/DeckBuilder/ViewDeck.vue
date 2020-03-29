@@ -31,7 +31,7 @@
                 <div class="clearfix">
                     <div class="p-4 md:w-1/3 md:float-left">
                         <div class="mb-8">
-                            <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
+                            <img :src="cardUrl(hero.identifier, 350, user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
                         </div>
                     </div>
 
@@ -122,6 +122,7 @@
 
 <script>
     import axios from 'axios';
+    import { mapGetters } from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -141,6 +142,10 @@
             Respond
         },
 
+        computed: {
+            ...mapGetters('session', ['user'])
+        },
+
         data() {
             return {
                 cards: [],
@@ -156,8 +161,18 @@
         },
 
         metaInfo() {
+            let title = 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')';
+
             return {
-                title: this.hero ? 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')' : 'Loading...'
+                title: title,
+                meta: [
+                    { vmid: 'og:type', property: 'og:type', content: 'website' },
+                    { vmid: 'og:title', property: 'og:title', content: title },
+                    { vmid: 'og:description', property: 'og:description', content: 'A custom ' + this.hero.keywords[0] + ' deck built at fabdb.net, utilising the hero, \'' + this.hero.name + '\'.' },
+                    { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.hero.identifier, 450, true) },
+                    { vmid: 'og:image:width', property: 'og:image:width', content: '450' },
+                    { vmid: 'og:image:height', property: 'og:image:height', content: '628' }
+                ]
             };
         },
 

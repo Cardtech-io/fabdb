@@ -6,11 +6,26 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8 clearfix">
                 <div class="md:w-1/3 md:float-left p-4 md:py-0">
-                    <img :src="cardUrl(card.identifier, 350)" :alt="card.name" class="w-full max-w-md rounded-xl">
+                    <card-image :card="card"></card-image>
+                    <div class="flex mt-2">
+                        <router-link :to="'/cards/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>
+                        <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2" v-if="card.next">Next</router-link>
+                    </div>
                 </div>
 
                 <div class="md:w-2/3 md:float-right sm:px-4">
-                    <p class="p-4 pt-0 sm:p-0">This card is from the "{{ setToString(set(card.identifier)) }}" set of the Flesh & Blood TCG.</p>
+                    <div class="p-4 pt-0 sm:p-0">
+                        <div v-if="card.text" class="border bg-gray-300 border-gray-500 rounded-lg mb-8">
+                            <div v-html="prettyText(card.text)" class="px-4"></div>
+                            <div class="italic border-t border-gray-400 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                        </div>
+
+                        <article>
+                            <p class="mb-4">
+                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                            </p>
+                        </article>
+                    </div>
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/3 p-2 px-4">Rarity</div>
@@ -51,17 +66,20 @@
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
+    import CardImage from './CardImage.vue';
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Respond from '../Discussion/Respond.vue';
     import Comment from '../Discussion/Comment.vue';
     import CommentCount from '../Discussion/CommentCount.vue';
+    import Strings from '../Utilities/Strings';
 
     export default {
-        mixins: [ Cardable ],
+        mixins: [ Cardable, Strings ],
 
         components: {
             Breadcrumbs,
+            CardImage,
             Comment,
             CommentCount,
             HeaderTitle,
@@ -126,7 +144,13 @@
             return {
                 title: this.card.name + ' - ' + this.card.identifier,
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'View Flesh & Blood card, ' + this.card.name + '.' }
+                    { vmid: 'description', name: 'description', content: 'View Flesh & Blood card, ' + this.card.name + '.' },
+                    { vmid: 'og:type', property: 'og:type', content: 'article' },
+                    { vmid: 'og:title', property: 'og:title', content: this.card.name + ' - ' + this.card.identifier },
+                    { vmid: 'og:description', property: 'og:description', content: this.card.text },
+                    { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.card.identifier, 450, true) },
+                    { vmid: 'og:image:width', property: 'og:image:width', content: '450' },
+                    { vmid: 'og:image:height', property: 'og:image:height', content: '628' }
                 ]
             };
         },
