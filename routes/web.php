@@ -47,6 +47,7 @@ Route::middleware(['web'])->group(function() {
             Route::post('events', 'EventController@setup');
             Route::get('events/{event}', 'EventController@view');
             Route::put('events/{event}', 'EventController@update');
+            Route::delete('events/{event}', 'EventController@cancel');
 
             Route::get('decks/mine', 'DeckController@mine');
             Route::post('decks/{deck}', 'DeckController@addCard');

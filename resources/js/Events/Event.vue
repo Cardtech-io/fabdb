@@ -4,8 +4,8 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-white border-b-4 border-gray-300">
-            <div class="container sm:mx-auto px-4">
-                <ul>
+            <div class="container sm:mx-auto px-4 flex items-center">
+                <ul class="w-1/2">
                     <li class="inline-block text-center font-serif uppercase">
                         <a href="" class="block p-4 mr-8" @click.prevent="setType('constructed')" :class="activeType('constructed')">
                             <svg class="fill-current h-10 w-10 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -31,6 +31,10 @@
                         </a>
                     </li>
                 </ul>
+
+                <div class="w-1/2 text-right" v-if="event.slug">
+                    <cancel-event :event="event"></cancel-event>
+                </div>
             </div>
         </div>
 
@@ -65,16 +69,23 @@
 <script>
     import axios from 'axios';
     import moment from 'moment';
-    import { mapGetters } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import CancelEvent from './CancelEvent.vue';
     import { Datetime } from 'vue-datetime';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Submit from '../Components/Form/Submit.vue';
 
     export default {
-        components: { Breadcrumbs, Datetime, HeaderTitle, Submit },
+        components: {
+            Breadcrumbs,
+            CancelEvent,
+            Datetime,
+            HeaderTitle,
+            Submit
+        },
 
         computed: {
             ...mapGetters('session', ['user']),
@@ -96,6 +107,8 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
+
             activeType: function(type) {
                 if (this.typeAvailable(type)) {
                     return {
@@ -123,10 +136,16 @@
                     axios.post('/events', payload);
 
                 request.then(response => {
+                    let message = 'Event updated.';
+
                     if (!this.event.slug) {
+                        message  = 'Event successfully registered.';
+
                         this.event.slug = response.data.slug;
                         this.$router.push({ name: 'events' });
                     }
+
+                    this.addMessage({ status: 'success', message: message });
                 });
             },
 

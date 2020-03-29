@@ -26,6 +26,7 @@
             backgroundClass: function(status) {
                 const colours = {
                     error: 'bg-red-700',
+                    info: 'bg-blue-700',
                     success: 'bg-green-700'
                 };
 

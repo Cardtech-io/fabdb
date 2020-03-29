@@ -1,11 +1,13 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Events\CancelEvent;
 use FabDB\Domain\Events\EventRegistrationObserver;
 use FabDB\Domain\Events\EventRepository;
 use FabDB\Domain\Events\EventType;
 use FabDB\Domain\Events\RegisterEvent;
 use FabDB\Domain\Events\ChangeEvent;
+use FabDB\Http\Requests\CancelEventRequest;
 use FabDB\Http\Requests\RegisterEventRequest;
 use FabDB\Http\Requests\UpdateEventRequest;
 use Illuminate\Http\Request;
@@ -43,6 +45,13 @@ class EventController extends Controller
             $request->get('name'),
             new EventType($request->get('type')),
             new Carbon($request->get('startsAt'))
+        ));
+    }
+
+    public function cancel(CancelEventRequest $request)
+    {
+        $this->dispatchNow(new CancelEvent(
+            $request->event->slug
         ));
     }
 }
