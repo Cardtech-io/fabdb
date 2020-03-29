@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Events\EventRegistrationObserver;
 use FabDB\Domain\Events\EventRepository;
 use FabDB\Domain\Events\EventType;
 use FabDB\Domain\Events\RegisterEvent;
@@ -20,11 +21,14 @@ class EventController extends Controller
     public function setup(RegisterEventRequest $request)
     {
         $this->dispatchNow(new RegisterEvent(
+            $observer = new EventRegistrationObserver,
             $request->user()->id,
             $request->get('name'),
             new EventType($request->get('type')),
             new Carbon($request->get('startsAt'))
         ));
+
+        return $observer->event();
     }
 
     public function view(Request $request)

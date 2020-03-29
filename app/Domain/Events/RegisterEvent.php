@@ -28,8 +28,14 @@ class RegisterEvent
      */
     private $when;
 
-    public function __construct(int $userId, string $name, EventType $type, Carbon $when)
+    /**
+     * @var EventRegistrationObserver
+     */
+    private $observer;
+
+    public function __construct(EventRegistrationObserver $observer, int $userId, string $name, EventType $type, Carbon $when)
     {
+        $this->observer = $observer;
         $this->userId = $userId;
         $this->name = $name;
         $this->type = $type;
@@ -41,6 +47,8 @@ class RegisterEvent
         $event = Event::register($this->userId, $this->name, $this->type, $this->when);
 
         $events->save($event);
+
+        $this->observer->saved($event);
 
         $this->dispatch($event->releaseEvents());
     }

@@ -5924,7 +5924,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     Submit: _Components_Form_Submit_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('session', ['user'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('session', ['user']), {
+    title: function title() {
+      return this.event.name || 'Register event';
+    }
+  }),
   data: function data() {
     return {
       crumbs: [{
@@ -5938,8 +5942,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }],
       event: {
         type: 'constructed'
-      },
-      title: 'Setup event'
+      }
     };
   },
   methods: {
@@ -5969,6 +5972,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       request.then(function (response) {
         if (!_this.event.slug) {
           _this.event.slug = response.data.slug;
+
+          _this.$router.push({
+            name: 'events'
+          });
         }
       });
     },
@@ -78538,7 +78545,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-title", { attrs: { title: "Draft mode" } }),
+      _c("header-title", { attrs: { title: "events" } }),
       _vm._v(" "),
       _c(
         "div",

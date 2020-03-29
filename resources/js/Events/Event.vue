@@ -77,7 +77,11 @@
         components: { Breadcrumbs, Datetime, HeaderTitle, Submit },
 
         computed: {
-            ...mapGetters('session', ['user'])
+            ...mapGetters('session', ['user']),
+
+            title: function() {
+                return this.event.name || 'Register event';
+            }
         },
 
         data() {
@@ -87,8 +91,7 @@
                     { text: 'Events', link: '/events' },
                     { text: 'Setup event' }
                 ],
-                event: { type: 'constructed' },
-                title: 'Setup event'
+                event: { type: 'constructed' }
             }
         },
 
@@ -122,6 +125,7 @@
                 request.then(response => {
                     if (!this.event.slug) {
                         this.event.slug = response.data.slug;
+                        this.$router.push({ name: 'events' });
                     }
                 });
             },
