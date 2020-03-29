@@ -49,7 +49,7 @@
                         { link: '/collection', text: 'My Collection' },
                         { link: '/decks/build', text: 'Deck Builder' },
                         { link: '/packs/generate', text: 'Booster generator' },
-                        { link: '/cards/draft', text: 'Draft mode' }
+                        { link: '/events', text: 'Events' }
                     ]},
                     { link: '/support', text: 'Support' }
                 ];

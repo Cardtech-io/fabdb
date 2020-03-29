@@ -14,6 +14,7 @@ return [
         'collection',
         'decks/build',
         'decks/test',
+        'events',
         'login',
         'profile',
     ]

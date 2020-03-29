@@ -43,6 +43,11 @@ Route::middleware(['web'])->group(function() {
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{card}', 'CollectionController@removeCard');
 
+            Route::get('events', 'EventController@list');
+            Route::post('events', 'EventController@setup');
+            Route::get('events/{event}', 'EventController@view');
+            Route::put('events/{event}', 'EventController@update');
+
             Route::get('decks/mine', 'DeckController@mine');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');

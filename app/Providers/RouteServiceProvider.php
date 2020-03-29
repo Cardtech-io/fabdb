@@ -2,10 +2,10 @@
 
 namespace FabDB\Providers;
 
-use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
+use FabDB\Domain\Events\EventRepository;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +41,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('deck', function($slug) {
             return app(DeckRepository::class)->bySlugWithCards($slug, true);
+        });
+
+        Route::bind('event', function($slug) {
+            return app(EventRepository::class)->bySlug($slug);
         });
     }
 

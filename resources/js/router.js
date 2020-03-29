@@ -3,14 +3,12 @@ import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
 import Articles from './Content/Articles.vue';
-import ViewArticle from './Content/ViewArticle.vue';
-import MyArticles from './Content/MyArticles.vue';
-import WriteArticle from './Content/WriteArticle.vue';
+import ArticleView from './Content/ViewArticle.vue';
+import ArticlesMine from './Content/MyArticles.vue';
+import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
-import DraftMode from './CardDatabase/DraftMode.vue';
-import Configuration from './DraftMode/Configuration.vue';
-import SelectCards from './DraftMode/SelectCards.vue';
-import PreviousDrafts from './DraftMode/PreviousDrafts.vue';
+import Event from './Events/Event.vue';
+import Events from './Events/Events.vue';
 import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
 import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
@@ -33,23 +31,22 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
         { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
         {
-            path: "/cards/draft",
-            component: PreviousDrafts
+            path: "/events",
+            component: Events,
+            meta: { title: 'Events', auth: true },
+            name: 'events'
         },
         {
-            path: "/cards/draft/start",
-            component: DraftMode,
-            meta: { title: 'Draft mode', auth: true },
-            children: [
-                {
-                    path: '',
-                    component: Configuration
-                },
-                {
-                    path: 'select',
-                    component: SelectCards
-                }
-            ]
+            path: "/events/start",
+            component: Event,
+            meta: { title: 'Events', auth: true },
+            name: 'events-start'
+        },
+        {
+            path: "/events/:event",
+            component: Event,
+            meta: { title: 'Edit Event', auth: true },
+            name: 'events-edit'
         },
         {
             path: "/packs/generate",
@@ -117,22 +114,22 @@ const router = new VueRouter({
         },
         {
             path: "/articles/write",
-            component: WriteArticle,
+            component: ArticleWrite,
             name: 'write-article'
         },
         {
             path: "/articles/mine",
-            component: MyArticles,
+            component: ArticlesMine,
             name: 'my-articles'
         },
         {
             path: "/articles/:article/edit",
-            component: WriteArticle,
+            component: ArticleWrite,
             name: 'edit-article'
         },
         {
             path: "/articles/:title/:article",
-            component: ViewArticle,
+            component: ArticleView,
             name: 'view-article'
         },
         { path: "/login", component: Login, name: 'login' },

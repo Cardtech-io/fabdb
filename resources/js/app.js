@@ -9,6 +9,8 @@ import App from './App.vue';
 import store from './Store/Application';
 import router from './router.js';
 
+import 'vue-datetime/dist/vue-datetime.css';
+
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);
