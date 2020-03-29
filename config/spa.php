@@ -16,5 +16,6 @@ return [
         'decks/test',
         'login',
         'profile',
+        'support',
     ]
 ];
