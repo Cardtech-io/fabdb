@@ -17,5 +17,6 @@ return [
         'events',
         'login',
         'profile',
+        'support',
     ]
 ];
