@@ -57,14 +57,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         if ($class) {
-            $query->whereRaw("JSON_SEARCH(keywords, 'one', '$class')");
+            $query->whereRaw("JSON_SEARCH(keywords, 'one', '$class') IS NOT NULL");
         }
 
         if ($type) {
             $type = explode(' ', $type);
 
             for ($i = 0; $i < count($type); $i++) {
-                $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$type[$i]}')");
+                $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$type[$i]}') IS NOT NULL");
             }
         }
 
