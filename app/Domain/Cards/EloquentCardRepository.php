@@ -57,15 +57,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         if ($class) {
-            $query->where(\DB::raw("JSON_EXTRACT(keywords, '$[0]')"), $class);
+            $query->whereRaw("JSON_SEARCH(keywords, 'one', '$class')");
         }
 
         if ($type) {
             $type = explode(' ', $type);
 
             for ($i = 0; $i < count($type); $i++) {
-                $index = $i + 1;
-                $query->where(\DB::raw("JSON_EXTRACT(keywords, '$[$index]')"), $type[$i]);
+                $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$type[$i]}')");
             }
         }
 
