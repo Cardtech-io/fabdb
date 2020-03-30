@@ -55,7 +55,7 @@ ARC,17,Aether Sink,R,"Aether Sink enters the arena with a steam counter on it.
 **Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**
 
 **Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",,"mechanologist,action,item",,,2,1,,
-ARC,18,Cognition Nodes,R,"Aether Sink enters the arena with a steam counter on it.
+ARC,18,Cognition Noodle,R,"Aether Sink enters the arena with a steam counter on it.
 
 **Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**
 
