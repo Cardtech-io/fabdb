@@ -31,7 +31,7 @@
                 <div class="clearfix">
                     <div class="p-4 md:w-1/3 md:float-left">
                         <div class="mb-8">
-                            <img :src="cardUrl(hero.identifier, 350, user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
+                            <img :src="cardUrl(hero.identifier, 350, user && user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <img :src="cardUrl(card.identifier, 450, !!(user.view == 'bordered'))" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl" @click="clicked" :class="clickClass">
+    <img :src="cardUrl(card.identifier, 450, wantsBorders())" :alt="card.name" :title="card.name" class="w-full rounded-lg sm:rounded-xl" @click="clicked" :class="clickClass">
 </template>
 
 <script>
@@ -27,6 +27,10 @@
 
             handlerProvided: function() {
                 return !!this.clickHandler;
+            },
+
+            wantsBorders: function() {
+                return this.user && this.user.view == 'bordered';
             }
         }
     };

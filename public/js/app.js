@@ -2341,6 +2341,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     handlerProvided: function handlerProvided() {
       return !!this.clickHandler;
+    },
+    wantsBorders: function wantsBorders() {
+      return this.user && this.user.view == 'bordered';
     }
   }
 });
@@ -63520,11 +63523,7 @@ var render = function() {
     staticClass: "w-full rounded-lg sm:rounded-xl",
     class: _vm.clickClass,
     attrs: {
-      src: _vm.cardUrl(
-        _vm.card.identifier,
-        450,
-        !!(_vm.user.view == "bordered")
-      ),
+      src: _vm.cardUrl(_vm.card.identifier, 450, _vm.wantsBorders()),
       alt: _vm.card.name,
       title: _vm.card.name
     },
@@ -68383,7 +68382,7 @@ var render = function() {
                         src: _vm.cardUrl(
                           _vm.hero.identifier,
                           350,
-                          _vm.user.view == "bordered"
+                          _vm.user && _vm.user.view == "bordered"
                         ),
                         alt: _vm.hero.name
                       }
