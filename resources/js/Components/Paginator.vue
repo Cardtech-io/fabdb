@@ -1,8 +1,8 @@
 <template>
     <div class="clearfix text-sm text-center" v-if="results">
-        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="previous">&lt;</a>
+        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1" @click.prevent="previous" :class="disabled(results.current_page == 1)">&lt;</a>
         <a v-for="n in pageRange" href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
-        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white" @click.prevent="next">&gt;</a>
+        <a href="" class="inline-block rounded px-2 py-1 bg-white mr-1" @click.prevent="next" :class="disabled(results.current_page >= results.last_page)">&gt;</a>
     </div>
 </template>
 
@@ -50,15 +50,27 @@
                 }
             },
 
+            disabled: function(disabled) {
+                if (disabled) {
+                    return 'text-gray-500 cursor-not-allowed';
+                } else {
+                    return 'hover:bg-orange-700 hover:text-white';
+                }
+            },
+
             select: function(page) {
                 this.selectPage(page);
             },
 
             next: function() {
+                if (this.results.current_page >= this.results.last_page) return;
+
                 this.selectPage(this.results.current_page + 1);
             },
 
             previous: function() {
+                if (this.results.current_page <= 1) return;
+
                 this.selectPage(this.results.current_page - 1);
             },
 

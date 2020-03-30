@@ -2557,6 +2557,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.search();
     },
+    newSearch: function newSearch() {
+      this.thisPage = 1;
+      this.filterCards();
+    },
     emptySearch: function emptySearch() {
       return !this.keywords && !this.type && !this.heroClass;
     },
@@ -3616,13 +3620,22 @@ __webpack_require__.r(__webpack_exports__);
         'text-white': this.results.current_page == n
       };
     },
+    disabled: function disabled(_disabled) {
+      if (_disabled) {
+        return 'text-gray-500 cursor-not-allowed';
+      } else {
+        return 'hover:bg-orange-700 hover:text-white';
+      }
+    },
     select: function select(page) {
       this.selectPage(page);
     },
     next: function next() {
+      if (this.results.current_page >= this.results.last_page) return;
       this.selectPage(this.results.current_page + 1);
     },
     previous: function previous() {
+      if (this.results.current_page <= 1) return;
       this.selectPage(this.results.current_page - 1);
     },
     selectPage: function selectPage(page) {
@@ -63752,7 +63765,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.filterCards($event)
+            return _vm.newSearch($event)
           }
         }
       },
@@ -65374,8 +65387,8 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass:
-                "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+              staticClass: "inline-block rounded px-2 py-1 bg-white mr-1",
+              class: _vm.disabled(_vm.results.current_page == 1),
               attrs: { href: "" },
               on: {
                 click: function($event) {
@@ -65409,8 +65422,10 @@ var render = function() {
           _c(
             "a",
             {
-              staticClass:
-                "inline-block rounded px-2 py-1 bg-white mr-1 hover:bg-orange-700 hover:text-white",
+              staticClass: "inline-block rounded px-2 py-1 bg-white mr-1",
+              class: _vm.disabled(
+                _vm.results.current_page >= _vm.results.last_page
+              ),
               attrs: { href: "" },
               on: {
                 click: function($event) {

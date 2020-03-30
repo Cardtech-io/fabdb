@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="filterCards" class="block flex flex-wrap mb-4">
+        <form @submit.prevent="newSearch" class="block flex flex-wrap mb-4">
             <div class="flex w-full md:w-3/4">
                 <div class="w-full md:w-3/5 px-4 md:pr-2 md:pl-0">
                     <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Keywords</label>
@@ -92,6 +92,11 @@
                 }
 
                 this.search();
+            },
+
+            newSearch: function() {
+                this.thisPage = 1;
+                this.filterCards();
             },
 
             emptySearch: function() {
