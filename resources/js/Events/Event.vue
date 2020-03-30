@@ -90,6 +90,14 @@
         computed: {
             ...mapGetters('session', ['user']),
 
+            crumbs: function() {
+                return [
+                    {text: 'Home', name: 'home'},
+                    {text: 'My Events', name: 'events.mine'},
+                    {text: this.title}
+                ];
+            },
+
             title: function() {
                 return this.event.name || 'Register event';
             }
@@ -97,11 +105,6 @@
 
         data() {
             return {
-                crumbs: [
-                    { text: 'Home', name: 'home' },
-                    { text: 'My Events', name: 'events.mine' },
-                    { text: 'Setup event' }
-                ],
                 event: { type: 'constructed' }
             }
         },

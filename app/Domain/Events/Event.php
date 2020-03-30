@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Events;
 
 use Carbon\Carbon;
+use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -13,6 +14,12 @@ class Event extends Model
 
     protected $fillable = ['name', 'type', 'startsAt'];
     protected $casts = ['startsAt' => 'datetime'];
+    protected $with = ['manager'];
+
+    public function manager()
+    {
+        return $this->belongsTo(User::class, 'user_id')->select('id', 'slug', 'name');
+    }
 
     public static function register(int $userId, string $name, EventType $type, Carbon $startsAt)
     {
