@@ -12,8 +12,11 @@ class Event extends Model
     use Raiseable;
     use Sluggable;
 
-    protected $fillable = ['name', 'type', 'startsAt'];
-    protected $casts = ['startsAt' => 'datetime'];
+    protected $fillable = ['name', 'description', 'type', 'cost', 'startsAt'];
+    protected $casts = [
+        'cost' => 'float',
+        'startsAt' => 'datetime',
+    ];
     protected $with = ['manager'];
 
     public function manager()
@@ -21,22 +24,34 @@ class Event extends Model
         return $this->belongsTo(User::class, 'user_id')->select('id', 'slug', 'name');
     }
 
-    public static function register(int $userId, string $name, EventType $type, Carbon $startsAt)
+    public function participants()
     {
-        $event = new static(compact('name', 'type', 'startsAt'));
+        return $this->hasMany(Participant::class);
+    }
+
+    public static function register(int $userId, string $name, $description, EventType $type, float $cost, Carbon $startsAt)
+    {
+        $event = new static(compact('name', 'description', 'type', 'cost', 'startsAt'));
         $event->userId = $userId;
 
-        $event->raise(new EventRegistered($userId, $name, $type, $startsAt));
+        $event->raise(new EventRegistered($userId, $name, $description, $type, $cost, $startsAt));
 
         return $event;
     }
 
-    public function change(string $name, EventType $type, Carbon $startsAt)
+    public function change(string $name, $description, EventType $type, float $cost, Carbon $startsAt)
     {
         $this->name = $name;
+        $this->description = $description;
         $this->type = $type;
+        $this->cost = $cost;
         $this->startsAt = $startsAt;
 
-        $this->raise(new EventWasChanged($name, $type, $startsAt));
+        $this->raise(new EventWasChanged($name, $description, $type, $cost, $startsAt));
+    }
+
+    public function participate(int $userId)
+    {
+        $this->participants()->firstOrCreate(['user_id' => $userId]);
     }
 }

@@ -20,11 +20,23 @@ class EventWasChanged
      */
     private $startsAt;
 
-    public function __construct(string $name, EventType $type, Carbon $startsAt)
+    /**
+     * @var  string|null
+     */
+    private $description;
+
+    /**
+     * @var float
+     */
+    private $cost;
+
+    public function __construct(string $name, $description, EventType $type, float $cost, Carbon $startsAt)
     {
         $this->name = $name;
+        $this->description = $description;
         $this->type = $type;
         $this->startsAt = $startsAt;
+        $this->cost = $cost;
     }
 
     public function name(): string
@@ -32,9 +44,19 @@ class EventWasChanged
         return $this->name;
     }
 
+    public function description()
+    {
+        return $this->description;
+    }
+
     public function type(): EventType
     {
         return $this->type;
+    }
+
+    public function cost(): float
+    {
+        return $this->cost;
     }
 
     public function startsAt(): Carbon

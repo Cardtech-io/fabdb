@@ -16,7 +16,7 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto p-4 py-8">
                 <ol v-if="events.length">
-                    <event-item :event="event" v-for="event in events"></event-item>
+                    <event-item :event="event" v-for="event in events" :key="event.slug"></event-item>
                 </ol>
                 <div v-else>
                     You have not yet registered any events. To register one, click the button top-right.

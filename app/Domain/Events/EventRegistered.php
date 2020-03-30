@@ -25,17 +25,34 @@ class EventRegistered
      */
     private $startsAt;
 
-    public function __construct(int $userId, string $name, EventType $type, Carbon $startsAt)
+    /**
+     * @var string|null
+     */
+    private $description;
+
+    /**
+     * @var float
+     */
+    private $cost;
+
+    public function __construct(int $userId, string $name, $description, EventType $type, float $cost, Carbon $startsAt)
     {
         $this->userId = $userId;
         $this->name = $name;
+        $this->description = $description;
         $this->type = $type;
         $this->startsAt = $startsAt;
+        $this->cost = $cost;
     }
 
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function description()
+    {
+        return $this->description;
     }
 
     public function userId(): int
@@ -46,6 +63,11 @@ class EventRegistered
     public function type(): EventType
     {
         return $this->type;
+    }
+
+    public function cost(): float
+    {
+        return $this->cost;
     }
 
     public function startsAt(): Carbon

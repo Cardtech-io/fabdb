@@ -31,10 +31,6 @@
                         </a>
                     </li>
                 </ul>
-
-                <div class="flex-auto text-right" v-if="event.slug">
-                    <cancel-event :event="event"></cancel-event>
-                </div>
             </div>
         </div>
 
@@ -42,9 +38,25 @@
             <div class="container sm:mx-auto p-4 py-8 md:flex">
                 <div class="md:w-1/2 md:pr-8">
                     <form @submit.prevent="saveEvent">
-                        <input v-model="event.name" placeholder="Event name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" required>
+                        <div class="w-full mb-2">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Event name</label>
+                            <input v-model="event.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" required>
+                        </div>
 
-                        <datetime v-model="event.startsAt" input-class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" format="yyyy-MM-dd HH:mm:ss" type="datetime" :use12-hour="true" :minute-step="15"></datetime>
+                        <div class="w-full mb-2">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Event cost (in your local currency)</label>
+                            <input type="number" v-model="event.cost" step=".01" min="0" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2">
+                        </div>
+
+                        <div class="w-full mb-2">
+                            <label class="block font-serif uppercase tracking-wide mb-1">When</label>
+                            <datetime v-model="event.startsAt" input-class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" format="yyyy-MM-dd HH:mm:ss" type="datetime" :use12-hour="true" :minute-step="15"></datetime>
+                        </div>
+
+                        <div class="w-full mb-2">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Description</label>
+                            <textarea v-model="event.description" rows="8" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" placeholder="Event description"></textarea>
+                        </div>
 
                         <div class="py-8">
                             <submit text="Save"></submit>
@@ -60,6 +72,10 @@
                         events with your local customers, by integrating Legend Story's GEM system, with fabdb.net's
                         deck export utility, and Tabletop Simulator.
                     </p>
+
+                    <div class="text-right mt-8" v-if="event.slug">
+                        <cancel-event :event="event"></cancel-event>
+                    </div>
                 </div>
             </div>
         </div>
@@ -129,8 +145,10 @@
             saveEvent: function() {
                 let payload = {
                     slug: this.event.slug,
-                    name: this.event.name,
                     type: this.event.type,
+                    cost: this.event.cost,
+                    name: this.event.name,
+                    description: this.event.description,
                     startsAt: this.event.startsAt,
                 };
 

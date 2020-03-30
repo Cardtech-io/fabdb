@@ -5966,6 +5966,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6025,8 +6041,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var payload = {
         slug: this.event.slug,
-        name: this.event.name,
         type: this.event.type,
+        cost: this.event.cost,
+        name: this.event.name,
+        description: this.event.description,
         startsAt: this.event.startsAt
       };
       var request = this.event.slug ? axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/events/' + this.event.slug, payload) : axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/events', payload);
@@ -6122,6 +6140,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6132,25 +6157,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   props: ['event'],
   mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+    eventLink: function eventLink() {
+      var routeName = this.event.manager.slug == this.user.slug ? 'events.edit' : 'events.view';
+      return {
+        name: routeName,
+        params: {
+          event: this.event.slug
+        }
+      };
+    }
+  }),
   data: function data() {
     return {
       time: _Utilities_Time__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
-    copyShareURL: function copyShareURL(event) {
-      var url = this.$router.resolve({
+    copyShareURL: function copyShareURL() {
+      var route = {
         name: 'events.view',
         params: {
-          event: event.slug
+          event: this.event.slug
         }
-      });
+      };
+      var url = this.$router.resolve(route);
       this.$copyText(location.protocol + '//' + location.host + url.href);
       this.addMessage({
         status: 'success',
         message: 'Event URL copied to clipboard.'
       });
+      this.$router.push(route);
     }
   })
 });
@@ -6288,11 +6325,131 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
+/* harmony import */ var _EventTypeIcon_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EventTypeIcon.vue */ "./resources/js/Events/EventTypeIcon.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Utilities_Time__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Utilities/Time */ "./resources/js/Utilities/Time.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    EventTypeIcon: _EventTypeIcon_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_8__["default"]],
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('session', ['user']), {
+    crumbs: function crumbs() {
+      return [{
+        text: 'Home',
+        name: 'home'
+      }, {
+        text: 'My Events',
+        name: 'events.mine'
+      }, {
+        text: this.title
+      }];
+    },
+    title: function title() {
+      return this.event.name || 'Register event';
+    },
+    registered: function registered() {
+      return !!this.event.registered;
+    }
+  }),
+  data: function data() {
+    return {
+      event: null,
+      time: _Utilities_Time__WEBPACK_IMPORTED_MODULE_7__["default"]
+    };
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('messages', ['addMessage']), {
+    register: function register() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/events/' + this.event.slug + '/register').then(function (response) {
+        _this.event.registered = _this.user.slug;
+
+        _this.addMessage({
+          status: 'success',
+          message: 'Successfully registered for event.'
+        });
+      });
+    }
+  }),
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__["default"])(function (to, callback) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/events/' + to.params.event).then(function (response) {
+      callback(function () {
+        this.event = response.data;
+      });
+    });
+  })
+});
 
 /***/ }),
 
@@ -78701,16 +78858,7 @@ var render = function() {
                   )
                 ]
               )
-            ]),
-            _vm._v(" "),
-            _vm.event.slug
-              ? _c(
-                  "div",
-                  { staticClass: "flex-auto text-right" },
-                  [_c("cancel-event", { attrs: { event: _vm.event } })],
-                  1
-                )
-              : _vm._e()
+            ])
           ]
         )
       ]),
@@ -78729,46 +78877,141 @@ var render = function() {
                 }
               },
               [
-                _c("input", {
-                  directives: [
+                _c("div", { staticClass: "w-full mb-2" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.event.name,
-                      expression: "event.name"
-                    }
-                  ],
-                  staticClass:
-                    "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
-                  attrs: { placeholder: "Event name", required: "" },
-                  domProps: { value: _vm.event.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.event, "name", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("datetime", {
-                  attrs: {
-                    "input-class":
-                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
-                    format: "yyyy-MM-dd HH:mm:ss",
-                    type: "datetime",
-                    "use12-hour": true,
-                    "minute-step": 15
-                  },
-                  model: {
-                    value: _vm.event.startsAt,
-                    callback: function($$v) {
-                      _vm.$set(_vm.event, "startsAt", $$v)
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
                     },
-                    expression: "event.startsAt"
-                  }
-                }),
+                    [_vm._v("Event name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.event.name,
+                        expression: "event.name"
+                      }
+                    ],
+                    staticClass:
+                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
+                    attrs: { required: "" },
+                    domProps: { value: _vm.event.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.event, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full mb-2" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("Event cost (in your local currency)")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.event.cost,
+                        expression: "event.cost"
+                      }
+                    ],
+                    staticClass:
+                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
+                    attrs: { type: "number", step: ".01", min: "0" },
+                    domProps: { value: _vm.event.cost },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.event, "cost", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "w-full mb-2" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("When")]
+                    ),
+                    _vm._v(" "),
+                    _c("datetime", {
+                      attrs: {
+                        "input-class":
+                          "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
+                        format: "yyyy-MM-dd HH:mm:ss",
+                        type: "datetime",
+                        "use12-hour": true,
+                        "minute-step": 15
+                      },
+                      model: {
+                        value: _vm.event.startsAt,
+                        callback: function($$v) {
+                          _vm.$set(_vm.event, "startsAt", $$v)
+                        },
+                        expression: "event.startsAt"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full mb-2" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("Description")]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.event.description,
+                        expression: "event.description"
+                      }
+                    ],
+                    staticClass:
+                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2",
+                    attrs: { rows: "8", placeholder: "Event description" },
+                    domProps: { value: _vm.event.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.event, "description", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -78776,32 +79019,33 @@ var render = function() {
                   [_c("submit", { attrs: { text: "Save" } })],
                   1
                 )
-              ],
-              1
+              ]
             )
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "md:w-1/2 mt-8 md:mt-0" }, [
+            _c("p", { staticClass: "mb-4" }, [
+              _vm._v(
+                "\n                    Events allow you to setup and invite players to register, and submit their decks, thereby providing\n                    a seamless solution. Furthermore, if you run one or more Local Game Stores, you will also be\n                    able to run online draft/sealed events, thereby allowing you to support remote play of these\n                    events with your local customers, by integrating Legend Story's GEM system, with fabdb.net's\n                    deck export utility, and Tabletop Simulator.\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _vm.event.slug
+              ? _c(
+                  "div",
+                  { staticClass: "text-right mt-8" },
+                  [_c("cancel-event", { attrs: { event: _vm.event } })],
+                  1
+                )
+              : _vm._e()
+          ])
         ])
       ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "md:w-1/2 mt-8 md:mt-0" }, [
-      _c("p", { staticClass: "mb-4" }, [
-        _vm._v(
-          "\n                    Events allow you to setup and invite players to register, and submit their decks, thereby providing\n                    a seamless solution. Furthermore, if you run one or more Local Game Stores, you will also be\n                    able to run online draft/sealed events, thereby allowing you to support remote play of these\n                    events with your local customers, by integrating Legend Story's GEM system, with fabdb.net's\n                    deck export utility, and Tabletop Simulator.\n                "
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -78831,15 +79075,11 @@ var render = function() {
     [
       _c(
         "span",
-        { staticClass: "block flex-initial p-4" },
+        { staticClass: "block flex-initial py-4 px-8" },
         [
           _c(
             "router-link",
-            {
-              attrs: {
-                to: { name: "events.edit", params: { event: _vm.event.slug } }
-              }
-            },
+            { attrs: { to: _vm.eventLink } },
             [
               _c("event-type-icon", {
                 attrs: { type: _vm.event.type, size: 16, title: _vm.event.type }
@@ -78855,32 +79095,39 @@ var render = function() {
         "div",
         { staticClass: "flex-auto py-4" },
         [
-          _c(
-            "router-link",
-            {
-              attrs: {
-                to: { name: "events.edit", params: { event: _vm.event.slug } }
-              }
-            },
-            [
-              _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-                _vm._v(_vm._s(_vm.event.name) + " "),
-                _c("span", { staticClass: "text-gray-500" }, [
-                  _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")")
+          _c("router-link", { attrs: { to: _vm.eventLink } }, [
+            _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+              _vm._v(_vm._s(_vm.event.name) + " "),
+              _c("span", { staticClass: "text-gray-500" }, [
+                _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-base" }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.time.calendar(_vm.event.when)) +
+                  "\n                "
+              ),
+              _c("span", { staticClass: "font-bold ml-2" }, [
+                _vm.event.cost
+                  ? _c("span", [_vm._v("$$$")])
+                  : _c("span", [_vm._v("FREE")])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.event.manager.slug == _vm.user.slug
+              ? _c("p", { staticClass: "text-sm text-blue-700" }, [
+                  _vm._v("You are managing this event.")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-base" }, [
-                _vm._v(_vm._s(_vm.time.calendar(_vm.event.when)))
-              ]),
-              _vm._v(" "),
-              _vm.event.manager.slug == _vm.user.slug
-                ? _c("p", { staticClass: "text-sm" }, [
-                    _vm._v("You are managing this event.")
-                  ])
-                : _vm._e()
-            ]
-          )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.event.registered
+              ? _c("p", { staticClass: "text-sm text-green-700" }, [
+                  _vm._v("You are participating in this event.")
+                ])
+              : _vm._e()
+          ])
         ],
         1
       ),
@@ -78894,7 +79141,7 @@ var render = function() {
           on: {
             click: function($event) {
               $event.preventDefault()
-              return _vm.copyShareURL(_vm.event)
+              return _vm.copyShareURL()
             }
           }
         },
@@ -78926,7 +79173,7 @@ var render = function() {
         "span",
         {
           staticClass:
-            "text-center py-6 px-8 flex-initial border-l border-gray-200"
+            "text-center py-6 px-8 flex-initial border-l border-gray-200 flex items-center"
         },
         [
           _c(
@@ -78948,7 +79195,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("span", { staticClass: "text-xl" }, [_vm._v("8")])
+          _c("span", { staticClass: "text-2xl ml-2" }, [_vm._v("8")])
         ]
       )
     ]
@@ -79057,7 +79304,10 @@ var render = function() {
             ? _c(
                 "ol",
                 _vm._l(_vm.events, function(event) {
-                  return _c("event-item", { attrs: { event: event } })
+                  return _c("event-item", {
+                    key: event.slug,
+                    attrs: { event: event }
+                  })
                 }),
                 1
               )
@@ -79094,7 +79344,116 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    [
+      _c("header-title", { attrs: { title: _vm.title } }),
+      _vm._v(" "),
+      _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c("div", { staticClass: "container sm:mx-auto p-4 py-8 md:flex" }, [
+          _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
+            _c(
+              "h2",
+              { staticClass: "font-serif uppercase text-4xl -mt-1 mb-4" },
+              [_vm._v("Event details")]
+            ),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", { staticClass: "bg-gray-100 p-2 px-4" }, [
+                _c("h3", { staticClass: "font-serif uppercase text-xl" }, [
+                  _vm._v(_vm._s(_vm.event.name) + " "),
+                  _c("span", { staticClass: "text-gray-500" }, [
+                    _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "p-2 px-4" }, [
+                _c("span", { staticClass: "font-serif uppercase" }, [
+                  _vm._v("Cost")
+                ]),
+                _vm._v(":\n                        "),
+                _vm.event.cost
+                  ? _c("span", [_vm._v(_vm._s(_vm.event.cost))])
+                  : _c("span", [_vm._v("FREE")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "bg-gray-100 p-2 px-4" }, [
+                _c("span", { staticClass: "font-serif uppercase" }, [
+                  _vm._v("When")
+                ]),
+                _vm._v(
+                  ":\n                        " +
+                    _vm._s(_vm.time.calendar(_vm.event.startsAt)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "pt-8" }, [
+                !_vm.registered
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "appearance-none inline-block bg-blue-700 text-white rounded-full py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.register()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Register for event\n                        "
+                        )
+                      ]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass:
+                          "appearance-none inline-block bg-blue-700 text-white rounded-full py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.unregister()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Unregister\n                        "
+                        )
+                      ]
+                    )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-8 md:mt-0 md:w-1/2" }, [
+            _c(
+              "div",
+              { staticClass: "float-left mr-6 mb-2" },
+              [
+                _c("event-type-icon", {
+                  attrs: { type: _vm.event.type, size: "24" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.event.description))])
+          ])
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

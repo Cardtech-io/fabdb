@@ -44,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('event', function($slug) {
-            return app(EventRepository::class)->bySlug($slug);
+            return app(EventRepository::class)->view($slug, @Auth::user()->id);
         });
     }
 

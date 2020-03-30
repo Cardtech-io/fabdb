@@ -5,5 +5,7 @@ use FabDB\Library\Repository;
 
 interface EventRepository extends Repository
 {
-    public function runBy($userId);
+    public function involving($userId);
+
+    public function view(string $slug, $userId): Event;
 }
