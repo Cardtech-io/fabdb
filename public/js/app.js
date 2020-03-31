@@ -2272,7 +2272,7 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: function metaInfo() {
     var description = this.setDescription;
     return {
-      title: 'Flesh and Blood Card List',
+      title: 'Flesh and Blood TCG Card List',
       meta: [{
         vmid: 'description',
         name: 'description',
@@ -2462,6 +2462,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -63937,6 +63939,12 @@ var render = function() {
                 _c("option", { attrs: { value: "defense reaction" } }, [
                   _vm._v("Defense reaction")
                 ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "equipment" } }, [
+                  _vm._v("Equipment")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "hero" } }, [_vm._v("Hero")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "instant" } }, [
                   _vm._v("Instant")

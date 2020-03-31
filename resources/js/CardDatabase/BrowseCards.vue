@@ -82,7 +82,7 @@
             let description = this.setDescription;
 
             return {
-                title: 'Flesh and Blood Card List',
+                title: 'Flesh and Blood TCG Card List',
                 meta: [
                     { vmid: 'description', name: 'description', content: this.setDescription }
                 ]

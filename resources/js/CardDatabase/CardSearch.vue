@@ -31,6 +31,8 @@
                         <option value="attack">Attack</option>
                         <option value="attack reaction">Attack reaction</option>
                         <option value="defense reaction">Defense reaction</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="hero">Hero</option>
                         <option value="instant">Instant</option>
                     </select>
                 </div>
