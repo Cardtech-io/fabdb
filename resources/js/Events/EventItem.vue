@@ -17,7 +17,7 @@
                     </span>
                 </p>
                 <p v-if="manager" class="text-sm text-blue-700">You are managing this event.</p>
-                <p v-if="event.registered" class="text-sm text-green-700">You are participating in this event.</p>
+                <p v-if="registered" class="text-sm text-green-700">You are participating in this event.</p>
             </router-link>
         </div>
 
@@ -60,6 +60,12 @@
 
             manager: function() {
                 return this.event.manager.slug == this.user.slug;
+            },
+
+            registered: function() {
+                return this.event.players.filter(player => {
+                    return player.userId == this.user.id;
+                }).length;
             }
         },
 

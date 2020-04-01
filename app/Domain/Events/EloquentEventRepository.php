@@ -15,16 +15,17 @@ class EloquentEventRepository extends EloquentRepository implements EventReposit
     public function involving($userId)
     {
         return $this->newQuery()
+            ->with('players')
             ->select('events.*', DB::raw('COUNT(players.id) AS player_count'))
-            ->addSelect('users.slug AS registered')
-            ->leftJoin('players', function($join) use ($userId) {
-                $join->on('players.event_id', '=', 'events.id');
+            ->leftJoin('players', 'players.event_id', '=', 'events.id')
+            ->leftJoin(DB::raw('players AS playing'), function($join) use ($userId) {
+                $join->on('playing.event_id', '=', 'events.id');
+                $join->where('playing.user_id', $userId);
             })
-            ->leftJoin('users', 'users.id', '=', 'players.user_id')
             ->where('events.user_id', $userId)
-            ->orWhere('players.user_id', '=', $userId)
-            ->orderBy('updated_at', 'desc')
-            ->groupBy('events.id', 'registered')
+            ->orWhereNotNull('playing.id')
+            ->orderBy('starts_at', 'desc')
+            ->groupBy('events.id')
             ->get();
     }
 

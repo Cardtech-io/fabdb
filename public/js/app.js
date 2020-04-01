@@ -6183,6 +6183,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     manager: function manager() {
       return this.event.manager.slug == this.user.slug;
+    },
+    registered: function registered() {
+      var _this = this;
+
+      return this.event.players.filter(function (player) {
+        return player.userId == _this.user.id;
+      }).length;
     }
   }),
   data: function data() {
@@ -6267,6 +6274,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EventItem_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EventItem.vue */ "./resources/js/Events/EventItem.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6311,6 +6324,7 @@ __webpack_require__.r(__webpack_exports__);
     EventTypeIcon: _EventTypeIcon_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])),
   data: function data() {
     return {
       crumbs: [{
@@ -79239,7 +79253,7 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm.event.registered
+            _vm.registered
               ? _c("p", { staticClass: "text-sm text-green-700" }, [
                   _vm._v("You are participating in this event.")
                 ])
@@ -79403,15 +79417,17 @@ var render = function() {
               "div",
               { staticClass: "text-right flex-auto" },
               [
-                _c(
-                  "router-link",
-                  {
-                    staticClass:
-                      "rounded-full py-2 px-4 bg-white text-orange-700 hover:bg-orange-700 hover:text-white",
-                    attrs: { to: { name: "events.start" } }
-                  },
-                  [_vm._v("Schedule an event")]
-                )
+                _vm.user.role == "owner" || _vm.user.role == "editor"
+                  ? _c(
+                      "router-link",
+                      {
+                        staticClass:
+                          "rounded-full py-2 px-4 bg-white text-orange-700 hover:bg-orange-700 hover:text-white",
+                        attrs: { to: { name: "events.start" } }
+                      },
+                      [_vm._v("Schedule an event")]
+                    )
+                  : _vm._e()
               ],
               1
             )

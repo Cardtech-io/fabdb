@@ -8,7 +8,7 @@
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="text-right flex-auto">
-                    <router-link :to="{ name: 'events.start' }" class="rounded-full py-2 px-4 bg-white text-orange-700 hover:bg-orange-700 hover:text-white">Schedule an event</router-link>
+                    <router-link :to="{ name: 'events.start' }" class="rounded-full py-2 px-4 bg-white text-orange-700 hover:bg-orange-700 hover:text-white" v-if="user.role == 'owner' || user.role == 'editor'">Schedule an event</router-link>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
 
 <script>
     import moment from 'moment';
-    import { mapActions } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
     import Crumbs from '../Components/Crumbs.vue';
     import Button from '../Components/Form/Button.vue';
@@ -44,6 +44,10 @@
             EventItem,
             EventTypeIcon,
             HeaderTitle
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         data() {
