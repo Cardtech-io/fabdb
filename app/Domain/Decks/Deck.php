@@ -14,7 +14,7 @@ class Deck extends Model
 
     protected $appends = ['hero'];
     protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
-    protected $hidden = ['id'];
+    protected $hidden = ['id', 'user_id'];
     protected $with = ['cards'];
 
     public function user()

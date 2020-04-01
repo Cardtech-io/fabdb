@@ -21,18 +21,25 @@
                             {{ time.calendar(event.startsAt) }}
                         </li>
                         <li class="pt-8">
-                            <register-player :event="event"></register-player>
+                            <player-event-actions :event="event"></player-event-actions>
                         </li>
                     </ul>
                 </div>
 
                 <div class="mt-8 md:mt-0 md:w-1/2">
-                    <div class="float-left mr-6 mb-2">
-                        <event-type-icon :type="event.type" size="24"></event-type-icon>
+                    <div class="clearfix">
+                        <div class="float-left mr-6 mb-2">
+                            <event-type-icon :type="event.type" size="24"></event-type-icon>
+                        </div>
+
+                        <p v-html="parseMarkdown(event.description)"></p>
                     </div>
 
-                    <p>{{ event.description }}</p>
+                    <div class="mt-8">
+                        <registered-players :event="event"></registered-players>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -47,7 +54,8 @@
     import EventTypeIcon from './EventTypeIcon.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
-    import RegisterPlayer from './RegisterPlayer.vue';
+    import PlayerEventActions from './PlayerEventActions.vue';
+    import RegisteredPlayers from './RegisteredPlayers.vue';
     import Time from '../Utilities/Time';
     import Strings from '../Utilities/Strings';
 
@@ -56,7 +64,8 @@
             Breadcrumbs,
             EventTypeIcon,
             HeaderTitle,
-            RegisterPlayer,
+            PlayerEventActions,
+            RegisteredPlayers,
         },
 
         mixins: [ Strings ],

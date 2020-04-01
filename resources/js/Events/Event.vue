@@ -55,7 +55,7 @@
 
                         <div class="w-full mb-2">
                             <label class="block font-serif uppercase tracking-wide mb-1">Description</label>
-                            <textarea v-model="event.description" rows="8" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2" placeholder="Event description"></textarea>
+                            <markdown-editor v-model="event.description" ref="markdownEditor"></markdown-editor>
                         </div>
 
                         <div class="py-8">
@@ -78,13 +78,17 @@
                     </div>
 
                     <div class="mt-8">
-                        <registered-players :event="event"></registered-players>
+                        <manage-players :event="event"></manage-players>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<style>
+    @import '~simplemde/dist/simplemde.min.css';
+</style>
 
 <script>
     import axios from 'axios';
@@ -96,8 +100,9 @@
     import { Datetime } from 'vue-datetime';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
-    import RegisteredPlayers from './RegisteredPlayers.vue';
+    import ManagePlayers from './ManagePlayers.vue';
     import Submit from '../Components/Form/Submit.vue';
+    import MarkdownEditor from 'vue-simplemde';
 
     export default {
         components: {
@@ -105,8 +110,9 @@
             CancelEvent,
             Datetime,
             HeaderTitle,
-            RegisteredPlayers,
-            Submit
+            ManagePlayers,
+            Submit,
+            MarkdownEditor
         },
 
         computed: {

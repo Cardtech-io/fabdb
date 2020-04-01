@@ -8,6 +8,7 @@ use FabDB\Domain\Events\EventType;
 use FabDB\Domain\Events\RegisterEvent;
 use FabDB\Domain\Events\ChangeEvent;
 use FabDB\Domain\Events\RegisterPlayer;
+use FabDB\Domain\Events\SubmitDeck;
 use FabDB\Domain\Events\UnregisterPlayer;
 use FabDB\Http\Requests\CancelEventRequest;
 use FabDB\Http\Requests\RegisterEventRequest;
@@ -74,6 +75,15 @@ class EventController extends Controller
         $this->dispatchNow(new UnregisterPlayer(
             $request->event->id,
             $request->user()->id
+        ));
+    }
+
+    public function submitDeck(Request $request)
+    {
+        $this->dispatchNow(new SubmitDeck(
+            $request->event->id,
+            $request->user()->id,
+            $request->get('deck')
         ));
     }
 }

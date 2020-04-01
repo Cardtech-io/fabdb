@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Events;
 
 use Carbon\Carbon;
+use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
@@ -27,6 +28,11 @@ class Event extends Model
     public function players()
     {
         return $this->hasMany(Player::class);
+    }
+
+    public function decks()
+    {
+        return $this->belongsToMany(Deck::class, 'submitted_decks')->withTimestamps();
     }
 
     public static function setup(int $userId, string $name, $description, EventType $type, float $fee, Carbon $startsAt)

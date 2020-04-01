@@ -16,12 +16,12 @@
                         <span v-else="event.fee">FREE</span>
                     </span>
                 </p>
-                <p v-if="event.manager.slug == user.slug" class="text-sm text-blue-700">You are managing this event.</p>
+                <p v-if="manager" class="text-sm text-blue-700">You are managing this event.</p>
                 <p v-if="event.registered" class="text-sm text-green-700">You are participating in this event.</p>
             </router-link>
         </div>
 
-        <a href="" class="text-center py-6 px-8 flex-initial border-l border-gray-200 link" @click.prevent="copyShareURL()">
+        <a href="" class="text-center py-6 px-8 flex-initial border-l border-gray-200 link" @click.prevent="copyShareURL()" v-if="manager">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current w-6 h-6">
                 <title>Share event</title>
                 <path d="M4 10c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-8zm2 0v8h8v-8h-2V8H8v2H6zm3-6.17V16h2V3.83l3.07 3.07 1.42-1.41L10 0l-.7.7-4.8 4.8 1.42 1.4L9 3.84z"/>
@@ -56,6 +56,10 @@
                 let routeName = this.event.manager.slug == this.user.slug ? 'events.edit' : 'events.view';
 
                 return { name: routeName, params: { event: this.event.slug } };
+            },
+
+            manager: function() {
+                return this.event.manager.slug == this.user.slug;
             }
         },
 

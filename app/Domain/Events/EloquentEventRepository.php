@@ -32,6 +32,7 @@ class EloquentEventRepository extends EloquentRepository implements EventReposit
     {
         $query = $this->newQuery()
             ->with('players', 'players.user')
+            ->with('decks')
             ->select('events.*')
             ->where('events.slug', $slug);
 
@@ -46,5 +47,12 @@ class EloquentEventRepository extends EloquentRepository implements EventReposit
         }
 
         return $query->firstOrFail();
+    }
+
+    public function submitDeck(Event $event, int $deckId, int $userId)
+    {
+        DB::statement('DELETE FROM submitted_decks WHERE event_id = ? AND user_id = ?', [$event->id, $userId]);
+
+        $event->decks()->attach([$deckId => ['user_id' => $userId]]);
     }
 }
