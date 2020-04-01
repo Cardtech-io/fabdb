@@ -3,7 +3,7 @@ namespace FabDB\Domain\Events;
 
 use FabDB\Library\Dispatchable;
 
-class RegisterParticipant
+class RegisterPlayer
 {
     use Dispatchable;
 
@@ -28,6 +28,8 @@ class RegisterParticipant
         /** @var Event $event */
         $event = $events->find($this->eventId);
 
-        $event->participate($this->userId);
+        $event->register($this->userId);
+
+        $this->dispatch($event->releaseEvents());
     }
 }

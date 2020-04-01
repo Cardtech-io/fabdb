@@ -33,16 +33,16 @@ class EventRegistered
     /**
      * @var float
      */
-    private $cost;
+    private $fee;
 
-    public function __construct(int $userId, string $name, $description, EventType $type, float $cost, Carbon $startsAt)
+    public function __construct(int $userId, string $name, $description, EventType $type, float $fee, Carbon $startsAt)
     {
         $this->userId = $userId;
         $this->name = $name;
         $this->description = $description;
         $this->type = $type;
         $this->startsAt = $startsAt;
-        $this->cost = $cost;
+        $this->fee = $fee;
     }
 
     public function name(): string
@@ -65,9 +65,9 @@ class EventRegistered
         return $this->type;
     }
 
-    public function cost(): float
+    public function fee(): float
     {
-        return $this->cost;
+        return $this->fee;
     }
 
     public function startsAt(): Carbon

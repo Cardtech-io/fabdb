@@ -7,7 +7,8 @@ use FabDB\Domain\Events\EventRepository;
 use FabDB\Domain\Events\EventType;
 use FabDB\Domain\Events\RegisterEvent;
 use FabDB\Domain\Events\ChangeEvent;
-use FabDB\Domain\Events\RegisterParticipant;
+use FabDB\Domain\Events\RegisterPlayer;
+use FabDB\Domain\Events\UnregisterPlayer;
 use FabDB\Http\Requests\CancelEventRequest;
 use FabDB\Http\Requests\RegisterEventRequest;
 use FabDB\Http\Requests\UpdateEventRequest;
@@ -60,9 +61,17 @@ class EventController extends Controller
         ));
     }
 
-    public function registerParticipant(Request $request)
+    public function register(Request $request)
     {
-        $this->dispatchNow(new RegisterParticipant(
+        $this->dispatchNow(new RegisterPlayer(
+            $request->event->id,
+            $request->user()->id
+        ));
+    }
+
+    public function unregister(Request $request)
+    {
+        $this->dispatchNow(new UnregisterPlayer(
             $request->event->id,
             $request->user()->id
         ));

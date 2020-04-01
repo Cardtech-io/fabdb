@@ -21,12 +21,7 @@
                             {{ time.calendar(event.startsAt) }}
                         </li>
                         <li class="pt-8">
-                            <button @click.prevent="register()" type="button" class="appearance-none inline-block bg-blue-700 text-white rounded-full py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-if="!registered">
-                                Register for event
-                            </button>
-                            <button @click.prevent="unregister()" type="button" class="appearance-none inline-block bg-blue-700 text-white rounded-full py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-else="registered">
-                                Unregister
-                            </button>
+                            <register-player :event="event"></register-player>
                         </li>
                     </ul>
                 </div>
@@ -52,6 +47,7 @@
     import EventTypeIcon from './EventTypeIcon.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import RegisterPlayer from './RegisterPlayer.vue';
     import Time from '../Utilities/Time';
     import Strings from '../Utilities/Strings';
 
@@ -60,6 +56,7 @@
             Breadcrumbs,
             EventTypeIcon,
             HeaderTitle,
+            RegisterPlayer,
         },
 
         mixins: [ Strings ],
@@ -88,17 +85,6 @@
             return {
                 event: null,
                 time: Time
-            }
-        },
-
-        methods: {
-            ...mapActions('messages', ['addMessage']),
-
-            register: function() {
-                axios.post('/events/' + this.event.slug + '/register').then(response => {
-                    this.event.registered = this.user.slug;
-                    this.addMessage({ status: 'success', message: 'Successfully registered for event.' });
-                });
             }
         },
 

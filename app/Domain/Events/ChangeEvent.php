@@ -36,16 +36,16 @@ class ChangeEvent
     /**
      * @var float
      */
-    private $cost;
+    private $fee;
 
-    public function __construct(string $slug, string $name, $description, EventType $type, float $cost, Carbon $startsAt)
+    public function __construct(string $slug, string $name, $description, EventType $type, float $fee, Carbon $startsAt)
     {
         $this->slug = $slug;
         $this->name = $name;
         $this->type = $type;
         $this->startsAt = $startsAt;
         $this->description = $description;
-        $this->cost = $cost;
+        $this->fee = $fee;
     }
 
     public function handle(EventRepository $events)
@@ -53,7 +53,7 @@ class ChangeEvent
         /** @var Event $event */
         $event = $events->bySlug($this->slug);
 
-        $event->change($this->name, $this->description, $this->type, $this->cost, $this->startsAt);
+        $event->change($this->name, $this->description, $this->type, $this->fee, $this->startsAt);
 
         $events->save($event);
 

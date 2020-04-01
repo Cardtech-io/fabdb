@@ -39,23 +39,23 @@ class RegisterEvent
     /**
      * @var float
      */
-    private $cost;
+    private $fee;
 
 
-    public function __construct(EventRegistrationObserver $observer, int $userId, string $name, $description, EventType $type, float $cost, Carbon $when)
+    public function __construct(EventRegistrationObserver $observer, int $userId, string $name, $description, EventType $type, float $fee, Carbon $when)
     {
         $this->observer = $observer;
         $this->userId = $userId;
         $this->name = $name;
         $this->description = $description;
         $this->type = $type;
-        $this->cost = $cost;
+        $this->fee = $fee;
         $this->when = $when;
     }
 
     public function handle(EventRepository $events)
     {
-        $event = Event::register($this->userId, $this->name, $this->description, $this->type, $this->cost, $this->when);
+        $event = Event::setup($this->userId, $this->name, $this->description, $this->type, $this->fee, $this->when);
 
         $events->save($event);
 

@@ -3,6 +3,7 @@ namespace FabDB\Domain\Events;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Facades\DB;
 
 class EloquentEventRepository extends EloquentRepository implements EventRepository
 {
@@ -14,34 +15,36 @@ class EloquentEventRepository extends EloquentRepository implements EventReposit
     public function involving($userId)
     {
         return $this->newQuery()
-            ->select('events.*')
+            ->select('events.*', DB::raw('COUNT(players.id) AS player_count'))
             ->addSelect('users.slug AS registered')
-            ->leftJoin('participants', function($join) use ($userId) {
-                $join->on('participants.event_id', '=', 'events.id');
+            ->leftJoin('players', function($join) use ($userId) {
+                $join->on('players.event_id', '=', 'events.id');
             })
-            ->leftJoin('users', 'users.id', '=', 'participants.user_id')
+            ->leftJoin('users', 'users.id', '=', 'players.user_id')
             ->where('events.user_id', $userId)
-            ->orWhere('participants.user_id', '=', $userId)
+            ->orWhere('players.user_id', '=', $userId)
             ->orderBy('updated_at', 'desc')
+            ->groupBy('events.id', 'registered')
             ->get();
     }
 
     public function view(string $slug, $userId): Event
     {
         $query = $this->newQuery()
+            ->with('players', 'players.user')
             ->select('events.*')
             ->where('events.slug', $slug);
 
         // If the user id is provided, we want to see if the user has registered.
         if ($userId) {
             $query->addSelect('users.slug AS registered');
-            $query->leftJoin('participants', function($join) use ($userId) {
-                $join->on('participants.event_id', '=', 'events.id');
-                $join->where('participants.user_id', '=', $userId);
+            $query->leftJoin('players', function($join) use ($userId) {
+                $join->on('players.event_id', '=', 'events.id');
+                $join->where('players.user_id', '=', $userId);
             });
-            $query->leftJoin('users', 'users.id', '=', 'participants.user_id');
+            $query->leftJoin('users', 'users.id', '=', 'players.user_id');
         }
 
-        return$query->firstOrFail();
+        return $query->firstOrFail();
     }
 }

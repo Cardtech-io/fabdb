@@ -48,8 +48,8 @@ Route::middleware(['web'])->group(function() {
             Route::get('events/{event}', 'EventController@view');
             Route::put('events/{event}', 'EventController@update');
             Route::delete('events/{event}', 'EventController@cancel');
-            Route::post('events/{event}/register', 'EventController@registerParticipant');
-            Route::delete('events/{event}/unregister', 'EventController@unregisterParticipant');
+            Route::post('events/{event}/register', 'EventController@register');
+            Route::delete('events/{event}/registration', 'EventController@unregister');
 
             Route::get('decks/mine', 'DeckController@mine');
             Route::post('decks/{deck}', 'DeckController@addCard');

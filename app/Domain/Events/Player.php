@@ -4,9 +4,10 @@ namespace FabDB\Domain\Events;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Model;
 
-class Participant extends Model
+class Player extends Model
 {
     protected $fillable = ['user_id', 'event_id'];
+    protected $hidden = ['id', 'user_id', 'event_id'];
 
     public function event()
     {
@@ -15,6 +16,6 @@ class Participant extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->select('id', 'slug', 'name');
     }
 }
