@@ -1,10 +1,13 @@
 <template>
     <div>
         <span v-for="crumb in crumbs">
-            <span v-if="crumb.link">
-                <router-link :to="crumb.link" class="text-white hover:text-orange-300">{{ crumb.text }}</router-link> <span class="text-orange-500">&gt;</span>
+            <span v-if="crumb.name" class="inline-block pr-1">
+                <router-link :to="{ name: crumb.name }" class="text-white hover:text-orange-300 inline-block pr-1">{{ crumb.text }}</router-link><span class="text-orange-500 inline-block">&gt;</span>
             </span>
-            <span v-else class="text-orange-300">
+            <span v-else-if="crumb.link" class="inline-block pr-1">
+                <router-link :to="crumb.link" class="text-white hover:text-orange-300 inline-block pr-1">{{ crumb.text }}</router-link><span class="text-orange-500 inline-block">&gt;</span>
+            </span>
+            <span v-else class="text-orange-300 inline-block">
                 {{ crumb.text }}
             </span>
         </span>

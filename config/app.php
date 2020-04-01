@@ -170,14 +170,15 @@ return [
          * Application Service Providers...
          */
         FabDB\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        FabDB\Providers\BroadcastServiceProvider::class,
         FabDB\Providers\EventServiceProvider::class,
         FabDB\Providers\RouteServiceProvider::class,
         FabDB\Domain\Cards\CardsServiceProvider::class,
         FabDB\Domain\Collection\CollectionServiceProvider::class,
         FabDB\Domain\Comments\CommentServiceProvider::class,
-        FabDB\Domain\Decks\DecksServiceProvider::class,
         FabDB\Domain\Content\ContentServiceProvider::class,
+        FabDB\Domain\Decks\DecksServiceProvider::class,
+        FabDB\Domain\Events\EventsServiceProvider::class,
         FabDB\Domain\Users\UsersServiceProvider::class,
     ],
 

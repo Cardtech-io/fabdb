@@ -76,6 +76,11 @@ class User extends Model implements Authenticatable
         return $this->role === 'editor';
     }
 
+    public function isStoreOwner()
+    {
+        return $this->role == 'owner';
+    }
+
     public function updateName(string $name)
     {
         $this->name = $name;

@@ -112,5 +112,9 @@ export default {
 
             return string.toLowerCase().replace(/[^0-9a-z\s]+/g, '').replace(/\s+/g, delimiter);
         },
+
+        ucfirst: function(string) {
+            return string[0].toUpperCase() + string.slice(1);
+        }
     }
 };

@@ -16,7 +16,10 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function forUser(int $userId): Collection
     {
-        return $this->newQuery()->whereUserId($userId)->get();
+        return $this->newQuery()
+            ->whereUserId($userId)
+            ->orderBy('updated_at', 'desc')
+            ->get();
     }
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model
