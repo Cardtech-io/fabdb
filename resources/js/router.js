@@ -35,7 +35,7 @@ const router = new VueRouter({
         { path: "/cards/:identifier", component: ViewCard, name: 'card-view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
 
         { path: "/events/mine", component: Events, meta: { title: 'My Events', auth: true }, name: 'events.mine' },
-        { path: "/events/start", component: Event, meta: { title: 'Events', auth: true }, name: 'events.start' },
+        { path: "/events/schedule", component: Event, meta: { title: 'Events', auth: true }, name: 'events.start' },
         { path: "/events/:event", component: EventView, meta: { title: 'View Event' }, name: 'events.view' },
         { path: "/events/:event/edit", component: Event, meta: { title: 'Edit Event', auth: true }, name: 'events.edit' },
 

@@ -45,7 +45,7 @@
 
                         <div class="w-full mb-2">
                             <label class="block font-serif uppercase tracking-wide mb-1">Event fee</label>
-                            <input type="number" v-model="event.cost" step=".01" min="0" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2">
+                            <input type="number" v-model="event.fee" step=".01" min="0" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg mb-2">
                         </div>
 
                         <div class="w-full mb-2">
@@ -78,17 +78,7 @@
                     </div>
 
                     <div class="mt-8">
-                        <h2 class="font-serif uppercase text-2xl mb-2">Registered Players</h2>
-                        <div v-if="event.players.length">
-                            <ul>
-                                <li v-for="player in event.players" class="odd:bg-gray-100 px-4 py-2">
-                                    {{ player.user.name }}
-                                </li>
-                            </ul>
-                        </div>
-                        <div v-else class="bg-gray-100 px-4 py-2">
-                            There are currently no registered players.
-                        </div>
+                        <registered-players :event="event"></registered-players>
                     </div>
                 </div>
             </div>
@@ -106,6 +96,7 @@
     import { Datetime } from 'vue-datetime';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import RegisteredPlayers from './RegisteredPlayers.vue';
     import Submit from '../Components/Form/Submit.vue';
 
     export default {
@@ -114,6 +105,7 @@
             CancelEvent,
             Datetime,
             HeaderTitle,
+            RegisteredPlayers,
             Submit
         },
 
@@ -160,10 +152,10 @@
                 let payload = {
                     slug: this.event.slug,
                     type: this.event.type,
-                    cost: this.event.cost,
+                    fee: this.event.fee,
                     name: this.event.name,
                     description: this.event.description,
-                    startsAt: this.event.startsAt,
+                    startsAt: this.event.startsAt
                 };
 
                 let request = this.event.slug ?
@@ -177,7 +169,7 @@
                         message  = 'Event successfully registered.';
 
                         this.event.slug = response.data.slug;
-                        this.$router.push({ name: 'events' });
+                        this.$router.push({ name: 'events.mine' });
                     }
 
                     this.addMessage({ status: 'success', message: message });

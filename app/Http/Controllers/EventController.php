@@ -30,7 +30,7 @@ class EventController extends Controller
             $request->get('name'),
             $request->get('description'),
             new EventType($request->get('type')),
-            (float) $request->get('cost'),
+            (float) $request->get('fee'),
             new Carbon($request->get('startsAt'))
         ));
 
@@ -49,7 +49,7 @@ class EventController extends Controller
             $request->get('name'),
             $request->get('description'),
             new EventType($request->get('type')),
-            (float) $request->get('cost'),
+            (float) $request->get('fee'),
             new Carbon($request->get('startsAt'))
         ));
     }

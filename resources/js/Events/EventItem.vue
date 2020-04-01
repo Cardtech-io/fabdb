@@ -1,5 +1,5 @@
 <template>
-    <li class="block flex odd:bg-gray-100 hover:bg-gray-200 items-center">
+    <li class="block flex odd:bg-gray-100 hover:bg-white items-center mb-1">
         <span class="block flex-initial py-4 px-8">
             <router-link :to="eventLink">
                 <event-type-icon :type="event.type" :size="16" :title="event.type"></event-type-icon>
@@ -12,8 +12,8 @@
                 <p class="text-base">
                     {{ time.calendar(event.when) }}
                     <span class="font-bold ml-2">
-                        <span v-if="event.cost">$$$</span>
-                        <span v-else="event.cost">FREE</span>
+                        <span v-if="event.fee">${{ event.fee }}</span>
+                        <span v-else="event.fee">FREE</span>
                     </span>
                 </p>
                 <p v-if="event.manager.slug == user.slug" class="text-sm text-blue-700">You are managing this event.</p>
