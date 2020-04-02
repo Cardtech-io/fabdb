@@ -104544,11 +104544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 /* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
 /* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_9__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
 
 
 
@@ -104565,6 +104565,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_masonry__WEBPACK_IMPORTED_MODULE_2__["VueMasonryPlugin"]);
 _App_vue__WEBPACK_IMPORTED_MODULE_5__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_7__["default"];
 _App_vue__WEBPACK_IMPORTED_MODULE_5__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_6__["default"];
+Object(_axios_config__WEBPACK_IMPORTED_MODULE_8__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_App_vue__WEBPACK_IMPORTED_MODULE_5__["default"]).$mount('#app');
 
 /***/ }),
@@ -104573,35 +104574,35 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_App_vue__WEBPACK_IMPORTED_MODULE
 /*!**************************************!*\
   !*** ./resources/js/axios-config.js ***!
   \**************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_0__);
-var _this = undefined;
 
- // before a request is made start the nprogress
+/* harmony default export */ __webpack_exports__["default"] = (function (router) {
+  // before a request is made start the nprogress
+  axios.interceptors.request.use(function (config) {
+    nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.start();
+    return config;
+  }); // before a response is returned stop nprogress
 
-axios.interceptors.request.use(function (config) {
-  nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.start();
-  return config;
-}); // before a response is returned stop nprogress
-
-axios.interceptors.response.use(function (response) {
-  nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
-  return response;
-}, function (error) {
-  if (error.response.status === 401) {
+  axios.interceptors.response.use(function (response) {
     nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
+    return response;
+  }, function (error) {
+    if (error.response.status === 401) {
+      nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
+      router.push('/login?from=' + location.pathname);
+    }
 
-    _this.$router.go('/login');
-  }
-
-  nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
-  return Promise.reject(error);
+    nprogress__WEBPACK_IMPORTED_MODULE_0___default.a.done();
+    return Promise.reject(error);
+  });
 });
+;
 
 /***/ }),
 
@@ -104746,7 +104747,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/events/:event",
     component: _Events_ViewEvent_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
     meta: {
-      title: 'View Event'
+      title: 'View Event',
+      auth: true
     },
     name: 'events.view'
   }, {
