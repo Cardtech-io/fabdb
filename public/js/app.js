@@ -79964,12 +79964,12 @@ var render = function() {
               _vm._v(" "),
               _c("li", { staticClass: "p-2 px-4" }, [
                 _c("span", { staticClass: "font-serif uppercase" }, [
-                  _vm._v("Cost")
+                  _vm._v("Event fee")
                 ]),
                 _vm._v(":\n                        "),
-                _vm.event.cost
-                  ? _c("span", [_vm._v(_vm._s(_vm.event.cost))])
-                  : _c("span", [_vm._v("FREE")])
+                _vm.event.fee
+                  ? _c("span", [_vm._v(_vm._s(_vm.event.fee))])
+                  : _c("span", [_vm._v("None (FREE)")])
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "bg-gray-100 p-2 px-4" }, [

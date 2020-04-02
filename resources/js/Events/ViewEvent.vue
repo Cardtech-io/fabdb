@@ -12,9 +12,9 @@
                             <h3 class="font-serif uppercase text-xl">{{ event.name }} <span class="text-gray-500">({{ ucfirst(event.type) }})</span></h3>
                         </li>
                         <li class="p-2 px-4">
-                            <span class="font-serif uppercase">Cost</span>:
-                            <span v-if="event.cost">{{ event.cost }}</span>
-                            <span v-else>FREE</span>
+                            <span class="font-serif uppercase">Event fee</span>:
+                            <span v-if="event.fee">{{ event.fee }}</span>
+                            <span v-else>None (FREE)</span>
                         </li>
                         <li class="bg-gray-100 p-2 px-4">
                             <span class="font-serif uppercase">When</span>:
