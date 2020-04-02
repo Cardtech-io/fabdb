@@ -13,7 +13,7 @@ import config from './axios-config';
 
 import 'vue-datetime/dist/vue-datetime.css';
 
-Vue.use(VModal)
+Vue.use(VModal, { injectModalsContainer: true });
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);

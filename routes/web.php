@@ -50,7 +50,7 @@ Route::middleware(['web'])->group(function() {
             Route::put('events/{event}', 'EventController@update');
             Route::delete('events/{event}', 'EventController@cancel');
             Route::post('events/{event}/deck', 'EventController@submitDeck');
-            Route::post('events/{event}/register', 'EventController@register');
+            Route::post('events/{event}/register', 'EventController@register')->middleware('details-required:name');;
             Route::delete('events/{event}/registration', 'EventController@unregister');
 
             Route::get('decks/mine', 'DeckController@mine');
@@ -62,6 +62,7 @@ Route::middleware(['web'])->group(function() {
 
             Route::put('profile/name', 'UserController@updateName');
             Route::put('profile', 'UserController@updateProfile');
+            Route::put('profile/complete', 'UserController@completeProfile');
 
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
         });

@@ -22,6 +22,7 @@
         </footer>
 
         <messages></messages>
+        <complete-profile></complete-profile>
     </div>
 </template>
 
@@ -29,11 +30,12 @@
     import axios from 'axios';
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
+    import CompleteProfile from './Identity/CompleteProfile.vue';
 
     import { mapActions } from 'vuex';
 
     export default {
-        components: { Messages, Navigation },
+        components: { CompleteProfile, Messages, Navigation },
 
         metaInfo: {
             title: 'Flesh & Blood TCG deck builder, collection manager, and more!',

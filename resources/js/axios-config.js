@@ -14,7 +14,6 @@ export default function(router) {
     }, error => {
         if (error.response.status === 401) {
             NProgress.done();
-
             router.push('/login?from=' + location.pathname);
         }
 

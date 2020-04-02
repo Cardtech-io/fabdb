@@ -76,6 +76,16 @@ class User extends Model implements Authenticatable
         return $this;
     }
 
+    public function completeProfile($name, $gemId)
+    {
+        $this->name = $name;
+        $this->gemId = $gemId;
+
+        $this->raise(new ProfileWasCompleted($this->id, $name, $gemId));
+
+        return $this;
+    }
+
     public function isEditor()
     {
         return $this->role === 'editor';
