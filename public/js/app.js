@@ -79964,7 +79964,7 @@ var render = function() {
             0
           )
         ])
-      : _c("div", { staticClass: "bg-gray-100 px-4 py-2" }, [
+      : _c("div", { staticClass: "py-2" }, [
           _vm._v("\n        There are currently no registered players.\n    ")
         ])
   ])
@@ -80048,28 +80048,31 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-8 md:mt-0 md:w-1/2" }, [
-            _c("div", { staticClass: "clearfix" }, [
-              _c(
-                "div",
-                { staticClass: "float-left mr-6 mb-2" },
-                [
-                  _c("event-type-icon", {
-                    attrs: { type: _vm.event.type, size: "24" }
+            _vm.event.description
+              ? _c("div", { staticClass: "clearfix mb-8" }, [
+                  _c(
+                    "div",
+                    { staticClass: "float-left mr-6 mb-2" },
+                    [
+                      _c("event-type-icon", {
+                        attrs: { type: _vm.event.type, size: "24" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("p", {
+                    domProps: {
+                      innerHTML: _vm._s(
+                        _vm.parseMarkdown(_vm.event.description)
+                      )
+                    }
                   })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("p", {
-                domProps: {
-                  innerHTML: _vm._s(_vm.parseMarkdown(_vm.event.description))
-                }
-              })
-            ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "mt-8" },
               [_c("registered-players", { attrs: { event: _vm.event } })],
               1
             )

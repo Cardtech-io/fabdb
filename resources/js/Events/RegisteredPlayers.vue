@@ -17,7 +17,7 @@
                 </li>
             </ul>
         </div>
-        <div v-else class="bg-gray-100 px-4 py-2">
+        <div v-else class="py-2">
             There are currently no registered players.
         </div>
     </div>
