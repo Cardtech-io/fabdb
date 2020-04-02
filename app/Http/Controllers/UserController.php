@@ -16,7 +16,8 @@ class UserController extends Controller
             $request->get('name'),
             $request->get('gemId'),
             $request->get('need'),
-            $request->get('view')
+            $request->get('view'),
+            $request->get('avatar', 'bauble')
         ));
     }
 

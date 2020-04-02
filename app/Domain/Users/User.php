@@ -6,6 +6,7 @@ use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class User extends Model implements Authenticatable
@@ -58,7 +59,7 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $need, $view)
+    public function updateProfile($email, $name, $gemId, $need, $view, string $avatar)
     {
         $this->email = $email;
         $this->name = $name;
@@ -66,7 +67,11 @@ class User extends Model implements Authenticatable
         $this->need = $need;
         $this->view = $view;
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need, $view));
+        if ($this->subscribed()) {
+            $this->avatar = $avatar;
+        }
+
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need, $view, $avatar));
 
         return $this;
     }
@@ -88,6 +93,11 @@ class User extends Model implements Authenticatable
         $this->raise(new NameWasUpdated($this->id, $name));
     }
 
+    public function getAvatarAttribute()
+    {
+        return Arr::get($this->attributes, 'avatar') ?: 'bauble';
+    }
+
     private function generateAuthToken()
     {
         $parts = [];
@@ -97,5 +107,10 @@ class User extends Model implements Authenticatable
         }
 
         $this->token = strtoupper(implode('-', $parts));
+    }
+
+    public function subscribed()
+    {
+        return !is_null($this->subscription);
     }
 }
