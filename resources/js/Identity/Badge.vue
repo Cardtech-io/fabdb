@@ -7,7 +7,13 @@
 
     export default {
         mixins: [Cardable],
-        props: ['subscriptionLevel', 'size'],
+        props: {
+            subscriptionLevel: {
+                type: String,
+                required: true
+            },
+            size: String
+        },
 
         computed: {
             classes: function () {

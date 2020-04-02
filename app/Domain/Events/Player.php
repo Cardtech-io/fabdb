@@ -16,6 +16,6 @@ class Player extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->select('id', 'slug', 'name', 'avatar');
+        return $this->belongsTo(User::class)->select('id', 'slug', 'name', 'avatar', 'subscription');
     }
 }
