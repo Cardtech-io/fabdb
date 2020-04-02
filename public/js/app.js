@@ -79968,7 +79968,7 @@ var render = function() {
                 ]),
                 _vm._v(":\n                        "),
                 _vm.event.fee
-                  ? _c("span", [_vm._v(_vm._s(_vm.event.fee))])
+                  ? _c("span", [_vm._v("$" + _vm._s(_vm.event.fee))])
                   : _c("span", [_vm._v("None (FREE)")])
               ]),
               _vm._v(" "),

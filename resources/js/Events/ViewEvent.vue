@@ -13,7 +13,7 @@
                         </li>
                         <li class="p-2 px-4">
                             <span class="font-serif uppercase">Event fee</span>:
-                            <span v-if="event.fee">{{ event.fee }}</span>
+                            <span v-if="event.fee">${{ event.fee }}</span>
                             <span v-else>None (FREE)</span>
                         </li>
                         <li class="bg-gray-100 p-2 px-4">
