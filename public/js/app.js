@@ -79804,7 +79804,7 @@ var render = function() {
                   [_vm._v("Submit your deck")]
                 ),
                 _vm._v(" "),
-                _vm.decks
+                _vm.decks.length
                   ? _c(
                       "ul",
                       _vm._l(_vm.decks, function(deck) {
