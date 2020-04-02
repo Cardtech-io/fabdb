@@ -6478,6 +6478,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6535,9 +6540,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     var _this4 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/mine').then(function (response) {
-      _this4.decks = response.data;
-    });
+    if (this.user) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/mine').then(function (response) {
+        _this4.decks = response.data;
+      });
+    }
   }
 });
 
@@ -79721,115 +79728,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      !_vm.registered
-        ? _c(
-            "button",
-            {
-              staticClass:
-                "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.register()
-                }
-              }
-            },
-            [_vm._v("\n        Register for event\n    ")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.registered
-        ? _c(
-            "button",
-            {
-              staticClass:
-                "appearance-none bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.unregister()
-                }
-              }
-            },
-            [_vm._v("\n        Unregister from event\n    ")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.registered
-        ? _c(
-            "button",
-            {
-              staticClass:
-                "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.showModal()
-                }
-              }
-            },
-            [_vm._v("\n        Submit a deck\n    ")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("modal", { attrs: { name: "submit-deck", classes: "bg-gray-100" } }, [
-        _c(
-          "h2",
-          {
-            staticClass:
-              "bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-8"
-          },
-          [_vm._v("Submit your deck")]
-        ),
-        _vm._v(" "),
-        _vm.decks
-          ? _c(
-              "ul",
-              _vm._l(_vm.decks, function(deck) {
-                return _c(
-                  "li",
+  return _c("div", [
+    _vm.user
+      ? _c(
+          "div",
+          [
+            !_vm.registered
+              ? _c(
+                  "button",
                   {
                     staticClass:
-                      "even:bg-gray-200 hover:bg-white hover:cursor-pointer"
+                      "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.register()
+                      }
+                    }
                   },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "block w-full px-8 py-2",
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.selectDeck(deck)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(deck.hero.name) +
-                            " (" +
-                            _vm._s(deck.name) +
-                            ")\n                "
-                        )
-                      ]
-                    )
-                  ]
+                  [_vm._v("\n            Register for event\n        ")]
                 )
-              }),
-              0
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.registered
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "appearance-none bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.unregister()
+                      }
+                    }
+                  },
+                  [_vm._v("\n            Unregister from event\n        ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.registered
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.showModal()
+                      }
+                    }
+                  },
+                  [_vm._v("\n            Submit a deck\n        ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "modal",
+              { attrs: { name: "submit-deck", classes: "bg-gray-100" } },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass:
+                      "bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-8"
+                  },
+                  [_vm._v("Submit your deck")]
+                ),
+                _vm._v(" "),
+                _vm.decks
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.decks, function(deck) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass:
+                              "even:bg-gray-200 hover:bg-white hover:cursor-pointer"
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "block w-full px-8 py-2",
+                                attrs: { href: "" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.selectDeck(deck)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(deck.hero.name) +
+                                    " (" +
+                                    _vm._s(deck.name) +
+                                    ")\n                    "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e()
+              ]
             )
-          : _vm._e()
-      ])
-    ],
-    1
-  )
+          ],
+          1
+        )
+      : _c(
+          "div",
+          [
+            _vm._v("\n        Please "),
+            _c(
+              "router-link",
+              {
+                staticClass: "link",
+                attrs: { to: "/login?from=" + _vm.$route.path }
+              },
+              [_vm._v("login")]
+            ),
+            _vm._v(" to register for this event.\n    ")
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -104747,8 +104777,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: "/events/:event",
     component: _Events_ViewEvent_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
     meta: {
-      title: 'View Event',
-      auth: true
+      title: 'View Event'
     },
     name: 'events.view'
   }, {

@@ -34,6 +34,8 @@ Route::middleware(['web'])->group(function() {
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');
 
+        Route::get('events/{event}', 'EventController@view');
+
         Route::middleware(['auth', 'strip'])->group(function () {
             Route::get('articles/mine', 'ArticleController@mine');
             Route::put('articles/{article}', 'ArticleController@update');
@@ -45,7 +47,6 @@ Route::middleware(['web'])->group(function() {
 
             Route::get('events', 'EventController@list');
             Route::post('events', 'EventController@setup');
-            Route::get('events/{event}', 'EventController@view');
             Route::put('events/{event}', 'EventController@update');
             Route::delete('events/{event}', 'EventController@cancel');
             Route::post('events/{event}/deck', 'EventController@submitDeck');

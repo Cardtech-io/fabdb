@@ -1,28 +1,33 @@
 <template>
     <div>
-        <button @click.prevent="register()" type="button" class="appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-if="!registered">
-            Register for event
-        </button>
+        <div v-if="user">
+            <button @click.prevent="register()" type="button" class="appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-if="!registered">
+                Register for event
+            </button>
 
-        <button @click.prevent="unregister()" type="button" class="appearance-none bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" v-if="registered">
-            Unregister from event
-        </button>
+            <button @click.prevent="unregister()" type="button" class="appearance-none bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" v-if="registered">
+                Unregister from event
+            </button>
 
-        <button @click.prevent="showModal()" class="appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-if="registered">
-            Submit a deck
-        </button>
+            <button @click.prevent="showModal()" class="appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50" v-if="registered">
+                Submit a deck
+            </button>
 
-        <modal name="submit-deck" classes="bg-gray-100">
-            <h2 class="bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-8">Submit your deck</h2>
+            <modal name="submit-deck" classes="bg-gray-100">
+                <h2 class="bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-8">Submit your deck</h2>
 
-            <ul v-if="decks">
-                <li v-for="deck in decks" class="even:bg-gray-200 hover:bg-white hover:cursor-pointer">
-                    <a href="" class="block w-full px-8 py-2" @click.prevent="selectDeck(deck)">
-                        {{ deck.hero.name }} ({{ deck.name }})
-                    </a>
-                </li>
-            </ul>
-        </modal>
+                <ul v-if="decks">
+                    <li v-for="deck in decks" class="even:bg-gray-200 hover:bg-white hover:cursor-pointer">
+                        <a href="" class="block w-full px-8 py-2" @click.prevent="selectDeck(deck)">
+                            {{ deck.hero.name }} ({{ deck.name }})
+                        </a>
+                    </li>
+                </ul>
+            </modal>
+        </div>
+        <div v-else>
+            Please <router-link :to="'/login?from=' + $route.path" class="link">login</router-link> to register for this event.
+        </div>
     </div>
 </template>
 
@@ -74,9 +79,11 @@
         },
 
         mounted() {
-            axios.get('/decks/mine').then(response => {
-                this.decks = response.data;
-            });
+            if (this.user) {
+                axios.get('/decks/mine').then(response => {
+                    this.decks = response.data;
+                });
+            }
         }
     };
 </script>
