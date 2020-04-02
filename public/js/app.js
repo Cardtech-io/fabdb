@@ -6529,6 +6529,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Identity_Avatar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Identity/Avatar.vue */ "./resources/js/Identity/Avatar.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6552,10 +6553,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['event'],
+  components: {
+    Avatar: _Identity_Avatar_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']))
 });
 
@@ -6848,6 +6858,10 @@ __webpack_require__.r(__webpack_exports__);
       type: Object,
       required: true
     },
+    rounded: {
+      type: String,
+      "default": 'lg'
+    },
     width: {
       type: Number,
       "default": 100
@@ -6929,6 +6943,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -79756,13 +79772,32 @@ var render = function() {
           _c(
             "ul",
             _vm._l(_vm.event.players, function(player) {
-              return _c("li", { staticClass: "odd:bg-gray-100 px-4 py-2" }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(player.user.name) +
-                    "\n            "
-                )
-              ])
+              return _c(
+                "li",
+                {
+                  staticClass:
+                    "flex odd:bg-gray-100 rounded-xl mb-2 items-center"
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c("avatar", {
+                        attrs: { user: player.user, width: 50, rounded: "xl" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-auto mx-4" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(player.user.name) +
+                        "\n                "
+                    )
+                  ])
+                ]
+              )
             }),
             0
           )
@@ -80152,7 +80187,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("img", {
-    staticClass: "w-full h-full rounded-xl",
+    class: "rounded-" + _vm.rounded,
     attrs: {
       src: _vm.imageUrl("/avatars/" + _vm.avatar + ".png", _vm.width),
       alt: _vm.user.name
@@ -80237,12 +80272,16 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "w-full flex items-center" }, [
-                    _c(
-                      "div",
-                      { staticClass: "flex-1 mr-4" },
-                      [_c("avatar", { attrs: { user: _vm.user, width: 75 } })],
-                      1
-                    ),
+                    _c("div", { staticClass: "flex-1 mr-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "rounded-xl overflow-hidden" },
+                        [
+                          _c("avatar", { attrs: { user: _vm.user, width: 75 } })
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-auto" }, [
                       _c(

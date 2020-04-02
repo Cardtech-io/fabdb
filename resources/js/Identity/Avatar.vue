@@ -1,5 +1,5 @@
 <template>
-    <img :src="imageUrl('/avatars/' + avatar + '.png', width)" :alt="user.name" class="w-full h-full rounded-xl">
+    <img :src="imageUrl('/avatars/' + avatar + '.png', width)" :alt="user.name" :class="'rounded-' + rounded">
 </template>
 
 <script>
@@ -12,6 +12,10 @@
             user: {
                 type: Object,
                 required: true
+            },
+            rounded: {
+                type: String,
+                default: 'lg'
             },
             width: {
                 type: Number,
