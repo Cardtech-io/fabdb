@@ -6376,6 +6376,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Identity_Avatar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Identity/Avatar.vue */ "./resources/js/Identity/Avatar.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6398,11 +6399,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['event'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']))
+  components: {
+    Avatar: _Identity_Avatar_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
+  methods: {
+    deck: function deck(userSlug) {
+      return this.event.decks.filter(function (deck) {
+        return deck.user.slug == userSlug;
+      })[0];
+    }
+  }
 });
 
 /***/ }),
@@ -79604,13 +79629,67 @@ var render = function() {
           _c(
             "ul",
             _vm._l(_vm.event.players, function(player) {
-              return _c("li", { staticClass: "odd:bg-gray-100 px-4 py-2" }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(player.user.name) +
-                    "\n            "
-                )
-              ])
+              return _c(
+                "li",
+                {
+                  staticClass:
+                    "flex odd:bg-gray-100 rounded-xl mb-2 items-center hover:bg-white"
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c("avatar", {
+                        attrs: { user: player.user, width: 50, rounded: "xl" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-auto mx-4" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(player.user.name) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.event.type == "constructed"
+                    ? _c(
+                        "div",
+                        { staticClass: "pr-4" },
+                        [
+                          _vm.deck(player.user.slug)
+                            ? _c(
+                                "router-link",
+                                {
+                                  staticClass: "link",
+                                  attrs: {
+                                    to: {
+                                      name: "decks.view",
+                                      params: {
+                                        deck: _vm.deck(player.user.slug).slug
+                                      }
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        View deck\n                    "
+                                  )
+                                ]
+                              )
+                            : _c("span", [
+                                _vm._v(
+                                  "\n                        Awaiting submission\n                    "
+                                )
+                              ])
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ]
+              )
             }),
             0
           )
@@ -104732,6 +104811,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/:deck",
     component: _DeckBuilder_ViewDeck_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
+    name: 'decks.view',
     meta: {
       title: 'View deck'
     }

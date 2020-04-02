@@ -33,7 +33,7 @@ class EloquentEventRepository extends EloquentRepository implements EventReposit
     {
         $query = $this->newQuery()
             ->with('players', 'players.user')
-            ->with('decks')
+            ->with('decks', 'decks.user')
             ->select('events.*')
             ->where('events.slug', $slug);
 
