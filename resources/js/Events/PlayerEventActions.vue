@@ -23,6 +23,11 @@
                         </a>
                     </li>
                 </ul>
+
+                <div class="px-8 py-4" v-else>
+                    You have not yet created any decks. In order to participate in the event you must <router-link :to="{ name: 'decks.build' }" class="link">build a deck</router-link> then
+                    submit it via the event page.
+                </div>
             </modal>
         </div>
         <div v-else>

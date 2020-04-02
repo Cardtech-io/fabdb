@@ -6483,6 +6483,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -79837,7 +79842,27 @@ var render = function() {
                       }),
                       0
                     )
-                  : _vm._e()
+                  : _c(
+                      "div",
+                      { staticClass: "px-8 py-4" },
+                      [
+                        _vm._v(
+                          "\n                You have not yet created any decks. In order to participate in the event you must "
+                        ),
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "link",
+                            attrs: { to: { name: "decks.build" } }
+                          },
+                          [_vm._v("build a deck")]
+                        ),
+                        _vm._v(
+                          " then\n                submit it via the event page.\n            "
+                        )
+                      ],
+                      1
+                    )
               ]
             )
           ],
