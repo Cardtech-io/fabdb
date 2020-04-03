@@ -55,9 +55,9 @@ ARC,17,Aether Sink,R,"Aether Sink enters the arena with a steam counter on it.
 **Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**
 
 **Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",,"mechanologist,action,item",,,2,1,,
-ARC,18,Cognition Noodle,R,"**Action** - [resource]: If there are no steam counters on Cognition Noodle, put a steam counter on it. **Go again**
+ARC,18,Cognition Nodes,R,"**Action** - [resource]: If there are no steam counters on Cognition Nodes, put a steam counter on it. **Go again**
 
-**Once per turn Attack Reaction** - Remove a steam counter from Cognition Noodle: Target attack action card gains “If this hits, put it on the bottom of your deck.”",,"mechanologist,action,item",,,3,1,,
+**Once per turn Attack Reaction** - Remove a steam counter from Cognition Nodes: Target attack action card gains “If this hits, put it on the bottom of your deck.”",,"mechanologist,action,item",,,3,1,,
 ARC,19,Convection Amplifier,R,"Convection amplifier enters the arena with 2 steam counters on it. When Convection Amplifier has no steam counters on it, destroy it.
 
 **Instant** - Remove a steam counter from Convection Amplifier: The next attack action card you play this turn gains **dominate. Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,"mechanologist,action,item",,,1,0,,
