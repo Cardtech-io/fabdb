@@ -39,7 +39,7 @@
 
         metaInfo: {
             title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
-            titleTemplate: '%s | fabdb.net',
+            titleTemplate: '%s | Flesh and Blood TCG',
             meta: [
                 { vmid: 'og:url', property: 'og:url', content: window.location.href },
                 { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' },

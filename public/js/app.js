@@ -1891,7 +1891,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   metaInfo: {
     title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
-    titleTemplate: '%s | fabdb.net',
+    titleTemplate: '%s | Flesh and Blood TCG',
     meta: [{
       vmid: 'og:url',
       property: 'og:url',
