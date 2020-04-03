@@ -23,6 +23,7 @@
 
         <messages></messages>
         <complete-profile></complete-profile>
+        <version-handler></version-handler>
     </div>
 </template>
 
@@ -31,11 +32,17 @@
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
     import CompleteProfile from './Identity/CompleteProfile.vue';
+    import VersionHandler from './Components/VersionHandler.vue';
 
     import { mapActions } from 'vuex';
 
     export default {
-        components: { CompleteProfile, Messages, Navigation },
+        components: {
+            CompleteProfile,
+            Messages,
+            Navigation,
+            VersionHandler
+        },
 
         metaInfo: {
             title: 'Flesh & Blood TCG deck builder, collection manager, and more!',

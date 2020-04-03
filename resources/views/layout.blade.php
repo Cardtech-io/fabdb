@@ -52,6 +52,7 @@
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
+            window.version = '{{ fab_version()  }}';
         </script>
         <script src="{{ fab_asset('/js/app.js') }}"></script>
     </body>
