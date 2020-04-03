@@ -3627,7 +3627,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.interceptors.response.use(function (response) {
-      if (response.header.version !== _this.version) {
+      if (response.headers['x-version'] != _this.version) {
         _this.$modal.show('version-refresh');
       }
 

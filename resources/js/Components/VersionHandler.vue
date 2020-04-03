@@ -24,10 +24,10 @@
         mounted() {
             axios.interceptors.response.use(
                 response => {
-                    if (response.header.version !== this.version) {
+                    if (response.headers['x-version'] != this.version) {
                         this.$modal.show('version-refresh');
                     }
-                    
+
                     return response;
                 },
                 error => { return Promise.reject(error); });
