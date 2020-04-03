@@ -58,11 +58,9 @@ ARC,17,Aether Sink,R,"Aether Sink enters the arena with a steam counter on it.
 ARC,18,Cognition Noodle,R,"**Action** - [resource]: If there are no steam counters on Cognition Noodle, put a steam counter on it. **Go again**
 
 **Once per turn Attack Reaction** - Remove a steam counter from Cognition Noodle: Target attack action card gains “If this hits, put it on the bottom of your deck.”",,"mechanologist,action,item",,,3,1,,
-ARC,19,Convection Amplifier,R,"Convection amplifier enters the arena with 2 steam counters on it.
+ARC,19,Convection Amplifier,R,"Convection amplifier enters the arena with 2 steam counters on it. When Convection Amplifier has no steam counters on it, destroy it.
 
-**Action** - [resource]: If there are no steam counters on Convection Amplifier, put a steam counter on it. **Go again**
-
-**Instant** - Remove a steam counter from Convection Amplifier: The next attack action card you play this turn gains **dominate. Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,"mechanologist,action,item",,,3,1,,
+**Instant** - Remove a steam counter from Convection Amplifier: The next attack action card you play this turn gains **dominate. Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,"mechanologist,action,item",,,1,0,,
 ARC,20,Over Loop,C,"If Over Loop hits, put it on the bottom of your deck.
 
 **Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Over Loop gains **go again**.)*",,"mechanologist,action,attack",,,1,2,3,5
