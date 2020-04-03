@@ -21,7 +21,15 @@
     @foreach ($cards as $card)
         <url>
             <loc>{{ url("/cards/{$card->identifier->__toString()}/") }}</loc>
-            <lastmod>2019-12-19</lastmod>
+            <lastmod>2020-04-01</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+        </url>
+    @endforeach
+    @foreach ($articles as $article)
+        <url>
+            <loc>{{ url("/articles/".\Illuminate\Support\Str::kebab($article->title).'/'.$article->slug) }}</loc>
+            <lastmod>{{ $article->updatedAt->format('Y-m-d') }}</lastmod>
             <changefreq>monthly</changefreq>
             <priority>0.5</priority>
         </url>
