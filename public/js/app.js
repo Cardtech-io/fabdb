@@ -74713,23 +74713,21 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm._l(_vm.card.stats, function(value, stat) {
-                      return _c(
-                        "li",
-                        { staticClass: "clearfix odd:bg-white" },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "float-left w-1/3 p-2 px-4" },
-                            [_vm._v(_vm._s(_vm.sentenceCase(stat)))]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "float-left w-2/3 p-2 px-4" },
-                            [_vm._v(_vm._s(value))]
-                          )
-                        ]
-                      )
+                      return value
+                        ? _c("li", { staticClass: "clearfix odd:bg-white" }, [
+                            _c(
+                              "div",
+                              { staticClass: "float-left w-1/3 p-2 px-4" },
+                              [_vm._v(_vm._s(_vm.sentenceCase(stat)))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "float-left w-2/3 p-2 px-4" },
+                              [_vm._v(_vm._s(value))]
+                            )
+                          ])
+                        : _vm._e()
                     })
                   ],
                   2

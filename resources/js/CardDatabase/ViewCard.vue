@@ -39,7 +39,7 @@
                                 </span>
                             </div>
                         </li>
-                        <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white">
+                        <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white" v-if="value">
                             <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
                             <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                         </li>
