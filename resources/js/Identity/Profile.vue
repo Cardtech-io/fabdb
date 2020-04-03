@@ -9,7 +9,7 @@
                 <div class="md:w-1/2 md:pr-8">
                     <form @submit.prevent="save">
                         <div class="w-full flex items-center">
-                            <div class="flex-1 mr-4">
+                            <div class="mr-4">
                                 <div class="rounded-xl overflow-hidden">
                                     <avatar :user="user" :width="75"></avatar>
                                 </div>

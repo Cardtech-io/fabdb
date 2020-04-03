@@ -80814,7 +80814,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "w-full flex items-center" }, [
-                    _c("div", { staticClass: "flex-1 mr-4" }, [
+                    _c("div", { staticClass: "mr-4" }, [
                       _c(
                         "div",
                         { staticClass: "rounded-xl overflow-hidden" },
