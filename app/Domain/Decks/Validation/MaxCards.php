@@ -49,7 +49,7 @@ class MaxCards implements Rule
     public function message()
     {
         $max = $this->maxNumber();
-        
+
         return "Max $max unique ".Str::plural('card', $max)." per deck.";
     }
 

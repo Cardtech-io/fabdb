@@ -190,7 +190,7 @@ class TTSExporter
         }
 
         // Now we send it to AWS
-        Storage::disk('s3')->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
+        Storage::disk('cloud')->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
 
         $this->cleanup($this->deckSheetPath());
     }
