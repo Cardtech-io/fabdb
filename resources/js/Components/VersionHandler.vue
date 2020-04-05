@@ -24,9 +24,7 @@
         mounted() {
             axios.interceptors.response.use(
                 response => {
-                    let version = response.heaers['x-version'];
-
-                    if (version && version != this.version) {
+                    if (response.headers['x-version'] && version != this.version) {
                         this.$modal.show('version-refresh');
                     }
 

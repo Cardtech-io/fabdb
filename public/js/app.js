@@ -3627,9 +3627,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.interceptors.response.use(function (response) {
-      var version = response.heaers['x-version'];
-
-      if (version && version != _this.version) {
+      if (response.headers['x-version'] && version != _this.version) {
         _this.$modal.show('version-refresh');
       }
 
@@ -3723,7 +3721,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:image',
         property: 'og:image',
-        content: 'https://' + imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
+        content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
       }, {
         vmid: 'og:width',
         property: 'og:width',
@@ -6815,6 +6813,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Content_FeaturedArticle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Content/FeaturedArticle.vue */ "./resources/js/Content/FeaturedArticle.vue");
 /* harmony import */ var _Content_FeaturedCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Content/FeaturedCard.vue */ "./resources/js/Content/FeaturedCard.vue");
 /* harmony import */ var _Content_FeaturedDeck_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Content/FeaturedDeck.vue */ "./resources/js/Content/FeaturedDeck.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -6879,11 +6878,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"]],
   components: {
     FeaturedArticle: _Content_FeaturedArticle_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     FeaturedCard: _Content_FeaturedCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -6913,7 +6914,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:image',
         property: 'og:image',
-        content: 'https://' + imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
+        content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
       }, {
         vmid: 'og:width',
         property: 'og:width',
