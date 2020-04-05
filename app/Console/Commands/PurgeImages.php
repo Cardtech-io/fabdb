@@ -52,11 +52,13 @@ class PurgeImages extends Command
 
     private function purge(string $dest)
     {
-        $url = "https://fabdb.imgix.net/cards/{$dest}";
+        $imageDomain = config('services.imgix.domain');
+
+        $url = "https://$imageDomain/cards/{$dest}";
 
         $this->info('Purging... '.$url);
 
-        $response = $this->client->post('https://api.imgix.com/v2/image/purger', [
+        $this->client->post('https://api.imgix.com/v2/image/purger', [
             'auth' => [env('IMGIX_API_KEY'), ''],
             'json' => ['url' => $url]
         ]);

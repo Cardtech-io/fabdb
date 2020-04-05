@@ -74,6 +74,7 @@ class TTSExporter
     public function generateJson(Deck $deck)
     {
         $grid = $this->determineGrid($deck->cards->count() + 1);
+        $imageDomain = config('services.imgix.domain');
 
         $json = [
             'ObjectStates' => [
@@ -97,8 +98,8 @@ class TTSExporter
                         1 => [
                             'NumWidth' => $grid['width'],
                             'NumHeight' => $grid['height'],
-                            'FaceURL' => 'http://fabdb.imgix.net/decks/tts/'.$deck->decksheet,
-                            'BackURL' => 'http://fabdb.imgix.net/cards/backs/'.$this->cardBack,
+                            'FaceURL' => 'http://'.$imageDomain.'/decks/tts/'.$deck->decksheet,
+                            'BackURL' => 'http://'.$imageDomain.'/cards/backs/'.$this->cardBack,
                             'BackIsHidden' => true
                         ]
                     ]

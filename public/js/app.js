@@ -3627,7 +3627,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.interceptors.response.use(function (response) {
-      if (response.headers['x-version'] != _this.version) {
+      var version = response.heaers['x-version'];
+
+      if (version && version != _this.version) {
         _this.$modal.show('version-refresh');
       }
 
@@ -3721,7 +3723,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:image',
         property: 'og:image',
-        content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202'
+        content: 'https://' + imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
       }, {
         vmid: 'og:width',
         property: 'og:width',
@@ -6911,7 +6913,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:image',
         property: 'og:image',
-        content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202'
+        content: 'https://' + imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202'
       }, {
         vmid: 'og:width',
         property: 'og:width',
@@ -100824,7 +100826,7 @@ __webpack_require__.r(__webpack_exports__);
     cardUrl: function cardUrl(identifier, width, withBorder) {
       var set = this.setFromIdentifier(identifier);
       var id = this.id(identifier);
-      var url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+      var url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
       if (!withBorder) {
         var dimensions = {
@@ -104938,10 +104940,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     imageUrl: function imageUrl(path, width) {
-      return window.location.protocol + '//fabdb.imgix.net' + path + '?w=' + width + '&fit=clip&auto=compress';
+      return window.location.protocol + '//' + window.settings.imageDomain + path + '?w=' + width + '&fit=clip&auto=compress';
     },
     thumbUrl: function thumbUrl(path, width, height) {
-      return window.location.protocol + '//fabdb.imgix.net' + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
+      return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     }
   }
 });
@@ -105067,6 +105069,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     ucfirst: function ucfirst(string) {
       return string[0].toUpperCase() + string.slice(1);
+    },
+    imageDomain: function imageDomain() {
+      return window.settings.imageDomain;
     }
   }
 });

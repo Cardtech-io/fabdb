@@ -52,3 +52,17 @@ function fab_version(): string
 {
     return trim(shell_exec('git rev-parse --short HEAD'));
 }
+
+/**
+ * Compiles an array of settings to be used and passed to the front-end code.
+ *
+ * @return array
+ */
+function compile_settings(): array
+{
+    $settings = [
+        'imageDomain' => config('services.imgix.domain')
+    ];
+
+    return $settings;
+}

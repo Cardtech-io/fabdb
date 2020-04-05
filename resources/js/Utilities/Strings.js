@@ -115,6 +115,10 @@ export default {
 
         ucfirst: function(string) {
             return string[0].toUpperCase() + string.slice(1);
+        },
+        
+        imageDomain: function() {
+            return window.settings.imageDomain;
         }
     }
 };

@@ -4,7 +4,7 @@ export default {
             const set = this.setFromIdentifier(identifier);
             const id = this.id(identifier);
 
-            let url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+            let url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
             if (!withBorder) {
                 const dimensions = {
