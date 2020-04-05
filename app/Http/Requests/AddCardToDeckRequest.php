@@ -4,7 +4,7 @@ namespace FabDB\Http\Requests;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\Validation\HasHero;
 use FabDB\Domain\Decks\Validation\MatchesKeywords;
-use FabDB\Domain\Decks\Validation\MaxThreeCards;
+use FabDB\Domain\Decks\Validation\MaxCards;
 use FabDB\Domain\Decks\Validation\SupportsWeapon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,7 @@ class AddCardToDeckRequest extends FormRequest
                 new HasHero($this->deck),
                 new MatchesKeywords($this->deck),
                 new SupportsWeapon($this->deck),
-                new MaxThreeCards($this->deck)
+                new MaxCards($this->deck)
             ]
         ];
     }

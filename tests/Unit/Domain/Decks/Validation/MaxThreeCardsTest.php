@@ -2,7 +2,7 @@
 namespace Tests\Unit\Domain\Decks\Validation;
 
 use FabDB\Domain\Decks\Deck;
-use FabDB\Domain\Decks\Validation\MaxThreeCards;
+use FabDB\Domain\Decks\Validation\MaxCards;
 use Tests\TestCase;
 use Tests\TestsCards;
 
@@ -21,7 +21,7 @@ class MaxThreeCardsTest extends TestCase
         $deck = new Deck;
         $deck->setRelation('cards', collect([$card1, $card2]));
 
-        $validator = new MaxThreeCards($deck);
+        $validator = new MaxCards($deck);
         
         $this->assertTrue($validator->passes('card', 'WTR006'));
         $this->assertTrue($validator->passes('card', 'WTR011'));

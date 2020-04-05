@@ -66,6 +66,11 @@ class Card extends Model
         return in_array('weapon', $this->keywords);
     }
 
+    public function is1hWeapon()
+    {
+        return $this->isWeapon() && in_array('1h', $this->keywords);
+    }
+
     public function isEquipment(): bool
     {
         return in_array('equipment', $this->keywords);
