@@ -11,6 +11,6 @@ class SinglePageApp
             return response()->view('layout');
         }
 
-        return $next($request)->header('X-Version', fab_version());
+        return $next($request);
     }
 }

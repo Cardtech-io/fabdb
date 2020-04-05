@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 Route::get('sitemap', 'SitemapController@view');
 
-Route::middleware(['web'])->group(function() {
+Route::middleware(['web', 'version'])->group(function() {
     Route::post('export/{deck}.pdf', 'ExportController@pdf');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
     Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');

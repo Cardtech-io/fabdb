@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'strip' => \FabDB\Http\Middleware\StripHtml::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'version' => \FabDB\Http\Middleware\AppVersion::class,
     ];
 
     /**
