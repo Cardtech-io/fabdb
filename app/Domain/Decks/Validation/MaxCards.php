@@ -4,6 +4,7 @@ namespace FabDB\Domain\Decks\Validation;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
 
 class MaxCards implements Rule
 {
@@ -11,6 +12,11 @@ class MaxCards implements Rule
      * @var Deck
      */
     private $deck;
+
+    /**
+     * @var Card
+     */
+    private $card;
 
     public function __construct(Deck $deck)
     {
@@ -26,22 +32,13 @@ class MaxCards implements Rule
      */
     public function passes($attribute, $value)
     {
-        /** @var Card $card */
-        $card = $this->deck->card($value);
+        $this->card = $this->deck->card($value);
 
-        if (!$card) {
+        if (!$this->card) {
             return true;
         }
 
-        if ($card->is1hWeapon()) {
-            return $card->total < 2;
-        }
-
-        if ($card->isEquipment()) {
-            return $card->total < 1;
-        }
-
-        return ! $card || $card->total < 3;
+        return $this->card->total < $this->maxNumber();
     }
 
     /**
@@ -51,6 +48,17 @@ class MaxCards implements Rule
      */
     public function message()
     {
-        return 'Max 3 unique cards per deck.';
+        $max = $this->maxNumber();
+        
+        return "Max $max unique ".Str::plural('card', $max)." per deck.";
+    }
+
+    private function maxNumber()
+    {
+        if ($this->card->isEquipment()) {
+            return 1;
+        }
+
+        return 3;
     }
 }
