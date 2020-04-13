@@ -186,6 +186,8 @@ class TTSExporter
         $process->run();
 
         if (!$process->isSuccessful()) {
+            $this->cleanup($this->deckSheetPath());
+
             throw new ProcessFailedException($process);
         }
 
