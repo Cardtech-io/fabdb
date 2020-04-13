@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+    'cloud' => env('FILESYSTEM_CLOUD', 'do'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,13 +55,23 @@ return [
             'visibility' => 'public',
         ],
 
-        'cloud' => [
+        's3' => [
             'driver' => 's3',
-            'key' => env('DO_ACCESS_KEY_ID'),
-            'secret' => env('DO_SECRET_ACCESS_KEY'),
-            'region' => env('DO_DEFAULT_REGION'),
-            'bucket' => env('DO_BUCKET'),
-            'url' => env('DO_URL'),
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'url' => env('AWS_URL'),
+        ],
+
+        'do' => [
+            'driver' => 's3',
+            'key' => env('DO_SPACES_ACCESS_KEY_ID'),
+            'secret' => env('DO_SPACES_SECRET_ACCESS_KEY'),
+            'region' => env('DO_SPACES_DEFAULT_REGION'),
+            'bucket' => env('DO_SPACES_BUCKET'),
+            'endpoint' => env('DO_SPACES_ENDPOINT'),
+            'visibility' => 'public',
         ],
 
         'scraped' => [
@@ -73,7 +83,6 @@ return [
             'driver' => 'local',
             'root' => storage_path('carddb'),
         ]
-
     ],
 
 ];

@@ -39,6 +39,6 @@ return [
     ],
 
     'imgix'=> [
-        'domain'=> 'fabdb.imgix.net'
+        'domain'=> env('IMGIX_DOMAIN')
     ]
 ];
