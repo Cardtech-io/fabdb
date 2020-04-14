@@ -58,7 +58,7 @@ export default {
         },
 
         hasResource: function(card) {
-            return card.stats.hasOwnProperty('resource');
+            return card.stats.hasOwnProperty('resource') && card.stats.resource > 0;
         },
 
         setFromIdentifier: function(identifier) {

@@ -25,7 +25,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto">
-                <div v-if="results && results.data">
+                <div v-if="results && results.data" class="px-4">
                     <div class="clearfix p-4">
                         <div class="float-left w-1/4 px-4 md:px-0">
                             <a href="" @click.prevent="setView('gallery')" class="text-gray-800" :class="{ 'text-orange-700 hover:text-gray-500': view != 'gallery' }">

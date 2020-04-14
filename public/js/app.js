@@ -74998,7 +74998,7 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200" }, [
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
-            ? _c("div", [
+            ? _c("div", { staticClass: "px-4" }, [
                 _c("div", { staticClass: "clearfix p-4" }, [
                   _c("div", { staticClass: "float-left w-1/4 px-4 md:px-0" }, [
                     _c(
@@ -100911,7 +100911,7 @@ __webpack_require__.r(__webpack_exports__);
       return string[0].toUpperCase() + string.slice(1);
     },
     hasResource: function hasResource(card) {
-      return card.stats.hasOwnProperty('resource');
+      return card.stats.hasOwnProperty('resource') && card.stats.resource > 0;
     },
     setFromIdentifier: function setFromIdentifier(identifier) {
       return this.identifierParts(identifier)[0].toLowerCase();
