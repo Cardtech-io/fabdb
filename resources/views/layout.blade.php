@@ -46,6 +46,10 @@
                         return event;
                     }
                 });
+
+                Sentry.configureScope(function(scope) {
+                    scope.setUser({id: "{{ $user->slug }}" });
+                });
             </script>
         @endif
     </head>

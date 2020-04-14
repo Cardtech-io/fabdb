@@ -28,7 +28,7 @@ class CreateTTSDeckSheet
             if ($deck->decksheet) {
                 $exporter->purge($deck->decksheet);
             }
-            
+
             $exporter->execute();
             $exporter->save();
         }
