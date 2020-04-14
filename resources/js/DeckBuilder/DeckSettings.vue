@@ -10,7 +10,7 @@
                     </select>
                 </div>
 
-                <div class="w-full">
+                <div class="w-full" v-if="user.subscription">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
                     <select v-model="cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option>Card back</option>
@@ -45,7 +45,7 @@
 
 <script>
     import axios from 'axios';
-    import { mapActions } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
 
     export default {
         props: ['deck'],
@@ -56,6 +56,10 @@
                 saving: false,
                 visibility: this.deck.visibility
             }
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         methods: {

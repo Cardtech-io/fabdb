@@ -4890,6 +4890,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       visibility: this.deck.visibility
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
     saveDeckSettings: function saveDeckSettings() {
       var _this = this;
@@ -77896,73 +77897,80 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "w-full" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "block font-serif uppercase tracking-wide mb-1"
-                },
-                [_vm._v("Card back")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
+            _vm.user.subscription
+              ? _c("div", { staticClass: "w-full" }, [
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.cardBack,
-                      expression: "cardBack"
-                    }
-                  ],
-                  staticClass:
-                    "input focus:border-gray-500 py-3 px-4 rounded-lg",
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.cardBack = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
-                  }
-                },
-                [
-                  _c("option", [_vm._v("Card back")]),
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("Card back")]
+                  ),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [_vm._v("Original")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("Light")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [
-                    _vm._v("Old fashioned")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [
-                    _vm._v("Parchment Gold")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "6" } }, [
-                    _vm._v("Parchment Classic")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "7" } }, [_vm._v("Reds")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "8" } }, [
-                    _vm._v("White Cream")
-                  ])
-                ]
-              )
-            ]),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cardBack,
+                          expression: "cardBack"
+                        }
+                      ],
+                      staticClass:
+                        "input focus:border-gray-500 py-3 px-4 rounded-lg",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.cardBack = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", [_vm._v("Card back")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Original")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Light")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "4" } }, [
+                        _vm._v("Old fashioned")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("Parchment Gold")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "6" } }, [
+                        _vm._v("Parchment Classic")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "7" } }, [_vm._v("Reds")]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "8" } }, [
+                        _vm._v("White Cream")
+                      ])
+                    ]
+                  )
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("input", {
               staticClass:
