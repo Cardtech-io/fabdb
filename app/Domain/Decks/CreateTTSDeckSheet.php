@@ -25,7 +25,10 @@ class CreateTTSDeckSheet
         $exporter = new TTSExporter($deck);
 
         if ($deck->requiresNewSheet()) {
-            $exporter->purge($deck->decksheet);
+            if ($deck->decksheet) {
+                $exporter->purge($deck->decksheet);
+            }
+            
             $exporter->execute();
             $exporter->save();
         }
