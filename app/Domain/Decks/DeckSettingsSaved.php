@@ -7,20 +7,28 @@ class DeckSettingsSaved
      * @var int
      */
     private $deckId;
+
     /**
      * @var string
      */
     private $visibility;
+
     /**
      * @var int
      */
     private $cardBack;
 
-    public function __construct(int $deckId, string $visibility, int $cardBack)
+    /**
+     * @var string
+     */
+    private $name;
+
+    public function __construct(int $deckId, string $name, string $visibility, int $cardBack)
     {
         $this->deckId = $deckId;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
+        $this->name = $name;
     }
 
     public function deckId(): int
@@ -36,5 +44,10 @@ class DeckSettingsSaved
     public function cardBack(): int
     {
         return $this->cardBack;
+    }
+
+    public function name(): string
+    {
+        return $this->name;
     }
 }

@@ -4879,6 +4879,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4897,6 +4902,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.saving = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/decks/' + this.$route.params.deck + '/settings', {
+        name: this.deck.name,
         visibility: this.visibility,
         cardBack: this.cardBack
       }).then(function (response) {
@@ -77855,6 +77861,38 @@ var render = function() {
                 {
                   staticClass: "block font-serif uppercase tracking-wide mb-1"
                 },
+                [_vm._v("Name")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.deck.name,
+                    expression: "deck.name"
+                  }
+                ],
+                staticClass: "input focus:border-gray-500 py-3 px-4 rounded-lg",
+                attrs: { type: "text", required: "" },
+                domProps: { value: _vm.deck.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.deck, "name", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mb-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block font-serif uppercase tracking-wide mb-1"
+                },
                 [_vm._v("Deck visibility")]
               ),
               _vm._v(" "),
@@ -78011,7 +78049,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("li", [
           _vm._v(
-            "The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 4 card backs."
+            "The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only."
           )
         ])
       ])

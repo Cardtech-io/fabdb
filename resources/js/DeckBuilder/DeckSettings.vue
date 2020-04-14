@@ -3,6 +3,11 @@
         <div class="md:w-1/2 md:pr-8">
             <form @submit.prevent="saveDeckSettings" class="block">
                 <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
+                    <input type="text" v-model="deck.name" class="input focus:border-gray-500 py-3 px-4 rounded-lg" required>
+                </div>
+
+                <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck visibility</label>
                     <select v-model="visibility" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="private">Private</option>
@@ -37,7 +42,7 @@
 
             <ul class="list-disc ml-8">
                 <li>Change your deck's visibility. This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link.</li>
-                <li>The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 4 card backs.</li>
+                <li>The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only.</li>
             </ul>
         </div>
     </div>
@@ -68,7 +73,7 @@
             saveDeckSettings: function() {
                 this.saving = true;
 
-                axios.put('/decks/' + this.$route.params.deck + '/settings', { visibility: this.visibility, cardBack: this.cardBack }).then(response => {
+                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, visibility: this.visibility, cardBack: this.cardBack }).then(response => {
                     this.addMessage({ status: 'success', message: 'Settings saved.' });
                     this.saving = false;
                 });

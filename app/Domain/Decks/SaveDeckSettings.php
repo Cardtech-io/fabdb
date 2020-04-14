@@ -22,9 +22,15 @@ class SaveDeckSettings
      */
     private $cardBack;
 
-    public function __construct(int $deckId, string $visibility, int $cardBack)
+    /**
+     * @var string
+     */
+    private $name;
+
+    public function __construct(int $deckId, string $name, string $visibility, int $cardBack)
     {
         $this->deckId = $deckId;
+        $this->name = $name;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
     }
@@ -34,7 +40,7 @@ class SaveDeckSettings
         /** @var Deck $deck */
         $deck = $decks->find($this->deckId);
 
-        $deck->saveSettings($this->visibility, $this->cardBack);
+        $deck->saveSettings($this->name, $this->visibility, $this->cardBack);
 
         $decks->save($deck);
 
