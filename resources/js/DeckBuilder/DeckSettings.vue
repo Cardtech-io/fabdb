@@ -18,6 +18,10 @@
                         <option value="2">Worn</option>
                         <option value="3">Light</option>
                         <option value="4">Old fashioned</option>
+                        <option value="5">Parchment Gold</option>
+                        <option value="6">Parchment Classic</option>
+                        <option value="7">Reds</option>
+                        <option value="8">White Cream</option>
                     </select>
                 </div>
 

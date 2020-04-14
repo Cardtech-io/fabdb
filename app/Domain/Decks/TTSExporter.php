@@ -66,6 +66,10 @@ class TTSExporter
             2 => 'card-back-2.jpg',
             3 => 'card-back-3.jpg',
             4 => 'card-back-4.jpg',
+            5 => 'card-back-5.png',
+            6 => 'card-back-6.png',
+            7 => 'card-back-7.png',
+            8 => 'card-back-8.png',
         ];
 
         $this->cardBack = $backs[$cardBack];
