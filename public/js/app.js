@@ -73569,7 +73569,8 @@ var render = function() {
                             "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
                           attrs: {
                             type: "email",
-                            placeholder: "Email address"
+                            placeholder: "Email address",
+                            required: "required"
                           },
                           domProps: { value: _vm.email },
                           on: {
@@ -73623,7 +73624,8 @@ var render = function() {
                             "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
                           attrs: {
                             type: "text",
-                            placeholder: "Enter your authentication code"
+                            placeholder: "Enter your authentication code",
+                            required: "required"
                           },
                           domProps: { value: _vm.code },
                           on: {

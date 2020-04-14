@@ -12,7 +12,7 @@
                     <div v-if="!submitted">
                         <form @submit.prevent="submitEmail()">
                             <div class="flex mb-8">
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email">
+                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
                                 <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700" value="Send code"">
                             </div>
 
@@ -25,7 +25,7 @@
                     <div v-else>
                         <form @submit.prevent="submitCode()">
                             <div class="flex mb-8">
-                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code">
+                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code" required="required">
                                 <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login">
                             </div>
 
