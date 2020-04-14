@@ -186,11 +186,13 @@ class TTSExporter
         $process->run();
 
         if (!$process->isSuccessful()) {
+            $this->cleanup($this->deckSheetPath());
+
             throw new ProcessFailedException($process);
         }
 
         // Now we send it to AWS
-        Storage::disk('cloud')->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
+        Storage::cloud()->putFileAs('decks/tts', new File($this->deckSheetPath()), $this->deckSheetName());
 
         $this->cleanup($this->deckSheetPath());
     }
@@ -242,5 +244,15 @@ class TTSExporter
     private function cleanup(string $deckSheetPath)
     {
         Storage::delete($deckSheetPath);
+    }
+
+    /**
+     * Purges an old deck sheet from the cloud.
+     *
+     * @param string $deckSheet
+     */
+    public function purge(string $deckSheet)
+    {
+        Storage::cloud()->delete('/decks/tts/'.$deckSheet);
     }
 }
