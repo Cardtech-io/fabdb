@@ -47,9 +47,11 @@
                     }
                 });
 
-                Sentry.configureScope(function(scope) {
-                    scope.setUser({id: "{{ $user->slug }}" });
-                });
+                @if ($user)
+                    Sentry.configureScope(function(scope) {
+                        scope.setUser({id: "{{ $user->slug }}" });
+                    });
+                @endif
             </script>
         @endif
     </head>
