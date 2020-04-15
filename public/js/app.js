@@ -4884,6 +4884,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -77937,80 +77942,105 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm.user.subscription
-              ? _c("div", { staticClass: "w-full" }, [
-                  _c(
-                    "label",
+            _c("div", { staticClass: "w-full" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block font-serif uppercase tracking-wide mb-1"
+                },
+                [_vm._v("Card back")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
                     {
-                      staticClass:
-                        "block font-serif uppercase tracking-wide mb-1"
-                    },
-                    [_vm._v("Card back")]
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.cardBack,
+                      expression: "cardBack"
+                    }
+                  ],
+                  staticClass:
+                    "input focus:border-gray-500 py-3 px-4 rounded-lg",
+                  attrs: { disabled: !_vm.user.subscription },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.cardBack = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", [_vm._v("Card back")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("Original")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("Light")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [
+                    _vm._v("Old fashioned")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "5" } }, [
+                    _vm._v("Parchment Gold")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "6" } }, [
+                    _vm._v("Parchment Classic")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "7" } }, [_vm._v("Reds")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "8" } }, [
+                    _vm._v("White Cream")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "border border-t-0 border-gray-300 text-sm rounded-lg p-3"
+                },
+                [
+                  _vm._v(
+                    "\n                    Card backs are a premium feature. If you'd like to use card backs in your games of TTS,\n                    "
+                  ),
+                  _c(
+                    "router-link",
+                    { staticClass: "link", attrs: { to: "/support" } },
+                    [_vm._v("support us!")]
                   ),
                   _vm._v(" "),
                   _c(
-                    "select",
+                    "a",
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cardBack,
-                          expression: "cardBack"
-                        }
-                      ],
-                      staticClass:
-                        "input focus:border-gray-500 py-3 px-4 rounded-lg",
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.cardBack = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
+                      staticClass: "link",
+                      attrs: {
+                        href: "https://patreon.com/fabdb",
+                        target: "_blank"
                       }
                     },
-                    [
-                      _c("option", [_vm._v("Card back")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Original")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Light")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Old fashioned")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("Parchment Gold")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "6" } }, [
-                        _vm._v("Parchment Classic")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "7" } }, [_vm._v("Reds")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "8" } }, [
-                        _vm._v("White Cream")
-                      ])
-                    ]
+                    [_vm._v("Memberships start as low as $3/month.")]
                   )
-                ])
-              : _vm._e(),
+                ],
+                1
+              )
+            ]),
             _vm._v(" "),
             _c("input", {
               staticClass:
@@ -102048,15 +102078,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/Components/VersionHandler.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VersionHandler_vue_vue_type_template_id_55f5115d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VersionHandler.vue?vue&type=template&id=55f5115d& */ "./resources/js/Components/VersionHandler.vue?vue&type=template&id=55f5115d&");
 /* harmony import */ var _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VersionHandler.vue?vue&type=script&lang=js& */ "./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -102086,7 +102115,7 @@ component.options.__file = "resources/js/Components/VersionHandler.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

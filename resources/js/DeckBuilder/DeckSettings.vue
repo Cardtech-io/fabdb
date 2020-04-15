@@ -15,9 +15,9 @@
                     </select>
                 </div>
 
-                <div class="w-full" v-if="user.subscription">
+                <div class="w-full">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
-                    <select v-model="cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
                         <option>Card back</option>
                         <option value="1">Original</option>
                         <option value="2">Worn</option>
@@ -28,6 +28,11 @@
                         <option value="7">Reds</option>
                         <option value="8">White Cream</option>
                     </select>
+                    <div class="border border-t-0 border-gray-300 text-sm rounded-lg p-3">
+                        Card backs are a premium feature. If you'd like to use card backs in your games of TTS,
+                        <router-link to="/support" class="link">support us!</router-link>
+                        <a href="https://patreon.com/fabdb" class="link" target="_blank">Memberships start as low as $3/month.</a>
+                    </div>
                 </div>
 
 
