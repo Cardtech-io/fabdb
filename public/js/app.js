@@ -78010,36 +78010,38 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "border border-t-0 border-gray-300 text-sm rounded-lg p-3"
-                },
-                [
-                  _vm._v(
-                    "\n                    Card backs are a premium feature. If you'd like to use card backs in your games of TTS,\n                    "
-                  ),
-                  _c(
-                    "router-link",
-                    { staticClass: "link", attrs: { to: "/support" } },
-                    [_vm._v("support us!")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
+              !_vm.user.subscription
+                ? _c(
+                    "div",
                     {
-                      staticClass: "link",
-                      attrs: {
-                        href: "https://patreon.com/fabdb",
-                        target: "_blank"
-                      }
+                      staticClass:
+                        "border border-t-0 border-gray-300 text-sm rounded-lg p-3"
                     },
-                    [_vm._v("Memberships start as low as $3/month.")]
+                    [
+                      _vm._v(
+                        "\n                    Card backs are a premium feature. If you'd like to use card backs in your games of TTS,\n                    "
+                      ),
+                      _c(
+                        "router-link",
+                        { staticClass: "link", attrs: { to: "/support" } },
+                        [_vm._v("support us!")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "link",
+                          attrs: {
+                            href: "https://patreon.com/fabdb",
+                            target: "_blank"
+                          }
+                        },
+                        [_vm._v("Memberships start as low as $3/month.")]
+                      )
+                    ],
+                    1
                   )
-                ],
-                1
-              )
+                : _vm._e()
             ]),
             _vm._v(" "),
             _c("input", {

@@ -28,7 +28,7 @@
                         <option value="7">Reds</option>
                         <option value="8">White Cream</option>
                     </select>
-                    <div class="border border-t-0 border-gray-300 text-sm rounded-lg p-3">
+                    <div class="border border-t-0 border-gray-300 text-sm rounded-lg p-3" v-if="!user.subscription">
                         Card backs are a premium feature. If you'd like to use card backs in your games of TTS,
                         <router-link to="/support" class="link">support us!</router-link>
                         <a href="https://patreon.com/fabdb" class="link" target="_blank">Memberships start as low as $3/month.</a>
