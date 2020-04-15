@@ -20,11 +20,13 @@
                     <div class="md:w-2/3 md:pr-8">
                         <div v-if="!exportRequested">
                             <p class="mb-4 p-4 bg-blue-500 rounded-lg text-white">
-                                The information collected below is not saved, but is required for PDF export.
-                                We will email you your PDF when it's been generated.
+                                The information collected below is not saved, but is required for export.
+                                We will email you your league zip file when it's been generated. The zip file will include
+                                your deck list in PDF, CSV and text formats, which you can then provide to your league or
+                                tournament organiser.
                             </p>
 
-                            <form @submit.prevent="exportToPdf">
+                            <form @submit.prevent="export">
                                 <div class="w-full mt-4">
                                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
                                     <input type="text" v-model="name" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
@@ -124,7 +126,7 @@
         methods: {
             ...mapActions('session', ['setUserParam']),
 
-            exportToPdf: function() {
+            export: function() {
                 const payload = {
                     name: this.name,
                     gemId: this.gemId,
@@ -136,7 +138,7 @@
                 });
             }
         },
-
+        
         metaInfo() {
             return {
                 title: 'Deck builder - Export deck'

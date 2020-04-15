@@ -5066,6 +5066,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -5129,7 +5131,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {
-    exportToPdf: function exportToPdf() {
+    "export": function _export() {
       var _this = this;
 
       var payload = {
@@ -77398,7 +77400,7 @@ var render = function() {
                                       to: "/decks/export/" + _vm.deck.slug
                                     }
                                   },
-                                  [_vm._v("PDF")]
+                                  [_vm._v("League")]
                                 )
                               ],
                               1
@@ -78147,217 +78149,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("header-title", { attrs: { title: "Export deck" } }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "bg-orange-900 text-white font-serif uppercase" },
-        [
-          _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
-            _c(
-              "div",
-              { staticClass: "flex-1" },
-              [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
-              1
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto bg-white py-8 px-8" }, [
-          _c(
-            "div",
-            {
-              staticClass: "container sm:mx-auto border-b border-gray-400 mb-8"
-            },
-            [
-              _vm.hero
-                ? _c(
-                    "h1",
-                    { staticClass: "inline-block font-serif text-4xl" },
-                    [
-                      _vm._v(
-                        _vm._s(_vm.hero.name) +
-                          " (" +
-                          _vm._s(_vm.deck.name) +
-                          ")"
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "md:flex" }, [
-            _c("div", { staticClass: "md:w-2/3 md:pr-8" }, [
-              !_vm.exportRequested
-                ? _c("div", [
-                    _c(
-                      "p",
-                      {
-                        staticClass:
-                          "mb-4 p-4 bg-blue-500 rounded-lg text-white"
-                      },
-                      [
-                        _vm._v(
-                          "\n                            The information collected below is not saved, but is required for PDF export.\n                            We will email you your PDF when it's been generated.\n                        "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        on: {
-                          submit: function($event) {
-                            $event.preventDefault()
-                            return _vm.exportToPdf($event)
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "w-full mt-4" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
-                            },
-                            [_vm._v("Name")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.name,
-                                expression: "name"
-                              }
-                            ],
-                            staticClass:
-                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.name },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.name = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "w-full mt-4" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
-                            },
-                            [_vm._v("GEM player ID")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.gemId,
-                                expression: "gemId"
-                              }
-                            ],
-                            staticClass:
-                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.gemId },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.gemId = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "w-full mt-4" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
-                            },
-                            [_vm._v("Event")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.event,
-                                expression: "event"
-                              }
-                            ],
-                            staticClass:
-                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                            attrs: { type: "text" },
-                            domProps: { value: _vm.event },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.event = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass:
-                            "appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                          attrs: { type: "submit", value: "Export" }
-                        })
-                      ]
-                    )
-                  ])
-                : _c("div", [
-                    _c("p", [
-                      _vm._v(
-                        "Your deck export has been requested, and shall arrived at your email inbox in a few moments."
-                      )
-                    ])
-                  ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "hidden md:block md:w-1/3" },
-              [_c("card-image", { attrs: { card: _vm.hero } })],
-              1
-            )
-          ])
-        ])
-      ])
-    ],
-    1
-  )
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
