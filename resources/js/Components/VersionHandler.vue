@@ -14,6 +14,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         data() {
             return {
@@ -24,7 +26,7 @@
         mounted() {
             axios.interceptors.response.use(
                 response => {
-                    if (response.headers['x-version'] && version != this.version) {
+                    if (response.headers['x-version'] && response.headers['x-version'] != this.version) {
                         this.$modal.show('version-refresh');
                     }
 
