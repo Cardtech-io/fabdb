@@ -4710,19 +4710,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       activeTab: 'deck',
       deck: null,
-      exportingToTts: false
+      exportingToTts: false,
+      showExportOptions: false
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
     shareLine: function shareLine(line) {
       return line + '\n';
-    },
-    copy: function copy() {
-      this.$copyText(this.shareText);
-      this.addMessage({
-        status: 'success',
-        message: 'Deck share text copied to clipboard.'
-      });
     },
     copyShareURL: function copyShareURL() {
       this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
@@ -5066,8 +5060,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -5131,7 +5123,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {
-    "export": function _export() {
+    requestExport: function requestExport() {
       var _this = this;
 
       var payload = {
@@ -5139,7 +5131,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         gemId: this.gemId,
         event: this.event
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/export/' + this.deck.slug + '.pdf', payload).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/export/' + this.deck.slug + '.zip', payload).then(function (response) {
         _this.exportRequested = true;
       });
     }
@@ -5496,12 +5488,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['deck'],
   data: function data() {
@@ -5509,7 +5527,14 @@ __webpack_require__.r(__webpack_exports__);
       exporting: false
     };
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+    copy: function copy() {
+      this.$copyText(this.shareText);
+      this.addMessage({
+        status: 'success',
+        message: 'Deck share text copied to clipboard.'
+      });
+    },
     exportToTTS: function exportToTTS() {
       var _this = this;
 
@@ -5519,7 +5544,7 @@ __webpack_require__.r(__webpack_exports__);
         window.open('/export/' + _this.deck.slug + '/tts-json');
       });
     }
-  }
+  })
 });
 
 /***/ }),
@@ -77355,53 +77380,45 @@ var render = function() {
                             _vm._v(" "),
                             _c(
                               "div",
-                              { staticClass: "flex mt-2 mb-8" },
+                              { staticClass: "mt-2 mb-8" },
                               [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.copyShareURL($event)
+                                _c("div", { staticClass: "flex" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.copyShareURL($event)
+                                        }
                                       }
-                                    }
-                                  },
-                                  [_vm._v("Share")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.copy($event)
+                                    },
+                                    [_vm._v("Share")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-gray-200",
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          _vm.showExportOptions = !_vm.showExportOptions
+                                        }
                                       }
-                                    }
-                                  },
-                                  [_vm._v("Text")]
-                                ),
+                                    },
+                                    [_vm._v("Export")]
+                                  )
+                                ]),
                                 _vm._v(" "),
-                                _c("tts-exporter", {
-                                  attrs: { deck: _vm.deck }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass:
-                                      "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500",
-                                    attrs: {
-                                      to: "/decks/export/" + _vm.deck.slug
-                                    }
-                                  },
-                                  [_vm._v("League")]
-                                )
+                                _vm.showExportOptions
+                                  ? _c("tts-exporter", {
+                                      attrs: { deck: _vm.deck }
+                                    })
+                                  : _vm._e()
                               ],
                               1
                             )
@@ -78149,8 +78166,217 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("header-title", { attrs: { title: "Export deck" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "bg-orange-900 text-white font-serif uppercase" },
+        [
+          _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
+            _c(
+              "div",
+              { staticClass: "flex-1" },
+              [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
+              1
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-gray-200" }, [
+        _c("div", { staticClass: "container sm:mx-auto bg-white py-8 px-8" }, [
+          _c(
+            "div",
+            {
+              staticClass: "container sm:mx-auto border-b border-gray-400 mb-8"
+            },
+            [
+              _vm.hero
+                ? _c(
+                    "h1",
+                    { staticClass: "inline-block font-serif text-4xl" },
+                    [
+                      _vm._v(
+                        _vm._s(_vm.hero.name) +
+                          " (" +
+                          _vm._s(_vm.deck.name) +
+                          ")"
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "md:flex" }, [
+            _c("div", { staticClass: "md:w-2/3 md:pr-8" }, [
+              !_vm.exportRequested
+                ? _c("div", [
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "mb-4 p-4 bg-blue-500 rounded-lg text-white"
+                      },
+                      [
+                        _vm._v(
+                          "\n                            The information collected below is not saved, but is required for your PDF as part of\n                            the tournament pack export. We will email you your export once it's been generated.\n                        "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.requestExport($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("Name")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.name,
+                                expression: "name"
+                              }
+                            ],
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.name = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("GEM player ID")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.gemId,
+                                expression: "gemId"
+                              }
+                            ],
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.gemId },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.gemId = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "w-full mt-4" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "block font-serif uppercase tracking-wide mb-1"
+                            },
+                            [_vm._v("Event")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.event,
+                                expression: "event"
+                              }
+                            ],
+                            staticClass:
+                              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.event },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.event = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass:
+                            "appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                          attrs: { type: "submit", value: "Export" }
+                        })
+                      ]
+                    )
+                  ])
+                : _c("div", [
+                    _c("p", [
+                      _vm._v(
+                        "Your deck export has been requested, and shall arrived at your email inbox in a few moments."
+                      )
+                    ])
+                  ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "hidden md:block md:w-1/3" },
+              [_c("card-image", { attrs: { card: _vm.hero } })],
+              1
+            )
+          ])
+        ])
+      ])
+    ],
+    1
+  )
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -78569,21 +78795,95 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass:
-        "w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white  py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200",
-      class: _vm.exporting ? "disabled" : "",
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.exportToTTS($event)
-        }
-      }
-    },
-    [_vm._v("\n    " + _vm._s(_vm.exporting ? "Wait..." : "TTS") + "\n")]
-  )
+  return _c("div", { staticClass: "p-4 bg-white rounded-xl mt-4" }, [
+    _c("div", [
+      _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+        _vm._v("Copy text")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-base" }, [
+        _vm._v(
+          "Need to share your deck build as text to a private message, discord or otherwise? Click the button below."
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "appearance-none block w-full md:w-1/2 mt-2 bg-blue-700 text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500 border-r border-gray-200",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.copy($event)
+            }
+          }
+        },
+        [_vm._v("Copy text")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mt-4" }, [
+      _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+        _vm._v("Table Top Simulator")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-base" }, [
+        _vm._v(
+          "Want to use your deck inside Table Top Simulator? The button below is your jam."
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "appearance  -none block w-full md:w-1/2 mt-2 bg-blue-700 text-center text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500 border-r border-gray-200",
+          class: _vm.exporting ? "disabled" : "",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.exportToTTS($event)
+            }
+          }
+        },
+        [
+          _vm._v(
+            "\n            " +
+              _vm._s(_vm.exporting ? "Wait..." : "Table Top Simulator") +
+              "\n        "
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "mt-4" },
+      [
+        _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+          _vm._v("Tournament Pack")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-base" }, [
+          _vm._v(
+            "Need to submit your deck and in various formats to a Tournament or League Organiser? Click below."
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "appearance-none block w-full md:w-1/2 mt-2 bg-blue-700 text-center text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500",
+            attrs: { to: "/decks/export/" + _vm.deck.slug }
+          },
+          [_vm._v("Tourney")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -101841,15 +102141,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/Components/VersionHandler.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VersionHandler_vue_vue_type_template_id_55f5115d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VersionHandler.vue?vue&type=template&id=55f5115d& */ "./resources/js/Components/VersionHandler.vue?vue&type=template&id=55f5115d&");
 /* harmony import */ var _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VersionHandler.vue?vue&type=script&lang=js& */ "./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _VersionHandler_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -101879,7 +102178,7 @@ component.options.__file = "resources/js/Components/VersionHandler.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

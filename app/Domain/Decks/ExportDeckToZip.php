@@ -5,7 +5,7 @@ use FabDB\Library\PDF;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
-class ExportDeckToPdf
+class ExportDeckToZip
 {
     /**
      * @var int
@@ -37,9 +37,7 @@ class ExportDeckToPdf
     public function handle(DeckRepository $decks)
     {
         $deck = $decks->find($this->deckId);
-
-        $url = route('export.html', ['deck' => $deck->slug, 'params' => base64_encode(json_encode(['name' => $this->name, 'gemId' => $this->gemId, 'event' => $this->event]))]);
-        $pdf = PDF::generate($url);
+        $pdf = $this->requestPDF();
 
         $filename = "tmp/{$deck->slug}.pdf";
 
@@ -52,5 +50,21 @@ class ExportDeckToPdf
             $message->subject('PDF for Deck Registration | fabdb.net');
             $message->attach($fullPath);
         });
+    }
+    
+    /**
+     * @return string
+     */
+    private function requestPDF(): string
+    {
+        $params = [
+            'name' => $this->name,
+            'gemId' => $this->gemId,
+            'event' => $this->event
+        ];
+
+        $html = view('export/pdf', $params)->render();
+
+        return PDF::generate($html);
     }
 }

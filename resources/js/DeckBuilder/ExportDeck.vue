@@ -20,13 +20,11 @@
                     <div class="md:w-2/3 md:pr-8">
                         <div v-if="!exportRequested">
                             <p class="mb-4 p-4 bg-blue-500 rounded-lg text-white">
-                                The information collected below is not saved, but is required for export.
-                                We will email you your league zip file when it's been generated. The zip file will include
-                                your deck list in PDF, CSV and text formats, which you can then provide to your league or
-                                tournament organiser.
+                                The information collected below is not saved, but is required for your PDF as part of
+                                the tournament pack export. We will email you your export once it's been generated.
                             </p>
 
-                            <form @submit.prevent="export">
+                            <form @submit.prevent="requestExport">
                                 <div class="w-full mt-4">
                                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
                                     <input type="text" v-model="name" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
@@ -126,14 +124,14 @@
         methods: {
             ...mapActions('session', ['setUserParam']),
 
-            export: function() {
+            requestExport: function() {
                 const payload = {
                     name: this.name,
                     gemId: this.gemId,
                     event: this.event
                 };
 
-                axios.post('/export/' + this.deck.slug + '.pdf', payload).then(response => {
+                axios.post('/export/' + this.deck.slug + '.zip', payload).then(response => {
                     this.exportRequested = true;
                 });
             }
