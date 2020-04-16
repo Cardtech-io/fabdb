@@ -31,11 +31,19 @@
     import SearchTips from '../CardDatabase/SearchTips.vue';
 
     export default {
+        props: ['deck'],
+
         components: {
             CardItem,
             CardSearch,
             Paginator,
             SearchTips
+        },
+
+        computed: {
+            useCase: function() {
+                return this.deck && this.deck.format == 'open' ? 'build-open' : 'build';
+            }
         },
 
         data() {

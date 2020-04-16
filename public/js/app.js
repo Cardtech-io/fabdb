@@ -4432,11 +4432,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['deck'],
   components: {
     CardItem: _CardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardSearch: _CardDatabase_CardSearch_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     SearchTips: _CardDatabase_SearchTips_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  computed: {
+    useCase: function useCase() {
+      return this.deck && this.deck.format == 'open' ? 'build-open' : 'build';
+    }
   },
   data: function data() {
     return {
@@ -77039,7 +77045,7 @@ var render = function() {
         [
           _c("card-search", {
             attrs: {
-              "use-case": "build",
+              "use-case": _vm.useCase,
               wait: true,
               page: _vm.page,
               refreshable: false,
@@ -77858,7 +77864,12 @@ var render = function() {
                 }
               ]
             },
-            [_c("card-selector", { on: { "card-selected": _vm.addCard } })],
+            [
+              _c("card-selector", {
+                attrs: { deck: _vm.deck },
+                on: { "card-selected": _vm.addCard }
+              })
+            ],
             1
           ),
           _vm._v(" "),

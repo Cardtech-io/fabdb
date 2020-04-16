@@ -143,7 +143,7 @@
             </div>
 
             <div v-show="activeTab == 'add-cards'">
-                <card-selector @card-selected="addCard"></card-selector>
+                <card-selector @card-selected="addCard" :deck="deck"></card-selector>
             </div>
 
             <deck-settings :deck="deck" v-if="activeTab == 'settings'"></deck-settings>

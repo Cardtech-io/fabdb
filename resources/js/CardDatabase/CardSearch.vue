@@ -1,4 +1,4 @@
-<template>
+`<template>
     <div>
         <form @submit.prevent="newSearch" class="block flex flex-wrap mb-4">
             <div class="flex w-full md:w-3/4">
