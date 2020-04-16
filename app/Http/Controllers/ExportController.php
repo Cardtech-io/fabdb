@@ -3,7 +3,7 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Decks\CreateTTSDeckJson;
 use FabDB\Domain\Decks\Deck;
-use FabDB\Domain\Decks\ExportDeckToPdf;
+use FabDB\Domain\Decks\ExportDeckToZip;
 use FabDB\Domain\Decks\CreateTTSDeckSheet;
 use FabDB\Domain\Decks\TTSObserver;
 use Illuminate\Http\Request;
@@ -11,9 +11,9 @@ use Illuminate\Support\Str;
 
 class ExportController extends Controller
 {
-    public function pdf(Request $request, Deck $deck)
+    public function zip(Request $request, Deck $deck)
     {
-        $this->dispatch(new ExportDeckToPdf(
+        $this->dispatch(new ExportDeckToZip(
             $deck->id,
             $request->get('name'),
             $request->get('gemId'),

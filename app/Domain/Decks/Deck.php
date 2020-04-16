@@ -74,6 +74,11 @@ class Deck extends Model
         return $this->cards->hero();
     }
 
+    public function weapon()
+    {
+        return $this->weapons()->first();
+    }
+
     public function weapons()
     {
         return $this->cards->weapons();

@@ -59,13 +59,13 @@
                             <div>
                                 <card-image :card="hero" :clickHandler="removeCard"></card-image>
                             </div>
-                            <div class="flex mt-2 mb-8">
-                                <button @click.prevent="copyShareURL" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</button>
-                                <button @click.prevent="copy" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-white py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Text</button>
-                                <tts-exporter :deck="deck"></tts-exporter>
-                                <router-link :to="'/decks/export/' + deck.slug" class="w-1/4 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500">PDF</router-link>
+                            <div class="mt-2 mb-8">
+                                <div class="flex">
+                                    <button @click.prevent="copyShareURL" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</button>
+                                    <button @click.prevent="showExportOptions = !showExportOptions" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-gray-200">Export</button>
+                                </div>
+                                <tts-exporter :deck="deck" v-if="showExportOptions"></tts-exporter>
                             </div>
-
                         </div>
 
                         <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">
@@ -201,33 +201,6 @@
                     { text: 'Deck Builder', link: '/decks/build/' },
                     { text: this.deck.name },
                 ]
-            },
-
-
-            shareText: function() {
-                const weapons = this.weapons.map(weapon => weapon.name).join(', ');
-                const equipment = this.equipment.map(item => item.name).join(', ');
-
-                var text = this.shareLine('Deck build - via https://fabdb.net :') +
-                        this.shareLine('') +
-                        this.shareLine(this.deck.name) +
-                        this.shareLine('') +
-                        this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) +
-                        this.shareLine('Hero: ' + this.hero.name) +
-                        this.shareLine('Weapons: ' + weapons) +
-                        this.shareLine('Equipment: ' + equipment) +
-                        this.shareLine('');
-
-                for (var i in this.other) {
-                    var card = this.other[i];
-
-                    text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
-                }
-
-                text = text + this.shareLine('');
-                text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
-
-                return text;
             }
          },
 
@@ -235,21 +208,13 @@
             return {
                 activeTab: 'deck',
                 deck: null,
-                exportingToTts: false
+                exportingToTts: false,
+                showExportOptions: false,
             }
         },
 
         methods: {
             ...mapActions('messages', ['addMessage']),
-
-            shareLine: function(line) {
-                return line + '\n';
-            },
-
-            copy: function() {
-                this.$copyText(this.shareText);
-                this.addMessage({ status: 'success', message: 'Deck share text copied to clipboard.' });
-            },
 
             copyShareURL: function() {
                 this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
