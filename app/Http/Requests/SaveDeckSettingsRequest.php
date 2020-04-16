@@ -20,7 +20,8 @@ class SaveDeckSettingsRequest extends FormRequest
     {
         return [
             'cardBack' => ['required', 'in:1,2,3,4,5,6,7,8'],
-            'visibility' => ['required', 'in:private,public']
+            'visibility' => ['required', 'in:private,public'],
+            'format' => ['required', 'in:constructed,open'],
         ];
     }
 }

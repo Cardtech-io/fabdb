@@ -8,8 +8,16 @@
                 </div>
 
                 <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
+                    <select v-model="deck.format" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="constructed">Constructed</option>
+                        <option value="open">Open</option>
+                    </select>
+                </div>
+
+                <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck visibility</label>
-                    <select v-model="visibility" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.visibility" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="private">Private</option>
                         <option value="public">Public</option>
                     </select>
@@ -17,7 +25,7 @@
 
                 <div class="w-full">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
-                    <select v-model="cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
+                    <select v-model="deck.cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
                         <option>Card back</option>
                         <option value="1">Original</option>
                         <option value="2">Worn</option>
@@ -34,7 +42,6 @@
                         <a href="https://patreon.com/fabdb" class="link" target="_blank">Memberships start as low as $3/month.</a>
                     </div>
                 </div>
-
 
                 <input type="submit" value="Save" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mt-4" :class="saving ? 'disabled' : ''">
             </form>
@@ -62,9 +69,7 @@
 
         data() {
             return {
-                cardBack: this.deck.cardBack,
-                saving: false,
-                visibility: this.deck.visibility
+                saving: false
             }
         },
 
@@ -78,7 +83,7 @@
             saveDeckSettings: function() {
                 this.saving = true;
 
-                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, visibility: this.visibility, cardBack: this.cardBack }).then(response => {
+                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, format: this.deck.format, visibility: this.deck.visibility, cardBack: this.deck.cardBack }).then(response => {
                     this.addMessage({ status: 'success', message: 'Settings saved.' });
                     this.saving = false;
                 });

@@ -68,6 +68,7 @@ class DeckController extends Controller
         $this->dispatchNow(new SaveDeckSettings(
             $request->deck->id,
             $request->get('name'),
+            $request->get('format'),
             $request->get('visibility'),
             (int) $request->get('cardBack')
         ));

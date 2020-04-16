@@ -4865,15 +4865,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['deck'],
   data: function data() {
     return {
-      cardBack: this.deck.cardBack,
-      saving: false,
-      visibility: this.deck.visibility
+      saving: false
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])),
@@ -4884,8 +4889,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.saving = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/decks/' + this.$route.params.deck + '/settings', {
         name: this.deck.name,
-        visibility: this.visibility,
-        cardBack: this.cardBack
+        format: this.deck.format,
+        visibility: this.deck.visibility,
+        cardBack: this.deck.cardBack
       }).then(function (response) {
         _this.addMessage({
           status: 'success',
@@ -77943,7 +77949,7 @@ var render = function() {
                 {
                   staticClass: "block font-serif uppercase tracking-wide mb-1"
                 },
-                [_vm._v("Deck visibility")]
+                [_vm._v("Deck format")]
               ),
               _vm._v(" "),
               _c(
@@ -77953,8 +77959,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.visibility,
-                      expression: "visibility"
+                      value: _vm.deck.format,
+                      expression: "deck.format"
                     }
                   ],
                   staticClass:
@@ -77969,9 +77975,65 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.visibility = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
+                      _vm.$set(
+                        _vm.deck,
+                        "format",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "constructed" } }, [
+                    _vm._v("Constructed")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mb-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block font-serif uppercase tracking-wide mb-1"
+                },
+                [_vm._v("Deck visibility")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.deck.visibility,
+                      expression: "deck.visibility"
+                    }
+                  ],
+                  staticClass:
+                    "input focus:border-gray-500 py-3 px-4 rounded-lg",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.deck,
+                        "visibility",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
                     }
                   }
                 },
@@ -78003,8 +78065,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.cardBack,
-                      expression: "cardBack"
+                      value: _vm.deck.cardBack,
+                      expression: "deck.cardBack"
                     }
                   ],
                   staticClass:
@@ -78020,9 +78082,13 @@ var render = function() {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
-                      _vm.cardBack = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
+                      _vm.$set(
+                        _vm.deck,
+                        "cardBack",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
                     }
                   }
                 },
