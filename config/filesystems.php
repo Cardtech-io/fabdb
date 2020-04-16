@@ -82,7 +82,12 @@ return [
         'carddb' => [
             'driver' => 'local',
             'root' => storage_path('carddb'),
-        ]
+        ],
+
+        'web' => [
+            'driver' => 'local',
+            'root' => public_path(),
+        ],
     ],
 
 ];

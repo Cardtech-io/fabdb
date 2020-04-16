@@ -201,33 +201,6 @@
                     { text: 'Deck Builder', link: '/decks/build/' },
                     { text: this.deck.name },
                 ]
-            },
-
-
-            shareText: function() {
-                const weapons = this.weapons.map(weapon => weapon.name).join(', ');
-                const equipment = this.equipment.map(item => item.name).join(', ');
-
-                var text = this.shareLine('Deck build - via https://fabdb.net :') +
-                        this.shareLine('') +
-                        this.shareLine(this.deck.name) +
-                        this.shareLine('') +
-                        this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) +
-                        this.shareLine('Hero: ' + this.hero.name) +
-                        this.shareLine('Weapons: ' + weapons) +
-                        this.shareLine('Equipment: ' + equipment) +
-                        this.shareLine('');
-
-                for (var i in this.other) {
-                    var card = this.other[i];
-
-                    text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
-                }
-
-                text = text + this.shareLine('');
-                text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
-
-                return text;
             }
          },
 
@@ -242,10 +215,6 @@
 
         methods: {
             ...mapActions('messages', ['addMessage']),
-
-            shareLine: function(line) {
-                return line + '\n';
-            },
 
             copyShareURL: function() {
                 this.$copyText('https://fabdb.net/decks/' + this.deck.slug);

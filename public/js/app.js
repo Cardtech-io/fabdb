@@ -4686,24 +4686,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: this.deck.name
       }];
-    },
-    shareText: function shareText() {
-      var weapons = this.weapons.map(function (weapon) {
-        return weapon.name;
-      }).join(', ');
-      var equipment = this.equipment.map(function (item) {
-        return item.name;
-      }).join(', ');
-      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name) + this.shareLine('') + this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) + this.shareLine('Hero: ' + this.hero.name) + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
-
-      for (var i in this.other) {
-        var card = this.other[i];
-        text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
-      }
-
-      text = text + this.shareLine('');
-      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
-      return text;
     }
   }),
   data: function data() {
@@ -4715,9 +4697,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
-    shareLine: function shareLine(line) {
-      return line + '\n';
-    },
     copyShareURL: function copyShareURL() {
       this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
       this.addMessage({
@@ -5489,6 +5468,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5519,9 +5501,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__["default"]],
   props: ['deck'],
+  computed: {
+    cards: function cards() {
+      return this.deck.cards;
+    },
+    shareText: function shareText() {
+      var weapons = this.weapons.map(function (weapon) {
+        return weapon.name;
+      }).join(', ');
+      var equipment = this.equipment.map(function (item) {
+        return item.name;
+      }).join(', ');
+      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name) + this.shareLine('') + this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) + this.shareLine('Hero: ' + this.hero.name) + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
+
+      for (var i in this.other) {
+        var card = this.other[i];
+        text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
+      }
+
+      text = text + this.shareLine('');
+      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
+      return text;
+    }
+  },
   data: function data() {
     return {
       exporting: false
@@ -5543,6 +5563,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.exporting = false;
         window.open('/export/' + _this.deck.slug + '/tts-json');
       });
+    },
+    shareLine: function shareLine(line) {
+      return line + '\n';
     }
   })
 });
@@ -78795,23 +78818,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-4 bg-white rounded-xl mt-4" }, [
-    _c("div", [
-      _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-        _vm._v("Copy text")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-base" }, [
-        _vm._v(
-          "Need to share your deck build as text to a private message, discord or otherwise? Click the button below."
-        )
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "mt-4" },
+    [
       _c(
-        "button",
+        "a",
         {
           staticClass:
-            "appearance-none block w-full md:w-1/2 mt-2 bg-blue-700 text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500 border-r border-gray-200",
+            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+          attrs: { href: "" },
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -78819,27 +78835,44 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Copy text")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mt-4" }, [
-      _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-        _vm._v("Table Top Simulator")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-base" }, [
-        _vm._v(
-          "Want to use your deck inside Table Top Simulator? The button below is your jam."
-        )
-      ]),
+        [
+          _c("div", { staticClass: "float-left mr-4" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "fill-current h-20",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
+                  }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Copy text")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-base" }, [
+            _vm._v("Looking to share your deck build as text? Click here.")
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c(
-        "button",
+        "a",
         {
           staticClass:
-            "appearance  -none block w-full md:w-1/2 mt-2 bg-blue-700 text-center text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500 border-r border-gray-200",
-          class: _vm.exporting ? "disabled" : "",
+            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
+          attrs: { href: "" },
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -78848,42 +78881,75 @@ var render = function() {
           }
         },
         [
-          _vm._v(
-            "\n            " +
-              _vm._s(_vm.exporting ? "Wait..." : "Table Top Simulator") +
-              "\n        "
-          )
+          _c("div", { staticClass: "float-left mr-4" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "fill-current h-20",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
+                }
+              },
+              [_c("path", { attrs: { d: "M4 4l12 6-12 6z" } })]
+            )
+          ]),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Table Top Simulator")
+          ]),
+          _vm._v(" "),
+          !_vm.exporting
+            ? _c("p", { staticClass: "text-base" }, [
+                _vm._v("Want to use your deck inside Table Top Simulator?")
+              ])
+            : _c("p", { staticClass: "text-base" }, [
+                _vm._v("Please wait while we generate the files...")
+              ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass:
+            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
+          attrs: { to: "/decks/export/" + _vm.deck.slug }
+        },
+        [
+          _c("div", { staticClass: "float-left mr-4" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "fill-current h-20",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"
+                  }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Tournament Pack")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-base" }, [
+            _vm._v("For tournaments and leagues. All-in-one ZIP file.")
+          ])
         ]
       )
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "mt-4" },
-      [
-        _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-          _vm._v("Tournament Pack")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-base" }, [
-          _vm._v(
-            "Need to submit your deck and in various formats to a Tournament or League Organiser? Click below."
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass:
-              "appearance-none block w-full md:w-1/2 mt-2 bg-blue-700 text-center text-white rounded-lg py-2 px-2 leading-tight focus:outline-none hover:bg-blue-500",
-            attrs: { to: "/decks/export/" + _vm.deck.slug }
-          },
-          [_vm._v("Tourney")]
-        )
-      ],
-      1
-    )
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
