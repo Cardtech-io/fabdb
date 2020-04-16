@@ -57,6 +57,8 @@ class Cards extends Collection
 
     public function total()
     {
-        return $this->sum('total');
+        return $this->filter(function(Card $card) {
+            return !$card->isHero();
+        })->sum('total');
     }
 }

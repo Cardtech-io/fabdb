@@ -77049,7 +77049,7 @@ var render = function() {
               wait: true,
               page: _vm.page,
               refreshable: false,
-              limit: 25
+              limit: 12
             },
             on: { "search-completed": _vm.refreshResults }
           })
@@ -77805,15 +77805,9 @@ var render = function() {
                                               )
                                             ]),
                                             _vm._v(" "),
-                                            _c(
-                                              "span",
-                                              {
-                                                class: {
-                                                  "text-red-600": card.total > 3
-                                                }
-                                              },
-                                              [_vm._v(_vm._s(card.name))]
-                                            ),
+                                            _c("span", [
+                                              _vm._v(_vm._s(card.name))
+                                            ]),
                                             _vm._v(" "),
                                             card.stats.resource
                                               ? _c("span", {
@@ -103709,7 +103703,11 @@ __webpack_require__.r(__webpack_exports__);
         count += this.other[i].total;
       }
 
-      return count + this.equipment.length + this.weapons.length;
+      return count + this.equipment.reduce(function (total, card) {
+        return total + card.total;
+      }, 0) + this.weapons.reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
     },
     totalAttackActions: function totalAttackActions() {
       return this.totalCardType(this.other, ['action', 'attack']);

@@ -127,7 +127,7 @@
                                     <li v-for="card in other" class="odd:bg-gray-100">
                                         <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">
                                             <span class="">({{ card.total }})</span>
-                                            <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
+                                            <span>{{ card.name }}</span>
                                             <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
                                         </a>

@@ -64,7 +64,9 @@ export default {
                 count += this.other[i].total;
             }
 
-            return count + this.equipment.length + this.weapons.length;
+            return count +
+                this.equipment.reduce((total, card) => { return total + card.total; }, 0) +
+                this.weapons.reduce((total, card) => { return total + card.total; }, 0);
         },
 
         totalAttackActions: function() {

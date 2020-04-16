@@ -4,10 +4,8 @@ namespace FabDB\Domain\Decks\Validation;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
-class SupportsWeapon implements Rule
+class MaxTotalCards implements Rule
 {
-    use RequiresCard;
-
     /**
      * @var Deck
      */
@@ -27,11 +25,7 @@ class SupportsWeapon implements Rule
      */
     public function passes($attribute, $value)
     {
-        $card = $this->getCard($value);
-
-        return !$card->isWeapon() ||
-            $this->deck->weapons()->isEmpty() ||
-            ($this->deck->weapons()->first()->oneHanded() && in_array('1h', $card->keywords) && $this->deck->weapons()->sum('total') < 2);
+        return $this->deck->cards->total() < 80;
     }
 
     /**
@@ -41,6 +35,6 @@ class SupportsWeapon implements Rule
      */
     public function message()
     {
-        return 'You already have weapons equipped.';
+        return "You cannot have more than 80 cards per deck.";
     }
 }
