@@ -45,7 +45,7 @@ class ExportController extends Controller
 
         return response()->streamDownload(function() use ($observer) {
             echo $observer->json();
-        }, $deck->name.'.json');
+        }, str_replace(['/', '\\'], '-', $deck->name).'.json');
     }
 
     public function html(Request $request, Deck $deck)
