@@ -5316,6 +5316,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5331,6 +5340,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
   data: function data() {
     return {
+      expanded: false,
       keywords: null,
       results: []
     };
@@ -5348,6 +5358,16 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return [];
+    },
+    containers: function containers() {
+      if (!this.expanded) {
+        return 'container sm:mx-auto';
+      }
+    },
+    expandedClasses: function expandedClasses() {
+      if (this.expanded) {
+        return 'absolute top-0 bottom-0 left-0 right-0';
+      }
     },
     orderedCards: function orderedCards() {
       return [this.hero].concat(this.weapons).concat(this.other);
@@ -5394,6 +5414,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return styles.join('; ');
+    }
+  },
+  watch: {
+    expanded: function expanded() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.$redrawVueMasonry();
+      }, 100);
     }
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__["default"])(function (to, callback) {
@@ -78844,181 +78873,229 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white border-b-2 border-gray-300" }, [
-        _c("div", { staticClass: "container sm:mx-auto" }, [
-          _c("div", { staticClass: "flex" }, [
-            _vm.hero
-              ? _c("div", { staticClass: "flex items-center w-3/4 p-4" }, [
-                  _c("div", { staticClass: "flex-auto" }, [
-                    _vm.hero
-                      ? _c(
-                          "h1",
+      _c("div", { class: _vm.expandedClasses }, [
+        _c("div", { staticClass: "bg-white border-b-2 border-gray-300" }, [
+          _c("div", { class: _vm.containers }, [
+            _c("div", { staticClass: "flex" }, [
+              _vm.hero
+                ? _c("div", { staticClass: "flex items-center w-3/4 p-4" }, [
+                    _c("div", { staticClass: "flex-auto" }, [
+                      _vm.hero
+                        ? _c(
+                            "h1",
+                            {
+                              staticClass:
+                                "inline-block font-serif text-4xl uppercase"
+                            },
+                            [
+                              _vm._v(_vm._s(_vm.hero.name) + " "),
+                              _c(
+                                "span",
+                                { staticClass: "text-gray-500 text-2xl" },
+                                [_vm._v(_vm._s(_vm.deck.name))]
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "text-gray-800 text-2xl font-serif uppercase pr-2"
+                      },
+                      [
+                        _c(
+                          "span",
                           {
                             staticClass:
-                              "inline-block font-serif text-4xl uppercase"
+                              "inline-block bg-gray-200 text-xl rounded-full px-4 py-2 align-middle"
                           },
                           [
-                            _vm._v(_vm._s(_vm.hero.name) + " "),
-                            _c(
-                              "span",
-                              { staticClass: "text-gray-500 text-2xl" },
-                              [_vm._v(_vm._s(_vm.deck.name))]
+                            _c("span", {
+                              staticClass: "inline-block rounded-lg h-2 w-2",
+                              class: _vm.resourceColour(3)
+                            }),
+                            _vm._v(
+                              " " +
+                                _vm._s(_vm.totalColoured.blue) +
+                                "  \n                                "
+                            ),
+                            _c("span", {
+                              staticClass: "inline-block rounded-lg h-2 w-2",
+                              class: _vm.resourceColour(2)
+                            }),
+                            _vm._v(
+                              " " +
+                                _vm._s(_vm.totalColoured.yellow) +
+                                "  \n                                "
+                            ),
+                            _c("span", {
+                              staticClass: "inline-block rounded-lg h-2 w-2",
+                              class: _vm.resourceColour(1)
+                            }),
+                            _vm._v(
+                              " " +
+                                _vm._s(_vm.totalColoured.red) +
+                                "\n                            "
                             )
                           ]
                         )
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "text-gray-800 text-2xl font-serif uppercase pr-2"
-                    },
-                    [
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "px-2" }, [
                       _c(
-                        "span",
+                        "a",
                         {
-                          staticClass:
-                            "inline-block bg-gray-200 text-xl rounded-full px-4 py-2 align-middle"
+                          staticClass: "link",
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.expanded = !_vm.expanded
+                            }
+                          }
                         },
                         [
-                          _c("span", {
-                            staticClass: "inline-block rounded-lg h-2 w-2",
-                            class: _vm.resourceColour(3)
-                          }),
-                          _vm._v(
-                            " " +
-                              _vm._s(_vm.totalColoured.blue) +
-                              "  \n                            "
-                          ),
-                          _c("span", {
-                            staticClass: "inline-block rounded-lg h-2 w-2",
-                            class: _vm.resourceColour(2)
-                          }),
-                          _vm._v(
-                            " " +
-                              _vm._s(_vm.totalColoured.yellow) +
-                              "  \n                            "
-                          ),
-                          _c("span", {
-                            staticClass: "inline-block rounded-lg h-2 w-2",
-                            class: _vm.resourceColour(1)
-                          }),
-                          _vm._v(
-                            " " +
-                              _vm._s(_vm.totalColoured.red) +
-                              "\n                        "
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "fill-current h-6",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"
+                                }
+                              })
+                            ]
                           )
                         ]
                       )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "w-1/4 border-l border-gray-300 flex items-center px-4"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.keywords,
+                        expression: "keywords"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg w-full",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Search for a card..."
+                    },
+                    domProps: { value: _vm.keywords },
+                    on: {
+                      keyup: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.search($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.keywords = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-gray-200 h-full" }, [
+          _c(
+            "div",
+            { staticClass: "clearfix py-4 flex h-full", class: _vm.containers },
+            [
+              _c(
+                "div",
+                {
+                  directives: [{ name: "masonry", rawName: "v-masonry" }],
+                  staticClass: "w-3/4"
+                },
+                _vm._l(_vm.orderedCards, function(card) {
+                  return _c(
+                    "div",
+                    {
+                      directives: [
+                        { name: "masonry-tile", rawName: "v-masonry-tile" }
+                      ],
+                      staticClass: "float-left relative",
+                      class: _vm.expanded ? "w-1/5" : "w-1/4"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "relative m-4" },
+                        _vm._l(card.total, function(i) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass: "rounded-lg",
+                              style: _vm.styles(i, card.total)
+                            },
+                            [_c("card-image", { attrs: { card: card } })],
+                            1
+                          )
+                        }),
+                        0
+                      )
                     ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "w-1/4 border-l border-gray-300 flex items-center px-4"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.keywords,
-                      expression: "keywords"
-                    }
-                  ],
-                  staticClass:
-                    "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg w-full",
-                  attrs: { type: "text", placeholder: "Search for a card..." },
-                  domProps: { value: _vm.keywords },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.search($event)
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.keywords = $event.target.value
-                    }
-                  }
-                })
-              ]
-            )
-          ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "w-1/4 border-l border-gray-300 p-4" },
+                _vm._l(_vm.results, function(card) {
+                  return _c(
+                    "div",
+                    { staticClass: "rounded-lg mb-8" },
+                    [_c("card-image", { attrs: { card: card } })],
+                    1
+                  )
+                }),
+                0
+              )
+            ]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200 h-full" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto clearfix py-4 flex h-full" },
-          [
-            _c(
-              "div",
-              {
-                directives: [{ name: "masonry", rawName: "v-masonry" }],
-                staticClass: "w-3/4"
-              },
-              _vm._l(_vm.orderedCards, function(card) {
-                return _c(
-                  "div",
-                  {
-                    directives: [
-                      { name: "masonry-tile", rawName: "v-masonry-tile" }
-                    ],
-                    staticClass: "w-1/4 float-left relative"
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "relative m-4" },
-                      _vm._l(card.total, function(i) {
-                        return _c(
-                          "div",
-                          {
-                            staticClass: "rounded-lg",
-                            style: _vm.styles(i, card.total)
-                          },
-                          [_c("card-image", { attrs: { card: card } })],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "w-1/4 border-l border-gray-300 p-4" },
-              _vm._l(_vm.results, function(card) {
-                return _c(
-                  "div",
-                  { staticClass: "rounded-lg mb-8" },
-                  [_c("card-image", { attrs: { card: card } })],
-                  1
-                )
-              }),
-              0
-            )
-          ]
-        )
       ])
     ],
     1
