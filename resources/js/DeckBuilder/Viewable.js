@@ -2,7 +2,7 @@ export default {
     computed: {
         averageCost: function() {
             const totalCost = this.other.reduce((total, card) => {
-                if (card.stats.cost) {
+                if (card.stats.cost && !isNaN(card.stats.cost)) {
                     return total + card.stats.cost * card.total;
                 }
 

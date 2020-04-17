@@ -103651,7 +103651,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     averageCost: function averageCost() {
       var totalCost = this.other.reduce(function (total, card) {
-        if (card.stats.cost) {
+        if (card.stats.cost && !isNaN(card.stats.cost)) {
           return total + card.stats.cost * card.total;
         }
 
