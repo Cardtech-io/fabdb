@@ -5366,7 +5366,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     expandedClasses: function expandedClasses() {
       if (this.expanded) {
-        return 'absolute top-0 bottom-0 left-0 right-0';
+        return 'fixed top-0 bottom-0 left-0 right-0';
       }
     },
     orderedCards: function orderedCards() {
