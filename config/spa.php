@@ -13,6 +13,8 @@ return [
         'cards/browse',
         'collection',
         'decks/export/([^/]+)',
+        'decks/build/premium/([^/]+)',
+        'decks/build/([^/]+)',
         'decks/build',
         'decks/test',
         'events',
