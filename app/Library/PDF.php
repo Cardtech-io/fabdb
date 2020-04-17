@@ -15,16 +15,11 @@ class PDF
 
         $url = "https://api.pdfcrowd.com/convert/";
 
-        try {
-            $response = $client->post($url, [
-                'auth' => ['thurukk', self::ACCESS_KEY],
-                'form_params' => ['text' => $html]
-            ]);
-        }
-        catch (ClientException $e) {
-            Log::debug($e->getMessage());
-        }
-        
+        $response = $client->post($url, [
+            'auth' => ['thurukk', self::ACCESS_KEY],
+            'form_params' => ['text' => $html]
+        ]);
+
         return (string) $response->getBody();
     }
 }
