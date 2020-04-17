@@ -58,12 +58,12 @@ export default {
         },
 
         totalCards: function() {
-            var count = 0;
-
-            for (var i in this.other) {
-                count += this.other[i].total;
-            }
-
+            let count = this.other.filter(card => {
+                return !card.keywords.includes('token');
+            }).reduce((total, card) => {
+                return total + card.total;
+            }, 0);
+            
             return count +
                 this.equipment.reduce((total, card) => { return total + card.total; }, 0) +
                 this.weapons.reduce((total, card) => { return total + card.total; }, 0);

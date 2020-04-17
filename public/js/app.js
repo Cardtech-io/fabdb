@@ -103697,12 +103697,11 @@ __webpack_require__.r(__webpack_exports__);
       }, 0);
     },
     totalCards: function totalCards() {
-      var count = 0;
-
-      for (var i in this.other) {
-        count += this.other[i].total;
-      }
-
+      var count = this.other.filter(function (card) {
+        return !card.keywords.includes('token');
+      }).reduce(function (total, card) {
+        return total + card.total;
+      }, 0);
       return count + this.equipment.reduce(function (total, card) {
         return total + card.total;
       }, 0) + this.weapons.reduce(function (total, card) {

@@ -80,4 +80,9 @@ class Card extends Model
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);
     }
+
+    public function isToken()
+    {
+        return in_array('token', $this->keywords);
+    }
 }

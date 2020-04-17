@@ -55,10 +55,10 @@ class Cards extends Collection
         return $this->other()->sum('total');
     }
 
-    public function total()
+    public function deckTotal()
     {
         return $this->filter(function(Card $card) {
-            return !$card->isHero();
+            return !$card->isHero() && !$card->isToken();
         })->sum('total');
     }
 }

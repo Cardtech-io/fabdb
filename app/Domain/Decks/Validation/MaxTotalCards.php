@@ -25,7 +25,7 @@ class MaxTotalCards implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->deck->cards->total() < 80;
+        return $this->deck->cards->deckTotal() < 80;
     }
 
     /**
