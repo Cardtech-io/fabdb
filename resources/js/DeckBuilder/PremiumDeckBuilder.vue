@@ -34,13 +34,15 @@
                 </div>
             </div>
 
-            <div class="bg-gray-200 h-full">
+            <div class="bg-gray-200 h-full relative">
                 <div class="clearfix py-4 flex h-full" :class="containers">
-                    <div class="w-3/4" v-masonry>
-                        <div class="float-left relative" v-for="card in orderedCards" v-masonry-tile :class="expanded ? 'w-1/5' : 'w-1/4'">
-                            <div class="relative m-4">
-                                <div v-for="i in card.total" class="rounded-lg" :style="styles(i, card.total)">
-                                    <card-image :card="card"></card-image>
+                    <div class="w-3/4 h-full overflow-y-auto">
+                        <div v-masonry class="pb-24">
+                            <div v-for="card in orderedCards" v-masonry-tile :class="expanded ? 'w-1/5' : 'w-1/4'">
+                                <div class="relative m-4" :style="padding(card.total)">
+                                    <div v-for="i in card.total" class="rounded-lg" :style="styles(i, card.total)">
+                                        <card-image :card="card"></card-image>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -63,6 +65,7 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Viewable from './Viewable';
+    import { VueMasonryPlugin } from 'vue-masonry';
 
     export default {
         components: { Breadcrumbs, CardImage, HeaderTitle },
@@ -72,6 +75,7 @@
             return {
                 expanded: false,
                 keywords: null,
+                pad: 12,
                 results: []
             }
         },
@@ -128,20 +132,20 @@
                 }).catch(error => {});
             },
 
+            padding: function(total) {
+                if (total > 1) {
+                    return 'padding-bottom: ' + total * this.pad + '%';
+                }
+            },
+
             styles: function(i, total) {
-                let pad = 12;
                 let styles = [];
 
                 i = i - 1;
 
-                if (i == 0) {
-                    if (total > 1) {
-                        styles.push('margin-bottom: ' + total * pad + '%');
-                    }
-                }
-                else {
+                if (i > 0) {
                     styles.push('position: absolute');
-                    styles.push('top: ' + i * pad + '%');
+                    styles.push('top: ' + i * this.pad + '%');
                     styles.push('box-shadow: 0 -12px 3px 0 rgba(0,0,0,0.3)');
                 }
 
@@ -150,7 +154,7 @@
         },
 
         watch: {
-            expanded: function() {
+            expanded: function(expanded) {
                 setTimeout(() => {
                     this.$redrawVueMasonry();
                 }, 100);

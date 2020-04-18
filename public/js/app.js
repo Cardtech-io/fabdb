@@ -5267,6 +5267,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var vue_masonry__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-masonry */ "./node_modules/vue-masonry/src/masonry.plugin.js");
 //
 //
 //
@@ -5325,6 +5326,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
@@ -5342,6 +5346,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       expanded: false,
       keywords: null,
+      pad: 12,
       results: []
     };
   },
@@ -5398,18 +5403,18 @@ __webpack_require__.r(__webpack_exports__);
         _this.results = response.data.data;
       })["catch"](function (error) {});
     },
+    padding: function padding(total) {
+      if (total > 1) {
+        return 'padding-bottom: ' + total * this.pad + '%';
+      }
+    },
     styles: function styles(i, total) {
-      var pad = 12;
       var styles = [];
       i = i - 1;
 
-      if (i == 0) {
-        if (total > 1) {
-          styles.push('margin-bottom: ' + total * pad + '%');
-        }
-      } else {
+      if (i > 0) {
         styles.push('position: absolute');
-        styles.push('top: ' + i * pad + '%');
+        styles.push('top: ' + i * this.pad + '%');
         styles.push('box-shadow: 0 -12px 3px 0 rgba(0,0,0,0.3)');
       }
 
@@ -5417,7 +5422,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
-    expanded: function expanded() {
+    expanded: function expanded(_expanded) {
       var _this2 = this;
 
       setTimeout(function () {
@@ -79036,49 +79041,53 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 h-full" }, [
+        _c("div", { staticClass: "bg-gray-200 h-full relative" }, [
           _c(
             "div",
             { staticClass: "clearfix py-4 flex h-full", class: _vm.containers },
             [
-              _c(
-                "div",
-                {
-                  directives: [{ name: "masonry", rawName: "v-masonry" }],
-                  staticClass: "w-3/4"
-                },
-                _vm._l(_vm.orderedCards, function(card) {
-                  return _c(
-                    "div",
-                    {
-                      directives: [
-                        { name: "masonry-tile", rawName: "v-masonry-tile" }
-                      ],
-                      staticClass: "float-left relative",
-                      class: _vm.expanded ? "w-1/5" : "w-1/4"
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "relative m-4" },
-                        _vm._l(card.total, function(i) {
-                          return _c(
-                            "div",
-                            {
-                              staticClass: "rounded-lg",
-                              style: _vm.styles(i, card.total)
-                            },
-                            [_c("card-image", { attrs: { card: card } })],
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    ]
-                  )
-                }),
-                0
-              ),
+              _c("div", { staticClass: "w-3/4 h-full overflow-y-auto" }, [
+                _c(
+                  "div",
+                  {
+                    directives: [{ name: "masonry", rawName: "v-masonry" }],
+                    staticClass: "pb-24"
+                  },
+                  _vm._l(_vm.orderedCards, function(card) {
+                    return _c(
+                      "div",
+                      {
+                        directives: [
+                          { name: "masonry-tile", rawName: "v-masonry-tile" }
+                        ],
+                        class: _vm.expanded ? "w-1/5" : "w-1/4"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "relative m-4",
+                            style: _vm.padding(card.total)
+                          },
+                          _vm._l(card.total, function(i) {
+                            return _c(
+                              "div",
+                              {
+                                staticClass: "rounded-lg",
+                                style: _vm.styles(i, card.total)
+                              },
+                              [_c("card-image", { attrs: { card: card } })],
+                              1
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]),
               _vm._v(" "),
               _c(
                 "div",
