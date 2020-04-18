@@ -8,7 +8,7 @@
             <div class="bg-white border-b-2 border-gray-300">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-3/4 p-4" v-if="hero">
+                        <div class="flex items-center w-3/4 p-4" v-if="hero" :class="{ 'px-8': expanded }">
                             <div class="flex-auto">
                                 <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }} <span class="text-gray-500 text-2xl">{{ deck.name }}</span></h1>
                             </div>
@@ -39,29 +39,30 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="w-1/4 border-l border-gray-300 flex items-center px-4">
-                            <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg w-full" placeholder="Search for a card..." @keyup.enter="search">
+                        <div class="w-1/4 flex items-center px-4" :class="{ 'px-0 bg-gray-200': expanded, 'border-l border-gray-300': !expanded }">
+                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none px-8': expanded, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !expanded }">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="bg-gray-200 h-full relative">
-                <div class="clearfix py-4 flex h-full" :class="containers">
-                    <div class="w-3/4 h-full overflow-y-auto">
+                <div class="clearfix flex h-full" :class="containers">
+                    <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': expanded }">
                         <div v-masonry class="pb-24" transition-duration="0.3s">
-                            <div v-for="card in orderedCards" v-masonry-tile :class="cardClasses">
-                                <div class="relative m-4" :style="padding(card.total)">
-                                    <div v-for="i in card.total" :class="rounded" :style="styles(i, card.total)">
-                                        <card-image :card="card" :rounded="rounded"></card-image>
+                            <div v-for="cards in displayCards" v-masonry-tile :class="cardClasses">
+                                <div class="relative m-4">
+                                    <img :src="cardUrl(cards[0].identifier, 450)" class="block w-full invisible" :style="margin(cards.length)">
+                                    <div v-for="(card, i) in cards" :style="styles(i)" :class="rounded">
+                                        <card-image :card="card" :rounded="rounded" :clickHandler="removeDeckCard"></card-image>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-1/4 border-l border-gray-300 p-4">
-                        <div v-for="card in results" class="rounded-lg mb-8">
-                            <card-image :card="card"></card-image>
+                    <div class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': expanded, 'bg-gray-300': expanded, 'border-l border-gray-300': !expanded }">
+                        <div v-for="card in results" class="rounded-lg mb-8 mx-auto" style="max-width: 300px">
+                            <card-image :card="card" :clickHandler="addDeckCard"></card-image>
                         </div>
                     </div>
                 </div>
@@ -71,49 +72,60 @@
 </template>
 
 <script>
+    import _ from 'underscore';
+    import { VueMasonryPlugin } from 'vue-masonry';
+    import { mapActions } from 'vuex';
+
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import ManagesDecks from './ManagesDecks';
     import Viewable from './Viewable';
-    import { VueMasonryPlugin } from 'vue-masonry';
 
     export default {
         components: { Breadcrumbs, CardImage, HeaderTitle },
-        mixins: [ Cardable, Viewable ],
+        mixins: [ Cardable, ManagesDecks, Viewable ],
 
         data() {
             return {
+                cards: [],
                 expanded: false,
+                cardIndex: 0,
                 keywords: null,
                 offset: 10,
-                pad: 12,
+                pad: 17,
                 results: [],
                 zoom: 1,
             }
         },
 
         computed: {
-            cards: function() {
-                if (this.deck && this.deck.cards) {
-                    function compare(a, b) {
-                        if (a.name < b.name) return -1;
-                        if (a.name > b.name) return 1;
-                        return 0;
-                    }
-
-                    return this.deck.cards.sort(compare);
-                }
-
-                return [];
-            },
-
             cardClasses: function() {
                 return [
-                    this.expanded ? 'w-1/' + this.cardWidth : 'w-1/4',
+                    'w-1/' + this.cardWidth,
                     this.rounded
                 ];
+            },
+
+            displayCards: function() {
+                let cards = [this.hero];
+
+                let reducer = (carry, card) => {
+                    for (let i = 0; i < card.total; i++) {
+                        carry.push(card);
+                    }
+
+                    return carry;
+                };
+
+                cards = cards.concat(this.weapons.reduce(reducer, []));
+                cards = cards.concat(this.equipment.reduce(reducer, []));
+                cards = cards.concat(this.other.reduce(reducer, []));
+                cards = Object.values(_.groupBy(cards, card => { return card.name; }));
+
+                return cards;
             },
 
             rounded: function() {
@@ -140,10 +152,6 @@
                 }
             },
 
-            orderedCards: function() {
-                return [this.hero].concat(this.weapons).concat(this.other);
-            },
-
             crumbs: function() {
                 return [
                     { text: 'Home', link: '/' },
@@ -154,6 +162,22 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
+
+            addDeckCard: function(card) {
+                this.addCard(card).then(this.redraw);
+            },
+
+            removeDeckCard: function(card) {
+                this.removeCard(card).then(this.redraw);
+            },
+
+            redraw: function() {
+                setTimeout(() => {
+                    this.$redrawVueMasonry();
+                }, 10);
+            },
+
             search: function() {
                 let params = {
                     keywords: this.keywords,
@@ -171,30 +195,22 @@
                 this.zoom = this.zoom + amount;
             },
 
-            padding: function(total) {
+            margin: function(total) {
                 let items = total - 1;
 
                 if (items > 0) {
-                    return 'padding-bottom: ' + items * this.pad + '%';
+                    return 'margin-bottom: ' + items * this.pad + '%';
                 }
             },
 
-            redraw: function() {
-                setTimeout(() => {
-                    this.$redrawVueMasonry();
-                }, 1);
-            },
-
-            styles: function(i, total) {
+            styles: function(i) {
                 let styles = [];
+                let zIndex = i * 10;
 
-                i = i - 1;
-
-                if (i > 0) {
-                    styles.push('position: absolute');
-                    styles.push('top: ' + i * this.offset + '%');
-                    styles.push('box-shadow: 0 -12px 3px 0 rgba(0,0,0,0.3)');
-                }
+                styles.push('z-index: ' + zIndex);
+                styles.push('position: absolute');
+                styles.push('top: ' + (i * this.offset)  + '%');
+                styles.push('left: 0');
 
                 return styles.join('; ');
             }
@@ -214,6 +230,7 @@
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
                     this.deck = response.data;
+                    this.cards = _.sortBy(this.deck.cards, 'identifier');
                 });
             });
         })

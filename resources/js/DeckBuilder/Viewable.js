@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 export default {
     computed: {
         averageCost: function() {
@@ -44,11 +46,7 @@ export default {
             });
 
             // Sort by pitch
-            return cards.sort(function compare(a, b) {
-                if (a.stats.resource < b.stats.resource) return -1;
-                if (a.stats.resource > b.stats.resource) return 1;
-                return 0;
-            });
+            return _.sortBy(cards, card => { return card.stats.resource });
         },
 
         totalOther: function() {
@@ -144,6 +142,10 @@ export default {
 
                 return total + card.total;
             }, 0);
+        },
+
+        countCards: function(cards) {
+            return _.reduce(cards, (total, card) => { return total + card.total; }, 0);
         }
     }
 };
