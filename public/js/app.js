@@ -5391,7 +5391,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (error) {});
     },
     setZoom: function setZoom(amount) {
-      if (this.zoom == 0 && amount == -1 || this.zoom == 2 && amount == 1) return;
+      var floor = this.expanded ? 1 : 0;
+      var ceiling = this.expanded ? 3 : 2;
+      if (this.zoom == floor && amount == -1 || this.zoom == ceiling && amount == 1) return;
       this.zoom = this.zoom + amount;
     },
     margin: function margin(total) {
@@ -5412,8 +5414,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   watch: {
-    expanded: function expanded() {
+    expanded: function expanded(value) {
       this.redraw();
+
+      if (value && this.zoom == 0) {
+        this.zoom = 1;
+      }
+
+      if (!value && this.zoom == 3) {
+        this.zoom = 2;
+      }
     },
     zoom: function zoom() {
       this.redraw();

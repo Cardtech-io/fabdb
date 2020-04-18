@@ -190,7 +190,10 @@
             },
 
             setZoom: function(amount) {
-                if ((this.zoom == 0 && amount == -1) || (this.zoom == 2 && amount == 1)) return;
+                let floor = this.expanded ? 1 : 0;
+                let ceiling = this.expanded ? 3 : 2;
+
+                if ((this.zoom == floor && amount == -1) || (this.zoom == ceiling && amount == 1)) return;
 
                 this.zoom = this.zoom + amount;
             },
@@ -217,8 +220,16 @@
         },
 
         watch: {
-            expanded: function() {
+            expanded: function(value) {
                 this.redraw();
+
+                if (value && this.zoom == 0) {
+                    this.zoom = 1;
+                }
+
+                if (!value && this.zoom == 3) {
+                    this.zoom = 2;
+                }
             },
 
             zoom: function() {
