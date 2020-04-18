@@ -2335,10 +2335,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
-  props: ['card', 'clickHandler'],
+  props: ['card', 'clickHandler', 'rounded'],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
-    clickClass: function clickClass() {
-      return this.handlerProvided() ? 'cursor-pointer' : '';
+    classes: function classes() {
+      return [this.handlerProvided() ? 'cursor-pointer' : '', this.rounded || 'rounded-lg sm:rounded-xl'];
     }
   }),
   methods: {
@@ -5328,6 +5328,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5346,8 +5358,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       expanded: false,
       keywords: null,
+      offset: 10,
       pad: 12,
-      results: []
+      results: [],
+      zoom: 1
     };
   },
   computed: {
@@ -5363,6 +5377,17 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return [];
+    },
+    cardClasses: function cardClasses() {
+      return [this.expanded ? 'w-1/' + this.cardWidth : 'w-1/4', this.rounded];
+    },
+    rounded: function rounded() {
+      var rounded = ['rounded-xl', 'rounded-lg', 'rounded', 'rounded'];
+      return this.expanded ? rounded[this.zoom] : 'rounded';
+    },
+    cardWidth: function cardWidth() {
+      var widths = [3, 4, 5, 6];
+      return widths[this.zoom];
     },
     containers: function containers() {
       if (!this.expanded) {
@@ -5403,10 +5428,23 @@ __webpack_require__.r(__webpack_exports__);
         _this.results = response.data.data;
       })["catch"](function (error) {});
     },
+    setZoom: function setZoom(amount) {
+      if (this.zoom == 0 && amount == -1 || this.zoom == 2 && amount == 1) return;
+      this.zoom = this.zoom + amount;
+    },
     padding: function padding(total) {
-      if (total > 1) {
-        return 'padding-bottom: ' + total * this.pad + '%';
+      var items = total - 1;
+
+      if (items > 0) {
+        return 'padding-bottom: ' + items * this.pad + '%';
       }
+    },
+    redraw: function redraw() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.$redrawVueMasonry();
+      }, 1);
     },
     styles: function styles(i, total) {
       var styles = [];
@@ -5414,7 +5452,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (i > 0) {
         styles.push('position: absolute');
-        styles.push('top: ' + i * this.pad + '%');
+        styles.push('top: ' + i * this.offset + '%');
         styles.push('box-shadow: 0 -12px 3px 0 rgba(0,0,0,0.3)');
       }
 
@@ -5422,12 +5460,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
-    expanded: function expanded(_expanded) {
-      var _this2 = this;
-
-      setTimeout(function () {
-        _this2.$redrawVueMasonry();
-      }, 100);
+    expanded: function expanded() {
+      this.redraw();
+    },
+    zoom: function zoom() {
+      this.redraw();
     }
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__["default"])(function (to, callback) {
@@ -74287,8 +74324,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("img", {
-    staticClass: "w-full rounded-lg sm:rounded-xl",
-    class: _vm.clickClass,
+    staticClass: "w-full",
+    class: _vm.classes,
     attrs: {
       src: _vm.cardUrl(_vm.card.identifier, 450, _vm.wantsBorders()),
       alt: _vm.card.name,
@@ -78950,11 +78987,81 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "px-2" }, [
+                    _c("div", { staticClass: "px-2 flex" }, [
                       _c(
                         "a",
                         {
-                          staticClass: "link",
+                          staticClass: "block link mr-4",
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.setZoom(-1)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "fill-current h-6",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "block link mr-4",
+                          attrs: { href: "" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.setZoom(1)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "fill-current h-6",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "block link",
                           attrs: { href: "" },
                           on: {
                             click: function($event) {
@@ -79051,7 +79158,8 @@ var render = function() {
                   "div",
                   {
                     directives: [{ name: "masonry", rawName: "v-masonry" }],
-                    staticClass: "pb-24"
+                    staticClass: "pb-24",
+                    attrs: { "transition-duration": "0.3s" }
                   },
                   _vm._l(_vm.orderedCards, function(card) {
                     return _c(
@@ -79060,7 +79168,7 @@ var render = function() {
                         directives: [
                           { name: "masonry-tile", rawName: "v-masonry-tile" }
                         ],
-                        class: _vm.expanded ? "w-1/5" : "w-1/4"
+                        class: _vm.cardClasses
                       },
                       [
                         _c(
@@ -79073,10 +79181,14 @@ var render = function() {
                             return _c(
                               "div",
                               {
-                                staticClass: "rounded-lg",
+                                class: _vm.rounded,
                                 style: _vm.styles(i, card.total)
                               },
-                              [_c("card-image", { attrs: { card: card } })],
+                              [
+                                _c("card-image", {
+                                  attrs: { card: card, rounded: _vm.rounded }
+                                })
+                              ],
                               1
                             )
                           }),

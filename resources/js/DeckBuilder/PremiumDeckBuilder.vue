@@ -19,8 +19,20 @@
                                     <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
                                 </span>
                             </div>
-                            <div class="px-2">
-                                <a href="" class="link" @click.prevent="expanded = !expanded">
+                            <div class="px-2 flex">
+                                <a href="" class="block link mr-4" @click.prevent="setZoom(-1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-6">
+                                        <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z"/>
+                                    </svg>
+                                </a>
+
+                                <a href="" class="block link mr-4" @click.prevent="setZoom(1)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-6">
+                                        <path fill-rule="evenodd" d="M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z"/>
+                                    </svg>
+                                </a>
+
+                                <a href="" class="block link" @click.prevent="expanded = !expanded">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-6">
                                         <path d="M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"/>
                                     </svg>
@@ -37,11 +49,11 @@
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix py-4 flex h-full" :class="containers">
                     <div class="w-3/4 h-full overflow-y-auto">
-                        <div v-masonry class="pb-24">
-                            <div v-for="card in orderedCards" v-masonry-tile :class="expanded ? 'w-1/5' : 'w-1/4'">
+                        <div v-masonry class="pb-24" transition-duration="0.3s">
+                            <div v-for="card in orderedCards" v-masonry-tile :class="cardClasses">
                                 <div class="relative m-4" :style="padding(card.total)">
-                                    <div v-for="i in card.total" class="rounded-lg" :style="styles(i, card.total)">
-                                        <card-image :card="card"></card-image>
+                                    <div v-for="i in card.total" :class="rounded" :style="styles(i, card.total)">
+                                        <card-image :card="card" :rounded="rounded"></card-image>
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +87,10 @@
             return {
                 expanded: false,
                 keywords: null,
+                offset: 10,
                 pad: 12,
-                results: []
+                results: [],
+                zoom: 1,
             }
         },
 
@@ -93,6 +107,25 @@
                 }
 
                 return [];
+            },
+
+            cardClasses: function() {
+                return [
+                    this.expanded ? 'w-1/' + this.cardWidth : 'w-1/4',
+                    this.rounded
+                ];
+            },
+
+            rounded: function() {
+                let rounded = ['rounded-xl', 'rounded-lg', 'rounded', 'rounded'];
+
+                return this.expanded ? rounded[this.zoom] : 'rounded';
+            },
+
+            cardWidth: function() {
+                let widths = [3, 4, 5, 6];
+
+                return widths[this.zoom];
             },
 
             containers: function() {
@@ -132,10 +165,24 @@
                 }).catch(error => {});
             },
 
+            setZoom: function(amount) {
+                if ((this.zoom == 0 && amount == -1) || (this.zoom == 2 && amount == 1)) return;
+
+                this.zoom = this.zoom + amount;
+            },
+
             padding: function(total) {
-                if (total > 1) {
-                    return 'padding-bottom: ' + total * this.pad + '%';
+                let items = total - 1;
+
+                if (items > 0) {
+                    return 'padding-bottom: ' + items * this.pad + '%';
                 }
+            },
+
+            redraw: function() {
+                setTimeout(() => {
+                    this.$redrawVueMasonry();
+                }, 1);
             },
 
             styles: function(i, total) {
@@ -145,7 +192,7 @@
 
                 if (i > 0) {
                     styles.push('position: absolute');
-                    styles.push('top: ' + i * this.pad + '%');
+                    styles.push('top: ' + i * this.offset + '%');
                     styles.push('box-shadow: 0 -12px 3px 0 rgba(0,0,0,0.3)');
                 }
 
@@ -154,10 +201,12 @@
         },
 
         watch: {
-            expanded: function(expanded) {
-                setTimeout(() => {
-                    this.$redrawVueMasonry();
-                }, 100);
+            expanded: function() {
+                this.redraw();
+            },
+
+            zoom: function() {
+                this.redraw();
             }
         },
 
