@@ -2,7 +2,7 @@
 
 
 return [
-    // The following are client-side routes only and should direct straight to welcome page
+    // The following are client-side routes only and should direct straight to the appropriate page
     'client' => [
         '/',
         'articles/mine',
@@ -20,6 +20,7 @@ return [
         'events',
         'login',
         'profile',
+        'premium',
         'support',
     ]
 ];
