@@ -22,7 +22,7 @@ ARC,7,Teklo Core,M,"**Dash specialization** *(You may only have Teklo Core in yo
 
 Teklo Core enters the arena with 2 steam counters on it. When Teklo Core has no steam counters on it, destroy it.
 
-At the beginning of your action phase, remove a steam counter from Teklo Core and gain [resource][resource].",,"mechanologist,action,item",,,3,1,3,
+At the beginning of your action phase, remove a steam counter from Teklo Core and gain [resource][resource].",,"mechanologist,action,item",,,3,0,3,
 ARC,8,Maximum Velocity,S,Play Maximum Velocity only if you have boosted 3 or more times this turn.,"Zoom! Zip! Kazam! Ever wanted to show 'ol Joey what for? Now you can, with the Velocitator 60-T! Turn that pesky rival into a smear on the pavement!","mechanologist,action,attack",,,1,2,3,10
 ARC,9,Spark of Genius,S,"**Dash specialization** *(You may only have Teklo Core in your deck if your hero is Dash.)*
 
