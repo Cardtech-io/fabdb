@@ -4406,7 +4406,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['removeCard']), {
     removeFromDeck: function removeFromDeck(card) {
-      //this.removeRemote(card);
+      this.removeRemote(card);
       this.removeCard({
         card: card
       });
@@ -5315,6 +5315,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     cards: function cards() {
       this.redraw();
     },
+    fullScreen: function fullScreen() {
+      this.redraw();
+    },
     zoom: function zoom() {
       this.redraw();
     }
@@ -5573,21 +5576,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (error) {});
     }
   }),
-  watch: {
-    fullScreen: function fullScreen(value) {
-      if (value && this.zoom == 0) {
-        this.setZoom({
-          n: 1
-        });
-      }
-
-      if (!value && this.zoom == 3) {
-        this.setZoom({
-          n: 2
-        });
-      }
-    }
-  },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_8__["default"])(function (to, callback) {
     axios.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
@@ -106737,15 +106725,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/DeckBuilder/GroupedCards.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GroupedCards_vue_vue_type_template_id_9abc7ec0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GroupedCards.vue?vue&type=template&id=9abc7ec0& */ "./resources/js/DeckBuilder/GroupedCards.vue?vue&type=template&id=9abc7ec0&");
 /* harmony import */ var _GroupedCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GroupedCards.vue?vue&type=script&lang=js& */ "./resources/js/DeckBuilder/GroupedCards.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _GroupedCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _GroupedCards_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -106775,7 +106762,7 @@ component.options.__file = "resources/js/DeckBuilder/GroupedCards.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/DeckBuilder/GroupedCards.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108777,6 +108764,14 @@ function find(card, cards) {
     setFullScreen: function setFullScreen(state, _ref4) {
       var fullScreen = _ref4.fullScreen;
       state.fullScreen = fullScreen;
+
+      if (fullScreen && state.zoom == 0) {
+        state.zoom = 1;
+      }
+
+      if (!fullScreen && state.zoom == 3) {
+        state.zoom = 2;
+      }
     },
     zoom: function zoom(state, _ref5) {
       var n = _ref5.n;

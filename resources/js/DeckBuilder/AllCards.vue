@@ -42,7 +42,7 @@
             ...mapActions('deck', ['removeCard']),
 
             removeFromDeck: function(card) {
-                //this.removeRemote(card);
+                this.removeRemote(card);
                 this.removeCard({ card });
             },
         }

@@ -117,18 +117,6 @@
             }
         },
 
-        watch: {
-            fullScreen: function(value) {
-                if (value && this.zoom == 0) {
-                    this.setZoom({ n: 1 });
-                }
-
-                if (!value && this.zoom == 3) {
-                    this.setZoom({ n: 2 });
-                }
-            },
-        },
-
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {

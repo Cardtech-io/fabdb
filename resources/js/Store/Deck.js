@@ -59,6 +59,14 @@ export default {
 
         setFullScreen(state, { fullScreen }) {
             state.fullScreen = fullScreen;
+            
+            if (fullScreen && state.zoom == 0) {
+                state.zoom = 1;
+            }
+
+            if (!fullScreen && state.zoom == 3) {
+                state.zoom = 2;
+            }
         },
 
         zoom(state, { n }) {

@@ -86,6 +86,10 @@
                 this.redraw();
             },
 
+            fullScreen: function() {
+                this.redraw();
+            },
+
             zoom: function() {
                 this.redraw();
             }
