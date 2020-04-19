@@ -2,6 +2,18 @@ import _ from 'underscore';
 
 export default {
     computed: {
+        attacksPerHand: function() {
+            return (this.totalAttacks / (this.totalOther / 4)).toFixed(1);
+        },
+
+        averageAttack: function() {
+            return (_.reduce(this.attacks, (total, card) => { return total + (card.stats.attack * card.total); }, 0) / this.totalAttacks).toFixed(1);
+        },
+
+        averageBlock: function() {
+            return (_.reduce(this.blocks, (total, card) => { return total + card.stats.defense * card.total; }, 0) / this.totalBlocks).toFixed(1);
+        },
+
         averageCost: function() {
             const totalCost = this.other.reduce((total, card) => {
                 if (card.stats.cost) {
@@ -26,6 +38,18 @@ export default {
             return this.cards.filter(card => {
                 return card.keywords.includes('hero');
             })[0];
+        },
+
+        attacks: function() {
+            return this.other.filter(card => {
+                return card.keywords.includes('attack') && !card.keywords.includes('reaction');
+            });
+        },
+
+        blocks: function() {
+            return this.other.filter(card => {
+                return card.stats.defense && card.stats.defense > 0;
+            });
         },
 
         weapons: function() {
@@ -55,6 +79,14 @@ export default {
             }, 0);
         },
 
+        totalAttacks: function() {
+            return this.attacks.reduce((total, card) => { return total + card.total }, 0);
+        },
+
+        totalBlocks: function() {
+            return this.blocks.reduce((total, card) => { return total + card.total }, 0);
+        },
+
         totalCards: function() {
             let count = this.other.filter(card => {
                 return !card.keywords.includes('token');
@@ -67,6 +99,10 @@ export default {
                 this.weapons.reduce((total, card) => { return total + card.total; }, 0);
         },
 
+        totalActions: function() {
+            return this.totalCardType(this.other, ['action']);
+        },
+
         totalAttackActions: function() {
             return this.totalCardType(this.other, ['action', 'attack']);
         },
@@ -77,6 +113,10 @@ export default {
 
         totalDefenseReactions: function() {
             return this.totalCardType(this.other, ['defense', 'reaction']);
+        },
+
+        totalInstants: function() {
+            return this.totalCardType(this.other, ['instant']);
         },
 
         totalColoured: function() {
@@ -124,6 +164,10 @@ export default {
             return cards.reduce((total, card) => {
                 return total + card.total;
             }, 0);
+        },
+
+        averageCardType: function(cards, keywords) {
+            return (this.totalCardType(cards, keywords) / cards.length).toFixed(1);
         },
 
         totalCardType: function(cards, keywords) {

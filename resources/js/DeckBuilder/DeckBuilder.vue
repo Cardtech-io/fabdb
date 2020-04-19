@@ -204,6 +204,16 @@
         methods: {
             ...mapActions('messages', ['addMessage']),
 
+            addCard: function(card) {
+                this.addRemote(card);
+                this.addLocal(card);
+            },
+
+            removeCard: function(card) {
+                this.removeRemote(card);
+                this.removeLocal(card);
+            },
+
             copyShareURL: function() {
                 this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
                 this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });

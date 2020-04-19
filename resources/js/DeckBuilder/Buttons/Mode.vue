@@ -16,12 +16,6 @@
 
         methods: {
             ...mapActions('deck', ['setMode'])
-        },
-
-        watch: {
-            deckMode: function(value) {
-                console.log(value);
-            }
         }
     };
 </script>

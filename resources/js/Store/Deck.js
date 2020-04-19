@@ -14,6 +14,19 @@ let zoomMatrix = [
     [[3,2],[1,0]]
 ];
 
+function controlMaxZoom(state) {
+    let ms = state.mode == 'all' ? 0 : 1;
+
+    // Moving to fullscreen, increase minimum
+    if (state.fullScreen && state.zoom == zoomMatrix[1][1][ms]) {
+        state.zoom = zoomMatrix[0][1][ms];
+    }
+
+    if (!state.fullScreen && state.zoom == zoomMatrix[0][0][ms]) {
+        state.zoom = zoomMatrix[1][0][ms];
+    }
+}
+
 export default {
     namespaced: true,
 
@@ -69,26 +82,18 @@ export default {
         setFullScreen(state, { fullScreen }) {
             state.fullScreen = fullScreen;
 
-            let ms = state.mode == 'all' ? 0 : 1;
-
-            if (fullScreen && state.zoom == 0) {
-                state.zoom = zoomMatrix[0][ms][0];
-            }
-
-            if (!fullScreen && state.zoom == 4) {
-                state.zoom = zoomMatrix[1][ms][0];
-            }
+            controlMaxZoom(state);
         },
 
         setMode(state, { mode }) {
             state.mode = mode;
+            controlMaxZoom(state);
         },
 
         zoom(state, { n }) {
             let fs = state.fullScreen ? 0 : 1;
             let ms = state.mode == 'all' ? 0 : 1;
 
-            console.log(state.zoom, zoomMatrix[fs][1][ms], zoomMatrix[fs][0][ms])
             if ((n == -1 && state.zoom > zoomMatrix[fs][1][ms]) || (n == 1 && state.zoom < zoomMatrix[fs][0][ms])) {
                 state.zoom += n;
             }
