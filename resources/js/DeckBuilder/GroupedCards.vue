@@ -31,7 +31,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['fullScreen', 'zoom']),
+            ...mapState('deck', ['fullScreen', 'mode', 'zoom']),
 
             cardClasses: function() {
                 return [
@@ -41,7 +41,7 @@
             },
 
             cardWidth: function() {
-                let widths = [3, 4, 5, 6];
+                let widths = [3, 4, 5, 6, 7];
 
                 return widths[this.zoom];
             },
@@ -50,9 +50,7 @@
                 let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
                 let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
 
-                let rounded = this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
-                console.log(rounded);
-                return rounded;
+                return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
             },
         },
 
@@ -90,6 +88,10 @@
             },
 
             fullScreen: function() {
+                this.redraw();
+            },
+
+            mode: function() {
                 this.redraw();
             },
 

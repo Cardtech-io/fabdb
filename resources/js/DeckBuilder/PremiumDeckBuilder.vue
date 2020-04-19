@@ -8,24 +8,23 @@
             <div class="bg-white border-b-2 border-gray-300">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-3/4 p-4" v-if="hero" :class="{ 'px-8': fullScreen }">
+                        <div class="flex items-center w-3/4 p-4" v-if="hero" :class="{ 'px-8': fullScreen, 'w-full': mode == 'all' }">
                             <div class="flex-auto">
                                 <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }} <span class="text-gray-500 text-2xl">{{ deck.name }}</span></h1>
                             </div>
-                            <div class="text-gray-800 text-2xl font-serif uppercase pr-2">
-                                <span class="inline-block bg-gray-200 text-xl rounded-full px-4 py-2 align-middle">
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
-                                </span>
+
+                            <div class="bg-gray-200 border-2 border-gray-200 text-gray-800 text-base font-serif mr-2 rounded-full">
+                                <mode-button mode="all" text="All"></mode-button>
+                                <mode-button mode="search" text="Search"></mode-button>
                             </div>
+
                             <div class="px-2 flex">
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen"></zoom-button>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen"></zoom-button>
                                 <fullscreen-button></fullscreen-button>
                             </div>
                         </div>
-                        <div class="w-1/4 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                        <div v-if="mode != 'all'" class="w-1/4 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
                             <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
                         </div>
                     </div>
@@ -34,10 +33,10 @@
 
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
-                    <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen }">
+                    <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode == 'all' }">
                         <all-cards :collection="cards"></all-cards>
                     </div>
-                    <div class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                    <div v-if="mode != 'all'" class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
                         <search-results :keywords="keywords" :results="results"></search-results>
                     </div>
                 </div>
@@ -62,9 +61,10 @@
     import Viewable from './Viewable';
     import ZoomButton from './Buttons/Zoom.vue';
     import FullscreenButton from './Buttons/Fullscreen.vue';
+    import ModeButton from './Buttons/Mode.vue';
 
     export default {
-        components: { AllCards, Breadcrumbs, CardImage, FullscreenButton, HeaderTitle, SearchResults, ZoomButton },
+        components: { AllCards, Breadcrumbs, CardImage, FullscreenButton, ModeButton, HeaderTitle, SearchResults, ZoomButton },
         mixins: [ Cardable, ManagesDecks, Viewable ],
 
         data() {
@@ -78,7 +78,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'zoom']),
+            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'zoom']),
 
             containers: function() {
                 if (!this.fullScreen) {

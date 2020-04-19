@@ -23,11 +23,6 @@
             setZoom: function() {
                 let action = this.action == 'in' ? 'zoomIn' : 'zoomOut';
 
-                let floor = this.fullScreen ? 1 : 0;
-                let ceiling = this.fullScreen ? 3 : 2;
-
-                if ((this.zoom == floor && action == 'zoomIn') || (this.zoom == ceiling && action == 'zoomOut')) return;
-
                 this[action]();
             },
         }

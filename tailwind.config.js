@@ -1,5 +1,11 @@
 module.exports = {
     theme: {
+        extend: {
+            width: {
+                '1/7': '14.2857143%'
+            }
+        },
+
         borderRadius: {
             'none': '0',
             'sm': '.125rem',
@@ -47,6 +53,7 @@ module.exports = {
 
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
-        opacity: ['disabled']
+        borderRadius: ['first', 'last'],
+        opacity: ['disabled'],
     }
 };

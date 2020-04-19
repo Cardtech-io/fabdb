@@ -6,6 +6,14 @@ function find(card, cards) {
     })[0];
 };
 
+// the following matrix dictates the floor and ceiling
+// of the zoom level based on whether or not fullscreen
+// is enabled, and whether or not the mode is set to all.
+let zoomMatrix = [
+    [[4,3],[2,1]], // fullscreen
+    [[3,2],[1,0]]
+];
+
 export default {
     namespaced: true,
 
@@ -13,6 +21,7 @@ export default {
         deck: {},
         cards: [],
         fullScreen: false,
+        mode: 'all',
         zoom: 1,
     },
 
@@ -60,17 +69,27 @@ export default {
         setFullScreen(state, { fullScreen }) {
             state.fullScreen = fullScreen;
 
+            let ms = state.mode == 'all' ? 0 : 1;
+
             if (fullScreen && state.zoom == 0) {
-                state.zoom = 1;
+                state.zoom = zoomMatrix[0][ms][0];
             }
 
-            if (!fullScreen && state.zoom == 3) {
-                state.zoom = 2;
+            if (!fullScreen && state.zoom == 4) {
+                state.zoom = zoomMatrix[1][ms][0];
             }
         },
 
+        setMode(state, { mode }) {
+            state.mode = mode;
+        },
+
         zoom(state, { n }) {
-            if ((n == -1 && state.zoom > 0) || (n == 1 && state.zoom < 3)) {
+            let fs = state.fullScreen ? 0 : 1;
+            let ms = state.mode == 'all' ? 0 : 1;
+
+            console.log(state.zoom, zoomMatrix[fs][1][ms], zoomMatrix[fs][0][ms])
+            if ((n == -1 && state.zoom > zoomMatrix[fs][1][ms]) || (n == 1 && state.zoom < zoomMatrix[fs][0][ms])) {
                 state.zoom += n;
             }
         }
@@ -87,6 +106,10 @@ export default {
 
         setDeck(context, { deck }) {
             context.commit('setDeck', { deck });
+        },
+
+        setMode(context, { mode }) {
+            context.commit('setMode', { mode });
         },
 
         toggleFullScreen({ commit, state }) {
