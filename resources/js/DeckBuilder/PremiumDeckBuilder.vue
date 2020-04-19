@@ -35,21 +35,10 @@
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
                     <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen }">
-                        <div v-masonry class="pb-24" transition-duration="0.3s">
-                            <div v-for="cards in displayCards" v-masonry-tile :class="cardClasses">
-                                <div class="relative m-4">
-                                    <img :src="cardUrl(cards[0].identifier, 450)" class="block w-full invisible" :style="margin(cards.length)">
-                                    <div v-for="(card, i) in cards" :style="styles(i)" :class="rounded">
-                                        <card-image :card="card" :rounded="rounded" :clickHandler="removeDeckCard"></card-image>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <all-cards :collection="cards"></all-cards>
                     </div>
                     <div class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                        <div v-for="card in results" class="rounded-lg mb-8 mx-auto" style="max-width: 300px">
-                            <card-image :card="card" :clickHandler="addDeckCard"></card-image>
-                        </div>
+                        <search-results :keywords="keywords" :results="results"></search-results>
                     </div>
                 </div>
             </div>
@@ -62,23 +51,24 @@
     import { VueMasonryPlugin } from 'vue-masonry';
     import { mapActions, mapState } from 'vuex';
 
+    import AllCards from './AllCards.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import ManagesDecks from './ManagesDecks';
+    import SearchResults from './SearchResults.vue';
     import Viewable from './Viewable';
     import ZoomButton from './Buttons/Zoom.vue';
     import FullscreenButton from './Buttons/Fullscreen.vue';
 
     export default {
-        components: { Breadcrumbs, CardImage, FullscreenButton, HeaderTitle, ZoomButton },
+        components: { AllCards, Breadcrumbs, CardImage, FullscreenButton, HeaderTitle, SearchResults, ZoomButton },
         mixins: [ Cardable, ManagesDecks, Viewable ],
 
         data() {
             return {
-                cards: [],
                 cardIndex: 0,
                 keywords: null,
                 offset: 10,
@@ -88,45 +78,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['deck', 'fullScreen', 'zoom']),
-
-            cardClasses: function() {
-                return [
-                    'w-1/' + this.cardWidth,
-                    this.rounded
-                ];
-            },
-
-            displayCards: function() {
-                let cards = [this.hero];
-
-                let reducer = (carry, card) => {
-                    for (let i = 0; i < card.total; i++) {
-                        carry.push(card);
-                    }
-
-                    return carry;
-                };
-
-                cards = cards.concat(this.weapons.reduce(reducer, []));
-                cards = cards.concat(this.equipment.reduce(reducer, []));
-                cards = cards.concat(this.other.reduce(reducer, []));
-                cards = Object.values(_.groupBy(cards, card => { return card.name; }));
-
-                return cards;
-            },
-
-            rounded: function() {
-                let rounded = ['rounded-xl', 'rounded-lg', 'rounded', 'rounded'];
-
-                return this.fullScreen ? rounded[this.zoom] : 'rounded';
-            },
-
-            cardWidth: function() {
-                let widths = [3, 4, 5, 6];
-
-                return widths[this.zoom];
-            },
+            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'zoom']),
 
             containers: function() {
                 if (!this.fullScreen) {
@@ -153,20 +105,6 @@
             ...mapActions('messages', ['addMessage']),
             ...mapActions('deck', ['setDeck', 'setZoom']),
 
-            addDeckCard: function(card) {
-                this.addCard(card).then(this.redraw);
-            },
-
-            removeDeckCard: function(card) {
-                this.removeCard(card).then(this.redraw);
-            },
-
-            redraw: function() {
-                setTimeout(() => {
-                    this.$redrawVueMasonry();
-                }, 10);
-            },
-
             search: function() {
                 let params = {
                     keywords: this.keywords,
@@ -176,26 +114,6 @@
                 axios.get('/cards/', { params: params }).then(response => {
                     this.results = response.data.data;
                 }).catch(error => {});
-            },
-
-            margin: function(total) {
-                let items = total - 1;
-
-                if (items > 0) {
-                    return 'margin-bottom: ' + items * this.pad + '%';
-                }
-            },
-
-            styles: function(i) {
-                let styles = [];
-                let zIndex = i * 10;
-
-                styles.push('z-index: ' + zIndex);
-                styles.push('position: absolute');
-                styles.push('top: ' + (i * this.offset)  + '%');
-                styles.push('left: 0');
-
-                return styles.join('; ');
             }
         },
 
@@ -206,22 +124,15 @@
                 }
 
                 if (!value && this.zoom == 3) {
-                    this.seZoom({ n: 2 });
+                    this.setZoom({ n: 2 });
                 }
-
-                this.redraw();
             },
-
-            zoom: function(value) {
-                this.redraw();
-            }
         },
 
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
                     this.setDeck({ deck: response.data });
-                    this.cards = _.sortBy(this.deck.cards, 'identifier');
                 });
             });
         })

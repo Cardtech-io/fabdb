@@ -1,19 +1,13 @@
 export default {
     methods: {
-        addCard: function (card) {
-            let request = axios.post('/decks/' + this.$route.params.deck, { card: card.identifier }).then(response => {
-                const deckCard = this.findCard(card);
-                console.log('now');
+        addRemote: function(card) {
+            let request = axios.post('/decks/' + this.$route.params.deck, { card: card.identifier });
 
-                if (deckCard) {
-                    deckCard.total += 1;
-                } else {
-                    card.total = 1;
-                    this.cards.push(card);
-                }
-
+            request.then(response => {
                 this.addMessage({ status: 'success', message: 'Card added.' });
-            }).catch(error => {
+            });
+
+            request.catch(error => {
                 if (error.response.status == 422) {
                     this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                 }
@@ -22,29 +16,7 @@ export default {
             return request;
         },
 
-        removeCard: function (card) {
-            const deckCard = this.findCard(card);
-
-            if (deckCard.total > 1) {
-                deckCard.total -= 1;
-            } else {
-                // Need to remove from array completely
-                var key = null;
-
-                for (var i in this.cards) {
-                    var match = this.cards[i];
-
-                    if (match.identifier == card.identifier) {
-                        key = i;
-                        break;
-                    }
-                }
-
-                if (key) {
-                    this.cards.splice(key, 1);
-                }
-            }
-
+        removeRemote: function(card) {
             return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
         },
 
