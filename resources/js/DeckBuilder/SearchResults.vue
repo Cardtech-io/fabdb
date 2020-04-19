@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="card in results" class="rounded-lg mb-8 mx-auto" style="max-width: 300px">
+        <div v-for="card in results" class="w-1/2 rounded-lg mb-8 mx-auto" style="max-width: 300px">
             <card-image :card="card" :clickHandler="addToDeck"></card-image>
         </div>
     </div>

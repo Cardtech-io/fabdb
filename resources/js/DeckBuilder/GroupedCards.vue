@@ -47,9 +47,12 @@
             },
 
             rounded: function() {
-                let rounded = ['rounded-xl', 'rounded-lg', 'rounded', 'rounded'];
+                let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
+                let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
 
-                return this.fullScreen ? rounded[this.zoom] : 'rounded';
+                let rounded = this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
+                console.log(rounded);
+                return rounded;
             },
         },
 

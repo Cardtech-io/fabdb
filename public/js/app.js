@@ -5282,8 +5282,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return widths[this.zoom];
     },
     rounded: function rounded() {
-      var rounded = ['rounded-xl', 'rounded-lg', 'rounded', 'rounded'];
-      return this.fullScreen ? rounded[this.zoom] : 'rounded';
+      var fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
+      var nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
+      var rounded = this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
+      console.log(rounded);
+      return rounded;
     }
   }),
   methods: {
@@ -81674,7 +81677,7 @@ var render = function() {
       return _c(
         "div",
         {
-          staticClass: "rounded-lg mb-8 mx-auto",
+          staticClass: "w-1/2 rounded-lg mb-8 mx-auto",
           staticStyle: { "max-width": "300px" }
         },
         [

@@ -59,7 +59,7 @@ export default {
 
         setFullScreen(state, { fullScreen }) {
             state.fullScreen = fullScreen;
-            
+
             if (fullScreen && state.zoom == 0) {
                 state.zoom = 1;
             }
