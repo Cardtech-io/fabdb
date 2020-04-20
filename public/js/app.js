@@ -110469,23 +110469,28 @@ function controlMaxZoom(state) {
           collection = _ref2.collection;
       remove(card, collection);
     },
-    setDeck: function setDeck(state, _ref3) {
-      var deck = _ref3.deck;
+    removeCardFromDeck: function removeCardFromDeck(state, _ref3) {
+      var card = _ref3.card;
+      remove(card, state.cards);
+      remove(card, state.sideboard);
+    },
+    setDeck: function setDeck(state, _ref4) {
+      var deck = _ref4.deck;
       state.deck = deck;
       state.cards = underscore__WEBPACK_IMPORTED_MODULE_0__["default"].sortBy(deck.cards, 'identifier');
       state.sideboard = underscore__WEBPACK_IMPORTED_MODULE_0__["default"].sortBy(deck.sideboard, 'identifier');
     },
-    setFullScreen: function setFullScreen(state, _ref4) {
-      var fullScreen = _ref4.fullScreen;
+    setFullScreen: function setFullScreen(state, _ref5) {
+      var fullScreen = _ref5.fullScreen;
       state.fullScreen = fullScreen;
     },
-    setMode: function setMode(state, _ref5) {
-      var mode = _ref5.mode;
+    setMode: function setMode(state, _ref6) {
+      var mode = _ref6.mode;
       state.mode = mode;
       controlMaxZoom(state);
     },
-    zoom: function zoom(state, _ref6) {
-      var n = _ref6.n;
+    zoom: function zoom(state, _ref7) {
+      var n = _ref7.n;
       var fs = state.fullScreen ? 0 : 1;
       var ms = state.mode == 'all' ? 0 : 1;
 
@@ -110495,57 +110500,55 @@ function controlMaxZoom(state) {
     }
   },
   actions: {
-    addCard: function addCard(_ref7, _ref8) {
-      var commit = _ref7.commit,
-          state = _ref7.state;
-      var card = _ref8.card;
+    addCard: function addCard(_ref8, _ref9) {
+      var commit = _ref8.commit,
+          state = _ref8.state;
+      var card = _ref9.card;
       commit('addCard', {
         card: card,
         collection: state.cards
       });
     },
-    addToSideboard: function addToSideboard(_ref9, _ref10) {
-      var commit = _ref9.commit,
-          state = _ref9.state;
-      var card = _ref10.card;
+    addToSideboard: function addToSideboard(_ref10, _ref11) {
+      var commit = _ref10.commit,
+          state = _ref10.state;
+      var card = _ref11.card;
       commit('addCard', {
         card: card,
         collection: state.sideboard
       });
     },
-    removeFromSideBoard: function removeFromSideBoard(_ref11, _ref12) {
-      var commit = _ref11.commit,
-          state = _ref11.state;
-      var card = _ref12.card;
+    removeFromSideBoard: function removeFromSideBoard(_ref12, _ref13) {
+      var commit = _ref12.commit,
+          state = _ref12.state;
+      var card = _ref13.card;
       commit('removeCard', {
         card: card,
         collection: state.sideboard
       });
     },
-    removeCard: function removeCard(_ref13, _ref14) {
-      var commit = _ref13.commit,
-          state = _ref13.state;
-      var card = _ref14.card;
-      commit('removeCard', {
-        card: card,
-        collection: state.cards
+    removeCard: function removeCard(_ref14, _ref15) {
+      var commit = _ref14.commit;
+      var card = _ref15.card;
+      commit('removeCardFromDeck', {
+        card: card
       });
     },
-    setDeck: function setDeck(context, _ref15) {
-      var deck = _ref15.deck;
+    setDeck: function setDeck(context, _ref16) {
+      var deck = _ref16.deck;
       context.commit('setDeck', {
         deck: deck
       });
     },
-    setMode: function setMode(context, _ref16) {
-      var mode = _ref16.mode;
+    setMode: function setMode(context, _ref17) {
+      var mode = _ref17.mode;
       context.commit('setMode', {
         mode: mode
       });
     },
-    toggleFullScreen: function toggleFullScreen(_ref17) {
-      var commit = _ref17.commit,
-          state = _ref17.state;
+    toggleFullScreen: function toggleFullScreen(_ref18) {
+      var commit = _ref18.commit,
+          state = _ref18.state;
       commit('setFullScreen', {
         fullScreen: !state.fullScreen
       });
@@ -110564,8 +110567,8 @@ function controlMaxZoom(state) {
         n: 1
       });
     },
-    setZoom: function setZoom(context, _ref18) {
-      var n = _ref18.n;
+    setZoom: function setZoom(context, _ref19) {
+      var n = _ref19.n;
       context.commit('zoom', {
         n: n
       });

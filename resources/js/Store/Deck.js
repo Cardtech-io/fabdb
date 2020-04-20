@@ -104,6 +104,11 @@ export default {
             remove(card, collection);
         },
 
+        removeCardFromDeck(state, { card }) {
+            remove(card, state.cards);
+            remove(card, state.sideboard);
+        },
+
         setDeck(state, { deck }) {
             state.deck = deck;
             state.cards = _.sortBy(deck.cards, 'identifier');
@@ -142,8 +147,8 @@ export default {
             commit('removeCard', { card, collection: state.sideboard });
         },
 
-        removeCard({ commit, state }, { card }) {
-            commit('removeCard', { card, collection: state.cards });
+        removeCard({ commit }, { card }) {
+            commit('removeCardFromDeck', { card });
         },
 
         setDeck(context, { deck }) {
