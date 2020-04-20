@@ -38,6 +38,24 @@ export default {
         zoom: 1,
     },
 
+    getters: {
+        fsIndex: state => {
+            return state.fullScreen ? 0 : 1;
+        },
+
+        msIndex: state => {
+            return state.mode == 'all' ? 0 : 1;
+        },
+
+        maxZoom: (state, getters) => {
+            return zoomMatrix[getters.fsIndex][0][getters.msIndex];
+        },
+
+        minZoom: (state, getters) => {
+            return zoomMatrix[getters.fsIndex][1][getters.msIndex];
+        }
+    },
+
     mutations: {
         addCard(state, { card }) {
             const deckCard = find(card, state.cards);
@@ -81,8 +99,6 @@ export default {
 
         setFullScreen(state, { fullScreen }) {
             state.fullScreen = fullScreen;
-
-            controlMaxZoom(state);
         },
 
         setMode(state, { mode }) {
@@ -119,6 +135,10 @@ export default {
 
         toggleFullScreen({ commit, state }) {
             commit('setFullScreen', { fullScreen: !state.fullScreen });
+
+            let n = state.fullScreen ? 1 : -1;
+
+            commit('zoom', { n })
         },
 
         zoomIn(context) {

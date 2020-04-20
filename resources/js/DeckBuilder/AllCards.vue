@@ -1,5 +1,11 @@
 <template>
-    <grouped-cards :cards="all" :action="removeFromDeck"></grouped-cards>
+    <div>
+        <grouped-cards :cards="all" :action="removeFromDeck" v-if="all.cards.length"></grouped-cards>
+        <div v-else class="text-center my-20">
+            You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.
+        </div>
+    </div>
+
 </template>
 
 <script>
@@ -18,6 +24,10 @@
 
         computed: {
             all: function() {
+                if (!this.collection.length) {
+                    return new Cards([]);
+                }
+
                 let collection = new Cards(this.collection);
                 let cards = new Cards([collection.hero()]);
 

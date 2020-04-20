@@ -29,7 +29,7 @@
                                 <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login">
                             </div>
 
-                            <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below.</p>
+                            <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above.</p>
                         </form>
                     </div>
                 </div>

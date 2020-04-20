@@ -1,5 +1,5 @@
 <template>
-    <modal name="complete-profile" :adaptive="true" height="auto" classes="bg-gray-100">
+    <modal name="complete-profile" :adaptive="true" height="auto" classes="bg-gray-100" v-if="user">
         <form @submit.prevent="completeProfile()">
             <h2 class="bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-4">Complete your profile</h2>
 

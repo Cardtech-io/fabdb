@@ -4372,6 +4372,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4386,6 +4392,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: {
     all: function all() {
+      if (!this.collection.length) {
+        return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]([]);
+      }
+
       var collection = new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"](this.collection);
       var cards = new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]([collection.hero()]);
 
@@ -4509,7 +4519,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'zoom'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['minZoom', 'maxZoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'zoom']), {
+    // Returns true if the button is active
+    inactive: function inactive() {
+      if (this.action == 'in') {
+        return this.zoom == this.minZoom;
+      }
+
+      return this.zoom == this.maxZoom;
+    }
+  }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['zoomIn', 'zoomOut']), {
     setZoom: function setZoom() {
       var action = this.action == 'in' ? 'zoomIn' : 'zoomOut';
@@ -5700,7 +5719,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         text: 'Home',
         link: '/'
       }, {
-        text: 'Premium Deck Builder',
+        text: 'Decks',
         link: '/decks/build/'
       }, {
         text: this.deck.name
@@ -76491,7 +76510,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", [
                         _vm._v(
-                          "Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below."
+                          "Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above."
                         )
                       ])
                     ]
@@ -79769,9 +79788,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("grouped-cards", {
-    attrs: { cards: _vm.all, action: _vm.removeFromDeck }
-  })
+  return _c(
+    "div",
+    [
+      _vm.all.cards.length
+        ? _c("grouped-cards", {
+            attrs: { cards: _vm.all, action: _vm.removeFromDeck }
+          })
+        : _c("div", { staticClass: "text-center my-20" }, [
+            _vm._v(
+              "\n        You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.\n    "
+            )
+          ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -79885,16 +79916,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "a",
+    "button",
     {
-      staticClass: "block link mr-4",
-      attrs: { href: "" },
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.setZoom($event)
-        }
-      }
+      staticClass: "block mr-4",
+      class: { "text-gray-500": _vm.inactive, link: !_vm.inactive },
+      attrs: { disabled: _vm.inactive },
+      on: { click: _vm.setZoom }
     },
     [
       _c(
@@ -81899,7 +81926,9 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-title", { attrs: { title: "Premium Deck Builder" } }),
+      _c("header-title", {
+        attrs: { title: _vm.hero ? _vm.hero.name : "Premium Deck Builder" }
+      }),
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
@@ -81907,86 +81936,75 @@ var render = function() {
         _c("div", { staticClass: "bg-white border-b-2 border-gray-300" }, [
           _c("div", { class: _vm.containers }, [
             _c("div", { staticClass: "flex" }, [
-              _vm.hero
-                ? _c(
+              _c(
+                "div",
+                {
+                  staticClass: "flex items-center w-3/4 p-4",
+                  class: {
+                    "px-8": _vm.fullScreen,
+                    "w-full": _vm.mode != "search"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "flex-auto" }, [
+                    _c(
+                      "h1",
+                      {
+                        staticClass:
+                          "inline-block font-serif text-4xl uppercase"
+                      },
+                      [_vm._v(_vm._s(_vm.deck.name))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
                     "div",
                     {
-                      staticClass: "flex items-center w-3/4 p-4",
-                      class: {
-                        "px-8": _vm.fullScreen,
-                        "w-full": _vm.mode != "search"
-                      }
+                      staticClass:
+                        "bg-gray-200 border-2 border-gray-200 text-gray-800 text-base font-serif mr-2 rounded-full"
                     },
                     [
-                      _c("div", { staticClass: "flex-auto" }, [
-                        _vm.hero
-                          ? _c(
-                              "h1",
-                              {
-                                staticClass:
-                                  "inline-block font-serif text-4xl uppercase"
-                              },
-                              [
-                                _vm._v(_vm._s(_vm.hero.name) + " "),
-                                _c(
-                                  "span",
-                                  { staticClass: "text-gray-500 text-2xl" },
-                                  [_vm._v(_vm._s(_vm.deck.name))]
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      ]),
+                      _c("mode-button", {
+                        attrs: { mode: "all", text: "Cards" }
+                      }),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "bg-gray-200 border-2 border-gray-200 text-gray-800 text-base font-serif mr-2 rounded-full"
-                        },
-                        [
-                          _c("mode-button", {
-                            attrs: { mode: "all", text: "Cards" }
-                          }),
-                          _vm._v(" "),
-                          _c("mode-button", {
-                            attrs: { mode: "search", text: "Search" }
-                          }),
-                          _vm._v(" "),
-                          _c("mode-button", {
-                            attrs: { mode: "metrics", text: "Metrics" }
-                          })
-                        ],
-                        1
-                      ),
+                      _c("mode-button", {
+                        attrs: { mode: "search", text: "Search" }
+                      }),
                       _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "px-2 flex" },
-                        [
-                          _c("zoom-button", {
-                            attrs: {
-                              zoom: _vm.zoom,
-                              action: "in",
-                              fullScreen: _vm.fullScreen
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("zoom-button", {
-                            attrs: {
-                              zoom: _vm.zoom,
-                              action: "out",
-                              fullScreen: _vm.fullScreen
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("fullscreen-button")
-                        ],
-                        1
-                      )
-                    ]
+                      _c("mode-button", {
+                        attrs: { mode: "metrics", text: "Metrics" }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "px-2 flex" },
+                    [
+                      _c("zoom-button", {
+                        attrs: {
+                          zoom: _vm.zoom,
+                          action: "in",
+                          fullScreen: _vm.fullScreen
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("zoom-button", {
+                        attrs: {
+                          zoom: _vm.zoom,
+                          action: "out",
+                          fullScreen: _vm.fullScreen
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("fullscreen-button")
+                    ],
+                    1
                   )
-                : _vm._e(),
+                ]
+              ),
               _vm._v(" "),
               _vm.mode == "search"
                 ? _c(
@@ -84506,128 +84524,132 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "modal",
-    {
-      attrs: {
-        name: "complete-profile",
-        adaptive: true,
-        height: "auto",
-        classes: "bg-gray-100"
-      }
-    },
-    [
-      _c(
-        "form",
+  return _vm.user
+    ? _c(
+        "modal",
         {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.completeProfile()
-            }
+          attrs: {
+            name: "complete-profile",
+            adaptive: true,
+            height: "auto",
+            classes: "bg-gray-100"
           }
         },
         [
           _c(
-            "h2",
+            "form",
             {
-              staticClass:
-                "bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-4"
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.completeProfile()
+                }
+              }
             },
-            [_vm._v("Complete your profile")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "px-4 pb-4" }, [
-            _c("div", { staticClass: "w-full mt-4" }, [
+            [
               _c(
-                "label",
+                "h2",
                 {
-                  staticClass: "block font-serif uppercase tracking-wide mb-1"
+                  staticClass:
+                    "bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-4"
                 },
-                [_vm._v("Name")]
+                [_vm._v("Complete your profile")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.name,
-                    expression: "name"
-                  }
-                ],
-                staticClass:
-                  "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                attrs: { type: "text" },
-                domProps: { value: _vm.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c("div", { staticClass: "px-4 pb-4" }, [
+                _c("div", { staticClass: "w-full mt-4" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.name,
+                        expression: "name"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.name = $event.target.value
+                      }
                     }
-                    _vm.name = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-full mt-4" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "block font-serif uppercase tracking-wide mb-1"
-                },
-                [_vm._v("GEM player ID")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.gemId,
-                    expression: "gemId"
-                  }
-                ],
-                staticClass:
-                  "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                attrs: { type: "text" },
-                domProps: { value: _vm.gemId },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full mt-4" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "block font-serif uppercase tracking-wide mb-1"
+                    },
+                    [_vm._v("GEM player ID")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.gemId,
+                        expression: "gemId"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.gemId },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.gemId = $event.target.value
+                      }
                     }
-                    _vm.gemId = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex mt-8" }, [
-              _c("input", {
-                staticClass:
-                  "appearance-none block w-1/2 bg-gray-600 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-gray-500 disabled:opacity-50",
-                attrs: { type: "button", value: "Cancel" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.close()
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                staticClass:
-                  "appearance-none block w-1/2 ml-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
-                attrs: { type: "submit", value: "Save" }
-              })
-            ])
-          ])
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-8" }, [
+                  _c("input", {
+                    staticClass:
+                      "appearance-none block w-1/2 bg-gray-600 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-gray-500 disabled:opacity-50",
+                    attrs: { type: "button", value: "Cancel" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.close()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass:
+                      "appearance-none block w-1/2 ml-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50",
+                    attrs: { type: "submit", value: "Save" }
+                  })
+                ])
+              ])
+            ]
+          )
         ]
       )
-    ]
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -109677,6 +109699,20 @@ function controlMaxZoom(state) {
     mode: 'all',
     zoom: 1
   },
+  getters: {
+    fsIndex: function fsIndex(state) {
+      return state.fullScreen ? 0 : 1;
+    },
+    msIndex: function msIndex(state) {
+      return state.mode == 'all' ? 0 : 1;
+    },
+    maxZoom: function maxZoom(state, getters) {
+      return zoomMatrix[getters.fsIndex][0][getters.msIndex];
+    },
+    minZoom: function minZoom(state, getters) {
+      return zoomMatrix[getters.fsIndex][1][getters.msIndex];
+    }
+  },
   mutations: {
     addCard: function addCard(state, _ref) {
       var card = _ref.card;
@@ -109721,7 +109757,6 @@ function controlMaxZoom(state) {
     setFullScreen: function setFullScreen(state, _ref4) {
       var fullScreen = _ref4.fullScreen;
       state.fullScreen = fullScreen;
-      controlMaxZoom(state);
     },
     setMode: function setMode(state, _ref5) {
       var mode = _ref5.mode;
@@ -109770,6 +109805,10 @@ function controlMaxZoom(state) {
           state = _ref13.state;
       commit('setFullScreen', {
         fullScreen: !state.fullScreen
+      });
+      var n = state.fullScreen ? 1 : -1;
+      commit('zoom', {
+        n: n
       });
     },
     zoomIn: function zoomIn(context) {
@@ -110306,7 +110345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Support_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Support.vue */ "./resources/js/Support.vue");
 /* harmony import */ var _Identity_Profile_vue__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Identity/Profile.vue */ "./resources/js/Identity/Profile.vue");
 /* harmony import */ var _Privacy_vue__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Privacy.vue */ "./resources/js/Privacy.vue");
-/* harmony import */ var _Premium_vue__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Premium.vue */ "./resources/js/Premium.vue");
+/* harmony import */ var _Premium_vue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Premium.vue */ "./resources/js/Premium.vue");
 /* harmony import */ var _Auth_Login_vue__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Auth/Login.vue */ "./resources/js/Auth/Login.vue");
 /* harmony import */ var _Auth_Logout_vue__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Auth/Logout.vue */ "./resources/js/Auth/Logout.vue");
 
@@ -110516,7 +110555,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }, {
     path: "/premium",
-    component: _Premium_vue__WEBPACK_IMPORTED_MODULE_27__["default"],
+    component: _Premium_vue__WEBPACK_IMPORTED_MODULE_24__["default"],
     name: 'premium',
     meta: {
       title: 'Premium feature'

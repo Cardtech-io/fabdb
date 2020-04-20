@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-title title="Premium Deck Builder"></header-title>
+        <header-title :title="hero ? hero.name : 'Premium Deck Builder'"></header-title>
 
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
@@ -8,9 +8,9 @@
             <div class="bg-white border-b-2 border-gray-300">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-3/4 p-4" v-if="hero" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' }">
+                        <div class="flex items-center w-3/4 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' }">
                             <div class="flex-auto">
-                                <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }} <span class="text-gray-500 text-2xl">{{ deck.name }}</span></h1>
+                                <h1 class="inline-block font-serif text-4xl uppercase">{{ deck.name }}</h1>
                             </div>
 
                             <div class="bg-gray-200 border-2 border-gray-200 text-gray-800 text-base font-serif mr-2 rounded-full">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
                     <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' }">
@@ -98,7 +98,7 @@
             crumbs: function() {
                 return [
                     { text: 'Home', link: '/' },
-                    { text: 'Premium Deck Builder', link: '/decks/build/' },
+                    { text: 'Decks', link: '/decks/build/' },
                     { text: this.deck.name },
                 ]
             }
