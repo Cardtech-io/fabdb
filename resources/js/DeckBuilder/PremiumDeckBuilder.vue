@@ -8,7 +8,7 @@
             <div class="bg-white border-b-2 border-gray-300">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-3/4 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' }">
+                        <div class="flex items-center w-3/4 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                             <div class="flex-auto">
                                 <h1 class="inline-block font-serif text-4xl uppercase">{{ deck.name }}</h1>
                             </div>
@@ -16,6 +16,7 @@
                             <div class="bg-gray-200 border-2 border-gray-200 text-gray-800 text-base font-serif mr-2 rounded-full">
                                 <mode-button mode="all" text="Cards"></mode-button>
                                 <mode-button mode="search" text="Search"></mode-button>
+                                <mode-button mode="sideboard" text="Sideboard"></mode-button>
                                 <mode-button mode="metrics" text="Metrics"></mode-button>
                             </div>
 
@@ -34,12 +35,14 @@
 
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
-                    <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' }">
-                        <all-cards v-if="mode != 'metrics'" :collection="cards"></all-cards>
+                    <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
+                        <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
                         <metrics v-if="mode == 'metrics'"></metrics>
+                        <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
-                    <div v-if="mode == 'search'" class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
                         <search-results v-if="mode == 'search'" :keywords="keywords" :results="results"></search-results>
+                        <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
                 </div>
             </div>
@@ -50,7 +53,7 @@
 <script>
     import _ from 'underscore';
     import { VueMasonryPlugin } from 'vue-masonry';
-    import { mapActions, mapState } from 'vuex';
+    import { mapActions, mapGetters, mapState } from 'vuex';
 
     import AllCards from './AllCards.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
@@ -58,17 +61,33 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import MainDeck from './MainDeck.vue';
     import ManagesDecks from './ManagesDecks';
     import Metrics from './Metrics.vue';
+    import Redrawable from './Redrawable';
     import SearchResults from './SearchResults.vue';
+    import Sideboard from './Sideboard.vue';
     import Viewable from './Viewable';
     import ZoomButton from './Buttons/Zoom.vue';
     import FullscreenButton from './Buttons/Fullscreen.vue';
     import ModeButton from './Buttons/Mode.vue';
 
     export default {
-        components: { AllCards, Breadcrumbs, CardImage, FullscreenButton, Metrics, ModeButton, HeaderTitle, SearchResults, ZoomButton },
-        mixins: [ Cardable, ManagesDecks, Viewable ],
+        components: {
+            AllCards,
+            Breadcrumbs,
+            CardImage,
+            FullscreenButton,
+            MainDeck,
+            Metrics,
+            ModeButton,
+            HeaderTitle,
+            SearchResults,
+            Sideboard,
+            ZoomButton
+        },
+
+        mixins: [ Cardable, ManagesDecks, Redrawable, Viewable ],
 
         data() {
             return {
@@ -81,7 +100,8 @@
         },
 
         computed: {
-            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'zoom']),
+            ...mapGetters('deck', ['mainDeck']),
+            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'zoom']),
 
             containers: function() {
                 if (!this.fullScreen) {

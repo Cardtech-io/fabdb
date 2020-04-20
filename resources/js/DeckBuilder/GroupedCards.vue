@@ -1,5 +1,5 @@
 <template>
-    <div v-masonry class="pb-24" transition-duration="0.3s">
+    <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-24" transition-duration="0.3s">
         <div v-for="grouped in cards" v-masonry-tile :class="cardClasses">
             <div class="relative m-4">
                 <img :src="cardUrl(grouped[0].identifier, 450)" class="block w-full invisible" :style="margin(grouped.length)">
@@ -16,11 +16,12 @@
 
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
+    import Redrawable from './Redrawable';
     import Viewable from './Viewable';
 
     export default {
-        props: ['action', 'cards'],
-        mixins: [Cardable, Viewable],
+        props: ['action', 'cards', 'groupId', 'width'],
+        mixins: [Cardable, Redrawable, Viewable],
         components: {CardImage},
 
         data() {
@@ -35,7 +36,7 @@
 
             cardClasses: function() {
                 return [
-                    'w-1/' + this.cardWidth,
+                    this.width || 'w-1/' + this.cardWidth,
                     this.rounded
                 ];
             },
@@ -63,12 +64,6 @@
                 }
             },
 
-            redraw: function() {
-                setTimeout(() => {
-                    this.$redrawVueMasonry();
-                }, 10);
-            },
-
             styles: function(i) {
                 let styles = [];
                 let zIndex = i * 10;
@@ -84,19 +79,19 @@
 
         watch: {
             cards: function() {
-                this.redraw();
+                this.redraw(this.groupId);
             },
 
             fullScreen: function() {
-                this.redraw();
+                this.redraw(this.groupId);
             },
 
             mode: function() {
-                this.redraw();
+                this.redraw(this.groupId);
             },
 
             zoom: function() {
-                this.redraw();
+                this.redraw(this.groupId);
             }
         }
     };

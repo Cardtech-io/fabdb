@@ -1,9 +1,47 @@
 import _ from 'underscore';
 
 function find(card, cards) {
-    return cards.filter(deckCard => {
-        return deckCard.identifier == card.identifier;
+    return cards.filter(existing => {
+        return existing.identifier == card.identifier;
     })[0];
+};
+
+// Add a card to a collection
+function add(card, cards) {
+    const existing = find(card, cards);
+
+    if (existing) {
+        existing.total += 1;
+    } else {
+        card = _.clone(card);
+        card.total = 1;
+        cards.push(card);
+    }
+};
+
+// Remove a card from a collection
+function remove(card, cards) {
+    const existing = find(card, cards);
+
+    if (existing.total > 1) {
+        existing.total -= 1;
+    } else {
+        // Need to remove from array completely
+        let key = null;
+
+        for (let i in cards) {
+            let match = cards[i];
+
+            if (match.identifier == card.identifier) {
+                key = i;
+                break;
+            }
+        }
+
+        if (key) {
+            cards.splice(key, 1);
+        }
+    }
 };
 
 // the following matrix dictates the floor and ceiling
@@ -33,6 +71,7 @@ export default {
     state: {
         deck: {},
         cards: [],
+        sideboard: [],
         fullScreen: false,
         mode: 'all',
         zoom: 1,
@@ -57,39 +96,12 @@ export default {
     },
 
     mutations: {
-        addCard(state, { card }) {
-            const deckCard = find(card, state.cards);
-
-            if (deckCard) {
-                deckCard.total += 1;
-            } else {
-                card.total = 1;
-                state.cards.push(card);
-            }
+        addCard(state, { card, collection }) {
+            add(card, collection);
         },
 
-        removeCard(state, { card }) {
-            const deckCard = find(card, state.cards);
-
-            if (deckCard.total > 1) {
-                deckCard.total -= 1;
-            } else {
-                // Need to remove from array completely
-                let key = null;
-
-                for (let i in state.cards) {
-                    let match = state.cards[i];
-
-                    if (match.identifier == card.identifier) {
-                        key = i;
-                        break;
-                    }
-                }
-
-                if (key) {
-                    state.cards.splice(key, 1);
-                }
-            }
+        removeCard(state, { card, collection }) {
+            remove(card, collection);
         },
 
         setDeck(state, { deck }) {
@@ -117,12 +129,20 @@ export default {
     },
 
     actions: {
-        addCard({ commit }, { card }) {
-            commit('addCard', { card });
+        addCard({ commit, state }, { card }) {
+            commit('addCard', { card, collection: state.cards });
         },
 
-        removeCard({ commit }, { card }) {
-            commit('removeCard', { card });
+        addToSideboard({ commit, state }, { card }) {
+            commit('addCard', { card, collection: state.sideboard });
+        },
+
+        removeFromSideBoard({ commit, state }, { card }) {
+            commit('removeCard', { card, collection: state.sideboard });
+        },
+
+        removeCard({ commit, state }, { card }) {
+            commit('removeCard', { card, collection: state.cards });
         },
 
         setDeck(context, { deck }) {
