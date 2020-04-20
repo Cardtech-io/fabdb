@@ -47,7 +47,8 @@
             },
 
             addRemote: function(card) {
-                axios.post('/deck/' + this.deck.slug + '/sideboard', { card: card.slug });
+                console.log(card);
+                axios.post('/decks/' + this.deck.slug + '/sideboard', { card: card.identifier });
             },
 
             updateMainDeck: function() {

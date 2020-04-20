@@ -5626,8 +5626,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.addRemote(card);
     },
     addRemote: function addRemote(card) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/deck/' + this.deck.slug + '/sideboard', {
-        card: card.slug
+      console.log(card);
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/decks/' + this.deck.slug + '/sideboard', {
+        card: card.identifier
       });
     },
     updateMainDeck: function updateMainDeck() {

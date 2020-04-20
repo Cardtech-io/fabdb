@@ -11,6 +11,7 @@ use FabDB\Domain\Decks\RemoveCardFromDeck;
 use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Http\Requests\AddCardToDeckRequest;
+use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
