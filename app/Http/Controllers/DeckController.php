@@ -43,6 +43,13 @@ class DeckController extends Controller
         $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
     }
 
+    public function addToSideboard(AddCardToSideboardRequest $request, Deck $deck, CardRepository $cards)
+    {
+        $card = $cards->findByIdentifier($request->get('card'));
+
+        $this->dispatchNow(new AddCardToSideboard($deck->id, $card->id));
+    }
+
     public function removeCard(RemoveCardFromDeckRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new RemoveCardFromDeck($deck->id, $card->id));
