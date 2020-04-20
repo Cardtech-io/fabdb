@@ -187,7 +187,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $params = $this->getParams($keywords);
 
             if ($words) {
-                $query->whereRaw("MATCH(search_text) AGAINST ('$words' IN NATURAL LANGUAGE MODE)");
+                $query->whereRaw("MATCH(search_text) AGAINST ('$words' IN BOOLEAN MODE)");
             }
 
             foreach ($params as $param) {
@@ -220,7 +220,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     private function getWords(array $keywords): array
     {
         return array_filter($keywords, function($keyword) {
-            return preg_match('/^[a-z]+$/', $keyword);
+            return preg_match('/^[a-z]+$/i', $keyword);
         });
     }
 

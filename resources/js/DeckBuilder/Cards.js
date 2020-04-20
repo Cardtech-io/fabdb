@@ -81,14 +81,12 @@ export default class Cards {
 
     remove(card) {
         const deckCard = this.find(card);
-        
+
         if (deckCard.total > 1) {
             deckCard.total -= 1;
-            console.log('updating total');
         } else {
-            console.log('removing');
             let key = this.findKey(card);
-            console.log('key found');
+            
             if (key) {
                 this.cards.splice(key, 1);
             }

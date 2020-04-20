@@ -107,6 +107,7 @@ export default {
         setDeck(state, { deck }) {
             state.deck = deck;
             state.cards = _.sortBy(deck.cards, 'identifier');
+            state.sideboard = _.sortBy(deck.sideboard, 'identifier');
         },
 
         setFullScreen(state, { fullScreen }) {

@@ -8,19 +8,22 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import axios from 'axios';
+    import { mapActions, mapState } from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
     import Cards from './Cards';
     import GroupedCards from './GroupedCards.vue';
     import Viewable from './Viewable';
-    
+
     export default {
         props: ['collection'],
         mixins: [Cardable, Viewable],
         components: {GroupedCards},
 
         computed: {
+            ...mapState('deck', ['deck']),
+
             sideboard: function() {
                 return (new Cards(this.collection)).hydrate().group('name');
             }
@@ -31,7 +34,12 @@
 
             remove: function(card) {
                 this.removeFromSideBoard({ card });
+                this.removeRemote(card);
             },
+
+            removeRemote: function(card) {
+                axios.delete('/decks/' + this.deck.slug + '/sideboard/' + card.identifier);
+            }
         }
     };
 </script>

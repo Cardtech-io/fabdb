@@ -4,10 +4,12 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
+use FabDB\Domain\Decks\AddCardToSideboard;
 use FabDB\Domain\Decks\AddDeck;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
+use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Http\Requests\AddCardToDeckRequest;
@@ -51,6 +53,11 @@ class DeckController extends Controller
         $this->dispatchNow(new AddCardToSideboard($deck->id, $card->id));
     }
 
+    public function removeFromSideboard(Request $request, Deck $deck, Card $card)
+    {
+        $this->dispatchNow(new RemoveCardFromSideboard($deck->id, $card->id));
+    }
+
     public function removeCard(RemoveCardFromDeckRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new RemoveCardFromDeck($deck->id, $card->id));
@@ -68,6 +75,8 @@ class DeckController extends Controller
 
     public function view(Deck $deck)
     {
+        $deck->load('sideboard');
+
         return $deck;
     }
 
