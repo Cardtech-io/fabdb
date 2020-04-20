@@ -56,8 +56,31 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         if ($existing->pivot && $existing->pivot->total > 1) {
             DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);
+
+            $sideboard = $deck->sideboardCard($cardId);
+
+            // If the card has been added to the sideboard and its total is affected by the removal of the card, then
+            // need to update the sideboard's totals, as well.
+            if ($sideboard && $sideboard->total < $existing->total) {
+                DB::update('UPDATE sideboard SET total = total - 1 WHERE id = ?', [$sideboard->pivot->id]);
+            }
         } else {
             DB::delete('DELETE FROM deck_cards WHERE id = ?', [$existing->pivot->id]);
+        }
+
+        $deck->touch();
+    }
+
+    public function addCardToSideboard(int $deckId, int $cardId)
+    {
+        $deck = $this->find($deckId);
+        $card = $deck->card($cardId);
+        $existing = $deck->sideboardCard($cardId);
+
+        if ($existing) {
+            DB::update('UPDATE sideboard SET total = total + 1 WHERE id = ?', [$existing->pivot->id]);
+        } else {
+            DB::insert('INSERT INTO sideboard SET deck_card_id = ?, deck_id = ?, card_id = ?, total = 1', [$card->pivot->id, $deckId, $cardId]);
         }
 
         $deck->touch();

@@ -14,4 +14,6 @@ interface DeckRepository extends Repository
     public function addCardToDeck(int $deckId, int $cardId);
 
     public function removeCardFromDeck(int $deckId, int $cardId);
+
+    public function addCardToSideboard(int $deckId, int $cardId);
 }
