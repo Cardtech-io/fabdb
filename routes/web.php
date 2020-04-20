@@ -56,6 +56,7 @@ Route::middleware(['web'])->group(function() {
             Route::get('decks/mine', 'DeckController@mine');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');
+            Route::post('decks/{deck}/sideboard', 'DeckController@addToSideboard');
             Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
             Route::delete('decks/{deck}', 'DeckController@removeDeck');
             Route::post('decks', 'DeckController@addDeck');

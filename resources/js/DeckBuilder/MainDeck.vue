@@ -9,6 +9,7 @@
 
 <script>
     import _ from 'lodash';
+    import axios from 'axios';
     import { mapActions, mapState } from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
@@ -33,7 +34,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['sideboard']),
+            ...mapState('deck', ['deck', 'sideboard']),
         },
 
         methods: {
@@ -42,6 +43,11 @@
             add: function(card) {
                 this.addToSideboard({ card });
                 this.updateMainDeck();
+                this.addRemote(card);
+            },
+
+            addRemote: function(card) {
+                axios.post('/deck/' + this.deck.slug + '/sideboard', { card: card.slug });
             },
 
             updateMainDeck: function() {
