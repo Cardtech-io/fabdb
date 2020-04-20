@@ -4519,9 +4519,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['minZoom', 'maxZoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'zoom']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['minZoom', 'maxZoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'mode', 'zoom']), {
     // Returns true if the button is active
     inactive: function inactive() {
+      if (this.mode == 'metrics') return true;
+
       if (this.action == 'in') {
         return this.zoom == this.minZoom;
       }

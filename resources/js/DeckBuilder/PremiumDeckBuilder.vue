@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
                     <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' }">
