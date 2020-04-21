@@ -8,6 +8,7 @@
             <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'metrics' }" @click.prevent="tab = 'metrics'">Metrics</a></li>
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'settings' }" @click.prevent="tab = 'settings'">Settings</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'export' }" @click.prevent="tab = 'export'">Export</a></li>
             </ul>
 
             <div class="flex mt-8" v-if="tab == 'metrics'">
@@ -60,6 +61,10 @@
             <div v-if="tab == 'settings'" class="bg-white px-4">
                 <deck-settings :deck="deck"></deck-settings>
             </div>
+
+            <div class="flex mt-8" v-if="tab == 'export'">
+                <tts-exporter :deck="deck"></tts-exporter>
+            </div>
         </div>
     </div>
 </template>
@@ -70,11 +75,12 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import DeckSettings from './DeckSettings.vue';
     import Stat from './Stat.vue';
+    import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
 
     export default {
         mixins: [Viewable],
-        components: { CardImage, DeckSettings, Stat },
+        components: { CardImage, DeckSettings, Stat, TtsExporter },
 
         data() {
             return {

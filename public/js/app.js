@@ -5013,7 +5013,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
 /* harmony import */ var _DeckSettings_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeckSettings.vue */ "./resources/js/DeckBuilder/DeckSettings.vue");
 /* harmony import */ var _Stat_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Stat.vue */ "./resources/js/DeckBuilder/Stat.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TtsExporter.vue */ "./resources/js/DeckBuilder/TtsExporter.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5086,17 +5087,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Viewable__WEBPACK_IMPORTED_MODULE_4__["default"]],
+  mixins: [_Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     DeckSettings: _DeckSettings_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Stat: _Stat_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Stat: _Stat_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    TtsExporter: _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -81208,6 +81216,25 @@ var render = function() {
               },
               [_vm._v("Settings")]
             )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "float-left mr-4" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
+                class: { "bg-gray-400": _vm.tab == "export" },
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.tab = "export"
+                  }
+                }
+              },
+              [_vm._v("Export")]
+            )
           ])
         ]
       ),
@@ -81398,6 +81425,15 @@ var render = function() {
             "div",
             { staticClass: "bg-white px-4" },
             [_c("deck-settings", { attrs: { deck: _vm.deck } })],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.tab == "export"
+        ? _c(
+            "div",
+            { staticClass: "flex mt-8" },
+            [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
             1
           )
         : _vm._e()
