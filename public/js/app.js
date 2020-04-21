@@ -78652,7 +78652,12 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n        " + _vm._s(message.message) + "\n    ")]
+            [
+              _vm._v("\n        " + _vm._s(message.message) + " "),
+              message.total > 1
+                ? _c("span", [_vm._v("(" + _vm._s(message.total) + ")")])
+                : _vm._e()
+            ]
           )
         }),
         0
@@ -110706,7 +110711,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
-    messages: []
+    messages: [],
+    timeouts: []
   },
   mutations: {
     acknowledge: function acknowledge(state, _ref) {
@@ -110718,33 +110724,61 @@ __webpack_require__.r(__webpack_exports__);
           message = _ref2.message;
       state.messages.unshift({
         status: status,
-        message: message
+        message: message,
+        total: 1
       });
+    },
+    incrementMessage: function incrementMessage(state, _ref3) {
+      var index = _ref3.index;
+      clearTimeout(state.timeouts[index]);
+      state.messages[index].total += 1;
+    },
+    timeout: function timeout(state, _ref4) {
+      var index = _ref4.index;
+      state.timeouts[index] = setTimeout(function () {
+        state.messages.splice(index, 1);
+      }, 3000);
     }
   },
   actions: {
-    acknowledge: function acknowledge(_ref3, _ref4) {
-      var commit = _ref3.commit;
-      var index = _ref4.index;
+    acknowledge: function acknowledge(_ref5, _ref6) {
+      var commit = _ref5.commit;
+      var index = _ref6.index;
       commit('acknowledge', {
         index: index
       });
     },
-    addMessage: function addMessage(_ref5, _ref6) {
-      var commit = _ref5.commit,
-          state = _ref5.state;
-      var status = _ref6.status,
-          message = _ref6.message;
-      commit('addMessage', {
-        status: status,
-        message: message
-      });
-      setTimeout(function () {
-        var index = state.messages.length - 1;
-        commit('acknowledge', {
+    addMessage: function addMessage(_ref7, _ref8) {
+      var commit = _ref7.commit,
+          state = _ref7.state;
+      var status = _ref8.status,
+          message = _ref8.message;
+      var index = -1;
+
+      for (var i in state.messages) {
+        if (state.messages[i].message == message) {
+          index = i;
+          break;
+        }
+
+        ;
+      }
+
+      if (index > -1) {
+        commit('incrementMessage', {
           index: index
         });
-      }, 3000);
+      } else {
+        commit('addMessage', {
+          status: status,
+          message: message
+        });
+        index = state.messages.length - 1;
+      }
+
+      commit('timeout', {
+        index: index
+      });
     }
   }
 });
