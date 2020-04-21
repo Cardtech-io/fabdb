@@ -2,7 +2,7 @@
 
 
 return [
-    // The following are client-side routes only and should direct straight to welcome page
+    // The following are client-side routes only and should direct straight to the appropriate page
     'client' => [
         '/',
         'articles/mine',
@@ -13,11 +13,14 @@ return [
         'cards/browse',
         'collection',
         'decks/export/([^/]+)',
+        'decks/build/premium/([^/]+)',
+        'decks/build/([^/]+)',
         'decks/build',
         'decks/test',
         'events',
         'login',
         'profile',
+        'premium',
         'support',
     ]
 ];

@@ -161,6 +161,7 @@
     import Crumbs from '../Components/Crumbs.vue';
     import DeckSettings from './DeckSettings.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import ManagesDecks from './ManagesDecks';
     import LazyLoader from '../Components/LazyLoader';
     import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
@@ -176,24 +177,10 @@
             TtsExporter
         },
 
-        mixins: [ Cardable, Viewable ],
+        mixins: [ Cardable, ManagesDecks, Viewable ],
 
         computed: {
             ...mapGetters('session', ['user']),
-
-            cards: function() {
-                if (this.deck && this.deck.cards) {
-                    function compare(a, b) {
-                        if (a.name < b.name) return -1;
-                        if (a.name > b.name) return 1;
-                        return 0;
-                    }
-
-                    return this.deck.cards.sort(compare);
-                }
-
-                return [];
-            },
 
             crumbs: function() {
                 return [
@@ -207,6 +194,7 @@
         data() {
             return {
                 activeTab: 'deck',
+                cards: [],
                 deck: null,
                 exportingToTts: false,
                 showExportOptions: false,
@@ -216,58 +204,19 @@
         methods: {
             ...mapActions('messages', ['addMessage']),
 
-            copyShareURL: function() {
-                this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
-                this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });
-            },
-
             addCard: function(card) {
-                axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
-                    const deckCard = this.findCard(card);
-
-                    if (deckCard) {
-                        deckCard.total += 1;
-                    } else {
-                        card.total = 1;
-                        this.deck.cards.push(card);
-                    }
-
-                    this.addMessage({ status: 'success', message: 'Card added.' });
-                }).catch(error => {
-                    if (error.response.status == 422) {
-                        this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
-                    }
-                });
+                this.addRemote(card);
+                this.addLocal(card);
             },
 
             removeCard: function(card) {
-                const deckCard = this.findCard(card);
-
-                if (deckCard.total > 1) {
-                    deckCard.total -= 1;
-                } else {
-                    // Need to remove from array completely
-                    var key = null;
-
-                    for (var i in this.deck.cards) {
-                        var match = this.deck.cards[i];
-
-                        if (match.identifier == card.identifier) {
-                            key = i;
-                            break;
-                        }
-                    }
-
-                    this.deck.cards.splice(i, 1);
-                }
-
-                axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
+                this.removeRemote(card);
+                this.removeLocal(card);
             },
 
-            findCard: function(card) {
-                return this.deck.cards.filter(function(deckCard) {
-                    return deckCard.identifier === card.identifier;
-                })[0];
+            copyShareURL: function() {
+                this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
+                this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });
             },
 
             isActive: function(tab) {
@@ -296,6 +245,7 @@
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
                     this.deck = response.data;
+                    this.cards = _.sortBy(this.deck.cards, 'name');
                 });
             });
         })

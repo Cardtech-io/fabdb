@@ -59,7 +59,7 @@ class Cards extends Collection
     {
         return $this->sum('total');
     }
-    
+
     public function deckTotal()
     {
         return $this->filter(function(Card $card) {

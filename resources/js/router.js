@@ -15,12 +15,14 @@ import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
+import PremiumDeckBuilder from './DeckBuilder/PremiumDeckBuilder.vue';
 import TestDeck from './DeckBuilder/TestDeck.vue';
 import ExportDeck from './DeckBuilder/ExportDeck.vue';
 import ViewDeck from './DeckBuilder/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
 import Privacy from './Privacy.vue';
+import Premium from './Premium.vue';
 import Login from './Auth/Login.vue';
 import Logout from './Auth/Logout.vue';
 
@@ -45,6 +47,7 @@ const router = new VueRouter({
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
 
         { path: "/decks/build", component: ListDecks, name: 'list-decks' },
+        { path: "/decks/build/premium/:deck", component: PremiumDeckBuilder, name: 'decks.build-premium', meta: { auth: true, premium: true } },
         { path: "/decks/build/:deck", component: DeckBuilder, meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
@@ -61,6 +64,7 @@ const router = new VueRouter({
         { path: "/support", component: Support, name: 'support', meta: { title: 'Support options' } },
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
+        { path: "/premium", component: Premium, name: 'premium', meta: { title: 'Premium feature' } },
 
         // Deprecated
         { path: "/deck-builder", redirect: "/decks/build" },
@@ -71,8 +75,12 @@ const router = new VueRouter({
 });
 
 router.beforeResolve(function(to, from, next) {
-    if (to.meta && to.meta.auth && !(window.session.user && window.session.user != null)) {
+    let user = window.session.user;
+
+    if (to.meta && to.meta.auth && !(user && user != null)) {
         next({ path: '/login', query: { from: to.path } });
+    } else if (to.meta && to.meta.premium && !user.subscription) {
+        next({ path: '/premium' });
     } else {
         next();
     }

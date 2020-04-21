@@ -34,6 +34,14 @@ class Deck extends Model
             ->withPivot('id', 'total');
     }
 
+    public function sideboard()
+    {
+        return $this->belongsToMany(Card::class, 'sideboard')
+            ->orderBy('cards.name')
+            ->withPivot('id', 'total')
+            ->withTimestamps();
+    }
+
     public static function add(int $userId, string $name)
     {
         $deck = new Deck;
@@ -45,11 +53,18 @@ class Deck extends Model
         return $deck;
     }
 
-    public function card($cardIdentifier)
+    public function card($identifier)
     {
-        $column = is_numeric($cardIdentifier) ? 'id' : 'identifier';
+        $column = is_numeric($identifier) ? 'id' : 'identifier';
 
-        return $this->cards->where($column, $cardIdentifier)->first();
+        return $this->cards->where($column, $identifier)->first();
+    }
+
+    public function sideboardCard($identifier)
+    {
+        $column = is_numeric($identifier) ? 'id' : 'identifier';
+
+        return $this->sideboard->where($column, $identifier)->first();
     }
 
     public function mainKeyword()

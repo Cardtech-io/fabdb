@@ -17,13 +17,19 @@
                     <li class="border-black border-t py-4" v-for="(deck, key) in decks">
                         <div class="flex">
                             <div class="flex-1">
-                                <router-link :to="'/decks/build/' + deck.slug" class="link">{{ deck.name }}</router-link>
+                                <router-link :to="'/decks/build/premium/' + deck.slug" class="link" v-if="user.subscription">{{ deck.name }}</router-link>
+                                <router-link :to="'/decks/build/' + deck.slug" class="link" v-else>{{ deck.name }}</router-link>
                             </div>
                             <div class="flex-1 text-right">
+                                <span v-if="user.subscription">
+                                    <router-link :to="'/decks/build/' + deck.slug" class="link">Classic builder</router-link>
+
+                                    <span class="text-gray-500">|</span>
+                                </span>
                                 <router-link :to="'/decks/test/' + deck.slug" class="link" title="Test deck">Test</router-link>
-                                &nbsp;
+
                                 <span class="text-gray-500">|</span>
-                                &nbsp;
+
                                 <a href="" class="link" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                             </div>
                         </div>

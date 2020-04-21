@@ -1,0 +1,98 @@
+<template>
+    <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-24" transition-duration="0.3s">
+        <div v-for="grouped in cards" v-masonry-tile :class="cardClasses">
+            <div class="relative m-4">
+                <img :src="cardUrl(grouped[0].identifier, 450)" class="block w-full invisible" :style="margin(grouped.length)">
+                <div v-for="(card, i) in grouped" :style="styles(i)" :class="rounded">
+                    <card-image :card="card" :rounded="rounded" :clickHandler="action"></card-image>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { mapState } from 'vuex';
+
+    import Cardable from '../CardDatabase/Cardable';
+    import CardImage from '../CardDatabase/CardImage.vue';
+    import Redrawable from './Redrawable';
+    import Viewable from './Viewable';
+
+    export default {
+        props: ['action', 'cards', 'groupId', 'width'],
+        mixins: [Cardable, Redrawable, Viewable],
+        components: {CardImage},
+
+        data() {
+            return {
+                offset: 10,
+                pad: 17,
+            }
+        },
+
+        computed: {
+            ...mapState('deck', ['fullScreen', 'mode', 'zoom']),
+
+            cardClasses: function() {
+                return [
+                    this.width || 'w-1/' + this.cardWidth,
+                    this.rounded
+                ];
+            },
+
+            cardWidth: function() {
+                let widths = [3, 4, 5, 6, 7];
+
+                return widths[this.zoom];
+            },
+
+            rounded: function() {
+                let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
+                let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
+
+                return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
+            },
+        },
+
+        methods: {
+            margin: function(total) {
+                let items = total - 1;
+
+                if (items > 0) {
+                    return 'margin-bottom: ' + items * this.pad + '%';
+                }
+            },
+
+            styles: function(i) {
+                let styles = [];
+                let zIndex = i * 10;
+
+                styles.push('z-index: ' + zIndex);
+                styles.push('position: absolute');
+                styles.push('top: ' + (i * this.offset)  + '%');
+                styles.push('left: 0');
+
+                return styles.join('; ');
+            }
+        },
+
+        watch: {
+            cards: function() {
+                this.redraw(this.groupId);
+            },
+
+            fullScreen: function() {
+                this.redraw(this.groupId);
+            },
+
+            mode: function() {
+                this.redraw(this.groupId);
+            },
+
+            zoom: function() {
+                this.redraw(this.groupId);
+            }
+        }
+    };
+</script>
