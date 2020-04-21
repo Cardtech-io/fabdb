@@ -17,7 +17,7 @@
                                 <mode-button mode="all" text="Cards"></mode-button>
                                 <mode-button mode="search" text="Search"></mode-button>
                                 <mode-button mode="sideboard" text="Sideboard"></mode-button>
-                                <mode-button mode="metrics" text="Metrics"></mode-button>
+                                <mode-button mode="details" text="Details"></mode-button>
                             </div>
 
                             <div class="px-2 flex">
@@ -37,7 +37,7 @@
                 <div class="clearfix flex h-full" :class="containers">
                     <div class="w-3/4 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                         <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
-                        <metrics v-if="mode == 'metrics'"></metrics>
+                        <deck-details v-if="mode == 'details'"></deck-details>
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
                     <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/4 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
@@ -63,7 +63,7 @@
     import LazyLoader from '../Components/LazyLoader';
     import MainDeck from './MainDeck.vue';
     import ManagesDecks from './ManagesDecks';
-    import Metrics from './Metrics.vue';
+    import DeckDetails from './DeckDetails.vue';
     import Redrawable from './Redrawable';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
@@ -79,7 +79,7 @@
             CardImage,
             FullscreenButton,
             MainDeck,
-            Metrics,
+            DeckDetails,
             ModeButton,
             HeaderTitle,
             SearchResults,
