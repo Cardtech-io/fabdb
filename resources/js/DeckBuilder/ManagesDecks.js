@@ -36,8 +36,8 @@ export default {
                 // Need to remove from array completely
                 let key = null;
 
-                for (let i in state.cards) {
-                    let match = state.cards[i];
+                for (let i in this.cards) {
+                    let match = this.cards[i];
 
                     if (match.identifier == card.identifier) {
                         key = i;

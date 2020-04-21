@@ -5788,7 +5788,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _MainDeck_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MainDeck.vue */ "./resources/js/DeckBuilder/MainDeck.vue");
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-/* harmony import */ var _DeckDetails_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./DeckDetails.vue */ "./resources/js/DeckBuilder/DeckDetails.vue");
+/* harmony import */ var _DeckDetails_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./DeckDetails.vue */ "./resources/js/DeckBuilder/DeckDetails.vue");
 /* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
 /* harmony import */ var _SearchResults_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./SearchResults.vue */ "./resources/js/DeckBuilder/SearchResults.vue");
 /* harmony import */ var _Sideboard_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Sideboard.vue */ "./resources/js/DeckBuilder/Sideboard.vue");
@@ -5880,7 +5880,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     FullscreenButton: _Buttons_Fullscreen_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
     MainDeck: _MainDeck_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    DeckDetails: _DeckDetails_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
+    DeckDetails: _DeckDetails_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
     ModeButton: _Buttons_Mode_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     SearchResults: _SearchResults_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
@@ -108385,8 +108385,8 @@ __webpack_require__.r(__webpack_exports__);
         // Need to remove from array completely
         var key = null;
 
-        for (var i in state.cards) {
-          var match = state.cards[i];
+        for (var i in this.cards) {
+          var match = this.cards[i];
 
           if (match.identifier == card.identifier) {
             key = i;
@@ -110510,7 +110510,7 @@ function add(card, cards) {
 function remove(card, cards) {
   var existing = find(card, cards);
 
-  if (existing.total > 1) {
+  if (existing && existing.total > 1) {
     existing.total -= 1;
   } else {
     // Need to remove from array completely

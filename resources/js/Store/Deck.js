@@ -23,7 +23,7 @@ function add(card, cards) {
 function remove(card, cards) {
     const existing = find(card, cards);
 
-    if (existing.total > 1) {
+    if (existing && existing.total > 1) {
         existing.total -= 1;
     } else {
         // Need to remove from array completely
