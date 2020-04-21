@@ -110577,8 +110577,8 @@ function remove(card, cards) {
 // of the zoom level based on whether or not fullscreen
 // is enabled, and whether or not the mode is set to all.
 
-var zoomMatrix = [[[4, 3], [2, 1]], // fullscreen
-[[3, 2], [1, 0]]];
+var zoomMatrix = [[[5, 4], [2, 1]], // fullscreen
+[[4, 3], [1, 0]]];
 
 function controlMaxZoom(state) {
   var ms = state.mode == 'all' ? 0 : 1; // Moving to fullscreen, increase minimum
