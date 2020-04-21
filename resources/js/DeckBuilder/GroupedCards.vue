@@ -42,7 +42,7 @@
             },
 
             cardWidth: function() {
-                let widths = [3, 4, 5, 6, 7];
+                let widths = [3, 4, 5, 6, 7, 8];
 
                 return widths[this.zoom];
             },

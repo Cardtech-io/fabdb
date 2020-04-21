@@ -57,6 +57,14 @@ button:focus {
     @apply text-gray-800;
 }
 
+.link-white {
+    @apply text-orange-400;
+}
+
+.link-white:hover {
+    @apply text-white;
+}
+
 footer.footer .link {
     @apply text-orange-400;
 }

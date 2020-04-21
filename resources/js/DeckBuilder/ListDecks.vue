@@ -2,35 +2,37 @@
     <div class="container sm:mx-auto text-white md:flex">
         <div class="px-4 py-8 md:my-20 md:w-1/2">
             <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
-            <p class="mt-4">The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks
+            <p class="mt-4">The first and only Flesh &amp; Blood Deck Builder is here. You can create, craft, modify or remove your decks
                 for constructed play, and then export them to PDF for tournament registration!</p>
-        </div>
 
-        <div class="mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2">
+            <p class="mt-4">If you're a <router-link to="/support" class="link-white">supporter</router-link>, you'l get access to our premium deck builder.</p>
+        </div>
+        
+        <div class="md:my-20 md:flex-grow md:w-1/2">
             <div v-if="user">
-                <div class="flex pb-8">
+                <div class="flex pb-4">
                     <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
                     <div class="flex-1"><add-deck @deck-added="addDeck"></add-deck></div>
                 </div>
 
-                <ol v-if="decks" class="border-black border-b">
-                    <li class="border-black border-t py-4" v-for="(deck, key) in decks">
+                <ol v-if="decks">
+                    <li class=" p-4 bg-semi-black rounded-lg mb-2 hover:bg-black" v-for="(deck, key) in decks">
                         <div class="flex">
                             <div class="flex-1">
-                                <router-link :to="'/decks/build/premium/' + deck.slug" class="link" v-if="user.subscription">{{ deck.name }}</router-link>
-                                <router-link :to="'/decks/build/' + deck.slug" class="link" v-else>{{ deck.name }}</router-link>
+                                <router-link :to="'/decks/build/premium/' + deck.slug" class="link-white" v-if="user.subscription">{{ deck.name }}</router-link>
+                                <router-link :to="'/decks/build/' + deck.slug" class="link-white" v-else>{{ deck.name }}</router-link>
                             </div>
                             <div class="flex-1 text-right">
                                 <span v-if="user.subscription">
-                                    <router-link :to="'/decks/build/' + deck.slug" class="link">Classic builder</router-link>
+                                    <router-link :to="'/decks/build/' + deck.slug" class="link-white">Classic builder</router-link>
 
                                     <span class="text-gray-500">|</span>
                                 </span>
-                                <router-link :to="'/decks/test/' + deck.slug" class="link" title="Test deck">Test</router-link>
+                                <router-link :to="'/decks/test/' + deck.slug" class="link-white" title="Test deck">Test</router-link>
 
                                 <span class="text-gray-500">|</span>
 
-                                <a href="" class="link" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
+                                <a href="" class="link-white" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                             </div>
                         </div>
                     </li>

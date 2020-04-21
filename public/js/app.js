@@ -5531,7 +5531,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return [this.width || 'w-1/' + this.cardWidth, this.rounded];
     },
     cardWidth: function cardWidth() {
-      var widths = [3, 4, 5, 6, 7];
+      var widths = [3, 4, 5, 6, 7, 8];
       return widths[this.zoom];
     },
     rounded: function rounded() {
@@ -5593,6 +5593,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -82166,170 +82168,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container sm:mx-auto text-white md:flex" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "mx-4 mb-8 bg-semi-black rounded-lg p-4 md:my-20 md:flex-grow md:w-1/2"
-      },
-      [
-        _vm.user
-          ? _c("div", [
-              _c("div", { staticClass: "flex pb-8" }, [
-                _c(
-                  "h1",
-                  {
-                    staticClass:
-                      "font-serif text-white text-4xl uppercase flex-1"
-                  },
-                  [_vm._v("Decks")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "flex-1" },
-                  [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _vm.decks
-                ? _c(
-                    "ol",
-                    { staticClass: "border-black border-b" },
-                    _vm._l(_vm.decks, function(deck, key) {
-                      return _c(
-                        "li",
-                        { staticClass: "border-black border-t py-4" },
-                        [
-                          _c("div", { staticClass: "flex" }, [
-                            _c(
-                              "div",
-                              { staticClass: "flex-1" },
-                              [
-                                _vm.user.subscription
-                                  ? _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "link",
-                                        attrs: {
-                                          to:
-                                            "/decks/build/premium/" + deck.slug
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(deck.name))]
-                                    )
-                                  : _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "link",
-                                        attrs: {
-                                          to: "/decks/build/" + deck.slug
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(deck.name))]
-                                    )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "flex-1 text-right" },
-                              [
-                                _vm.user.subscription
-                                  ? _c(
-                                      "span",
-                                      [
-                                        _c(
-                                          "router-link",
-                                          {
-                                            staticClass: "link",
-                                            attrs: {
-                                              to: "/decks/build/" + deck.slug
-                                            }
-                                          },
-                                          [_vm._v("Classic builder")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          { staticClass: "text-gray-500" },
-                                          [_vm._v("|")]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "link",
-                                    attrs: {
-                                      to: "/decks/test/" + deck.slug,
-                                      title: "Test deck"
-                                    }
-                                  },
-                                  [_vm._v("Test")]
-                                ),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "text-gray-500" }, [
-                                  _vm._v("|")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "link",
-                                    attrs: { href: "", title: "Delete deck" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.removeDeck(deck, key)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("Delete")]
-                                )
-                              ],
-                              1
-                            )
-                          ])
-                        ]
-                      )
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
-          : _c(
-              "p",
-              [
-                _vm._v(
-                  "The deck builder is available to registered users only, so if you do not yet have an account, you\n            must "
-                ),
-                _c(
-                  "router-link",
-                  { staticClass: "link", attrs: { to: "/login" } },
-                  [_vm._v("register or login")]
-                ),
-                _vm._v(".")
-              ],
-              1
-            )
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "px-4 py-8 md:my-20 md:w-1/2" }, [
+    _c("div", { staticClass: "px-4 py-8 md:my-20 md:w-1/2" }, [
       _c("h1", { staticClass: "font-serif text-4xl lg:text-4xl uppercase" }, [
         _vm._v("Deck Builder")
       ]),
@@ -82338,10 +82177,172 @@ var staticRenderFns = [
         _vm._v(
           "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks\n            for constructed play, and then export them to PDF for tournament registration!"
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "p",
+        { staticClass: "mt-4" },
+        [
+          _vm._v("If you're a "),
+          _c(
+            "router-link",
+            { staticClass: "link-white", attrs: { to: "/support" } },
+            [_vm._v("supporter")]
+          ),
+          _vm._v(", you'l get access to our premium deck builder.")
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "md:my-20 md:flex-grow md:w-1/2" }, [
+      _vm.user
+        ? _c("div", [
+            _c("div", { staticClass: "flex pb-4" }, [
+              _c(
+                "h1",
+                {
+                  staticClass: "font-serif text-white text-4xl uppercase flex-1"
+                },
+                [_vm._v("Decks")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex-1" },
+                [_c("add-deck", { on: { "deck-added": _vm.addDeck } })],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm.decks
+              ? _c(
+                  "ol",
+                  _vm._l(_vm.decks, function(deck, key) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass:
+                          " p-4 bg-semi-black rounded-lg mb-2 hover:bg-black"
+                      },
+                      [
+                        _c("div", { staticClass: "flex" }, [
+                          _c(
+                            "div",
+                            { staticClass: "flex-1" },
+                            [
+                              _vm.user.subscription
+                                ? _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "link-white",
+                                      attrs: {
+                                        to: "/decks/build/premium/" + deck.slug
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(deck.name))]
+                                  )
+                                : _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "link-white",
+                                      attrs: { to: "/decks/build/" + deck.slug }
+                                    },
+                                    [_vm._v(_vm._s(deck.name))]
+                                  )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex-1 text-right" },
+                            [
+                              _vm.user.subscription
+                                ? _c(
+                                    "span",
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          staticClass: "link-white",
+                                          attrs: {
+                                            to: "/decks/build/" + deck.slug
+                                          }
+                                        },
+                                        [_vm._v("Classic builder")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "text-gray-500" },
+                                        [_vm._v("|")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "link-white",
+                                  attrs: {
+                                    to: "/decks/test/" + deck.slug,
+                                    title: "Test deck"
+                                  }
+                                },
+                                [_vm._v("Test")]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("|")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "link-white",
+                                  attrs: { href: "", title: "Delete deck" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.removeDeck(deck, key)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Delete")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              : _vm._e()
+          ])
+        : _c(
+            "p",
+            [
+              _vm._v(
+                "The deck builder is available to registered users only, so if you do not yet have an account, you\n            must "
+              ),
+              _c(
+                "router-link",
+                { staticClass: "link", attrs: { to: "/login" } },
+                [_vm._v("register or login")]
+              ),
+              _vm._v(".")
+            ],
+            1
+          )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
