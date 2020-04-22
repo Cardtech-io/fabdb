@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="">
+            
+        </div>
+
         <grouped-cards :cards="all" group-id="all" :action="removeFromDeck" v-if="all.cards.length"></grouped-cards>
         <div v-else class="text-center my-20">
             You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.

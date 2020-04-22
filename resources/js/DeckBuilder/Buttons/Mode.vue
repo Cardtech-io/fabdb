@@ -1,5 +1,5 @@
 <template>
-    <button class="px-4 py-1 uppercase first:rounded-l-full last:rounded-r-full" :class="{ 'bg-white': mode != deckMode }" @click="setMode({ mode })">{{ text }}</button>
+    <button class="w-full text-left px-4 py-2 hover:bg-gray-300 uppercase" @click="setMode({ mode })">{{ text }}</button>
 </template>
 
 <script>
