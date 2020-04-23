@@ -75,6 +75,7 @@ class DeckController extends Controller
 
     public function view(Deck $deck)
     {
+        $deck->load('cards');
         $deck->load('sideboard');
 
         return $deck;

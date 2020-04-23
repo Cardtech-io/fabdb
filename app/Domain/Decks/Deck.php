@@ -11,11 +11,9 @@ class Deck extends Model
 {
     use Raiseable;
     use Sluggable;
-
-    protected $appends = ['hero'];
+    
     protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
     protected $hidden = ['id', 'user_id'];
-    protected $with = ['cards'];
 
     public function user()
     {
