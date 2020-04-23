@@ -1,19 +1,15 @@
 export default {
     methods: {
         addRemote: function(card) {
-            let request = axios.post('/decks/' + this.$route.params.deck, { card: card.identifier });
-
-            request.then(response => {
-                this.addMessage({ status: 'success', message: 'Card added.' });
-            });
-
-            request.catch(error => {
-                if (error.response.status == 422) {
-                    this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
-                }
-            });
-
-            return request;
+            return axios.post('/decks/' + this.$route.params.deck, { card: card.identifier })
+                .then(response => {
+                    this.addMessage({ status: 'success', message: 'Card added.' });
+                })
+                .catch(error => {
+                    if (error.response && error.response.status == 422) {
+                        return this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
+                    }
+                });
         },
 
         addLocal: function(card) {
@@ -51,7 +47,7 @@ export default {
             }
         },
 
-        removeRemote: function(card) {
+        removeRemote: function(card, handler) {
             return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
         },
 

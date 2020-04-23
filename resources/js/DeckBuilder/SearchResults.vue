@@ -27,7 +27,8 @@
             ...mapActions('search', ['setPage']),
 
             addToDeck: function(card) {
-                this.addRemote(card).then(() => { this.addCard({ card }); });
+                this.addCard({ card });
+                this.addRemote(card);
             },
 
             updatePage: function(page) {

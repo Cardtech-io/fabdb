@@ -96,7 +96,7 @@
             },
 
             defenseRating: function() {
-                return ((this.blocks.length / this.totalCards).toFixed(2) * 100).toFixed(2) + '%';
+                return ((this.blocks.length / this.totalCards).toFixed(2) * 100) + '%';
             }
         }
     };

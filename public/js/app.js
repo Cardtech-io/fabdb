@@ -5094,7 +5094,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return ((this.totalAttackActions + this.totalAttackReactions) / this.totalCards).toFixed(2) * 100 + '%';
     },
     defenseRating: function defenseRating() {
-      return ((this.blocks.length / this.totalCards).toFixed(2) * 100).toFixed(2) + '%';
+      return (this.blocks.length / this.totalCards).toFixed(2) * 100 + '%';
     }
   })
 });
@@ -5992,6 +5992,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -6060,11 +6062,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }];
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['setDeck', 'setMode', 'setZoom']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['setDeck', 'setMode', 'setZoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('search', ['setPage']), {
     search: function search(page) {
       var _this = this;
 
-      this.page = page;
+      this.setPage({
+        page: page
+      });
       var params = {
         keywords: this.keywords,
         'use-case': 'build',
@@ -6143,13 +6147,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('search', ['setPage']), {
     addToDeck: function addToDeck(card) {
-      var _this = this;
-
-      this.addRemote(card).then(function () {
-        _this.addCard({
-          card: card
-        });
+      this.addCard({
+        card: card
       });
+      this.addRemote(card);
     },
     updatePage: function updatePage(page) {
       this.setPage({
@@ -82283,11 +82284,12 @@ var render = function() {
         "button",
         {
           staticClass:
-            "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase z-75 hover:bg-white hover:border-gray-500 flex",
+            "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
           class: {
             "border-gray-500": _vm.isOpen,
             "bg-white": _vm.isOpen,
-            "bg-gray-200": !_vm.isOpen
+            "bg-gray-200": !_vm.isOpen,
+            "z-75": _vm.isOpen
           },
           staticStyle: { width: "200px" },
           on: {
@@ -82725,11 +82727,12 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase z-75 hover:bg-white hover:border-gray-500 flex",
+          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
         class: {
           "border-gray-500": _vm.isOpen,
           "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen
+          "bg-gray-200": !_vm.isOpen,
+          "z-75": _vm.isOpen
         },
         staticStyle: { width: "150px" },
         on: {
@@ -108850,24 +108853,21 @@ __webpack_require__.r(__webpack_exports__);
     addRemote: function addRemote(card) {
       var _this = this;
 
-      var request = axios.post('/decks/' + this.$route.params.deck, {
+      return axios.post('/decks/' + this.$route.params.deck, {
         card: card.identifier
-      });
-      request.then(function (response) {
+      }).then(function (response) {
         _this.addMessage({
           status: 'success',
           message: 'Card added.'
         });
-      });
-      request["catch"](function (error) {
-        if (error.response.status == 422) {
-          _this.addMessage({
+      })["catch"](function (error) {
+        if (error.response && error.response.status == 422) {
+          return _this.addMessage({
             status: 'error',
             message: error.response.data.errors.card[0]
           });
         }
       });
-      return request;
     },
     addLocal: function addLocal(card) {
       var deckCard = this.findCard(card);
@@ -108902,7 +108902,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    removeRemote: function removeRemote(card) {
+    removeRemote: function removeRemote(card, handler) {
       return axios["delete"]('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
     },
     findCard: function findCard(card) {
@@ -111815,7 +111815,10 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.validateStatus = function(status) {
+//     return status >= 200 && status < 500; // default
+// };
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

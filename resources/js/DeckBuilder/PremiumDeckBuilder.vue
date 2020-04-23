@@ -9,7 +9,9 @@
                 <div :class="containers">
                     <div class="flex">
                         <div class="flex items-center w-2/3 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
-                            <div class="flex-auto"></div>
+                            <div class="flex-auto">
+
+                            </div>
 
                             <filter-selector v-if="mode != 'details'"></filter-selector>
                             <mode-selector></mode-selector>
@@ -124,9 +126,10 @@
         methods: {
             ...mapActions('messages', ['addMessage']),
             ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
+            ...mapActions('search', ['setPage']),
 
             search: function(page) {
-                this.page = page;
+                this.setPage({ page });
 
                 let params = {
                     keywords: this.keywords,
