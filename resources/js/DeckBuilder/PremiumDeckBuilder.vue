@@ -11,7 +11,7 @@
                         <div class="flex items-center w-2/3 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                             <div class="flex-auto"></div>
 
-                            <filter-selector></filter-selector>
+                            <filter-selector v-if="mode != 'details'"></filter-selector>
                             <mode-selector></mode-selector>
 
                             <div class="px-2 flex">

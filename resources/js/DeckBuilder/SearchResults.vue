@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <paginator :results="results" @page-selected="updatePage"></paginator>
+        <paginator :results="results" @page-selected="updatePage" v-if="results.total"></paginator>
     </div>
 </template>
 

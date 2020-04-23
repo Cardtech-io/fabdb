@@ -82837,7 +82837,7 @@ var render = function() {
                 [
                   _c("div", { staticClass: "flex-auto" }),
                   _vm._v(" "),
-                  _c("filter-selector"),
+                  _vm.mode != "details" ? _c("filter-selector") : _vm._e(),
                   _vm._v(" "),
                   _c("mode-selector"),
                   _vm._v(" "),
@@ -83041,10 +83041,12 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _c("paginator", {
-        attrs: { results: _vm.results },
-        on: { "page-selected": _vm.updatePage }
-      })
+      _vm.results.total
+        ? _c("paginator", {
+            attrs: { results: _vm.results },
+            on: { "page-selected": _vm.updatePage }
+          })
+        : _vm._e()
     ],
     1
   )
