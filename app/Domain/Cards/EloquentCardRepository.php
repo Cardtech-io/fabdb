@@ -181,7 +181,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     private function keywordSearch(array $keywords, $query)
     {
         // The following condition and clause determines whether the user is looking for an individual card or not
-        if (count($keywords) && $keywords[0] != 'missing') {
+        if (count($keywords) == 1 && $keywords[0] != 'missing') {
             // First let's only get keywords that do not have a colon (these are special param searches)
             $words = implode(' ', $this->getWords($keywords));
             $params = $this->getParams($keywords);
