@@ -1,18 +1,17 @@
 <template>
     <div>
-        <header-title :title="hero ? hero.name : 'Premium Deck Builder'"></header-title>
+        <header-title :title="hero ? deck.name + ' (' + hero.name + ')' : deck.name"></header-title>
 
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div :class="fullScreenClasses">
-            <div class="bg-white border-b-2 border-gray-300">
+            <div class="bg-white">
                 <div :class="containers">
                     <div class="flex">
                         <div class="flex items-center w-2/3 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
-                            <div class="flex-auto">
-                                <h1 class="inline-block font-serif text-4xl uppercase">{{ deck.name }}</h1>
-                            </div>
+                            <div class="flex-auto"></div>
 
+                            <filter-selector></filter-selector>
                             <mode-selector></mode-selector>
 
                             <div class="px-2 flex">
@@ -54,24 +53,26 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
+    import DeckDetails from './DeckDetails.vue';
+    import FilterSelector from './FilterSelector.vue';
+    import FullscreenButton from './Buttons/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import MainDeck from './MainDeck.vue';
     import ManagesDecks from './ManagesDecks';
-    import DeckDetails from './DeckDetails.vue';
+    import ModeSelector from './ModeSelector.vue';
     import Redrawable from './Redrawable';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
     import Viewable from './Viewable';
     import ZoomButton from './Buttons/Zoom.vue';
-    import FullscreenButton from './Buttons/Fullscreen.vue';
-    import ModeSelector from './ModeSelector.vue';
 
     export default {
         components: {
             AllCards,
             Breadcrumbs,
             CardImage,
+            FilterSelector,
             FullscreenButton,
             MainDeck,
             DeckDetails,

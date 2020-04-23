@@ -55,5 +55,6 @@ module.exports = {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
         borderRadius: ['first', 'last'],
         opacity: ['disabled'],
+        textColor: ['responsive', 'hover', 'group-hover'],
     }
 };

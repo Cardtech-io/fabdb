@@ -66,7 +66,7 @@
 
             styles: function(i) {
                 let styles = [];
-                let zIndex = i * 10;
+                let zIndex = i;
 
                 styles.push('z-index: ' + zIndex);
                 styles.push('position: absolute');

@@ -5,6 +5,44 @@ export default class Cards {
         this.cards = cards;
     }
 
+    applyFilters(filters) {
+        return new Cards(this.cards.filter(card => {
+            if (filters.indexOf('attacks') > -1 && this.isAttack(card) ) {
+                return true;
+            }
+
+            if (filters.indexOf('attackReactions') > -1 && this.isAttackReaction(card)) {
+                return true;
+            }
+
+            if (filters.indexOf('instants') > -1 && this.isInstant(card)) {
+                return true;
+            }
+
+            if (filters.indexOf('defenseReactions') > -1 && this.isDefenseReaction(card)) {
+                return true;
+            }
+
+            return false;
+        }));
+    }
+
+    isAttack(card) {
+        return card.keywords.includes('attack') && !card.keywords.includes('reaction');
+    }
+
+    isAttackReaction(card) {
+        return card.keywords.includes('attack') && card.keywords.includes('reaction');
+    }
+
+    isDefenseReaction(card) {
+        return card.keywords.includes('defense') && card.keywords.includes('reaction');
+    }
+
+    isInstant(card) {
+        return card.keywords.includes('instant');
+    }
+
     hero() {
         return this.cards.filter(card => {
             return card.keywords.includes('hero');
@@ -86,7 +124,7 @@ export default class Cards {
             deckCard.total -= 1;
         } else {
             let key = this.findKey(card);
-            
+
             if (key) {
                 this.cards.splice(key, 1);
             }

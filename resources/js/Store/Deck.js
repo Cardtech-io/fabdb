@@ -71,6 +71,7 @@ export default {
     state: {
         deck: {},
         cards: [],
+        filters: [],
         sideboard: [],
         fullScreen: false,
         mode: 'all',
@@ -107,6 +108,20 @@ export default {
         removeCardFromDeck(state, { card }) {
             remove(card, state.cards);
             remove(card, state.sideboard);
+        },
+
+        clearFilters(state) {
+            state.filters = [];
+        },
+
+        toggleFilter(state, { filter }) {
+            let key = -1;
+
+            if ((key = state.filters.indexOf(filter)) > -1) {
+                state.filters.splice(key, 1);
+            } else {
+                state.filters.push(filter);
+            }
         },
 
         setDeck(state, { deck }) {
@@ -157,6 +172,14 @@ export default {
 
         setMode(context, { mode }) {
             context.commit('setMode', { mode });
+        },
+
+        clearFilters(context) {
+            context.commit('clearFilters');
+        },
+
+        toggleFilter(context, { filter }) {
+            context.commit('toggleFilter', { filter });
         },
 
         toggleFullScreen({ commit, state }) {
