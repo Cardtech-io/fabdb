@@ -7,6 +7,10 @@ export default class Cards {
 
     applyFilters(filters) {
         return new Cards(this.cards.filter(card => {
+            if (filters.indexOf('actions') > -1 && this.isAction(card) ) {
+                return true;
+            }
+
             if (filters.indexOf('attacks') > -1 && this.isAttack(card) ) {
                 return true;
             }
@@ -25,6 +29,10 @@ export default class Cards {
 
             return false;
         }));
+    }
+
+    isAction(card) {
+        return card.keywords.includes('action') && !card.keywords.includes('attack');
     }
 
     isAttack(card) {

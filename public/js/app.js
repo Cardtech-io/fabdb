@@ -4447,6 +4447,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -80244,9 +80249,17 @@ var render = function() {
             }
           })
         : _c("div", { staticClass: "text-center my-20" }, [
-            _vm._v(
-              "\n        You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.\n    "
-            )
+            !_vm.filters.length
+              ? _c("span", [
+                  _vm._v(
+                    "\n            You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.\n        "
+                  )
+                ])
+              : _c("span", [
+                  _vm._v(
+                    "\n            There are no cards in your deck that match the selected filters.\n        "
+                  )
+                ])
           ])
     ],
     1
@@ -108030,6 +108043,10 @@ function () {
       var _this = this;
 
       return new Cards(this.cards.filter(function (card) {
+        if (filters.indexOf('actions') > -1 && _this.isAction(card)) {
+          return true;
+        }
+
         if (filters.indexOf('attacks') > -1 && _this.isAttack(card)) {
           return true;
         }
@@ -108048,6 +108065,11 @@ function () {
 
         return false;
       }));
+    }
+  }, {
+    key: "isAction",
+    value: function isAction(card) {
+      return card.keywords.includes('action') && !card.keywords.includes('attack');
     }
   }, {
     key: "isAttack",
