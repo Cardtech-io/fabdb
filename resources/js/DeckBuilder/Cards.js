@@ -131,6 +131,10 @@ export default class Cards {
         }
     }
 
+    all() {
+        return this.cards;
+    }
+
     [Symbol.iterator]() {
         return this.cards.values();
     }

@@ -5798,7 +5798,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.updateMainDeck();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['deck', 'sideboard'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['deck', 'filters', 'sideboard'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['addToSideboard']), {
     add: function add(card) {
       this.addToSideboard({
@@ -5819,7 +5819,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           cards.remove(card);
         }
       });
-      this.mainDeck = cards.hydrate().group('name');
+      var mainDeck = null; // If filters are applied, we don't want to go with the default ordering
+
+      if (this.filters.length) {
+        mainDeck = new _Cards__WEBPACK_IMPORTED_MODULE_4__["default"](cards.all()).applyFilters(this.filters);
+      } else {
+        mainDeck = new _Cards__WEBPACK_IMPORTED_MODULE_4__["default"]([cards.hero()]);
+        mainDeck = mainDeck.concat(cards.weapons());
+        mainDeck = mainDeck.concat(cards.equipment());
+        mainDeck = mainDeck.concat(cards.other());
+      }
+
+      this.mainDeck = mainDeck.hydrate().group('name');
       this.redraw('maindeck');
     }
   }),
@@ -5829,6 +5840,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateMainDeck();
       },
       deep: true
+    },
+    filters: function filters() {
+      this.updateMainDeck();
     }
   }
 });
@@ -108141,6 +108155,11 @@ function () {
           this.cards.splice(key, 1);
         }
       }
+    }
+  }, {
+    key: "all",
+    value: function all() {
+      return this.cards;
     }
   }, {
     key: Symbol.iterator,

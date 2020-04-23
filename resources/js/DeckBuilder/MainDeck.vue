@@ -34,7 +34,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['deck', 'sideboard']),
+            ...mapState('deck', ['deck', 'filters', 'sideboard']),
         },
 
         methods: {
@@ -59,7 +59,20 @@
                     }
                 });
 
-                this.mainDeck = cards.hydrate().group('name');
+                let mainDeck = null;
+
+                // If filters are applied, we don't want to go with the default ordering
+                if (this.filters.length) {
+                    mainDeck = (new Cards(cards.all())).applyFilters(this.filters);
+                } else {
+                    mainDeck = new Cards([cards.hero()]);
+
+                    mainDeck = mainDeck.concat(cards.weapons());
+                    mainDeck = mainDeck.concat(cards.equipment());
+                    mainDeck = mainDeck.concat(cards.other());
+                }
+
+                this.mainDeck = mainDeck.hydrate().group('name');
                 this.redraw('maindeck');
             }
         },
@@ -70,6 +83,10 @@
                     this.updateMainDeck();
                 },
                 deep: true
+            },
+
+            filters: function() {
+                this.updateMainDeck();
             }
         }
     };
