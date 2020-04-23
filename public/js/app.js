@@ -7921,47 +7921,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -7969,15 +7928,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"]],
-  components: {
-    FeaturedArticle: _Content_FeaturedArticle_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FeaturedCard: _Content_FeaturedCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    FeaturedDeck: _Content_FeaturedDeck_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
   data: function data() {
     return {
-      featured: null
+      keywords: ''
     };
+  },
+  methods: {
+    search: function search() {
+      this.$router.push({
+        name: 'cards.browse',
+        query: {
+          keywords: this.keywords
+        }
+      });
+    }
   },
   metaInfo: function metaInfo() {
     return {
@@ -8009,14 +7973,7 @@ __webpack_require__.r(__webpack_exports__);
         content: 202
       }]
     };
-  },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_0__["default"])(function (to, callback) {
-    axios.get('/featured/top').then(function (response) {
-      callback(function () {
-        this.featured = response.data;
-      });
-    });
-  })
+  }
 });
 
 /***/ }),
@@ -76693,13 +76650,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "app" } },
+    { staticClass: "mh-full flex flex-col", attrs: { id: "app" } },
     [
       _c("div", { staticClass: "navigation" }, [_c("navigation")], 1),
       _vm._v(" "),
-      _c("div", { staticClass: "clearfix" }, [_c("router-view")], 1),
+      _c("div", { staticClass: "clearfix flex-grow" }, [_c("router-view")], 1),
       _vm._v(" "),
-      _c("footer", { staticClass: "footer p-8" }, [
+      _c("footer", { staticClass: "footer p-8 bg-semi-black" }, [
         _c(
           "div",
           {
@@ -85162,14 +85119,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container sm:mx-auto text-white lg:flex lg:py-20" },
+    {
+      staticClass: "container px-4 sm:mx-auto sm:px-0 text-white flex flex-col"
+    },
     [
       _c(
         "div",
-        {
-          staticClass: "px-4 py-8 lg:w-2/3",
-          class: _vm.featured ? "w-full" : ""
-        },
+        { staticClass: "px-4 py-8 bg-semi-black my-8 rounded-xl sm:mt-20" },
         [
           _c(
             "h1",
@@ -85182,26 +85138,20 @@ var render = function() {
             { staticClass: "my-4" },
             [
               _vm._v(
-                "FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as "
+                "\n            FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as\n            "
               ),
               _c(
                 "router-link",
-                {
-                  staticClass: "underline hover:text-orange-300",
-                  attrs: { to: "/decks/build/" }
-                },
+                { staticClass: "link-white", attrs: { to: "/decks/build/" } },
                 [_vm._v("deck builder")]
               ),
-              _vm._v(", "),
+              _vm._v(",\n            "),
               _c(
                 "router-link",
-                {
-                  staticClass: "underline hover:text-orange-300",
-                  attrs: { to: "/collection/" }
-                },
+                { staticClass: "link-white", attrs: { to: "/collection/" } },
                 [_vm._v("collection manager")]
               ),
-              _vm._v(" and more.")
+              _vm._v(" and more.\n        ")
             ],
             1
           ),
@@ -85211,176 +85161,52 @@ var render = function() {
             { staticClass: "my-4" },
             [
               _vm._v(
-                "FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our "
+                "\n            FaB DB is run off community support through financial donations and subscriptions for various\n            services. To find out more, visit our "
               ),
               _c(
                 "router-link",
-                {
-                  staticClass: "underline hover:text-orange-300",
-                  attrs: { to: "/support/" }
-                },
+                { staticClass: "link-white", attrs: { to: "/support/" } },
                 [_vm._v("Support page")]
               ),
-              _vm._v(".")
+              _vm._v(".\n        ")
             ],
             1
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _vm.featured
-        ? _c("div", { staticClass: "mx-4 lg:w-1/3" }, [
-            _c(
-              "div",
-              { staticClass: "mb-8 bg-semi-black rounded-lg p-4" },
-              [
-                _vm.featured.isDeck
-                  ? _c("featured-deck", { attrs: { feature: _vm.featured } })
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.featured.isCard
-                  ? _c("featured-card", { attrs: { feature: _vm.featured } })
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.featured.isArticle
-                  ? _c("featured-article", { attrs: { feature: _vm.featured } })
-                  : _vm._e()
-              ],
-              1
-            )
-          ])
-        : _c("div", { staticClass: "px-4 w-full lg:w-3/4 lg-my-10" }, [
-            _c("div", { staticClass: "bg-semi-black rounded-lg p-4" }, [
-              _c(
-                "h1",
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "mt-8" }, [
+            _c("input", {
+              directives: [
                 {
-                  staticClass: "font-serif text-white text-4xl uppercase px-4"
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.keywords,
+                  expression: "keywords"
+                }
+              ],
+              staticClass: "input rounded-lg p-4",
+              attrs: { type: "text", placeholder: "Search for a card..." },
+              domProps: { value: _vm.keywords },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.search()
                 },
-                [_vm._v("Features")]
-              ),
-              _vm._v(" "),
-              _c("ol", { staticClass: "text-white" }, [
-                _c(
-                  "li",
-                  [
-                    _c("router-link", { attrs: { to: "/cards/browse/" } }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "inline-block hover:bg-black hover:text-orange-300 rounded-lg p-4"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 20 20"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12z"
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(
-                            "\n\n                        Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,\n                        or add to that tournament-winning deck!\n                    "
-                          )
-                        ]
-                      )
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "mt-4" },
-                  [
-                    _c("router-link", { attrs: { to: "/collection/" } }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 20 20"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: { d: "M0 11l2-2 5 5L18 3l2 2L7 18z" }
-                              })
-                            ]
-                          ),
-                          _vm._v(
-                            "\n\n                        Manage your collection by adding and removing cards, recording the foils and promos you own, and share what you are\n                        looking for, or willing to trade!\n                    "
-                          )
-                        ]
-                      )
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "mt-4" },
-                  [
-                    _c("router-link", { attrs: { to: "/decks/build/" } }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4"
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass:
-                                "block float-left fill-current w-10 h-10 mt-1 mr-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                viewBox: "0 0 20 20"
-                              }
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(
-                            "\n\n                        Craft decks by selecting your hero, weapons & equipment and the cards they'll\n                        need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!\n                    "
-                          )
-                        ]
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ])
-            ])
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.keywords = $event.target.value
+                }
+              }
+            })
           ])
+        ]
+      )
     ]
   )
 }
@@ -111913,7 +111739,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/cards/browse",
     component: _CardDatabase_BrowseCards_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    name: 'cards',
+    name: 'cards.browse',
     meta: {
       title: 'Browse cards'
     }
