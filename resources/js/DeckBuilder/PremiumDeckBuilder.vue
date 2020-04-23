@@ -35,7 +35,7 @@
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
                     <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                        <search-results v-if="mode == 'search'" :keywords="keywords" :results="results" @page-selected="updatePage"></search-results>
+                        <search-results v-if="mode == 'search'" :results="results"></search-results>
                         <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
                 </div>
@@ -91,7 +91,6 @@
                 keywords: null,
                 offset: 10,
                 pad: 17,
-                page: 1,
                 results: []
             }
         },
@@ -99,6 +98,7 @@
         computed: {
             ...mapGetters('deck', ['mainDeck']),
             ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'zoom']),
+            ...mapState('search', ['page']),
 
             containers: function() {
                 if (!this.fullScreen) {
@@ -136,10 +136,13 @@
                 axios.get('/cards/', { params: params }).then(response => {
                     this.results = response.data;
                 }).catch(error => {});
-            },
+            }
+        },
 
-            updatePage: function(page) {
-                this.page = page;
+        watch: {
+            page: function(value) {
+                console.log(value);
+                console.log(this.page);
                 this.search();
             }
         },

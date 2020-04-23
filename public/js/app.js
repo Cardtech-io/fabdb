@@ -6029,11 +6029,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       keywords: null,
       offset: 10,
       pad: 17,
-      page: 1,
       results: []
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('deck', ['mainDeck']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'zoom']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('deck', ['mainDeck']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('search', ['page']), {
     containers: function containers() {
       if (!this.fullScreen) {
         return 'container sm:mx-auto';
@@ -6071,12 +6070,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         _this.results = response.data;
       })["catch"](function (error) {});
-    },
-    updatePage: function updatePage(page) {
-      this.page = page;
-      this.search();
     }
   }),
+  watch: {
+    page: function page(value) {
+      console.log(value);
+      console.log(this.page);
+      this.search();
+    }
+  },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_11__["default"])(function (to, callback) {
     axios.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
@@ -6119,18 +6121,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['keywords', 'results'],
+  props: ['results'],
   mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('search', ['setPage']), {
     addToDeck: function addToDeck(card) {
       var _this = this;
 
@@ -6138,6 +6142,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.addCard({
           card: card
         });
+      });
+    },
+    updatePage: function updatePage(page) {
+      this.setPage({
+        page: page
       });
     }
   })
@@ -82964,11 +82973,7 @@ var render = function() {
                     [
                       _vm.mode == "search"
                         ? _c("search-results", {
-                            attrs: {
-                              keywords: _vm.keywords,
-                              results: _vm.results
-                            },
-                            on: { "page-selected": _vm.updatePage }
+                            attrs: { results: _vm.results }
                           })
                         : _vm._e(),
                       _vm._v(" "),
@@ -83015,25 +83020,33 @@ var render = function() {
     "div",
     { staticClass: "mb-40 clearfix -mx-4" },
     [
-      _vm._l(_vm.results.data, function(card) {
-        return _c(
-          "div",
-          {
-            staticClass: "w-1/2 float-left rounded-lg mb-8 px-4",
-            staticStyle: { "max-width": "300px" }
-          },
-          [
-            _c("card-image", {
-              attrs: { card: card, clickHandler: _vm.addToDeck }
-            })
-          ],
-          1
-        )
-      }),
+      _c(
+        "div",
+        { staticClass: "clearfix" },
+        _vm._l(_vm.results.data, function(card) {
+          return _c(
+            "div",
+            {
+              staticClass: "w-1/2 float-left rounded-lg mb-8 px-4",
+              staticStyle: { "max-width": "300px" }
+            },
+            [
+              _c("card-image", {
+                attrs: { card: card, clickHandler: _vm.addToDeck }
+              })
+            ],
+            1
+          )
+        }),
+        0
+      ),
       _vm._v(" "),
-      _c("paginator", { attrs: { results: _vm.results } })
+      _c("paginator", {
+        attrs: { results: _vm.results },
+        on: { "page-selected": _vm.updatePage }
+      })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -110989,7 +111002,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Deck */ "./resources/js/Store/Deck.js");
 /* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Messages */ "./resources/js/Store/Messages.js");
-/* harmony import */ var _Session__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Session */ "./resources/js/Store/Session.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Search */ "./resources/js/Store/Search.js");
+/* harmony import */ var _Session__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Session */ "./resources/js/Store/Session.js");
+
 
 
 
@@ -111000,7 +111015,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   modules: {
     deck: _Deck__WEBPACK_IMPORTED_MODULE_2__["default"],
     messages: _Messages__WEBPACK_IMPORTED_MODULE_3__["default"],
-    session: _Session__WEBPACK_IMPORTED_MODULE_4__["default"]
+    search: _Search__WEBPACK_IMPORTED_MODULE_4__["default"],
+    session: _Session__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 }));
 
@@ -111329,6 +111345,39 @@ __webpack_require__.r(__webpack_exports__);
 
       commit('timeout', {
         index: index
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/Store/Search.js":
+/*!**************************************!*\
+  !*** ./resources/js/Store/Search.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: {
+    page: 1
+  },
+  mutations: {
+    setPage: function setPage(state, _ref) {
+      var page = _ref.page;
+      state.page = page;
+    }
+  },
+  actions: {
+    setPage: function setPage(_ref2, _ref3) {
+      var commit = _ref2.commit;
+      var page = _ref3.page;
+      commit('setPage', {
+        page: page
       });
     }
   }
