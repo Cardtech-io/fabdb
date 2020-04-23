@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="w-1/3 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
+                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search(1)" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
                         </div>
                     </div>
                 </div>
@@ -123,13 +123,15 @@
 
         methods: {
             ...mapActions('messages', ['addMessage']),
-            ...mapActions('deck', ['setDeck', 'setZoom']),
+            ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
 
-            search: function() {
+            search: function(page) {
+                this.page = page;
+
                 let params = {
                     keywords: this.keywords,
                     'use-case': 'build',
-                    page: this.page,
+                    page: page,
                     perPage: 12,
                 };
 
@@ -141,15 +143,14 @@
 
         watch: {
             page: function(value) {
-                console.log(value);
-                console.log(this.page);
-                this.search();
+                this.search(value);
             }
         },
 
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
+                    this.setMode({ mode: 'all' });
                     this.setDeck({ deck: response.data });
                 });
             });

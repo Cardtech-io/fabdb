@@ -5094,7 +5094,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return ((this.totalAttackActions + this.totalAttackReactions) / this.totalCards).toFixed(2) * 100 + '%';
     },
     defenseRating: function defenseRating() {
-      return (this.blocks.length / this.totalCards).toFixed(2) * 100 + '%';
+      return ((this.blocks.length / this.totalCards).toFixed(2) * 100).toFixed(2) + '%';
     }
   })
 });
@@ -6060,14 +6060,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }];
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['setDeck', 'setZoom']), {
-    search: function search() {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['setDeck', 'setMode', 'setZoom']), {
+    search: function search(page) {
       var _this = this;
 
+      this.page = page;
       var params = {
         keywords: this.keywords,
         'use-case': 'build',
-        page: this.page,
+        page: page,
         perPage: 12
       };
       axios.get('/cards/', {
@@ -6079,14 +6080,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   watch: {
     page: function page(value) {
-      console.log(value);
-      console.log(this.page);
-      this.search();
+      this.search(value);
     }
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_11__["default"])(function (to, callback) {
     axios.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
+        this.setMode({
+          mode: 'all'
+        });
         this.setDeck({
           deck: response.data
         });
@@ -82927,7 +82929,7 @@ var render = function() {
                             ) {
                               return null
                             }
-                            return _vm.search($event)
+                            return _vm.search(1)
                           },
                           input: function($event) {
                             if ($event.target.composing) {

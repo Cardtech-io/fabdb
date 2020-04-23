@@ -30,9 +30,9 @@ class MaxCards implements Rule
      * @param  mixed $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $identifier)
     {
-        $this->card = $this->deck->card($value);
+        $this->card = $this->deck->card($identifier);
 
         if (!$this->card) {
             return true;
