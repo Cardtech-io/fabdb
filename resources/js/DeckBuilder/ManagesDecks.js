@@ -1,13 +1,17 @@
 export default {
     methods: {
-        addRemote: function(card) {
+        addRemote: function(card, handler) {
             return axios.post('/decks/' + this.$route.params.deck, { card: card.identifier })
                 .then(response => {
                     this.addMessage({ status: 'success', message: 'Card added.' });
+
+                    if (handler) {
+                        handler(response);
+                    }
                 })
                 .catch(error => {
                     if (error.response && error.response.status == 422) {
-                        return this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
+                        this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                     }
                 });
         },

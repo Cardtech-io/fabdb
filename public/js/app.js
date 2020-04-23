@@ -6147,10 +6147,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('search', ['setPage']), {
     addToDeck: function addToDeck(card) {
-      this.addCard({
-        card: card
+      var _this = this;
+
+      this.addRemote(card, function (response) {
+        _this.addCard({
+          card: card
+        });
       });
-      this.addRemote(card);
     },
     updatePage: function updatePage(page) {
       this.setPage({
@@ -83142,7 +83145,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-3/4 bg-gray-100 px-4 py-2 mr-1",
+        staticClass: "w-3/4 bg-white px-4 py-2 mr-1",
         class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.text))]
@@ -83151,7 +83154,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-1/4 bg-gray-100 px-4 py-2 text-center",
+        staticClass: "w-1/4 bg-white px-4 py-2 text-center",
         class: { "rounded-tr-lg": _vm.top(), "rounded-br-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.value))]
@@ -108850,7 +108853,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
-    addRemote: function addRemote(card) {
+    addRemote: function addRemote(card, handler) {
       var _this = this;
 
       return axios.post('/decks/' + this.$route.params.deck, {
@@ -108860,9 +108863,13 @@ __webpack_require__.r(__webpack_exports__);
           status: 'success',
           message: 'Card added.'
         });
+
+        if (handler) {
+          handler(response);
+        }
       })["catch"](function (error) {
         if (error.response && error.response.status == 422) {
-          return _this.addMessage({
+          _this.addMessage({
             status: 'error',
             message: error.response.data.errors.card[0]
           });
