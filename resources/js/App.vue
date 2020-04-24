@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="mh-full flex flex-col">
         <!-- Header -->
-        <div class="navigation">
+        <div class="navigation" v-if="$route.name != 'home'">
             <navigation></navigation>
         </div>
 
@@ -11,7 +11,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer p-8 bg-semi-black">
+        <footer class="footer p-8">
             <div class="container sm:mx-auto sm:text-center text-sm text-gray-400">
                 <p class="my-2"><router-link to="/support" class="link">Support</router-link> | <router-link to="/privacy" class="link">Privacy policy</router-link></p>
                 <p><a href="/" class="link">fabdb.net</a> is a free online resource for the Flesh &amp; Blood™ TCG by <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
