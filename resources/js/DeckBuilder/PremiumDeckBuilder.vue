@@ -14,6 +14,7 @@
                             </div>
 
                             <filter-selector v-if="mode != 'details'"></filter-selector>
+                            <grouping-selector v-if="mode != 'details'"></grouping-selector>
                             <mode-selector></mode-selector>
 
                             <div class="px-2 flex">
@@ -57,6 +58,7 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import DeckDetails from './DeckDetails.vue';
     import FilterSelector from './FilterSelector.vue';
+    import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from './Buttons/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
@@ -75,6 +77,7 @@
             Breadcrumbs,
             CardImage,
             FilterSelector,
+            GroupingSelector,
             FullscreenButton,
             MainDeck,
             DeckDetails,

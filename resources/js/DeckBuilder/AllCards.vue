@@ -27,7 +27,7 @@
         components: {GroupedCards},
 
         computed: {
-            ...mapState('deck', ['filters']),
+            ...mapState('deck', ['filters', 'grouping']),
 
             all: function() {
                 if (!this.collection.length) {
@@ -44,16 +44,16 @@
 
                 // If filters are applied, we don't want to go with the default ordering
                 if (this.filters.length) {
-                    return this.filter(new Cards(this.collection.reduce(reducer, []))).group('name');
+                    return this.filter((new Cards(this.collection)).hydrate());
                 } else {
                     let collection = new Cards(this.collection);
                     let cards = new Cards([collection.hero()]);
 
-                    cards = cards.concat(collection.weapons().reduce(reducer, []));
-                    cards = cards.concat(collection.equipment().reduce(reducer, []));
-                    cards = cards.concat(collection.other().reduce(reducer, []));
+                    cards = cards.concat(collection.weapons());
+                    cards = cards.concat(collection.equipment());
+                    cards = cards.concat(collection.other());
 
-                    return cards.group('name');
+                    return cards.hydrate();
                 }
             },
         },

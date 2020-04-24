@@ -72,6 +72,7 @@ export default {
         deck: {},
         cards: [],
         filters: [],
+        grouping: 'name',
         sideboard: [],
         fullScreen: false,
         mode: 'all',
@@ -134,6 +135,10 @@ export default {
             state.fullScreen = fullScreen;
         },
 
+        setGrouping(state, { grouping }) {
+            state.grouping = grouping;
+        },
+
         setMode(state, { mode }) {
             state.mode = mode;
             controlMaxZoom(state);
@@ -168,6 +173,10 @@ export default {
 
         setDeck(context, { deck }) {
             context.commit('setDeck', { deck });
+        },
+
+        setGrouping(context, { grouping }) {
+            context.commit('setGrouping', { grouping });
         },
 
         setMode(context, { mode }) {

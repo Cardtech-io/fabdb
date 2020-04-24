@@ -72,7 +72,7 @@
                     mainDeck = mainDeck.concat(cards.other());
                 }
 
-                this.mainDeck = mainDeck.hydrate().group('name');
+                this.mainDeck = mainDeck.hydrate();
                 this.redraw('maindeck');
             }
         },

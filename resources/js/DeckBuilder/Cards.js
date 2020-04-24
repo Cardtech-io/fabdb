@@ -78,6 +78,10 @@ export default class Cards {
         return _.sortBy(cards, card => { return card.stats.resource });
     }
 
+    filter(handler) {
+        return new Cards(this.cards.filter(handler));
+    }
+
     find(card) {
         return this.cards.filter(deckCard => {
             return deckCard.identifier == card.identifier;
@@ -117,8 +121,11 @@ export default class Cards {
         }
     }
 
+    // Field could be a string, or a handler
     group(field) {
-        return new Cards(Object.values(_.groupBy(this.cards, card => { return card[field]; })));
+        let handler = typeof field === 'string' ? (card) => { return card[field]; } : field;
+
+        return new Cards(Object.values(_.groupBy(this.cards, handler)));
     }
 
     concat(cards) {

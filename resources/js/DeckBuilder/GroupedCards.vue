@@ -1,6 +1,6 @@
 <template>
     <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-24" transition-duration="0.3s">
-        <div v-for="grouped in cards" v-masonry-tile :class="cardClasses">
+        <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative m-4">
                 <img :src="cardUrl(grouped[0].identifier, 450)" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" :style="styles(i)" :class="rounded">
@@ -32,7 +32,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['fullScreen', 'mode', 'zoom']),
+            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'zoom']),
 
             cardClasses: function() {
                 return [
@@ -45,6 +45,20 @@
                 let widths = [3, 4, 5, 6, 7, 8];
 
                 return widths[this.zoom];
+            },
+
+            groupedCards: function() {
+                if (this.grouping == 'name') {
+                    return this.cards.group('name');
+                }
+
+                let stat = this.grouping == 'cost' ? 'cost' : 'resource';
+                
+                return this.cards.filter(card => {
+                    return card.stats[stat] !== ''}
+                ).group(card => {
+                    return card.stats[stat];
+                });
             },
 
             rounded: function() {
