@@ -85316,7 +85316,7 @@ var render = function() {
       staticClass: "container px-4 sm:mx-auto sm:px-0 text-white flex flex-col"
     },
     [
-      _c("div", { staticClass: "px-8 my-10 rounded-xl sm:mt-24" }, [
+      _c("div", { staticClass: "px-8 my-10 rounded-xl sm:mt-40" }, [
         _c(
           "div",
           [
