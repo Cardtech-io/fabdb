@@ -3,7 +3,7 @@
         <div class="py-8 md:my-20 md:w-1/2 sm:pr-8">
             <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
             <p class="mt-4">The first and only Flesh &amp; Blood Deck Builder is here. You can create, craft, modify or remove your decks
-                for constructed play, and then export them to PDF for tournament registration!</p>
+                for constructed play, and then export them to PDF for tournament registration, or integration with Tabletop Simulator.</p>
 
             <p class="mt-4">If you're a <router-link to="/support" class="link-white">supporter</router-link>, you'l get access to our premium deck builder.</p>
         </div>

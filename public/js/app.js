@@ -82654,7 +82654,7 @@ var render = function() {
         _vm._v(" "),
         _c("p", { staticClass: "mt-4" }, [
           _vm._v(
-            "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks\n            for constructed play, and then export them to PDF for tournament registration!"
+            "The first and only Flesh & Blood Deck Builder is here. You can create, craft, modify or remove your decks\n            for constructed play, and then export them to PDF for tournament registration, or integration with Tabletop Simulator."
           )
         ]),
         _vm._v(" "),
