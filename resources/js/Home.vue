@@ -1,8 +1,9 @@
 <template>
     <div class="container px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
-        <div class="px-4 py-8 bg-semi-black my-8 rounded-xl sm:mt-20">
+        <div class="px-8 my-10 rounded-xl sm:mt-20">
             <h1 class="font-serif text-4xl lg:text-6xl uppercase">Welcome</h1>
-
+        </div>
+        <div class="px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl">
             <p class="my-4">
                 FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as
                 <router-link to="/decks/build/" class="link-white">deck builder</router-link>,

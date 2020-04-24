@@ -7921,6 +7921,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -85123,16 +85124,12 @@ var render = function() {
       staticClass: "container px-4 sm:mx-auto sm:px-0 text-white flex flex-col"
     },
     [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "px-4 py-8 bg-semi-black my-8 rounded-xl sm:mt-20" },
+        { staticClass: "px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl" },
         [
-          _c(
-            "h1",
-            { staticClass: "font-serif text-4xl lg:text-6xl uppercase" },
-            [_vm._v("Welcome")]
-          ),
-          _vm._v(" "),
           _c(
             "p",
             { staticClass: "my-4" },
@@ -85210,7 +85207,18 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "px-8 my-8 rounded-xl sm:mt-20" }, [
+      _c("h1", { staticClass: "font-serif text-4xl lg:text-6xl uppercase" }, [
+        _vm._v("Welcome")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
