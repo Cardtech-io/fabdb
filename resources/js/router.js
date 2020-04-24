@@ -33,7 +33,7 @@ const router = new VueRouter({
     routes: [
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
 
-        { path: "/cards/browse", component: BrowseCards, name: 'cards', meta: { title: 'Browse cards' } },
+        { path: "/cards/browse", component: BrowseCards, name: 'cards.browse', meta: { title: 'Browse cards' } },
         { path: "/cards/:identifier", component: ViewCard, name: 'card-view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
 
         { path: "/events/mine", component: Events, meta: { title: 'My Events', auth: true }, name: 'events.mine' },
