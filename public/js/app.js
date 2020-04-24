@@ -8005,6 +8005,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -85435,8 +85436,10 @@ var render = function() {
             { staticClass: "my-4 text-center" },
             [
               _vm._v(
-                "\n            FaB DB is powered by community support through financial donations and subscriptions for various\n            services. To find out more, visit our "
+                "\n            FaB DB is powered by community support through financial donations and subscriptions for various\n            services."
               ),
+              _c("br"),
+              _vm._v("\n            To find out more, visit our "),
               _c(
                 "router-link",
                 { staticClass: "link-white", attrs: { to: "/support/" } },

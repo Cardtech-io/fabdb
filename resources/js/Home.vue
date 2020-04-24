@@ -24,7 +24,8 @@
 
             <p class="my-4 text-center">
                 FaB DB is powered by community support through financial donations and subscriptions for various
-                services. To find out more, visit our <router-link to="/support/" class="link-white">Support page</router-link>.
+                services.<br>
+                To find out more, visit our <router-link to="/support/" class="link-white">Support page</router-link>.
             </p>
         </div>
     </div>
