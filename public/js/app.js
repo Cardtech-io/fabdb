@@ -2091,7 +2091,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__["default"].track('Authentication', 'Authenticated');
         var user = response.data.user;
-        var from = _this2.$route.query.from || '/';
+        var from = _this2.$route.query.from || '/decks/build';
         window.session.user = user;
 
         _this2.setUser({
