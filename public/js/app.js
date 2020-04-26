@@ -2070,7 +2070,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       submitted: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser']), {
     submitEmail: function submitEmail() {
       var _this = this;
 
@@ -2099,6 +2099,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
 
         _this2.$router.push(from);
+      })["catch"](function (error) {
+        if (error.response.status === 404) {
+          _this2.addMessage({
+            status: 'error',
+            message: 'The auth code you have provided is incorrect. Please check to that you have not copied it correctly.'
+          });
+        }
       });
     }
   })
