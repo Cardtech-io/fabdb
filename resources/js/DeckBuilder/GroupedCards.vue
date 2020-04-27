@@ -53,7 +53,7 @@
                 }
 
                 let stat = this.grouping == 'cost' ? 'cost' : 'resource';
-                
+
                 return this.cards.filter(card => {
                     return card.stats[stat] !== ''}
                 ).group(card => {

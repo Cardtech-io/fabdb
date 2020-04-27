@@ -6289,7 +6289,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['deck']), {
     sideboard: function sideboard() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate().group('name');
+      return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate();
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['removeFromSideBoard']), {

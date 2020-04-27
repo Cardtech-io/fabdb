@@ -25,7 +25,7 @@
             ...mapState('deck', ['deck']),
 
             sideboard: function() {
-                return (new Cards(this.collection)).hydrate().group('name');
+                return (new Cards(this.collection)).hydrate();
             }
         },
 
