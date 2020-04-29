@@ -35,7 +35,7 @@ class ArticleController extends Controller
             $request->get('excerpt'),
             $request->get('image'),
             $request->get('publishAt'),
-            $request->get('status'),
+            $request->get('status', 'draft'),
             $request->get('content')
         ));
 
