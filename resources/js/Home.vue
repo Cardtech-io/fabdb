@@ -57,7 +57,7 @@
             return {
                 meta: [
                     { keywords: 'Flesh and Blood TCG,TCG,deck builder,Flesh & Blood TCG,Flesh and Blood,Flesh and blood cards,Cards' },
-                    { vmid: 'og:title', property: 'og:title', content: 'Flesh and Blood TCG deck builder, collection manager, and more!' },
+                    { vmid: 'og:title', property: 'og:title', content: 'Flesh and Blood TCG, deck builder, collection manager and more!' },
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:description', property: 'og:description', content: 'Browse your Flesh and Blood cards, manage your decks, test your latest builds and more - all within a gorgeous user experience. By players, for players.' },
                     { vmid: 'og:image', property: 'og:image', content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202' },

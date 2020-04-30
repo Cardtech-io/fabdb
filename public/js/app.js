@@ -1964,8 +1964,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     VersionHandler: _Components_VersionHandler_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   metaInfo: {
-    title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
-    titleTemplate: '%s | Flesh and Blood TCG',
+    title: 'Flesh and Blood TCG, deck builder, collection manager and more!',
+    titleTemplate: '%s',
     meta: [{
       vmid: 'og:url',
       property: 'og:url',
@@ -8042,7 +8042,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         vmid: 'og:title',
         property: 'og:title',
-        content: 'Flesh and Blood TCG deck builder, collection manager, and more!'
+        content: 'Flesh and Blood TCG, deck builder, collection manager and more!'
       }, {
         vmid: 'og:type',
         property: 'og:type',
