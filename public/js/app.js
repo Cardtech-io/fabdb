@@ -4942,8 +4942,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
     addCard: function addCard(card) {
-      this.addRemote(card);
-      this.addLocal(card);
+      var _this = this;
+
+      this.addRemote(card, function () {
+        _this.addLocal(card);
+      });
     },
     removeCard: function removeCard(card) {
       this.removeRemote(card);

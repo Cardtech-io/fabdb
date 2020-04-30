@@ -205,8 +205,9 @@
             ...mapActions('messages', ['addMessage']),
 
             addCard: function(card) {
-                this.addRemote(card);
-                this.addLocal(card);
+                this.addRemote(card, () => {
+                    this.addLocal(card);
+                });
             },
 
             removeCard: function(card) {
