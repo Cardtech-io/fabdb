@@ -3307,8 +3307,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['text']
+  props: ['text', 'handler', 'value'],
+  methods: {
+    handleClick: function handleClick() {
+      if (this.handler) {
+        this.handler(this.value);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -4434,11 +4443,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cards */ "./resources/js/DeckBuilder/Cards.js");
-/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
-/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Components_Form_Button_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Form/Button.vue */ "./resources/js/Components/Form/Button.vue");
+/* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cards */ "./resources/js/DeckBuilder/Cards.js");
+/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4459,6 +4469,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -4467,14 +4483,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_4__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
-    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    FormButton: _Components_Form_Button_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['filters', 'grouping']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['filters', 'grouping', 'mode']), {
     all: function all() {
       if (!this.collection.length) {
-        return new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]([]);
+        return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]([]);
       }
 
       var reducer = function reducer(carry, card) {
@@ -4487,10 +4504,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
       if (this.filters.length) {
-        return this.filter(new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"](this.collection).hydrate());
+        return this.filter(new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate());
       } else {
-        var collection = new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"](this.collection);
-        var cards = new _Cards__WEBPACK_IMPORTED_MODULE_2__["default"]([collection.hero()]);
+        var collection = new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection);
+        var cards = new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"]([collection.hero()]);
         cards = cards.concat(collection.weapons());
         cards = cards.concat(collection.equipment());
         cards = cards.concat(collection.other());
@@ -4498,7 +4515,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['removeCard']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setMode', 'removeCard']), {
     filter: function filter(cards) {
       return cards.applyFilters(this.filters);
     },
@@ -4506,6 +4523,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.removeRemote(card);
       this.removeCard({
         card: card
+      });
+    },
+    updateMode: function updateMode(mode) {
+      this.setMode({
+        mode: mode
       });
     }
   })
@@ -5601,13 +5623,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  data: function data() {
-    return {
-      offset: 10,
-      pad: 17
-    };
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'grouping', 'mode', 'zoom']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'grouping', 'mode', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     cardClasses: function cardClasses() {
       return [this.width || 'w-1/' + this.cardWidth, this.rounded];
     },
@@ -5626,6 +5642,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).group(function (card) {
         return card.stats[stat];
       });
+    },
+    offset: function offset() {
+      return this.user.view == 'borderless' ? 10 : 12;
+    },
+    pad: function pad() {
+      return this.user.view == 'borderless' ? 17 : 18;
     },
     rounded: function rounded() {
       var fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
@@ -78763,11 +78785,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("input", {
-    staticClass:
-      "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
-    attrs: { type: "button", value: _vm.text }
-  })
+  return _c(
+    "button",
+    {
+      staticClass:
+        "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",
+      on: {
+        click: function($event) {
+          return _vm.handleClick()
+        }
+      }
+    },
+    [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -80305,12 +80335,31 @@ var render = function() {
               action: _vm.removeFromDeck
             }
           })
-        : _c("div", { staticClass: "text-center my-20" }, [
+        : _c("div", { staticClass: "text-center my-20 px-4" }, [
             !_vm.filters.length
               ? _c("span", [
-                  _vm._v(
-                    "\n            You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.\n        "
-                  )
+                  _c("div", { staticClass: "mb-8" }, [
+                    _vm._v(
+                      "\n                You have not yet added any cards.\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm.mode != "search"
+                    ? _c(
+                        "div",
+                        { staticClass: "w-1/2 lg:w-1/4 mx-auto" },
+                        [
+                          _c("form-button", {
+                            attrs: {
+                              handler: _vm.updateMode,
+                              text: "Search for cards",
+                              value: "search"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ])
               : _c("span", [
                   _vm._v(

@@ -1,9 +1,14 @@
 <template>
     <div>
         <grouped-cards :cards="all" group-id="all" :action="removeFromDeck" v-if="all.cards.length"></grouped-cards>
-        <div v-else class="text-center my-20">
+        <div v-else class="text-center my-20 px-4">
             <span v-if="!filters.length">
-                You have not yet added any cards. Select a hero by first searching for cards by clicking the button top-right.
+                <div class="mb-8">
+                    You have not yet added any cards.
+                </div>
+                <div class="w-1/2 lg:w-1/4 mx-auto" v-if="mode != 'search'">
+                    <form-button :handler="updateMode" text="Search for cards" value="search"></form-button>
+                </div>
             </span>
             <span v-else>
                 There are no cards in your deck that match the selected filters.
@@ -15,6 +20,7 @@
 <script>
     import { mapActions, mapState } from 'vuex';
 
+    import FormButton from '../Components/Form/Button.vue';
     import Cardable from '../CardDatabase/Cardable';
     import Cards from './Cards';
     import GroupedCards from './GroupedCards.vue';
@@ -24,10 +30,10 @@
     export default {
         props: ['collection'],
         mixins: [Cardable, ManagesDecks, Viewable],
-        components: {GroupedCards},
+        components: {FormButton, GroupedCards},
 
         computed: {
-            ...mapState('deck', ['filters', 'grouping']),
+            ...mapState('deck', ['filters', 'grouping', 'mode']),
 
             all: function() {
                 if (!this.collection.length) {
@@ -59,7 +65,7 @@
         },
 
         methods: {
-            ...mapActions('deck', ['removeCard']),
+            ...mapActions('deck', ['setMode', 'removeCard']),
 
             filter: function(cards) {
                 return cards.applyFilters(this.filters);
@@ -69,6 +75,10 @@
                 this.removeRemote(card);
                 this.removeCard({ card });
             },
+
+            updateMode: function(mode) {
+                this.setMode({ mode });
+            }
         }
     };
 </script>

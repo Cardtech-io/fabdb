@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex';
+    import { mapGetters, mapState } from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
@@ -24,15 +24,9 @@
         mixins: [Cardable, Redrawable, Viewable],
         components: {CardImage},
 
-        data() {
-            return {
-                offset: 10,
-                pad: 17,
-            }
-        },
-
         computed: {
             ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'zoom']),
+            ...mapGetters('session', ['user']),
 
             cardClasses: function() {
                 return [
@@ -59,6 +53,14 @@
                 ).group(card => {
                     return card.stats[stat];
                 });
+            },
+
+            offset: function() {
+                return this.user.view == 'borderless' ? 10 : 12;
+            },
+
+            pad: function() {
+                return this.user.view == 'borderless' ? 17 : 18;
             },
 
             rounded: function() {
