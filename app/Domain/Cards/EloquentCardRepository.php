@@ -93,7 +93,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             if ($view == 'need') {
                 $query->where(function($clause) use ($user) {
                     $clause->whereNull('owned_cards.id');
-                    $clause->orWhereRaw('owned_cards.standard + owned_cards.foil < '.(int) $user->need);
+                    $clause->orWhereRaw('owned_cards.standard + owned_cards.foil + owned_cards.promo < '.(int) $user->need);
                 });
             }
 
