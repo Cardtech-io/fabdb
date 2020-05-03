@@ -12,19 +12,9 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        $keywords = collect(explode(' ', $request->get('keywords')))->map(function($keyword) {
-            return addslashes($keyword);
-        })->filter()->toArray();
-
-        return $cards->search(
-            $request->get('use-case'),
-            $keywords,
-            $request->get('class'),
-            $request->get('type'),
-            $request->get('set'),
-            $request->get('view', 'all'),
-            $request->user() ?? new User
-        )->paginate($request->get('per_page', 12))->appends($request->except('page'));
+        return $cards->search($request->user(), $request->all())
+            ->paginate($request->get('per_page', 12))
+            ->appends($request->except('page'));
     }
 
     public function view(Request $request, CardRepository $cards)

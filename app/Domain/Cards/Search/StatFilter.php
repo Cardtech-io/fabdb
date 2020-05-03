@@ -1,14 +1,16 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
-class StatFilter
+use Illuminate\Database\Eloquent\Builder;
+
+class StatFilter implements SearchFilter
 {
     public function applies(array $input)
     {
         return isset($input['keywords']) && $this->getParams($input['keywords'])->count();
     }
 
-    public function applyTo($query, array $input)
+    public function applyTo(Builder $query, array $input)
     {
         $params = $this->getParams($input['keywords']);
 

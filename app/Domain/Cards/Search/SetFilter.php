@@ -1,14 +1,16 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
-class SetFilter
+use Illuminate\Database\Eloquent\Builder;
+
+class SetFilter implements SearchFilter
 {
     public function applies(array $input)
     {
         return isset($input['set']) && $input['set'] != 'all';
     }
 
-    public function applyTo($query, array $input)
+    public function applyTo(Builder $query, array $input)
     {
         $query->where('identifier', 'LIKE', $input['set'] . '%');
     }
