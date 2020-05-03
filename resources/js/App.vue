@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="mh-full flex flex-col">
         <!-- Header -->
-        <div class="navigation" v-if="$route.name != 'home'">
+        <div class="navigation">
             <navigation></navigation>
         </div>
 

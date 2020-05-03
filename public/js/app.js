@@ -76769,9 +76769,7 @@ var render = function() {
     "div",
     { staticClass: "mh-full flex flex-col", attrs: { id: "app" } },
     [
-      _vm.$route.name != "home"
-        ? _c("div", { staticClass: "navigation" }, [_c("navigation")], 1)
-        : _vm._e(),
+      _c("div", { staticClass: "navigation" }, [_c("navigation")], 1),
       _vm._v(" "),
       _c("div", { staticClass: "clearfix flex-grow" }, [_c("router-view")], 1),
       _vm._v(" "),
