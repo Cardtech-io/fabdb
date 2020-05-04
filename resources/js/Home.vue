@@ -1,6 +1,6 @@
 <template>
     <div class="container px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
-        <div class="px-8 my-10 rounded-xl sm:mt-40">
+        <div class="px-8 my-10 rounded-xl sm:mt-24">
             <div>
                 <router-link to="/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 45" class="fill-current h-24 mx-auto">

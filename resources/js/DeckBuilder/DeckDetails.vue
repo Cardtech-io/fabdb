@@ -38,7 +38,7 @@
                         <stat :value="costCount(0)" text="Cost 0"></stat>
                         <stat :value="costCount(1)" text="Cost 1"></stat>
                         <stat :value="costCount(2)" text="Cost 2"></stat>
-                        <stat :value="costCount(3)" text="Cost 3+" positio="bottom"></stat>
+                        <stat :value="costCount(3)" text="Cost 3+" position="bottom"></stat>
                     </ol>
                 </div>
 
@@ -47,13 +47,13 @@
                     <ol class="mt-2">
                         <stat :value="offenseRating" text="Rating" position="top"></stat>
                         <stat :value="averageAttack" text="Average attack"></stat>
-                        <stat :value="attacksPerHand" text="Attacks per hand"></stat>
+                        <stat :value="attacksPerHand" text="Attacks per hand" position="bottom"></stat>
                     </ol>
 
                     <h3 class="font-serif uppercase text-2xl mt-8">Defensive</h3>
                     <ol class="mt-2">
                         <stat :value="defenseRating" text="Rating" position="top"></stat>
-                        <stat :value="averageBlock" text="Average block"></stat>
+                        <stat :value="averageBlock" text="Average block" position="bottom"></stat>
                     </ol>
                 </div>
             </div>

@@ -81583,7 +81583,7 @@ var render = function() {
                     attrs: {
                       value: _vm.costCount(3),
                       text: "Cost 3+",
-                      positio: "bottom"
+                      position: "bottom"
                     }
                   })
                 ],
@@ -81615,7 +81615,8 @@ var render = function() {
                   _c("stat", {
                     attrs: {
                       value: _vm.attacksPerHand,
-                      text: "Attacks per hand"
+                      text: "Attacks per hand",
+                      position: "bottom"
                     }
                   })
                 ],
@@ -81639,7 +81640,11 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("stat", {
-                    attrs: { value: _vm.averageBlock, text: "Average block" }
+                    attrs: {
+                      value: _vm.averageBlock,
+                      text: "Average block",
+                      position: "bottom"
+                    }
                   })
                 ],
                 1
@@ -85373,7 +85378,7 @@ var render = function() {
       staticClass: "container px-4 sm:mx-auto sm:px-0 text-white flex flex-col"
     },
     [
-      _c("div", { staticClass: "px-8 my-10 rounded-xl sm:mt-40" }, [
+      _c("div", { staticClass: "px-8 my-10 rounded-xl sm:mt-24" }, [
         _c(
           "div",
           [
