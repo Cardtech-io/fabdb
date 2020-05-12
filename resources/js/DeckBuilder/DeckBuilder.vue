@@ -215,11 +215,6 @@
                 this.removeLocal(card);
             },
 
-            copyShareURL: function() {
-                this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
-                this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });
-            },
-
             isActive: function(tab) {
                 return this.activeTab == tab ? 'text-orange-300' : '';
             },

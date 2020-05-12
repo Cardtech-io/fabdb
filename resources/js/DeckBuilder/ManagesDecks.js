@@ -27,6 +27,11 @@ export default {
             }
         },
 
+        copyShareURL: function() {
+            this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
+            this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });
+        },
+
         removeLocal: function(card) {
             const deckCard = this.findCard(card);
 

@@ -4974,13 +4974,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.removeRemote(card);
       this.removeLocal(card);
     },
-    copyShareURL: function copyShareURL() {
-      this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
-      this.addMessage({
-        status: 'success',
-        message: 'URL copied to clipboard.'
-      });
-    },
     isActive: function isActive(tab) {
       return this.activeTab == tab ? 'text-orange-300' : '';
     },
@@ -5022,9 +5015,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
 /* harmony import */ var _DeckSettings_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeckSettings.vue */ "./resources/js/DeckBuilder/DeckSettings.vue");
-/* harmony import */ var _Stat_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Stat.vue */ "./resources/js/DeckBuilder/Stat.vue");
-/* harmony import */ var _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TtsExporter.vue */ "./resources/js/DeckBuilder/TtsExporter.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _Stat_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Stat.vue */ "./resources/js/DeckBuilder/Stat.vue");
+/* harmony import */ var _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TtsExporter.vue */ "./resources/js/DeckBuilder/TtsExporter.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -5102,6 +5096,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5109,12 +5114,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
+  mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_3__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     DeckSettings: _DeckSettings_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Stat: _Stat_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    TtsExporter: _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Stat: _Stat_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    TtsExporter: _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -5128,7 +5133,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     defenseRating: function defenseRating() {
       return (this.blocks.length / this.totalCards).toFixed(2) * 100 + '%';
     }
-  })
+  }),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']))
 });
 
 /***/ }),
@@ -81665,8 +81671,57 @@ var render = function() {
       _vm.tab == "export"
         ? _c(
             "div",
-            { staticClass: "flex mt-8" },
-            [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
+            { staticClass: "mt-8" },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.copyShareURL($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "float-left mr-4" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "fill-current h-20",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+                    _vm._v("Link to deck")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-base" }, [
+                    _vm._v(
+                      "Copies your publicly-accessible deck URL to the clipboard."
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("tts-exporter", { attrs: { deck: _vm.deck } })
+            ],
             1
           )
         : _vm._e()
@@ -109097,6 +109152,13 @@ __webpack_require__.r(__webpack_exports__);
         card.total = 1;
         this.cards.push(card);
       }
+    },
+    copyShareURL: function copyShareURL() {
+      this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
+      this.addMessage({
+        status: 'success',
+        message: 'URL copied to clipboard.'
+      });
     },
     removeLocal: function removeLocal(card) {
       var deckCard = this.findCard(card);
