@@ -83063,7 +83063,14 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "flex-auto" }),
+                  _c("div", { staticClass: "flex-auto" }, [
+                    _c("h2", { staticClass: "font-serif uppercase text-2xl" }, [
+                      _vm._v(_vm._s(_vm.totalCards) + " "),
+                      _c("span", { staticClass: "text-base" }, [
+                        _vm._v("cards")
+                      ])
+                    ])
+                  ]),
                   _vm._v(" "),
                   _vm.mode != "details" ? _c("filter-selector") : _vm._e(),
                   _vm._v(" "),

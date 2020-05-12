@@ -10,7 +10,7 @@
                     <div class="flex">
                         <div class="flex items-center w-2/3 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                             <div class="flex-auto">
-
+                                <h2 class="font-serif uppercase text-2xl">{{ totalCards }} <span class="text-base">cards</span></h2>
                             </div>
 
                             <filter-selector v-if="mode != 'details'"></filter-selector>
