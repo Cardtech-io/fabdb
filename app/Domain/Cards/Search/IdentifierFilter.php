@@ -10,7 +10,7 @@ class IdentifierFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return Arr::get($input, 'keywords') && $this->matches($input['keywords']);
+        return Arr::get($input, 'keywords') && $this->matchesIdentifier($input['keywords']);
     }
 
     public function applyTo(Builder $query, array $input)

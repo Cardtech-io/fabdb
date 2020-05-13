@@ -23,8 +23,10 @@ class StatFilter implements SearchFilter
         }
     }
 
-    private function getParams(array $keywords)
+    private function getParams(string $keywords)
     {
+        $keywords = explode(' ', $keywords);
+
         return collect($keywords)->filter(function($keyword) {
             return preg_match('/[a-z]+[=><]{1,2}[0-9]{1,2}/i', $keyword);
         })->map(function($keyword) {
