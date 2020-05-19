@@ -36,17 +36,7 @@
                     </div>
                 </div>
 
-                <div class="border-t border-gray-300 p-4 py-8">
-                    <h1 class="font-serif text-xl uppercase">Search tips</h1>
-                    <p class="my-4">The FabDB search tool is a powerful utility to help you find the cards you need, fast. It allows you to search for cards
-                        based on their id, name, or keywords, such as: WTR001, 11, hero, equipment, weapon, sword.etc. using the keywords search field.</p>
-                    <ul class="list-disc ml-4">
-                        <li><strong>hero</strong>: list all cards that have the keyword 'hero'. This applies to any keyword you search for.</li>
-                        <li><strong>WTR011</strong>: Look for card #11 within the Welcome to Rathe set</li>
-                        <li><strong>1</strong>: Load card #1 in any set (can also be formatted as 01 or 001</li>
-                        <li><strong>guardian action</strong>: Find all cards that have the keywords "guardian" and "action"</li>
-                    </ul>
-                </div>
+                <search-tips></search-tips>
             </div>
         </div>
     </div>
@@ -57,13 +47,15 @@
     import CardItem from './CardItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
+    import SearchTips from './SearchTips.vue';
 
     export default {
         components: {
             CardItem,
             CardSearch,
             HeaderTitle,
-            Paginator
+            Paginator,
+            SearchTips
         },
 
         computed: {
@@ -90,7 +82,7 @@
             let description = this.setDescription;
 
             return {
-                title: 'Flesh and Blood Card List',
+                title: 'Flesh and Blood TCG Card List',
                 meta: [
                     { vmid: 'description', name: 'description', content: this.setDescription }
                 ]

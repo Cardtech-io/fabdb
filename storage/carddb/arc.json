@@ -35,6 +35,28 @@
     }
   },
   {
+    "id": "004",
+    "set": "ARC",
+    "name": "Teklo Foundry Heart",
+    "rarity": "L",
+    "text": "**Once per Turn Action** - [resouce]: Banish the top 2 cards of your deck. Gain [resource] for each Mechanologist card banished this way. Activate this ability only if you have **boosted** this turn.**Go again**\n\n**Battleworn** *(If you defend with Teklo Foundry Heart, put a [-1 defense] counter on it when the combat chain closes.)*",
+    "keywords": ["mechanologist", "equipment", "chest"],
+    "stats": {
+      "defense": 2
+    }
+  },
+  {
+    "id": "005",
+    "set": "ARC",
+    "name": "Achilles Accelerator",
+    "rarity": "C",
+    "text": "**Instant** - Destroy Achilles Accelerator: Gain 1 action point. Activate this ability only if you have **boosted** this turn.\n\n**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",
+    "keywords": ["mechanologist", "equipment", "legs"],
+    "stats": {
+      "attack": 2
+    }
+  },
+  {
     "id": "006",
     "set": "ARC",
     "name": "High Octane",
@@ -200,6 +222,18 @@
     "id": "018",
     "set": "ARC",
     "name": "Cognition Nodes",
+    "rarity": "R",
+    "text": "Aether Sink enters the arena with a steam counter on it.\n\n**Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**\n\n**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",
+    "keywords": ["mechanologist", "action", "item"],
+    "stats": {
+      "resource": 3,
+      "cost": 1
+    }
+  },
+  {
+    "id": "019",
+    "set": "ARC",
+    "name": "Convection Amplifier",
     "rarity": "R",
     "text": "Aether Sink enters the arena with a steam counter on it.\n\n**Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**\n\n**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",
     "keywords": ["mechanologist", "action", "item"],
@@ -664,7 +698,7 @@
     "set": "ARC",
     "name": "Tome of the Arknight",
     "rarity": "S",
-    "text": "Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.",
+    "text": "Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.\n\n**Go again**",
     "flavour": "\"And in abandoning the Light, I am consumed by the Shadow, and gifted true power...\" - Eldon, Lost Knight",
     "keywords": ["runeblade", "action"],
     "stats": {

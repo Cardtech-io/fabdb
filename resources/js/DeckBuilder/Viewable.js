@@ -1,8 +1,22 @@
+import _ from 'underscore';
+
 export default {
     computed: {
+        attacksPerHand: function() {
+            return (this.totalAttacks / (this.totalOther / 4)).toFixed(1);
+        },
+
+        averageAttack: function() {
+            return (_.reduce(this.attacks, (total, card) => { return total + (card.stats.attack * card.total); }, 0) / this.totalAttacks).toFixed(1);
+        },
+
+        averageBlock: function() {
+            return (_.reduce(this.blocks, (total, card) => { return total + card.stats.defense * card.total; }, 0) / this.totalBlocks).toFixed(1);
+        },
+
         averageCost: function() {
             const totalCost = this.other.reduce((total, card) => {
-                if (card.stats.cost) {
+                if (card.stats.cost && !isNaN(card.stats.cost)) {
                     return total + card.stats.cost * card.total;
                 }
 
@@ -26,6 +40,18 @@ export default {
             })[0];
         },
 
+        attacks: function() {
+            return this.other.filter(card => {
+                return card.keywords.includes('attack') && !card.keywords.includes('reaction');
+            });
+        },
+
+        blocks: function() {
+            return this.other.filter(card => {
+                return card.stats.defense && card.stats.defense > 0;
+            });
+        },
+
         weapons: function() {
             return this.cards.filter(card => {
                 return card.keywords.includes('weapon');
@@ -44,11 +70,7 @@ export default {
             });
 
             // Sort by pitch
-            return cards.sort(function compare(a, b) {
-                if (a.stats.resource < b.stats.resource) return -1;
-                if (a.stats.resource > b.stats.resource) return 1;
-                return 0;
-            });
+            return _.sortBy(cards, card => { return card.stats.resource });
         },
 
         totalOther: function() {
@@ -57,14 +79,28 @@ export default {
             }, 0);
         },
 
+        totalAttacks: function() {
+            return this.attacks.reduce((total, card) => { return total + card.total }, 0);
+        },
+
+        totalBlocks: function() {
+            return this.blocks.reduce((total, card) => { return total + card.total }, 0);
+        },
+
         totalCards: function() {
-            var count = 0;
+            let count = this.other.filter(card => {
+                return !card.keywords.includes('token');
+            }).reduce((total, card) => {
+                return total + card.total;
+            }, 0);
+            
+            return count +
+                this.equipment.reduce((total, card) => { return total + card.total; }, 0) +
+                this.weapons.reduce((total, card) => { return total + card.total; }, 0);
+        },
 
-            for (var i in this.other) {
-                count += this.other[i].total;
-            }
-
-            return count + this.equipment.length + this.weapons.length;
+        totalActions: function() {
+            return this.totalCardType(this.other, ['action']);
         },
 
         totalAttackActions: function() {
@@ -77,6 +113,10 @@ export default {
 
         totalDefenseReactions: function() {
             return this.totalCardType(this.other, ['defense', 'reaction']);
+        },
+
+        totalInstants: function() {
+            return this.totalCardType(this.other, ['instant']);
         },
 
         totalColoured: function() {
@@ -126,6 +166,10 @@ export default {
             }, 0);
         },
 
+        averageCardType: function(cards, keywords) {
+            return (this.totalCardType(cards, keywords) / cards.length).toFixed(1);
+        },
+
         totalCardType: function(cards, keywords) {
             return cards.reduce((total, card) => {
                 let matches = 0;
@@ -142,6 +186,10 @@ export default {
 
                 return total + card.total;
             }, 0);
+        },
+
+        countCards: function(cards) {
+            return _.reduce(cards, (total, card) => { return total + card.total; }, 0);
         }
     }
 };

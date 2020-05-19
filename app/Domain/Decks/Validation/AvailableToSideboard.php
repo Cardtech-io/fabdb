@@ -4,8 +4,10 @@ namespace FabDB\Domain\Decks\Validation;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
-class MaxThreeCards implements Rule
+class AvailableToSideboard implements Rule
 {
+    use RequiresCard;
+
     /**
      * @var Deck
      */
@@ -26,8 +28,9 @@ class MaxThreeCards implements Rule
     public function passes($attribute, $value)
     {
         $card = $this->deck->card($value);
+        $sideboard = $this->deck->sideboardCard($card->id);
 
-        return ! $card || $card->total < 3;
+        return !$sideboard || $sideboard->total < $card->total;
     }
 
     /**
@@ -37,6 +40,6 @@ class MaxThreeCards implements Rule
      */
     public function message()
     {
-        return 'Max 3 unique cards per deck.';
+        return "You can only sideboard as many of a unique card as you have added to your deck.";
     }
 }

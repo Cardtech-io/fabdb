@@ -9,6 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use League\Csv\Reader;
 
 class SeedCardDatabase extends Command
 {
@@ -24,7 +25,7 @@ class SeedCardDatabase extends Command
      *
      * @var string
      */
-    protected $description = 'Seeds the database with the cards found in storage/carddb/wtr.json';
+    protected $description = 'Seeds the database with the cards found in storage/carddb/*.json';
 
     /**
      * Execute the console command.
@@ -35,19 +36,22 @@ class SeedCardDatabase extends Command
     {
         $set = $this->selectSet();
 
-        $cards = json_decode(Storage::disk('carddb')->get("{$set}.json"), true);
+        $csvFile = Storage::disk('carddb')->getAdapter()->getPathPrefix()."{$set}.csv";
+        $csv = Reader::createFromPath($csvFile, 'r');
+        $csv->setHeaderOffset(0);
+        $cards = $csv->getRecords();
 
         foreach ($cards as $card) {
-            $this->line('Registering: '.$card['set'].$card['id']);
+            $this->line('Registering: '.$card['Set'].$card['ID']);
 
             Card::register(
-                new Identifier($card['set'], $card['id']),
-                $card['name'],
-                new Rarity($card['rarity']),
-                $card['text'],
-                Arr::get($card, 'flavour'),
-                $card['keywords'],
-                Arr::get($card, 'stats', [])
+                new Identifier($card['Set'], $card['ID']),
+                $card['Name'],
+                new Rarity($card['Rarity']),
+                $card['Text'],
+                Arr::get($card, 'Flavour'),
+                explode(',', $card['Keywords']),
+                $this->compileStats($card)
             );
         }
 
@@ -62,5 +66,28 @@ class SeedCardDatabase extends Command
         $set = $this->choice('Which set would you like to import or update?', ['ARC', 'IRA', 'WTR']);
 
         return strtolower($set);
+    }
+
+    private function compileStats($card)
+    {
+        $stats = [];
+
+        $this->stat($stats, $card, 'life');
+        $this->stat($stats, $card, 'intellect');
+        $this->stat($stats, $card, 'resource');
+        $this->stat($stats, $card, 'cost');
+        $this->stat($stats, $card, 'defense');
+        $this->stat($stats, $card, 'attack');
+
+        return $stats;
+    }
+
+    private function stat(&$stats, $card, $name)
+    {
+        $column = ucfirst($name);
+
+        if (isset($card[$column])) {
+            $stats[$name] = $card[$column];
+        }
     }
 }

@@ -6,10 +6,13 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
                 <ol class="clearfix sm:-mx-4">
+                    <li class="border-t-2 border-gray-400 mx-4 mb-8">
+                        <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Latest news</span>
+                    </li>
                     <li v-for="article in firstThree" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
-                        <div class="bg-white rounded-lg" style="height: 390px">
+                        <div class="bg-white" style="height: 350px">
                             <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full rounded-t-lg">
+                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full">
                                 <div class="p-6">
                                     <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
                                     <p>{{ article.excerpt }}</p>
@@ -17,11 +20,17 @@
                             </router-link>
                         </div>
                     </li>
+                </ol>
+
+                <ol class="clearfix sm:-mx-4">
+                    <li class="border-t-2 border-gray-400 mx-4 mb-8">
+                        <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Recent news</span>
+                    </li>
                     <li v-for="article in remainder" class="clearfix w-full mx-4">
                         <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                            <img :src="thumbUrl(article.image, 150, 150)" class="rounded-lg float-left mr-4">
+                            <img :src="thumbUrl(article.image, 150, 150)" class="float-left mr-4">
                             <div>
-                                <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
+                                <h3 class="font-serif uppercase text-xl mb-2">{{ article.title }}</h3>
                                 <p>{{ article.excerpt }}</p>
                             </div>
                         </router-link>
@@ -81,7 +90,7 @@
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:title', property: 'og:title', content: title },
                     { vmid: 'og:description', property: 'og:description', content: description },
-                    { vmid: 'og:image', property: 'og:image', content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202' },
+                    { vmid: 'og:image', property: 'og:image', content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202' },
                     { vmid: 'og:width', property: 'og:width', content: 210 },
                     { vmid: 'og:height', property: 'og:height', content: 202 }
                 ]

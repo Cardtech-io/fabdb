@@ -53,7 +53,7 @@ class RenameImages extends Command
                 $disk->delete($dest);
             }
 
-            $this->info("Moved $src to $dest.");
+            $this->info("Moved $src to $dest");
             $disk->move($src, $dest);
         }
     }

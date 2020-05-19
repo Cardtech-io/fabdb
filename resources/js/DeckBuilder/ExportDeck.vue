@@ -20,11 +20,11 @@
                     <div class="md:w-2/3 md:pr-8">
                         <div v-if="!exportRequested">
                             <p class="mb-4 p-4 bg-blue-500 rounded-lg text-white">
-                                The information collected below is not saved, but is required for PDF export. We will email
-                                you your PDF when it's been generated.
+                                The information collected below is not saved, but is required for your PDF as part of
+                                the tournament pack export. We will email you your export once it's been generated.
                             </p>
 
-                            <form @submit.prevent="exportToPdf">
+                            <form @submit.prevent="requestExport">
                                 <div class="w-full mt-4">
                                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
                                     <input type="text" v-model="name" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="hidden md:block md:w-1/3">
-                        <img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px">
+                        <card-image :card="hero"></card-image>
                     </div>
                 </div>
             </div>
@@ -61,6 +61,7 @@
 
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
+    import CardImage from '../CardDatabase/CardImage.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
@@ -68,6 +69,7 @@
 
     export default {
         components: {
+            CardImage,
             CardSelector,
             Crumbs,
             HeaderTitle
@@ -122,19 +124,19 @@
         methods: {
             ...mapActions('session', ['setUserParam']),
 
-            exportToPdf: function() {
+            requestExport: function() {
                 const payload = {
                     name: this.name,
                     gemId: this.gemId,
                     event: this.event
                 };
 
-                axios.post('/export/' + this.deck.slug + '.pdf', payload).then(response => {
+                axios.post('/export/' + this.deck.slug + '.zip', payload).then(response => {
                     this.exportRequested = true;
                 });
             }
         },
-
+        
         metaInfo() {
             return {
                 title: 'Deck builder - Export deck'

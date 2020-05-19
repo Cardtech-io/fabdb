@@ -6,6 +6,7 @@ use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class User extends Model implements Authenticatable
@@ -23,7 +24,8 @@ class User extends Model implements Authenticatable
     protected $fillable = [
         'email',
         'name',
-        'gemId'
+        'gemId',
+        'view',
     ];
 
     protected $casts = [
@@ -57,14 +59,29 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $need)
+    public function updateProfile($email, $name, $gemId, $need, $view, string $avatar)
     {
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
         $this->need = $need;
+        $this->view = $view;
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need));
+        if ($this->subscribed()) {
+            $this->avatar = $avatar;
+        }
+
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need, $view, $avatar));
+
+        return $this;
+    }
+
+    public function completeProfile($name, $gemId)
+    {
+        $this->name = $name;
+        $this->gemId = $gemId;
+
+        $this->raise(new ProfileWasCompleted($this->id, $name, $gemId));
 
         return $this;
     }
@@ -74,11 +91,21 @@ class User extends Model implements Authenticatable
         return $this->role === 'editor';
     }
 
+    public function isStoreOwner()
+    {
+        return $this->role == 'owner';
+    }
+
     public function updateName(string $name)
     {
         $this->name = $name;
 
         $this->raise(new NameWasUpdated($this->id, $name));
+    }
+
+    public function getAvatarAttribute()
+    {
+        return Arr::get($this->attributes, 'avatar') ?: 'bauble';
     }
 
     private function generateAuthToken()
@@ -90,5 +117,10 @@ class User extends Model implements Authenticatable
         }
 
         $this->token = strtoupper(implode('-', $parts));
+    }
+
+    public function subscribed()
+    {
+        return !is_null($this->subscription);
     }
 }

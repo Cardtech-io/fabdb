@@ -8,29 +8,40 @@ class Packs
     /**
      * @var CardRepository
      */
-    private $cards;
+    private $packs;
 
-    public function __construct(CardRepository $cards)
+    public function __construct(PackRepository $packs)
     {
-        $this->cards = $cards;
+        $this->packs = $packs;
     }
 
-    public function generate()
+    public function generate(Set $set)
     {
-        // The first 5 slots, are class-specific common cards. We want to make sure we get distinct cards.
-        $first5 = $this->cards->getRandomCommons('other', 4);
-        $equipment = $this->cards->getRandomEquipmentCommon();
-        $rare1 = $this->cards->getRandom(new Rarity('R'));
-        $rare2 = $this->cards->getRandom(new Rarity($this->randomRarity()));
-        $foil = $this->cards->getRandomFoil();
-        $generics = $this->cards->getRandomCommons('generic', 6);
-        $token1 = $this->cards->getRandom(new Rarity('T'));
+        $this->packs->useSet($set);
 
-        $pack = $first5
-            ->add($equipment)
-            ->add($rare1)
+        // The first 5 slots, are class-specific common cards. We want to make sure we get distinct cards.
+        $first5 = $this->packs->getRandomCommons('other', 4);
+        $equipment = $this->packs->getRandomEquipmentCommon();
+        $rare1 = $this->packs->getRandom(new Rarity('R'));
+        $rare2 = $this->packs->getRandom(new Rarity($this->randomRarity()));
+        $foil = $this->packs->getRandomFoil();
+
+        $generics = $this->packs->getRandomCommons('generic', 6);
+        $token1 = $this->packs->getRandom(new Rarity('T'));
+
+        $pack = $first5;
+
+        if ($set->is(new Set('wtr'))) {
+            $pack->add($equipment);
+        }
+
+        $pack->add($rare1)
             ->add($rare2)
             ->add($foil);
+
+        if ($set->is(new Set('arc'))) {
+            $pack->add($equipment);
+        }
 
         $pack = $this->merge($pack, $generics);
 
@@ -38,7 +49,7 @@ class Packs
 
         // When cracked bauble is generated, this is the only token available, as it's not double-sided, unlike others.
         if ($token1->id != 224) {
-            $token2 = $this->cards->getRandom(new Rarity('T'), [$token1->id, 224]); // 224 is cracked bauble
+            $token2 = $this->packs->getRandom(new Rarity('T'), [$token1->id, 224]); // 224 is cracked bauble
             $pack->add($token2);
         }
 

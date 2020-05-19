@@ -1,4 +1,5 @@
 <?php $user = auth()->user(); ?>
+<?php $settings = compile_settings(); ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +7,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
@@ -28,8 +30,8 @@
 
         @if (env('SENTRY_LARAVEL_DSN'))
             <script
-                src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
-                integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+                src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"
+                integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT"
                 crossorigin="anonymous"></script>
             <script>
                 <?php $version = 'fab-db@'.fab_version(); ?>
@@ -44,13 +46,21 @@
                         return event;
                     }
                 });
+
+                @if ($user)
+                    Sentry.configureScope(function(scope) {
+                        scope.setUser({id: "{{ $user->slug }}" });
+                    });
+                @endif
             </script>
         @endif
     </head>
-    <body class="font-sans theme-bg bg-gray-200 text-gray-800">
-        <div id="app"></div>
+    <body class="font-sans theme-bg bg-gray-200 text-gray-800 md:text-lg mh-full">
+        <div id="app" class="relative mh-full"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
+            window.version = '{{ fab_version()  }}';
+            window.settings = {!! json_encode($settings) !!};
         </script>
         <script src="{{ fab_asset('/js/app.js') }}"></script>
     </body>

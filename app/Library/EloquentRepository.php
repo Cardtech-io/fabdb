@@ -19,7 +19,9 @@ abstract class EloquentRepository implements Repository
 
     public function delete(string $slug)
     {
-        $this->newQuery()->whereSlug($slug)->delete();
+        $this->newQuery()
+            ->whereSlug($slug)
+            ->delete();
     }
 
     public function all(): Collection

@@ -21,7 +21,7 @@ class ArticleController extends Controller
     {
         return $articles->search(
             $request->get('keywords'),
-            $request->get('per_page', 6),
+            $request->get('per_page', 12),
             'search'
         );
     }
@@ -35,7 +35,7 @@ class ArticleController extends Controller
             $request->get('excerpt'),
             $request->get('image'),
             $request->get('publishAt'),
-            $request->get('status'),
+            $request->get('status', 'draft'),
             $request->get('content')
         ));
 

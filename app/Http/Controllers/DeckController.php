@@ -4,14 +4,19 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
+use FabDB\Domain\Decks\AddCardToSideboard;
 use FabDB\Domain\Decks\AddDeck;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
+use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
+use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Http\Requests\AddCardToDeckRequest;
+use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
+use FabDB\Http\Requests\SaveDeckSettingsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +46,18 @@ class DeckController extends Controller
         $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
     }
 
+    public function addToSideboard(AddCardToSideboardRequest $request, Deck $deck, CardRepository $cards)
+    {
+        $card = $cards->findByIdentifier($request->get('card'));
+
+        $this->dispatchNow(new AddCardToSideboard($deck->id, $card->id));
+    }
+
+    public function removeFromSideboard(Request $request, Deck $deck, Card $card)
+    {
+        $this->dispatchNow(new RemoveCardFromSideboard($deck->id, $card->id));
+    }
+
     public function removeCard(RemoveCardFromDeckRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new RemoveCardFromDeck($deck->id, $card->id));
@@ -58,6 +75,20 @@ class DeckController extends Controller
 
     public function view(Deck $deck)
     {
+        $deck->load('cards');
+        $deck->load('sideboard');
+
         return $deck;
+    }
+
+    public function saveSettings(SaveDeckSettingsRequest $request)
+    {
+        $this->dispatchNow(new SaveDeckSettings(
+            $request->deck->id,
+            $request->get('name'),
+            $request->get('format'),
+            $request->get('visibility'),
+            (int) $request->get('cardBack')
+        ));
     }
 }

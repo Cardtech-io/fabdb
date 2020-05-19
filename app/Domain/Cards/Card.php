@@ -10,7 +10,7 @@ class Card extends Model
     public $timestamps = false;
 
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];
-    protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'keywords', 'stats'];
+    protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
     protected $appends = ['total'];
 
@@ -26,7 +26,9 @@ class Card extends Model
 
     public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, array $keywords, array $stats)
     {
-        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'flavour', 'keywords', 'stats'));
+        $searchText = "$identifier $name $text ".implode(' ', $keywords);
+
+        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'flavour', 'keywords', 'stats', 'searchText'));
     }
 
     public function setIdentifierAttribute(Identifier $identifier)
@@ -64,6 +66,11 @@ class Card extends Model
         return in_array('weapon', $this->keywords);
     }
 
+    public function is1hWeapon()
+    {
+        return $this->isWeapon() && in_array('1h', $this->keywords);
+    }
+
     public function isEquipment(): bool
     {
         return in_array('equipment', $this->keywords);
@@ -72,5 +79,10 @@ class Card extends Model
     public function oneHanded(): bool
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);
+    }
+
+    public function isToken()
+    {
+        return in_array('token', $this->keywords);
     }
 }

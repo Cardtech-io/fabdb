@@ -1,10 +1,10 @@
 export default {
     methods: {
         cardUrl: function(identifier, width, withBorder) {
-            const set = this.set(identifier);
+            const set = this.setFromIdentifier(identifier);
             const id = this.id(identifier);
 
-            let url = window.location.protocol + '//fabdb.imgix.net/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+            let url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
             if (!withBorder) {
                 const dimensions = {
@@ -58,10 +58,10 @@ export default {
         },
 
         hasResource: function(card) {
-            return card.stats.hasOwnProperty('resource');
+            return card.stats.hasOwnProperty('resource') && card.stats.resource > 0;
         },
 
-        set: function(identifier) {
+        setFromIdentifier: function(identifier) {
             return this.identifierParts(identifier)[0].toLowerCase();
         },
 

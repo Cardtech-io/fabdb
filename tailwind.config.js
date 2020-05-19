@@ -1,9 +1,16 @@
 module.exports = {
     theme: {
+        extend: {
+            width: {
+                '1/7': '14.2857143%',
+                '1/8': '12.5%',
+            }
+        },
+
         borderRadius: {
             'none': '0',
             'sm': '.125rem',
-            default: '.25rem',
+            default: '.35rem',
             'lg': '.5rem',
             'full': '9999px',
             'xl': '1rem',
@@ -27,11 +34,27 @@ module.exports = {
         fontFamily: {
             'sans': ['Raleway', 'Helvetica', 'Helvetica\\ Neue', 'Arial', 'sans-serif'],
             'serif': ['Capitolium', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+        },
+
+        zIndex: {
+            '0': 0,
+            '10': 10,
+            '20': 20,
+            '25': 25,
+            '30': 30,
+            '40': 40,
+            '50': 50,
+            '75': 75,
+            '100': 100,
+            '1000': 1000,
+            'auto': 'auto',
         }
     },
 
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
-        opacity: ['disabled']
+        borderRadius: ['first', 'last'],
+        opacity: ['disabled'],
+        textColor: ['responsive', 'hover', 'group-hover'],
     }
 };

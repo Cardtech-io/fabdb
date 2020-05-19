@@ -12,8 +12,8 @@
                     <div v-if="!submitted">
                         <form @submit.prevent="submitEmail()">
                             <div class="flex mb-8">
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email">
-                                <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700" value="Send code"">
+                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
+                                <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700" value="Send code">
                             </div>
 
                             <p>Some features on FaB DB require an account. Registration/login is super easy! Just
@@ -25,11 +25,11 @@
                     <div v-else>
                         <form @submit.prevent="submitCode()">
                             <div class="flex mb-8">
-                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code">
+                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code" required="required">
                                 <input type="submit" class="w-1/3 p-4 rounded-r-lg text-gray-300 bg-gray-800 hover:bg-gray-700 text-center" value="Login">
                             </div>
 
-                            <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form below.</p>
+                            <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above.</p>
                         </form>
                     </div>
                 </div>
@@ -57,6 +57,7 @@
         },
 
         methods: {
+            ...mapActions('messages', ['addMessage']),
             ...mapActions('session', ['setUser']),
 
             submitEmail: function() {
@@ -74,12 +75,16 @@
                     Tracker.track('Authentication', 'Authenticated');
 
                     const user = response.data.user;
-                    const from = this.$route.query.from || '/';
+                    const from = this.$route.query.from || '/decks/build';
 
                     window.session.user = user;
 
                     this.setUser({ user: user });
                     this.$router.push(from);
+                }).catch(error => {
+                    if (error.response.status === 404) {
+                        this.addMessage({ status: 'error', message: 'The auth code you have provided is incorrect. Please check to that you have not copied it correctly.' });
+                    }
                 });
             }
         },

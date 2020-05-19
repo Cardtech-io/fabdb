@@ -1,12 +1,12 @@
 <template>
-    <div id="app">
+    <div id="app" class="mh-full flex flex-col">
         <!-- Header -->
         <div class="navigation">
             <navigation></navigation>
         </div>
 
         <!-- Content -->
-        <div class="clearfix">
+        <div class="clearfix flex-grow">
             <router-view></router-view>
         </div>
 
@@ -22,6 +22,8 @@
         </footer>
 
         <messages></messages>
+        <complete-profile></complete-profile>
+        <version-handler></version-handler>
     </div>
 </template>
 
@@ -29,15 +31,22 @@
     import axios from 'axios';
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
+    import CompleteProfile from './Identity/CompleteProfile.vue';
+    import VersionHandler from './Components/VersionHandler.vue';
 
     import { mapActions } from 'vuex';
 
     export default {
-        components: { Messages, Navigation },
+        components: {
+            CompleteProfile,
+            Messages,
+            Navigation,
+            VersionHandler
+        },
 
         metaInfo: {
-            title: 'Flesh & Blood TCG deck builder, collection manager, and more!',
-            titleTemplate: '%s | fabdb.net',
+            title: 'Flesh and Blood TCG, deck builder, collection manager and more!',
+            titleTemplate: '%s',
             meta: [
                 { vmid: 'og:url', property: 'og:url', content: window.location.href },
                 { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' },

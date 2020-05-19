@@ -1,10 +1,10 @@
 <?php
 namespace FabDB\Http\Requests;
 
-use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\Validation\HasHero;
 use FabDB\Domain\Decks\Validation\MatchesKeywords;
-use FabDB\Domain\Decks\Validation\MaxThreeCards;
+use FabDB\Domain\Decks\Validation\MaxCards;
+use FabDB\Domain\Decks\Validation\MaxTotalCards;
 use FabDB\Domain\Decks\Validation\SupportsWeapon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -13,18 +13,26 @@ class AddCardToDeckRequest extends FormRequest
 {
     public function authorize()
     {
-        return Auth::user()->id === $this->deck->user_id;
+        return Auth::user()->id === $this->deck->userId;
     }
 
     public function rules()
     {
+        $rules = [
+            new HasHero($this->deck),
+            new SupportsWeapon($this->deck),
+        ];
+
+        if ($this->deck->format == 'open') {
+            return ['card' => $rules];
+        }
+
         return [
-            'card' => [
-                new HasHero($this->deck),
+            'card' => array_merge($rules, [
                 new MatchesKeywords($this->deck),
-                new SupportsWeapon($this->deck),
-                new MaxThreeCards($this->deck)
-            ]
+                new MaxCards($this->deck),
+                new MaxTotalCards($this->deck),
+            ])
         ];
     }
 }

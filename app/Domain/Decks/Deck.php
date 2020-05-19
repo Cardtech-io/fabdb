@@ -11,11 +11,9 @@ class Deck extends Model
 {
     use Raiseable;
     use Sluggable;
-
-    protected $appends = ['hero'];
-    protected $casts = ['slug' => 'string'];
-    protected $hidden = ['id'];
-    protected $with = ['cards'];
+    
+    protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
+    protected $hidden = ['id', 'user_id'];
 
     public function user()
     {
@@ -34,6 +32,14 @@ class Deck extends Model
             ->withPivot('id', 'total');
     }
 
+    public function sideboard()
+    {
+        return $this->belongsToMany(Card::class, 'sideboard')
+            ->orderBy('cards.name')
+            ->withPivot('id', 'total')
+            ->withTimestamps();
+    }
+
     public static function add(int $userId, string $name)
     {
         $deck = new Deck;
@@ -45,11 +51,18 @@ class Deck extends Model
         return $deck;
     }
 
-    public function card($cardIdentifier)
+    public function card($identifier)
     {
-        $column = is_numeric($cardIdentifier) ? 'id' : 'identifier';
+        $column = is_numeric($identifier) ? 'id' : 'identifier';
 
-        return $this->cards->where($column, $cardIdentifier)->first();
+        return $this->cards->where($column, $identifier)->first();
+    }
+
+    public function sideboardCard($identifier)
+    {
+        $column = is_numeric($identifier) ? 'id' : 'identifier';
+
+        return $this->sideboard->where($column, $identifier)->first();
     }
 
     public function mainKeyword()
@@ -72,6 +85,11 @@ class Deck extends Model
     public function hero()
     {
         return $this->cards->hero();
+    }
+
+    public function weapon()
+    {
+        return $this->weapons()->first();
     }
 
     public function weapons()
@@ -97,5 +115,23 @@ class Deck extends Model
     public function otherTotal()
     {
         return $this->other()->sum('total');
+    }
+
+    public function requiresNewSheet()
+    {
+        return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
+    }
+
+    public function saveSettings(string $name, string $format, string $visibility, int $cardBack)
+    {
+        // We don't want timestamps updated as this shouldn't trigger a re-render of all the images when
+        // downloading the deck sheet for tabletop simulator.
+        $this->timestamps = false;
+        $this->name = $name;
+        $this->format = $format;
+        $this->visibility = $visibility;
+        $this->cardBack = $cardBack;
+
+        $this->raise(new DeckSettingsSaved($this->id, $name, $format, $visibility, $cardBack));
     }
 }

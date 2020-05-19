@@ -1,63 +1,32 @@
 <template>
-    <div class="container sm:mx-auto text-white lg:flex lg:py-20">
-        <div class="px-4 py-8 lg:w-2/3" :class="featured ? 'w-full' : ''">
-            <h1 class="font-serif text-4xl lg:text-6xl uppercase">Welcome</h1>
-            <p class="my-4">FaB DB is an unofficial Flesh and Blood TCG community project, with various features such as <router-link to="/decks/build/" class="underline hover:text-orange-300">deck builder</router-link>, <router-link to="/collection/" class="underline hover:text-orange-300">collection manager</router-link> and more.</p>
-            <p class="my-4">FaB DB is run off community support through financial donations and subscriptions for various services. To find out more, visit our <router-link to="/support/" class="underline hover:text-orange-300">Support page</router-link>.</p>
-        </div>
-
-        <div class="mx-4 lg:w-1/3" v-if="featured">
-            <div class="mb-8 bg-semi-black rounded-lg p-4">
-                <featured-deck :feature="featured" v-if="featured.isDeck"></featured-deck>
-                <featured-card :feature="featured" v-if="featured.isCard"></featured-card>
-                <featured-article :feature="featured" v-if="featured.isArticle"></featured-article>
+    <div class="container px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
+        <div class="px-8 my-10 rounded-xl sm:mt-24">
+            <div>
+                <router-link to="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 45" class="fill-current h-24 mx-auto">
+                        <g fill="#FFF" fill-rule="evenodd">
+                            <path d="M22 44c-5.972-2.009-10.273-5.229-12.904-9.66-2.615-4.406-5.312-12.93-8.09-25.57a.216.216 0 01.173-.26c4.347-.712 7.78-1.52 10.299-2.423C14.04 5.167 17.548 3.472 22 1m0 0c4.66 2.472 8.352 4.168 11.033 5.087 2.636.903 6.23 1.71 10.78 2.423l.013.002c.12.027.195.142.169.259-2.91 12.64-5.732 21.163-8.47 25.568C32.773 38.771 28.27 41.991 22.02 44" stroke="#FFF" stroke-width="2" fill-opacity=".5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.592 34.064c1.857-.146 3.383-.146 4.951-.146 1.445 0 3.384.037 4.993.11v-.51c-.412 0-2.27-.11-2.93-.984-.394-.487-.525-1.175-.535-3.242v-7.028h4.97c1.044.004 2.184.056 2.828.656.701.583.825 1.384.825 2.076h.701c-.04-.801-.116-1.136-.123-3.14v-.284c0-2.294.082-2.695.082-3.496h-.66c-.041.656-.124 1.53-.784 2.149-.66.546-1.568.655-3.26.655h-4.58v-9.323h4.415c1.238 0 3.425-.073 4.291.692.207.146 1.032.765 1.115 2.404h.701c-.165-1.675-.124-4.48-.124-4.48H20.37a91.4 91.4 0 01-4.654-.109v.473c1.526.11 2.063.838 2.145.947.413.547.496 1.348.496 3.642v12.747c0 3.132-.042 4.152-.743 4.844-.62.619-1.486.8-2.022.837v.51zm21.128-.896c-.192-.192-.256-.416-.256-.704 0-.384.224-1.12.544-1.92l2.985-5.28h5.623l1.888 5.28c.256.736.48 1.472.48 1.92 0 .288-.064.512-.256.704-.32.288-1.088.416-1.344.448v.448c.896-.032 2.4-.128 3.296-.128.896 0 2.368.064 3.264.128v-.48c-1.152-.032-1.472-.864-1.632-1.056-.32-.512-1.056-2.624-1.184-3.04l-6.176-16.896-.912.721-6.032 16.811m8.128-6.14h-5.568c1.184-3.008 2.848-7.328 2.912-7.552.352 1.152.544 1.664 1.024 3.04l1.632 4.512zm15.968 10.08c2.304 0 4.672-.256 6.24-1.824 1.12-1.088 1.632-2.496 1.632-4.032 0-3.68-2.464-5.12-5.856-5.408 2.368-.48 4.768-1.888 4.768-5.12 0-4.608-4.992-4.704-6.848-4.704-2.048 0-2.944.096-4.32.096-1.12 0-1.504-.032-2.752-.096v.416c1.184.096 1.6.736 1.664.832.32.48.384 1.184.384 3.2v11.2c0 2.752-.032 3.648-.576 4.256-.48.544-1.152.704-1.568.736v.448c1.344-.128 2.24-.128 3.36-.128 1.216 0 2.528.128 3.872.128zm-.48-11.712c-.736 0-1.376-.064-1.824-.064v-8.096c.48-.096.928-.128 1.632-.128 1.6 0 4.48.128 4.48 4.064 0 3.136-1.984 3.872-2.176 3.968-.48.16-1.28.256-2.112.256zm.672 10.592c-.384 0-.96 0-1.408-.064-.8-.096-1.088-.48-1.088-1.504v-7.872c.448-.032.608-.032 1.632-.032 1.472 0 5.504.096 5.504 4.672 0 3.616-2.016 4.768-4.64 4.8zm17.696 1.12c1.856 0 3.776-.128 5.152-.544 4.288-1.28 7.136-4.768 7.136-10.528 0-9.984-8.832-10.016-11.936-10.016-1.536 0-3.424.096-4.896.096-1.088 0-1.248-.032-2.528-.096v.416c1.184.096 1.6.736 1.664.832.32.48.384 1.184.384 3.2v11.2c0 2.752-.032 3.648-.576 4.256-.48.544-1.152.704-1.568.736v.448c1.28-.064 1.472-.096 2.56-.096 1.504 0 2.88.096 4.608.096zm.992-1.248c-1.664 0-1.728-.064-2.144-.096-.876-.09-.982-.695-.991-1.463l-.001-16.905c.32-.064 1.472-.192 2.912-.192 6.176 0 8.32 3.968 8.32 9.216 0 5.984-2.176 9.44-8.096 9.44zm21.312 1.248c2.304 0 4.672-.256 6.24-1.824 1.12-1.088 1.632-2.496 1.632-4.032 0-3.68-2.464-5.12-5.856-5.408 2.368-.48 4.768-1.888 4.768-5.12 0-4.608-4.992-4.704-6.848-4.704-2.048 0-2.944.096-4.32.096-1.12 0-1.504-.032-2.752-.096v.416c1.184.096 1.6.736 1.664.832.32.48.384 1.184.384 3.2v11.2c0 2.752-.032 3.648-.576 4.256-.48.544-1.152.704-1.568.736v.448c1.344-.128 2.24-.128 3.36-.128 1.216 0 2.528.128 3.872.128zm-.48-11.712c-.736 0-1.376-.064-1.824-.064v-8.096c.48-.096.928-.128 1.632-.128 1.6 0 4.48.128 4.48 4.064 0 3.136-1.984 3.872-2.176 3.968-.48.16-1.28.256-2.112.256zm.672 10.592c-.384 0-.96 0-1.408-.064-.8-.096-1.088-.48-1.088-1.504v-7.872c.448-.032.608-.032 1.632-.032 1.472 0 5.504.096 5.504 4.672 0 3.616-2.016 4.768-4.64 4.8z" fill-rule="nonzero"/>
+                        </g>
+                    </svg>
+                </router-link>
             </div>
         </div>
+        <div class="px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
+            <p class="my-4">
+                FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link-white">Flesh and Blood TCG</a> community project, with various features such as
+                <router-link to="/decks/build/" class="link-white">deck builder</router-link>,
+                <router-link to="/collection/" class="link-white">collection manager</router-link> and more.
+            </p>
 
-        <div class="px-4 w-full lg:w-3/4 lg-my-10" v-else>
-            <div class="bg-semi-black rounded-lg p-4">
-                <h1 class="font-serif text-white text-4xl uppercase px-4">Features</h1>
-                <ol class="text-white">
-                    <li>
-                        <router-link to="/cards/browse/">
-                        <span class="inline-block hover:bg-black hover:text-orange-300 rounded-lg p-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block float-left fill-current w-10 h-10 mt-1 mr-4">
-                                <path d="M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
-                            </svg>
-
-                            Browse the entire Flesh & Blood card collection right here, using it as a basis to manage your own card collection,
-                            or add to that tournament-winning deck!
-                        </span>
-                        </router-link>
-                    </li>
-
-                    <li class="mt-4">
-                        <router-link to="/collection/">
-                        <span class="inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block float-left fill-current w-10 h-10 mt-1 mr-4">
-                                <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
-                            </svg>
-
-                            Manage your collection by adding and removing cards, recording the foils and promos you own, and share what you are
-                            looking for, or willing to trade!
-                        </span>
-                        </router-link>
-                    </li>
-
-                    <li class="mt-4">
-                        <router-link to="/decks/build/">
-                        <span class="inline-block hover:bg-black hover:text-orange-300  rounded-lg p-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block float-left fill-current w-10 h-10 mt-1 mr-4">
-                                <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
-                            </svg>
-
-                            Craft decks by selecting your hero, weapons & equipment and the cards they'll
-                            need in battle. Finally, when you're ready, export the deck to an officially supported PDF format for tournaments!
-                        </span>
-                        </router-link>
-                    </li>
-                </ol>
+            <div class="my-8">
+                <input type="text" v-model="keywords" class="input rounded-lg p-4" placeholder="Search for a card..." @keyup.enter="search()">
             </div>
+
+            <p class="my-4 text-center">
+                FaB DB is powered by community support through financial donations and subscriptions for various
+                services.<br>
+                To find out more, visit our <router-link to="/support/" class="link-white">Support page</router-link>.
+            </p>
         </div>
     </div>
 </template>
@@ -67,13 +36,20 @@
     import FeaturedArticle from './Content/FeaturedArticle.vue';
     import FeaturedCard from './Content/FeaturedCard.vue';
     import FeaturedDeck from './Content/FeaturedDeck.vue';
+    import Strings from './Utilities/Strings';
 
     export default {
-        components: { FeaturedArticle, FeaturedCard, FeaturedDeck },
+        mixins: [ Strings ],
 
         data() {
             return {
-                featured: null
+                keywords: ''
+            }
+        },
+
+        methods: {
+            search: function() {
+                this.$router.push({ name: 'cards.browse', query: { keywords: this.keywords }});
             }
         },
 
@@ -81,22 +57,14 @@
             return {
                 meta: [
                     { keywords: 'Flesh and Blood TCG,TCG,deck builder,Flesh & Blood TCG,Flesh and Blood,Flesh and blood cards,Cards' },
-                    { vmid: 'og:title', property: 'og:title', content: 'Flesh and Blood TCG deck builder, collection manager, and more!' },
+                    { vmid: 'og:title', property: 'og:title', content: 'Flesh and Blood TCG, deck builder, collection manager and more!' },
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:description', property: 'og:description', content: 'Browse your Flesh and Blood cards, manage your decks, test your latest builds and more - all within a gorgeous user experience. By players, for players.' },
-                    { vmid: 'og:image', property: 'og:image', content: 'https://fabdb.imgix.net/assets/fab-facebook-logo.png?w=210&h=202' },
+                    { vmid: 'og:image', property: 'og:image', content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202' },
                     { vmid: 'og:width', property: 'og:width', content: 210 },
                     { vmid: 'og:height', property: 'og:height', content: 202 }
                 ]
             }
-        },
-
-        extends: LazyLoader((to, callback) => {
-            axios.get('/featured/top').then(response => {
-                callback(function() {
-                    this.featured = response.data;
-                })
-            });
-        })
+        }
     };
 </script>

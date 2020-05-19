@@ -13,7 +13,7 @@ class IgnoreClientUrls
     public function handle(Request $request, \Closure $next)
     {
         if (!$request->wantsJson() && $this->matches($request->path())) {
-            return response()->view('welcome');
+            return response()->view('layout');
         }
 
         return $next($request);

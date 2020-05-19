@@ -26,7 +26,7 @@
 
                     <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Excerpt</label>
-                        <textarea type="text" v-model="article.excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4"></textarea>
+                        <textarea type="text" v-model="article.excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" maxlength="200"></textarea>
                     </div>
 
                     <div v-if="user.role == 'editor'">
@@ -51,7 +51,7 @@
 
                     <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Content</label>
-                        <vue-simplemde v-model="article.content" ref="markdownEditor"></vue-simplemde>
+                        <markdown-editor v-model="article.content" ref="markdownEditor"></markdown-editor>
                     </div>
 
                     <div class="flex">
@@ -81,12 +81,12 @@
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
-    import VueSimplemde from 'vue-simplemde';
+    import MarkdownEditor from 'vue-simplemde';
     import Strings from '../Utilities/Strings';
     import Cardable from '../CardDatabase/Cardable';
 
     export default {
-        components: { Crumbs, HeaderTitle, VueSimplemde },
+        components: { Crumbs, HeaderTitle, MarkdownEditor },
         mixins: [ Cardable, Strings ],
 
         data() {

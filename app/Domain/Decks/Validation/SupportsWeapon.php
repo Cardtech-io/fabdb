@@ -31,7 +31,7 @@ class SupportsWeapon implements Rule
 
         return !$card->isWeapon() ||
             $this->deck->weapons()->isEmpty() ||
-            ($this->deck->weapons()->first()->oneHanded() && in_array('1h', $card->keywords));
+            ($this->deck->weapons()->first()->oneHanded() && in_array('1h', $card->keywords) && $this->deck->weapons()->sum('total') < 2);
     }
 
     /**

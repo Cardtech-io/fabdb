@@ -4,58 +4,71 @@
 
         <div class="bg-orange-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
-                <div class="flex-1">
+                <div class="flex-auto">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
-                <div class="flex-1 text-right">
-                    (
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}) &nbsp;
-
+                <div class="text-right hidden sm:block flex-auto">
                     <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-orange-500">|</span>
-                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="text-orange-500">|</span>
+                    <a href="" class="text-white hover:text-orange-300" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
                 </div>
             </div>
         </div>
 
         <div class="bg-gray-200">
+            <div class="container sm:mx-auto sm:hidden bg-white flex border-b border-gray-200">
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('deck')" :class="activeTab == 'deck' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
+                        <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
+                    </svg>
+                    <div class="mt-1">Deck</div>
+                </button>
+
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('add-cards')" :class="activeTab == 'add-cards' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
+                        <path d="M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"/>
+                    </svg>
+                    <div class="mt-1">Add cards</div>
+                </button>
+
+                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('settings')" :class="activeTab == 'settings' ? 'bg-gray-200' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
+                        <path d="M3.94 6.5L2.22 3.64l1.42-1.42L6.5 3.94c.52-.3 1.1-.54 1.7-.7L9 0h2l.8 3.24c.6.16 1.18.4 1.7.7l2.86-1.72 1.42 1.42-1.72 2.86c.3.52.54 1.1.7 1.7L20 9v2l-3.24.8c-.16.6-.4 1.18-.7 1.7l1.72 2.86-1.42 1.42-2.86-1.72c-.52.3-1.1.54-1.7.7L11 20H9l-.8-3.24c-.6-.16-1.18-.4-1.7-.7l-2.86 1.72-1.42-1.42 1.72-2.86c-.3-.52-.54-1.1-.7-1.7L0 11V9l3.24-.8c.16-.6.4-1.18.7-1.7zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
+                    </svg>
+                    <div class="mt-1">Settings</div>
+                </button>
+            </div>
+
             <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
-                        <h1 class="inline-block font-serif text-4xl" v-if="hero">{{ hero.name }} ({{ deck.name }})</h1>
-                        <div class="float-right">
-                            <router-link :to="'/decks/' + deck.slug" class="link" title="Shareable link">
-                                <svg class="inline-block fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
-                                </svg>
-                            </router-link>
-
-                            &nbsp;
-
-                            <a href="" @click.native="copy" class="link" title="Copy deck build to text for sharing on social media, messenger.etc.">
-                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M7.03 2.6a3 3 0 015.94 0L15 3v1h1a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h1V3l2.03-.4zM5 6H4v12h12V6h-1v1H5V6zm5-2a1 1 0 100-2 1 1 0 000 2z"/>
-                                </svg>
-                            </a>
-
-                            &nbsp;
-
-                            <router-link :to="'/decks/export/' + deck.slug" class="link">
-                                <svg class="inline-block fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-                                </svg>
-                            </router-link>
+                        <div class="flex-auto">
+                            <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }}</h1>
+                            <div class="text-gray-500 text-2xl font-serif uppercase -mt-2 mb-2">
+                                {{ deck.name }}
+                                <span class="inline-block bg-white text-lg rounded-full px-4 align-middle -mt-1 ml-2">
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
+                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix">
                         <div class="md:w-1/3 md:float-left" v-if="hero">
-                            <div class="mb-8">
-                                <a href="" @click.prevent="removeCard(hero)"><img :src="cardUrl(hero.identifier, 350)" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 350px"></a>
+                            <div>
+                                <card-image :card="hero" :clickHandler="removeCard"></card-image>
+                            </div>
+                            <div class="mt-2 mb-8">
+                                <div class="flex">
+                                    <button @click.prevent="copyShareURL" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-r border-gray-200">Share</button>
+                                    <button @click.prevent="showExportOptions = !showExportOptions" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-orange-500 border-gray-200">Export</button>
+                                </div>
+                                <tts-exporter :deck="deck" v-if="showExportOptions"></tts-exporter>
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left pl-4 md:pr-4">
+                        <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">
                             <div v-if="other.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
                                 <ol>
@@ -107,14 +120,14 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left pl-4">
+                        <div class="md:w-1/3 md:float-left md:pl-4">
                             <div v-if="other.length">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
                                     <li v-for="card in other" class="odd:bg-gray-100">
                                         <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">
                                             <span class="">({{ card.total }})</span>
-                                            <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
+                                            <span>{{ card.name }}</span>
                                             <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
                                         </a>
@@ -130,45 +143,44 @@
             </div>
 
             <div v-show="activeTab == 'add-cards'">
-                <card-selector @card-selected="addCard"></card-selector>
+                <card-selector @card-selected="addCard" :deck="deck"></card-selector>
             </div>
+
+            <deck-settings :deck="deck" v-if="activeTab == 'settings'"></deck-settings>
         </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
+    import { mapGetters } from 'vuex';
+
+    import CardImage from '../CardDatabase/CardImage.vue';
     import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Crumbs from '../Components/Crumbs.vue';
+    import DeckSettings from './DeckSettings.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import ManagesDecks from './ManagesDecks';
     import LazyLoader from '../Components/LazyLoader';
+    import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
     import { mapActions } from 'vuex';
 
     export default {
         components: {
+            CardImage,
             CardSelector,
             Crumbs,
-            HeaderTitle
+            DeckSettings,
+            HeaderTitle,
+            TtsExporter
         },
 
-        mixins: [ Cardable, Viewable ],
+        mixins: [ Cardable, ManagesDecks, Viewable ],
 
         computed: {
-            cards: function() {
-                if (this.deck && this.deck.cards) {
-                    function compare(a, b) {
-                        if (a.name < b.name) return -1;
-                        if (a.name > b.name) return 1;
-                        return 0;
-                    }
-
-                    return this.deck.cards.sort(compare);
-                }
-
-                return [];
-            },
+            ...mapGetters('session', ['user']),
 
             crumbs: function() {
                 return [
@@ -176,101 +188,31 @@
                     { text: 'Deck Builder', link: '/decks/build/' },
                     { text: this.deck.name },
                 ]
-            },
-
-
-            shareText: function() {
-                const weapons = this.weapons.map(weapon => weapon.name).join(', ');
-                const equipment = this.equipment.map(item => item.name).join(', ');
-
-                var text = this.shareLine('Deck build - via https://fabdb.net :') +
-                        this.shareLine('') +
-                        this.shareLine(this.deck.name) +
-                        this.shareLine('') +
-                        this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) +
-                        this.shareLine('Hero: ' + this.hero.name) +
-                        this.shareLine('Weapons: ' + weapons) +
-                        this.shareLine('Equipment: ' + equipment) +
-                        this.shareLine('');
-
-                for (var i in this.other) {
-                    var card = this.other[i];
-
-                    text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
-                }
-
-                text = text + this.shareLine('');
-                text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
-
-                return text;
             }
          },
 
         data() {
             return {
                 activeTab: 'deck',
-                deck: null
+                cards: [],
+                deck: null,
+                exportingToTts: false,
+                showExportOptions: false,
             }
         },
 
         methods: {
             ...mapActions('messages', ['addMessage']),
 
-            shareLine: function(line) {
-                return line + '\n';
-            },
-
-            copy: function() {
-                this.$copyText(this.shareText);
-            },
-
             addCard: function(card) {
-                axios.post('/decks/' + this.$route.params.deck, {card: card.identifier}).then(response => {
-                    const deckCard = this.findCard(card);
-
-                    if (deckCard) {
-                        deckCard.total += 1;
-                    } else {
-                        card.total = 1;
-                        this.deck.cards.push(card);
-                    }
-
-                    this.addMessage({ status: 'success', message: 'Card added.' });
-                }).catch(error => {
-                    if (error.response.status == 422) {
-                        this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
-                    }
+                this.addRemote(card, () => {
+                    this.addLocal(card);
                 });
             },
 
             removeCard: function(card) {
-                const deckCard = this.findCard(card);
-
-                if (deckCard.total > 1) {
-                    deckCard.total -= 1;
-                } else {
-                    // Need to remove from array completely
-                    var key = null;
-
-                    for (var i in this.deck.cards) {
-                        var match = this.deck.cards[i];
-
-                        if (match.identifier == card.identifier) {
-                            key = i;
-                            break;
-                        }
-                    }
-
-                    this.deck.cards.splice(i, 1);
-                }
-
-                axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
-            },
-
-            findCard: function(card) {
-                return this.deck.cards.filter(function(deckCard) {
-                    return deckCard.identifier === card.identifier;
-                })[0];
+                this.removeRemote(card);
+                this.removeLocal(card);
             },
 
             isActive: function(tab) {
@@ -299,6 +241,7 @@
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
                     this.deck = response.data;
+                    this.cards = _.sortBy(this.deck.cards, 'name');
                 });
             });
         })

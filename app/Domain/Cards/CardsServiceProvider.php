@@ -7,7 +7,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 final class CardsServiceProvider extends AppServiceProvider
 {
     protected $interfaces = [
-        CardRepository::class => EloquentCardRepository::class
+        CardRepository::class => EloquentCardRepository::class,
+        PackRepository::class => EloquentPackRepository::class,
     ];
 
     public function boot()

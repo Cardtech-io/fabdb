@@ -23,7 +23,7 @@
                         </li>
                         <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
                             <div v-if="arsenal">
-                                <card-image :card="arsenal" @clicked="removeFromArsenal"></card-image>
+                                <card-image :card="arsenal" :clickHandler="removeFromArsenal"></card-image>
                             </div>
                             <div class="bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24" v-else>Arsenal</div>
                         </li>

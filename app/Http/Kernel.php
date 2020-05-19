@@ -34,8 +34,7 @@ class Kernel extends HttpKernel
             \FabDB\Http\Middleware\IgnoreClientUrls::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \FabDB\Http\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \FabDB\Http\Middleware\StripHtml::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class
         ],
 
         'api' => [
@@ -57,12 +56,15 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'details-required' => \FabDB\Http\Middleware\DetailsRequired::class,
         'guest' => \FabDB\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'spa' => \FabDB\Http\Middleware\SinglePageApp::class,
+        'strip' => \FabDB\Http\Middleware\StripHtml::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'version' => \FabDB\Http\Middleware\AppVersion::class,
     ];
 
     /**
