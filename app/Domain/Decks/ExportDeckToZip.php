@@ -87,7 +87,7 @@ class ExportDeckToZip
     private function shareText(Deck $deck)
     {
         $weapons = $deck->weapons()->map(function(Card $weapon) {
-            return $weapon->name;
+            return '('.$weapon->total.') '.$weapon->name;
         })->join(', ');
 
         $equipment = $deck->equipment()->map(function(Card $equipment) {
@@ -119,7 +119,7 @@ class ExportDeckToZip
             3 => 'blue'
         ];
 
-        return $colours[$pitch];
+        return $colours[$pitch] ?? '';
     }
 
     private function csvContents(Deck $deck)
