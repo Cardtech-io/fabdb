@@ -26,7 +26,6 @@
                 <div class="w-full">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
                     <select v-model="deck.cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
-                        <option>Card back</option>
                         <option value="1">Original</option>
                         <option value="2">Worn</option>
                         <option value="3">Light</option>
@@ -83,7 +82,9 @@
             saveDeckSettings: function() {
                 this.saving = true;
 
-                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, format: this.deck.format, visibility: this.deck.visibility, cardBack: this.deck.cardBack }).then(response => {
+                let cardBack = this.deck.cardBack || 1;
+
+                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, format: this.deck.format, visibility: this.deck.visibility, cardBack: cardBack }).then(response => {
                     this.addMessage({ status: 'success', message: 'Settings saved.' });
                     this.saving = false;
                 });

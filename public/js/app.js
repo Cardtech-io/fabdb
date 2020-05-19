@@ -5218,7 +5218,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5234,11 +5233,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.saving = true;
+      var cardBack = this.deck.cardBack || 1;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/decks/' + this.$route.params.deck + '/settings', {
         name: this.deck.name,
         format: this.deck.format,
         visibility: this.deck.visibility,
-        cardBack: this.deck.cardBack
+        cardBack: cardBack
       }).then(function (response) {
         _this.addMessage({
           status: 'success',
@@ -81949,8 +81949,6 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", [_vm._v("Card back")]),
-                  _vm._v(" "),
                   _c("option", { attrs: { value: "1" } }, [_vm._v("Original")]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "2" } }, [_vm._v("Worn")]),

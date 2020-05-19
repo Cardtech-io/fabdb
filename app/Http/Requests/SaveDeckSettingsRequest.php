@@ -19,7 +19,7 @@ class SaveDeckSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'cardBack' => ['required', 'in:1,2,3,4,5,6,7,8'],
+            'cardBack' => ['in:1,2,3,4,5,6,7,8'],
             'visibility' => ['required', 'in:private,public'],
             'format' => ['required', 'in:constructed,open'],
         ];
