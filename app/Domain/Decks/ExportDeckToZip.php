@@ -126,8 +126,8 @@ class ExportDeckToZip
     {
         $csv = [
             'Card name|Pitch|Total',
-            implode('|', [$deck->hero()->name, null, 1]),
-            implode('|', [$deck->weapon()->name, null, $deck->weapon()->total])
+            implode('|', [object_get($deck->hero(), 'name'), null, 1]),
+            implode('|', [object_get($deck->weapon(), 'name'), null, object_get($deck->weapon(), 'total')])
         ];
 
         foreach ($deck->equipment() as $card) {
