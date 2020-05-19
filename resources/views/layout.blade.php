@@ -30,8 +30,8 @@
 
         @if (env('SENTRY_LARAVEL_DSN'))
             <script
-                src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
-                integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+                src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"
+                integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT"
                 crossorigin="anonymous"></script>
             <script>
                 <?php $version = 'fab-db@'.fab_version(); ?>

@@ -46,7 +46,7 @@ class Article extends Model
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
-    
+
     public function setExcerptAttribute($excerpt)
     {
         $this->attributes['excerpt'] = substr($excerpt, 0, 255); // Make sure we crop it so we don't get issues with mysql
