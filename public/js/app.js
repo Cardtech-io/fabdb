@@ -79433,7 +79433,7 @@ var render = function() {
               _vm._l(_vm.remainder, function(article) {
                 return _c(
                   "li",
-                  { staticClass: "clearfix w-full mx-4" },
+                  { staticClass: "clearfix w-full mx-4 mb-4" },
                   [
                     _c(
                       "router-link",

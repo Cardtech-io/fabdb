@@ -26,7 +26,7 @@
                     <li class="border-t-2 border-gray-400 mx-4 mb-8">
                         <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Recent news</span>
                     </li>
-                    <li v-for="article in remainder" class="clearfix w-full mx-4">
+                    <li v-for="article in remainder" class="clearfix w-full mx-4 mb-4">
                         <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
                             <img :src="thumbUrl(article.image, 150, 150)" class="float-left mr-4">
                             <div>
