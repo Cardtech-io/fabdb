@@ -49,7 +49,10 @@ class UpdateArticle
         $article->excerpt = $this->excerpt;
         $article->content = $this->content;
         $article->image = $this->image;
-        $article->status = $this->status;
+
+        if ($this->status) {
+            $article->status = $this->status;
+        }
 
         if ($this->publishAt) {
             $article->publishAt = $this->publishAt;
