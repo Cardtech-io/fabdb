@@ -111996,6 +111996,16 @@ __webpack_require__.r(__webpack_exports__);
         return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border border-l-4 border-neutral-500 quote bg-gray-100 rounded-lg">' + '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' + '<p>' + _this.prettyText(quote) + '</p>' + '</blockquote>';
       };
 
+      renderer.heading = function (text, level, raw, slugger) {
+        var element = 'h' + level;
+        var size = {
+          '1': 'text-2xl',
+          '2': 'text-xl',
+          '3': 'text-lg'
+        };
+        return '<' + element + ' class="font-serif uppercase ' + size[level] + '">' + text + '</' + element + '>';
+      };
+
       renderer.paragraph = function (text) {
         return '<p class="my-4">' + text + '</p>';
       };
