@@ -33,7 +33,7 @@
             },
 
             wantsBorders: function() {
-                return this.user && this.user.view == 'bordered';
+                return !this.user || this.user.view == 'bordered';
             }
         }
     };

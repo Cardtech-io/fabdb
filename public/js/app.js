@@ -2428,7 +2428,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return !!this.clickHandler;
     },
     wantsBorders: function wantsBorders() {
-      return this.user && this.user.view == 'bordered';
+      return !this.user || this.user.view == 'bordered';
     }
   }
 });
