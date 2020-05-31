@@ -7076,6 +7076,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       results: {}
     };
   },
+  metaInfo: function metaInfo() {
+    return {
+      title: 'Flesh and Blood Deck lists',
+      meta: [{
+        vmid: 'description',
+        name: 'description',
+        content: 'Browse Flesh & Blood deck lists, their cards, and various metrics for each.'
+      }]
+    };
+  },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deckSearch', ['updateParam']), {
     refreshResults: function refreshResults(results) {
       this.results = results;

@@ -72,6 +72,15 @@
             };
         },
 
+        metaInfo() {
+            return {
+                title: 'Flesh and Blood Deck lists',
+                meta: [
+                    { vmid: 'description', name: 'description', content: 'Browse Flesh & Blood deck lists, their cards, and various metrics for each.' }
+                ]
+            };
+        },
+
         methods: {
             ...mapActions('deckSearch', ['updateParam']),
 
