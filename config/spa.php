@@ -15,6 +15,7 @@ return [
         'decks/export/([^/]+)',
         'decks/build/premium/([^/]+)',
         'decks/build/([^/]+)',
+        'decks/build',
         'decks/browse',
         'decks/test',
         'events',
