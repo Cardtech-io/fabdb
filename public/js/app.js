@@ -7217,7 +7217,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
       this.search();
     }
-  })
+  }),
+  watch: {
+    'params.page': function paramsPage() {
+      this.search();
+    }
+  }
 });
 
 /***/ }),

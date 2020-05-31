@@ -57,6 +57,12 @@
                 this.setPage({ page: 1 });
                 this.search();
             },
+        },
+
+        watch: {
+            'params.page': function() {
+                this.search();
+            }
         }
     };
 </script>

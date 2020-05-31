@@ -110,7 +110,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.slug'
         ]);
 
-        $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) AS total_cards');
+        $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards');
 
         $query->with(['cards' => function($include) {
             $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
