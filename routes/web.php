@@ -60,7 +60,6 @@ Route::middleware(['web'])->group(function() {
             Route::delete('decks/{deck}/sideboard/{card}', 'DeckController@removeFromSideboard');
             Route::delete('decks/{deck}/{card}', 'DeckController@removeCard');
             Route::delete('decks/{deck}', 'DeckController@removeDeck');
-            Route::get('decks', 'DeckController@search');
             Route::post('decks', 'DeckController@addDeck');
 
             Route::put('profile/name', 'UserController@updateName');
@@ -74,6 +73,7 @@ Route::middleware(['web'])->group(function() {
 
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
+        Route::get('decks', 'DeckController@search');
         Route::get('decks/{deck}', 'DeckController@view');
     });
 
