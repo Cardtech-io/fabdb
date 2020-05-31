@@ -103,7 +103,7 @@
         computed: {
             ...mapGetters('deck', ['mainDeck']),
             ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'zoom']),
-            ...mapState('search', ['page']),
+            ...mapState('cardSearch', ['params']),
 
             containers: function() {
                 if (!this.fullScreen) {
@@ -129,7 +129,7 @@
         methods: {
             ...mapActions('messages', ['addMessage']),
             ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
-            ...mapActions('search', ['setPage']),
+            ...mapActions('cardSearch', ['setPage']),
 
             search: function(page) {
                 this.setPage({ page });
@@ -148,7 +148,7 @@
         },
 
         watch: {
-            page: function(value) {
+            'params.page': function(value) {
                 this.search(value);
             }
         },

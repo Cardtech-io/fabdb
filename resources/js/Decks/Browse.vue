@@ -1,0 +1,95 @@
+<template>
+    <div>
+        <header-title title="Browse decks"></header-title>
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+
+        <div class="bg-white py-4 border-b-4 border-gray-300">
+            <div class="container sm:mx-auto md:px-4">
+                <deck-search @search-completed="refreshResults"></deck-search>
+            </div>
+        </div>
+
+        <div class="bg-gray-200">
+            <div class="container sm:mx-auto px-4">
+                <div v-if="results && results.data">
+                    <div class="clearfix">
+                        <div class="clearfix py-4" v-if="results.data.length">
+                            <paginator :results="results" @page-selected="updatePage"></paginator>
+                        </div>
+
+                        <ul class="clearfix sm:-mx-4">
+                            <div v-if="results.data.length">
+                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug"></deck-item>
+                            </div>
+                            <div class="text-center py-8" v-else>
+                                There are no decks that match your search criteria.
+                            </div>
+                        </ul>
+
+                        <div class="clearfix py-4" v-if="results.data.length">
+                            <paginator :results="results" @page-selected="updatePage"></paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { mapActions } from 'vuex';
+
+    import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import DeckItem from './DeckItem.vue';
+    import DeckSearch from './DeckSearch.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Paginator from '../Components/Paginator.vue';
+    import LazyLoader from '../Components/LazyLoader';
+
+    export default {
+        components: {
+            Breadcrumbs,
+            DeckItem,
+            DeckSearch,
+            HeaderTitle,
+            Paginator
+        },
+
+        computed: {
+            decks() {
+                return results.decks;
+            }
+        },
+
+        data() {
+            return {
+                crumbs: [
+                    { text: 'Home', link: '/' },
+                    { text: 'Decks' }
+                ],
+
+                results: {},
+            };
+        },
+
+        methods: {
+            ...mapActions('deckSearch', ['updateParam']),
+
+            refreshResults: function(results) {
+                this.results = results;
+            },
+
+            updatePage(page) {
+                this.updateParam({ key: 'page', value: page });
+            }
+        },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/decks').then(response => {
+                callback(function() {
+                    this.results = response.data;
+                });
+            });
+        })
+    };
+</script>

@@ -3,16 +3,18 @@ import Vuex from 'vuex';
 
 import deck from './Deck';
 import messages from './Messages';
-import search from './Search';
+import cardSearch from './Search';
+import deckSearch from './Search';
 import session from './Session';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
+        cardSearch,
+        deckSearch,
         deck,
         messages,
-        search,
         session
     }
 });

@@ -47,8 +47,11 @@
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/collection', text: 'My Collection' },
-                        { link: '/decks/build', text: 'Deck Builder' },
                         { link: '/packs/generate', text: 'Booster generator' }
+                    ]},
+                    { text: 'Decks', children: [
+                        { link: '/decks/browse', text: 'Browse' },
+                        { link: '/decks/build', text: 'Deck Builder' }
                     ]},
                     { link: '/support', text: 'Support' }
                 ];

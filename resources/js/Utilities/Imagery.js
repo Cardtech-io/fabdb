@@ -6,6 +6,12 @@ export default {
 
         thumbUrl: function(path, width, height) {
             return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
+        },
+
+        heroProfile: function(heroName, width) {
+            let imageName = heroName.split(/[\s,]/)[0];
+
+            return this.imageUrl('/heroes/' + imageName.toLowerCase() + '.jpg', width);
         }
     }
 };

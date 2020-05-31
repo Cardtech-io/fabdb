@@ -2,18 +2,38 @@ export default {
     namespaced: true,
 
     state: {
-        page: 1
+        params: {
+            hero: null,
+            keywords: '',
+            page: 1,
+        }
     },
 
     mutations: {
-        setPage: function(state, { page }) {
-            state.page = page;
+        setKeywords(state, { keywords }) {
+            state.params.keywords = keywords;
+        },
+
+        setPage(state, { page }) {
+            state.params.page = page;
+        },
+
+        updateParam(state, { key, value }) {
+            state.params[key] = value;
         }
     },
 
     actions: {
-        setPage: function({ commit }, { page }) {
+        setKeywords({ commit }, { keywords }) {
+            commit('setKeywords', { keywords });
+        },
+
+        setPage({ commit }, { page }) {
             commit('setPage', { page });
+        },
+
+        updateParam({ commit }, { key, value }) {
+            commit('updateParam', { key, value });
         }
     }
 };

@@ -7,6 +7,7 @@ import ArticleView from './Content/ViewArticle.vue';
 import ArticlesMine from './Content/MyArticles.vue';
 import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
+import BrowseDecks from './Decks/Browse.vue';
 import Event from './Events/Event.vue';
 import Events from './Events/Events.vue';
 import EventView from './Events/ViewEvent.vue';
@@ -46,6 +47,7 @@ const router = new VueRouter({
         { path: "/collection", component: Collection, name: 'collection', meta: { title: 'My collection', auth: true } },
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
 
+        { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
         { path: "/decks/build", component: ListDecks, name: 'list-decks' },
         { path: "/decks/build/premium/:deck", component: PremiumDeckBuilder, name: 'decks.build-premium', meta: { auth: true, premium: true } },
         { path: "/decks/build/:deck", component: DeckBuilder, meta: { title: 'Deck builder &gt; Edit deck', auth: true } },

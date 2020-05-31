@@ -32,6 +32,13 @@ class DeckController extends Controller
         $this->decks = $decks;
     }
 
+    public function search(Request $request)
+    {
+        return $this->decks->search($request->all())
+            ->paginate($request->get('per_page', 12))
+            ->appends($request->except('page'));
+    }
+
     public function addDeck(Request $request)
     {
         $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name')));

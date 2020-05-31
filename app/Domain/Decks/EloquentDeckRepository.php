@@ -87,8 +87,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function removeCardFromSideboard(int $deckId, int $cardId)
     {
         $deck = $this->find($deckId);
-        $card = $deck->card($cardId);
-
         $existing = $deck->sideboardCard($cardId);
 
         if (!$existing) return;
@@ -100,5 +98,37 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $deck->touch();
+    }
+
+    public function search(array $params)
+    {
+        $query = $this->newQuery();
+
+        $query->select([
+            'decks.id',
+            'decks.name',
+            'decks.slug'
+        ]);
+
+        $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) AS total_cards');
+
+        $query->with(['cards' => function($include) {
+            $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
+            $include->orWhereRaw('JSON_SEARCH(cards.keywords, \'one\', \'weapon\') IS NOT NULL');
+        }]);
+
+        $query->where('decks.visibility', 'public');
+
+        if (!empty($params['hero'])) {
+            $query->join('deck_cards', 'deck_cards.deck_id', '=', 'decks.id');
+            $query->join('cards', function($join) use ($params) {
+                $join->on('cards.id', '=', 'deck_cards.card_id');
+                $join->where('cards.identifier', $params['hero']);
+            });
+        }
+
+        $query->groupBy('decks.id');
+
+        return $query;
     }
 }

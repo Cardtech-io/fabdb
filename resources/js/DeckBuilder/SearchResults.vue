@@ -24,7 +24,7 @@
         methods: {
             ...mapActions('deck', ['addCard']),
             ...mapActions('messages', ['addMessage']),
-            ...mapActions('search', ['setPage']),
+            ...mapActions('cardSearch', ['setPage']),
 
             addToDeck: function(card) {
                 this.addRemote(card, response => { this.addCard({ card }); });

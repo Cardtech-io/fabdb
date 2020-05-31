@@ -2,19 +2,10 @@
     <div>
         <header-title :title="deck.name + ' (' + hero.name + ')'"></header-title>
 
-        <div class="sm:mx-auto bg-orange-900 text-white font-serif uppercase p-4">
-            <div class="container sm:mx-auto flex">
-                <div class="flex-1">
-                    <p>
-                        <router-link to="/" class="text-white hover:text-orange-300">Home</router-link> <span class="text-orange-500">&gt;</span>
-                        <span class="text-orange-300">View deck: {{ deck.name }}</span>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-white">
-            <div class="container sm:mx-auto">
+            <div class="container sm:mx-auto px-4">
                 <div class="flex-1 font-serif uppercase p-4 md:px-0">
                     {{ totalCards }} Cards in deck &nbsp;
                     (
@@ -124,6 +115,7 @@
     import axios from 'axios';
     import { mapGetters } from 'vuex';
 
+    import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
@@ -136,6 +128,7 @@
         mixins: [ Cardable, Viewable ],
 
         components: {
+            Breadcrumbs,
             Comment,
             CommentCount,
             HeaderTitle,
@@ -143,7 +136,15 @@
         },
 
         computed: {
-            ...mapGetters('session', ['user'])
+            ...mapGetters('session', ['user']),
+
+            crumbs: function() {
+                return [
+                    { text: 'Home', link: { name: 'home' } },
+                    { text: 'Decks', link: { name: 'decks.browse' } },
+                    { text: this.deck.name }
+                ]
+            }
         },
 
         data() {
