@@ -128,6 +128,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $query->groupBy('decks.id');
+        $query->orderBy('decks.id', 'desc');
 
         return $query;
     }
