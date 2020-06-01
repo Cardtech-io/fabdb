@@ -5,7 +5,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto py-8 px-4">
-                <ol class="clearfix sm:-mx-4">
+                <ol class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
                     <li class="border-t-2 border-gray-400 mx-4 mb-8">
                         <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Latest news</span>
                     </li>
@@ -23,7 +23,7 @@
                 </ol>
 
                 <ol class="clearfix sm:-mx-4">
-                    <li class="border-t-2 border-gray-400 mx-4 mb-8">
+                    <li class="border-t-2 border-gray-400 mx-4 mb-8" v-if="articles.current_page == 1">
                         <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Recent news</span>
                     </li>
                     <li v-for="article in remainder" class="clearfix w-full mx-4 mb-4">

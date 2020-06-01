@@ -79646,75 +79646,92 @@ var render = function() {
           "div",
           { staticClass: "container sm:mx-auto py-8 px-4" },
           [
-            _c(
-              "ol",
-              { staticClass: "clearfix sm:-mx-4" },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._l(_vm.firstThree, function(article) {
-                  return _c(
-                    "li",
-                    {
-                      staticClass:
-                        "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
-                    },
-                    [
-                      _c(
-                        "div",
+            _vm.articles.current_page == 1
+              ? _c(
+                  "ol",
+                  { staticClass: "clearfix sm:-mx-4" },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._l(_vm.firstThree, function(article) {
+                      return _c(
+                        "li",
                         {
-                          staticClass: "bg-white",
-                          staticStyle: { height: "350px" }
+                          staticClass:
+                            "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
                         },
                         [
                           _c(
-                            "router-link",
+                            "div",
                             {
-                              attrs: {
-                                to:
-                                  "/articles/" +
-                                  _vm.kebabCase(article.title) +
-                                  "/" +
-                                  article.slug
-                              }
+                              staticClass: "bg-white",
+                              staticStyle: { height: "350px" }
                             },
                             [
-                              _c("img", {
-                                staticClass: "w-full",
-                                attrs: {
-                                  src: _vm.thumbUrl(article.image, 400, 150)
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "p-6" }, [
-                                _c(
-                                  "h3",
-                                  {
-                                    staticClass:
-                                      "font-serif uppercase text-2xl mb-2"
-                                  },
-                                  [_vm._v(_vm._s(article.title))]
-                                ),
-                                _vm._v(" "),
-                                _c("p", [_vm._v(_vm._s(article.excerpt))])
-                              ])
-                            ]
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to:
+                                      "/articles/" +
+                                      _vm.kebabCase(article.title) +
+                                      "/" +
+                                      article.slug
+                                  }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "w-full",
+                                    attrs: {
+                                      src: _vm.thumbUrl(article.image, 400, 150)
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "p-6" }, [
+                                    _c(
+                                      "h3",
+                                      {
+                                        staticClass:
+                                          "font-serif uppercase text-2xl mb-2"
+                                      },
+                                      [_vm._v(_vm._s(article.title))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("p", [_vm._v(_vm._s(article.excerpt))])
+                                  ])
+                                ]
+                              )
+                            ],
+                            1
                           )
-                        ],
-                        1
+                        ]
                       )
-                    ]
-                  )
-                })
-              ],
-              2
-            ),
+                    })
+                  ],
+                  2
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "ol",
               { staticClass: "clearfix sm:-mx-4" },
               [
-                _vm._m(1),
+                _vm.articles.current_page == 1
+                  ? _c(
+                      "li",
+                      { staticClass: "border-t-2 border-gray-400 mx-4 mb-8" },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8"
+                          },
+                          [_vm._v("Recent news")]
+                        )
+                      ]
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm._l(_vm.remainder, function(article) {
                   return _c(
@@ -79786,21 +79803,6 @@ var staticRenderFns = [
             "font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8"
         },
         [_vm._v("Latest news")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "border-t-2 border-gray-400 mx-4 mb-8" }, [
-      _c(
-        "span",
-        {
-          staticClass:
-            "font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8"
-        },
-        [_vm._v("Recent news")]
       )
     ])
   }
