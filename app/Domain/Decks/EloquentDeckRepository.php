@@ -120,16 +120,21 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $query->with('user');
 
-        $query->where('decks.visibility', 'public');
+        $query->join(DB::raw('deck_cards dc1'), 'dc1.deck_id', '=', 'decks.id');
+        $query->join(DB::raw('cards c1'), function($join) use ($params) {
+            $join->on('c1.id', '=', 'dc1.card_id');
+            $join->whereRaw("JSON_SEARCH(c1.keywords, 'one', 'hero')");
+        });
 
         if (!empty($params['hero'])) {
-            $query->join('deck_cards', 'deck_cards.deck_id', '=', 'decks.id');
-            $query->join('cards', function($join) use ($params) {
-                $join->on('cards.id', '=', 'deck_cards.card_id');
-                $join->where('cards.identifier', $params['hero']);
+            $query->join(DB::raw('deck_cards dc2'), 'dc2.deck_id', '=', 'decks.id');
+            $query->join(DB::raw('cards c2'), function($join) use ($params) {
+                $join->on('c2.id', '=', 'dc2.card_id');
+                $join->where('c2.identifier', $params['hero']);
             });
         }
 
+        $query->where('decks.visibility', 'public');
         $query->groupBy('decks.id');
         $query->orderBy('decks.id', 'desc');
 

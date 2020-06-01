@@ -3836,7 +3836,7 @@ __webpack_require__.r(__webpack_exports__);
     search: function search(page) {
       var _this = this;
 
-      axios.get('/articles/?page=' + page + 'per_page=10').then(function (response) {
+      axios.get('/articles?page=' + page).then(function (response) {
         _this.articles = response.data;
       });
     }

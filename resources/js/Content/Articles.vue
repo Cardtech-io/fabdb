@@ -85,7 +85,7 @@
 
         methods: {
             search(page) {
-                axios.get('/articles/?page='+page+'per_page=10').then(response => {
+                axios.get('/articles?page='+page).then(response => {
                     this.articles = response.data;
                 });
             }
