@@ -3745,7 +3745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -3789,6 +3790,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 
@@ -3797,9 +3801,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_4__["default"]],
+  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_5__["default"]],
   computed: {
     firstThree: function firstThree() {
       if (this.articles.current_page == 1) {
@@ -3826,6 +3831,15 @@ __webpack_require__.r(__webpack_exports__);
         text: 'Articles'
       }]
     };
+  },
+  methods: {
+    search: function search(page) {
+      var _this = this;
+
+      axios.get('/articles/?page=' + page + 'per_page=10').then(function (response) {
+        _this.articles = response.data;
+      });
+    }
   },
   metaInfo: function metaInfo() {
     var title = 'Flesh & Blood articles';
@@ -7119,6 +7133,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+//
 //
 //
 //
@@ -79627,120 +79642,132 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
-        _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
-          _c(
-            "ol",
-            { staticClass: "clearfix sm:-mx-4" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._l(_vm.firstThree, function(article) {
-                return _c(
-                  "li",
-                  {
-                    staticClass:
-                      "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "bg-white",
-                        staticStyle: { height: "350px" }
-                      },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to:
-                                "/articles/" +
-                                _vm.kebabCase(article.title) +
-                                "/" +
-                                article.slug
-                            }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "w-full",
-                              attrs: {
-                                src: _vm.thumbUrl(article.image, 400, 150)
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "p-6" }, [
-                              _c(
-                                "h3",
-                                {
-                                  staticClass:
-                                    "font-serif uppercase text-2xl mb-2"
-                                },
-                                [_vm._v(_vm._s(article.title))]
-                              ),
-                              _vm._v(" "),
-                              _c("p", [_vm._v(_vm._s(article.excerpt))])
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                )
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "ol",
-            { staticClass: "clearfix sm:-mx-4" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._l(_vm.remainder, function(article) {
-                return _c(
-                  "li",
-                  { staticClass: "clearfix w-full mx-4 mb-4" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to:
-                            "/articles/" +
-                            _vm.kebabCase(article.title) +
-                            "/" +
-                            article.slug
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "float-left mr-4",
-                          attrs: { src: _vm.thumbUrl(article.image, 150, 150) }
-                        }),
-                        _vm._v(" "),
-                        _c("div", [
+        _c(
+          "div",
+          { staticClass: "container sm:mx-auto py-8 px-4" },
+          [
+            _c(
+              "ol",
+              { staticClass: "clearfix sm:-mx-4" },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._l(_vm.firstThree, function(article) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass:
+                        "w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "bg-white",
+                          staticStyle: { height: "350px" }
+                        },
+                        [
                           _c(
-                            "h3",
+                            "router-link",
                             {
-                              staticClass: "font-serif uppercase text-xl mb-2"
+                              attrs: {
+                                to:
+                                  "/articles/" +
+                                  _vm.kebabCase(article.title) +
+                                  "/" +
+                                  article.slug
+                              }
                             },
-                            [_vm._v(_vm._s(article.title))]
-                          ),
+                            [
+                              _c("img", {
+                                staticClass: "w-full",
+                                attrs: {
+                                  src: _vm.thumbUrl(article.image, 400, 150)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "p-6" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "font-serif uppercase text-2xl mb-2"
+                                  },
+                                  [_vm._v(_vm._s(article.title))]
+                                ),
+                                _vm._v(" "),
+                                _c("p", [_vm._v(_vm._s(article.excerpt))])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "ol",
+              { staticClass: "clearfix sm:-mx-4" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._l(_vm.remainder, function(article) {
+                  return _c(
+                    "li",
+                    { staticClass: "clearfix w-full mx-4 mb-4" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to:
+                              "/articles/" +
+                              _vm.kebabCase(article.title) +
+                              "/" +
+                              article.slug
+                          }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "float-left mr-4",
+                            attrs: {
+                              src: _vm.thumbUrl(article.image, 150, 150)
+                            }
+                          }),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(article.excerpt))])
-                        ])
-                      ]
-                    )
-                  ],
-                  1
-                )
-              })
-            ],
-            2
-          )
-        ])
+                          _c("div", [
+                            _c(
+                              "h3",
+                              {
+                                staticClass: "font-serif uppercase text-xl mb-2"
+                              },
+                              [_vm._v(_vm._s(article.title))]
+                            ),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(article.excerpt))])
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("paginator", {
+              attrs: { results: _vm.articles },
+              on: { "page-selected": _vm.search }
+            })
+          ],
+          1
+        )
       ])
     ],
     1
@@ -84702,15 +84729,20 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex-auto ml-4" }, [
-            _c("h2", { staticClass: "font-serif uppercase text-2xl -mb-1" }, [
-              _vm._v(_vm._s(_vm.deck.name))
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "font-serif uppercase text-gray-600" }, [
-              _vm._v(_vm._s(_vm.hero.name))
-            ])
-          ]),
+          _c(
+            "div",
+            { staticClass: "flex-auto ml-4" },
+            [
+              _c("h2", { staticClass: "font-serif uppercase text-2xl -mb-1" }, [
+                _vm._v(_vm._s(_vm.deck.name))
+              ]),
+              _vm._v(" "),
+              _vm.deck.user.name
+                ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
+                : _c("soan", [_vm._v("Anonymous")])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "flex-0 mx-10 font-serif" }, [
             _c("span", { staticClass: "text-4xl" }, [

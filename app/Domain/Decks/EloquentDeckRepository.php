@@ -106,6 +106,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $query->select([
             'decks.id',
+            'decks.user_id',
             'decks.name',
             'decks.slug'
         ]);
@@ -116,6 +117,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
             $include->orWhereRaw('JSON_SEARCH(cards.keywords, \'one\', \'weapon\') IS NOT NULL');
         }]);
+
+        $query->with('user');
 
         $query->where('decks.visibility', 'public');
 

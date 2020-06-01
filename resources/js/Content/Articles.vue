@@ -36,6 +36,8 @@
                         </router-link>
                     </li>
                 </ol>
+
+                <paginator :results="articles" @page-selected="search"></paginator>
             </div>
         </div>
     </div>
@@ -46,10 +48,11 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
+    import Paginator from '../Components/Paginator.vue';
     import Strings from '../Utilities/Strings';
 
     export default {
-        components: { Breadcrumbs, HeaderTitle },
+        components: { Breadcrumbs, HeaderTitle, Paginator },
         mixins: [ Imagery, Strings ],
 
         computed: {
@@ -77,6 +80,14 @@
                     { text: 'Home', link: '/' },
                     { text: 'Articles' }
                 ]
+            }
+        },
+
+        methods: {
+            search(page) {
+                axios.get('/articles/?page='+page+'per_page=10').then(response => {
+                    this.articles = response.data;
+                });
             }
         },
 
