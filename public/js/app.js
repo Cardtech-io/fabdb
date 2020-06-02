@@ -4528,6 +4528,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -5659,6 +5662,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -7058,7 +7062,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -7133,6 +7136,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+//
 //
 //
 //
@@ -80740,52 +80744,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.all.cards.length
-        ? _c("grouped-cards", {
-            attrs: {
-              cards: _vm.all,
-              "group-id": "all",
-              action: _vm.removeFromDeck
-            }
-          })
-        : _c("div", { staticClass: "text-center my-20 px-4" }, [
-            !_vm.filters.length
-              ? _c("span", [
-                  _c("div", { staticClass: "mb-8" }, [
-                    _vm._v(
-                      "\n                You have not yet added any cards.\n            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm.mode != "search"
-                    ? _c(
-                        "div",
-                        { staticClass: "w-1/2 lg:w-1/4 mx-auto" },
-                        [
-                          _c("form-button", {
-                            attrs: {
-                              handler: _vm.updateMode,
-                              text: "Search for cards",
-                              value: "search"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ])
-              : _c("span", [
+  return _c("div", [
+    _vm.all.cards.length
+      ? _c(
+          "div",
+          [
+            _vm.mode == "search"
+              ? _c("grouped-cards", {
+                  attrs: {
+                    cards: _vm.all,
+                    "group-id": "all",
+                    action: _vm.removeFromDeck
+                  }
+                })
+              : _c("grouped-cards", {
+                  attrs: { cards: _vm.all, "group-id": "all" }
+                })
+          ],
+          1
+        )
+      : _c("div", { staticClass: "text-center my-20 px-4" }, [
+          !_vm.filters.length
+            ? _c("span", [
+                _c("div", { staticClass: "mb-8" }, [
                   _vm._v(
-                    "\n            There are no cards in your deck that match the selected filters.\n        "
+                    "\n                You have not yet added any cards.\n            "
                   )
-                ])
-          ])
-    ],
-    1
-  )
+                ]),
+                _vm._v(" "),
+                _vm.mode != "search"
+                  ? _c(
+                      "div",
+                      { staticClass: "w-1/2 lg:w-1/4 mx-auto" },
+                      [
+                        _c("form-button", {
+                          attrs: {
+                            handler: _vm.updateMode,
+                            text: "Search for cards",
+                            value: "search"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ])
+            : _c("span", [
+                _vm._v(
+                  "\n            There are no cards in your deck that match the selected filters.\n        "
+                )
+              ])
+        ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -83024,13 +83034,17 @@ var render = function() {
                   "div",
                   { class: _vm.rounded, style: _vm.styles(i) },
                   [
-                    _c("card-image", {
-                      attrs: {
-                        card: card,
-                        rounded: _vm.rounded,
-                        clickHandler: _vm.action
-                      }
-                    })
+                    _vm.action
+                      ? _c("card-image", {
+                          attrs: {
+                            card: card,
+                            rounded: _vm.rounded,
+                            clickHandler: _vm.action
+                          }
+                        })
+                      : _c("card-image", {
+                          attrs: { card: card, rounded: _vm.rounded }
+                        })
                   ],
                   1
                 )
@@ -84630,22 +84644,8 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200" }, [
         _c("div", { staticClass: "container sm:mx-auto px-4" }, [
           _vm.results && _vm.results.data
-            ? _c("div", [
-                _c("div", { staticClass: "clearfix" }, [
-                  _vm.results.data.length
-                    ? _c(
-                        "div",
-                        { staticClass: "clearfix py-4" },
-                        [
-                          _c("paginator", {
-                            attrs: { results: _vm.results },
-                            on: { "page-selected": _vm.updatePage }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
+            ? _c("div", { staticClass: "pb-8" }, [
+                _c("div", { staticClass: "clearfix py-4" }, [
                   _c("ul", { staticClass: "clearfix sm:-mx-4" }, [
                     _vm.results.data.length
                       ? _c(
@@ -84678,7 +84678,9 @@ var render = function() {
                         1
                       )
                     : _vm._e()
-                ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
               ])
             : _vm._e()
         ])
@@ -84687,7 +84689,27 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "md:w-2/3 rounded-lg p-2 bg-blue-200 text-center text-base mx-auto"
+      },
+      [
+        _vm._v(
+          "\n                    Don't see your deck in the list above? Be sure to set your deck's visibility to "
+        ),
+        _c("span", { staticClass: "font-bold" }, [_vm._v("public")]),
+        _vm._v(".\n                ")
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -84711,7 +84733,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "float-left px-2 w-full lg:w-1/2 my-2" },
+    { staticClass: "md:float-left md:px-2 w-full lg:w-1/2 my-2" },
     [
       _c(
         "router-link",
@@ -84738,6 +84760,12 @@ var render = function() {
               _c("h2", { staticClass: "font-serif uppercase text-2xl -mb-1" }, [
                 _vm._v(_vm._s(_vm.deck.name))
               ]),
+              _vm._v(" "),
+              _c(
+                "h3",
+                { staticClass: "font-serif uppercase text-base -mb-1" },
+                [_vm._v(_vm._s(_vm.weapons[0].name))]
+              ),
               _vm._v(" "),
               _vm.deck.user.name
                 ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])

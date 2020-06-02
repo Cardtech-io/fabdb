@@ -1,11 +1,12 @@
 <template>
-    <div class="float-left px-2 w-full lg:w-1/2 my-2">
+    <div class="md:float-left md:px-2 w-full lg:w-1/2 my-2">
         <router-link :to="{ name: 'decks.view', params: { deck: deck.slug } }" class="block flex items-center bg-gray-100 hover:bg-white rounded-full overflow-hidden">
             <div class="flex-0">
                 <img :src="heroProfile(hero.name, 100)" :alt="deck.name" class="rounded-full">
             </div>
             <div class="flex-auto ml-4">
                 <h2 class="font-serif uppercase text-2xl -mb-1">{{ deck.name }}</h2>
+                <h3 class="font-serif uppercase text-base -mb-1">{{ weapons[0].name }}</h3>
                 <span v-if="deck.user.name">by {{ deck.user.name }}</span>
                 <soan v-else>Anonymous</soan>
             </div>

@@ -11,12 +11,8 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4">
-                <div v-if="results && results.data">
-                    <div class="clearfix">
-                        <div class="clearfix py-4" v-if="results.data.length">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
-                        </div>
-
+                <div v-if="results && results.data" class="pb-8">
+                    <div class="clearfix py-4">
                         <ul class="clearfix sm:-mx-4">
                             <div v-if="results.data.length">
                                 <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug"></deck-item>
@@ -29,6 +25,9 @@
                         <div class="clearfix py-4" v-if="results.data.length">
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
+                    </div>
+                    <div class="md:w-2/3 rounded-lg p-2 bg-blue-200 text-center text-base mx-auto">
+                        Don't see your deck in the list above? Be sure to set your deck's visibility to <span class="font-bold">public</span>.
                     </div>
                 </div>
             </div>
