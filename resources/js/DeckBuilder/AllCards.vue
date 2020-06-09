@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div v-if="all.cards.length">
-            <grouped-cards :cards="all" group-id="all" :action="removeFromDeck" v-if="mode == 'search'"></grouped-cards>
-            <grouped-cards :cards="all" group-id="all" v-else></grouped-cards>
-        </div>
+        <grouped-cards :cards="all" group-id="all" :action="mode == 'search' ? removeFromDeck : false" v-if="all.cards.length"></grouped-cards>
         <div v-else class="text-center my-20 px-4">
             <span v-if="!filters.length">
                 <div class="mb-8">

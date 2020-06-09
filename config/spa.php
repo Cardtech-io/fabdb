@@ -1,6 +1,5 @@
 <?php
 
-
 return [
     // The following are client-side routes only and should direct straight to the appropriate page
     'client' => [

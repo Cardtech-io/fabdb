@@ -4,8 +4,7 @@
             <div class="relative m-4">
                 <img :src="cardUrl(grouped[0].identifier, 450)" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" :style="styles(i)" :class="rounded">
-                    <card-image :card="card" :rounded="rounded" :clickHandler="action" v-if="action"></card-image>
-                    <card-image :card="card" :rounded="rounded" v-else></card-image>
+                    <card-image :card="card" :rounded="rounded" :clickHandler="action || false"></card-image>
                 </div>
             </div>
         </div>

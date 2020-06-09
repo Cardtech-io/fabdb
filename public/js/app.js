@@ -4368,6 +4368,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -4509,9 +4510,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -5662,7 +5660,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -80335,41 +80332,71 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "flex-1 text-right" }, [
-              _c("p", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-white hover:text-orange-300",
-                    class: _vm.activeView("edit"),
-                    attrs: { href: "" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.view = "edit"
+              _c(
+                "p",
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "text-white hover:text-orange-300",
+                      class: _vm.activeView("edit"),
+                      attrs: { href: "" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.view = "edit"
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-orange-500" }, [_vm._v("|")]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "text-white hover:text-orange-300",
-                    class: _vm.activeView("preview"),
-                    attrs: { href: "" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.view = "preview"
+                    },
+                    [_vm._v("Edit")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-orange-500" }, [_vm._v("|")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "text-white hover:text-orange-300",
+                      class: _vm.activeView("preview"),
+                      attrs: { href: "" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.view = "preview"
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Preview")]
-                )
-              ])
+                    },
+                    [_vm._v("Preview")]
+                  ),
+                  _vm._v(" "),
+                  _vm.article.slug
+                    ? _c("span", { staticClass: "text-orange-500" }, [
+                        _vm._v("|")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.article.slug
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "text-white hover:text-orange-300",
+                          attrs: {
+                            to: {
+                              name: "articles.view",
+                              params: {
+                                title: _vm.kebabCase(_vm.article.title),
+                                article: _vm.article.slug
+                              }
+                            },
+                            target: "_blank"
+                          }
+                        },
+                        [_vm._v("View")]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
             ])
           ])
         ]
@@ -80744,58 +80771,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.all.cards.length
-      ? _c(
-          "div",
-          [
-            _vm.mode == "search"
-              ? _c("grouped-cards", {
-                  attrs: {
-                    cards: _vm.all,
-                    "group-id": "all",
-                    action: _vm.removeFromDeck
-                  }
-                })
-              : _c("grouped-cards", {
-                  attrs: { cards: _vm.all, "group-id": "all" }
-                })
-          ],
-          1
-        )
-      : _c("div", { staticClass: "text-center my-20 px-4" }, [
-          !_vm.filters.length
-            ? _c("span", [
-                _c("div", { staticClass: "mb-8" }, [
-                  _vm._v(
-                    "\n                You have not yet added any cards.\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.mode != "search"
-                  ? _c(
-                      "div",
-                      { staticClass: "w-1/2 lg:w-1/4 mx-auto" },
-                      [
-                        _c("form-button", {
-                          attrs: {
-                            handler: _vm.updateMode,
-                            text: "Search for cards",
-                            value: "search"
-                          }
-                        })
-                      ],
-                      1
+  return _c(
+    "div",
+    [
+      _vm.all.cards.length
+        ? _c("grouped-cards", {
+            attrs: {
+              cards: _vm.all,
+              "group-id": "all",
+              action: _vm.mode == "search" ? _vm.removeFromDeck : false
+            }
+          })
+        : _c("div", { staticClass: "text-center my-20 px-4" }, [
+            !_vm.filters.length
+              ? _c("span", [
+                  _c("div", { staticClass: "mb-8" }, [
+                    _vm._v(
+                      "\n                You have not yet added any cards.\n            "
                     )
-                  : _vm._e()
-              ])
-            : _c("span", [
-                _vm._v(
-                  "\n            There are no cards in your deck that match the selected filters.\n        "
-                )
-              ])
-        ])
-  ])
+                  ]),
+                  _vm._v(" "),
+                  _vm.mode != "search"
+                    ? _c(
+                        "div",
+                        { staticClass: "w-1/2 lg:w-1/4 mx-auto" },
+                        [
+                          _c("form-button", {
+                            attrs: {
+                              handler: _vm.updateMode,
+                              text: "Search for cards",
+                              value: "search"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ])
+              : _c("span", [
+                  _vm._v(
+                    "\n            There are no cards in your deck that match the selected filters.\n        "
+                  )
+                ])
+          ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -83034,17 +83055,13 @@ var render = function() {
                   "div",
                   { class: _vm.rounded, style: _vm.styles(i) },
                   [
-                    _vm.action
-                      ? _c("card-image", {
-                          attrs: {
-                            card: card,
-                            rounded: _vm.rounded,
-                            clickHandler: _vm.action
-                          }
-                        })
-                      : _c("card-image", {
-                          attrs: { card: card, rounded: _vm.rounded }
-                        })
+                    _c("card-image", {
+                      attrs: {
+                        card: card,
+                        rounded: _vm.rounded,
+                        clickHandler: _vm.action || false
+                      }
+                    })
                   ],
                   1
                 )

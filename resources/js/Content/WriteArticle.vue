@@ -10,7 +10,8 @@
                 <div class="flex-1 text-right">
                     <p>
                         <a href="" class="text-white hover:text-orange-300" @click.prevent="view = 'edit'" :class="activeView('edit')">Edit</a> <span class="text-orange-500">|</span>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a>
+                        <a href="" class="text-white hover:text-orange-300" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a> <span class="text-orange-500" v-if="article.slug">|</span>
+                        <router-link :to="{ name: 'articles.view', params: { title: kebabCase(article.title), article: article.slug } }" class="text-white hover:text-orange-300" target="_blank" v-if="article.slug">View</router-link>
                     </p>
                 </div>
             </div>
