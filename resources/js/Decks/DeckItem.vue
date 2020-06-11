@@ -6,7 +6,6 @@
             </div>
             <div class="flex-auto ml-4">
                 <h2 class="font-serif uppercase text-2xl -mb-1">{{ deck.name }}</h2>
-                <h3 class="font-serif uppercase text-base -mb-1">{{ weapons[0].name }}</h3>
                 <span v-if="deck.user.name">by {{ deck.user.name }}</span>
                 <soan v-else>Anonymous</soan>
             </div>

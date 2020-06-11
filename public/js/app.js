@@ -7152,7 +7152,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -84777,12 +84776,6 @@ var render = function() {
               _c("h2", { staticClass: "font-serif uppercase text-2xl -mb-1" }, [
                 _vm._v(_vm._s(_vm.deck.name))
               ]),
-              _vm._v(" "),
-              _c(
-                "h3",
-                { staticClass: "font-serif uppercase text-base -mb-1" },
-                [_vm._v(_vm._s(_vm.weapons[0].name))]
-              ),
               _vm._v(" "),
               _vm.deck.user.name
                 ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
