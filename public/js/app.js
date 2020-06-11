@@ -5599,14 +5599,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -82817,49 +82809,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex" }, [
-    _vm.filtersEnabled
-      ? _c(
-          "button",
-          {
-            staticClass:
-              "text-sm text-white bg-blue-600 rounded-lg flex items-center overflow-hidden mr-2 hover:bg-blue-400 cursor-pointer my-1",
-            on: { click: _vm.clearFilters }
-          },
-          [
-            _c("span", { staticClass: "block py-1 pl-2" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "fill-current h-6",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 5h2v6H9V5zm0 8h2v2H9v-2z"
-                    }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "block px-2" }, [
-              _vm._v("\n                Filters are on\n            ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "span",
-              { staticClass: "block border-l border-white p-2 pr-3 h-full" },
-              [
+  return _c(
+    "div",
+    {
+      staticClass: "flex items-center rounded-lg mr-4",
+      class: { "bg-orange-600": _vm.filtersEnabled }
+    },
+    [
+      _vm.filtersEnabled
+        ? _c(
+            "button",
+            {
+              staticClass:
+                "flex items-center text-sm text-white w-full h-full cursor-pointer",
+              on: { click: _vm.clearFilters }
+            },
+            [
+              _c("div", { staticClass: "w-full h-full p-2" }, [
                 _c(
                   "svg",
                   {
-                    staticClass: "fill-current h-5",
+                    staticClass: "block fill-current h-4",
                     attrs: {
                       xmlns: "http://www.w3.org/2000/svg",
                       viewBox: "0 0 20 20"
@@ -82874,129 +82844,129 @@ var render = function() {
                     })
                   ]
                 )
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "relative font-serif" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
+            class: {
+              "border-gray-500": _vm.isOpen,
+              "bg-white": _vm.isOpen,
+              "bg-gray-200": !_vm.isOpen,
+              "z-75": _vm.isOpen
+            },
+            staticStyle: { width: "200px" },
+            on: {
+              click: function($event) {
+                _vm.isOpen = !_vm.isOpen
+              }
+            }
+          },
+          [
+            _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
+              _vm._v("Filters")
+            ]),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass: "inline-block h-6 fill-current",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  }
+                })
               ]
             )
           ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "relative font-serif mr-4" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
-          class: {
-            "border-gray-500": _vm.isOpen,
-            "bg-white": _vm.isOpen,
-            "bg-gray-200": !_vm.isOpen,
-            "z-75": _vm.isOpen
-          },
-          staticStyle: { width: "200px" },
-          on: {
-            click: function($event) {
-              _vm.isOpen = !_vm.isOpen
-            }
-          }
-        },
-        [
-          _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-            _vm._v("Filters")
-          ]),
-          _vm._v(" "),
-          _c(
-            "svg",
-            {
-              staticClass: "inline-block h-6 fill-current",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                }
-              })
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _vm.isOpen
-        ? _c("button", {
-            staticClass:
-              "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                _vm.isOpen = false
-              }
-            }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.isOpen
-        ? _c(
-            "div",
-            {
+        ),
+        _vm._v(" "),
+        _vm.isOpen
+          ? _c("button", {
               staticClass:
-                "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
-            },
-            _vm._l(_vm.availableFilters, function(text, filter) {
-              return _c(
-                "button",
-                {
-                  staticClass:
-                    "group w-full text-base text-left p-2 hover:bg-blue-400 hover:text-white uppercase flex items-center",
-                  on: {
-                    click: function($event) {
-                      return _vm.select(filter)
+                "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.isOpen = false
+                }
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.isOpen
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+              },
+              _vm._l(_vm.availableFilters, function(text, filter) {
+                return _c(
+                  "button",
+                  {
+                    staticClass:
+                      "group w-full text-base text-left p-2 hover:bg-blue-400 hover:text-white uppercase flex items-center",
+                    on: {
+                      click: function($event) {
+                        return _vm.select(filter)
+                      }
                     }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "inline-block h-4 w-4 mr-2" }, [
-                    _vm.hasFilter(filter)
-                      ? _c(
-                          "svg",
-                          {
-                            staticClass:
-                              "fill-current text-green-500 group-hover:text-white",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
+                  },
+                  [
+                    _c("span", { staticClass: "inline-block h-4 w-4 mr-2" }, [
+                      _vm.hasFilter(filter)
+                        ? _c(
+                            "svg",
+                            {
+                              staticClass:
+                                "fill-current text-green-500 group-hover:text-white",
                               attrs: {
-                                d:
-                                  "M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
                               }
-                            })
-                          ]
-                        )
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "flex-1" }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(text) +
-                        "\n                    "
-                    )
-                  ])
-                ]
-              )
-            }),
-            0
-          )
-        : _vm._e()
-    ])
-  ])
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"
+                                }
+                              })
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "flex-1" }, [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(text) +
+                          "\n                    "
+                      )
+                    ])
+                  ]
+                )
+              }),
+              0
+            )
+          : _vm._e()
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

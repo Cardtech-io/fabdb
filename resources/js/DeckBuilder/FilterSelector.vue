@@ -1,22 +1,14 @@
 <template>
-    <div class="flex">
-        <button class="text-sm text-white bg-blue-600 rounded-lg flex items-center overflow-hidden mr-2 hover:bg-blue-400 cursor-pointer my-1" v-if="filtersEnabled" @click="clearFilters">
-            <span class="block py-1 pl-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-6">
-                    <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 5h2v6H9V5zm0 8h2v2H9v-2z"/>
-                </svg>
-            </span>
-            <span class="block px-2">
-                Filters are on
-            </span>
-            <span class="block border-l border-white p-2 pr-3 h-full">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-5">
+    <div class="flex items-center rounded-lg mr-4" :class="{ 'bg-orange-600': filtersEnabled }">
+        <button class="flex items-center text-sm text-white w-full h-full cursor-pointer" v-if="filtersEnabled" @click="clearFilters">
+            <div class="w-full h-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block fill-current h-4">
                     <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
                 </svg>
-            </span>
+            </div>
         </button>
 
-        <div class="relative font-serif mr-4">
+        <div class="relative font-serif">
             <button class="relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex" @click="isOpen = !isOpen" :class="{ 'border-gray-500': isOpen, 'bg-white': isOpen, 'bg-gray-200': !isOpen, 'z-75': isOpen }" style="width: 200px">
                 <span class="inline-block mr-1 flex-1">Filters</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="inline-block h-6 fill-current">
