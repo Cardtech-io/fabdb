@@ -84759,7 +84759,7 @@ var render = function() {
           attrs: { to: { name: "decks.view", params: { deck: _vm.deck.slug } } }
         },
         [
-          _c("div", { staticClass: "flex-0" }, [
+          _c("div", { staticClass: "flex-none" }, [
             _c("img", {
               staticClass: "rounded-full",
               attrs: {
@@ -84769,27 +84769,27 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex-auto ml-4" },
-            [
-              _c("h2", { staticClass: "font-serif uppercase text-2xl -mb-1" }, [
-                _vm._v(_vm._s(_vm.deck.name))
-              ]),
-              _vm._v(" "),
-              _vm.deck.user.name
-                ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
-                : _c("soan", [_vm._v("Anonymous")])
-            ],
-            1
-          ),
+          _c("div", { staticClass: "flex-auto ml-4" }, [
+            _c(
+              "h2",
+              {
+                staticClass: "font-serif uppercase text-2xl overflow-hidden",
+                staticStyle: { "max-height": "30px" }
+              },
+              [_vm._v(_vm._s(_vm.deck.name))]
+            ),
+            _vm._v(" "),
+            _vm.deck.user.name
+              ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
+              : _c("span", [_vm._v("Anonymous")])
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex-0 mx-10 font-serif" }, [
-            _c("span", { staticClass: "text-4xl" }, [
+          _c("div", { staticClass: "flex-1 mx-10 font-serif text-center" }, [
+            _c("div", { staticClass: "text-4xl" }, [
               _vm._v(_vm._s(_vm.deck.totalCards))
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "text-gray-500 ml-1" }, [_vm._v("cards")])
+            _c("div", { staticClass: "text-gray-500 ml-1" }, [_vm._v("cards")])
           ])
         ]
       )
