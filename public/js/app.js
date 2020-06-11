@@ -82228,7 +82228,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "input focus:border-gray-500 py-3 px-4 rounded-lg",
-                attrs: { type: "text", required: "" },
+                attrs: { type: "text", maxlength: "25", required: "" },
                 domProps: { value: _vm.deck.name },
                 on: {
                   input: function($event) {
@@ -84784,7 +84784,7 @@ var render = function() {
               : _c("span", [_vm._v("Anonymous")])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex-1 mx-10 font-serif text-center" }, [
+          _c("div", { staticClass: "flex-none mx-10 font-serif text-center" }, [
             _c("div", { staticClass: "text-4xl" }, [
               _vm._v(_vm._s(_vm.deck.totalCards))
             ]),
@@ -112318,7 +112318,7 @@ function controlMaxZoom(state) {
     sideboard: [],
     fullScreen: false,
     mode: 'all',
-    zoom: 1
+    zoom: 2
   },
   getters: {
     fsIndex: function fsIndex(state) {

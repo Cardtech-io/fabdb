@@ -4,7 +4,7 @@
             <form @submit.prevent="saveDeckSettings" class="block">
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
-                    <input type="text" v-model="deck.name" class="input focus:border-gray-500 py-3 px-4 rounded-lg" required>
+                    <input type="text" v-model="deck.name" class="input focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
                 </div>
 
                 <div class="w-full mb-4">

@@ -9,7 +9,7 @@
                 <span v-if="deck.user.name">by {{ deck.user.name }}</span>
                 <span v-else>Anonymous</span>
             </div>
-            <div class="flex-1 mx-10 font-serif text-center">
+            <div class="flex-none mx-10 font-serif text-center">
                 <div class="text-4xl">{{ deck.totalCards }}</div>
                 <div class="text-gray-500 ml-1">cards</div>
             </div>
