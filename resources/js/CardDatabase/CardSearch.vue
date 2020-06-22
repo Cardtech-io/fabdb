@@ -3,11 +3,11 @@
         <form @submit.prevent="newSearch" class="block">
             <div class="flex w-full px-4 md:px-0">
                 <div class="w-full md:w-3/5 pr-1">
-                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Enter search terms...">
+                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Enter search terms..." :class="active('keywords')">
                 </div>
 
                 <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params['class']" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('class')">
                         <option value="">Class</option>
                         <option value="generic">Generic</option>
                         <option value="brute">Brute</option>
@@ -28,7 +28,7 @@
 
             <div class="w-full flex pt-2 px-4 md:px-0" v-if="advanced">
                 <div class="w-full md:w-1/4 pr-1">
-                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('pitch')">
                         <option value="">Pitch</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 px-1">
-                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cost')">
                         <option value="">Cost</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 px-1">
-                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cardType')">
                         <option value="">Card type</option>
                         <option value="action">Action</option>
                         <option value="attack">Attack</option>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 pl-1">
-                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('rarity')">
                         <option value="">Rarity</option>
                         <option value="t">Token</option>
                         <option value="c">Common</option>
@@ -117,7 +117,7 @@
                 openTray: false,
                 params: {
                     cost: '',
-                    'class': '',
+                    class: '',
                     keywords: this.$route.query.keywords,
                     page: this.page,
                     pitch: '',
@@ -128,6 +128,12 @@
         },
 
         methods: {
+            active(field) {
+                if (this.params[field]) {
+                    return 'shadow-active'
+                }
+            },
+
             filterCards: function() {
                 if (this.refreshable) {
                     let params = this.params;

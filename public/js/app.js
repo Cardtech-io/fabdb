@@ -2664,7 +2664,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       openTray: false,
       params: {
         cost: '',
-        'class': '',
+        "class": '',
         keywords: this.$route.query.keywords,
         page: this.page,
         pitch: '',
@@ -2674,6 +2674,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: {
+    active: function active(field) {
+      if (this.params[field]) {
+        return 'shadow-active';
+      }
+    },
     filterCards: function filterCards() {
       if (this.refreshable) {
         var params = this.params;
@@ -78012,6 +78017,7 @@ var render = function() {
               ],
               staticClass:
                 "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              class: _vm.active("keywords"),
               attrs: { type: "text", placeholder: "Enter search terms..." },
               domProps: { value: _vm.params.keywords },
               on: {
@@ -78033,12 +78039,13 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.params.class,
-                    expression: "params.class"
+                    value: _vm.params["class"],
+                    expression: "params['class']"
                   }
                 ],
                 staticClass:
                   "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                class: _vm.active("class"),
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -78112,6 +78119,7 @@ var render = function() {
                     ],
                     staticClass:
                       "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    class: _vm.active("pitch"),
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -78158,6 +78166,7 @@ var render = function() {
                     ],
                     staticClass:
                       "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    class: _vm.active("cost"),
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -78208,6 +78217,7 @@ var render = function() {
                     ],
                     staticClass:
                       "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    class: _vm.active("cardType"),
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -78280,6 +78290,7 @@ var render = function() {
                     ],
                     staticClass:
                       "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    class: _vm.active("rarity"),
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
