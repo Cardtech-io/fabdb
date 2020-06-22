@@ -2594,6 +2594,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     external: {
@@ -2614,26 +2651,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     wait: Boolean
   },
+  computed: {
+    advanced: function advanced() {
+      return this.openTray || this.hasAdvancedSearchParams;
+    },
+    hasAdvancedSearchParams: function hasAdvancedSearchParams() {
+      return this.params.pitch || this.params.rarity || this.params.cardType || this.params.cost;
+    }
+  },
   data: function data() {
     return {
-      heroClass: null,
-      keywords: this.$route.query.keywords,
-      thisPage: this.page,
-      type: null
+      openTray: false,
+      params: {
+        cost: '',
+        'class': '',
+        keywords: this.$route.query.keywords,
+        page: this.page,
+        pitch: '',
+        rarity: '',
+        cardType: ''
+      }
     };
   },
   methods: {
     filterCards: function filterCards() {
       if (this.refreshable) {
+        var params = this.params;
+        params.set = this.external.set;
         this.$router.push({
           path: this.$route.path,
-          query: {
-            set: this.external.set,
-            keywords: this.keywords,
-            page: this.thisPage,
-            'class': this.heroClass,
-            type: this.type
-          }
+          query: params
         });
       } else {
         if (this.emptySearch()) {
@@ -2645,11 +2692,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.search();
     },
     newSearch: function newSearch() {
-      this.thisPage = 1;
+      this.params.page = 1;
       this.filterCards();
     },
     emptySearch: function emptySearch() {
-      return !this.keywords && !this.type && !this.heroClass;
+      return !this.params.keywords && !this.params.type && !this.params['class'];
     },
     search: function search() {
       var _this = this;
@@ -2663,34 +2710,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     buildSearchParams: function buildSearchParams() {
       var params = this.$route.query;
-      params['use-case'] = this.useCase;
-      params.keywords = this.keywords;
-      params.page = this.thisPage;
       params.per_page = this.limit;
-      params['class'] = this.heroClass;
-      params.type = this.type;
-      return _objectSpread({}, this.external, {}, params);
+      return _objectSpread({}, this.external, {}, params, {}, this.params);
     }
   },
   mounted: function mounted() {
     if (this.wait) return;
-    this.keywords = this.$route.query.keywords;
-    this.heroClass = this.$route.query['class'];
-    this.type = this.$route.query.type;
-    ;
+    this.params.keywords = this.$route.query.keywords;
+    this.params['class'] = this.$route.query['class'];
+    this.params.cardType = this.$route.query.cardType;
     this.search();
   },
   watch: {
     'external.set': function externalSet(external) {
-      this.thisPage = 1;
+      this.params.page = 1;
       this.filterCards();
     },
     'external.view': function externalView(external) {
-      this.thisPage = 1;
+      this.params.page = 1;
       this.filterCards();
     },
     page: function page(_page) {
-      this.thisPage = _page;
+      this.params.page = _page;
       this.filterCards();
     }
   },
@@ -77623,7 +77664,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
+      _c("div", { staticClass: "bg-white pt-4 border-b-4 border-gray-300" }, [
         _c(
           "div",
           { staticClass: "container sm:mx-auto md:px-4" },
@@ -77949,7 +77990,7 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "block flex flex-wrap mb-4",
+        staticClass: "block",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -77958,51 +77999,33 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "flex w-full md:w-3/4" }, [
-          _c("div", { staticClass: "w-full md:w-3/5 px-4 md:pr-2 md:pl-0" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "block font-serif uppercase tracking-wide mb-1 text-sm"
-              },
-              [_vm._v("Keywords")]
-            ),
-            _vm._v(" "),
+        _c("div", { staticClass: "flex w-full px-4 md:px-0" }, [
+          _c("div", { staticClass: "w-full md:w-3/5 pr-1" }, [
             _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.keywords,
-                  expression: "keywords"
+                  value: _vm.params.keywords,
+                  expression: "params.keywords"
                 }
               ],
               staticClass:
                 "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-              attrs: { type: "text" },
-              domProps: { value: _vm.keywords },
+              attrs: { type: "text", placeholder: "Enter search terms..." },
+              domProps: { value: _vm.params.keywords },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.keywords = $event.target.value
+                  _vm.$set(_vm.params, "keywords", $event.target.value)
                 }
               }
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "block font-serif uppercase tracking-wide mb-1 text-sm"
-              },
-              [_vm._v("Class")]
-            ),
-            _vm._v(" "),
+          _c("div", { staticClass: "w-full md:w-1/5 px-1" }, [
             _c(
               "select",
               {
@@ -78010,8 +78033,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.heroClass,
-                    expression: "heroClass"
+                    value: _vm.params.class,
+                    expression: "params.class"
                   }
                 ],
                 staticClass:
@@ -78026,14 +78049,16 @@ var render = function() {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
-                    _vm.heroClass = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
+                    _vm.$set(
+                      _vm.params,
+                      "class",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
                   }
                 }
               },
               [
-                _c("option", { attrs: { value: "" } }),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Class")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "generic" } }, [
                   _vm._v("Generic")
@@ -78068,79 +78093,259 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "w-full md:w-1/5 px-4 md:px-2" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "block font-serif uppercase tracking-wide mb-1 text-sm"
-              },
-              [_vm._v("Card type")]
-            ),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.type,
-                    expression: "type"
-                  }
-                ],
-                staticClass:
-                  "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.type = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "" } }),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "action" } }, [
-                  _vm._v("Action")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "attack" } }, [
-                  _vm._v("Attack")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "attack reaction" } }, [
-                  _vm._v("Attack reaction")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "defense reaction" } }, [
-                  _vm._v("Defense reaction")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "equipment" } }, [
-                  _vm._v("Equipment")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "hero" } }, [_vm._v("Hero")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "instant" } }, [
-                  _vm._v("Instant")
-                ])
-              ]
-            )
-          ])
+          _vm._m(0)
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.advanced
+          ? _c("div", { staticClass: "w-full flex pt-2 px-4 md:px-0" }, [
+              _c("div", { staticClass: "w-full md:w-1/4 pr-1" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.pitch,
+                        expression: "params.pitch"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "pitch",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("Pitch")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full md:w-1/4 px-1" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.cost,
+                        expression: "params.cost"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "cost",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("Cost")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "0" } }, [_vm._v("0")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4+")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full md:w-1/4 px-1" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.cardType,
+                        expression: "params.cardType"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "cardType",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v("Card type")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "action" } }, [
+                      _vm._v("Action")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "attack" } }, [
+                      _vm._v("Attack")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "attack reaction" } }, [
+                      _vm._v("Attack reaction")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "defense reaction" } }, [
+                      _vm._v("Defense reaction")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "equipment" } }, [
+                      _vm._v("Equipment")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "hero" } }, [
+                      _vm._v("Hero")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "instant" } }, [
+                      _vm._v("Instant")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "item" } }, [_vm._v("Item")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full md:w-1/4 pl-1" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.rarity,
+                        expression: "params.rarity"
+                      }
+                    ],
+                    staticClass:
+                      "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.params,
+                          "rarity",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("Rarity")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "t" } }, [_vm._v("Token")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "c" } }, [_vm._v("Common")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "r" } }, [_vm._v("Rare")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "s" } }, [
+                      _vm._v("Super rare")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "m" } }, [
+                      _vm._v("Majestic")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "l" } }, [
+                      _vm._v("Legendary")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "f" } }, [_vm._v("Fabled")])
+                  ]
+                )
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.useCase == "browse"
+          ? _c("div", { staticClass: "w-full mt-2" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      _vm.openTray = !_vm.openTray
+                    }
+                  }
+                },
+                [_vm._v("Advanced")]
+              )
+            ])
+          : _vm._e()
       ]
     )
   ])
@@ -78150,15 +78355,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full md:w-1/4 px-4 md:px-0" }, [
-      _c(
-        "label",
-        {
-          staticClass: "block font-serif uppercase tracking-wide mb-1 text-sm"
-        },
-        [_vm._v(" ")]
-      ),
-      _vm._v(" "),
+    return _c("div", { staticClass: "w-full md:w-1/5 pl-1" }, [
       _c("input", {
         staticClass:
           "appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500",

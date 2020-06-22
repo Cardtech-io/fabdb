@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="bg-white py-4 border-b-4 border-gray-300">
+        <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
                 <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set }"></card-search>
             </div>

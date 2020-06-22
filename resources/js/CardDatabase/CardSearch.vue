@@ -1,16 +1,14 @@
 `<template>
     <div>
-        <form @submit.prevent="newSearch" class="block flex flex-wrap mb-4">
-            <div class="flex w-full md:w-3/4">
-                <div class="w-full md:w-3/5 px-4 md:pr-2 md:pl-0">
-                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Keywords</label>
-                    <input type="text" v-model="keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+        <form @submit.prevent="newSearch" class="block">
+            <div class="flex w-full px-4 md:px-0">
+                <div class="w-full md:w-3/5 pr-1">
+                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Enter search terms...">
                 </div>
 
-                <div class="w-full md:w-1/5 px-4 md:px-2">
-                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Class</label>
-                    <select v-model="heroClass" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                        <option value=""></option>
+                <div class="w-full md:w-1/5 px-1">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Class</option>
                         <option value="generic">Generic</option>
                         <option value="brute">Brute</option>
                         <option value="guardian">Guardian</option>
@@ -23,10 +21,35 @@
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 px-4 md:px-2">
-                    <label class="block font-serif uppercase tracking-wide mb-1 text-sm">Card type</label>
-                    <select v-model="type" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                        <option value=""></option>
+                <div class="w-full md:w-1/5 pl-1">
+                    <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500">
+                </div>
+            </div>
+
+            <div class="w-full flex pt-2 px-4 md:px-0" v-if="advanced">
+                <div class="w-full md:w-1/4 pr-1">
+                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Pitch</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="w-full md:w-1/4 px-1">
+                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Cost</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4+</option>
+                    </select>
+                </div>
+
+                <div class="w-full md:w-1/4 px-1">
+                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Card type</option>
                         <option value="action">Action</option>
                         <option value="attack">Attack</option>
                         <option value="attack reaction">Attack reaction</option>
@@ -34,12 +57,26 @@
                         <option value="equipment">Equipment</option>
                         <option value="hero">Hero</option>
                         <option value="instant">Instant</option>
+                        <option value="item">Item</option>
+                    </select>
+                </div>
+
+                <div class="w-full md:w-1/4 pl-1">
+                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Rarity</option>
+                        <option value="t">Token</option>
+                        <option value="c">Common</option>
+                        <option value="r">Rare</option>
+                        <option value="s">Super rare</option>
+                        <option value="m">Majestic</option>
+                        <option value="l">Legendary</option>
+                        <option value="f">Fabled</option>
                     </select>
                 </div>
             </div>
-            <div class="w-full md:w-1/4 px-4 md:px-0">
-                <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
-                <input type="submit" value="Search" class="appearance-none block w-full bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500">
+
+            <div class="w-full mt-2" v-if="useCase == 'browse'">
+                <button type="button" class="block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto" @click="openTray = !openTray">Advanced</button>
             </div>
         </form>
     </div>
@@ -65,27 +102,42 @@
             wait: Boolean
         },
 
+        computed: {
+            advanced() {
+                return this.openTray || this.hasAdvancedSearchParams;
+            },
+
+            hasAdvancedSearchParams() {
+                return this.params.pitch || this.params.rarity || this.params.cardType || this.params.cost;
+            }
+        },
+
         data() {
             return {
-                heroClass: null,
-                keywords: this.$route.query.keywords,
-                thisPage: this.page,
-                type: null
+                openTray: false,
+                params: {
+                    cost: '',
+                    'class': '',
+                    keywords: this.$route.query.keywords,
+                    page: this.page,
+                    pitch: '',
+                    rarity: '',
+                    cardType: ''
+                }
             }
         },
 
         methods: {
             filterCards: function() {
                 if (this.refreshable) {
+                    let params = this.params;
+
+                    params.set = this.external.set;
+
                     this.$router.push({
                         path: this.$route.path,
-                        query: {
-                            set: this.external.set,
-                            keywords: this.keywords,
-                            page: this.thisPage,
-                            'class': this.heroClass,
-                            type: this.type
-                        }});
+                        query: params
+                    });
                 } else {
                     if (this.emptySearch()) {
                         this.$emit('search-completed', null);
@@ -97,12 +149,12 @@
             },
 
             newSearch: function() {
-                this.thisPage = 1;
+                this.params.page = 1;
                 this.filterCards();
             },
 
             emptySearch: function() {
-                return !this.keywords && !this.type && !this.heroClass;
+                return !this.params.keywords && !this.params.type && !this.params['class'];
             },
 
             search: function() {
@@ -116,40 +168,35 @@
             buildSearchParams: function() {
                 var params = this.$route.query;
 
-                params['use-case'] = this.useCase;
-                params.keywords = this.keywords;
-                params.page = this.thisPage;
                 params.per_page = this.limit;
-                params['class'] = this.heroClass;
-                params.type = this.type;
 
-                return {...this.external, ...params};
+                return {...this.external, ...params, ...this.params};
             }
         },
 
         mounted() {
             if (this.wait) return;
 
-            this.keywords = this.$route.query.keywords;
-            this.heroClass = this.$route.query['class'];
-            this.type = this.$route.query.type;;
+            this.params.keywords = this.$route.query.keywords;
+            this.params['class'] = this.$route.query['class'];
+            this.params.cardType = this.$route.query.cardType;
 
             this.search();
         },
 
         watch: {
             'external.set': function(external) {
-                this.thisPage = 1;
+                this.params.page = 1;
                 this.filterCards();
             },
 
             'external.view': function(external) {
-                this.thisPage = 1;
+                this.params.page = 1;
                 this.filterCards();
             },
 
             page: function(page) {
-                this.thisPage = page;
+                this.params.page = page;
                 this.filterCards();
             }
         },

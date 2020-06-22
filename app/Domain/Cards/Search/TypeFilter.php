@@ -8,12 +8,12 @@ class TypeFilter implements SearchFilter
 {
     public function applies(array $input)
     {
-        return Arr::get($input, 'type');
+        return Arr::get($input, 'cardType');
     }
 
     public function applyTo(Builder $query, array $input)
     {
-        $type = explode(' ', $input['type']);
+        $type = explode(' ', $input['cardType']);
 
         for ($i = 0; $i < count($type); $i++) {
             $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$type[$i]}') IS NOT NULL");
