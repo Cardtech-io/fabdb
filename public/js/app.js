@@ -5724,7 +5724,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'grouping', 'mode', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     cardClasses: function cardClasses() {
-      return [this.width || 'w-1/' + this.cardWidth, this.rounded];
+      return [this.width || 'w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth, this.rounded];
     },
     cardWidth: function cardWidth() {
       var widths = [3, 4, 5, 6, 7, 8];

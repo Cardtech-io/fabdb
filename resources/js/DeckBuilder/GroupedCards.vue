@@ -30,7 +30,7 @@
 
             cardClasses: function() {
                 return [
-                    this.width || 'w-1/' + this.cardWidth,
+                    this.width || 'w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth,
                     this.rounded
                 ];
             },
