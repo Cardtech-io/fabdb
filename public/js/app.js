@@ -2724,6 +2724,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.params.keywords = this.$route.query.keywords;
     this.params['class'] = this.$route.query['class'];
     this.params.cardType = this.$route.query.cardType;
+    this.params.rarity = this.$route.query.rarity;
     this.search();
   },
   watch: {
@@ -78591,9 +78592,26 @@ var render = function() {
                         _vm._v("Rarity")
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "float-left w-2/3 p-2 px-4" }, [
-                        _vm._v(_vm._s(_vm.rarity))
-                      ])
+                      _c(
+                        "div",
+                        { staticClass: "float-left w-2/3 p-2 px-4" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "link",
+                              attrs: {
+                                to: {
+                                  name: "cards.browse",
+                                  query: { rarity: _vm.card.rarity }
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.rarity))]
+                          )
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("li", { staticClass: "clearfix" }, [

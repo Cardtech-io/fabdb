@@ -186,6 +186,7 @@
             this.params.keywords = this.$route.query.keywords;
             this.params['class'] = this.$route.query['class'];
             this.params.cardType = this.$route.query.cardType;
+            this.params.rarity = this.$route.query.rarity;
 
             this.search();
         },
