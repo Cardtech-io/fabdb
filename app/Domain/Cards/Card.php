@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Comments\Comment;
+use FabDB\Domain\Stores\Listing;
 use FabDB\Library\Model;
 
 class Card extends Model
@@ -17,6 +18,11 @@ class Card extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function listings()
+    {
+        return $this->hasMany(Listing::class);
     }
 
     public function newCollection(array $models = [])

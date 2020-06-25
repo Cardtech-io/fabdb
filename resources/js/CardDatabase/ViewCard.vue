@@ -26,24 +26,27 @@
                             </p>
                         </article>
                     </div>
+
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
-                            <div class="float-left w-1/3 p-2 px-4">Rarity</div>
-                            <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity } }" class="link">{{ rarity }}</router-link></div>
+                            <div class="float-left w-1/4 p-2 px-4">Rarity</div>
+                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity } }" class="link">{{ rarity }}</router-link></div>
                         </li>
                         <li class="clearfix">
-                            <div class="float-left w-1/3 p-2 px-4">Keywords</div>
-                            <div class="float-left w-2/3 p-2 px-4">
+                            <div class="float-left w-1/4 p-2 px-4">Keywords</div>
+                            <div class="float-left w-3/4 p-2 px-4">
                                 <span v-for="(keyword, index) in card.keywords">
                                     <router-link :to="'/cards/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                                 </span>
                             </div>
                         </li>
                         <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white" v-if="value">
-                            <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
-                            <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
+                            <div class="float-left w-1/4 p-2 px-4">{{ sentenceCase(stat) }}</div>
+                            <div class="float-left w-3/4 p-2 px-4">{{ value }}</div>
                         </li>
                     </ul>
+
+                    <pricing :listings="card.listings" class="mb-4"></pricing>
 
                     <hr class="text-gray-500 mt-4">
 
@@ -69,6 +72,7 @@
     import CardImage from './CardImage.vue';
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Pricing from './Pricing.vue';
     import Respond from '../Discussion/Respond.vue';
     import Comment from '../Discussion/Comment.vue';
     import CommentCount from '../Discussion/CommentCount.vue';
@@ -83,6 +87,7 @@
             Comment,
             CommentCount,
             HeaderTitle,
+            Pricing,
             Respond
         },
 
