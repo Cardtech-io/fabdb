@@ -5,7 +5,7 @@
                 Pricing
             </div>
 
-            <div class="flex items-center w-1/4">
+            <div class="flex items-center w-1/3 sm:w-1/4">
                 <select v-model="currency" dir="rtl" class="w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm">
                     <option value="all">Currency - All</option>
                     <option v-bind:value="c" v-for="c in currencies">{{ c }}</option>

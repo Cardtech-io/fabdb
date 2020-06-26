@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Clicks;
 
-class RegisterClick
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class RegisterClick implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

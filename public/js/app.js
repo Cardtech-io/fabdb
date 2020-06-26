@@ -78536,7 +78536,7 @@ var render = function() {
           [_vm._v("\n            Pricing\n        ")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex items-center w-1/4" }, [
+        _c("div", { staticClass: "flex items-center w-1/3 sm:w-1/4" }, [
           _c(
             "select",
             {
@@ -78758,7 +78758,7 @@ var render = function() {
                           "router-link",
                           {
                             staticClass:
-                              "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2",
+                              "w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2 text-right",
                             attrs: { to: "/cards/" + _vm.card.next }
                           },
                           [_vm._v("Next")]

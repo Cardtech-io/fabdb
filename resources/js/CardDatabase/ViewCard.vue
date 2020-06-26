@@ -9,7 +9,7 @@
                     <card-image :card="card"></card-image>
                     <div class="flex mt-2">
                         <router-link :to="'/cards/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>
-                        <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2" v-if="card.next">Next</router-link>
+                        <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2 text-right" v-if="card.next">Next</router-link>
                     </div>
                 </div>
 
