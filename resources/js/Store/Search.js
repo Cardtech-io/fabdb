@@ -3,6 +3,7 @@ export default {
 
     state: {
         params: {
+            currency: 'USD',
             hero: null,
             keywords: '',
             page: 1,

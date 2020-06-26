@@ -34,7 +34,7 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        return $this->decks->search($request->all())
+        return $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]))
             ->paginate($request->get('per_page', 12))
             ->appends($request->except('page'));
     }

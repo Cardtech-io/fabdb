@@ -36,6 +36,15 @@
                             <label class="block font-serif uppercase tracking-wide mb-1">GEM player ID</label>
                             <input type="text" v-model="gemId" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         </div>
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Preferred currency</label>
+                            <select v-model="currency" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                                <option value="AUD">AUD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="NZD">NZD</option>
+                                <option value="USD">USD</option>
+                            </select>
+                        </div>
 
                         <h2 class="font-serif text-xl uppercase mt-8 mb-4">Cards</h2>
 
@@ -84,6 +93,7 @@
                         purely for identification purposes and application notifications.</p>
                     <p>Other details, like name, gem id.etc. are only required if you use certain features. You will be
                         prompted for these if and when that occurs.</p>
+                    <p>Currency will preferentially display stores and item listings that sell products in your preferred currency.</p>
                     <p class="my-4">Name for example, is only needed if you participate within the community, providing feedback and
                         starting threads.etc. Your gem ID is only needed when you export your decks to PDF format, which
                         can be handed in at tournaments. If you like, your gem ID does not need to be saved, and instead
@@ -127,6 +137,16 @@
 
                 set(name) {
                     this.setUserParam({ param: 'name', value: name });
+                }
+            },
+
+            currency: {
+                get() {
+                    return this.user.currency;
+                },
+
+                set(currency) {
+                    this.setUserParam({ param: 'currency', value: currency });
                 }
             },
 
@@ -193,6 +213,7 @@
                     email: this.email,
                     name: this.name,
                     gemId: this.gemId,
+                    currency: this.currency,
                     need: this.need,
                     view: this.view,
                     avatar: this.avatar,

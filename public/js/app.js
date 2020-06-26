@@ -7307,6 +7307,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8896,6 +8897,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8929,6 +8940,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.setUserParam({
           param: 'name',
           value: name
+        });
+      }
+    },
+    currency: {
+      get: function get() {
+        return this.user.currency;
+      },
+      set: function set(currency) {
+        this.setUserParam({
+          param: 'currency',
+          value: currency
         });
       }
     },
@@ -8997,6 +9019,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: this.email,
         name: this.name,
         gemId: this.gemId,
+        currency: this.currency,
         need: this.need,
         view: this.view,
         avatar: this.avatar
@@ -85225,6 +85248,12 @@ var render = function() {
               [_vm._v(_vm._s(_vm.deck.name))]
             ),
             _vm._v(" "),
+            _vm.deck.totalPrice
+              ? _c("span", { staticClass: "block text-red-600" }, [
+                  _vm._v("$" + _vm._s(_vm.deck.totalPrice))
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _vm.deck.user.name
               ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
               : _c("span", [_vm._v("Anonymous")])
@@ -87144,6 +87173,66 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
+                  _c("div", { staticClass: "w-full mt-4" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block font-serif uppercase tracking-wide mb-1"
+                      },
+                      [_vm._v("Preferred currency")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.currency,
+                            expression: "currency"
+                          }
+                        ],
+                        staticClass:
+                          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                        attrs: { required: "required" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.currency = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "AUD" } }, [
+                          _vm._v("AUD")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "CAD" } }, [
+                          _vm._v("CAD")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "NZD" } }, [
+                          _vm._v("NZD")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "USD" } }, [
+                          _vm._v("USD")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "h2",
                     { staticClass: "font-serif text-xl uppercase mt-8 mb-4" },
@@ -87323,6 +87412,12 @@ var render = function() {
               _c("p", [
                 _vm._v(
                   "Other details, like name, gem id.etc. are only required if you use certain features. You will be\n                    prompted for these if and when that occurs."
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Currency will preferentially display stores and item listings that sell products in your preferred currency."
                 )
               ]),
               _vm._v(" "),
@@ -113125,6 +113220,7 @@ __webpack_require__.r(__webpack_exports__);
   namespaced: true,
   state: {
     params: {
+      currency: 'USD',
       hero: null,
       keywords: '',
       page: 1

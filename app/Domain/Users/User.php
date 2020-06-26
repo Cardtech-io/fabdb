@@ -59,11 +59,12 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $need, $view, string $avatar)
+    public function updateProfile($email, $name, $gemId, $currency, $need, $view, string $avatar)
     {
         $this->email = $email;
         $this->name = $name;
         $this->gemId = $gemId;
+        $this->currency = $currency;
         $this->need = $need;
         $this->view = $view;
 
@@ -71,7 +72,7 @@ class User extends Model implements Authenticatable
             $this->avatar = $avatar;
         }
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $need, $view, $avatar));
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $currency, $need, $view, $avatar));
 
         return $this;
     }
