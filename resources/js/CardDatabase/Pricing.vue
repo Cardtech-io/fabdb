@@ -29,6 +29,7 @@
 
 <script>
     import _ from 'underscore';
+    import { mapGetters } from 'vuex';
     import Strings from '../Utilities/Strings';
 
     export default {
@@ -42,6 +43,8 @@
         },
 
         computed: {
+            ...mapGetters('session', ['user']),
+
             currencies() {
                 let reduced = this.listings.reduce((carry, listing) => {
                     carry.push(listing.store.currency);
@@ -54,7 +57,7 @@
             filtered() {
                 return _.sortBy(this.listings.filter(listing => {
                     return this.currency == 'all' || listing.store.currency == this.currency;
-                }), 'variant');
+                }), 'price');
             }
         },
 
@@ -89,6 +92,12 @@
                 let to = btoa(JSON.stringify(payload));
 
                 return '/click?to='+to;
+            },
+        },
+
+        mounted() {
+            if (this.user && this.user.currency) {
+                this.currency = this.user.currency;
             }
         }
     };
