@@ -7372,6 +7372,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setPage', 'updateParam']), {
+    active: function active(field) {
+      if (this.params[field]) {
+        return 'shadow-active';
+      }
+    },
     search: function search() {
       var _this = this;
 
@@ -9173,6 +9178,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -85250,7 +85262,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "block flex",
+      staticClass: "px-4 md:px-0 block flex",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -85259,7 +85271,7 @@ var render = function() {
       }
     },
     [
-      _c("div", { staticClass: "w-2/3" }, [
+      _c("div", { staticClass: "w-2/3 pr-4" }, [
         _c(
           "select",
           {
@@ -85272,7 +85284,8 @@ var render = function() {
               }
             ],
             staticClass:
-              "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-none",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+            class: _vm.active("hero"),
             on: {
               change: function($event) {
                 var $$selectedVal = Array.prototype.filter
@@ -85323,7 +85336,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "w-1/3" }, [
       _c("input", {
         staticClass:
-          "appearance-none block w-full bg-blue-700 text-white rounded-r-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500",
+          "appearance-none block w-full bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500",
         attrs: { type: "submit", value: "Search" }
       })
     ])
@@ -87555,6 +87568,30 @@ var staticRenderFns = [
             _vm._v(
               "\n            Flesh and Blood DB is run currently funded only through community support and outreach. If you're liking\n            what you're seeing, love using our tools and utilities.etc. please donate!.\n        "
             )
+          ]),
+          _vm._v(" "),
+          _c(
+            "h2",
+            { staticClass: "font-serif text-4xl lg:text-4xl uppercase mt-8" },
+            [_vm._v("Stores")]
+          ),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n            You can't have a great TCG without great stores. FaB DB aims to support stores by providing\n            opportunities for stores to showcase their wares. Our immediate offering is syncing your single\n            card listings with our card database, showcasing your store's products right here on FaB DB. In future,\n            advertising and other opportunities will also be available.\n            Why not "
+            ),
+            _c(
+              "a",
+              {
+                staticClass: "link",
+                attrs: {
+                  href: "https://facebook.com/fleshandblooddb",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("get in touch")]
+            ),
+            _vm._v("?\n        ")
           ])
         ]
       ),
@@ -87599,13 +87636,13 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "Currently, fabdb is a work of love, a contribution to the broader community to help everyone in\n            researching cards, as well as managing their collections and decks. It is a completely free service, but\n            that doesn't mean it's free to me - time spent, hosting, design, expanding the service, all costs money."
+              "FaB DB is a work of love, a contribution to the broader community to help everyone in\n            researching cards, as well as managing their collections and decks. It is a completely free service, but\n            that doesn't mean it's free to us - time spent, hosting, design, expanding the service, all costs money."
             )
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
-              "For the price of a coffee every month, you can help me in building what I hope to be the\n            ultimate resource and suite of tools for my fellow fleshy, bloody TCG players! Or, you can donate with a\n            one-off payment via paypal. Or, if neither of these options appeal to you, that's absolutely fine - just\n            spreading the word and telling other players about this website, is super helpful!"
+              "For the price of a coffee every month, you can help in building what we hope to be the\n            ultimate resource and suite of tools for our fellow fleshy, bloody, TCG players!"
             )
           ]),
           _vm._v(" "),

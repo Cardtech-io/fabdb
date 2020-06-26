@@ -5,7 +5,7 @@ use FabDB\Library\Model;
 
 class Listing extends Model
 {
-    protected $fillable = ['store_id', 'card_id', 'variant', 'price', 'path'];
+    protected $fillable = ['store_id', 'card_id', 'variant', 'price', 'path', 'available'];
     protected $hidden = ['id', 'store_id', 'card_id'];
 
     public function store()
@@ -13,8 +13,8 @@ class Listing extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public static function register(int $storeId, int $cardId, string $variant, $price, $path)
+    public static function register(int $storeId, int $cardId, string $variant, $price, $path, $available)
     {
-        return self::updateOrCreate(['store_id' => $storeId, 'card_id' => $cardId, 'variant' => $variant], compact('price', 'path'));
+        return self::updateOrCreate(['store_id' => $storeId, 'card_id' => $cardId, 'variant' => $variant], compact('price', 'path', 'available'));
     }
 }

@@ -93,20 +93,21 @@ class ScrapeStores extends Command
                     if (preg_match('/[a-z]{3}[0-9]{3}/i', $product->variants[0]->sku)) {
                         foreach ($product->variants as $variant) {
                             $parser = new VariantParser($variant);
-
                             // Ignore any listings with zero price
                             if ($parser->price() == 0) continue;
 
                             try {
                                 $card = $this->cards->findByIdentifier($parser->identifier()->raw());
 
-                                if ($parser->available()) {
-                                    $link = '/products/' . $product->handle;
-
-                                    Listing::register($store->id, $card->id, $parser->cardVariant(), $parser->price(), $link);
-                                } else {
-                                    $this->listings->remove($store->id, $card->id);
-                                }
+                                $link = '/products/' . $product->handle;
+                                Listing::register(
+                                    $store->id,
+                                    $card->id,
+                                    $parser->cardVariant(),
+                                    $parser->price(),
+                                    $link,
+                                    $parser->available()
+                                );
                             }
                             catch (InvalidIdentifier $e) {}
                             catch (ModelNotFoundException $e) {}
