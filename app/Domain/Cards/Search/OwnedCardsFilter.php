@@ -26,15 +26,7 @@ class OwnedCardsFilter implements SearchFilter
     {
         $view = Arr::get($input, 'view', 'all');
 
-        switch (Arr::get($input, 'use-case')) {
-            case 'collection':
-                // if we're viewing the collection then it's a straight join, otherwise it's a left join
-                // so that we can do a specific clause against missing cards from the collection.
-                $join = in_array($view, ['all', 'need']) ? 'leftJoin' : 'join';
-                break;
-            default:
-                $join = 'leftJoin';
-        }
+        $join = $view === 'mine' ? 'join' : 'leftJoin';
 
         $query->$join('owned_cards', function($join) {
             $join->on('owned_cards.card_id', '=', 'cards.id');
