@@ -11,9 +11,11 @@ class VariantParser
      * @var object
      */
     private $variant;
+    private $product;
 
-    public function __construct($variant)
+    public function __construct($product, $variant)
     {
+        $this->product = $product;
         $this->variant = $variant;
     }
 
@@ -24,18 +26,20 @@ class VariantParser
      */
     public function cardVariant()
     {
-        $title = Str::lower($this->variant->title);
+        foreach ([$this->variant->title, $this->product->title] as $title) {
+            $title = Str::lower($title);
 
-        switch (true) {
-            case Str::contains($title, 'cold'):
-                return 'cold';
-                break;
-            case Str::contains($title, 'rainbow'):
-                return 'rainbow';
-                break;
-            default:
-                return 'regular';
+            switch (true) {
+                case Str::contains($title, 'cold'):
+                    return 'cold';
+                    break;
+                case Str::contains($title, 'rainbow'):
+                    return 'rainbow';
+                    break;
+            }
         }
+
+        return 'regular';
     }
 
     public function price()

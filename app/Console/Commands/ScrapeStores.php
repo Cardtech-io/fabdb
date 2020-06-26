@@ -94,7 +94,7 @@ class ScrapeStores extends Command
                     if (preg_match('/[a-z]{3}[0-9]{3}/i', $product->variants[0]->sku)) {
                         Log::debug('Identifier matched for ['.$product->id.':'.$product->title.']');
                         foreach ($product->variants as $variant) {
-                            $parser = new VariantParser($variant);
+                            $parser = new VariantParser($product, $variant);
                             // Ignore any listings with zero price
                             if ($parser->price() == 0) continue;
 
