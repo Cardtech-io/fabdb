@@ -10,6 +10,7 @@ use FabDB\Domain\Stores\StoreRepository;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Log;
 
 class ScrapeStores extends Command
 {
@@ -91,6 +92,7 @@ class ScrapeStores extends Command
 
                 foreach ($results->products as $product) {
                     if (preg_match('/[a-z]{3}[0-9]{3}/i', $product->variants[0]->sku)) {
+                        Log::debug('Identifier matched for ['.$product->id.':'.$product->title.']');
                         foreach ($product->variants as $variant) {
                             $parser = new VariantParser($variant);
                             // Ignore any listings with zero price
@@ -98,9 +100,9 @@ class ScrapeStores extends Command
 
                             try {
                                 $card = $this->cards->findByIdentifier($parser->identifier()->raw());
-
                                 $link = '/products/' . $product->handle;
-                                Listing::register(
+
+                                $listing = Listing::register(
                                     $store->id,
                                     $card->id,
                                     $parser->cardVariant(),
@@ -108,10 +110,14 @@ class ScrapeStores extends Command
                                     $link,
                                     $parser->available()
                                 );
+
+                                Log::debug('Listing ['.$listing->id.'] registered for ['.$parser->identifier()->raw().']');
                             }
                             catch (InvalidIdentifier $e) {}
                             catch (ModelNotFoundException $e) {}
                         }
+                    } else {
+                        Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.']');
                     }
                 }
 
