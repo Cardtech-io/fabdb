@@ -80,7 +80,15 @@
             },
 
             listingUrl(listing) {
-                return 'https://'+listing.store.domain+listing.path;
+                let payload = {
+                    url: 'https://'+listing.store.domain+listing.path,
+                    type: 'listing',
+                    id: listing.id
+                };
+
+                let to = btoa(JSON.stringify(payload));
+
+                return '/click?to='+to;
             }
         }
     };

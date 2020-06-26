@@ -1,12 +1,18 @@
 <?php
 namespace FabDB\Domain\Stores;
 
+use FabDB\Domain\Clicks\Click;
 use FabDB\Library\Model;
 
 class Listing extends Model
 {
     protected $fillable = ['store_id', 'card_id', 'variant', 'price', 'path', 'available'];
-    protected $hidden = ['id', 'store_id', 'card_id'];
+    protected $hidden = ['store_id', 'card_id'];
+
+    public function clicks()
+    {
+        return $this->morphMany(Click::class, 'clickable');
+    }
 
     public function store()
     {

@@ -2845,7 +2845,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
     },
     listingUrl: function listingUrl(listing) {
-      return 'https://' + listing.store.domain + listing.path;
+      var payload = {
+        url: 'https://' + listing.store.domain + listing.path,
+        type: 'listing',
+        id: listing.id
+      };
+      var to = btoa(JSON.stringify(payload));
+      return '/click?to=' + to;
     }
   }
 });

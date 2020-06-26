@@ -111,13 +111,14 @@ class ScrapeStores extends Command
                                     $parser->available()
                                 );
 
-                                Log::debug('Listing ['.$listing->id.'] registered for ['.$parser->identifier()->raw().']');
+                                Log::debug('Listing ['.$listing->id.'] registered.');
                             }
                             catch (InvalidIdentifier $e) {}
                             catch (ModelNotFoundException $e) {}
                         }
                     } else {
                         Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.']');
+
                     }
                 }
 
