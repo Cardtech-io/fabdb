@@ -30,7 +30,7 @@
                     <ul class="sm:py-4">
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/4 p-2 px-4">Rarity</div>
-                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity } }" class="link">{{ rarity }}</router-link></div>
+                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link">{{ rarity }}</router-link></div>
                         </li>
                         <li class="clearfix">
                             <div class="float-left w-1/4 p-2 px-4">Keywords</div>

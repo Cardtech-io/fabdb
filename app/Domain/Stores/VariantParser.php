@@ -47,4 +47,9 @@ class VariantParser
     {
         return Identifier::fromVariant($this->variant->sku);
     }
+
+    public function available()
+    {
+        return $this->variant->inventory_quantity;
+    }
 }

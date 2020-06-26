@@ -4,6 +4,7 @@ namespace FabDB\Console\Commands;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\InvalidIdentifier;
 use FabDB\Domain\Stores\Listing;
+use FabDB\Domain\Stores\ListingRepository;
 use FabDB\Domain\Stores\VariantParser;
 use FabDB\Domain\Stores\StoreRepository;
 use GuzzleHttp\Client;
@@ -44,17 +45,23 @@ class ScrapeStores extends Command
     private $cache = [];
 
     /**
+     * @var ListingRepository
+     */
+    private $listings;
+
+    /**
      * Create a new command instance.
      *
      * @param CardRepository $cards
      * @param StoreRepository $stores
      */
-    public function __construct(CardRepository $cards, StoreRepository $stores)
+    public function __construct(CardRepository $cards, StoreRepository $stores, ListingRepository $listings)
     {
         parent::__construct();
 
         $this->cards = $cards;
         $this->stores = $stores;
+        $this->listings = $listings;
     }
 
     /**
@@ -93,9 +100,13 @@ class ScrapeStores extends Command
                             try {
                                 $card = $this->cards->findByIdentifier($parser->identifier()->raw());
 
-                                $link = '/products/'.$product->handle;
+                                if ($parser->available()) {
+                                    $link = '/products/' . $product->handle;
 
-                                Listing::register($store->id, $card->id, $parser->cardVariant(), $parser->price(), $link);
+                                    Listing::register($store->id, $card->id, $parser->cardVariant(), $parser->price(), $link);
+                                } else {
+                                    $this->listings->remove($store->id, $card->id);
+                                }
                             }
                             catch (InvalidIdentifier $e) {}
                             catch (ModelNotFoundException $e) {}

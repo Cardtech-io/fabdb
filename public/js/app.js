@@ -2796,7 +2796,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -78509,55 +78508,63 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h2", { staticClass: "flex mt-4 px-4 py-2 bg-blue-700 rounded-t-lg" }, [
-      _c("div", { staticClass: "flex-1 uppercase font-serif text-white" }, [
-        _vm._v("\n            Pricing\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "text-white mr-2" }, [_vm._v("Currency")]),
-        _vm._v(" "),
+    _c(
+      "h2",
+      { staticClass: "flex mt-4 bg-gray-500 sm:rounded-t-lg overflow-hidden" },
+      [
         _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.currency,
-                expression: "currency"
+          "div",
+          { staticClass: "flex-1 px-4 py-2 uppercase font-serif text-white" },
+          [_vm._v("\n            Pricing\n        ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex items-center w-1/4" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.currency,
+                  expression: "currency"
+                }
+              ],
+              staticClass:
+                "w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm",
+              attrs: { dir: "rtl" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.currency = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
               }
+            },
+            [
+              _c("option", { attrs: { value: "all" } }, [
+                _vm._v("Currency - All")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.currencies, function(c) {
+                return _c("option", { domProps: { value: c } }, [
+                  _vm._v(_vm._s(c))
+                ])
+              })
             ],
-            staticClass: "rounded p-1 text-sm",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.currency = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { value: "all" } }, [_vm._v("All")]),
-            _vm._v(" "),
-            _vm._l(_vm.currencies, function(c) {
-              return _c("option", { domProps: { value: c } }, [
-                _vm._v(_vm._s(c))
-              ])
-            })
-          ],
-          2
-        )
-      ])
-    ]),
+            2
+          )
+        ])
+      ]
+    ),
     _vm._v(" "),
     _vm.filtered.length
       ? _c(
@@ -78821,7 +78828,9 @@ var render = function() {
                               attrs: {
                                 to: {
                                   name: "cards.browse",
-                                  query: { rarity: _vm.card.rarity }
+                                  query: {
+                                    rarity: _vm.card.rarity.toLowerCase()
+                                  }
                                 }
                               }
                             },

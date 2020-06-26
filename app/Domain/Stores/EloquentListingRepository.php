@@ -8,6 +8,14 @@ class EloquentListingRepository extends EloquentRepository implements ListingRep
 {
     protected function model(): Model
     {
-        new Listing;
+        return new Listing;
+    }
+
+    public function remove(int $storeId, int $cardId)
+    {
+        $this->newQuery()
+            ->whereStoreId($storeId)
+            ->whereCardId($cardId)
+            ->delete();
     }
 }

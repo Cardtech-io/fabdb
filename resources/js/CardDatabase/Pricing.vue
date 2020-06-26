@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h2 class="flex mt-4 px-4 py-2 bg-blue-700 rounded-t-lg">
-            <div class="flex-1 uppercase font-serif text-white">
+        <h2 class="flex mt-4 bg-gray-500 sm:rounded-t-lg overflow-hidden">
+            <div class="flex-1 px-4 py-2 uppercase font-serif text-white">
                 Pricing
             </div>
 
-            <div class="flex">
-                <div class="text-white mr-2">Currency</div>
-                <select v-model="currency" class="rounded p-1 text-sm">
-                    <option value="all">All</option>
+            <div class="flex items-center w-1/4">
+                <select v-model="currency" dir="rtl" class="w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm">
+                    <option value="all">Currency - All</option>
                     <option v-bind:value="c" v-for="c in currencies">{{ c }}</option>
                 </select>
             </div>
