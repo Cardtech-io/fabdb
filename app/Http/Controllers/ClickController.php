@@ -11,7 +11,7 @@ class ClickController extends Controller
     public function register(RegisterClickRequest $request)
     {
         $to = json_decode(base64_decode($request->get('to')), true);
-        
+
         $this->dispatchNow(new RegisterClick(
             $to['id'],
             Listing::class,
