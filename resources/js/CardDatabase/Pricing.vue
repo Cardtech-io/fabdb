@@ -96,7 +96,7 @@
         },
 
         mounted() {
-            if (this.user && this.user.currency) {
+            if (this.user && this.user.currency && this.currencies.indexOf(this.user.currency) !== -1) {
                 this.currency = this.user.currency;
             }
         }
