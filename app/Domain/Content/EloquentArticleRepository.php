@@ -1,9 +1,9 @@
 <?php
 namespace FabDB\Domain\Content;
 
+use Carbon\Carbon;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
-use Illuminate\Support\Facades\DB;
 
 class EloquentArticleRepository extends EloquentRepository implements ArticleRepository
 {
@@ -52,5 +52,14 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         }
 
         return $query->paginate($perPage);
+    }
+
+    public function nextOrPrev(string $nextOrPrev, Carbon $publishedAt)
+    {
+        $operator = $nextOrPrev == 'next' ? '>' : '<';
+
+        return $this->newQuery()
+            ->where('publish_at', $operator, $publishedAt)
+            ->first();
     }
 }

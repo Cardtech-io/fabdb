@@ -13,10 +13,14 @@
 
                 <div class="border-t border-gray-400 py-4" v-if="article.author.blurb">{{ article.author.blurb }}</div>
 
-                <!--<div>-->
-                    <!--<router-link :to="'/articles/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>-->
-                    <!--<router-link :to="'/articles/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2 text-right" v-if="card.next">Next</router-link>-->
-                <!--</div>-->
+                <div class="flex w-full py-4 border-t border-gray-400">
+                    <div class="flex-1">
+                        <router-link :to="prev.link" class="link" v-if="prev.valid()">Previously: {{ prev.title }}</router-link>
+                    </div>
+                    <div class="flex-1 text-right">
+                        <router-link :to="next.link" class="link" v-if="next.valid()">Next up: {{ next.title }}</router-link>
+                    </div>
+                </div>
 
                 <div class="border-t border-gray-400">
                     <comment-count :comments="comments"></comment-count>
@@ -110,7 +114,9 @@
 
             axios.all([article, comments]).then(axios.spread((...responses) => {
                 callback(function() {
-                    this.article = Models.hydrate(responses[0].data, Article);
+                    this.article = Models.hydrate(responses[0].data.article, Article);
+                    this.next = Models.hydrate(responses[0].data.next, Article);
+                    this.prev = Models.hydrate(responses[0].data.prev, Article);
                     this.comments = responses[1].data;
                 })
             }));

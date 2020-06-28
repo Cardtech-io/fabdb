@@ -33,7 +33,7 @@ class Commentable
     {
         switch ($type) {
             case 'article':
-                return $this->articles->view($foreign)->id;
+                return $this->articles->view($foreign, false)->id;
             case 'card':
                 return $this->cards->findByIdentifier($foreign)->id;
             case 'deck':

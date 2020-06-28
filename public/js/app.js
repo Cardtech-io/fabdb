@@ -4356,6 +4356,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -4448,7 +4452,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       callback(function () {
-        this.article = _Utilities_Models__WEBPACK_IMPORTED_MODULE_11__["default"].hydrate(responses[0].data, _Article__WEBPACK_IMPORTED_MODULE_2__["default"]);
+        this.article = _Utilities_Models__WEBPACK_IMPORTED_MODULE_11__["default"].hydrate(responses[0].data.article, _Article__WEBPACK_IMPORTED_MODULE_2__["default"]);
+        this.next = _Utilities_Models__WEBPACK_IMPORTED_MODULE_11__["default"].hydrate(responses[0].data.next, _Article__WEBPACK_IMPORTED_MODULE_2__["default"]);
+        this.prev = _Utilities_Models__WEBPACK_IMPORTED_MODULE_11__["default"].hydrate(responses[0].data.prev, _Article__WEBPACK_IMPORTED_MODULE_2__["default"]);
         this.comments = responses[1].data;
       });
     }));
@@ -80778,6 +80784,42 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
+            { staticClass: "flex w-full py-4 border-t border-gray-400" },
+            [
+              _c(
+                "div",
+                { staticClass: "flex-1" },
+                [
+                  _vm.prev.valid()
+                    ? _c(
+                        "router-link",
+                        { staticClass: "link", attrs: { to: _vm.prev.link } },
+                        [_vm._v("Previously: " + _vm._s(_vm.prev.title))]
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex-1 text-right" },
+                [
+                  _vm.next.valid()
+                    ? _c(
+                        "router-link",
+                        { staticClass: "link", attrs: { to: _vm.next.link } },
+                        [_vm._v("Next up: " + _vm._s(_vm.next.title))]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
             { staticClass: "border-t border-gray-400" },
             [
               _c("comment-count", { attrs: { comments: _vm.comments } }),
@@ -108675,6 +108717,11 @@ function () {
   }
 
   _createClass(Article, [{
+    key: "valid",
+    value: function valid() {
+      return !!this.fields;
+    }
+  }, {
     key: "author",
     get: function get() {
       return this.fields.author;

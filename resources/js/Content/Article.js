@@ -33,6 +33,10 @@ class Article
     get link() {
         return '/articles/' + Strings.methods.kebabCase(this.title) + '/' + this.slug;
     }
+
+    valid() {
+        return !!this.fields;
+    }
 }
 
 export default Article;

@@ -12,9 +12,13 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function view(Article $article)
+    public function view(ArticleRepository $articles, Article $article)
     {
-        return $article;
+        return [
+            'article' => $article,
+            'next' => $articles->nextOrPrev('next', $article->publishAt),
+            'prev' => $articles->nextOrPrev('prev', $article->publishAt),
+        ];
     }
 
     public function search(Request $request, ArticleRepository $articles)
