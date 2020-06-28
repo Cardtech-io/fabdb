@@ -2803,6 +2803,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -78653,14 +78654,21 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "w-1/3 p-2 px-4 text-right" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "link",
-                    attrs: { href: _vm.listingUrl(listing), target: "_blank" }
-                  },
-                  [_vm._v(_vm._s(listing.store.name))]
-                )
+                listing.available
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "link",
+                        attrs: {
+                          href: _vm.listingUrl(listing),
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v(_vm._s(listing.store.name))]
+                    )
+                  : _c("span", { staticClass: "text-gray-500" }, [
+                      _vm._v(_vm._s(listing.store.name))
+                    ])
               ])
             ])
           }),

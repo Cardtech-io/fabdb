@@ -17,7 +17,8 @@
                 <div class="w-1/3 p-2 px-4">{{ variant(listing.variant) }}</div>
                 <div class="w-1/3 p-2 px-4 text-center">{{ price(listing) }}</div>
                 <div class="w-1/3 p-2 px-4 text-right">
-                    <a :href="listingUrl(listing)" class="link" target="_blank">{{ listing.store.name }}</a>
+                    <a :href="listingUrl(listing)" class="link" target="_blank" v-if="listing.available">{{ listing.store.name }}</a>
+                    <span class="text-gray-500" v-else>{{ listing.store.name }}</span>
                 </div>
             </li>
         </ul>
