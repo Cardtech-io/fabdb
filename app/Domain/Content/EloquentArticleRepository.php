@@ -60,7 +60,8 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         return $this->newQuery()
             ->where('status', 'approved')
-            ->where('publish_at', $operator, $publishedAt)
+            ->where('publish_at', $operator, $publishedAt->toDateTimeString())
+            ->orderBy('publish_at', $nextOrPrev == 'next' ? 'asc' : 'desc')
             ->first();
     }
 }
