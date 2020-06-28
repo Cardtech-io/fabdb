@@ -5,11 +5,15 @@
                 Pricing
             </div>
 
-            <div class="flex items-center w-1/3 sm:w-1/4">
+            <div class="flex relative items-center w-1/3 sm:w-1/4">
                 <select v-model="currency" dir="rtl" class="w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm">
                     <option value="all">Currency - All</option>
                     <option v-bind:value="c" v-for="c in currencies">{{ c }}</option>
                 </select>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current ml-2 h-6 absolute z-100 text-white">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                </svg>
             </div>
         </h2>
         <ul v-if="filtered.length">

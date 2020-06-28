@@ -2804,6 +2804,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -78592,51 +78596,74 @@ var render = function() {
           [_vm._v("\n            Pricing\n        ")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex items-center w-1/3 sm:w-1/4" }, [
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.currency,
-                  expression: "currency"
+        _c(
+          "div",
+          { staticClass: "flex relative items-center w-1/3 sm:w-1/4" },
+          [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.currency,
+                    expression: "currency"
+                  }
+                ],
+                staticClass:
+                  "w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm",
+                attrs: { dir: "rtl" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.currency = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
                 }
+              },
+              [
+                _c("option", { attrs: { value: "all" } }, [
+                  _vm._v("Currency - All")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.currencies, function(c) {
+                  return _c("option", { domProps: { value: c } }, [
+                    _vm._v(_vm._s(c))
+                  ])
+                })
               ],
-              staticClass:
-                "w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm",
-              attrs: { dir: "rtl" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.currency = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "svg",
+              {
+                staticClass: "fill-current ml-2 h-6 absolute z-100 text-white",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 20 20"
                 }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "all" } }, [
-                _vm._v("Currency - All")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.currencies, function(c) {
-                return _c("option", { domProps: { value: c } }, [
-                  _vm._v(_vm._s(c))
-                ])
-              })
-            ],
-            2
-          )
-        ])
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  }
+                })
+              ]
+            )
+          ]
+        )
       ]
     ),
     _vm._v(" "),
