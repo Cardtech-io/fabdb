@@ -112,7 +112,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         ]);
 
         $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards');
-        $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.price) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
+        $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.mean) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
 
         $query->with(['cards' => function($include) {
             $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');

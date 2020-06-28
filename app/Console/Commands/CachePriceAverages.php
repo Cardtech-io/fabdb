@@ -23,12 +23,19 @@ class CachePriceAverages extends Command
     public function handle()
     {
         DB::statement('
-            INSERT INTO price_averages (card_id, variant, currency, price, created_at)
-            SELECT cards.id, listings.variant, stores.currency, AVG(listings.price) as price, NOW()
+            INSERT INTO price_averages (card_id, variant, currency, high, mean, low, created_at)
+            SELECT 
+                cards.id, 
+                l1.variant, 
+                s1.currency,
+                (SELECT MAX(l2.price) FROM listings l2 JOIN stores s2 ON s2.id = l2.store_id WHERE l2.card_id = cards.id AND l2.variant = l1.variant AND s2.currency = s1.currency),
+                (SELECT AVG(l2.price) FROM listings l2 JOIN stores s2 ON s2.id = l2.store_id WHERE l2.card_id = cards.id AND l2.variant = l1.variant AND s2.currency = s1.currency),
+                (SELECT MIN(l2.price) FROM listings l2 JOIN stores s2 ON s2.id = l2.store_id WHERE l2.card_id = cards.id AND l2.variant = l1.variant AND s2.currency = s1.currency),
+                NOW()
             FROM cards 
-            JOIN listings ON listings.card_id = cards.id 
-            JOIN stores ON stores.id = listings.store_id 
-            GROUP BY cards.id, stores.currency, listings.variant
+            JOIN listings l1 ON l1.card_id = cards.id 
+            JOIN stores s1 ON s1.id = l1.store_id 
+            GROUP BY cards.id, s1.currency, l1.variant
         ');
     }
 }
