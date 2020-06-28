@@ -44,10 +44,12 @@
 </template>
 
 <script>
+    import Article from './Article';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
+    import Models from '../Utilities/Models';
     import Paginator from '../Components/Paginator.vue';
     import Strings from '../Utilities/Strings';
 
@@ -109,9 +111,9 @@
         },
 
         extends: LazyLoader((to, callback) => {
-            axios.get('/articles/').then(response => {
+            axios.get('/articles').then(response => {
                 callback(function() {
-                    this.articles = response.data;
+                    this.articles = Models.hydratePaginated(response.data, Article);
                 });
             });
         })

@@ -32,9 +32,4 @@ class Comment extends Model
 
         return $comment;
     }
-
-    public static function setCommentableType(CommentableType $type)
-    {
-        $this->attributes['commentableType'] = (string) $type;
-    }
 }

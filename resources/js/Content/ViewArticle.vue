@@ -13,6 +13,11 @@
 
                 <div class="border-t border-gray-400 py-4" v-if="article.author.blurb">{{ article.author.blurb }}</div>
 
+                <!--<div>-->
+                    <!--<router-link :to="'/articles/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>-->
+                    <!--<router-link :to="'/articles/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2 text-right" v-if="card.next">Next</router-link>-->
+                <!--</div>-->
+
                 <div class="border-t border-gray-400">
                     <comment-count :comments="comments"></comment-count>
 
@@ -32,6 +37,7 @@
     import moment from 'moment';
     import { mapGetters } from 'vuex';
 
+    import Article from './Article';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import Comment from '../Discussion/Comment.vue';
@@ -40,6 +46,7 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
+    import Models from '../Utilities/Models';
     import Respond from '../Discussion/Respond.vue';
 
     export default {
@@ -103,7 +110,7 @@
 
             axios.all([article, comments]).then(axios.spread((...responses) => {
                 callback(function() {
-                    this.article = responses[0].data;
+                    this.article = Models.hydrate(responses[0].data, Article);
                     this.comments = responses[1].data;
                 })
             }));

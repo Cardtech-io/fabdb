@@ -1,8 +1,12 @@
 <?php
 namespace FabDB\Domain\Comments;
 
+use FabDB\Library\Dispatchable;
+
 class PostComment
 {
+    use Dispatchable;
+
     /**
      * @var int
      */
@@ -46,5 +50,7 @@ class PostComment
         $comments->save($comment);
 
         $this->observer->setComment($comment);
+
+        $this->dispatch($comment->releaseEvents());
     }
 }
