@@ -59,6 +59,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         $operator = $nextOrPrev == 'next' ? '>' : '<';
 
         return $this->newQuery()
+            ->where('status', 'approved')
             ->where('publish_at', $operator, $publishedAt)
             ->first();
     }

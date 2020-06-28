@@ -68,7 +68,7 @@
 
             remainder: function() {
                 if (this.articles.current_page == 1) {
-                    return this.articles.data.slice(3, 7);
+                    return this.articles.data.slice(3, 10);
                 }
 
                 return this.articles.data;

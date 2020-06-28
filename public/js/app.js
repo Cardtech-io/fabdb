@@ -3995,7 +3995,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     remainder: function remainder() {
       if (this.articles.current_page == 1) {
-        return this.articles.data.slice(3, 7);
+        return this.articles.data.slice(3, 10);
       }
 
       return this.articles.data;
