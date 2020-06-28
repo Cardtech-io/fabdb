@@ -7,7 +7,7 @@
             <div class="container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
-                    <div><span>Written by {{ article.author.name }}</span> on <span>{{ published }}</span></div>
+                    <div><span>Written by {{ article.author.name }}</span> on <span>{{ article.published }}</span></div>
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
@@ -74,10 +74,6 @@
                     { text: this.article.title }
                 ];
             },
-
-            published: function() {
-                return moment.utc(this.article.publishAt).format('Do MMMM YYYY');
-            }
         },
 
         data() {

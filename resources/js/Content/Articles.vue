@@ -30,8 +30,11 @@
                         <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
                             <img :src="thumbUrl(article.image, 150, 150)" class="float-left mr-4">
                             <div>
-                                <h3 class="font-serif uppercase text-xl mb-2">{{ article.title }}</h3>
-                                <p>{{ article.excerpt }}</p>
+                                <h3 class="font-serif uppercase text-xl">{{ article.title }}</h3>
+                                <div class="text-base">
+                                    <span class="text-gray-500">by</span> {{ article.author.name }} <span class="text-gray-500">on</span> {{ article.published }}
+                                </div>
+                                <p class="mt-2">{{ article.excerpt }}</p>
                             </div>
                         </router-link>
                     </li>

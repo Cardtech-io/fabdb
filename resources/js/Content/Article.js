@@ -1,3 +1,4 @@
+import moment from 'moment';
 import Strings from '../Utilities/Strings';
 
 class Article
@@ -12,6 +13,10 @@ class Article
 
     get content() {
         return this.fields.content;
+    }
+
+    get published() {
+        return moment.utc(this.fields.publishAt).format('Do MMMM YYYY');
     }
 
     get excerpt() {

@@ -3971,6 +3971,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -4394,9 +4397,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: this.article.title
       }];
-    },
-    published: function published() {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default.a.utc(this.article.publishAt).format('Do MMMM YYYY');
     }
   }),
   data: function data() {
@@ -80291,13 +80291,28 @@ var render = function() {
                           _c("div", [
                             _c(
                               "h3",
-                              {
-                                staticClass: "font-serif uppercase text-xl mb-2"
-                              },
+                              { staticClass: "font-serif uppercase text-xl" },
                               [_vm._v(_vm._s(article.title))]
                             ),
                             _vm._v(" "),
-                            _c("p", [_vm._v(_vm._s(article.excerpt))])
+                            _c("div", { staticClass: "text-base" }, [
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("by")
+                              ]),
+                              _vm._v(" " + _vm._s(article.author.name) + " "),
+                              _c("span", { staticClass: "text-gray-500" }, [
+                                _vm._v("on")
+                              ]),
+                              _vm._v(
+                                " " +
+                                  _vm._s(article.published) +
+                                  "\n                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "mt-2" }, [
+                              _vm._v(_vm._s(article.excerpt))
+                            ])
                           ])
                         ]
                       )
@@ -80774,7 +80789,7 @@ var render = function() {
                 _vm._v("Written by " + _vm._s(_vm.article.author.name))
               ]),
               _vm._v(" on "),
-              _c("span", [_vm._v(_vm._s(_vm.published))])
+              _c("span", [_vm._v(_vm._s(_vm.article.published))])
             ]),
             _vm._v(" "),
             _c("div", {
@@ -108706,12 +108721,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -108740,6 +108758,11 @@ function () {
       return this.fields.content;
     }
   }, {
+    key: "published",
+    get: function get() {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default.a.utc(this.fields.publishAt).format('Do MMMM YYYY');
+    }
+  }, {
     key: "excerpt",
     get: function get() {
       return this.fields.excerpt;
@@ -108762,7 +108785,7 @@ function () {
   }, {
     key: "link",
     get: function get() {
-      return '/articles/' + _Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__["default"].methods.kebabCase(this.title) + '/' + this.slug;
+      return '/articles/' + _Utilities_Strings__WEBPACK_IMPORTED_MODULE_1__["default"].methods.kebabCase(this.title) + '/' + this.slug;
     }
   }]);
 
