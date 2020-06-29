@@ -2955,6 +2955,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -79113,6 +79115,14 @@ var render = function() {
                 }
               },
               [
+                _c(
+                  "span",
+                  {
+                    staticClass: "text-gray-200 text-xs p-1 rounded mr-2",
+                    class: _vm.card.variant
+                  },
+                  [_vm._v(_vm._s(_vm.card.identifier))]
+                ),
                 _vm._v("\n                " + _vm._s(_vm.card.name) + " "),
                 _vm.hasResource(_vm.card) && _vm.card.rarity != "M"
                   ? _c("span", [
@@ -79122,11 +79132,7 @@ var render = function() {
                           ")"
                       )
                     ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-gray-500 text-xs" }, [
-                  _vm._v(_vm._s(_vm.card.identifier))
-                ])
+                  : _vm._e()
               ]
             )
           ],
@@ -79182,10 +79188,15 @@ var render = function() {
           attrs: { colspan: "5" }
         },
         [
-          _c("span", { staticClass: "text-gray-500 text-xs" }, [
-            _vm._v(_vm._s(_vm.card.identifier))
-          ]),
-          _vm._v(" " + _vm._s(_vm.card.name) + " "),
+          _c(
+            "span",
+            {
+              staticClass: "text-gray-200 text-xs p-1 rounded mr-2",
+              class: _vm.card.variant
+            },
+            [_vm._v(_vm._s(_vm.card.identifier))]
+          ),
+          _vm._v("\n            " + _vm._s(_vm.card.name) + "\n            "),
           _vm.hasResource(_vm.card) && _vm.card.rarity != "M"
             ? _c("span", [
                 _vm._v(
