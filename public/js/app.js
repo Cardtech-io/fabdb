@@ -7477,10 +7477,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   metaInfo: function metaInfo() {
-    var title = 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')';
-    return {
-      title: title,
-      meta: [{
+    var title = 'View deck - ' + this.deck.name;
+    var meta = [];
+
+    if (this.hero) {
+      title += ' (' + this.hero.name + ')';
+      meta = [{
         vmid: 'og:type',
         property: 'og:type',
         content: 'website'
@@ -7504,7 +7506,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vmid: 'og:image:height',
         property: 'og:image:height',
         content: '628'
-      }]
+      }];
+    } else {
+      meta = [{
+        vmid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      }, {
+        vmid: 'og:title',
+        property: 'og:title',
+        content: title
+      }, {
+        vmid: 'og:description',
+        property: 'og:description',
+        content: 'A custom deck built at fabdb.net.'
+      }];
+    }
+
+    return {
+      title: title,
+      meta: meta
     };
   },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_5__["default"])(function (to, callback) {

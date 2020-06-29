@@ -176,18 +176,31 @@
         },
 
         metaInfo() {
-            let title = 'View deck - ' + this.deck.name + ' (' + this.hero.name + ')';
+            let title = 'View deck - ' + this.deck.name;
+            let meta = [];
 
-            return {
-                title: title,
-                meta: [
+            if (this.hero) {
+                title += ' (' + this.hero.name + ')';
+
+                meta = [
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:title', property: 'og:title', content: title },
-                    { vmid: 'og:description', property: 'og:description', content: 'A custom ' + this.hero.keywords[0] + ' deck built at fabdb.net, utilising the hero, \'' + this.hero.name + '\'.' },
+                    { vmid: 'og:description', property: 'og:description', content: 'A custom ' + this.hero.keywords[0] + ' deck built at fabdb.net, utilising the hero, \'' + this.hero.name + '\'.'  },
                     { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.hero.identifier, 450, true) },
                     { vmid: 'og:image:width', property: 'og:image:width', content: '450' },
                     { vmid: 'og:image:height', property: 'og:image:height', content: '628' }
-                ]
+                ];
+            } else {
+                meta = [
+                    { vmid: 'og:type', property: 'og:type', content: 'website' },
+                    { vmid: 'og:title', property: 'og:title', content: title },
+                    { vmid: 'og:description', property: 'og:description', content: 'A custom deck built at fabdb.net.'  }
+                ];
+            }
+
+            return {
+                title: title,
+                meta: meta
             };
         },
 
