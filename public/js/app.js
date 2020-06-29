@@ -2924,6 +2924,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Components_Price_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Price.vue */ "./resources/js/Components/Price.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -2957,10 +2958,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_0__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     Price: _Components_Price_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -2968,6 +2970,15 @@ __webpack_require__.r(__webpack_exports__);
     card: Object,
     view: String,
     path: String
+  },
+  computed: {
+    variant: function variant() {
+      if (this.card.variant == 'regular') {
+        return 'Regular';
+      }
+
+      return this.ucfirst(this.card.variant) + ' foil';
+    }
   },
   methods: {
     viewUrl: function viewUrl() {
@@ -3726,7 +3737,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       thisCurrency: this.currency,
-      currencies: ['AUD', 'NZD', 'USD']
+      currencies: ['AUD', 'CAD', 'NZD', 'USD']
     };
   },
   methods: {
@@ -79118,8 +79129,10 @@ var render = function() {
                 _c(
                   "span",
                   {
-                    staticClass: "text-gray-200 text-xs p-1 rounded mr-2",
-                    class: _vm.card.variant
+                    staticClass:
+                      "text-gray-200 text-xs p-1 rounded mr-2 cursor-default",
+                    class: _vm.card.variant,
+                    attrs: { title: _vm.variant }
                   },
                   [_vm._v(_vm._s(_vm.card.identifier))]
                 ),
@@ -79191,8 +79204,10 @@ var render = function() {
           _c(
             "span",
             {
-              staticClass: "text-gray-200 text-xs p-1 rounded mr-2",
-              class: _vm.card.variant
+              staticClass:
+                "text-gray-200 text-xs p-1 rounded mr-2 cursor-default",
+              class: _vm.card.variant,
+              attrs: { title: _vm.variant }
             },
             [_vm._v(_vm._s(_vm.card.identifier))]
           ),
@@ -108314,15 +108329,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************!*\
   !*** ./resources/js/CardDatabase/PriceList.vue ***!
   \*************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PriceList_vue_vue_type_template_id_9ca4f0be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PriceList.vue?vue&type=template&id=9ca4f0be& */ "./resources/js/CardDatabase/PriceList.vue?vue&type=template&id=9ca4f0be&");
 /* harmony import */ var _PriceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PriceList.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/PriceList.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _PriceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _PriceList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -108352,7 +108366,7 @@ component.options.__file = "resources/js/CardDatabase/PriceList.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/CardDatabase/PriceList.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -12,7 +12,7 @@
         data() {
             return {
                 thisCurrency: this.currency,
-                currencies: ['AUD', 'NZD', 'USD']
+                currencies: ['AUD', 'CAD', 'NZD', 'USD']
             };
         },
 

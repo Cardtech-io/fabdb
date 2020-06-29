@@ -3,7 +3,7 @@
         <tr class="odd:bg-gray-100 hover:bg-gray-200 hidden sm:table-row">
             <td class="border border-gray-300">
                 <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" class="block py-2 px-4 w-full">
-                    <span class="text-gray-200 text-xs p-1 rounded mr-2" :class="card.variant">{{ card.identifier }}</span>
+                    <span class="text-gray-200 text-xs p-1 rounded mr-2 cursor-default" :class="card.variant" :title="variant">{{ card.identifier }}</span>
                     {{ card.name }} <span v-if="hasResource(card) && card.rarity != 'M'">({{ colourToText(card.stats.resource) }})</span>
                 </router-link>
             </td>
@@ -14,7 +14,7 @@
         </tr>
         <tr class="even:bg-gray-100 hover:bg-gray-200 sm:hidden">
             <td class="border border-gray-300 py-2 px-4" colspan="5">
-                <span class="text-gray-200 text-xs p-1 rounded mr-2" :class="card.variant">{{ card.identifier }}</span>
+                <span class="text-gray-200 text-xs p-1 rounded mr-2 cursor-default" :class="card.variant" :title="variant">{{ card.identifier }}</span>
                 {{ card.name }}
                 <span v-if="hasResource(card) && card.rarity != 'M'">({{ colourToText(card.stats.resource) }})</span>
             </td>
@@ -34,15 +34,26 @@
 <script>
     import Cardable from './Cardable.js';
     import Price from '../Components/Price.vue';
+    import Strings from '../Utilities/Strings';
 
     export default {
-        mixins: [Cardable],
+        mixins: [Cardable, Strings],
         components: { Price },
 
         props: {
             card: Object,
             view: String,
             path: String
+        },
+
+        computed: {
+            variant() {
+                if (this.card.variant == 'regular') {
+                    return 'Regular';
+                }
+
+                return this.ucfirst(this.card.variant) + ' foil';
+            }
         },
 
         methods: {
