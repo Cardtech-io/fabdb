@@ -7,6 +7,7 @@ import ArticleView from './Content/ViewArticle.vue';
 import ArticlesMine from './Content/MyArticles.vue';
 import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
+import PriceList from './CardDatabase/PriceList.vue';
 import BrowseDecks from './Decks/Browse.vue';
 import Event from './Events/Event.vue';
 import Events from './Events/Events.vue';

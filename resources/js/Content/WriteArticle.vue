@@ -145,7 +145,7 @@
             if (to.params.article) {
                 axios.get('/articles/' + to.params.article).then(response => {
                     callback(function() {
-                        this.article = response.data;
+                        this.article = response.data.article;
                     });
                 });
             } else {
