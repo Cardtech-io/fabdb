@@ -6,6 +6,8 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
+
     export default {
         props: ['currency', 'showAll'],
 
@@ -16,9 +18,19 @@
             };
         },
 
+        computed: {
+            ...mapGetters('session', ['user']),
+        },
+
         methods: {
             currencySelected() {
                 this.$emit('currency-selected', this.thisCurrency);
+            }
+        },
+
+        mounted() {
+            if (!this.currency) {
+                this.thisCurrency = this.user ? this.user.currency : 'USD';
             }
         }
     };

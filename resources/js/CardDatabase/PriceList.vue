@@ -22,7 +22,7 @@
                                 <paginator :results="results" @page-selected="updatePage"></paginator>
                             </div>
                             <div class="w-1/4">
-                                <currency-selector :currency="user.currency" @currency-selected="changeCurrency"></currency-selector>
+                                <currency-selector @currency-selected="changeCurrency"></currency-selector>
                             </div>
                         </div>
 
@@ -87,6 +87,7 @@
             return {
                 results: {},
                 order: 'name',
+                page: 1,
                 direction: 'asc',
                 sets: {
                     wtr: 'Welcome to Rathe',
@@ -114,7 +115,10 @@
 
         methods: {
             currency() {
-                return this.selectedCurrency || this.user.currency;
+                if (this.selectedCurrency) return this.selectedCurrency;
+                if (this.user) return this.user.currency;
+
+                return 'USD';
             },
 
             isActive: function(set) {
