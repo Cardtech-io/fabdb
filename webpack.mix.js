@@ -17,7 +17,7 @@ mix.postCss('resources/css/fabdb.css', 'public/css', [
 
 
 if (mix.inProduction()) {
-    mix.js('resources/js/app.js', 'public/js/app.min.js').sourceMaps();
+    mix.js('resources/js/app.js', 'public/js/app.min.js').sourceMaps(true, 'source-map');
 } else {
     mix.js('resources/js/app.js', 'public/js/app.js');
 }
