@@ -25,4 +25,13 @@ interface CardRepository
      * @return string
      */
     public function getFirstIdentifier(string $set): string;
+
+    /**
+     * Return a collection of cards and their prices.
+     *
+     * @param string $currency
+     * @param string $set
+     * @return mixed
+     */
+    public function prices(string $currency, string $set);
 }

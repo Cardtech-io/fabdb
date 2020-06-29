@@ -10,6 +10,7 @@ return [
         'articles/([^/]+)/[a-z0-9\-]+',
         'cards/draft',
         'cards/browse',
+        'cards/prices',
         'collection',
         'decks/export/([^/]+)',
         'decks/build/premium/([^/]+)',

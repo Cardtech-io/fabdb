@@ -26,6 +26,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('articles', 'ArticleController@search');
 
         Route::get('cards', 'CardController@list');
+        Route::get('cards/prices', 'CardController@prices');
         Route::get('cards/{card}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 

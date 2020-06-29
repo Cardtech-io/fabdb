@@ -26,4 +26,12 @@ class CardController extends Controller
     {
         return $packs->generate(new Set($request->get('set')));
     }
+
+    public function prices(Request $request, CardRepository $cards)
+    {
+        return $cards->prices($request->get('currency'), $request->get('set'))
+            ->paginate($request->get('per_page', 50))
+            ->appends($request->except('page'));
+
+    }
 }

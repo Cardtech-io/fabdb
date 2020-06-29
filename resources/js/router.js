@@ -36,7 +36,8 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
 
         { path: "/cards/browse", component: BrowseCards, name: 'cards.browse', meta: { title: 'Browse cards' } },
-        { path: "/cards/:identifier", component: ViewCard, name: 'card-view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
+        { path: "/cards/prices", component: PriceList, name: 'cards.prices', meta: { title: 'Card price list' } },
+        { path: "/cards/:identifier", component: ViewCard, name: 'cards.view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
 
         { path: "/events/mine", component: Events, meta: { title: 'My Events', auth: true }, name: 'events.mine' },
         { path: "/events/schedule", component: Event, meta: { title: 'Events', auth: true }, name: 'events.start' },

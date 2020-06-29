@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Comments\Comment;
+use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Library\Model;
 

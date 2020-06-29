@@ -13,6 +13,7 @@ use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
+use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
@@ -140,6 +141,32 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->first();
 
         return str_split($identifier, 3)[1];
+    }
+
+    public function prices(string $currency, string $set)
+    {
+        $date = PriceAverage::max('created_at');
+
+        return $this->newQuery()
+            ->select(
+                'cards.id',
+                'cards.identifier',
+                'cards.name',
+                'cards.rarity',
+                'cards.stats',
+                'price_averages.variant',
+                'price_averages.high',
+                'price_averages.mean',
+                'price_averages.low'
+            )
+            ->join('price_averages', function($join) use ($currency, $date) {
+                $join->on('price_averages.card_id', 'cards.id');
+                $join->where('price_averages.created_at', $date);
+            })
+            ->where('price_averages.currency', $currency)
+            ->where('identifier', 'LIKE', $set.'%')
+            ->orderBy('cards.name')
+            ->orderBy('cards.identifier');
     }
 
     private function nav(\Closure $exec)
