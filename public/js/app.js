@@ -7414,6 +7414,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -85688,338 +85702,495 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("header-title", {
-        attrs: { title: _vm.deck.name + " (" + _vm.hero.name + ")" }
-      }),
-      _vm._v(" "),
-      _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "bg-white" }, [
-        _c("div", { staticClass: "container sm:mx-auto px-4" }, [
-          _c(
-            "div",
-            { staticClass: "flex-1 font-serif uppercase p-4 md:px-0" },
-            [
-              _vm._v(
-                "\n                " +
-                  _vm._s(_vm.totalCards) +
-                  " Cards in deck  \n                (\n                "
-              ),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(3)
-              }),
-              _vm._v(
-                " " + _vm._s(_vm.totalColoured.blue) + "  \n                "
-              ),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(2)
-              }),
-              _vm._v(
-                " " + _vm._s(_vm.totalColoured.yellow) + "  \n                "
-              ),
-              _c("span", {
-                staticClass: "inline-block rounded-lg h-2 w-2",
-                class: _vm.resourceColour(1)
-              }),
-              _vm._v(
-                " " +
-                  _vm._s(_vm.totalColoured.red) +
-                  "\n                )\n            "
-              )
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
-        _vm.cards && _vm.cards.length
-          ? _c("div", { staticClass: "container sm:mx-auto py-8" }, [
-              _c("div", { staticClass: "clearfix" }, [
-                _c("div", { staticClass: "p-4 md:w-1/3 md:float-left" }, [
-                  _c("div", { staticClass: "mb-8" }, [
-                    _c("img", {
-                      staticClass: "w-full max-w-md rounded-xl",
-                      staticStyle: { "max-width": "400px" },
-                      attrs: {
-                        src: _vm.cardUrl(
-                          _vm.hero.identifier,
-                          350,
-                          _vm.user && _vm.user.view == "bordered"
-                        ),
-                        alt: _vm.hero.name
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
-                  _vm.other.length
-                    ? _c("div", { staticClass: "mb-8" }, [
-                        _c(
-                          "h3",
-                          { staticClass: "p-2 font-serif uppercase text-2xl" },
-                          [_vm._v("Card totals")]
-                        ),
-                        _vm._v(" "),
-                        _c("ol", [
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Total cards: " + _vm._s(_vm.totalCards))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v(
-                              "Attack actions: " +
-                                _vm._s(_vm.totalAttackActions)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v(
-                              "Attack reactions: " +
-                                _vm._s(_vm.totalAttackReactions)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v(
-                              "Defense reactions: " +
-                                _vm._s(_vm.totalDefenseReactions)
-                            )
-                          ])
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.other.length
-                    ? _c("div", { staticClass: "mb-8" }, [
-                        _c(
-                          "h3",
-                          { staticClass: "p-2 font-serif uppercase text-2xl" },
-                          [_vm._v("Deck stats")]
-                        ),
-                        _vm._v(" "),
-                        _c("ol", [
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v(
-                              "Average card cost: " + _vm._s(_vm.averageCost)
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Average pitch: " + _vm._s(_vm.averagePitch))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Pitch 1: " + _vm._s(_vm.pitchCount(1)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Pitch 2: " + _vm._s(_vm.pitchCount(2)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Pitch 3: " + _vm._s(_vm.pitchCount(3)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Cost 0: " + _vm._s(_vm.costCount(0)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Cost 1: " + _vm._s(_vm.costCount(1)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Cost 2: " + _vm._s(_vm.costCount(2)))
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "block p-1 pl-4 w-full" }, [
-                            _vm._v("Cost 3+: " + _vm._s(_vm.costCount(3)))
-                          ])
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.weapons
-                    ? _c("div", { staticClass: "mb-8" }, [
-                        _c(
-                          "h3",
-                          { staticClass: "p-2 font-serif uppercase text-2xl" },
-                          [_vm._v("Weapons")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "ol",
-                          _vm._l(_vm.weapons, function(weapon) {
-                            return _c(
-                              "li",
-                              { staticClass: "p-2 pl-4" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: { to: /cards/ + weapon.identifier }
-                                  },
-                                  [
-                                    _c("span", [_vm._v(_vm._s(weapon.name))]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "text-gray-600 text-xs" },
-                                      [_vm._v(_vm._s(weapon.identifier))]
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          }),
-                          0
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.equipment.length
-                    ? _c("div", { staticClass: "mb-8" }, [
-                        _c(
-                          "h3",
-                          { staticClass: "p-2 font-serif uppercase text-2xl" },
-                          [_vm._v("Equipment")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "ol",
-                          _vm._l(_vm.equipment, function(card) {
-                            return _c(
-                              "li",
-                              { staticClass: "p-2 pl-4" },
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: /cards/ + card.identifier } },
-                                  [
-                                    _c("span", [_vm._v(_vm._s(card.name))]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "text-gray-600 text-xs" },
-                                      [_vm._v(_vm._s(card.identifier))]
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          }),
-                          0
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "md:w-1/3 md:float-left pl-4" }, [
-                  _vm.other.length
-                    ? _c("div", [
-                        _c(
-                          "h3",
-                          { staticClass: "p-2 font-serif uppercase text-2xl" },
-                          [_vm._v("Other")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "ol",
-                          _vm._l(_vm.other, function(card) {
-                            return _c(
-                              "li",
-                              { staticClass: "p-2 pl-4" },
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: /cards/ + card.identifier } },
-                                  [
-                                    _c("span", {}, [
-                                      _vm._v("(" + _vm._s(card.total) + ")")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        class: {
-                                          "text-red-600": card.total > 3
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(card.name))]
-                                    ),
-                                    _vm._v(" "),
-                                    card.stats.resource
-                                      ? _c("span", {
-                                          staticClass:
-                                            "inline-block rounded-lg h-2 w-2",
-                                          class: _vm.resourceColour(
-                                            card.stats.resource
-                                          )
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "text-gray-600 text-xs" },
-                                      [_vm._v(_vm._s(card.identifier))]
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          }),
-                          0
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {},
-                [
-                  _c("hr", { staticClass: "text-gray-500 mt-4" }),
-                  _vm._v(" "),
-                  _c("comment-count", { attrs: { comments: _vm.comments } }),
-                  _vm._v(" "),
-                  _vm.comments
-                    ? _c(
-                        "div",
-                        _vm._l(_vm.comments, function(comment) {
-                          return _c("comment", {
-                            key: comment.slug,
-                            attrs: { comment: comment }
+  return _c("div", [
+    _vm.deck && _vm.hero
+      ? _c(
+          "div",
+          [
+            _c("header-title", {
+              attrs: { title: _vm.deck.name + " (" + _vm.hero.name + ")" }
+            }),
+            _vm._v(" "),
+            _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-white" }, [
+              _c("div", { staticClass: "container sm:mx-auto px-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "flex-1 font-serif uppercase p-4 md:px-0" },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.totalCards) +
+                        " Cards in deck  \n                    (\n                    "
+                    ),
+                    _c("span", {
+                      staticClass: "inline-block rounded-lg h-2 w-2",
+                      class: _vm.resourceColour(3)
+                    }),
+                    _vm._v(
+                      " " +
+                        _vm._s(_vm.totalColoured.blue) +
+                        "  \n                    "
+                    ),
+                    _c("span", {
+                      staticClass: "inline-block rounded-lg h-2 w-2",
+                      class: _vm.resourceColour(2)
+                    }),
+                    _vm._v(
+                      " " +
+                        _vm._s(_vm.totalColoured.yellow) +
+                        "  \n                    "
+                    ),
+                    _c("span", {
+                      staticClass: "inline-block rounded-lg h-2 w-2",
+                      class: _vm.resourceColour(1)
+                    }),
+                    _vm._v(
+                      " " +
+                        _vm._s(_vm.totalColoured.red) +
+                        "\n                    )\n                "
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-gray-200" }, [
+              _vm.cards && _vm.cards.length
+                ? _c("div", { staticClass: "container sm:mx-auto py-8" }, [
+                    _c("div", { staticClass: "clearfix" }, [
+                      _c("div", { staticClass: "p-4 md:w-1/3 md:float-left" }, [
+                        _c("div", { staticClass: "mb-8" }, [
+                          _c("img", {
+                            staticClass: "w-full max-w-md rounded-xl",
+                            staticStyle: { "max-width": "400px" },
+                            attrs: {
+                              src: _vm.cardUrl(
+                                _vm.hero.identifier,
+                                350,
+                                _vm.user && _vm.user.view == "bordered"
+                              ),
+                              alt: _vm.hero.name
+                            }
                           })
-                        }),
-                        1
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "md:w-1/3 md:float-left pl-4" },
+                        [
+                          _vm.other.length
+                            ? _c("div", { staticClass: "mb-8" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "p-2 font-serif uppercase text-2xl"
+                                  },
+                                  [_vm._v("Card totals")]
+                                ),
+                                _vm._v(" "),
+                                _c("ol", [
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Total cards: " + _vm._s(_vm.totalCards)
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Attack actions: " +
+                                          _vm._s(_vm.totalAttackActions)
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Attack reactions: " +
+                                          _vm._s(_vm.totalAttackReactions)
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Defense reactions: " +
+                                          _vm._s(_vm.totalDefenseReactions)
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.other.length
+                            ? _c("div", { staticClass: "mb-8" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "p-2 font-serif uppercase text-2xl"
+                                  },
+                                  [_vm._v("Deck stats")]
+                                ),
+                                _vm._v(" "),
+                                _c("ol", [
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Average card cost: " +
+                                          _vm._s(_vm.averageCost)
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Average pitch: " +
+                                          _vm._s(_vm.averagePitch)
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Pitch 1: " + _vm._s(_vm.pitchCount(1))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Pitch 2: " + _vm._s(_vm.pitchCount(2))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Pitch 3: " + _vm._s(_vm.pitchCount(3))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Cost 0: " + _vm._s(_vm.costCount(0))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Cost 1: " + _vm._s(_vm.costCount(1))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Cost 2: " + _vm._s(_vm.costCount(2))
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "li",
+                                    { staticClass: "block p-1 pl-4 w-full" },
+                                    [
+                                      _vm._v(
+                                        "Cost 3+: " + _vm._s(_vm.costCount(3))
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.weapons
+                            ? _c("div", { staticClass: "mb-8" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "p-2 font-serif uppercase text-2xl"
+                                  },
+                                  [_vm._v("Weapons")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "ol",
+                                  _vm._l(_vm.weapons, function(weapon) {
+                                    return _c(
+                                      "li",
+                                      { staticClass: "p-2 pl-4" },
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: /cards/ + weapon.identifier
+                                            }
+                                          },
+                                          [
+                                            _c("span", [
+                                              _vm._v(_vm._s(weapon.name))
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-gray-600 text-xs"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(weapon.identifier)
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  }),
+                                  0
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.equipment.length
+                            ? _c("div", { staticClass: "mb-8" }, [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "p-2 font-serif uppercase text-2xl"
+                                  },
+                                  [_vm._v("Equipment")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "ol",
+                                  _vm._l(_vm.equipment, function(card) {
+                                    return _c(
+                                      "li",
+                                      { staticClass: "p-2 pl-4" },
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: /cards/ + card.identifier
+                                            }
+                                          },
+                                          [
+                                            _c("span", [
+                                              _vm._v(_vm._s(card.name))
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-gray-600 text-xs"
+                                              },
+                                              [_vm._v(_vm._s(card.identifier))]
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  }),
+                                  0
+                                )
+                              ])
+                            : _vm._e()
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "md:w-1/3 md:float-left pl-4" },
+                        [
+                          _vm.other.length
+                            ? _c("div", [
+                                _c(
+                                  "h3",
+                                  {
+                                    staticClass:
+                                      "p-2 font-serif uppercase text-2xl"
+                                  },
+                                  [_vm._v("Other")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "ol",
+                                  _vm._l(_vm.other, function(card) {
+                                    return _c(
+                                      "li",
+                                      { staticClass: "p-2 pl-4" },
+                                      [
+                                        _c(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: /cards/ + card.identifier
+                                            }
+                                          },
+                                          [
+                                            _c("span", {}, [
+                                              _vm._v(
+                                                "(" + _vm._s(card.total) + ")"
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                class: {
+                                                  "text-red-600": card.total > 3
+                                                }
+                                              },
+                                              [_vm._v(_vm._s(card.name))]
+                                            ),
+                                            _vm._v(" "),
+                                            card.stats.resource
+                                              ? _c("span", {
+                                                  staticClass:
+                                                    "inline-block rounded-lg h-2 w-2",
+                                                  class: _vm.resourceColour(
+                                                    card.stats.resource
+                                                  )
+                                                })
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "text-gray-600 text-xs"
+                                              },
+                                              [_vm._v(_vm._s(card.identifier))]
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  }),
+                                  0
+                                )
+                              ])
+                            : _vm._e()
+                        ]
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("respond", {
-                    attrs: { type: "deck", foreign: _vm.deck.slug },
-                    on: { "comment-posted": _vm.addComment }
-                  })
-                ],
-                1
-              )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {},
+                      [
+                        _c("hr", { staticClass: "text-gray-500 mt-4" }),
+                        _vm._v(" "),
+                        _c("comment-count", {
+                          attrs: { comments: _vm.comments }
+                        }),
+                        _vm._v(" "),
+                        _vm.comments
+                          ? _c(
+                              "div",
+                              _vm._l(_vm.comments, function(comment) {
+                                return _c("comment", {
+                                  key: comment.slug,
+                                  attrs: { comment: comment }
+                                })
+                              }),
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("respond", {
+                          attrs: { type: "deck", foreign: _vm.deck.slug },
+                          on: { "comment-posted": _vm.addComment }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                : _vm._e()
             ])
-          : _vm._e()
-      ])
-    ],
-    1
-  )
+          ],
+          1
+        )
+      : _c(
+          "div",
+          [
+            _c("header-title", { attrs: { title: _vm.deck.name } }),
+            _vm._v(" "),
+            _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
+            _vm._v(" "),
+            _vm._m(0)
+          ],
+          1
+        )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
+        _vm._v(
+          "\n                This deck is not yet ready for viewing or sharing, possibly because it's missing some required configuration.\n            "
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
