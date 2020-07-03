@@ -42,6 +42,11 @@ class Article extends Model
         return $article;
     }
 
+    public function ready()
+    {
+        return $this->status == 'approved' && $this->publishAt !== null;
+    }
+
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');

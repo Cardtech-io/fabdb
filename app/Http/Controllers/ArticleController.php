@@ -14,11 +14,16 @@ class ArticleController extends Controller
 {
     public function view(ArticleRepository $articles, Article $article)
     {
-        return [
-            'article' => $article,
-            'next' => $articles->nextOrPrev('next', $article->publishAt),
-            'prev' => $articles->nextOrPrev('prev', $article->publishAt),
+        $response = [
+            'article' => $article
         ];
+
+        if ($article->ready()) {
+            $response['next'] = $articles->nextOrPrev('next', $article->publishAt);
+            $response['prev'] = $articles->nextOrPrev('prev', $article->publishAt);
+        }
+        
+        return $response;
     }
 
     public function search(Request $request, ArticleRepository $articles)
