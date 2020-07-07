@@ -54,6 +54,8 @@ class VariantParser
 
     public function available()
     {
-        return $this->variant->inventory_quantity;
+        $available = $this->variant->inventory_quantity;
+        
+        return $available < 0 ? 0 : $available;
     }
 }
