@@ -19,7 +19,9 @@
         <ul v-if="filtered.length">
             <li v-for="listing in filtered" class="flex odd:bg-white">
                 <div class="w-1/3 p-2 px-4">{{ variant(listing.variant) }}</div>
-                <div class="w-1/3 p-2 px-4 text-center">{{ price(listing) }}</div>
+                <div class="w-1/3 p-2 px-4 text-center">
+                    <price :amount="listing.price" :currency="useCurrency(listing)" :showCurrency="currency == 'all'"></price>
+                </div>
                 <div class="w-1/3 p-2 px-4 text-right">
                     <a :href="listingUrl(listing)" class="link" target="_blank" v-if="listing.available">{{ listing.store.name }}</a>
                     <span class="text-gray-500" v-else>{{ listing.store.name }}</span>
@@ -35,11 +37,13 @@
 <script>
     import _ from 'underscore';
     import { mapGetters } from 'vuex';
+    import Price from '../Components/Price.vue';
     import Strings from '../Utilities/Strings';
 
     export default {
         props: ['listings'],
         mixins: [Strings],
+        components: {Price},
 
         data() {
             return {
@@ -67,13 +71,8 @@
         },
 
         methods: {
-            price(listing) {
-                let value = '$';
-
-                if (this.currency == 'all') {
-                    value += listing.store.currency;
-                }
-                return value + listing.price;
+            useCurrency(listing) {
+                return this.currency == 'all' ? listing.store.currency : this.currency;
             },
 
             variant(variant) {

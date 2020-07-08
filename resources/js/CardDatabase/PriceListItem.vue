@@ -8,9 +8,9 @@
                 </router-link>
             </td>
             <td class="border border-gray-300 py-2 px-4 text-center">{{ card.rarity }}</td>
-            <td class="border border-gray-300 py-2 px-4 text-center"><price :currency="card.currency">{{ card.high }}</price></td>
-            <td class="border border-gray-300 py-2 px-4 text-center"><price :currency="card.currency">{{ card.mean }}</price></td>
-            <td class="border border-gray-300 py-2 px-4 text-center"><price :currency="card.currency">{{ card.low }}</price></td>
+            <td class="border border-gray-300 py-2 px-4 text-center"><price-movement :currency="card.currency" :current="card.currentHigh" :previous="card.previousHigh"></price-movement></td>
+            <td class="border border-gray-300 py-2 px-4 text-center"><price-movement :currency="card.currency" :current="card.currentMean" :previous="card.previousMean"></price-movement></td>
+            <td class="border border-gray-300 py-2 px-4 text-center"><price-movement :currency="card.currency" :current="card.currentLow" :previous="card.previousLow"></price-movement></td>
         </tr>
         <tr class="even:bg-gray-100 hover:bg-gray-200 sm:hidden">
             <td class="border border-gray-300 py-2 px-4" colspan="5">
@@ -22,9 +22,9 @@
         <tr class="even:bg-gray-100 hover:bg-gray-200 sm:hidden">
             <td class="border border-gray-300 text-center" colspan="5">
                 <div class="flex">
-                    <div class="flex-1 p-2"><price :currency="card.currency">{{ card.high }}</price></div>
-                    <div class="flex-1 p-2 border-l border-r border-gray-300"><price :currency="card.currency">{{ card.mean }}</price></div>
-                    <div class="flex-1 p-2"><price :currency="card.currency">{{ card.low }}</price></div>
+                    <div class="flex-1 p-2"><price-movement :currency="card.currency" :current="card.currentHigh" :previous="card.previousHigh"></price-movement></div>
+                    <div class="flex-1 p-2 border-l border-r border-gray-300"><price-movement :currency="card.currency" :current="card.currentMean" :previous="card.previousMean"></price-movement></div>
+                    <div class="flex-1 p-2"><price-movement :currency="card.currency" :current="card.currentLow" :previous="card.previousLow"></price-movement></div>
                 </div>
             </td>
         </tr>
@@ -33,12 +33,12 @@
 
 <script>
     import Cardable from './Cardable.js';
-    import Price from '../Components/Price.vue';
+    import PriceMovement from '../Components/PriceMovement.vue';
     import Strings from '../Utilities/Strings';
 
     export default {
         mixins: [Cardable, Strings],
-        components: { Price },
+        components: { PriceMovement },
 
         props: {
             card: Object,

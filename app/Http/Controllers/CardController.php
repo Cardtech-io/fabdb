@@ -1,11 +1,9 @@
 <?php
 namespace FabDB\Http\Controllers;
 
-use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Packs;
 use FabDB\Domain\Cards\Set;
-use FabDB\Domain\Users\User;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -32,6 +30,5 @@ class CardController extends Controller
         return $cards->prices($request->get('currency'), $request->get('set'))
             ->paginate($request->get('per_page', 50))
             ->appends($request->except('page'));
-
     }
 }

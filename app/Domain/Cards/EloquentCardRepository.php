@@ -145,7 +145,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function prices(string $currency, string $set)
     {
-        $date = PriceAverage::max('created_at');
+        $dates = PriceAverage::selectRaw('DISTINCT created_at')
+            ->orderBy('created_at', 'desc')->limit(2)
+            ->pluck('created_at')
+            ->toArray();
 
         return $this->newQuery()
             ->select(
@@ -154,16 +157,23 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.name',
                 'cards.rarity',
                 'cards.stats',
-                'price_averages.variant',
-                'price_averages.high',
-                'price_averages.mean',
-                'price_averages.low'
+                'current.variant',
+                'current.high AS current_high',
+                'current.mean AS current_mean',
+                'current.low AS current_low',
+                'previous.high AS previous_high',
+                'previous.mean AS previous_mean',
+                'previous.low AS previous_low'
             )
-            ->join('price_averages', function($join) use ($currency, $date) {
-                $join->on('price_averages.card_id', 'cards.id');
-                $join->where('price_averages.created_at', $date);
+            ->join('price_averages AS current', 'current.card_id', 'cards.id')
+            ->join('price_averages AS previous', function($join) use ($currency, $dates) {
+                $join->on('previous.card_id', 'current.card_id');
+                $join->whereRaw('previous.currency = current.currency');
+                $join->whereRaw('previous.variant = current.variant');
+                $join->where('previous.created_at', $dates[1]);
             })
-            ->where('price_averages.currency', $currency)
+            ->where('current.currency', $currency)
+            ->where('current.created_at', $dates[0])
             ->where('identifier', 'LIKE', $set.'%')
             ->orderBy('cards.name')
             ->orderBy('cards.identifier');

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>{{ symbol }}</span><span><slot></slot></span>
+        <span>{{ symbol }}</span><span>{{ value }}</span>
     </div>
 </template>
 
@@ -10,7 +10,22 @@
 
         computed: {
             symbol() {
-                return '$';
+                let symbol = '$';
+
+                if (this.amount < 0) {
+                    symbol = '-' + symbol;
+                }
+
+                if (this.showCurrency !== 'undefined' && this.showCurrency) {
+                    symbol += this.currency;
+                }
+
+                return symbol;
+            },
+
+            // Move the negative modifier outside of the currency value
+            value() {
+                return Math.abs(this.amount);
             }
         }
     };

@@ -22,7 +22,7 @@ class ArticleController extends Controller
             $response['next'] = $articles->nextOrPrev('next', $article->publishAt);
             $response['prev'] = $articles->nextOrPrev('prev', $article->publishAt);
         }
-        
+
         return $response;
     }
 
