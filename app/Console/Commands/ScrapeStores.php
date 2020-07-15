@@ -93,12 +93,19 @@ class ScrapeStores extends Command
                 foreach ($results->products as $product) {
                     if (preg_match('/[a-z]{3}[0-9]{3}/i', $product->variants[0]->sku)) {
                         Log::debug('Identifier matched for ['.$product->id.':'.$product->title.']');
+
                         foreach ($product->variants as $variant) {
                             $parser = new VariantParser($product, $variant);
+
                             // Ignore any listings with zero price
-                            if ($parser->price() == 0) continue;
+                            if ($parser->price() == 0) {
+                                Log::debug('No price found for ['.$product->id.']');
+                                continue;
+                            }
 
                             try {
+                                Log::debug('New variant for ['.$parser->identifier()->raw().':'.$parser->cardVariant().' - '.$parser->price().']');
+
                                 $card = $this->cards->findByIdentifier($parser->identifier()->raw());
                                 $link = '/products/' . $product->handle;
 
@@ -118,7 +125,6 @@ class ScrapeStores extends Command
                         }
                     } else {
                         Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.']');
-
                     }
                 }
 
