@@ -22,8 +22,11 @@ class Commentable
      */
     private $articles;
 
-    public function __construct(ArticleRepository $articles, CardRepository $cards, DeckRepository $decks)
-    {
+    public function __construct(
+        ArticleRepository $articles,
+        CardRepository $cards,
+        DeckRepository $decks
+    ) {
         $this->articles = $articles;
         $this->cards = $cards;
         $this->decks = $decks;

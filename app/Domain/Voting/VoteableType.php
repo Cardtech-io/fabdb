@@ -1,12 +1,12 @@
 <?php
-namespace FabDB\Domain\Comments;
+namespace FabDB\Domain\Voting;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Content\Article;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Library\Typeable;
 
-class CommentableType extends Typeable
+class VoteableType extends Typeable
 {
     protected function typeMap(): array
     {
