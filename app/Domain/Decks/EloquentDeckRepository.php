@@ -35,6 +35,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function addCardToDeck(int $deckId, int $cardId)
     {
+        DB::beginTransaction();
+
         $deck = $this->find($deckId);
         $existing = $deck->card($cardId);
 
@@ -45,10 +47,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $deck->touch();
+
+        DB::commit();
     }
 
     public function removeCardFromDeck(int $deckId, int $cardId)
     {
+        DB::beginTransaction();
+
         $deck = $this->find($deckId);
         $existing = $deck->card($cardId);
 
@@ -67,10 +73,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $deck->touch();
+
+        DB::commit();
     }
 
     public function addCardToSideboard(int $deckId, int $cardId)
     {
+        DB::beginTransaction();
+
         $deck = $this->find($deckId);
         $card = $deck->card($cardId);
         $existing = $deck->sideboardCard($cardId);
@@ -82,10 +92,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $deck->touch();
+
+        DB::commit();
     }
 
     public function removeCardFromSideboard(int $deckId, int $cardId)
     {
+        DB::beginTransaction();
+
         $deck = $this->find($deckId);
         $existing = $deck->sideboardCard($cardId);
 
@@ -98,6 +112,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $deck->touch();
+
+        DB::commit();
     }
 
     public function search(array $params)

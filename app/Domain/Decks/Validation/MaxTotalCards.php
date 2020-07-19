@@ -35,6 +35,16 @@ class MaxTotalCards implements Rule
     {
         $this->card = $this->getCard($value);
 
+        if ($this->deck->format == 'blitz') {
+            if ($this->card->isEquipment()) {
+                return $this->deck->cards->equipmentTotal() < $this->maxCards();
+            }
+
+            if (!$this->card->isEquipment()) {
+                return $this->deck->cards->otherTotal() < $this->maxCards();
+            }
+        }
+
         return $this->deck->cards->deckTotal() < $this->maxCards();
     }
 
@@ -46,8 +56,9 @@ class MaxTotalCards implements Rule
     public function message()
     {
         $max = $this->maxCards();
+        $type = $this->deck->format == 'blitz' && $this->card->isEquipment() ? 'equipment cards' : 'cards';
 
-        return "You cannot have more than $max cards in your deck.";
+        return "You cannot have more than $max $type in your deck.";
     }
 
     private function maxCards()
