@@ -80,6 +80,10 @@ class ScrapeStores extends Command
 
             $query = '/admin/api/2020-04/products.json?limit=250';
 
+            if ($store->apiCredentials->collection()) {
+                $query .= '&collection_id='.$store->apiCredentials->collection();
+            }
+
             while ($query) {
                 echo '.';
 
