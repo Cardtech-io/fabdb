@@ -1,11 +1,19 @@
 <?php
 namespace FabDB\Domain\Decks\Validation;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
 class MaxTotalCards implements Rule
 {
+    use RequiresCard;
+
+    /**
+     * @var Card
+     */
+    private $card;
+
     /**
      * @var Deck
      */
@@ -25,7 +33,9 @@ class MaxTotalCards implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->deck->cards->deckTotal() < 80;
+        $this->card = $this->getCard($value);
+
+        return $this->deck->cards->deckTotal() < $this->maxCards();
     }
 
     /**
@@ -35,6 +45,20 @@ class MaxTotalCards implements Rule
      */
     public function message()
     {
-        return "You cannot have more than 80 cards per deck.";
+        $max = $this->maxCards();
+
+        return "You cannot have more than $max cards in your deck.";
+    }
+
+    private function maxCards()
+    {
+        switch (true) {
+            case $this->deck->format == 'blitz' && $this->card->isEquipment():
+                return 11;
+            case $this->deck->format == 'blitz' && !$this->card->isEquipment():
+                return 40;
+            default:
+                return 80;
+        }
     }
 }
