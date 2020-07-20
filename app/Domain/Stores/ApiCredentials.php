@@ -1,6 +1,8 @@
 <?php
 namespace FabDB\Domain\Stores;
 
+use Illuminate\Support\Arr;
+
 class ApiCredentials
 {
     /**
@@ -32,6 +34,16 @@ class ApiCredentials
     public function password(): string
     {
         return $this->credentials['password'];
+    }
+
+    public function collection()
+    {
+        return Arr::get($this->credentials, 'collection');
+    }
+
+    public function setCollection($collection)
+    {
+        $this->credentials['collection'] = $collection;
     }
 
     public function endpoint(): string

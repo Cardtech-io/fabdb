@@ -59,6 +59,10 @@ class MaxCards implements Rule
             return 1;
         }
 
+        if ($this->deck->format == 'blitz') {
+            return 2;
+        }
+
         return 3;
     }
 }

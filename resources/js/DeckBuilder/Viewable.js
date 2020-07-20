@@ -35,6 +35,10 @@ export default {
         },
 
         hero: function() {
+            if (!this.cards) {
+                return;
+            }
+
             return this.cards.filter(card => {
                 return card.keywords.includes('hero');
             })[0];
