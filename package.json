@@ -37,7 +37,7 @@
         "vue-masonry": "git://github.com/gbodigital/vue-masonry.git",
         "vue-meta": "^2.4.0",
         "vue-router": "^3.3.4",
-        "vue-simplemde": "^1.0.6",
+        "vue-simplemde": "1.0.4",
         "vuex": "^3.5.1",
         "weekstart": "^1.0.1"
     }
