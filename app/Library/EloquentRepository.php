@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Library;
 
+use FabDB\Domain\Voting\Voteable;
 use Illuminate\Support\Collection;
 
 abstract class EloquentRepository implements Repository
@@ -36,8 +37,17 @@ abstract class EloquentRepository implements Repository
 
     public function bySlug(string $slug): Model
     {
-        return $this->newQuery()
-            ->whereSlug($slug)
-            ->first();
+        $this->slugQuery($slug)->first();
+    }
+
+    protected function slugQuery(string $slug)
+    {
+        $query = $this->newQuery();
+
+        if (in_array(Voteable::class, class_uses($this->model()))) {
+            $query->withVotes();
+        }
+
+        return $query->whereSlug($slug);
     }
 }

@@ -3,6 +3,7 @@ namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
+use FabDB\Domain\Voting\Vote;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -18,6 +19,11 @@ class Deck extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function votes()
+    {
+        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function deckCards()

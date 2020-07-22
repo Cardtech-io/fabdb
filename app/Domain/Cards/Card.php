@@ -1,14 +1,15 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Comments\Comment;
-use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Stores\Listing;
+use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 
 class Card extends Model
 {
+    use Voteable;
+
     public $timestamps = false;
 
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];

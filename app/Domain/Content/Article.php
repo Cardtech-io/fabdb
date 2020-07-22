@@ -3,6 +3,7 @@ namespace FabDB\Domain\Content;
 
 use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Users\User;
+use FabDB\Domain\Voting\Vote;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -50,6 +51,11 @@ class Article extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function votes()
+    {
+        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function setExcerptAttribute($excerpt)

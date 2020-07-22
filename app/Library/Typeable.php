@@ -27,5 +27,5 @@ abstract class Typeable
         return $this->type;
     }
 
-    abstract protected function typeMap(): array;
+    abstract protected static function typeMap(): array;
 }

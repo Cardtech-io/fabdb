@@ -1,14 +1,22 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Voting\CastVote;
+use FabDB\Domain\Voting\VoteableId;
+use FabDB\Domain\Voting\VoteableType;
+use FabDB\Http\Requests\CastVoteRequest;
+
 class VoteController extends Controller
 {
-    public function vote(VoteRequest $request)
+    public function cast(CastVoteRequest $request, VoteableId $voteable)
     {
-        $this->dispatchNow(new LodgeVote(
-            $observer = new LodgeVote,
-            $request->get('type'),
-            $request->get('foreign'),
+        $type = VoteableType::fromRaw($request->get('type'));
+        $foreignId = $voteable->getId($request->get('type'), $request->get('foreign'));
+
+        $this->dispatchNow(new CastVote(
+            $request->user()->id,
+            $type,
+            $foreignId,
             $request->get('direction')
         ));
     }

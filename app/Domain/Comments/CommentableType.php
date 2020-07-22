@@ -8,7 +8,7 @@ use FabDB\Library\Typeable;
 
 class CommentableType extends Typeable
 {
-    protected function typeMap(): array
+    protected static function typeMap(): array
     {
         return [
             'article' => Article::class,

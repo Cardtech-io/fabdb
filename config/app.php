@@ -181,6 +181,7 @@ return [
         FabDB\Domain\Events\EventsServiceProvider::class,
         FabDB\Domain\Stores\StoresServiceProvider::class,
         FabDB\Domain\Users\UsersServiceProvider::class,
+        FabDB\Domain\Voting\VotingServiceProvider::class,
     ],
 
     /*
