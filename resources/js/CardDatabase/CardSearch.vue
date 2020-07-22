@@ -12,8 +12,8 @@
                         <option value="generic">Generic</option>
                         <option value="brute">Brute</option>
                         <option value="guardian">Guardian</option>
-                        <option value="ninja">Ninja</option>
                         <option value="mechanologist">Mechanologist</option>
+                        <option value="ninja">Ninja</option>
                         <option value="ranger">Ranger</option>
                         <option value="runeblade">Runeblade</option>
                         <option value="warrior">Warrior</option>
