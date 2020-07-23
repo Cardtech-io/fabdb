@@ -21,7 +21,6 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
     Route::get('export/{deck}/tts-images', 'ExportController@ttsImages')->middleware('version');
     Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
-    Route::post('vote', 'VoteController@cast');
 
     Route::middleware(['spa', 'version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
@@ -70,6 +69,8 @@ Route::middleware(['web'])->group(function() {
             Route::put('profile/complete', 'UserController@completeProfile');
 
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
+
+            Route::post('vote', 'VoteController@cast');
         });
 
         Route::get('articles/{article}', 'ArticleController@view');
