@@ -37,7 +37,7 @@
                         <deck-details v-if="mode == 'details'"></deck-details>
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
-                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-2 sm:p-4 sm:py-8 overflow-y-auto" :class="{ 'sm:px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-4 sm:py-8 overflow-y-auto" :class="{ 'sm:px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
                         <search-results v-if="mode == 'search'" :results="results"></search-results>
                         <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
