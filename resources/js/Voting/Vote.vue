@@ -49,7 +49,9 @@
                     direction: this.direction
                 };
 
-                axios.post('/vote', payload);
+                axios.post('/vote', payload).then(response => {
+                    this.$emit('voted', payload);
+                });
             }
         }
     };

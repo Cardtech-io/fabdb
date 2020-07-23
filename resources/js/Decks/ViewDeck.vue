@@ -16,7 +16,7 @@
                         )
                     </div>
                     <div class="text-right mt-2">
-                        <votes :size="6" :total="0" voteable="deck" :foreign="deck.slug"></votes>
+                        <votes :size="6" :total="deck.totalVotes" :voted="deck.myVote" voteable="deck" :foreign="deck.slug"></votes>
                     </div>
                 </div>
             </div>

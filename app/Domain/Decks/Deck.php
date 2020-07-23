@@ -4,6 +4,7 @@ namespace FabDB\Domain\Decks;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
 use FabDB\Domain\Voting\Vote;
+use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -12,6 +13,7 @@ class Deck extends Model
 {
     use Raiseable;
     use Sluggable;
+    use Voteable;
     
     protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
     protected $hidden = ['id', 'user_id'];

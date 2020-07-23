@@ -29,11 +29,23 @@ class EloquentVoteRepository extends EloquentRepository implements VoteRepositor
         DB::transaction(function() use ($userId, $type, $foreignId, $direction) {
             $value = $direction == 'up' ? 1 : -1;
 
-            Vote::updateOrCreate([
-                'user_id' => $userId,
-                'voteable_type' => $type,
-                'voteable_id' => $foreignId
-            ], ['value' => $value]);
+            $vote = $this->newQuery()
+                ->where('voteable_type', $type)
+                ->where('voteable_id', $foreignId)
+                ->where('user_id', $userId)
+                ->first();
+
+            if ($vote) {
+                // Resetting the vote
+                if ($value == $vote->value) {
+                    $vote->delete();
+                } else {
+                    $vote->value = $value;
+                    $vote->save();
+                }
+            } else {
+                Vote::create(['voteable_type' => $type, 'voteable_id' => $foreignId, 'user_id' => $userId, 'value' => $value]);
+            }
         });
     }
 }

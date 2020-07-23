@@ -24,7 +24,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model
     {
-        $query = $this->newQuery()->whereSlug($slug);
+        $query = $this->newQuery()->select('decks.*');
+        $query = $this->slugQuery($query, $slug);
 
         if ($includeCards) {
             $query->with('cards');
