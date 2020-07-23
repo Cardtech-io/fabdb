@@ -90,14 +90,6 @@
             updatePage(page) {
                 this.updateParam({ key: 'page', value: page });
             }
-        },
-
-        extends: LazyLoader((to, callback) => {
-            axios.get('/decks').then(response => {
-                callback(function() {
-                    this.results = response.data;
-                });
-            });
-        })
+        }
     };
 </script>

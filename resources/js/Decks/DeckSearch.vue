@@ -1,6 +1,6 @@
 <template>
     <form class="px-4 md:px-0 block flex" @submit.prevent="newSearch">
-        <div class="w-2/3 pr-4">
+        <div class="w-2/4 pr-4">
             <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
                 <option value="ARC038">Azalea</option>
@@ -14,7 +14,15 @@
             </select>
         </div>
 
-        <div class="w-1/3">
+        <div class="w-1/4 pr-4">
+            <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
+                <option value="">Order</option>
+                <option value="newest">Newest</option>
+                <option value="popular">Popular</option>
+            </select>
+        </div>
+
+        <div class="w-1/4">
             <input type="submit" value="Search" class="appearance-none block w-full bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500">
         </div>
     </form>
@@ -37,6 +45,16 @@
                     this.updateParam({ key: 'hero', value: value });
                 }
             },
+
+            order: {
+                get() {
+                    return this.params.order || 'newest';
+                },
+
+                set(value) {
+                    this.updateParam({ key: 'order', value: value });
+                }
+            },
         },
 
         methods: {
@@ -51,6 +69,7 @@
             search: function() {
                 const params = {
                     hero: this.hero,
+                    order: this.order,
                     page: this.params.page
                 };
 
@@ -69,6 +88,10 @@
             'params.page': function() {
                 this.search();
             }
+        },
+
+        created() {
+            this.search();
         }
     };
 </script>
