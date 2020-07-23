@@ -8,23 +8,23 @@
             <div class="bg-white">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-2/3 p-4" :class="{ 'px-8': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
-                            <div class="flex-auto">
+                        <div class="flex items-center w-2/3 p-4 sm:px-2" :class="{ 'sm:px-8': fullScreen, 'w-full': mode != 'search' }">
+                            <div class="flex-auto hidden sm:block">
                                 <h2 class="font-serif uppercase text-2xl">{{ totalCards }} <span class="text-base">cards</span></h2>
                             </div>
 
-                            <filter-selector v-if="mode != 'details'"></filter-selector>
-                            <grouping-selector v-if="mode != 'details'"></grouping-selector>
-                            <mode-selector></mode-selector>
+                            <filter-selector v-if="mode != 'details'" class="hidden sm:block"></filter-selector>
+                            <grouping-selector v-if="mode != 'details'" class="hidden sm:block"></grouping-selector>
+                            <mode-selector class="w-full sm:w-auto"></mode-selector>
 
-                            <div class="px-2 flex">
-                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen"></zoom-button>
-                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen"></zoom-button>
+                            <div class="px-2 sm:px-1 flex">
+                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
+                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
                                 <fullscreen-button></fullscreen-button>
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="w-1/3 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search(1)" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
+                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search(1)" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none sm:px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
                         </div>
                     </div>
                 </div>
@@ -32,12 +32,12 @@
 
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
-                    <div class="w-2/3 h-full py-4 overflow-y-auto" :class="{ 'px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
+                    <div class="w-2/3 h-full sm:py-4 overflow-y-auto" :class="{ 'sm:px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                         <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
                         <deck-details v-if="mode == 'details'"></deck-details>
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
-                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-4 py-8 overflow-y-auto" :class="{ 'px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-2 sm:p-4 sm:py-8 overflow-y-auto" :class="{ 'sm:px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
                         <search-results v-if="mode == 'search'" :results="results"></search-results>
                         <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
                     </div>

@@ -155,6 +155,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                     break;
                 case 'popular':
                     $query->orderBy('total_votes', 'desc');
+                    $query->orderBy('decks.id', 'desc');
                     break;
             }
         }
