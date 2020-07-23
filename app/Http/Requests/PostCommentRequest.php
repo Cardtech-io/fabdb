@@ -2,7 +2,7 @@
 namespace FabDB\Http\Requests;
 
 use FabDB\Domain\Comments\Comment;
-use FabDB\Domain\Comments\Commentable;
+use FabDB\Domain\Comments\CommentableId;
 use FabDB\Domain\Comments\CommentableType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -25,7 +25,7 @@ class PostCommentRequest extends FormRequest
 
     private function foreignId()
     {
-        $commentable = app(Commentable::class);
+        $commentable = app(CommentableId::class);
 
         return $commentable->getId($this->get('type'), $this->get('foreign'));
     }

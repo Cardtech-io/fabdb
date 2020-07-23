@@ -14,8 +14,10 @@ class EloquentCommentRepository extends EloquentRepository implements CommentRep
     public function get(CommentableType $type, int $foreignId)
     {
         return $this->newQuery()
+            ->select('comments.*')
+            ->withVotes()
             ->with(['user' => function($with) {
-                $with->select('users.id', 'users.subscription', 'users.name', 'users.slug');
+                $with->select('users.id', 'users.subscription', 'users.name', 'users.slug', 'users.avatar');
             }])
             ->whereCommentableType($type)
             ->whereCommentableId($foreignId)

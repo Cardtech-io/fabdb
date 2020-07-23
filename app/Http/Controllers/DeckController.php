@@ -85,6 +85,7 @@ class DeckController extends Controller
         $deck->load('cards');
         $deck->load('sideboard');
 
+
         return $deck;
     }
 

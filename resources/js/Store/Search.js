@@ -5,6 +5,7 @@ export default {
         params: {
             currency: 'USD',
             hero: null,
+            order: 'newest',
             keywords: '',
             page: 1,
         }

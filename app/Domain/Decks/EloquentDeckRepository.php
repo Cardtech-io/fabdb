@@ -24,7 +24,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model
     {
-        $query = $this->newQuery()->whereSlug($slug);
+        $query = $this->newQuery()->select('decks.*');
+        $query = $this->slugQuery($query, $slug);
 
         if ($includeCards) {
             $query->with('cards');
@@ -121,6 +122,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.slug'
         ]);
 
+        $query->withVotes();
+
         $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards');
         $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.mean) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
 
@@ -145,9 +148,19 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             });
         }
 
+        if (!empty($params['order'])) {
+            switch ($params['order']) {
+                case 'newest':
+                    $query->orderBy('decks.id', 'desc');
+                    break;
+                case 'popular':
+                    $query->orderBy('total_votes', 'desc');
+                    break;
+            }
+        }
+
         $query->where('decks.visibility', 'public');
         $query->groupBy('decks.id');
-        $query->orderBy('decks.id', 'desc');
 
         return $query;
     }

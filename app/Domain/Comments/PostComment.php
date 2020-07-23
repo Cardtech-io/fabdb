@@ -41,7 +41,7 @@ class PostComment
         $this->observer = $observer;
     }
 
-    public function handle(CommentRepository $comments, Commentable $commentable)
+    public function handle(CommentRepository $comments, CommentableId $commentable)
     {
         $foreignId = $commentable->getId($this->type, $this->foreign);
 

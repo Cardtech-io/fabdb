@@ -20,7 +20,7 @@ import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
 import PremiumDeckBuilder from './DeckBuilder/PremiumDeckBuilder.vue';
 import TestDeck from './DeckBuilder/TestDeck.vue';
 import ExportDeck from './DeckBuilder/ExportDeck.vue';
-import ViewDeck from './DeckBuilder/ViewDeck.vue';
+import ViewDeck from './Decks/ViewDeck.vue';
 import Support from './Support.vue';
 import Profile from './Identity/Profile.vue';
 import Privacy from './Privacy.vue';

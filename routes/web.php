@@ -21,6 +21,7 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
     Route::get('export/{deck}/tts-images', 'ExportController@ttsImages')->middleware('version');
     Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
+    Route::post('vote', 'VoteController@cast');
 
     Route::middleware(['spa', 'version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
