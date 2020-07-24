@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.className" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('className')">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('class')">
                         <option value="">Class</option>
                         <option value="generic">Generic</option>
                         <option value="brute">Brute</option>
@@ -117,7 +117,7 @@
                 openTray: false,
                 params: {
                     cost: '',
-                    className: '',
+                    class: '',
                     keywords: this.$route.query.keywords,
                     page: this.page,
                     pitch: '',
