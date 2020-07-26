@@ -15,6 +15,14 @@ class CardController extends Controller
             ->appends($request->except('page'));
     }
 
+    public function fabled(CardRepository $cards)
+    {
+        return collect([
+            $cards->findByIdentifier('WTR000'),
+            $cards->findByIdentifier('ARC000'),
+        ]);
+    }
+
     public function view(Request $request, CardRepository $cards)
     {
         return $cards->view($request->card->identifier);

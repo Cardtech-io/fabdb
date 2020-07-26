@@ -55,6 +55,7 @@ module.exports = {
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
         borderRadius: ['responsive', 'first', 'last'],
+        margin: ['responsive', 'odd', 'even'],
         opacity: ['disabled'],
         textColor: ['responsive', 'hover', 'group-hover'],
 

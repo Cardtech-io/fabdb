@@ -13,7 +13,7 @@ class Card extends Model
     public $timestamps = false;
 
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];
-    protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'keywords', 'stats', 'searchText'];
+    protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
     protected $appends = ['total'];
 
@@ -32,11 +32,11 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, array $keywords, array $stats)
+    public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats)
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
 
-        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'flavour', 'keywords', 'stats', 'searchText'));
+        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'));
     }
 
     public function setIdentifierAttribute(Identifier $identifier)

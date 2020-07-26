@@ -96,6 +96,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.stats',
             'cards.text',
             'cards.flavour',
+            'cards.comments',
         ];
 
         $query = $this->newQuery()

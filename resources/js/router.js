@@ -7,6 +7,7 @@ import ArticleView from './Content/ViewArticle.vue';
 import ArticlesMine from './Content/MyArticles.vue';
 import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
+import FabledCards from './CardDatabase/Fabled.vue';
 import PriceList from './CardDatabase/PriceList.vue';
 import BrowseDecks from './Decks/Browse.vue';
 import Event from './Events/Event.vue';
@@ -36,6 +37,7 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
 
         { path: "/cards/browse", component: BrowseCards, name: 'cards.browse', meta: { title: 'Browse cards' } },
+        { path: "/cards/fabled", component: FabledCards, name: 'cards.fabled', meta: { title: 'The fabled cards of Flesh & Blood' } },
         { path: "/cards/prices", component: PriceList, name: 'cards.prices', meta: { title: 'Card price list' } },
         { path: "/cards/:identifier", component: ViewCard, name: 'cards.view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse/' } } },
 

@@ -1,259 +1,259 @@
-Set,ID,Name,Rarity,Text,Flavour,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
+Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
 WTR,0,Heart of Fyendal,F,"**Legendary** *(You may only have 1 Heart of Fyendal in your deck.)*
 
-When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].",,"generic,resource,gem",,,3,,,
-WTR,1,"Rhinar, Reckless Rampage",T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,"brute,hero",40,4,,,,
-WTR,2,Rhinar,T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,"brute,hero,young",20,4,,,,
+When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].","Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber… yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.","The Heart of Fyendal was the first fabled card for Flesh & Blood. Additionally, it was a wonderful surprise to the community, as [Legend Story Studios](https://legendstory.com) never mentioned that such a card existed in the lead up to its release. As a result, the first player to find the Heart was confused by what they had found, as were we all.","generic,resource,gem",,,3,,,
+WTR,1,"Rhinar, Reckless Rampage",T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,
+WTR,2,Rhinar,T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero,young",20,4,,,,
 WTR,3,Romping Club,T,"**Once per turn Action** - [2 resource]: **Attack**
 
-**Once per Turn Effect** - When you discard a card with 6 or more [attack], Romping Club gains +1[attack] until end of turn.",,"brute,weapon,club,2h",,,,,,4
+**Once per Turn Effect** - When you discard a card with 6 or more [attack], Romping Club gains +1[attack] until end of turn.",,,"brute,weapon,club,2h",,,,,,4
 WTR,4,Scabskin Leathers,L,"**Once per Turn Action** - 0: Roll a 6 sided die. Gain action points equal to half the number roll, rounded down.
 
-**Battleworn** *(If you defend with Scabskin Leathers, put a -1[defense] counter on it when the combat chain closes.)*",,"brute,equipment,legs",,,,,2,
+**Battleworn** *(If you defend with Scabskin Leathers, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,legs",,,,,2,
 WTR,5,Barkbone Strapping,C,"**Instant** - Destroy Barkbone Strapping: Roll a 6 sided die. Gain [resourrce] equal to half the number rolled, rounded down.
 
-**Battleworn** *(If you defend with Backbone Strapping, put a -1[defense] counter on it when the combat chain closes.)*",,"brute,equipment,chest",,,,,1,
+**Battleworn** *(If you defend with Backbone Strapping, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,chest",,,,,1,
 WTR,6,Alpha Rampage,M,"**Rhinar Specialization** *(You may only have Alpha Rampage in your deck if your hero is Rhinar.)*
 
 As an additional cost to play Alpha Rampage, discard a random card.
 
-**Intimidate**",,"brute,attack,action",,,1,3,3,9
+**Intimidate**",,,"brute,attack,action",,,1,3,3,9
 WTR,7,Bloodrush Bellow,M,"As an additional cost to play Bloodrush Bellow, discard a random card.
 
 Your Brute attacks gain +2[attack] this turn.
 
-If the discarded card has 6 or more [attack], draw 2 cards and Bloodrush Bellow gains **go again**",,"brute,action",,,2,1,3,
+If the discarded card has 6 or more [attack], draw 2 cards and Bloodrush Bellow gains **go again**",,,"brute,action",,,2,1,3,
 WTR,8,Reckless Swing,S,"As an additional cost to play Reckless Swing, discard a random card.
 
-If the discarded card has 6 or more [attack], deal 2 damage to the attacking hero.",,"brute,defense,reaction",,,3,0,4,
+If the discarded card has 6 or more [attack], deal 2 damage to the attacking hero.",,,"brute,defense,reaction",,,3,0,4,
 WTR,9,Sand Sketched Plan,S,"**Rhinar Specialization** *(You may only have Sand Sketched Plan in your deck if your hero is Rhinar.)*
 
 Search your deck for a card, put it into your hand, discard a random card, then shuffle your deck.
 
-If the discarded card has 6 or more [attack], gain 2 action points.",,"brute,action",,,3,0,3,
-WTR,10,Bone Head Barrier,S,"Rolla 6 sided die. Prevent the next X damage that would be dealt to your hero this turn, where X is the number rolled.",“Sometimes you gotta roll with the punches.”,"brute,instant",,,2,1,,
+If the discarded card has 6 or more [attack], gain 2 action points.",,,"brute,action",,,3,0,3,
+WTR,10,Bone Head Barrier,S,"Rolla 6 sided die. Prevent the next X damage that would be dealt to your hero this turn, where X is the number rolled.",“Sometimes you gotta roll with the punches.”,,"brute,instant",,,2,1,,
 WTR,11,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,"brute,action,attack",,,1,2,3,6
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,1,2,3,6
 WTR,12,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,"brute,action,attack",,,2,2,3,5
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,2,2,3,5
 WTR,13,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,"brute,action,attack",,,3,2,3,4
-WTR,14,Savage Feast,R,,,"brute,action,attack",,,1,1,3,6
-WTR,15,Savage Feast,R,,,"brute,action,attack",,,2,1,3,5
-WTR,16,Savage Feast,R,,,"brute,action,attack",,,3,1,3,4
-WTR,17,Barraging Beatdown,R,,,"brute,action",,,1,0,3,
-WTR,18,Barraging Beatdown,R,,,"brute,action",,,2,0,3,
-WTR,19,Barraging Beatdown,R,,,"brute,action",,,3,0,3,
-WTR,20,Savage Swing,C,,,"brute,action,attack",,,1,1,3,7
-WTR,21,Savage Swing,C,,,"brute,action,attack",,,2,1,3,6
-WTR,22,Savage Swing,C,,,"brute,action,attack",,,3,1,3,5
-WTR,23,Pack Hunt,C,,,"brute,action,attack",,,1,2,3,6
-WTR,24,Pack Hunt,C,,,"brute,action,attack",,,2,2,3,5
-WTR,25,Pack Hunt,C,,,"brute,action,attack",,,3,2,3,4
-WTR,26,Smash Instinct,C,,,"brute,action,attack",,,1,3,3,7
-WTR,27,Smash Instinct,C,,,"brute,action,attack",,,2,3,3,6
-WTR,28,Smash Instinct,C,,,"brute,action,attack",,,3,3,3,5
-WTR,29,Wrecker Romp,C,,,"brute,action,attack",,,1,2,3,8
-WTR,30,Wrecker Romp,C,,,"brute,action,attack",,,2,2,3,7
-WTR,31,Wrecker Romp,C,,,"brute,action,attack",,,3,2,3,6
-WTR,32,Awakening Bellow,C,,,"brute,action",,,1,1,3,
-WTR,33,Awakening Bellow,C,,,"brute,action",,,2,1,3,
-WTR,34,Awakening Bellow,C,,,"brute,action",,,3,1,3,
-WTR,35,Primeval Bellow,C,,,"brute,action",,,1,0,3,
-WTR,36,Primeval Bellow,C,,,"brute,action",,,2,0,3,
-WTR,37,Primeval Bellow,C,,,"brute,action",,,3,0,3,
-WTR,38,"Bravo, Showstopper",T,,,"guardian,hero",40,4,,,,
-WTR,39,"Bravo, Showstopper",T,,,"guardian,hero,young",20,4,,,,
-WTR,40,Anothos,T,,,"guardian,weapon,hammer,2h",,,,,,4
-WTR,41,Tectonic Plating,L,,,"guardian,equipment,chest",,,,,2,
-WTR,42,Helm of Isen's Peak,C,,,"guardian,equipment,head",,,,,1,
-WTR,43,Crippling Crush,M,,,"guardian,action,attack",,,1,7,3,11
-WTR,44,Spinal Crush,M,,,"guardian,action,attack",,,1,5,3,9
-WTR,45,Cranial Crush,S,,,"guardian,action,attack",,,3,6,3,8
-WTR,46,Forged for War,S,,,"guardian,action,aura",,,2,2,3,
-WTR,47,Show Time!,S,,,"guardian,action,aura",,,3,3,3,
-WTR,48,Disable,R,,,"guardian,action,attack",,,1,5,3,9
-WTR,49,Disable,R,,,"guardian,action,attack",,,2,5,3,8
-WTR,50,Disable,R,,,"guardian,action,attack",,,3,5,3,7
-WTR,51,Staunch Response,R,,,"guardian,defense,reaction",,,1,2,7,
-WTR,52,Staunch Response,R,,,"guardian,defense,reaction",,,2,2,6,
-WTR,53,Staunch Response,R,,,"guardian,defense,reaction",,,3,2,5,
-WTR,54,Blessing of Deliverance,R,,,"guardian,action,aura",,,1,2,3,
-WTR,55,Blessing of Deliverance,R,,,"guardian,action,aura",,,2,2,3,
-WTR,56,Blessing of Deliverance,R,,,"guardian,action,aura",,,3,2,3,
-WTR,57,Buckling Blow,C,,,"guardian,action,attack",,,1,4,3,8
-WTR,58,Buckling Blow,C,,,"guardian,action,attack",,,2,4,3,7
-WTR,59,Buckling Blow,C,,,"guardian,action,attack",,,3,4,3,6
-WTR,60,Cartilage Crush,C,,,"guardian,action,attack",,,1,3,3,7
-WTR,61,Cartilage Crush,C,,,"guardian,action,attack",,,2,3,3,6
-WTR,62,Cartilage Crush,C,,,"guardian,action,attack",,,3,3,3,5
-WTR,63,Crush Confidence,C,,,"guardian,action,attack",,,1,3,3,7
-WTR,64,Crush Confidence,C,,,"guardian,action,attack",,,2,3,3,6
-WTR,65,Crush Confidence,C,,,"guardian,action,attack",,,3,3,3,5
-WTR,66,Debilitate,C,,,"guardian,action,attack",,,1,4,3,8
-WTR,67,Debilitate,C,,,"guardian,action,attack",,,2,4,3,7
-WTR,68,Debilitate,C,,,"guardian,action,attack",,,3,4,3,6
-WTR,69,Emerging Power,C,,,"guardian,action,aura",,,1,2,3,
-WTR,70,Emerging Power,C,,,"guardian,action,aura",,,2,2,3,
-WTR,71,Emerging Power,C,,,"guardian,action,aura",,,3,2,3,
-WTR,72,Stonewall Confidence,C,,,"guardian,action,aura",,,1,2,3,
-WTR,73,Stonewall Confidence,C,,,"guardian,action,aura",,,2,2,3,
-WTR,74,Stonewall Confidence,C,,,"guardian,action,aura",,,3,2,3,
-WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,"guardian,token,aura",,,1,2,3,
-WTR,76,"Katsu, the Wanderer",C,,,"ninja,hero",40,4,,,,
-WTR,77,Katsu,C,,,"ninja,hero,young",20,4,,,,
-WTR,78,Harmonized Kodachi,T,,,"ninja,weapon,dagger,1h",,,,,,1
-WTR,79,Mask of Momentum,L,,,"ninja,equipment,head",,,,,2,
-WTR,80,Breaking Scales,C,,,"ninja,equipment,arms",,,,,1,
-WTR,81,Lord of Wind,M,,,"ninja,action,attack",,,3,0,2,2
-WTR,82,Ancestral Empowerment,M,,,"ninja,action,reaction",,,1,0,2,
-WTR,83,Mugenshi: RELEASE,M,,,"ninja,action,attack",,,2,1,3,4
-WTR,84,Hurricane Technique,S,,,"ninja,action,attack",,,2,1,3,4
-WTR,85,Pounding Gale,S,,,"ninja,action,attack",,,1,1,3,5
-WTR,86,Fluster Fist,R,,,"ninja,action,attack",,,1,0,3,4
-WTR,87,Fluster Fist,R,,,"ninja,action,attack",,,2,0,3,3
-WTR,88,Fluster Fist,R,,,"ninja,action,attack",,,3,0,3,2
-WTR,89,Blackout Kick,R,,,"ninja,action,attack",,,1,1,3,4
-WTR,90,Blackout Kick,R,,,"ninja,action,attack",,,2,1,3,3
-WTR,91,Blackout Kick,R,,,"ninja,action,attack",,,3,1,3,2
-WTR,92,Flic Flak,R,,,"ninja,defense,reaction",,,1,0,4,
-WTR,93,Flic Flak,R,,,"ninja,defense,reaction",,,2,0,4,
-WTR,94,Flic Flak,R,,,"ninja,defense,reaction",,,3,0,4,
-WTR,95,Open the Center,C,,,"ninja,action,attack",,,1,2,3,5
-WTR,96,Open the Center,C,,,"ninja,action,attack",,,2,2,3,4
-WTR,97,Open the Center,C,,,"ninja,action,attack",,,3,2,3,3
-WTR,98,Head Jab,C,,,"ninja,action,attack",,,1,0,2,3
-WTR,99,Head Jab,C,,,"ninja,action,attack",,,2,0,2,2
-WTR,100,Head Jab,C,,,"ninja,action,attack",,,3,0,2,1
-WTR,101,Leg Tap,C,,,"ninja,action,attack",,,1,1,2,4
-WTR,102,Leg Tap,C,,,"ninja,action,attack",,,2,1,2,3
-WTR,103,Leg Tap,C,,,"ninja,action,attack",,,3,1,2,2
-WTR,104,Rising Knee Thrust,C,,,"ninja,action,attack",,,1,0,3,3
-WTR,105,Rising Knee Thrust,C,,,"ninja,action,attack",,,2,0,3,2
-WTR,106,Rising Knee Thrust,C,,,"ninja,action,attack",,,3,0,3,1
-WTR,107,Surging Strike,C,,,"ninja,action,attack",,,1,2,2,5
-WTR,108,Surging Strike,C,,,"ninja,action,attack",,,2,2,2,4
-WTR,109,Surging Strike,C,,,"ninja,action,attack",,,3,2,2,3
-WTR,110,Whelming Gustwave,C,,,"ninja,action,attack",,,1,0,3,3
-WTR,111,Whelming Gustwave,C,,,"ninja,action,attack",,,2,0,3,2
-WTR,112,Whelming Gustwave,C,,,"ninja,action,attack",,,3,0,3,1
-WTR,113,Dorinthea Ironsong,T,,,"warrior,hero",,4,,,,
-WTR,114,Dorinthea,T,,,"warrior,hero,young",,4,,,,
-WTR,115,Dawnblade,T,,,"warrior,weapon,sword,2h",,,,,,3
-WTR,116,Braveforge Bracers,L,,,"warrior,equipment,arms",,,,,2,
-WTR,117,Refraction Bolters,C,,,"warrior,equipment,legs",,,,,1,
-WTR,118,Glint the Quicksilver,M,,,"warrior,attack,reaction",,,3,0,3,
-WTR,119,Steelblade Supremacy,M,,,"warrior,action",,,1,1,3,
-WTR,120,Rout,S,,,"warrior,attack,reaction",,,1,2,3,
-WTR,121,Singing Steelblade,S,,,"warrior,attack,reaction",,,2,1,3,
-WTR,122,Ironsong Determination,S,,,"warrior,action",,,2,0,3,
-WTR,123,Overpower,R,,,"warrior,attack,reaction",,,1,3,3,
-WTR,124,Overpower,R,,,"warrior,attack,reaction",,,2,3,3,
-WTR,125,Overpower,R,,,"warrior,attack,reaction",,,3,3,3,
-WTR,126,Steelblade Shunt,R,,,"warrior,defense,reaction",,,1,1,6,
-WTR,127,Steelblade Shunt,R,,,"warrior,defense,reaction",,,2,1,5,
-WTR,128,Steelblade Shunt,R,,,"warrior,defense,reaction",,,3,1,4,
-WTR,129,Warrior's Valor,R,,,"warrior,action",,,1,1,3,
-WTR,130,Warrior's Valor,R,,,"warrior,action",,,2,1,3,
-WTR,131,Warrior's Valor,C,,,"warrior,action",,,3,1,3,
-WTR,132,Ironsong Response,C,,,"warrior,attack,reaction",,,1,0,3,
-WTR,133,Ironsong Response,C,,,"warrior,attack,reaction",,,2,0,3,
-WTR,134,Ironsong Response,C,,,"warrior,attack,reaction",,,3,0,3,
-WTR,135,Biting Blade,C,,,"warrior,attack,reaction",,,1,2,3,
-WTR,136,Biting Blade,C,,,"warrior,attack,reaction",,,2,2,3,
-WTR,137,Biting Blade,C,,,"warrior,attack,reaction",,,3,2,3,
-WTR,138,Stroke of Foresight,C,,,"warrior,attack,reaction",,,1,1,3,
-WTR,139,Stroke of Foresight,C,,,"warrior,attack,reaction",,,2,1,3,
-WTR,140,Stroke of Foresight,C,,,"warrior,attack,reaction",,,3,1,3,
-WTR,141,Sharpen Steel,C,,,"warrior,action",,,1,0,3,
-WTR,142,Sharpen Steel,C,,,"warrior,action",,,2,0,3,
-WTR,143,Sharpen Steel,C,,,"warrior,action",,,3,0,3,
-WTR,144,Driving Blade,C,,,"warrior,action",,,1,2,3,
-WTR,145,Driving Blade,C,,,"warrior,action",,,2,2,3,
-WTR,146,Driving Blade,C,,,"warrior,action",,,3,2,3,
-WTR,147,Nature's Path Pilgrimage,C,,,"warrior,action",,,1,1,3,
-WTR,148,Nature's Path Pilgrimage,C,,,"warrior,action",,,2,1,3,
-WTR,149,Nature's Path Pilgrimage,C,,,"warrior,action",,,3,1,3,
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,3,2,3,4
+WTR,14,Savage Feast,R,,,,"brute,action,attack",,,1,1,3,6
+WTR,15,Savage Feast,R,,,,"brute,action,attack",,,2,1,3,5
+WTR,16,Savage Feast,R,,,,"brute,action,attack",,,3,1,3,4
+WTR,17,Barraging Beatdown,R,,,,"brute,action",,,1,0,3,
+WTR,18,Barraging Beatdown,R,,,,"brute,action",,,2,0,3,
+WTR,19,Barraging Beatdown,R,,,,"brute,action",,,3,0,3,
+WTR,20,Savage Swing,C,,,,"brute,action,attack",,,1,1,3,7
+WTR,21,Savage Swing,C,,,,"brute,action,attack",,,2,1,3,6
+WTR,22,Savage Swing,C,,,,"brute,action,attack",,,3,1,3,5
+WTR,23,Pack Hunt,C,,,,"brute,action,attack",,,1,2,3,6
+WTR,24,Pack Hunt,C,,,,"brute,action,attack",,,2,2,3,5
+WTR,25,Pack Hunt,C,,,,"brute,action,attack",,,3,2,3,4
+WTR,26,Smash Instinct,C,,,,"brute,action,attack",,,1,3,3,7
+WTR,27,Smash Instinct,C,,,,"brute,action,attack",,,2,3,3,6
+WTR,28,Smash Instinct,C,,,,"brute,action,attack",,,3,3,3,5
+WTR,29,Wrecker Romp,C,,,,"brute,action,attack",,,1,2,3,8
+WTR,30,Wrecker Romp,C,,,,"brute,action,attack",,,2,2,3,7
+WTR,31,Wrecker Romp,C,,,,"brute,action,attack",,,3,2,3,6
+WTR,32,Awakening Bellow,C,,,,"brute,action",,,1,1,3,
+WTR,33,Awakening Bellow,C,,,,"brute,action",,,2,1,3,
+WTR,34,Awakening Bellow,C,,,,"brute,action",,,3,1,3,
+WTR,35,Primeval Bellow,C,,,,"brute,action",,,1,0,3,
+WTR,36,Primeval Bellow,C,,,,"brute,action",,,2,0,3,
+WTR,37,Primeval Bellow,C,,,,"brute,action",,,3,0,3,
+WTR,38,"Bravo, Showstopper",T,,,,"guardian,hero",40,4,,,,
+WTR,39,"Bravo, Showstopper",T,,,,"guardian,hero,young",20,4,,,,
+WTR,40,Anothos,T,,,,"guardian,weapon,hammer,2h",,,,,,4
+WTR,41,Tectonic Plating,L,,,,"guardian,equipment,chest",,,,,2,
+WTR,42,Helm of Isen's Peak,C,,,,"guardian,equipment,head",,,,,1,
+WTR,43,Crippling Crush,M,,,,"guardian,action,attack",,,1,7,3,11
+WTR,44,Spinal Crush,M,,,,"guardian,action,attack",,,1,5,3,9
+WTR,45,Cranial Crush,S,,,,"guardian,action,attack",,,3,6,3,8
+WTR,46,Forged for War,S,,,,"guardian,action,aura",,,2,2,3,
+WTR,47,Show Time!,S,,,,"guardian,action,aura",,,3,3,3,
+WTR,48,Disable,R,,,,"guardian,action,attack",,,1,5,3,9
+WTR,49,Disable,R,,,,"guardian,action,attack",,,2,5,3,8
+WTR,50,Disable,R,,,,"guardian,action,attack",,,3,5,3,7
+WTR,51,Staunch Response,R,,,,"guardian,defense,reaction",,,1,2,7,
+WTR,52,Staunch Response,R,,,,"guardian,defense,reaction",,,2,2,6,
+WTR,53,Staunch Response,R,,,,"guardian,defense,reaction",,,3,2,5,
+WTR,54,Blessing of Deliverance,R,,,,"guardian,action,aura",,,1,2,3,
+WTR,55,Blessing of Deliverance,R,,,,"guardian,action,aura",,,2,2,3,
+WTR,56,Blessing of Deliverance,R,,,,"guardian,action,aura",,,3,2,3,
+WTR,57,Buckling Blow,C,,,,"guardian,action,attack",,,1,4,3,8
+WTR,58,Buckling Blow,C,,,,"guardian,action,attack",,,2,4,3,7
+WTR,59,Buckling Blow,C,,,,"guardian,action,attack",,,3,4,3,6
+WTR,60,Cartilage Crush,C,,,,"guardian,action,attack",,,1,3,3,7
+WTR,61,Cartilage Crush,C,,,,"guardian,action,attack",,,2,3,3,6
+WTR,62,Cartilage Crush,C,,,,"guardian,action,attack",,,3,3,3,5
+WTR,63,Crush Confidence,C,,,,"guardian,action,attack",,,1,3,3,7
+WTR,64,Crush Confidence,C,,,,"guardian,action,attack",,,2,3,3,6
+WTR,65,Crush Confidence,C,,,,"guardian,action,attack",,,3,3,3,5
+WTR,66,Debilitate,C,,,,"guardian,action,attack",,,1,4,3,8
+WTR,67,Debilitate,C,,,,"guardian,action,attack",,,2,4,3,7
+WTR,68,Debilitate,C,,,,"guardian,action,attack",,,3,4,3,6
+WTR,69,Emerging Power,C,,,,"guardian,action,aura",,,1,2,3,
+WTR,70,Emerging Power,C,,,,"guardian,action,aura",,,2,2,3,
+WTR,71,Emerging Power,C,,,,"guardian,action,aura",,,3,2,3,
+WTR,72,Stonewall Confidence,C,,,,"guardian,action,aura",,,1,2,3,
+WTR,73,Stonewall Confidence,C,,,,"guardian,action,aura",,,2,2,3,
+WTR,74,Stonewall Confidence,C,,,,"guardian,action,aura",,,3,2,3,
+WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,
+WTR,76,"Katsu, the Wanderer",C,,,,"ninja,hero",40,4,,,,
+WTR,77,Katsu,C,,,,"ninja,hero,young",20,4,,,,
+WTR,78,Harmonized Kodachi,T,,,,"ninja,weapon,dagger,1h",,,,,,1
+WTR,79,Mask of Momentum,L,,,,"ninja,equipment,head",,,,,2,
+WTR,80,Breaking Scales,C,,,,"ninja,equipment,arms",,,,,1,
+WTR,81,Lord of Wind,M,,,,"ninja,action,attack",,,3,0,2,2
+WTR,82,Ancestral Empowerment,M,,,,"ninja,action,reaction",,,1,0,2,
+WTR,83,Mugenshi: RELEASE,M,,,,"ninja,action,attack",,,2,1,3,4
+WTR,84,Hurricane Technique,S,,,,"ninja,action,attack",,,2,1,3,4
+WTR,85,Pounding Gale,S,,,,"ninja,action,attack",,,1,1,3,5
+WTR,86,Fluster Fist,R,,,,"ninja,action,attack",,,1,0,3,4
+WTR,87,Fluster Fist,R,,,,"ninja,action,attack",,,2,0,3,3
+WTR,88,Fluster Fist,R,,,,"ninja,action,attack",,,3,0,3,2
+WTR,89,Blackout Kick,R,,,,"ninja,action,attack",,,1,1,3,4
+WTR,90,Blackout Kick,R,,,,"ninja,action,attack",,,2,1,3,3
+WTR,91,Blackout Kick,R,,,,"ninja,action,attack",,,3,1,3,2
+WTR,92,Flic Flak,R,,,,"ninja,defense,reaction",,,1,0,4,
+WTR,93,Flic Flak,R,,,,"ninja,defense,reaction",,,2,0,4,
+WTR,94,Flic Flak,R,,,,"ninja,defense,reaction",,,3,0,4,
+WTR,95,Open the Center,C,,,,"ninja,action,attack",,,1,2,3,5
+WTR,96,Open the Center,C,,,,"ninja,action,attack",,,2,2,3,4
+WTR,97,Open the Center,C,,,,"ninja,action,attack",,,3,2,3,3
+WTR,98,Head Jab,C,,,,"ninja,action,attack",,,1,0,2,3
+WTR,99,Head Jab,C,,,,"ninja,action,attack",,,2,0,2,2
+WTR,100,Head Jab,C,,,,"ninja,action,attack",,,3,0,2,1
+WTR,101,Leg Tap,C,,,,"ninja,action,attack",,,1,1,2,4
+WTR,102,Leg Tap,C,,,,"ninja,action,attack",,,2,1,2,3
+WTR,103,Leg Tap,C,,,,"ninja,action,attack",,,3,1,2,2
+WTR,104,Rising Knee Thrust,C,,,,"ninja,action,attack",,,1,0,3,3
+WTR,105,Rising Knee Thrust,C,,,,"ninja,action,attack",,,2,0,3,2
+WTR,106,Rising Knee Thrust,C,,,,"ninja,action,attack",,,3,0,3,1
+WTR,107,Surging Strike,C,,,,"ninja,action,attack",,,1,2,2,5
+WTR,108,Surging Strike,C,,,,"ninja,action,attack",,,2,2,2,4
+WTR,109,Surging Strike,C,,,,"ninja,action,attack",,,3,2,2,3
+WTR,110,Whelming Gustwave,C,,,,"ninja,action,attack",,,1,0,3,3
+WTR,111,Whelming Gustwave,C,,,,"ninja,action,attack",,,2,0,3,2
+WTR,112,Whelming Gustwave,C,,,,"ninja,action,attack",,,3,0,3,1
+WTR,113,Dorinthea Ironsong,T,,,,"warrior,hero",,4,,,,
+WTR,114,Dorinthea,T,,,,"warrior,hero,young",,4,,,,
+WTR,115,Dawnblade,T,,,,"warrior,weapon,sword,2h",,,,,,3
+WTR,116,Braveforge Bracers,L,,,,"warrior,equipment,arms",,,,,2,
+WTR,117,Refraction Bolters,C,,,,"warrior,equipment,legs",,,,,1,
+WTR,118,Glint the Quicksilver,M,,,,"warrior,attack,reaction",,,3,0,3,
+WTR,119,Steelblade Supremacy,M,,,,"warrior,action",,,1,1,3,
+WTR,120,Rout,S,,,,"warrior,attack,reaction",,,1,2,3,
+WTR,121,Singing Steelblade,S,,,,"warrior,attack,reaction",,,2,1,3,
+WTR,122,Ironsong Determination,S,,,,"warrior,action",,,2,0,3,
+WTR,123,Overpower,R,,,,"warrior,attack,reaction",,,1,3,3,
+WTR,124,Overpower,R,,,,"warrior,attack,reaction",,,2,3,3,
+WTR,125,Overpower,R,,,,"warrior,attack,reaction",,,3,3,3,
+WTR,126,Steelblade Shunt,R,,,,"warrior,defense,reaction",,,1,1,6,
+WTR,127,Steelblade Shunt,R,,,,"warrior,defense,reaction",,,2,1,5,
+WTR,128,Steelblade Shunt,R,,,,"warrior,defense,reaction",,,3,1,4,
+WTR,129,Warrior's Valor,R,,,,"warrior,action",,,1,1,3,
+WTR,130,Warrior's Valor,R,,,,"warrior,action",,,2,1,3,
+WTR,131,Warrior's Valor,C,,,,"warrior,action",,,3,1,3,
+WTR,132,Ironsong Response,C,,,,"warrior,attack,reaction",,,1,0,3,
+WTR,133,Ironsong Response,C,,,,"warrior,attack,reaction",,,2,0,3,
+WTR,134,Ironsong Response,C,,,,"warrior,attack,reaction",,,3,0,3,
+WTR,135,Biting Blade,C,,,,"warrior,attack,reaction",,,1,2,3,
+WTR,136,Biting Blade,C,,,,"warrior,attack,reaction",,,2,2,3,
+WTR,137,Biting Blade,C,,,,"warrior,attack,reaction",,,3,2,3,
+WTR,138,Stroke of Foresight,C,,,,"warrior,attack,reaction",,,1,1,3,
+WTR,139,Stroke of Foresight,C,,,,"warrior,attack,reaction",,,2,1,3,
+WTR,140,Stroke of Foresight,C,,,,"warrior,attack,reaction",,,3,1,3,
+WTR,141,Sharpen Steel,C,,,,"warrior,action",,,1,0,3,
+WTR,142,Sharpen Steel,C,,,,"warrior,action",,,2,0,3,
+WTR,143,Sharpen Steel,C,,,,"warrior,action",,,3,0,3,
+WTR,144,Driving Blade,C,,,,"warrior,action",,,1,2,3,
+WTR,145,Driving Blade,C,,,,"warrior,action",,,2,2,3,
+WTR,146,Driving Blade,C,,,,"warrior,action",,,3,2,3,
+WTR,147,Nature's Path Pilgrimage,C,,,,"warrior,action",,,1,1,3,
+WTR,148,Nature's Path Pilgrimage,C,,,,"warrior,action",,,2,1,3,
+WTR,149,Nature's Path Pilgrimage,C,,,,"warrior,action",,,3,1,3,
 WTR,150,Fyendal's Spring Tunic,L,"At the start of your turn, if Fyendal's Spring Tunic has less than 3 energy counters, you may put an energy counter on it.
 
 **Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]
 
-**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,"generic,equipment,chest",,,,,1,
-WTR,151,Hope Merchant's Hood,C,,,"generic,equipment,head",,,,,0,
-WTR,152,Heartened Cross Strap,C,,,"generic,equipment,chest",,,,,0,
-WTR,153,Goliath Gauntlet,C,,,"generic,equipment,arms",,,,,0,
-WTR,154,Snapdragon Scalers,C,,,"generic,equipment,legs",,,,,0,
-WTR,155,Ironrot Helm,C,,,"generic,equipment,head",,,,,1,
-WTR,156,Ironrot Plate,C,,,"generic,equipment,chest",,,,,1,
-WTR,157,Ironrot Gauntlet,C,,,"generic,equipment,arms",,,,,1,
-WTR,158,Ironrot Legs,C,,,"generic,equipment,legs",,,,,1,
-WTR,159,Enlightened Strike,M,,,"generic,action,attack",,,1,0,3,5
-WTR,160,Tome of Fyendal,M,,,"generic,action",,,2,1,2,
-WTR,161,Last Ditch Effort,S,,,"generic,action,attack",,,3,3,3,4
-WTR,162,Crazy Brew,S,,,"generic,action,item",,,3,0,,
-WTR,163,Remembrance,S,,,"generic,instant",,,2,0,,
-WTR,164,Drone of Brutality,R,,,"generic,action,attack",,,1,2,2,6
-WTR,165,Drone of Brutality,R,,,"generic,action,attack",,,2,2,2,5
-WTR,166,Drone of Brutality,R,,,"generic,action,attack",,,3,2,2,4
-WTR,167,Snatch,R,,,"generic,action,attack",,,1,0,2,4
-WTR,168,Snatch,R,,,"generic,action,attack",,,2,0,2,3
-WTR,169,Snatch,R,,,"generic,action,attack",,,3,0,2,2
-WTR,170,Energy Potion,R,,,"generic,action,item",,,3,0,,
-WTR,171,Potion of Strength,R,,,"generic,action,item",,,3,0,,
-WTR,172,Timesnap Potion,R,,,"generic,action,item",,,3,0,,
-WTR,173,Sigil of Solace,R,Gain 3 [life],,"generic,instant",,,1,0,,
-WTR,174,Sigil of Solace,R,Gain 2 [life],,"generic,instant",,,2,0,,
-WTR,175,Sigil of Solace,R,Gain 1 [life],,"generic,instant",,,3,0,,
-WTR,176,Barraging Brawnhide,C,,,"generic,action,attack",,,1,3,2,7
-WTR,177,Barraging Brawnhide,C,,,"generic,action,attack",,,2,3,2,6
-WTR,178,Barraging Brawnhide,C,,,"generic,action,attack",,,3,3,2,5
-WTR,179,Demolition Crew,C,,,"generic,action,attack",,,1,2,2,6
-WTR,180,Demolition Crew,C,,,"generic,action,attack",,,2,2,2,5
-WTR,181,Demolition Crew,C,,,"generic,action,attack",,,3,2,2,4
-WTR,182,Flock of the Featherwalkers,C,,,"generic,action,attack",,,1,1,2,5
-WTR,183,Flock of the Featherwalkers,C,,,"generic,action,attack",,,2,1,2,4
-WTR,184,Flock of the Featherwalkers,C,,,"generic,action,attack",,,3,1,2,3
-WTR,185,Nimble Strike,C,,,"generic,action,attack",,,1,1,2,4
-WTR,186,Nimble Strike,C,,,"generic,action,attack",,,2,1,2,3
-WTR,187,Nimble Strike,C,,,"generic,action,attack",,,3,1,2,2
-WTR,188,Raging Onslaught,C,,,"generic,action,attack",,,1,3,3,7
-WTR,189,Raging Onslaught,C,,,"generic,action,attack",,,2,3,3,6
-WTR,190,Raging Onslaught,C,,,"generic,action,attack",,,3,3,3,5
-WTR,191,Scar for a Scar,C,,,"generic,action,attack",,,1,0,2,4
-WTR,192,Scar for a Scar,C,,,"generic,action,attack",,,2,0,2,3
-WTR,193,Scar for a Scar,C,,,"generic,action,attack",,,3,0,2,2
-WTR,194,Scour the Battlescape,C,,,"generic,action,attack",,,1,0,2,3
-WTR,195,Scour the Battlescape,C,,,"generic,action,attack",,,2,0,2,2
-WTR,196,Scour the Battlescape,C,,,"generic,action,attack",,,3,0,2,1
-WTR,197,Regurgitating Slog,C,,,"generic,action,attack",,,1,2,2,6
-WTR,198,Regurgitating Slog,C,,,"generic,action,attack",,,2,2,2,5
-WTR,199,Regurgitating Slog,C,,,"generic,action,attack",,,3,2,2,4
-WTR,200,Wounded Bull,C,,,"generic,action,attack",,,1,3,2,7
-WTR,201,Wounded Bull,C,,,"generic,action,attack",,,2,3,2,6
-WTR,202,Wounded Bull,C,,,"generic,action,attack",,,3,3,2,5
-WTR,203,Wounding Blow,C,,,"generic,action,attack",,,1,0,3,4
-WTR,204,Wounding Blow,C,,,"generic,action,attack",,,2,0,3,3
-WTR,205,Wounding Blow,C,,,"generic,action,attack",,,3,0,3,2
-WTR,206,Pummel,C,,,"generic,attack,reaction",,,1,2,2,
-WTR,207,Pummel,C,,,"generic,attack,reaction",,,2,2,2,
-WTR,208,Pummel,C,,,"generic,attack,reaction",,,3,2,2,
-WTR,209,Razor Reflex,C,,,"generic,attack,reaction",,,1,1,2,
-WTR,210,Razor Reflex,C,,,"generic,attack,reaction",,,2,1,2,
-WTR,211,Razor Reflex,C,,,"generic,attack,reaction",,,3,1,2,
-WTR,212,Unmovable,C,,,"generic,defense,reaction",,,1,3,7,
-WTR,213,Unmovable,C,,,"generic,defense,reaction",,,2,3,6,
-WTR,214,Unmovable,C,,,"generic,defense,reaction",,,3,3,5,
-WTR,215,Sink Below,C,,,"generic,defense,reaction",,,1,0,4,
-WTR,216,Sink Below,C,,,"generic,defense,reaction",,,2,0,3,
-WTR,217,Sink Below,C,,,"generic,defense,reaction",,,3,0,2,
-WTR,218,Nimblism,C,,,"generic,action",,,1,0,2,
-WTR,219,Nimblism,C,,,"generic,action",,,2,0,2,
-WTR,220,Nimblism,C,,,"generic,action",,,3,0,2,
-WTR,221,Sloggism,C,,,"generic,action",,,1,3,2,
-WTR,222,Sloggism,C,,,"generic,action",,,2,3,2,
-WTR,223,Sloggism,C,,,"generic,action",,,3,3,2,
-WTR,224,Cracked Bauble,T,,,"generic,resource",,,,,,
-WTR,225,Quicken,T,,,"generic,token,aura",,,,,,
+**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,,"generic,equipment,chest",,,,,1,
+WTR,151,Hope Merchant's Hood,C,,,,"generic,equipment,head",,,,,0,
+WTR,152,Heartened Cross Strap,C,,,,"generic,equipment,chest",,,,,0,
+WTR,153,Goliath Gauntlet,C,,,,"generic,equipment,arms",,,,,0,
+WTR,154,Snapdragon Scalers,C,,,,"generic,equipment,legs",,,,,0,
+WTR,155,Ironrot Helm,C,,,,"generic,equipment,head",,,,,1,
+WTR,156,Ironrot Plate,C,,,,"generic,equipment,chest",,,,,1,
+WTR,157,Ironrot Gauntlet,C,,,,"generic,equipment,arms",,,,,1,
+WTR,158,Ironrot Legs,C,,,,"generic,equipment,legs",,,,,1,
+WTR,159,Enlightened Strike,M,,,,"generic,action,attack",,,1,0,3,5
+WTR,160,Tome of Fyendal,M,,,,"generic,action",,,2,1,2,
+WTR,161,Last Ditch Effort,S,,,,"generic,action,attack",,,3,3,3,4
+WTR,162,Crazy Brew,S,,,,"generic,action,item",,,3,0,,
+WTR,163,Remembrance,S,,,,"generic,instant",,,2,0,,
+WTR,164,Drone of Brutality,R,,,,"generic,action,attack",,,1,2,2,6
+WTR,165,Drone of Brutality,R,,,,"generic,action,attack",,,2,2,2,5
+WTR,166,Drone of Brutality,R,,,,"generic,action,attack",,,3,2,2,4
+WTR,167,Snatch,R,,,,"generic,action,attack",,,1,0,2,4
+WTR,168,Snatch,R,,,,"generic,action,attack",,,2,0,2,3
+WTR,169,Snatch,R,,,,"generic,action,attack",,,3,0,2,2
+WTR,170,Energy Potion,R,,,,"generic,action,item",,,3,0,,
+WTR,171,Potion of Strength,R,,,,"generic,action,item",,,3,0,,
+WTR,172,Timesnap Potion,R,,,,"generic,action,item",,,3,0,,
+WTR,173,Sigil of Solace,R,Gain 3 [life],,,"generic,instant",,,1,0,,
+WTR,174,Sigil of Solace,R,Gain 2 [life],,,"generic,instant",,,2,0,,
+WTR,175,Sigil of Solace,R,Gain 1 [life],,,"generic,instant",,,3,0,,
+WTR,176,Barraging Brawnhide,C,,,,"generic,action,attack",,,1,3,2,7
+WTR,177,Barraging Brawnhide,C,,,,"generic,action,attack",,,2,3,2,6
+WTR,178,Barraging Brawnhide,C,,,,"generic,action,attack",,,3,3,2,5
+WTR,179,Demolition Crew,C,,,,"generic,action,attack",,,1,2,2,6
+WTR,180,Demolition Crew,C,,,,"generic,action,attack",,,2,2,2,5
+WTR,181,Demolition Crew,C,,,,"generic,action,attack",,,3,2,2,4
+WTR,182,Flock of the Featherwalkers,C,,,,"generic,action,attack",,,1,1,2,5
+WTR,183,Flock of the Featherwalkers,C,,,,"generic,action,attack",,,2,1,2,4
+WTR,184,Flock of the Featherwalkers,C,,,,"generic,action,attack",,,3,1,2,3
+WTR,185,Nimble Strike,C,,,,"generic,action,attack",,,1,1,2,4
+WTR,186,Nimble Strike,C,,,,"generic,action,attack",,,2,1,2,3
+WTR,187,Nimble Strike,C,,,,"generic,action,attack",,,3,1,2,2
+WTR,188,Raging Onslaught,C,,,,"generic,action,attack",,,1,3,3,7
+WTR,189,Raging Onslaught,C,,,,"generic,action,attack",,,2,3,3,6
+WTR,190,Raging Onslaught,C,,,,"generic,action,attack",,,3,3,3,5
+WTR,191,Scar for a Scar,C,,,,"generic,action,attack",,,1,0,2,4
+WTR,192,Scar for a Scar,C,,,,"generic,action,attack",,,2,0,2,3
+WTR,193,Scar for a Scar,C,,,,"generic,action,attack",,,3,0,2,2
+WTR,194,Scour the Battlescape,C,,,,"generic,action,attack",,,1,0,2,3
+WTR,195,Scour the Battlescape,C,,,,"generic,action,attack",,,2,0,2,2
+WTR,196,Scour the Battlescape,C,,,,"generic,action,attack",,,3,0,2,1
+WTR,197,Regurgitating Slog,C,,,,"generic,action,attack",,,1,2,2,6
+WTR,198,Regurgitating Slog,C,,,,"generic,action,attack",,,2,2,2,5
+WTR,199,Regurgitating Slog,C,,,,"generic,action,attack",,,3,2,2,4
+WTR,200,Wounded Bull,C,,,,"generic,action,attack",,,1,3,2,7
+WTR,201,Wounded Bull,C,,,,"generic,action,attack",,,2,3,2,6
+WTR,202,Wounded Bull,C,,,,"generic,action,attack",,,3,3,2,5
+WTR,203,Wounding Blow,C,,,,"generic,action,attack",,,1,0,3,4
+WTR,204,Wounding Blow,C,,,,"generic,action,attack",,,2,0,3,3
+WTR,205,Wounding Blow,C,,,,"generic,action,attack",,,3,0,3,2
+WTR,206,Pummel,C,,,,"generic,attack,reaction",,,1,2,2,
+WTR,207,Pummel,C,,,,"generic,attack,reaction",,,2,2,2,
+WTR,208,Pummel,C,,,,"generic,attack,reaction",,,3,2,2,
+WTR,209,Razor Reflex,C,,,,"generic,attack,reaction",,,1,1,2,
+WTR,210,Razor Reflex,C,,,,"generic,attack,reaction",,,2,1,2,
+WTR,211,Razor Reflex,C,,,,"generic,attack,reaction",,,3,1,2,
+WTR,212,Unmovable,C,,,,"generic,defense,reaction",,,1,3,7,
+WTR,213,Unmovable,C,,,,"generic,defense,reaction",,,2,3,6,
+WTR,214,Unmovable,C,,,,"generic,defense,reaction",,,3,3,5,
+WTR,215,Sink Below,C,,,,"generic,defense,reaction",,,1,0,4,
+WTR,216,Sink Below,C,,,,"generic,defense,reaction",,,2,0,3,
+WTR,217,Sink Below,C,,,,"generic,defense,reaction",,,3,0,2,
+WTR,218,Nimblism,C,,,,"generic,action",,,1,0,2,
+WTR,219,Nimblism,C,,,,"generic,action",,,2,0,2,
+WTR,220,Nimblism,C,,,,"generic,action",,,3,0,2,
+WTR,221,Sloggism,C,,,,"generic,action",,,1,3,2,
+WTR,222,Sloggism,C,,,,"generic,action",,,2,3,2,
+WTR,223,Sloggism,C,,,,"generic,action",,,3,3,2,
+WTR,224,Cracked Bauble,T,,,,"generic,resource",,,,,,
+WTR,225,Quicken,T,,,,"generic,token,aura",,,,,,

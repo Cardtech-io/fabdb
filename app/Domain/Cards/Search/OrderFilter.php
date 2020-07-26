@@ -12,6 +12,15 @@ class OrderFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->orderBy('cards.identifier');
+        $order = $input['order'] ?? 'identifier';
+
+        switch ($order) {
+            case 'identifier':
+                $query->orderBy('cards.identifier');
+                break;
+            case 'id':
+                $query->orderBy('cards.id');
+                break;
+        }
     }
 }

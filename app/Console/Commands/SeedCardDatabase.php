@@ -50,6 +50,7 @@ class SeedCardDatabase extends Command
                 new Rarity($card['Rarity']),
                 $card['Text'],
                 Arr::get($card, 'Flavour'),
+                Arr::get($card, 'Comments'),
                 explode(',', $card['Keywords']),
                 $this->compileStats($card)
             );

@@ -1,13 +1,13 @@
-Set,ID,Name,Rarity,Text,Flavour,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
-IRA,001,"Ira, Crimson Haze",P,"Your second attack each turn gains +1[attack].",,"ninja,hero",20,,,,,
-IRA,002,"Edge of Autumn",P,,,"ninja,weapon,sword,2h",,,,,,1
-IRA,003,"Whirling Mist Blossom",P,,,"ninja,action,attack",,,2,1,2,2
-IRA,004,"Salt the Wound",P,,,"ninja,action,attack",,,2,0,3,2
-IRA,005,"Bittering Thorns",P,,,"ninja,action,attack",,,2,1,2,3
-IRA,006,"Torrent of Tempo",P,,,"ninja,action,attack",,,1,1,3,5
-IRA,007,"Flying Kick",P,,,"ninja,action,attack",,,1,2,3,5
-IRA,008,"Head Jab",P,,,"ninja,action,attack",,,3,0,2,1
-IRA,009,"Scar for a Scar",P,,,"generic,action,attack",,,1,0,2,4
-IRA,010,"Brutal Assault",P,,,"generic,action,attack",,,3,2,3,4
-IRA,011,"Lunging Press",P,,,"generic,attack,reaction",,,3,0,2,
-IRA,012,"Springboard Somersault",P,,,"generic,defense,reaction",,,2,0,2,
+Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
+IRA,1,"Ira, Crimson Haze",P,Your second attack each turn gains +1[attack].,,,"ninja,hero",20,,,,,
+IRA,2,Edge of Autumn,P,,,,"ninja,weapon,sword,2h",,,,,,1
+IRA,3,Whirling Mist Blossom,P,,,,"ninja,action,attack",,,2,1,2,2
+IRA,4,Salt the Wound,P,,,,"ninja,action,attack",,,2,0,3,2
+IRA,5,Bittering Thorns,P,,,,"ninja,action,attack",,,2,1,2,3
+IRA,6,Torrent of Tempo,P,,,,"ninja,action,attack",,,1,1,3,5
+IRA,7,Flying Kick,P,,,,"ninja,action,attack",,,1,2,3,5
+IRA,8,Head Jab,P,,,,"ninja,action,attack",,,3,0,2,1
+IRA,9,Scar for a Scar,P,,,,"generic,action,attack",,,1,0,2,4
+IRA,10,Brutal Assault,P,,,,"generic,action,attack",,,3,2,3,4
+IRA,11,Lunging Press,P,,,,"generic,attack,reaction",,,3,0,2,
+IRA,12,Springboard Somersault,P,,,,"generic,defense,reaction",,,2,0,2,
