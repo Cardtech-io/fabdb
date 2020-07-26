@@ -335,7 +335,7 @@ ARC,117,Robe of Rapture,C,"**Action** - Destroy Robe of Rapture: Gain [2 resourc
 ARC,118,Blazing Aether,M,"**Kano Specialization** *(You may only have Blazing Aether in your deck if your hero is Kano.)*
 
 Deal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",,,"wizard,action",,,1,1,3,
-ARC,119,Sonic Boom,S,"Deal 3 arcane damage to target opposing hero.
+ARC,119,Sonic Boom,M,"Deal 3 arcane damage to target opposing hero.
 
 If Sonic Boom deals damage, look at the top card of your deck. If it's a Wizard 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant and it costs X resource points less to play, where X is the damage dealt by Sonic Boom.",,,"wizard,action",,,2,2,3,
 ARC,120,Forked Lightning,S,"Deal 2 arcane damage to target hero.
