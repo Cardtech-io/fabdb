@@ -49,15 +49,15 @@
                 <tbody>
                     <tr>
                         <td class="border border-gray-500 font-serif clearfix p-1" colspan="2">
-                            <div class="float-left w-auto"><img src="http://fabdb.net/img/pitch-1.png'" class="h-8"></div>
+                            <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-1.png'" class="h-8"></div>
                             <div class=" float-left p-2 h-8">Pitch 1 (Red)</div>
                         </td>
                         <td class="border border-gray-500 font-serif clearfix p-1" colspan="2">
-                            <div class="float-left w-auto"><img src="http://fabdb.net/img/pitch-2.png'" class="h-8"></div>
+                            <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-2.png'" class="h-8"></div>
                             <div class=" float-left p-2 h-8">Pitch 2 (Yellow)</div>
                         </td>
                         <td class="border border-gray-500 font-serif clearfix p-1" colspan="2">
-                            <div class="float-left w-auto"><img src="http://fabdb.net/img/pitch-3.png'" class="h-8"></div>
+                            <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-3.png'" class="h-8"></div>
                             <div class=" float-left p-2 h-8">Pitch 3 (Blue)</div>
                         </td>
                     </tr>
