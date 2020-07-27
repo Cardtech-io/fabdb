@@ -103,11 +103,11 @@
             ...mapState('deck', ['cards', 'deck']),
 
             offenseRating: function() {
-                return (((this.totalAttackActions + this.totalAttackReactions) / this.totalCards).toFixed(2) * 100) + '%';
+                return (((this.totalAttackActions + this.totalAttackReactions) / this.totalCards).toFixed(2) * 100).toFixed(0) + '%';
             },
 
             defenseRating: function() {
-                return ((this.blocks.length / this.totalCards).toFixed(2) * 100) + '%';
+                return ((this.blocks.length / this.totalCards).toFixed(2) * 100).toFixed(0) + '%';
             }
         },
 
