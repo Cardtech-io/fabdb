@@ -35,6 +35,8 @@ class MaxTotalCards implements Rule
     {
         $this->card = $this->getCard($value);
 
+        if ($this->card->isHero()) return true;
+
         if ($this->deck->format == 'blitz') {
             if ($this->card->isEquipment()) {
                 return $this->deck->cards->equipmentTotal() < $this->maxCards();

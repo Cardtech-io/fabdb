@@ -53,7 +53,7 @@
                     return this.filter((new Cards(this.collection)).hydrate());
                 } else {
                     let collection = new Cards(this.collection);
-                    let cards = new Cards([collection.hero()]);
+                    let cards = collection.hero() ? new Cards([collection.hero()]) : new Cards([]);
 
                     cards = cards.concat(collection.weapons());
                     cards = cards.concat(collection.equipment());
