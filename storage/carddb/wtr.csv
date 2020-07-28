@@ -10,7 +10,7 @@ WTR,3,Romping Club,T,"**Once per turn Action** - [2 resource]: **Attack**
 WTR,4,Scabskin Leathers,L,"**Once per Turn Action** - 0: Roll a 6 sided die. Gain action points equal to half the number roll, rounded down.
 
 **Battleworn** *(If you defend with Scabskin Leathers, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,legs",,,,,2,
-WTR,5,Barkbone Strapping,C,"**Instant** - Destroy Barkbone Strapping: Roll a 6 sided die. Gain [resourrce] equal to half the number rolled, rounded down.
+WTR,5,Barkbone Strapping,C,"**Instant** - Destroy Barkbone Strapping: Roll a 6 sided die. Gain [resource] equal to half the number rolled, rounded down.
 
 **Battleworn** *(If you defend with Backbone Strapping, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,chest",,,,,1,
 WTR,6,Alpha Rampage,M,"**Rhinar Specialization** *(You may only have Alpha Rampage in your deck if your hero is Rhinar.)*
