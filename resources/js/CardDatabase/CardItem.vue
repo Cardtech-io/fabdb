@@ -1,6 +1,6 @@
 <template>
     <li class="float-left p-2 sm:p-4 w-1/2 md:w-1/3 lg:w-1/4">
-        <router-link :to="viewUrl()" v-if="path"><card-image :card="card"></card-image></router-link>
+        <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" v-if="path"><card-image :card="card"></card-image></router-link>
         <card-image :card="card" v-else></card-image>
     </li>
 </template>
@@ -18,7 +18,7 @@
 
         methods: {
             viewUrl: function() {
-                return this.path + '/' + this.card.identifier + '/';
+                return this.path + '/' + this.card.identifier;
             }
         }
     }
