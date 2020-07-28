@@ -1,10 +1,10 @@
 <template>
     <div class="py-4 pb-20 sm:flex px-4">
-        <div class="w-full hidden sm:block sm:w-1/4 sm:mr-8">
+        <div class="w-full hidden lg:block lg:w-1/4 lg:mr-8">
             <card-image :card="hero"></card-image>
         </div>
 
-        <div class="sm:w-3/4">
+        <div class="w-full lg:w-3/4">
             <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'metrics' }" @click.prevent="tab = 'metrics'">Metrics</a></li>
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'settings' }" @click.prevent="tab = 'settings'">Settings</a></li>
@@ -18,7 +18,7 @@
                         <stat :value="totalCards" text="Total" position="both"></stat>
                     </ol>
 
-                    <ol class="mt-4">
+                    <ol class="mt-4 text-base">
                         <stat :value="totalActions" text="Total actions" position="top"></stat>
                         <stat :value="totalAttackActions" text="Attack actions"></stat>
                         <stat :value="totalAttackReactions" text="Attack reactions"></stat>
@@ -29,7 +29,7 @@
 
                 <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
                     <h3 class="font-serif uppercase text-2xl">General</h3>
-                    <ol class="mt-2">
+                    <ol class="mt-2 text-base">
                         <stat :value="averageCost" text="Average cost" position="top"></stat>
                         <stat :value="averagePitch" text="Average pitch"></stat>
                         <stat :value="pitchCount(1)" text="Pitch 1"></stat>
@@ -44,14 +44,14 @@
 
                 <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
                     <h3 class="font-serif uppercase text-2xl">Offensive</h3>
-                    <ol class="mt-2">
+                    <ol class="mt-2 text-base">
                         <stat :value="offenseRating" text="Rating" position="top"></stat>
                         <stat :value="averageAttack" text="Average attack"></stat>
                         <stat :value="attacksPerHand" text="Attacks per hand" position="bottom"></stat>
                     </ol>
 
                     <h3 class="font-serif uppercase text-2xl mt-4 sm:mt-8">Defensive</h3>
-                    <ol class="mt-2">
+                    <ol class="mt-2 text-base">
                         <stat :value="defenseRating" text="Rating" position="top"></stat>
                         <stat :value="averageBlock" text="Average block" position="bottom"></stat>
                     </ol>
