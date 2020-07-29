@@ -15,10 +15,10 @@ class StatFilter implements SearchFilter
         $params = $this->getParams($input['keywords']);
 
         foreach ($params as $param) {
-            $field = addslashes($param[1]);
+            $field = strtolower(addslashes($param[1]));
             $operator = addslashes($param[2]);
             $value = addslashes($param[3]);
-            
+
             $query->where("stats->{$field}", $operator, $value);
         }
     }
@@ -32,7 +32,7 @@ class StatFilter implements SearchFilter
         })->map(function($keyword) {
             preg_match('/([a-z]+)([=><]{1,2})([0-9]{1,2})/i', $keyword, $matches);
 
-            if ($matches[1] == 'pitch') {
+            if (strtolower($matches[1]) == 'pitch') {
                 $matches[1] = 'resource';
             }
 
