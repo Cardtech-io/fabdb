@@ -21,19 +21,24 @@
     export default {
         data() {
             return {
-                isOpen: false,
-
-                modes: {
-                    all: 'Deck',
-                    search: 'Search',
-                    sideboard: 'Sideboard',
-                    details: 'Details'
-                }
+                isOpen: false
             };
         },
 
         computed: {
-            ...mapState('deck', ['mode'])
+            ...mapState('deck', ['deck', 'mode']),
+
+            modes() {
+                let modes = {all: 'Deck', search: 'Search'};
+
+                if (this.deck.format != 'blitz') {
+                   modes.sideboard = 'Sideboard';
+                }
+
+                modes.details = 'Details';
+
+                return modes;
+            }
         },
 
         methods: {
