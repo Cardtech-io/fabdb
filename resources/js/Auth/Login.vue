@@ -67,6 +67,15 @@
                     const action = response.data.registered ? 'Registered' : 'Code requested';
 
                     Tracker.track('Authentication', action);
+                }).catch(error => {
+                    if (error.response.status === 422) {
+                        let errors = error.response.data.errors;
+                        for (let i in errors) {
+                            for (let x in errors[i]) {
+                                this.addMessage({ status: 'error', message: errors[i][x] });
+                            }
+                        }
+                    }
                 });
             },
 

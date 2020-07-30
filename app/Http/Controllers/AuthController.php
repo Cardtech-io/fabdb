@@ -4,12 +4,13 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Users\AuthenticateUser;
 use FabDB\Domain\Users\AuthObserver;
 use FabDB\Domain\Users\ValidateAuthenticationCode;
+use FabDB\Http\Requests\AuthenticationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function authenticate(Request $request)
+    public function authenticate(AuthenticationRequest $request)
     {
         $this->dispatchNow(new AuthenticateUser($observer = new AuthObserver, $request->get('email')));
 
