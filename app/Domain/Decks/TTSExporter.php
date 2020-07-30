@@ -237,7 +237,7 @@ class TTSExporter
             }
         }
 
-        throw new \Exception('Impossible grid.');
+        throw new \Exception('Impossible grid for a card count of '.$cardCount.'.');
     }
 
     /**
