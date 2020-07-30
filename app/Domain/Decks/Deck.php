@@ -14,7 +14,7 @@ class Deck extends Model
     use Raiseable;
     use Sluggable;
     use Voteable;
-    
+
     protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
     protected $hidden = ['id', 'user_id'];
 

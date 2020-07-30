@@ -38,10 +38,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         DB::transaction(function() use ($deckId, $cardId) {
             $deck = $this->find($deckId);
-            $existing = $deck->card($cardId);
+            $existing = $this->deckCard($deckId, $cardId);
 
             if ($existing) {
-                DB::update('UPDATE deck_cards SET total = total + 1 WHERE id = ?', [$existing->pivot->id]);
+                $existing->total++;
+                $existing->save();
             } else {
                 DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deckId, $cardId]);
             }
@@ -54,26 +55,35 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         DB::transaction(function() use ($deckId, $cardId) {
             $deck = $this->find($deckId);
-            $existing = $deck->card($cardId);
+            $existing = $this->deckCard($deckId, $cardId);
 
             if (!$existing) {
                 return;
             }
 
-            if ($existing->pivot && $existing->pivot->total > 1) {
-                DB::update('UPDATE deck_cards SET total = total - 1 WHERE id = ?', [$existing->pivot->id]);
+            if ($existing && $existing->total > 1) {
+                $existing->total--;
+                $existing->save();
 
                 $sideboard = $deck->sideboardCard($cardId);
 
                 if ($sideboard && $sideboard->total < $existing->total) {
-                    DB::update('UPDATE sideboard SET total = total - 1 WHERE id = ?', [$sideboard->pivot->id]);
+                    DB::update('UPDATE sideboard SET total = total - 1 WHERE id = ?', [$sideboard->id]);
                 }
             } else {
-                DB::delete('DELETE FROM deck_cards WHERE id = ?', [$existing->pivot->id]);
+                $existing->delete();
             }
 
             $deck->touch();
         }, 3);
+    }
+
+    private function deckCard(int $deckId, int $cardId)
+    {
+        return DeckCard::whereDeckId($deckId)
+            ->whereCardId($cardId)
+            ->lockForUpdate()
+            ->first();
     }
 
     public function addCardToSideboard(int $deckId, int $cardId)
