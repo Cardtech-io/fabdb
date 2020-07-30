@@ -68,7 +68,7 @@
 
                 axios.put('/profile/complete', params).then(response => {
                     this.close();
-                    this.addMessage({ status: 'success', message: 'Your profile is completed. You may now register for the event.' });
+                    this.addMessage({ status: 'success', message: 'Your profile is now complete.' });
                 });
             }
         },
@@ -77,7 +77,7 @@
             axios.interceptors.response.use(
                 response => { return response; },
                 error => {
-                    if (error.response.status === 422 && error.response.headers['x-requires']) {
+                    if (error.response && error.response.status === 422 && error.response.headers['x-requires']) {
                         this.$modal.show('complete-profile');
                     }
 
