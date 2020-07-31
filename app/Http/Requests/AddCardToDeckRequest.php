@@ -31,7 +31,7 @@ class AddCardToDeckRequest extends FormRequest
             'card' => array_merge($rules, [
                 new MatchesKeywords($this->deck),
                 new MaxCards($this->deck),
-                new MaxTotalCards($this->deck),
+                // new MaxTotalCards($this->deck),
             ])
         ];
     }

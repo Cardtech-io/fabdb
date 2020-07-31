@@ -10,7 +10,7 @@
                     <div class="flex">
                         <div class="flex items-center w-2/3 p-4 sm:px-2" :class="{ 'sm:px-8': fullScreen, 'w-full': mode != 'search' }">
                             <div class="flex-auto hidden sm:block">
-                                <h2 class="font-serif uppercase text-2xl">{{ totalCards }} <span class="text-base">cards</span></h2>
+                                <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} <span class="text-base">cards</span></h2>
                             </div>
 
                             <filter-selector v-if="mode != 'details'" class="hidden sm:block"></filter-selector>

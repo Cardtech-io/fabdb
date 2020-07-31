@@ -72,7 +72,7 @@
                             <div v-if="other.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
                                 <ol>
-                                    <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
+                                    <li class="block p-1 pl-4 w-full">Total cards: <span :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }}</span></li>
                                     <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
                                     <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
                                     <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
