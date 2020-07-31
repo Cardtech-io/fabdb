@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import { mapActions, mapState } from 'vuex';
+    import { mapActions, mapGetters, mapState } from 'vuex';
 
     export default {
         data() {
@@ -26,12 +26,13 @@
         },
 
         computed: {
-            ...mapState('deck', ['deck', 'mode']),
+            ...mapState('deck', ['mode']),
+            ...mapGetters('deck', ['requiresSideboard']),
 
             modes() {
                 let modes = {all: 'Deck', search: 'Search'};
 
-                if (this.deck.format != 'blitz') {
+                if (this.requiresSideboard) {
                    modes.sideboard = 'Sideboard';
                 }
 

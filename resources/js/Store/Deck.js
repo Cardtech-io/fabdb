@@ -94,6 +94,10 @@ export default {
 
         minZoom: (state, getters) => {
             return zoomMatrix[getters.fsIndex][1][getters.msIndex];
+        },
+
+        requiresSideboard: (state, getters) => {
+            return state.deck.format != 'blitz';
         }
     },
 

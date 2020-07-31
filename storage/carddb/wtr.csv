@@ -109,7 +109,7 @@ WTR,78,Harmonized Kodachi,T,,,,"ninja,weapon,dagger,1h",,,,,,1
 WTR,79,Mask of Momentum,L,,,,"ninja,equipment,head",,,,,2,
 WTR,80,Breaking Scales,C,,,,"ninja,equipment,arms",,,,,1,
 WTR,81,Lord of Wind,M,,,,"ninja,action,attack",,,3,0,2,2
-WTR,82,Ancestral Empowerment,M,,,,"ninja,action,reaction",,,1,0,2,
+WTR,82,Ancestral Empowerment,M,,,,"ninja,attack,reaction",,,1,0,2,
 WTR,83,Mugenshi: RELEASE,M,,,,"ninja,action,attack",,,2,1,3,4
 WTR,84,Hurricane Technique,S,,,,"ninja,action,attack",,,2,1,3,4
 WTR,85,Pounding Gale,S,,,,"ninja,action,attack",,,1,1,3,5
