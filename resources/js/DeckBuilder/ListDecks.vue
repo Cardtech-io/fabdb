@@ -13,7 +13,7 @@
                 premium deck builder, deck tester and more.
             </p>
 
-            <router-link to="/support" class="appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 text-center mt-4" v-if="user && !user.subscription">Upgrade to premium</router-link>
+            <router-link to="/support" class="appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
         </div>
 
         <div class="md:my-20 md:flex-grow md:w-1/2">
