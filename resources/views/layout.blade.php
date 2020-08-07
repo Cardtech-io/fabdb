@@ -37,14 +37,7 @@
                 <?php $version = 'fab-db@'.fab_version(); ?>
                 Sentry.init({
                     release: '{{ $version }}',
-                    dsn: '{{ env('SENTRY_LARAVEL_DSN') }}',
-                    beforeSend(event, hint) {
-                        // Check if it is an exception, and if so, show the report dialog
-                        if (event.exception) {
-                            Sentry.showReportDialog({ eventId: event.event_id });
-                        }
-                        return event;
-                    }
+                    dsn: '{{ env('SENTRY_LARAVEL_DSN') }}'
                 });
 
                 @if ($user)
