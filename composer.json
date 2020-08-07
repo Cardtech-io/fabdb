@@ -13,6 +13,7 @@
     "require": {
         "php": "^7.2",
         "aws/aws-sdk-php": "^3.117",
+        "dingo/api": "^3.0",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
