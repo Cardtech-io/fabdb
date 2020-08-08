@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home.vue';
+import Api from './Resources/Api.vue';
 import Articles from './Content/Articles.vue';
 import ArticleView from './Content/ViewArticle.vue';
 import ArticlesMine from './Content/MyArticles.vue';
@@ -71,6 +72,8 @@ const router = new VueRouter({
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
         { path: "/premium", component: Premium, name: 'premium', meta: { title: 'Premium feature' } },
+
+        { path: "/resources/api", component: Api, name: 'resources.api', meta: { title: 'API Documentation' } },
 
         // Deprecated
         { path: "/deck-builder", redirect: "/decks/build" },

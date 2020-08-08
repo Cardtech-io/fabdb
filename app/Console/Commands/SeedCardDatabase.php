@@ -87,7 +87,7 @@ class SeedCardDatabase extends Command
     {
         $column = ucfirst($name);
 
-        if (isset($card[$column])) {
+        if (isset($card[$column]) && $card[$column] != '') {
             $stats[$name] = $card[$column];
         }
     }

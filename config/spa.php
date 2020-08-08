@@ -22,6 +22,7 @@ return [
         'login',
         'profile',
         'premium',
+        'resources/api',
         'support',
     ]
 ];

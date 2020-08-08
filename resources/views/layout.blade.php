@@ -1,5 +1,6 @@
 <?php $user = auth()->user(); ?>
 <?php $settings = compile_settings(); ?>
+<?php $lang = compile_lang(); ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -54,6 +55,7 @@
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
             window.version = '{{ fab_version()  }}';
             window.settings = {!! json_encode($settings) !!};
+            window.lang = {!! json_encode($lang) !!}
         </script>
         <script src="{{ fab_asset('/js/app.js') }}"></script>
     </body>
