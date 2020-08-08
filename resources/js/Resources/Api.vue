@@ -4,8 +4,8 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto px-4 py-8 clearfix relative">
-                <div class="absolute w-1/4" v-bind:style="{ top: top }">
+            <div class="container sm:mx-auto px-4 py-8 flex">
+                <div class="w-1/4">
                     <ul class="mr-4">
                         <li class="mb-2"><h2 class="text-xl font-serif uppercase">Getting started</h2></li>
                         <li class="mb-1"><a href="#requests" class="block p-2 px-4 bg-white hover:bg-orange-500 hover:text-white">Requests</a></li>
@@ -16,7 +16,7 @@
                         <li class="mb-1"><a href="#decks" class="block p-2 px-4 bg-white hover:bg-orange-500 hover:text-white">Decks</a></li>
                     </ul>
                 </div>
-                <div class="float-right w-3/4 ml-1/4">
+                <div class="w-3/4">
                     <div class="bg-white p-4">
                         <h2 class="font-serif uppercase text-2xl">Getting started</h2>
                         <p class="my-4">
@@ -197,29 +197,9 @@
                 crumbs: [
                     { text: 'Home', link: { name: 'home' } },
                     { text: 'API Documentation' }
-                ],
-                fixed: false,
-                top: 0
+                ]
             };
         },
-
-        mounted() {
-            document.addEventListener('scroll', this.handleScroll)
-        },
-
-        deactivated() {
-            window.removeEventListener('scroll', this.handleScroll);
-        },
-
-        methods: {
-            handleScroll(event) {
-                if (window.scrollY > 257) {
-                    this.top = (window.scrollY - 207) + 'px';
-                } else {
-                    this.top = '45px';
-                }
-            }
-        }
     };
 </script>
 
