@@ -13,3 +13,4 @@ use Illuminate\Http\Request;
 */
 
 Route::get('cards', 'CardController@list');
+Route::get('cards/{card}', 'CardController@view');

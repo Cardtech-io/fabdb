@@ -8165,6 +8165,10 @@ video {
   margin: -1px;
 }
 
+.m-1\/4 {
+  margin: 25%;
+}
+
 .my-0 {
   margin-top: 0;
   margin-bottom: 0;
@@ -8543,6 +8547,16 @@ video {
 .-mx-px {
   margin-left: -1px;
   margin-right: -1px;
+}
+
+.my-1\/4 {
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
+
+.mx-1\/4 {
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .mt-0 {
@@ -9153,6 +9167,22 @@ video {
   margin-left: -1px;
 }
 
+.mt-1\/4 {
+  margin-top: 25%;
+}
+
+.mr-1\/4 {
+  margin-right: 25%;
+}
+
+.mb-1\/4 {
+  margin-bottom: 25%;
+}
+
+.ml-1\/4 {
+  margin-left: 25%;
+}
+
 .odd\:m-0:nth-child(odd) {
   margin: 0;
 }
@@ -9303,6 +9333,10 @@ video {
 
 .odd\:-m-px:nth-child(odd) {
   margin: -1px;
+}
+
+.odd\:m-1\/4:nth-child(odd) {
+  margin: 25%;
 }
 
 .odd\:my-0:nth-child(odd) {
@@ -9683,6 +9717,16 @@ video {
 .odd\:-mx-px:nth-child(odd) {
   margin-left: -1px;
   margin-right: -1px;
+}
+
+.odd\:my-1\/4:nth-child(odd) {
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
+
+.odd\:mx-1\/4:nth-child(odd) {
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .odd\:mt-0:nth-child(odd) {
@@ -10293,6 +10337,22 @@ video {
   margin-left: -1px;
 }
 
+.odd\:mt-1\/4:nth-child(odd) {
+  margin-top: 25%;
+}
+
+.odd\:mr-1\/4:nth-child(odd) {
+  margin-right: 25%;
+}
+
+.odd\:mb-1\/4:nth-child(odd) {
+  margin-bottom: 25%;
+}
+
+.odd\:ml-1\/4:nth-child(odd) {
+  margin-left: 25%;
+}
+
 .even\:m-0:nth-child(even) {
   margin: 0;
 }
@@ -10443,6 +10503,10 @@ video {
 
 .even\:-m-px:nth-child(even) {
   margin: -1px;
+}
+
+.even\:m-1\/4:nth-child(even) {
+  margin: 25%;
 }
 
 .even\:my-0:nth-child(even) {
@@ -10823,6 +10887,16 @@ video {
 .even\:-mx-px:nth-child(even) {
   margin-left: -1px;
   margin-right: -1px;
+}
+
+.even\:my-1\/4:nth-child(even) {
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
+
+.even\:mx-1\/4:nth-child(even) {
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .even\:mt-0:nth-child(even) {
@@ -11431,6 +11505,22 @@ video {
 
 .even\:-ml-px:nth-child(even) {
   margin-left: -1px;
+}
+
+.even\:mt-1\/4:nth-child(even) {
+  margin-top: 25%;
+}
+
+.even\:mr-1\/4:nth-child(even) {
+  margin-right: 25%;
+}
+
+.even\:mb-1\/4:nth-child(even) {
+  margin-bottom: 25%;
+}
+
+.even\:ml-1\/4:nth-child(even) {
+  margin-left: 25%;
 }
 
 .max-h-full {
@@ -30824,6 +30914,10 @@ footer.footer .link:hover {
     margin: -1px;
   }
 
+  .sm\:m-1\/4 {
+    margin: 25%;
+  }
+
   .sm\:my-0 {
     margin-top: 0;
     margin-bottom: 0;
@@ -31202,6 +31296,16 @@ footer.footer .link:hover {
   .sm\:-mx-px {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .sm\:my-1\/4 {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .sm\:mx-1\/4 {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .sm\:mt-0 {
@@ -31812,6 +31916,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .sm\:mt-1\/4 {
+    margin-top: 25%;
+  }
+
+  .sm\:mr-1\/4 {
+    margin-right: 25%;
+  }
+
+  .sm\:mb-1\/4 {
+    margin-bottom: 25%;
+  }
+
+  .sm\:ml-1\/4 {
+    margin-left: 25%;
+  }
+
   .sm\:odd\:m-0:nth-child(odd) {
     margin: 0;
   }
@@ -31962,6 +32082,10 @@ footer.footer .link:hover {
 
   .sm\:odd\:-m-px:nth-child(odd) {
     margin: -1px;
+  }
+
+  .sm\:odd\:m-1\/4:nth-child(odd) {
+    margin: 25%;
   }
 
   .sm\:odd\:my-0:nth-child(odd) {
@@ -32342,6 +32466,16 @@ footer.footer .link:hover {
   .sm\:odd\:-mx-px:nth-child(odd) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .sm\:odd\:my-1\/4:nth-child(odd) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .sm\:odd\:mx-1\/4:nth-child(odd) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .sm\:odd\:mt-0:nth-child(odd) {
@@ -32952,6 +33086,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .sm\:odd\:mt-1\/4:nth-child(odd) {
+    margin-top: 25%;
+  }
+
+  .sm\:odd\:mr-1\/4:nth-child(odd) {
+    margin-right: 25%;
+  }
+
+  .sm\:odd\:mb-1\/4:nth-child(odd) {
+    margin-bottom: 25%;
+  }
+
+  .sm\:odd\:ml-1\/4:nth-child(odd) {
+    margin-left: 25%;
+  }
+
   .sm\:even\:m-0:nth-child(even) {
     margin: 0;
   }
@@ -33102,6 +33252,10 @@ footer.footer .link:hover {
 
   .sm\:even\:-m-px:nth-child(even) {
     margin: -1px;
+  }
+
+  .sm\:even\:m-1\/4:nth-child(even) {
+    margin: 25%;
   }
 
   .sm\:even\:my-0:nth-child(even) {
@@ -33482,6 +33636,16 @@ footer.footer .link:hover {
   .sm\:even\:-mx-px:nth-child(even) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .sm\:even\:my-1\/4:nth-child(even) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .sm\:even\:mx-1\/4:nth-child(even) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .sm\:even\:mt-0:nth-child(even) {
@@ -34090,6 +34254,22 @@ footer.footer .link:hover {
 
   .sm\:even\:-ml-px:nth-child(even) {
     margin-left: -1px;
+  }
+
+  .sm\:even\:mt-1\/4:nth-child(even) {
+    margin-top: 25%;
+  }
+
+  .sm\:even\:mr-1\/4:nth-child(even) {
+    margin-right: 25%;
+  }
+
+  .sm\:even\:mb-1\/4:nth-child(even) {
+    margin-bottom: 25%;
+  }
+
+  .sm\:even\:ml-1\/4:nth-child(even) {
+    margin-left: 25%;
   }
 
   .sm\:max-h-full {
@@ -53251,6 +53431,10 @@ footer.footer .link:hover {
     margin: -1px;
   }
 
+  .md\:m-1\/4 {
+    margin: 25%;
+  }
+
   .md\:my-0 {
     margin-top: 0;
     margin-bottom: 0;
@@ -53629,6 +53813,16 @@ footer.footer .link:hover {
   .md\:-mx-px {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .md\:my-1\/4 {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .md\:mx-1\/4 {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .md\:mt-0 {
@@ -54239,6 +54433,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .md\:mt-1\/4 {
+    margin-top: 25%;
+  }
+
+  .md\:mr-1\/4 {
+    margin-right: 25%;
+  }
+
+  .md\:mb-1\/4 {
+    margin-bottom: 25%;
+  }
+
+  .md\:ml-1\/4 {
+    margin-left: 25%;
+  }
+
   .md\:odd\:m-0:nth-child(odd) {
     margin: 0;
   }
@@ -54389,6 +54599,10 @@ footer.footer .link:hover {
 
   .md\:odd\:-m-px:nth-child(odd) {
     margin: -1px;
+  }
+
+  .md\:odd\:m-1\/4:nth-child(odd) {
+    margin: 25%;
   }
 
   .md\:odd\:my-0:nth-child(odd) {
@@ -54769,6 +54983,16 @@ footer.footer .link:hover {
   .md\:odd\:-mx-px:nth-child(odd) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .md\:odd\:my-1\/4:nth-child(odd) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .md\:odd\:mx-1\/4:nth-child(odd) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .md\:odd\:mt-0:nth-child(odd) {
@@ -55379,6 +55603,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .md\:odd\:mt-1\/4:nth-child(odd) {
+    margin-top: 25%;
+  }
+
+  .md\:odd\:mr-1\/4:nth-child(odd) {
+    margin-right: 25%;
+  }
+
+  .md\:odd\:mb-1\/4:nth-child(odd) {
+    margin-bottom: 25%;
+  }
+
+  .md\:odd\:ml-1\/4:nth-child(odd) {
+    margin-left: 25%;
+  }
+
   .md\:even\:m-0:nth-child(even) {
     margin: 0;
   }
@@ -55529,6 +55769,10 @@ footer.footer .link:hover {
 
   .md\:even\:-m-px:nth-child(even) {
     margin: -1px;
+  }
+
+  .md\:even\:m-1\/4:nth-child(even) {
+    margin: 25%;
   }
 
   .md\:even\:my-0:nth-child(even) {
@@ -55909,6 +56153,16 @@ footer.footer .link:hover {
   .md\:even\:-mx-px:nth-child(even) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .md\:even\:my-1\/4:nth-child(even) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .md\:even\:mx-1\/4:nth-child(even) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .md\:even\:mt-0:nth-child(even) {
@@ -56517,6 +56771,22 @@ footer.footer .link:hover {
 
   .md\:even\:-ml-px:nth-child(even) {
     margin-left: -1px;
+  }
+
+  .md\:even\:mt-1\/4:nth-child(even) {
+    margin-top: 25%;
+  }
+
+  .md\:even\:mr-1\/4:nth-child(even) {
+    margin-right: 25%;
+  }
+
+  .md\:even\:mb-1\/4:nth-child(even) {
+    margin-bottom: 25%;
+  }
+
+  .md\:even\:ml-1\/4:nth-child(even) {
+    margin-left: 25%;
   }
 
   .md\:max-h-full {
@@ -75678,6 +75948,10 @@ footer.footer .link:hover {
     margin: -1px;
   }
 
+  .lg\:m-1\/4 {
+    margin: 25%;
+  }
+
   .lg\:my-0 {
     margin-top: 0;
     margin-bottom: 0;
@@ -76056,6 +76330,16 @@ footer.footer .link:hover {
   .lg\:-mx-px {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .lg\:my-1\/4 {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .lg\:mx-1\/4 {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .lg\:mt-0 {
@@ -76666,6 +76950,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .lg\:mt-1\/4 {
+    margin-top: 25%;
+  }
+
+  .lg\:mr-1\/4 {
+    margin-right: 25%;
+  }
+
+  .lg\:mb-1\/4 {
+    margin-bottom: 25%;
+  }
+
+  .lg\:ml-1\/4 {
+    margin-left: 25%;
+  }
+
   .lg\:odd\:m-0:nth-child(odd) {
     margin: 0;
   }
@@ -76816,6 +77116,10 @@ footer.footer .link:hover {
 
   .lg\:odd\:-m-px:nth-child(odd) {
     margin: -1px;
+  }
+
+  .lg\:odd\:m-1\/4:nth-child(odd) {
+    margin: 25%;
   }
 
   .lg\:odd\:my-0:nth-child(odd) {
@@ -77196,6 +77500,16 @@ footer.footer .link:hover {
   .lg\:odd\:-mx-px:nth-child(odd) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .lg\:odd\:my-1\/4:nth-child(odd) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .lg\:odd\:mx-1\/4:nth-child(odd) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .lg\:odd\:mt-0:nth-child(odd) {
@@ -77806,6 +78120,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .lg\:odd\:mt-1\/4:nth-child(odd) {
+    margin-top: 25%;
+  }
+
+  .lg\:odd\:mr-1\/4:nth-child(odd) {
+    margin-right: 25%;
+  }
+
+  .lg\:odd\:mb-1\/4:nth-child(odd) {
+    margin-bottom: 25%;
+  }
+
+  .lg\:odd\:ml-1\/4:nth-child(odd) {
+    margin-left: 25%;
+  }
+
   .lg\:even\:m-0:nth-child(even) {
     margin: 0;
   }
@@ -77956,6 +78286,10 @@ footer.footer .link:hover {
 
   .lg\:even\:-m-px:nth-child(even) {
     margin: -1px;
+  }
+
+  .lg\:even\:m-1\/4:nth-child(even) {
+    margin: 25%;
   }
 
   .lg\:even\:my-0:nth-child(even) {
@@ -78336,6 +78670,16 @@ footer.footer .link:hover {
   .lg\:even\:-mx-px:nth-child(even) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .lg\:even\:my-1\/4:nth-child(even) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .lg\:even\:mx-1\/4:nth-child(even) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .lg\:even\:mt-0:nth-child(even) {
@@ -78944,6 +79288,22 @@ footer.footer .link:hover {
 
   .lg\:even\:-ml-px:nth-child(even) {
     margin-left: -1px;
+  }
+
+  .lg\:even\:mt-1\/4:nth-child(even) {
+    margin-top: 25%;
+  }
+
+  .lg\:even\:mr-1\/4:nth-child(even) {
+    margin-right: 25%;
+  }
+
+  .lg\:even\:mb-1\/4:nth-child(even) {
+    margin-bottom: 25%;
+  }
+
+  .lg\:even\:ml-1\/4:nth-child(even) {
+    margin-left: 25%;
   }
 
   .lg\:max-h-full {
@@ -98105,6 +98465,10 @@ footer.footer .link:hover {
     margin: -1px;
   }
 
+  .xl\:m-1\/4 {
+    margin: 25%;
+  }
+
   .xl\:my-0 {
     margin-top: 0;
     margin-bottom: 0;
@@ -98483,6 +98847,16 @@ footer.footer .link:hover {
   .xl\:-mx-px {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .xl\:my-1\/4 {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .xl\:mx-1\/4 {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .xl\:mt-0 {
@@ -99093,6 +99467,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .xl\:mt-1\/4 {
+    margin-top: 25%;
+  }
+
+  .xl\:mr-1\/4 {
+    margin-right: 25%;
+  }
+
+  .xl\:mb-1\/4 {
+    margin-bottom: 25%;
+  }
+
+  .xl\:ml-1\/4 {
+    margin-left: 25%;
+  }
+
   .xl\:odd\:m-0:nth-child(odd) {
     margin: 0;
   }
@@ -99243,6 +99633,10 @@ footer.footer .link:hover {
 
   .xl\:odd\:-m-px:nth-child(odd) {
     margin: -1px;
+  }
+
+  .xl\:odd\:m-1\/4:nth-child(odd) {
+    margin: 25%;
   }
 
   .xl\:odd\:my-0:nth-child(odd) {
@@ -99623,6 +100017,16 @@ footer.footer .link:hover {
   .xl\:odd\:-mx-px:nth-child(odd) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .xl\:odd\:my-1\/4:nth-child(odd) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .xl\:odd\:mx-1\/4:nth-child(odd) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .xl\:odd\:mt-0:nth-child(odd) {
@@ -100233,6 +100637,22 @@ footer.footer .link:hover {
     margin-left: -1px;
   }
 
+  .xl\:odd\:mt-1\/4:nth-child(odd) {
+    margin-top: 25%;
+  }
+
+  .xl\:odd\:mr-1\/4:nth-child(odd) {
+    margin-right: 25%;
+  }
+
+  .xl\:odd\:mb-1\/4:nth-child(odd) {
+    margin-bottom: 25%;
+  }
+
+  .xl\:odd\:ml-1\/4:nth-child(odd) {
+    margin-left: 25%;
+  }
+
   .xl\:even\:m-0:nth-child(even) {
     margin: 0;
   }
@@ -100383,6 +100803,10 @@ footer.footer .link:hover {
 
   .xl\:even\:-m-px:nth-child(even) {
     margin: -1px;
+  }
+
+  .xl\:even\:m-1\/4:nth-child(even) {
+    margin: 25%;
   }
 
   .xl\:even\:my-0:nth-child(even) {
@@ -100763,6 +101187,16 @@ footer.footer .link:hover {
   .xl\:even\:-mx-px:nth-child(even) {
     margin-left: -1px;
     margin-right: -1px;
+  }
+
+  .xl\:even\:my-1\/4:nth-child(even) {
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
+  .xl\:even\:mx-1\/4:nth-child(even) {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   .xl\:even\:mt-0:nth-child(even) {
@@ -101371,6 +101805,22 @@ footer.footer .link:hover {
 
   .xl\:even\:-ml-px:nth-child(even) {
     margin-left: -1px;
+  }
+
+  .xl\:even\:mt-1\/4:nth-child(even) {
+    margin-top: 25%;
+  }
+
+  .xl\:even\:mr-1\/4:nth-child(even) {
+    margin-right: 25%;
+  }
+
+  .xl\:even\:mb-1\/4:nth-child(even) {
+    margin-bottom: 25%;
+  }
+
+  .xl\:even\:ml-1\/4:nth-child(even) {
+    margin-left: 25%;
   }
 
   .xl\:max-h-full {

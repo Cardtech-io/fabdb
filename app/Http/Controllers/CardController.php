@@ -10,12 +10,8 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        $perPage = $request->get('per_page', 12);
-
-        if ($perPage > 100) $perPage = 100;
-
         return $cards->search($request->user(), $request->all())
-            ->paginate($perPage)
+            ->paginate($request->get('per_page', 12))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
     }
