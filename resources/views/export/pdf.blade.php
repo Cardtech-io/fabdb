@@ -61,7 +61,7 @@
                             <div class=" float-left p-2 h-8">Pitch 3 (Blue)</div>
                         </td>
                     </tr>
-                    @for ($i = 0; $i < 16; $i++)
+                    @for ($i = 0; $i < max($deck->other(1)->count(), $deck->other(2)->count(), $deck->other(3)->count()); $i++)
                     <tr>
                         <?php $pitch1 = $deck->other(1)->get($i); ?>
                         <?php $pitch2 = $deck->other(2)->get($i); ?>
