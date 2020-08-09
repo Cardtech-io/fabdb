@@ -17,6 +17,7 @@ use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
+use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,8 +86,7 @@ class DeckController extends Controller
         $deck->load('cards');
         $deck->load('sideboard');
 
-
-        return $deck;
+        return new DeckResource($deck);
     }
 
     public function saveSettings(SaveDeckSettingsRequest $request)

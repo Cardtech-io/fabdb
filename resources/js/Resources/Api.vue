@@ -170,6 +170,43 @@
 }
                             </pre>
                         </vue-code-highlight>
+
+                        <a name="decks"></a>
+                        <h4 class="font-bold text-lg">Decks</h4>
+                        <h4 class="font-bold text-lg">View deck</h4>
+                        <p class="my-4 font-mono border border-gray-300 p-4">GET /decks/{slug}</p>
+                        <p class="my-4">Example response:</p>
+                        <vue-code-highlight language="javascript" class="text-base">
+                            <pre>
+{
+    "slug": "NmzrmMWV",
+    "name": "Katsudon",
+    "format": "constructed",
+    "notes": null,
+    "visibility": "public",
+    "cardBack": 1,
+    "createdAt": "2020-05-31 09:04:13",
+    "totalVotes": 0,
+    "myVote": 0,
+    "cards": [
+         {
+            "identifier": "WTR082",
+            "name": "Ancestral Empowerment",
+            "rarity": "M",
+            "stats": {"cost": "0", "defense": "2", "resource": "1"},
+            "text": "",
+            "keywords":["ninja", "attack", "reaction"],
+            "flavour": "",
+            "comments": "",
+            "image": "https:\/\/fabdb2.imgix.net\/cards\/wtr\/82.png?w=300&fit=clip&auto=compress",
+            "total": 3
+        },
+        ...
+    ],
+    "sideboard": []
+}
+                            </pre>
+                        </vue-code-highlight>
                     </div>
                 </div>
             </div>

@@ -70,8 +70,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+        Route::domain($this->app['config']->get('app.domain'))
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**

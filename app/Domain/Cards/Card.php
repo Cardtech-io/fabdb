@@ -15,7 +15,6 @@ class Card extends Model
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
-    protected $appends = ['total'];
 
     public function comments()
     {
@@ -57,11 +56,6 @@ class Card extends Model
     public function getRarityAttribute(string $rarity)
     {
         return new Rarity($rarity);
-    }
-
-    public function getTotalAttribute()
-    {
-        return $this->pivot ? $this->pivot->total : 0;
     }
 
     public function isHero(): bool

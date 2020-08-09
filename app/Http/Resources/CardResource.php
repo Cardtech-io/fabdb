@@ -11,8 +11,12 @@ class CardResource extends JsonResource
     {
         $this->resource->setAppends([]);
 
-        $response = Arr::except($this->resource->toArray(), ['listings', 'total']);
+        $response = Arr::except($this->resource->toArray(), ['listings', 'pivot', 'searchText']);
         $response['image'] = $this->image($this->resource);
+
+        $response['total'] = $this->whenPivotLoaded('deck_cards', function () {
+            return $this->pivot->total;
+        });
 
         return $response;
     }
