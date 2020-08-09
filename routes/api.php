@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Http\Request;
+use FabDB\Http\Middleware\LogRequests;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,9 @@ Route::fallback(function() {
     return redirect(config('app.url').'/resources/api');
 });
 
-Route::get('cards', 'CardController@list');
-Route::get('cards/{card}', 'CardController@view');
+Route::group(['middleware' => LogRequests::class], function() {
+    Route::get('cards', 'CardController@list');
+    Route::get('cards/{card}', 'CardController@view');
 
-Route::get('decks/{deck}', 'DeckController@view');
+    Route::get('decks/{deck}', 'DeckController@view');
+});
