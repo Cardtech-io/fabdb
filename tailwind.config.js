@@ -1,6 +1,10 @@
 module.exports = {
     theme: {
         extend: {
+            margin: {
+                '1/4': '25%'
+            },
+
             width: {
                 '1/7': '14.2857143%',
                 '1/8': '12.5%',

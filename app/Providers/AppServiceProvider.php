@@ -4,6 +4,7 @@ namespace FabDB\Providers;
 use FabDB\Library\JobLogger;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
@@ -36,6 +37,8 @@ abstract class AppServiceProvider extends ServiceProvider
         });
 
         $this->logQueries();
+
+        JsonResource::withoutWrapping();
     }
 
     private function bindImplementations()

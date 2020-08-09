@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +12,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::fallback(function() {
+    return redirect(config('app.url').'/resources/api');
 });
+
+Route::get('cards', 'CardController@list');
+Route::get('cards/{card}', 'CardController@view');
+
+Route::get('decks/{deck}', 'DeckController@view');

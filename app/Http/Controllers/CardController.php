@@ -12,6 +12,7 @@ class CardController extends Controller
     {
         return $cards->search($request->user(), $request->all())
             ->paginate($request->get('per_page', 12))
+            ->withPath('/'.$request->path())
             ->appends($request->except('page'));
     }
 

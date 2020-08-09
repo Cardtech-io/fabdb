@@ -26,6 +26,16 @@ final class Identifier implements \JsonSerializable
         return new self($set, $id);
     }
 
+    public function set(): string
+    {
+        return $this->set;
+    }
+
+    public function strippedId(): string
+    {
+        return preg_replace('/^0{1,2}/', '', $this->id);
+    }
+
     // Variants can have an identifier somewhere within the string, so find it and then instantiate
     public static function fromVariant($string)
     {
