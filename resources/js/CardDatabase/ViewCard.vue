@@ -46,7 +46,9 @@
                         </li>
                     </ul>
 
-                    <pricing :listings="card.listings" class="mb-4"></pricing>
+                    <pricing :listings="card.listings" class="mb-8"></pricing>
+
+                    <rulings :rulings="card.rulings" v-if="card.rulings.length"></rulings>
 
                     <hr class="text-gray-500 mt-4">
 
@@ -76,6 +78,7 @@
     import Respond from '../Discussion/Respond.vue';
     import Comment from '../Discussion/Comment.vue';
     import CommentCount from '../Discussion/CommentCount.vue';
+    import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
 
     export default {
@@ -88,7 +91,8 @@
             CommentCount,
             HeaderTitle,
             Pricing,
-            Respond
+            Respond,
+            Rulings,
         },
 
         computed: {

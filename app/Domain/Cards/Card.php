@@ -26,6 +26,11 @@ class Card extends Model
         return $this->hasMany(Listing::class);
     }
 
+    public function rulings()
+    {
+        return $this->belongsToMany(Ruling::class);
+    }
+
     public function newCollection(array $models = [])
     {
         return new Cards($models);

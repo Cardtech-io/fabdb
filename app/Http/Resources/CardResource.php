@@ -13,6 +13,7 @@ class CardResource extends JsonResource
 
         $response = Arr::except($this->resource->toArray(), ['listings', 'pivot', 'searchText']);
         $response['image'] = $this->image($this->resource);
+        $response['rulings'] = RulingResource::collection($this->whenLoaded('rulings'));
 
         $this->polymorphicTotal($response, 'deck_cards');
         $this->polymorphicTotal($response, 'sideboard');

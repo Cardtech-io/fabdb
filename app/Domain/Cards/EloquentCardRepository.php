@@ -126,7 +126,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '-'))->identifier;
         });
 
-        $card->load('listings', 'listings.store');
+        $card->load('listings', 'listings.store', 'rulings');
 
         return $card;
     }
