@@ -14,9 +14,8 @@ class CardResource extends JsonResource
         $response = Arr::except($this->resource->toArray(), ['listings', 'pivot', 'searchText']);
         $response['image'] = $this->image($this->resource);
 
-        $response['total'] = $this->whenPivotLoaded('deck_cards', function () {
-            return $this->pivot->total;
-        });
+        $this->polymorphicTotal($response, 'deck_cards');
+        $this->polymorphicTotal($response, 'sideboard');
 
         return $response;
     }
@@ -28,5 +27,14 @@ class CardResource extends JsonResource
         $id = $card->identifier->strippedId();
 
         return "https://$domain/cards/$set/$id.png?w=300&fit=clip&auto=compress";
+    }
+
+    private function polymorphicTotal(array &$response, string $table)
+    {
+        if ($this->resource->pivot && $this->resource->pivot->getTable() == $table) {
+            $response['total'] = $this->whenPivotLoaded($table, function () {
+                return $this->pivot->total;
+            });
+        }
     }
 }

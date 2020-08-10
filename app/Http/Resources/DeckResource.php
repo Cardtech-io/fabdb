@@ -11,10 +11,12 @@ class DeckResource extends JsonResource
         $response = Arr::except($this->resource->toArray(), [
             'decksheet',
             'decksheetCreatedAt',
-            'updatedAt',
+            'pivot',
+            'updatedAt'
         ]);
 
         $response['cards'] = CardResource::collection($this->resource->cards);
+        $response['sideboard'] = SideboardResource::collection($this->resource->sideboard);
 
         return $response;
     }

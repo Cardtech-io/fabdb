@@ -30,7 +30,7 @@ class AvailableToSideboard implements Rule
         $card = $this->deck->card($value);
         $sideboard = $this->deck->sideboardCard($card->id);
 
-        return !$sideboard || $sideboard->total < $card->total;
+        return !$sideboard || $sideboard->pivot->total < $card->pivot->total;
     }
 
     /**
