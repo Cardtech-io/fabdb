@@ -52,7 +52,7 @@ class SeedCardDatabase extends Command
                 $variantOf = $cards->findByIdentifier($row['Variant of']);
 
                 if (!$variantOf) {
-                    throw new \Exception('Invalid identifier for variant.');
+                    throw new \Exception('Invalid identifier for variant: ['.$row['Variant of'].']');
                 }
 
                 $saved = Card::register(
@@ -66,7 +66,7 @@ class SeedCardDatabase extends Command
                     $variantOf->stats
                 );
 
-                $saved->variantOf()->firstOrCreate(['card_id' => $variantOf->id]);
+                $saved->variants()->firstOrCreate(['card_id' => $variantOf->id]);
             } else {
                 Card::register(
                     new Identifier($row['Set'], $row['ID']),
