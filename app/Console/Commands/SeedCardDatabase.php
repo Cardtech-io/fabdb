@@ -66,7 +66,9 @@ class SeedCardDatabase extends Command
                     $variantOf->stats
                 );
 
-                $saved->variants()->firstOrCreate(['card_id' => $variantOf->id]);
+                $this->line('Linking variant: '.$saved->identifier->raw().' to: '.$variantOf->identifier->raw());
+                
+                Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
             } else {
                 Card::register(
                     new Identifier($row['Set'], $row['ID']),
