@@ -71,6 +71,10 @@ export default {
             return marked(content.join('\n'), { renderer: renderer });
         },
 
+        minimalMarkdown: function(string) {
+            return marked(this.prettified(string));
+        },
+
         prettyText: function(text) {
             function chunk(arr, len) {
                 var chunks = [],
@@ -84,6 +88,12 @@ export default {
                 return chunks;
             }
 
+            let content = this.prettified(text);
+
+            return this.parseMarkdown(content);
+        },
+
+        prettified: function(text) {
             let content = text.split('\n');
 
             content = content.map(function(line) {
@@ -115,7 +125,7 @@ export default {
                 }
             });
 
-            return this.parseMarkdown(content.join('\n'));
+            return content.join('\n');
         },
 
         snakeCase: function (string, delimiter) {
@@ -127,7 +137,7 @@ export default {
         ucfirst: function(string) {
             return string[0].toUpperCase() + string.slice(1);
         },
-        
+
         imageDomain: function() {
             return window.settings.imageDomain;
         }

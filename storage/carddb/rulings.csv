@@ -1,507 +1,507 @@
 Rule,Description,Keyword,Cards,Source,Date
-Battleworn,"* When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same combat chain.
-* A [-1 defense] counter stays on the card until the card is destroyed or the game ends.
-* If the defense of a card that is defending is below zero, calculate as if its defense is zero.",battleworn,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Bladebreak,"* When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same combat chain.
-* When this card is destroyed, it is sent to your graveyard.
-* The ability goes on the stack when the combat chain closes.",blade break,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Combo,"* The last attack does not have to have hit.
-* Only the name of the last attack matters, other variables such as the pitch cost does not matter.
-* You may still play the attack even if combo isn’t active.",combo,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Crush,"* Crush only checks the amount of damage dealt to the hero. Prevented damage does not 
-* Crush is not optional, if the card does 4 or more damage, the effect will apply.",crush,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Dominate,"* Cards with dominate cannot be defended with more than 1 card from the defending hero’s hand.
-* You can still block with equipment and defense reactions played from arsenal in addition to up to 1 card from hand.
-* Playing a defense reaction from your hand counts towards the 1 card from your hand restriction. You cannot defend with a card in your hand then play a defense reaction from your hand.",dominate,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Go again,"* When an action with go again resolves, its controller gains 1 action point.
-* Multiple instances of go again on the same card or activated ability do not stack. If a card or activated ability has multiple instances of go again when it resolves its controller gains 1 action point only.",go again,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Intimidate,"* The player who owns the banished card may look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.
-* You may target yourself with this ability. However you will receive the card back into your hand before drawing up to your hand size.
-* You may target a hero with no cards in hand.
-* If there are other banished cards that aren’t from intimidate, it is encouraged to keep intimidated cards seperate from these cards.",intimidate,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Reprise,"* Reprise cares about the current chain link not the whole combat chain. If a previous attack was defended by a card in hand, it will have no effect on reprise for the current chain link.
-* Reprise is checked at the time you play the card. If a card with reprise is played then a defense reaction is played from hand, the effect will not apply retroactively.
-* Equipment and cards from arsenal that defend an attack do not turn on reprise.",reprise,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Bravo,* The attack action does not gain go again. Bravo’s activated ability requires an action point to use and provides an action point from go again upon resolution.,,"WTR030,WTR039",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Dorinthea,"* This ability does not give the weapon attack go again. You are still required to have an action point to attack again.
-* This ability bypasses the “Once per Turn Action - Attack” on weapons and allows an additional attack with the same weapon
-* This effect is mandatory, the first weapon you hit with each turn gets this effect. It cannot be saved up for a future weapon attack that turn.",,"WTR113,WTR114",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Katsu,"* You may elect not to banish a card when searching, however you still must shuffle your deck.
-* Katsu's hero card effect triggers only once per turn, the first time you hit with an attack action card. If you choose not to resolve the effect and you hit again later in the same turn, Katsu's hero card effect will not trigger again.",,"WTR076,WTR077",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Rhinar,"* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
-* The player who owns the card banished face down is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,"WTR001,WTR002",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Anothos,"* Anothos checks your pitch zone constantly not just when it attacks. If the criteria is met after the attack is made, it will get the +2[attack] bonus.
-* You can only pitch when there is a cost to pay. (Bravo’s hero ability can be useful for this.)",,WTR040,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Dawnblade,"* Dawnblade does not have go again nor can it attack more than once per turn. Dawnblade requires other cards to allow Dawnblade to attack more than once.
-* A +1[attack] counter is a permanent effect that increases the power of Dawnblade *(until the counter is removed)*",,WTR115,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Harmonized Kodachi,"* It is possible for Harmonized Kodachi to gain go again after the attack has been declared if a card with cost 0 enters the pitch zone before the chain link resolves.
-* You can only pitch when there is a cost to pay.
-* You may start the game with zero, one or two Harmonized Kodachis as it is a 1-handed weapon. (We highly recommend choosing 2.)",,WTR078,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Romping Club,* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.,,WTR003,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Fyendal's Spring Tunic,"* You cannot activate Fyendal’s Spring Tunic during the start of the turn phase (in response to the trigger), because players do not get priority during the start of turn phase.
-* You must have at least 3 energy counters on Fyendal’s Spring Tunic to use it’s activated ability.
-* Fyendal’s Spring Tunic’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR150,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Goliath Gauntlet,* The attack action card does not gain go again. Goliath Gauntlet’s activated ability requires an action point to use and provides an action point from go again upon resolution.,,WTR153,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Heartened Cross Strap,"* The attack action card does not again go again. Heartened Cross Strap’s activated ability requires an action point to use and provides an action point from go again upon resolution.
-* The reduction does not carry over to any additional attack actions outside of the first attack action card you play after activating Heartened Cross Strap.",,WTR152,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Hope Merchant's Hood,"* The cards must be selected and shuffled in at the same time.
-* Hope Merchant’s Hood’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR151,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Snapdragon Scalers,"* If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of *go again* do not stack.
-* Snapdragon Scaler’s activated ability is an attack reaction. You may activate it during the reaction window when you are the attacking hero.",,WTR154,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Barraging Brawnhide,* Defense reactions played from arsenal and/or hand count as defending cards.,,"WTR176,WTR177,WTR178",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Crazy Brew,"* You cannot defend with Crazy Brew as it has no defense value.
-* The ability must resolve completely. There is no window to react between letting the ability resolve and seeing which effect is applied.",,WTR162,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Demolition Crew,"* You must have at least one card in your hand with cost [2 resource] or greater for the additional cost at the time you play Demolition Crew.
-* You may not reveal the same Demolition Crew to itself to pay for the additional cost.
-* You can not reveal a card for the additional cost, and then pitch that same card to pay the resource of Demolition Crew. Paying resource costs happens before paying additional costs.",,"WTR179,WTR180,WTR181",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Drone of Brutality,"* Anywhere includes all possible zones, such as from hand, or deck. This is not limited to being put into the graveyard from the combat chain",,"WTR164,WTR165,WTR166",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Energy Potion,"* Energy Potion requires an action point to play as it is an action.
-* Energy Potion has sub-type Item, which means it stays in the arena until it is destroyed.
-* You may not defend with Energy Potion as it does not have a defense value.
-* You may use Energy Potion’s ability even when you are not spending any of the resources gained by it.
-* Energy Potion’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR170,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Enlightened Strike,"* You must have at least one other card in your hand to pay for the additional cost at the time you play Enlightened Strike.
-* You choose the mode at the time you play Enlightened Strike.",,WTR159,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Flock of the Featherwalkers,"* You must have at least one other card in your hand with cost {r} or less to pay for the additional cost of Flock of the Feather Walkers.
-* You may not reveal the same Flock of the Feather Walkers to itself to pay for the additional cost.
-* The Quicken aura token remains in play until destroyed.
-* A Quicken aura token may be represented by a small object such as a card sleeve or coin if a Quicken aura token card is not available.
-* You can not reveal a card for the additional cost, and then pitch that same card to pay the resource of Flock of the Feather Walkers. Paying resource costs happens before paying additional costs.",,"WTR182,WTR183,WTR184",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Heart of Fyendal,"* The green symbol on Heart of Fyendal is life.
-* You may only have 1 Heart of Fyendal in your deck including cards in your registered 80-card pool in constructed tournaments and only 1 Heart of Fyendal in your deck in limited tournaments.
-* You may not defend with Heart of Fyendal as it does not have a defense value.
-* Heart of Fyendal does not have a cost value. (It is not zero.)",,WTR000,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Last Ditch Effort,"* Last Ditch Effort checks how many cards are in your deck at the time you play it. If after you play it your deck’s size changes, the stats and go again applied to Last Ditch Effort would still remain.",,WTR161,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Nimble Strike,"* You must decide if you are banishing a card name Nimblism at the time you play Nimble Strike.
-* Non-attack action cards go to the graveyard after they resolve, therefore you may banish a Nimblism you played this turn.",,"WTR185,WTR186,WTR187",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Nimblism,* The attack action does not gain go again. Nimblism requires an action point to use and provides an action point from go again upon resolution.,,"WTR218,WTR219,WTR220",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Potion of Strength,"* Potion of Strength requires an action point to play as it is an action.
-* Potion of Strength has sub-type Item, which means it stays in the arena until it is destroyed.
-* You may not defend with Potion of Strength as it does not have a defense value.
-* The attack does not gain go again. Potion of Strength requires an action point to use and provides an action point from go again upon resolution.",,WTR171,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Pummel,"* You cannot play Pummel if there is not a legal target.
-* You cannot target a weapon, only a weapon attack.",,"WTR206,WTR207,WTR208",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Razor Reflex,"* You cannot play Razor Reflex if there is not a legal target
-* You cannot target a weapon, only a weapon attack.
-* You cannot target a weapon attack with the second option.
-* If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of go again do not stack.",,"WTR209,WTR210,WTR211",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Regurgitating Slog,"* You must decide if you are banishing a card named Sloggism at the time you play Regurgitating Slog.
-* Non-attack action cards go to the graveyard after it resolves, therefore you may banish a Sloggism you played this turn.",,"WTR197,WTR198,WTR199",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Remembrance,"* You may not defend with Remembrance as it does not have a defense value.
-* You may shuffle 0, 1, 2 or 3 action cards from your graveyard into your deck.
-* You are not required to announce your choices until the card resolves.
-* You may only shuffle action cards from your graveyard into your deck. This includes attack actions. This excludes any card that is not an action such as equipment, resource, defense reaction, attack reaction and instant.
-* Remembrance is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR163,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Scar for a Scar,"* The green symbol on Scar for a Scar is life.
-* Scar for a Scar checks if you have less life than your opponent at the time you play it. Changes after the card has been played does not cause Scar for a Scar to gain nor lose go again.",,"WTR191,WTR192,WTR193",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Sigil of Solace,"* The green symbol on Sigil of Solace is life.
-* You may not defend with Sigil of Solace as it does not have a defense value.
-* Sigil of Solace is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,"WTR174,WTR174,WTR175",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Sink Below,"* Sink Below can only be played in the reaction window.
-* You must resolve Sink Below’s ability before deciding if you are defending with any additional cards in the reaction window.
-* You cannot use Sink Below’s ability if you have no other cards in your hand. You only draw a card if you put a card from your hand on the bottom of your deck.
-* Sink Below’s effect is optional. You may still play Sink Below if you have no other cards in your hand.",,WTR215-217,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Sloggism,* The attack action does not gain go again. Sloggism requires an action point to use and provides an action point from go again upon resolution,,WTR221-223,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Snatch,* The attack is considered to have hit if it does 1 or more damage to the defending hero.,,WTR167-169,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Tome of Fyendal,"* The green symbol of Tome of Fyendal is life.
-* You can exceed your starting life total. There is no maximum life total.
-* If you end the turn with more cards in hand than your hero’s intellect, you do not discard to your hero’s intellect (hand size). There is no maximum hand size
+Battleworn,"When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same combat chain.
+A [-1 defense] counter stays on the card until the card is destroyed or the game ends.
+If the defense of a card that is defending is below zero, calculate as if its defense is zero.",battleworn,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Bladebreak,"When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same combat chain.
+When this card is destroyed, it is sent to your graveyard.
+The ability goes on the stack when the combat chain closes.",blade break,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Combo,"The last attack does not have to have hit.
+Only the name of the last attack matters, other variables such as the pitch cost does not matter.
+You may still play the attack even if combo isn’t active.",combo,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Crush,"Crush only checks the amount of damage dealt to the hero. Prevented damage does not 
+Crush is not optional, if the card does 4 or more damage, the effect will apply.",crush,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Dominate,"Cards with dominate cannot be defended with more than 1 card from the defending hero’s hand.
+You can still block with equipment and defense reactions played from arsenal in addition to up to 1 card from hand.
+Playing a defense reaction from your hand counts towards the 1 card from your hand restriction. You cannot defend with a card in your hand then play a defense reaction from your hand.",dominate,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Go again,"When an action with go again resolves, its controller gains 1 action point.
+Multiple instances of go again on the same card or activated ability do not stack. If a card or activated ability has multiple instances of go again when it resolves its controller gains 1 action point only.",go again,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Intimidate,"The player who owns the banished card may look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.
+You may target yourself with this ability. However you will receive the card back into your hand before drawing up to your hand size.
+You may target a hero with no cards in hand.
+If there are other banished cards that aren’t from intimidate, it is encouraged to keep intimidated cards seperate from these cards.",intimidate,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Reprise,"Reprise cares about the current chain link not the whole combat chain. If a previous attack was defended by a card in hand, it will have no effect on reprise for the current chain link.
+Reprise is checked at the time you play the card. If a card with reprise is played then a defense reaction is played from hand, the effect will not apply retroactively.
+Equipment and cards from arsenal that defend an attack do not turn on reprise.",reprise,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Bravo,The attack action does not gain go again. Bravo’s activated ability requires an action point to use and provides an action point from go again upon resolution.,,"WTR030,WTR039",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Dorinthea,"This ability does not give the weapon attack go again. You are still required to have an action point to attack again.
+This ability bypasses the “Once per Turn Action - Attack” on weapons and allows an additional attack with the same weapon
+This effect is mandatory, the first weapon you hit with each turn gets this effect. It cannot be saved up for a future weapon attack that turn.",,"WTR113,WTR114",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Katsu,"You may elect not to banish a card when searching, however you still must shuffle your deck.
+Katsu's hero card effect triggers only once per turn, the first time you hit with an attack action card. If you choose not to resolve the effect and you hit again later in the same turn, Katsu's hero card effect will not trigger again.",,"WTR076,WTR077",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Rhinar,"This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
+The player who owns the card banished face down is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,"WTR001,WTR002",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Anothos,"Anothos checks your pitch zone constantly not just when it attacks. If the criteria is met after the attack is made, it will get the +2[attack] bonus.
+You can only pitch when there is a cost to pay. (Bravo’s hero ability can be useful for this.)",,WTR040,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Dawnblade,"Dawnblade does not have go again nor can it attack more than once per turn. Dawnblade requires other cards to allow Dawnblade to attack more than once.
+A +1[attack] counter is a permanent effect that increases the power of Dawnblade *(until the counter is removed)*",,WTR115,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Harmonized Kodachi,"It is possible for Harmonized Kodachi to gain go again after the attack has been declared if a card with cost 0 enters the pitch zone before the chain link resolves.
+You can only pitch when there is a cost to pay.
+You may start the game with zero, one or two Harmonized Kodachis as it is a 1-handed weapon. (We highly recommend choosing 2.)",,WTR078,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Romping Club,This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.,,WTR003,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Fyendal's Spring Tunic,"You cannot activate Fyendal’s Spring Tunic during the start of the turn phase (in response to the trigger), because players do not get priority during the start of turn phase.
+You must have at least 3 energy counters on Fyendal’s Spring Tunic to use it’s activated ability.
+Fyendal’s Spring Tunic’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR150,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Goliath Gauntlet,The attack action card does not gain go again. Goliath Gauntlet’s activated ability requires an action point to use and provides an action point from go again upon resolution.,,WTR153,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Heartened Cross Strap,"The attack action card does not again go again. Heartened Cross Strap’s activated ability requires an action point to use and provides an action point from go again upon resolution.
+The reduction does not carry over to any additional attack actions outside of the first attack action card you play after activating Heartened Cross Strap.",,WTR152,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Hope Merchant's Hood,"The cards must be selected and shuffled in at the same time.
+Hope Merchant’s Hood’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR151,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Snapdragon Scalers,"If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of *go againdo not stack.
+Snapdragon Scaler’s activated ability is an attack reaction. You may activate it during the reaction window when you are the attacking hero.",,WTR154,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Barraging Brawnhide,Defense reactions played from arsenal and/or hand count as defending cards.,,"WTR176,WTR177,WTR178",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Crazy Brew,"You cannot defend with Crazy Brew as it has no defense value.
+The ability must resolve completely. There is no window to react between letting the ability resolve and seeing which effect is applied.",,WTR162,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Demolition Crew,"You must have at least one card in your hand with cost [2 resource] or greater for the additional cost at the time you play Demolition Crew.
+You may not reveal the same Demolition Crew to itself to pay for the additional cost.
+You can not reveal a card for the additional cost, and then pitch that same card to pay the resource of Demolition Crew. Paying resource costs happens before paying additional costs.",,"WTR179,WTR180,WTR181",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Drone of Brutality,"Anywhere includes all possible zones, such as from hand, or deck. This is not limited to being put into the graveyard from the combat chain",,"WTR164,WTR165,WTR166",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Energy Potion,"Energy Potion requires an action point to play as it is an action.
+Energy Potion has sub-type Item, which means it stays in the arena until it is destroyed.
+You may not defend with Energy Potion as it does not have a defense value.
+You may use Energy Potion’s ability even when you are not spending any of the resources gained by it.
+Energy Potion’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR170,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Enlightened Strike,"You must have at least one other card in your hand to pay for the additional cost at the time you play Enlightened Strike.
+You choose the mode at the time you play Enlightened Strike.",,WTR159,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Flock of the Featherwalkers,"You must have at least one other card in your hand with cost {r} or less to pay for the additional cost of Flock of the Feather Walkers.
+You may not reveal the same Flock of the Feather Walkers to itself to pay for the additional cost.
+The Quicken aura token remains in play until destroyed.
+A Quicken aura token may be represented by a small object such as a card sleeve or coin if a Quicken aura token card is not available.
+You can not reveal a card for the additional cost, and then pitch that same card to pay the resource of Flock of the Feather Walkers. Paying resource costs happens before paying additional costs.",,"WTR182,WTR183,WTR184",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Heart of Fyendal,"The green symbol on Heart of Fyendal is life.
+You may only have 1 Heart of Fyendal in your deck including cards in your registered 80-card pool in constructed tournaments and only 1 Heart of Fyendal in your deck in limited tournaments.
+You may not defend with Heart of Fyendal as it does not have a defense value.
+Heart of Fyendal does not have a cost value. (It is not zero.)",,WTR000,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Last Ditch Effort,"Last Ditch Effort checks how many cards are in your deck at the time you play it. If after you play it your deck’s size changes, the stats and go again applied to Last Ditch Effort would still remain.",,WTR161,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Nimble Strike,"You must decide if you are banishing a card name Nimblism at the time you play Nimble Strike.
+Non-attack action cards go to the graveyard after they resolve, therefore you may banish a Nimblism you played this turn.",,"WTR185,WTR186,WTR187",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Nimblism,The attack action does not gain go again. Nimblism requires an action point to use and provides an action point from go again upon resolution.,,"WTR218,WTR219,WTR220",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Potion of Strength,"Potion of Strength requires an action point to play as it is an action.
+Potion of Strength has sub-type Item, which means it stays in the arena until it is destroyed.
+You may not defend with Potion of Strength as it does not have a defense value.
+The attack does not gain go again. Potion of Strength requires an action point to use and provides an action point from go again upon resolution.",,WTR171,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Pummel,"You cannot play Pummel if there is not a legal target.
+You cannot target a weapon, only a weapon attack.",,"WTR206,WTR207,WTR208",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Razor Reflex,"You cannot play Razor Reflex if there is not a legal target
+You cannot target a weapon, only a weapon attack.
+You cannot target a weapon attack with the second option.
+If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of go again do not stack.",,"WTR209,WTR210,WTR211",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Regurgitating Slog,"You must decide if you are banishing a card named Sloggism at the time you play Regurgitating Slog.
+Non-attack action cards go to the graveyard after it resolves, therefore you may banish a Sloggism you played this turn.",,"WTR197,WTR198,WTR199",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Remembrance,"You may not defend with Remembrance as it does not have a defense value.
+You may shuffle 0, 1, 2 or 3 action cards from your graveyard into your deck.
+You are not required to announce your choices until the card resolves.
+You may only shuffle action cards from your graveyard into your deck. This includes attack actions. This excludes any card that is not an action such as equipment, resource, defense reaction, attack reaction and instant.
+Remembrance is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR163,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Scar for a Scar,"The green symbol on Scar for a Scar is life.
+Scar for a Scar checks if you have less life than your opponent at the time you play it. Changes after the card has been played does not cause Scar for a Scar to gain nor lose go again.",,"WTR191,WTR192,WTR193",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Sigil of Solace,"The green symbol on Sigil of Solace is life.
+You may not defend with Sigil of Solace as it does not have a defense value.
+Sigil of Solace is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,"WTR174,WTR174,WTR175",https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Sink Below,"Sink Below can only be played in the reaction window.
+You must resolve Sink Below’s ability before deciding if you are defending with any additional cards in the reaction window.
+You cannot use Sink Below’s ability if you have no other cards in your hand. You only draw a card if you put a card from your hand on the bottom of your deck.
+Sink Below’s effect is optional. You may still play Sink Below if you have no other cards in your hand.",,WTR215-217,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Sloggism,The attack action does not gain go again. Sloggism requires an action point to use and provides an action point from go again upon resolution,,WTR221-223,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Snatch,The attack is considered to have hit if it does 1 or more damage to the defending hero.,,WTR167-169,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Tome of Fyendal,"The green symbol of Tome of Fyendal is life.
+You can exceed your starting life total. There is no maximum life total.
+If you end the turn with more cards in hand than your hero’s intellect, you do not discard to your hero’s intellect (hand size). There is no maximum hand size
 ",,WTR160,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Unmovable,"* Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Unmovable’s cost to play it.
-* You may play Unmovable from your hand, however it will not get it’s bonus.",,WTR212-214,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Wounded Bull,"* The green symbol on Wounded Bull is life.
-* Wounded Bull checks if you have less life than your opponent at the time you play it. Changes after the card has been played does not cause Wounded Bull to gain nor lose +1[attack].",,WTR200-202,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Barkbone Strapping,"* If the number rolled is 1, no resources would be gained.
-* You may use Barkbone Strapping’s activated ability even when there is no cost to be paidBarkbone Strapping’’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR005,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Scabskin Leathers,"* If the number rolled is 1, no action points would be gained.
-* Scabskin Leathers requires an action point to use.",,WTR004,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Alpha Rampage,"* You may only play Alpha Rampage in your deck if your hero is Rhinar, Reckless Rampage or Rhinar (young hero).
-* You must have at least one other card in your hand to pay for the additional cost at the time you play Alpha Rampage.
-* The player who owns the banished face down card is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR006,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Awakening Bellow,"* This card only affects Brute attack action cards. Brute weapon attack or generic attack actions do not benefit this.
-* The player who owns the banished face down card is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR032-034,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Barraging Beatdown,"* This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.
-* The player who owns the banished face down card is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR017-019,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Bloodrush Bellow,"* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
-* This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.",,WTR007,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Bone Head Barrier,"* You may not defend with Bone Head Barrier as it does not have a defense value.
-* You must prevent the incoming damage, you cannot save the prevention for a future attack once Bone Head Barrier resolves.
-* Bone Head Barrier is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR010,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Breakneck Battery,* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.,,WTR011-013,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Pack Hunt,"* The player who owns the banished face down card is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR023-025,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Primeval Bellow,"* You must have at least one other card in your hand to pay for the additional cost at the time you play Primeval Bellow.
-* This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.
-* You can only pitch when there is a cost to pay. You cannot pitch a card to play Primeval Bellow because it costs 0. Yes, we did this to make it awkward.",,WTR035-037,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Reckless Swing,"* You must have at least one other card in your hand to pay for the additional cost at the time you play Reckless Swing.
-* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
-* The damage cannot be blocked but it can be prevented by a prevention effect.
-* You can only pitch when there is a cost to pay. You cannot pitch a card to play Reckless Swing.",,WTR008,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Sand Sketched Plan,"* You may only play Sand Sketched Plan in your deck if your hero is Rhinar, Reckless Rampage or Rhinar (young hero).
-* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
-* You may elect not to put a card into your hand, you still must discard and shuffle your deck after.
-* You can only pitch when there is a cost to pay. You cannot pitch a card to cast Sand Sketched Plan.
-* Sand Sketched Plan does not have go again. If you don’t discard a card with 6 or more power from its effect, your action phase will end unless you had two or more action points before playing Sand Sketched Plan.",,WTR009,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Savage Feast,"* You must have at least one other card in your hand to pay for the additional cost at the time you play Savage Feast.
-* This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.",,WTR014-016,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Savage Swing,* You must have at least one other card in your hand to pay for the additional cost at the time you play Savage Swing.,,WTR020-022,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Smash Instinct,"* The player who owns the banished face down card is allowed to look at it.
-* The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR026-028,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Wrecker Romp,* You must have at least one other card in your hand to pay for the additional cost at the time you play Wrecker Romp.,,WTR029-031,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Helm of Isen's Peak,"* The blue symbol is intellect. This is your hand size (How much you draw up to at the end of turn.)
-* You draw up to your hand size before end of turn effects wear off.
-* Helm of Isen’s Peak requires an action point to activate. It does not have go again. Activating Helm of Isen Peak will usually end your action phase.
-* When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same chain link.",,WTR042,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Blessing of Deliverance,"* The green symbol on Blessing of Deliverance is life.
-* Blessing of Deliverance checks the resource cost of a card (top right corner), not the pitch value.
-* The cards stay in the same order on top of the deck as they were before they were revealed
+Unmovable,"Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Unmovable’s cost to play it.
+You may play Unmovable from your hand, however it will not get it’s bonus.",,WTR212-214,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Wounded Bull,"The green symbol on Wounded Bull is life.
+Wounded Bull checks if you have less life than your opponent at the time you play it. Changes after the card has been played does not cause Wounded Bull to gain nor lose +1[attack].",,WTR200-202,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Barkbone Strapping,"If the number rolled is 1, no resources would be gained.
+You may use Barkbone Strapping’s activated ability even when there is no cost to be paidBarkbone Strapping’’s activated ability is an instant. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR005,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Scabskin Leathers,"If the number rolled is 1, no action points would be gained.
+Scabskin Leathers requires an action point to use.",,WTR004,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Alpha Rampage,"You may only play Alpha Rampage in your deck if your hero is Rhinar, Reckless Rampage or Rhinar (young hero).
+You must have at least one other card in your hand to pay for the additional cost at the time you play Alpha Rampage.
+The player who owns the banished face down card is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR006,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Awakening Bellow,"This card only affects Brute attack action cards. Brute weapon attack or generic attack actions do not benefit this.
+The player who owns the banished face down card is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR032-034,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Barraging Beatdown,"This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.
+The player who owns the banished face down card is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR017-019,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Bloodrush Bellow,"This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
+This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.",,WTR007,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Bone Head Barrier,"You may not defend with Bone Head Barrier as it does not have a defense value.
+You must prevent the incoming damage, you cannot save the prevention for a future attack once Bone Head Barrier resolves.
+Bone Head Barrier is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR010,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Breakneck Battery,This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.,,WTR011-013,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Pack Hunt,"The player who owns the banished face down card is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR023-025,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Primeval Bellow,"You must have at least one other card in your hand to pay for the additional cost at the time you play Primeval Bellow.
+This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.
+You can only pitch when there is a cost to pay. You cannot pitch a card to play Primeval Bellow because it costs 0. Yes, we did this to make it awkward.",,WTR035-037,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Reckless Swing,"You must have at least one other card in your hand to pay for the additional cost at the time you play Reckless Swing.
+This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
+The damage cannot be blocked but it can be prevented by a prevention effect.
+You can only pitch when there is a cost to pay. You cannot pitch a card to play Reckless Swing.",,WTR008,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Sand Sketched Plan,"You may only play Sand Sketched Plan in your deck if your hero is Rhinar, Reckless Rampage or Rhinar (young hero).
+This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.
+You may elect not to put a card into your hand, you still must discard and shuffle your deck after.
+You can only pitch when there is a cost to pay. You cannot pitch a card to cast Sand Sketched Plan.
+Sand Sketched Plan does not have go again. If you don’t discard a card with 6 or more power from its effect, your action phase will end unless you had two or more action points before playing Sand Sketched Plan.",,WTR009,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Savage Feast,"You must have at least one other card in your hand to pay for the additional cost at the time you play Savage Feast.
+This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.",,WTR014-016,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Savage Swing,You must have at least one other card in your hand to pay for the additional cost at the time you play Savage Swing.,,WTR020-022,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Smash Instinct,"The player who owns the banished face down card is allowed to look at it.
+The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR026-028,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Wrecker Romp,You must have at least one other card in your hand to pay for the additional cost at the time you play Wrecker Romp.,,WTR029-031,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Helm of Isen's Peak,"The blue symbol is intellect. This is your hand size (How much you draw up to at the end of turn.)
+You draw up to your hand size before end of turn effects wear off.
+Helm of Isen’s Peak requires an action point to activate. It does not have go again. Activating Helm of Isen Peak will usually end your action phase.
+When you defend with a card it remains on the combat chain until the chain closes, therefore you cannot defend with an equipment multiple times on the same chain link.",,WTR042,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Blessing of Deliverance,"The green symbol on Blessing of Deliverance is life.
+Blessing of Deliverance checks the resource cost of a card (top right corner), not the pitch value.
+The cards stay in the same order on top of the deck as they were before they were revealed
 ",,WTR054-056,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Buckling Blow,"* You may play Buckling Blow even if defending player controls no equipment.
-* You target the equipment at the time the hero takes 4 or more damage.
-* The counter stays on the equipment permanently.",,WTR057-059,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Cartilage Crush,* This includes all cards with card type action and all action activated abilities,,WTR060-062,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Cranial Crush,"* This does not affect drawing up to your hand size since that is done during the end of turn phase.
-* Does not stop effects that put a card into their hand from their deck.
-* The player may still play cards that would draw cards. If they do, and would draw 1 or more cards during their action phase, instead they don’t. (The rest of the card effect still applies).",,WTR045,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Cripplng Crush,"* You may only play Crippling Crush in your deck if your hero is Bravo, Showstopper or Bravo (young hero)",,WTR043,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Buckling Blow,"You may play Buckling Blow even if defending player controls no equipment.
+You target the equipment at the time the hero takes 4 or more damage.
+The counter stays on the equipment permanently.",,WTR057-059,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Cartilage Crush,This includes all cards with card type action and all action activated abilities,,WTR060-062,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Cranial Crush,"This does not affect drawing up to your hand size since that is done during the end of turn phase.
+Does not stop effects that put a card into their hand from their deck.
+The player may still play cards that would draw cards. If they do, and would draw 1 or more cards during their action phase, instead they don’t. (The rest of the card effect still applies).",,WTR045,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Cripplng Crush,"You may only play Crippling Crush in your deck if your hero is Bravo, Showstopper or Bravo (young hero)",,WTR043,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
 Crush Confidence,"The hero’s intellect, health and hero name is unaffected",,WTR063-065,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Debilitate,"* If the power of an attack would become less than 0, it is considered to be 0. However if the attack then gets a positive power modifier, it will still be under the effect of the -2{p} modifier.
-* This affects all attacks including attack action cards and weapon attacks.",,WTR066-068,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Disable,* You may still play Disable even if the other player does not have an arsenal.,,WTR048-050,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Emerging Power,"* Emerging Power must be destroyed at the beginning of your action phase, it is not optional.",,WTR069-071,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Forged for War,"* Forged for War must be destroyed at the beginning of your action phase, it is not optional.
-* You may defend with an equipment if it has a defense value (0 is a value).
-* The equipment does not need Blade Break or Battleworn to defend.",,WTR046,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Show Time!,"* You may only play Show Time! in your deck if your hero is Bravo, Showstopper or Bravo (young hero).
-* Show Time! must be destroyed at the beginning of your action phase, it is not optional.
-* You may elect not to put a card into your hand, you still must shuffle your deck after.",,WTR047,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Staunch Response,"* Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Staunch Response’s cost to play it.
-* You choose if you want to pay the additional cost at the time you play Staunch Response.
-* The additional cost is in addition to Staunch Reponse’s normal resource cost. If you want to play Staunch Response with the bonus, it would cost {r}{r}{r}{r}{r}{r} to play.
-* If you pay the additional cost of Staunch Response, it’s still considered to cost 2 (as printed in the top right corner of the card.)",,WTR051-053,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Stonewall Confidence,"* Stonewall Confidence must be destroyed at the beginning of your action phase, it is not optional.
-* Stonewall Confidence modifies the defense value of all cards you control with cost 3 or greater. This includes guardian cards and generic cards.",,WTR072-074,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Spinal Crush,"* The effect of Spinal Crush affects actions from any source controlled by that hero. This includes activated actions of equipment, weapons, and hero cards, and playing action cards of any type.
-* This does not stop effects that directly gain action points outside of go again.",,WTR044,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Breaking Scales,"* Breaking Scales can only target a card with combo.
-* The card must have the keyword combo (displayed on a card as Combo - [text]) This does not include cards that just reference combo or have combo in the text box.",,WTR080,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Mask of Momentum,"* Mask of Momentum does not keep track of hits in a row of the previous combat chain (If the combat chain was closed).
-* The attack must be the third to hit in a row.
-* The third or higher attack must be an attack action card to trigger Mask of Momentum, however the previous attacks can be any attack ie. weapon attacks.",,WTR079,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Ancestral Empowerment,* Ancestral Empowerment can only target ninja attack action cards. This excludes weapon attacks and generic attack action cards.,,WTR082,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Flic Flak,"* The card must have the keyword combo (displayed on a card as Combo - [text]) This does not include cards that just reference combo or have combo in the text box.
-* You cannot block with Flic Flak and a combo card simultaneously as Flic Flak must be used during the reaction window and that is after the defending window. Flic Flak is good when your opponent attacks again after the attack Flic Flak defended.
-* The effect from Flic Flak is active until either you defend with another card or the turn ends. Closing the combat chain does not turn off Flic Flak’s effect.",,WTR092-094,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Hurricane Technique,"* If Hurricane Technique hits and returns to your hand (because Rising Knee Thrust was the last attack), and you then immediately play Hurricane Technique again, it will not gain its combo effect (because the last attack on the combat chain was not Rising Knee Thrust - it was Hurricane Technique)",,WTR084,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Mugenshi: RELEASE,"* You may only play Mugenshi: RELEASE in your deck if your hero is Katsu, the Wanderer or Katsu (young hero).
-* You may elect not to put any card(s) into your hand, you still must shuffle your deck after.",,WTR083,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Lord of Wind,"* You may only play Lord of Wind in your deck if your hero is Katsu, the Wanderer or Katsu (young hero).
-* You choose X at the time you play Lord of Wind.
-* X can be 0.
-* X cannot be greater than the number of legal targets ie. Surging Strikes, Whelming Gustwaves, and Mugenshi: RELEASE in your graveyard.
-* You only shuffle your deck if you put at least one card into your deck.",,WTR081,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Pounding Gale,* Pounding Gale doubles the damage that is dealt to a hero after damage calculation. It does not affect the defense value of the cards blocking Pounding Gale,,WTR085,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Braveforge Bracers,* This only effects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.,,WTR116,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Refraction Bolters,"* If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of go again do not stack.
-* You decide if you want to destroy Refraction Bolters after the attack has hit and the damage is dealt.",,WTR117,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Biting Blade,"* The first line only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
-* The second line affects the base power of all weapons you control. It gives a +1{p} bonus to all weapons you control, including the current attack and any additional attacks that weapon may make this turn.",,WTR135-137,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Driving Blade,"* This only effects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.
-* The weapon attack has go again regardless if it hits.",,WTR144-146,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Ironsong Determination,"* This affects all weapon attacks from target weapon this turn not just the next attack.
-* An attack with Dominate cannot be defended with more than 1 card from hand.",,WTR122,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Ironsong Response,"* Ironsong Response has no card text if reprise is not active and thus cannot be played.
-* This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.",,WTR132-134,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Nature's Path Pilgrimage,"* The attack does not gain go again. Nature’s Path Pilgrimage requires an action point to use and provides an action point from go again upon resolution.
-* This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.
-* The ability only triggers if you have no cards in your arsenal at the time the attack hits.
-* You must place the card in your arsenal if it is an action. It is not optional.",,WTR147-149,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Overpower,* This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.,,WTR123-125,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Rout,"* This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
-* If reprise is active, you can only play Rout if there is a legal target.
-* The defense value of a defending card removed from the chain link is not included in damage calculation.
-* A defense reaction card that is returned to hand by Rout, can be replayed.",,WTR120,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Sharpen Steel,"* The attack does not gain go again. Sharpen Steel requires an action point to use and provides an action point from go again upon resolution.
-* This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.",,WTR141-143,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Singing Steelblade,"* You may only play Singing Steelblade in your deck if your hero is Dorinthea Ironsong or Dorinthea (young hero).
-* This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
-* A combat chain is made up of one of more chain links. The banished card can only be played on the chain link Singing Steelblade was played.
-* You may elect not to banish a card when searching, however you still must shuffle your deck.
-* The card played from the banished zone goes to the graveyard upon resolution.",,WTR121,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Steelblade Shunt,* The damage cannot be blocked but it can be prevented by a prevention effect.,,WTR126-128,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Steelblade Supremacy,"* You may only have Steelblade Supremacy in your deck if your hero is Dorinthea Ironsong or Dorinthea (young hero).
-* This affects all weapon attacks from target weapon this turn not just the next attack.",,WTR119,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Stroke of Foresight,"* This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
-* You use the reprise ability at the time the attack reaction resolves. (assuming reprise is active)
-* If you have no cards in hand at the time you play this with reprise active, you still draw a card then immediately put the card on the top or bottom of your deck.
-* You draw a card then immediately put a card from your hand on the top or bottom of your deck. There is no priority between drawing the card and putting a card on the top or bottom of your deck.",,WTR138-140,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Warrior's Valor,* This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.,,WTR129-131,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Arcane Barrier,"* You can have multiple instances of arcane barrier, for example Nullrune Hood, Nullrune Cloak, and Nullrune Gloves.
-* Arcane barrier can be used every time you would be dealt arcane damage. It's not limited to once per turn.
-* Each instance of arcane barrier you control can be used 1 time only, each time a source would deal arcane damage to you. For example if a source would deal 5 arcane damage to you, and you control two cards with arcane barrier 1, you will in total be able to prevent 2 arcane damage this source would deal to you.
-* To fully prevent a card dealing 3 arcane damage, you would require 3 arcane barrier and 3 resources to prevent it. To fully prevent the arcane damage from 3 Runechant tokens (3 instances of 1 damage), you would require 1 arcane barrier and 3 resources to prevent it.
-* A equipment with arcane barrier does not move to the chain when arcane barrier is used.
-* You can prevent arcane damage you would deal to yourself.
-* Players cannot respond to the prevention. Arcane barrier is a replacement effect, not an activated or triggered ability.
-* You can only pay resources to arcane barrier if a source would deal arcane damage to you.
-* Preventing arcane damage does not destroy the equipment with arcane barrier (unless otherwise specified).",arcane barrier,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
-Opt x,"* The number of cards you place on top and bottom of your deck is known to your opponent, the order of the cards are not.
-* You may put all of the cards on the top or all of the cards on the bottom if you wish.",opt,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
-Boost,"* **Boost** is an additional cost. You choose if you want to **boost** or not at the time you play the card.
-* You may only **boost**once per instance of **boost**.
-* You are considered to have boosted regardless of whether the **boost**was successful or not.",boost,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
-Reload,"* You may choose to put no cards from your hand to your arsenal.
-* Your arsenal must be empty to put a card into your arsenal.",reload,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
-Runechant,"* Each Runechant is its own source of arcane damage, therefore a single instance of arcane barrier 1 can be used to prevent arcane damage from multiple Runechants provided the player the resources to pay for each prevention.
-* The Runechant aura token remains in play until destroyed.
-* When you attack, you must destroy all Runechant auras you control at the time the attack is announced. It's not optional.
-* A Runechant aura token may be represented by a small object such as a card sleeve or coin if a Runechant aura token card is not available.
-* If you control multiple Runechant auras, you may use a dice to represent this.",runechant,,,
-Azalea,"* If you have no cards in deck and you activate Azalea's hero ability, it will put the card you placed on the bottom, back into the arsenal face up.
-* If there is no card in your arsenal when this effect resolves, you do not put the top card into your arsenal.
-* You may activate this even when you have no card in arsenal. When it resolves you do not put the top card of your deck into your arsenal.",,"ARC038,ARC039",,
-Dash,"* The item must be chosen before you present your deck.
-* The card is considered in your deck when counting the minimum sized deck (i.e, once your item is chosen, you can have 59 cards in deck to present in constructed or 29 cards for sealed deck/booster draft).
-* The item starts with the appropriate counters as though it had entered the arena.
-* You may elect to not start with an item in play.",,"ARC001,ARC002",,
-Kano,"* If the card has go again you gain an action point when the card resolves. Note: You cannot gain an action point on an opponent's turn.
-* The card is banished face up.
-* You do not have to play the card immediately. You may play it anytime during the turn you banished it as long as you have priority.
-* The card remains in the banished zone face up if it is not played before end of turn.",,"ARC113,ARC114",,
-Viserai,"* Viserai's hero ability is not once per turn. You can create multiple Runechants in a single turn with his ability.
-* The non-attack action card does not have to be a Runeblade card.
-* The following are counted as Runeblade cards: Runeblade attack action, Runeblade action, Runeblade Instant, Runeblade attack reaction and Runeblade defense reaction.",,"ARC075,ARC076",,
-Crucible of Aetherweave,"* You cannot attack with this weapon.
-* If the next card you play does not have an effect that deals arcane damage, it will not count and the next card with an effect that deals arcane damage will be affected still.
-* You must activate this before playing the card in order for the card to gain the bonus",,ARC115,,
-Death Dealer,"* You cannot attack with this weapon.
-* You may use this ability even when you have a card in your arsenal, however you cannot put an arrow card from your hand into your arsenal or draw a card.
-* An arrow card has the subtype “arrow” and is located at the bottom middle of the card.
-* An arrow can be played from arsenal even if it wasn’t a bow that placed it in the arsenal.
-* This does not give the arrow **go again**. (The action of Death Dealer has **go again**)",,ARC040,,
-Nebula Blade,"* Nebula Blade can only get the power bonus once per turn even if you played multiple ‘non-attack’ action cards.
-* If you play a ‘non-attack’ action card after you’ve attacked with Nebula Blade but before it does damage, it will still get the power bonus.",,ARC077,,
-Teklo Plasma Pistol,"* You may use the second ability even if it already has one or more steam counters on it, however it will not put a steam counter on it.
-* You can attack with this weapon more than once per turn provided you have the action points.
+Debilitate,"If the power of an attack would become less than 0, it is considered to be 0. However if the attack then gets a positive power modifier, it will still be under the effect of the -2{p} modifier.
+This affects all attacks including attack action cards and weapon attacks.",,WTR066-068,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Disable,You may still play Disable even if the other player does not have an arsenal.,,WTR048-050,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Emerging Power,"Emerging Power must be destroyed at the beginning of your action phase, it is not optional.",,WTR069-071,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Forged for War,"Forged for War must be destroyed at the beginning of your action phase, it is not optional.
+You may defend with an equipment if it has a defense value (0 is a value).
+The equipment does not need Blade Break or Battleworn to defend.",,WTR046,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Show Time!,"You may only play Show Time! in your deck if your hero is Bravo, Showstopper or Bravo (young hero).
+Show Time! must be destroyed at the beginning of your action phase, it is not optional.
+You may elect not to put a card into your hand, you still must shuffle your deck after.",,WTR047,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Staunch Response,"Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Staunch Response’s cost to play it.
+You choose if you want to pay the additional cost at the time you play Staunch Response.
+The additional cost is in addition to Staunch Reponse’s normal resource cost. If you want to play Staunch Response with the bonus, it would cost {r}{r}{r}{r}{r}{r} to play.
+If you pay the additional cost of Staunch Response, it’s still considered to cost 2 (as printed in the top right corner of the card.)",,WTR051-053,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Stonewall Confidence,"Stonewall Confidence must be destroyed at the beginning of your action phase, it is not optional.
+Stonewall Confidence modifies the defense value of all cards you control with cost 3 or greater. This includes guardian cards and generic cards.",,WTR072-074,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Spinal Crush,"The effect of Spinal Crush affects actions from any source controlled by that hero. This includes activated actions of equipment, weapons, and hero cards, and playing action cards of any type.
+This does not stop effects that directly gain action points outside of go again.",,WTR044,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Breaking Scales,"Breaking Scales can only target a card with combo.
+The card must have the keyword combo (displayed on a card as Combo - (text)) This does not include cards that just reference combo or have combo in the text box.",,WTR080,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Mask of Momentum,"Mask of Momentum does not keep track of hits in a row of the previous combat chain (If the combat chain was closed).
+The attack must be the third to hit in a row.
+The third or higher attack must be an attack action card to trigger Mask of Momentum, however the previous attacks can be any attack ie. weapon attacks.",,WTR079,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Ancestral Empowerment,Ancestral Empowerment can only target ninja attack action cards. This excludes weapon attacks and generic attack action cards.,,WTR082,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Flic Flak,"The card must have the keyword combo (displayed on a card as Combo - [text]) This does not include cards that just reference combo or have combo in the text box.
+You cannot block with Flic Flak and a combo card simultaneously as Flic Flak must be used during the reaction window and that is after the defending window. Flic Flak is good when your opponent attacks again after the attack Flic Flak defended.
+The effect from Flic Flak is active until either you defend with another card or the turn ends. Closing the combat chain does not turn off Flic Flak’s effect.",,WTR092-094,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Hurricane Technique,"If Hurricane Technique hits and returns to your hand (because Rising Knee Thrust was the last attack), and you then immediately play Hurricane Technique again, it will not gain its combo effect (because the last attack on the combat chain was not Rising Knee Thrust - it was Hurricane Technique)",,WTR084,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Mugenshi: RELEASE,"You may only play Mugenshi: RELEASE in your deck if your hero is Katsu, the Wanderer or Katsu (young hero).
+You may elect not to put any card(s) into your hand, you still must shuffle your deck after.",,WTR083,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Lord of Wind,"You may only play Lord of Wind in your deck if your hero is Katsu, the Wanderer or Katsu (young hero).
+You choose X at the time you play Lord of Wind.
+X can be 0.
+X cannot be greater than the number of legal targets ie. Surging Strikes, Whelming Gustwaves, and Mugenshi: RELEASE in your graveyard.
+You only shuffle your deck if you put at least one card into your deck.",,WTR081,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Pounding Gale,Pounding Gale doubles the damage that is dealt to a hero after damage calculation. It does not affect the defense value of the cards blocking Pounding Gale,,WTR085,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Braveforge Bracers,This only effects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.,,WTR116,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Refraction Bolters,"If this is used on an attack with go again, you will only gain 1 action point upon resolution as multiple instances of go again do not stack.
+You decide if you want to destroy Refraction Bolters after the attack has hit and the damage is dealt.",,WTR117,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Biting Blade,"The first line only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
+The second line affects the base power of all weapons you control. It gives a +1{p} bonus to all weapons you control, including the current attack and any additional attacks that weapon may make this turn.",,WTR135-137,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Driving Blade,"This only effects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.
+The weapon attack has go again regardless if it hits.",,WTR144-146,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Ironsong Determination,"This affects all weapon attacks from target weapon this turn not just the next attack.
+An attack with Dominate cannot be defended with more than 1 card from hand.",,WTR122,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Ironsong Response,"Ironsong Response has no card text if reprise is not active and thus cannot be played.
+This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.",,WTR132-134,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Nature's Path Pilgrimage,"The attack does not gain go again. Nature’s Path Pilgrimage requires an action point to use and provides an action point from go again upon resolution.
+This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.
+The ability only triggers if you have no cards in your arsenal at the time the attack hits.
+You must place the card in your arsenal if it is an action. It is not optional.",,WTR147-149,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Overpower,This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.,,WTR123-125,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Rout,"This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
+If reprise is active, you can only play Rout if there is a legal target.
+The defense value of a defending card removed from the chain link is not included in damage calculation.
+A defense reaction card that is returned to hand by Rout, can be replayed.",,WTR120,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Sharpen Steel,"The attack does not gain go again. Sharpen Steel requires an action point to use and provides an action point from go again upon resolution.
+This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.",,WTR141-143,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Singing Steelblade,"You may only play Singing Steelblade in your deck if your hero is Dorinthea Ironsong or Dorinthea (young hero).
+This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
+A combat chain is made up of one of more chain links. The banished card can only be played on the chain link Singing Steelblade was played.
+You may elect not to banish a card when searching, however you still must shuffle your deck.
+The card played from the banished zone goes to the graveyard upon resolution.",,WTR121,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Steelblade Shunt,The damage cannot be blocked but it can be prevented by a prevention effect.,,WTR126-128,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Steelblade Supremacy,"You may only have Steelblade Supremacy in your deck if your hero is Dorinthea Ironsong or Dorinthea (young hero).
+This affects all weapon attacks from target weapon this turn not just the next attack.",,WTR119,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Stroke of Foresight,"This only affects the current weapon attack. It will not affect weapon attacks beyond the current weapon attack.
+You use the reprise ability at the time the attack reaction resolves. (assuming reprise is active)
+If you have no cards in hand at the time you play this with reprise active, you still draw a card then immediately put the card on the top or bottom of your deck.
+You draw a card then immediately put a card from your hand on the top or bottom of your deck. There is no priority between drawing the card and putting a card on the top or bottom of your deck.",,WTR138-140,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Warrior's Valor,This only affects the next weapon attack. It will not affect weapon attacks beyond the next weapon attack.,,WTR129-131,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
+Arcane Barrier,"You can have multiple instances of arcane barrier, for example Nullrune Hood, Nullrune Cloak, and Nullrune Gloves.
+Arcane barrier can be used every time you would be dealt arcane damage. It's not limited to once per turn.
+Each instance of arcane barrier you control can be used 1 time only, each time a source would deal arcane damage to you. For example if a source would deal 5 arcane damage to you, and you control two cards with arcane barrier 1, you will in total be able to prevent 2 arcane damage this source would deal to you.
+To fully prevent a card dealing 3 arcane damage, you would require 3 arcane barrier and 3 resources to prevent it. To fully prevent the arcane damage from 3 Runechant tokens (3 instances of 1 damage), you would require 1 arcane barrier and 3 resources to prevent it.
+A equipment with arcane barrier does not move to the chain when arcane barrier is used.
+You can prevent arcane damage you would deal to yourself.
+Players cannot respond to the prevention. Arcane barrier is a replacement effect, not an activated or triggered ability.
+You can only pay resources to arcane barrier if a source would deal arcane damage to you.
+Preventing arcane damage does not destroy the equipment with arcane barrier (unless otherwise specified).",arcane barrier,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
+Opt x,"The number of cards you place on top and bottom of your deck is known to your opponent, the order of the cards are not.
+You may put all of the cards on the top or all of the cards on the bottom if you wish.",opt,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
+Boost,"**Boost*is an additional cost. You choose if you want to **boost*or not at the time you play the card.
+You may only **boost**once per instance of **boost**.
+You are considered to have boosted regardless of whether the **boost**was successful or not.",boost,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
+Reload,"You may choose to put no cards from your hand to your arsenal.
+Your arsenal must be empty to put a card into your arsenal.",reload,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/arcane-rising/,
+Runechant,"Each Runechant is its own source of arcane damage, therefore a single instance of arcane barrier 1 can be used to prevent arcane damage from multiple Runechants provided the player the resources to pay for each prevention.
+The Runechant aura token remains in play until destroyed.
+When you attack, you must destroy all Runechant auras you control at the time the attack is announced. It's not optional.
+A Runechant aura token may be represented by a small object such as a card sleeve or coin if a Runechant aura token card is not available.
+If you control multiple Runechant auras, you may use a dice to represent this.",runechant,,,
+Azalea,"If you have no cards in deck and you activate Azalea's hero ability, it will put the card you placed on the bottom, back into the arsenal face up.
+If there is no card in your arsenal when this effect resolves, you do not put the top card into your arsenal.
+You may activate this even when you have no card in arsenal. When it resolves you do not put the top card of your deck into your arsenal.",,"ARC038,ARC039",,
+Dash,"The item must be chosen before you present your deck.
+The card is considered in your deck when counting the minimum sized deck (i.e, once your item is chosen, you can have 59 cards in deck to present in constructed or 29 cards for sealed deck/booster draft).
+The item starts with the appropriate counters as though it had entered the arena.
+You may elect to not start with an item in play.",,"ARC001,ARC002",,
+Kano,"If the card has go again you gain an action point when the card resolves. Note: You cannot gain an action point on an opponent's turn.
+The card is banished face up.
+You do not have to play the card immediately. You may play it anytime during the turn you banished it as long as you have priority.
+The card remains in the banished zone face up if it is not played before end of turn.",,"ARC113,ARC114",,
+Viserai,"Viserai's hero ability is not once per turn. You can create multiple Runechants in a single turn with his ability.
+The non-attack action card does not have to be a Runeblade card.
+The following are counted as Runeblade cards: Runeblade attack action, Runeblade action, Runeblade Instant, Runeblade attack reaction and Runeblade defense reaction.",,"ARC075,ARC076",,
+Crucible of Aetherweave,"You cannot attack with this weapon.
+If the next card you play does not have an effect that deals arcane damage, it will not count and the next card with an effect that deals arcane damage will be affected still.
+You must activate this before playing the card in order for the card to gain the bonus",,ARC115,,
+Death Dealer,"You cannot attack with this weapon.
+You may use this ability even when you have a card in your arsenal, however you cannot put an arrow card from your hand into your arsenal or draw a card.
+An arrow card has the subtype “arrow” and is located at the bottom middle of the card.
+An arrow can be played from arsenal even if it wasn’t a bow that placed it in the arsenal.
+This does not give the arrow **go again**. (The action of Death Dealer has **go again**)",,ARC040,,
+Nebula Blade,"Nebula Blade can only get the power bonus once per turn even if you played multiple ‘non-attack’ action cards.
+If you play a ‘non-attack’ action card after you’ve attacked with Nebula Blade but before it does damage, it will still get the power bonus.",,ARC077,,
+Teklo Plasma Pistol,"You may use the second ability even if it already has one or more steam counters on it, however it will not put a steam counter on it.
+You can attack with this weapon more than once per turn provided you have the action points.
 ",,ARC003,,
-Arcanite Skullcap,"* You may have multiple instances of arcane barrier.
-* You must pay [3 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
-* The prevention does not carry over even if you only prevent one arcane damage.
-* Arcanite Skullcap always has battleworn, even if you are on higher or lower [life] than your opponent.
-* Arcanite Skullcap gains the bonus if there is at least one opponent on less [life]. If there are multiple opponents on less {h}, arcanite skullcap still only gains the bonus once.
-* If your [life] becomes higher or lower after defending but before damage calculation, the value of [defense] will change accordingly.",,ARC150,,
-Bracers of Belief,"* If there are no cards left in deck, the attack will not gain any power, this is because of the “If you do” clause.
-* When this card is destroyed, it is sent to your graveyard.",,ARC153,,
-Mage Master Boots,"* If this is used on a ‘non-attack’ action card with go again, you will only gain 1 action point upon resolution as multiple instances of **go again** do not stack.
-* This is an action. It must be activated before you play the ‘non-attack’ action card.
-* When this card is destroyed, it is sent to your graveyard.",,ARC154,,
-Talismanic Lens,"* Talismanic Len’s activated ability is an **instant**. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.
-* When this card is destroyed, it is sent to your graveyard.",,ARC151,,
-Vest of the First Fist,"* You choose if you want to destroy Vest of the First Fist after the attack action hits (during chain link resolution).
-* When this card is destroyed, it is sent to your graveyard.",,ARC152,,
-Art of War,"* You must choose the modes as you play Art of War.
-* You cannot choose the same mode more than once.
-* You must choose two modes.
-* Defending with an attack action card from arsenal still follows normal timing restrictions. You must defend with the card during the defending window.
-* Cards without an attack or defense value cannot gain attack or defense.",,ARC160,,
-Back Alley Breakline,"* The following are zones in this game: Hero, Weapon, Equipment, Chain, Pitch, Arsenal, Deck, Graveyard, Banished and Arena.
-* It must be placed face up into a zone from your deck. Revealing it face up on top of your deck does not count as it is not put into a different zone from your deck.",,ARC176-178,,
-Chains of Eminence,"* You name the card when the ability resolves. Players can respond to Chains of Eminence being played, but not after the card has been named.
-* You may still put the named card in your arsenal or reveal it to pay additional costs.
-* Auras stay in the arena until they are destroyed.",,ARC162,,
-Command and Conquer,"* The destroyed card is put into its owner’s graveyard.
-* Chain link is different from combat chain. If another attack is played after Command and Conquer in the same combat chain, defense reactions can be played on that attack.",,ARC159,,
-Eirina's Prayer,"* If you have multiple damage preventions available, you choose which prevention to apply first.
-* If you are about to take arcane damage you may use arcane barrier to prevent before the prevention from Eirina's Prayer.
-* If there is no cards in deck, Eirina’s Prayer will not get any minus as there is no pitch value to reveal, It will still prevent the next X arcane damage.
-* The pitch value of a card is located in the top left corner.
+Arcanite Skullcap,"You may have multiple instances of arcane barrier.
+You must pay [3 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
+The prevention does not carry over even if you only prevent one arcane damage.
+Arcanite Skullcap always has battleworn, even if you are on higher or lower [life] than your opponent.
+Arcanite Skullcap gains the bonus if there is at least one opponent on less [life]. If there are multiple opponents on less {h}, arcanite skullcap still only gains the bonus once.
+If your [life] becomes higher or lower after defending but before damage calculation, the value of [defense] will change accordingly.",,ARC150,,
+Bracers of Belief,"If there are no cards left in deck, the attack will not gain any power, this is because of the “If you do” clause.
+When this card is destroyed, it is sent to your graveyard.",,ARC153,,
+Mage Master Boots,"If this is used on a ‘non-attack’ action card with go again, you will only gain 1 action point upon resolution as multiple instances of **go again*do not stack.
+This is an action. It must be activated before you play the ‘non-attack’ action card.
+When this card is destroyed, it is sent to your graveyard.",,ARC154,,
+Talismanic Lens,"Talismanic Len’s activated ability is an **instant**. You may activate it any time you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.
+When this card is destroyed, it is sent to your graveyard.",,ARC151,,
+Vest of the First Fist,"You choose if you want to destroy Vest of the First Fist after the attack action hits (during chain link resolution).
+When this card is destroyed, it is sent to your graveyard.",,ARC152,,
+Art of War,"You must choose the modes as you play Art of War.
+You cannot choose the same mode more than once.
+You must choose two modes.
+Defending with an attack action card from arsenal still follows normal timing restrictions. You must defend with the card during the defending window.
+Cards without an attack or defense value cannot gain attack or defense.",,ARC160,,
+Back Alley Breakline,"The following are zones in this game: Hero, Weapon, Equipment, Chain, Pitch, Arsenal, Deck, Graveyard, Banished and Arena.
+It must be placed face up into a zone from your deck. Revealing it face up on top of your deck does not count as it is not put into a different zone from your deck.",,ARC176-178,,
+Chains of Eminence,"You name the card when the ability resolves. Players can respond to Chains of Eminence being played, but not after the card has been named.
+You may still put the named card in your arsenal or reveal it to pay additional costs.
+Auras stay in the arena until they are destroyed.",,ARC162,,
+Command and Conquer,"The destroyed card is put into its owner’s graveyard.
+Chain link is different from combat chain. If another attack is played after Command and Conquer in the same combat chain, defense reactions can be played on that attack.",,ARC159,,
+Eirina's Prayer,"If you have multiple damage preventions available, you choose which prevention to apply first.
+If you are about to take arcane damage you may use arcane barrier to prevent before the prevention from Eirina's Prayer.
+If there is no cards in deck, Eirina’s Prayer will not get any minus as there is no pitch value to reveal, It will still prevent the next X arcane damage.
+The pitch value of a card is located in the top left corner.
 ",,ARC173-175,,
-Enchanting Melody,"* If you have multiple damage preventions available, you choose which prevention to apply first.
-* If you are about to take arcane damage you may use arcane barrier to prevent first before this prevention.
-* Loss of life does not count as being dealt damage.
-* Enchanting Melody is a ‘non-attack’ action therefore it will prevent itself from being destroyed the turn you play it.",,ARC167-169,,
-Eye of Ophidia,"* You may not defend with this card. (It does not have a defense value)
-* You must have a cost to pay to pitch this card. You cannot pitch this card without a cost to pay.
-* The opt will resolve before the card or effect you pay for resolves.
-* You may only have 1 Eye of Ophidia in your deck including cards in your registered 80-card pool in constructed tournaments and only 1 Eye of Ophidia in your deck in limited tournaments.",,ARC000,,
-Fate foreseen,"* Fate Foreseen can only be played in the reaction step of a combat chain.
-* Once Fate Foreseen resolves, you get to opt before deciding whether to play additional cards in the reaction step.",,ARC200-202,,
-Lead the charge,"* If the action has **go again** you will end up with 2 action points once that card resolves.
-* An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
-* Lead the Charge looks at the base cost of the action card. Modifiers do not affect this.",,ARC209-211,,
-Life for a life,"* The green symbol on Life for a Life is your hero's life.
-* Life for a Life checks if you have less life than your opponent at the time you play it.
-* Changes to a hero's life after the card has been played does not cause Life for a Life to gain nor lose go again.",,ARC164-166,,
-Moon Wish,"* You may only use Moon Wish’s alternative cost if you have a card in hand to put on top of your deck.
-* If Moon Wish hits, you search your deck and may put a Sun Kiss into your hand. You still require an action point to play Sun Kiss.
-* Searching your deck for Sun Kiss is not an optional effect, so even if you fail to find, or know that you have no Sun Kiss in your deck, you must still shuffle your deck.
-* If there is an effect that increases the cost of Moon Wish, you must still pay it even if you use Moon Wish’s alternative cost.",,ARC185-189,,
-Plunder Run,"* The first effect of Plunder Run checks on the next attack action card to hit, not the next attack action played.",,ARC170-172,,
-Pursuit of knowledge,"* The blue symbol on Pursuit of Knowledge is your hero's intellect.
-* You draw cards up to your intellect before end of turn effects end. In this case you will draw an additional card during the end phase from the intellect buff if Pursuit of Knowledge hit.",,ARC161,,
-Ravenous Rabble,"* If there are no cards in deck, you can still play Ravenous Rabble and its [attack] will be 5.",,ARC191-193,,
-Rifting,"* The ‘non-attack’ action card does not need to be played straight away
-* You may elect to still play it as normal, however if you do, you cannot play another ‘non-attack’ action card as an instant as this only applies to the next ‘non-attack’ action card.",,ARC194-196,,
-Rusted Relic,"* Rusted Relic requires an action point to play as it is an action card.
-* Items stay in the arena until they are destroyed.
-* You can have multiple instances of arcane barrier.
-* You may not defend with Rusted Relic (from your hand) as it does not have a defense value.",,ARC163,,
-Sun Kiss,"* The green symbol on Sun Kiss is your hero's life.
-* Sun Kiss requires an action point to play as it is an action.",,ARC212-214,,
-Vigor Rush,"* If you play a ‘non-attack’ action card after you’ve attacked with Vigor Rush but before chain link resolution, it will gain go again.",,ARC197-199,,
-Teklo Foundry Heart,"* You may only activate this once, even if you have boosted multiple times in a turn.
-* Since this is an action, the combat chain must be empty when this is activated. You may close the combat chain after your boost attack but before activating this)
-* You may use this even if you have less than 2 cards in your deck.
+Enchanting Melody,"If you have multiple damage preventions available, you choose which prevention to apply first.
+If you are about to take arcane damage you may use arcane barrier to prevent first before this prevention.
+Loss of life does not count as being dealt damage.
+Enchanting Melody is a ‘non-attack’ action therefore it will prevent itself from being destroyed the turn you play it.",,ARC167-169,,
+Eye of Ophidia,"You may not defend with this card. (It does not have a defense value)
+You must have a cost to pay to pitch this card. You cannot pitch this card without a cost to pay.
+The opt will resolve before the card or effect you pay for resolves.
+You may only have 1 Eye of Ophidia in your deck including cards in your registered 80-card pool in constructed tournaments and only 1 Eye of Ophidia in your deck in limited tournaments.",,ARC000,,
+Fate foreseen,"Fate Foreseen can only be played in the reaction step of a combat chain.
+Once Fate Foreseen resolves, you get to opt before deciding whether to play additional cards in the reaction step.",,ARC200-202,,
+Lead the charge,"If the action has **go again*you will end up with 2 action points once that card resolves.
+An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
+Lead the Charge looks at the base cost of the action card. Modifiers do not affect this.",,ARC209-211,,
+Life for a life,"The green symbol on Life for a Life is your hero's life.
+Life for a Life checks if you have less life than your opponent at the time you play it.
+Changes to a hero's life after the card has been played does not cause Life for a Life to gain nor lose go again.",,ARC164-166,,
+Moon Wish,"You may only use Moon Wish’s alternative cost if you have a card in hand to put on top of your deck.
+If Moon Wish hits, you search your deck and may put a Sun Kiss into your hand. You still require an action point to play Sun Kiss.
+Searching your deck for Sun Kiss is not an optional effect, so even if you fail to find, or know that you have no Sun Kiss in your deck, you must still shuffle your deck.
+If there is an effect that increases the cost of Moon Wish, you must still pay it even if you use Moon Wish’s alternative cost.",,ARC185-189,,
+Plunder Run,"The first effect of Plunder Run checks on the next attack action card to hit, not the next attack action played.",,ARC170-172,,
+Pursuit of knowledge,"The blue symbol on Pursuit of Knowledge is your hero's intellect.
+You draw cards up to your intellect before end of turn effects end. In this case you will draw an additional card during the end phase from the intellect buff if Pursuit of Knowledge hit.",,ARC161,,
+Ravenous Rabble,"If there are no cards in deck, you can still play Ravenous Rabble and its [attack] will be 5.",,ARC191-193,,
+Rifting,"The ‘non-attack’ action card does not need to be played straight away
+You may elect to still play it as normal, however if you do, you cannot play another ‘non-attack’ action card as an instant as this only applies to the next ‘non-attack’ action card.",,ARC194-196,,
+Rusted Relic,"Rusted Relic requires an action point to play as it is an action card.
+Items stay in the arena until they are destroyed.
+You can have multiple instances of arcane barrier.
+You may not defend with Rusted Relic (from your hand) as it does not have a defense value.",,ARC163,,
+Sun Kiss,"The green symbol on Sun Kiss is your hero's life.
+Sun Kiss requires an action point to play as it is an action.",,ARC212-214,,
+Vigor Rush,"If you play a ‘non-attack’ action card after you’ve attacked with Vigor Rush but before chain link resolution, it will gain go again.",,ARC197-199,,
+Teklo Foundry Heart,"You may only activate this once, even if you have boosted multiple times in a turn.
+Since this is an action, the combat chain must be empty when this is activated. You may close the combat chain after your boost attack but before activating this)
+You may use this even if you have less than 2 cards in your deck.
 ",,ARC004,,
-Achilles Accelerator,"* An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
-* The boost does not need to be successful. You can use Achilles Accelerator after banishing a non-Mechanologist card from a boost cost.
-* When this card is destroyed, it is sent to your graveyard.",,ARC005,,
-Aether Sink,"* Aether Sink requires an action point to play as it is an action.
-* You can have multiple instances of arcane barrier.
-* You may not defend with Aether Sink (from hand) as it does not have a defense value.
-* You must pay [2 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
-* The prevention does not carry over even if you only prevent one arcane damage.
-* You may use the action even if it already has one or more steam counters on it, however it will not put a steam counter on it.
-* If you activate Aether Sink's second ability multiple times in the same turn, it will gain multiple instances of arcane barrier 2.",,ARC017,,
-Cognition Nodes,"* Cognition Nodes requires an action point to play as it is an action.
-* You may not defend with Cognition Nodes (from your hand) as it does not have a defense value.
-* You may use the action ability even if it already has one or more steam counters on it, however it will not put a steam counter on it.
-* The attack still counts as an attack and a chain link on the combat chain even when it is put on the bottom of your deck.",,ARC018,,
-Convection Amplifier,"* Convection Amplifier requires an action point to play as it is an action.
-* You may not defend with Convection Amplifier (from your hand) as it does not have a defense value.
-* You can use the Action more than once per turn as long as it has a steam counter on it as the action is not limited to once per turn.
-* Using this action requires an empty combat chain. You can close the combat chain after a chain link has resolved.",,ARC019,,
-Dissipation Shield,"* Dissipation Shield requires an action point to play as it is an action.
-* You may not defend with Dissipation Shield (from your hand) as it does not have a defense value.
-* If you have multiple damage preventions available, you choose which prevention to apply first.
-* This can prevent any type of damage, including arcane damage.
-* This cannot prevent loss of life.
-* You may activate the instant ability anytime you have priority including when the trigger is on the stack.",,ARC035,,
-High Octane,"* An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
-* The boost does not need to be successful. You will still gain an action point if you banish a non-Mechanologist card from a boost cost.
-* You draw a card when this card resolves, not whenever you boost a card this turn.",,ARC006,,
-Hyper Driver,"* Hyper Driver requires an action point to play as it is an action.
-* You may not defend with Hyper Driver (from your hand) as it does not have a defense value.
-* The effect is not optional, you must remove a steam counter and gain {r} when you boost, including when your boost is unsuccessful.",,ARC036,,
-Induction Chamber,"* Induction Chamber requires an action point to play as it is an action.
-* You may not defend with Induction Chamber (from hand) as it does not have a defense value.
-* You may use the action even if it already has one or more steam counters on it, however it will not put a steam counter on it.",,ARC010,,
-Locked and loaded,* The boost does not need to be successful. You will still opt 1 if you banish a non-Mechanologist card from a boost cost.,,ARC032-034,,
-Maximum Velocity,"* You cannot play this card if you have not boosted 3 or more times this turn.
-* You may still pitch or defend with this card even if you have not boosted 3 or more times this turn.",,ARC008,,
-Optekal Monocole,"* Optekal Monocle requires an action point to play as it is an action.
-* You may not defend with Optekal Monocle (from hand) as it does not have a defense value.
-* You can use the action ability more than once per turn as long as it has a steam counter on it. It is not once per turn.
-* Using this action requires an empty combat chain. You can close the combat chain after a chain link has fully resolved.",,ARC037,,
-Overloop,"* Over Loop still counts as an attack and a chain on the combat chain when it is put onto the bottom of your deck.
-* Over Loop still resolves and gives you an action point if it had go again when it's put on the bottom of your deck.
-* **Errata**: There is a printing mistake in the italic reminder text of this card related to the effect of **dominate**. It should reference the next attack not Pedal to the Metal itself.",,ARC020-022,,
-Pour the Mould,"* You may elect not to put a Mechanologist item into play when this card resolves.
-* The cost of a card is located on the top right corner.
-* The boost does not need to be successful. The item will still come into play with an additional steam counter on it if a non-Mechanologist card is boosted.
-* If you have boosted, the item comes into play with an additional steam counter on it, this cannot be responded to.
-* The item is considered to have entered the arena.",,ARC014-016,,
-Spark of Genius,"* You may only play Spark of Genius in your deck if your hero is Dash, Inventor Extraordinaire, or Dash (young hero).
-* X can be 0.
-* The value of X must be the same.
-* You must pay double the cost of X. For example if you want to search for a card that cost 2, you must pay 4 for Spark of Genius.
-* The cost of a card is located on the top right corner.
-* The boost does not need to be successful. You will still draw a card if boost was unsuccessful.
-* The item is considered to have entered the arena.",,ARC009,,
-Teklo Core,"* You may only play Teklo Core in your deck if your hero is Dash, Inventor Extraordinaire, or Dash (young hero).
-* Teklo Core requires an action point to play as it is an action.
-* You may not defend with Teklo Core (from hand) as it does not have a defense value.
-* The effect is not optional. You must remove a steam counter and gain {r}{r} at the beginning of your action phase.",,ARC007,,
-Skullbone Crosswrap,"* Turning a face down card face up is part of the cost. You cannot use Skullbone Crosswrap if you do not have a card in arsenal or the card is not face down.
-* A face down card is a card with the back part of the card facing up. When you put a card into your arsenal at the end of turn or with reload, the card is face down.
-* You may have multiple instances of arcane barrier.",,ARC041,,
-Bull's Eye Bracers,"* You may activate Bull’s Eye Bracers if you have a card in your arsenal, however it will not put an arrow into your arsenal or give anything +{p}.
-* When this card is destroyed, it is sent to your graveyard.",,ARC042,,
-Endless Arrow,"* Endless Arrow is still considered an attack that hit and a chain link on the combat chain when it's returned to your hand.
-* Endless Arrow will still require an action point (and to be played from arsenal) if you are attempting to replay the Endless Arrow returned to your hand.",,ARC045,,
-hamstring Shot,"* This affects both attack action cards and weapon attacks.
-* This does not change the base cost of the attack.
-* If an attack has a cost reduction clause, the additional {r} from Hamstring Shot can be reduced. Effects that increase cost are applied first, then effects that reduce costs.",,ARC060-062,,
-head Shot,"* It only gains the +2{p} until end of turn. If you do not attack with Head Shot on the same turn, it won’t have the bonus the following turn.
-* Head Shot must be placed into your arsenal face up, turning a face down Head Shot in arsenal face up will not grant the bonus.",,ARC058-059,,
-Nock the Deathwhistle,"* You may only play Nock the Deathwhistle in your deck if your hero is Azalea, Ace in the Hole or Azalea (young hero).
-* You may elect not to put a card on the top of your deck, you still must shuffle your deck after.",,ARC046,,
-Rapid Fire,"* Arrows are still required to be played from arsenal, this card does not bypass that restriction.",,ARC047,,
-Red in the Ledger,"* You may only play Red in the Ledger in your deck if your hero is Azalea, Ace in the Hole or Azalea (young hero).
-* The affected player can still play and activate instant and reaction cards as they are not actions.
-* Multiple action points do not get around this ability. The affected player may only play or activate 1 action even if they have additional action points.
-* Actions played as though they were an instant still count as action cards. Playing an action as though it was an instant does not get around Red in the Ledgers ability.",,ARC043,,
-Ridge Rider Shot,"* Ridge Rider Shot must be placed into your arsenal face up, turning a face down Ridge Rider Shot in arsenal face up will not grant the bonus.",,ARC063-065,,
-Salvage Shot,"* Salvage Shot is still considered an attack that hit and a chain link on the combat chain even when it is put on the bottom of your deck.
-* Putting Salvage Shot on the bottom of your deck is not optional.",,ARC066-068,,
-Searing Shot,"* The green symbol on Searing Shot is a hero's life.
-* The loss of life cannot be defended or prevented.",,ARC069-071,,
-Silver theTip,"* If you have a card in arsenal, Silver the Tip can still be played, however it will not do anything beyond replenishing your action point from **go again**.
-* You do not look at the top 2/3/4 cards if you have a card in arsenal.
-* You do not have to put an arrow card into your arsenal.",,ARC051-053,,
-Take Cover,"* You may still play Take Cover with an arsenal in play.
-* If you play Take Cover from your arsenal, you may **reload** when Take Cover resolves.
-* Take Cover’s **reload** happens before damage calculation so you may play the card you reloaded from arsenal before damage calculation. For example you may **reload** another defense reaction and play that to the same chain link you played Take Cover.",,ARC048-050,,
-Three of a Kind,"* You still need to pay the cost and action points to play cards out of your arsenal.
-* You cannot play any cards except cards from arsenal, this includes cards from hand, banished zone or deck.
-* The restriction applies to all card types. You cannot play instants or attack reactions unless they are played from your arsenal.
-* You may still activate cards, such as weapons, equipment, hero abilities, and items.",,ARC044,,
-Grasp of the Arknight,"* The cost checks how many runechant tokens you have at the time you activate it, it does not include the runechant token you are about to make.
-* You cannot use this ability if you cannot pay the required costs. (You cannot sink resources into this if you cannot pay the full cost)",,ARC078,,
-Crown of Dichotomy,"* This requires an action point to activate. It does not have **go again**.
-* You must have two legal targets in order to use this.
-* If one of the targets becomes illegal before resolution, it will still put the other target on top of the deck.",,ARC079,,
-Arcknight Ascendancy,"* You may only play Arknight Ascendancy in your deck if your hero is Viserai, Rune Blood or Viserai (young hero).",,ARC080,,
-Become the Arknight,"* You choose the mode at the time you play the card.
-* Discarding the card happens on resolution of the of the card. If you cannot or choose not to discard a card, the effect will not resolve.
-* You may elect not to put a card into your hand. If you do, you still shuffle your deck.
-* You may not discard a non-action card, such as an instant.
-* You cannot discard more than one card.",,ARC083,,
-Bloodspill Invocation,"* Damage from attacks and arcane damage both count as being dealt damage.
-* If Bloodspill Invocation triggers but is destroyed before the resolution, it will still create the tokens. This is because the clause is not tied into being destroyed. (Not an “If you do”.)",,ARC106-108,,
-Mordred Tide,"* An additional one Runechant is created for the entire effect creating Runechants. For example if you were to make three Runechant tokens from a single effect, it would instead create four.
-* Multiple Mordred Tide effects will result in that many additional Runechants being created.
-* If playing Mordred Tide would trigger Viserai’s ability, it would not create an additional Runechant as Mordred Tide would not have resolved by the time Viserai’s ability has.",,ARC081,,
-Oath of the Arknight,* This affects all types of Runeblade attacks including Runeblade Weapon attacks.,,ARC091-093,,
-Read the Runes,* Read the Runes is an action and requires an action point to play. It does not have go again,,ARC109-111,,
-Reduce to Runechant,"* Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Reduce to Runechant’s cost to play it.
-* The Runechant Reduce to Runechant creates is not counted when calculating the reduction.
-* Effects that increase cost are applied first, then effects that reduce costs. If a card increases the cost of Reduce to Runechant, if you control enough Runechants the cost of Reduce to Runechant can still be 0.",,ARC088-090,,
-Spellblade Assault,"* The Runechant tokens created do not trigger or get destroyed by Spellblade Assault, as it is already played at the point the Runechant tokens are created.",,ARC085-087,,
-Spellblade Strike,"* The Runechant token created does not trigger or get destroyed by Spellblade Strike, as it's already played at the point the Runechant token is created.",,ARC103-105,,
-Tome of the Arknight,"* If the revealed cards do not meet the criteria, they are returned to the top of the deck in the same order.
-* Instants, attack reactions, defense reactions and resources are not ‘non-attack’ action cards.",,ARC084,,
-Storm Striders,"* You may have multiple instances of arcane barrier.
-* You must pay [2 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
-* The prevention does not carry over even if you only prevent one arcane damage.
-* When this card is destroyed, it is sent to your graveyard.",,ARC116,,
-Robe of Rapture,* This requires an action to activate. This does not have go again.,,ARC117,,
-Absorb in Aether,"* Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Absorb in Aether’s cost to play it.
-* The card must be played during your opponent’s turn after Absorb in Aether resolves to gain the buff.
-* You cannot play this card during your own turn or without an attack to defend during the reaction window.",,ARC123-125,,
-Aether Flare,"* Aether Flare does not have **go again**. The next card you play that benefits from this effect would require an action point or be played as an instant.
-* If the next card you play does not have an effect that deals arcane damage, it will not gain this modifier however the next card played this turn that has an effect that deals arcane damage will still gain the bonus.",,ARC132-134,,
-Aether Spindle,* You do not Opt if Aether Spindle does not deal arcane damage.,,ARC126-128,,
-Blazing Aether,"* You may only play Blazing Aether in your deck if your hero is Kano, Dracai of Aether or Kano (young hero)",,ARC118,,
-Forked Lightning,"* Modifiers will affect both damage effects. For example if the next arcane damage would deal plus one, Forked Lightning would deal 3 arcane damage twice thus dealing 6 arcane damage total.
-* Arcane barrier 1 can only stop one arcane damage from Forked Lightning, as it's considered a single source of damage",,ARC120,,
-Index,"* You must select one card to put on the top of your deck. (Provided there is at least one card to look at.)
-* You can play this if there is less than the number of cards in your deck. You would look at as many as you can. For example if you only have 2 cards in deck, you would look at both of them and select one to put on the top of your deck.
-* This is an action and requires an action point to play. Index does not have **go again**.",,ARC135-137,,
-Lesson in Lava,"* You may only play Lesson in Lava in your deck if your hero is Kano, Dracai of Aether or Kano (young hero).
-* You must deal damage with Lesson in Lava to search your deck. You cannot search for a 0 cost if Lesson in Lava did not deal damage.
-* You may elect not to put a card on top of your deck, you still must shuffle your deck after.
-* The resource cost is located in the top right corner of a card.",,ARC121,,
-Reverberate,"* If you do not play the banished card, it stays in the banished zone.
-* The resource cost is located in the top right corner of a card.",,ARC138-140,,
-Sonic Boom,"* If you do not play the banished card, it stays in the banished zone.
-* If the card is reduced by more than the card's resource cost, it will cost 0 to play. The cost cannot be negative.",,ARC119,,
-Stir the Aetherwinds,"* This affects the next wizard non-attack action then checks if it has an effect that deals arcane damage. Even if the next wizard non-attack action can’t do arcane damage, the damage modifier effect will not carry over",,ARC129-131,,
-Tome of Aetherwind,"* You may choose the same mode more than once
-* If you choose the first mode twice, the next card you play with an effect that deals arcane damage, instead deals that much arcane damage plus 2.
-* Tome of Aetherwind is an action and requires an action point. It does not have **go again**.",,ARC122,,
+Achilles Accelerator,"An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
+The boost does not need to be successful. You can use Achilles Accelerator after banishing a non-Mechanologist card from a boost cost.
+When this card is destroyed, it is sent to your graveyard.",,ARC005,,
+Aether Sink,"Aether Sink requires an action point to play as it is an action.
+You can have multiple instances of arcane barrier.
+You may not defend with Aether Sink (from hand) as it does not have a defense value.
+You must pay [2 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
+The prevention does not carry over even if you only prevent one arcane damage.
+You may use the action even if it already has one or more steam counters on it, however it will not put a steam counter on it.
+If you activate Aether Sink's second ability multiple times in the same turn, it will gain multiple instances of arcane barrier 2.",,ARC017,,
+Cognition Nodes,"Cognition Nodes requires an action point to play as it is an action.
+You may not defend with Cognition Nodes (from your hand) as it does not have a defense value.
+You may use the action ability even if it already has one or more steam counters on it, however it will not put a steam counter on it.
+The attack still counts as an attack and a chain link on the combat chain even when it is put on the bottom of your deck.",,ARC018,,
+Convection Amplifier,"Convection Amplifier requires an action point to play as it is an action.
+You may not defend with Convection Amplifier (from your hand) as it does not have a defense value.
+You can use the Action more than once per turn as long as it has a steam counter on it as the action is not limited to once per turn.
+Using this action requires an empty combat chain. You can close the combat chain after a chain link has resolved.",,ARC019,,
+Dissipation Shield,"Dissipation Shield requires an action point to play as it is an action.
+You may not defend with Dissipation Shield (from your hand) as it does not have a defense value.
+If you have multiple damage preventions available, you choose which prevention to apply first.
+This can prevent any type of damage, including arcane damage.
+This cannot prevent loss of life.
+You may activate the instant ability anytime you have priority including when the trigger is on the stack.",,ARC035,,
+High Octane,"An action point allows you to play action cards and action activated abilities as they require an action point to play. (Not to be confused with resource points which are used to pay costs)
+The boost does not need to be successful. You will still gain an action point if you banish a non-Mechanologist card from a boost cost.
+You draw a card when this card resolves, not whenever you boost a card this turn.",,ARC006,,
+Hyper Driver,"Hyper Driver requires an action point to play as it is an action.
+You may not defend with Hyper Driver (from your hand) as it does not have a defense value.
+The effect is not optional, you must remove a steam counter and gain {r} when you boost, including when your boost is unsuccessful.",,ARC036,,
+Induction Chamber,"Induction Chamber requires an action point to play as it is an action.
+You may not defend with Induction Chamber (from hand) as it does not have a defense value.
+You may use the action even if it already has one or more steam counters on it, however it will not put a steam counter on it.",,ARC010,,
+Locked and loaded,The boost does not need to be successful. You will still opt 1 if you banish a non-Mechanologist card from a boost cost.,,ARC032-034,,
+Maximum Velocity,"You cannot play this card if you have not boosted 3 or more times this turn.
+You may still pitch or defend with this card even if you have not boosted 3 or more times this turn.",,ARC008,,
+Optekal Monocole,"Optekal Monocle requires an action point to play as it is an action.
+You may not defend with Optekal Monocle (from hand) as it does not have a defense value.
+You can use the action ability more than once per turn as long as it has a steam counter on it. It is not once per turn.
+Using this action requires an empty combat chain. You can close the combat chain after a chain link has fully resolved.",,ARC037,,
+Overloop,"Over Loop still counts as an attack and a chain on the combat chain when it is put onto the bottom of your deck.
+Over Loop still resolves and gives you an action point if it had go again when it's put on the bottom of your deck.
+**Errata**: There is a printing mistake in the italic reminder text of this card related to the effect of **dominate**. It should reference the next attack not Pedal to the Metal itself.",,ARC020-022,,
+Pour the Mould,"You may elect not to put a Mechanologist item into play when this card resolves.
+The cost of a card is located on the top right corner.
+The boost does not need to be successful. The item will still come into play with an additional steam counter on it if a non-Mechanologist card is boosted.
+If you have boosted, the item comes into play with an additional steam counter on it, this cannot be responded to.
+The item is considered to have entered the arena.",,ARC014-016,,
+Spark of Genius,"You may only play Spark of Genius in your deck if your hero is Dash, Inventor Extraordinaire, or Dash (young hero).
+X can be 0.
+The value of X must be the same.
+You must pay double the cost of X. For example if you want to search for a card that cost 2, you must pay 4 for Spark of Genius.
+The cost of a card is located on the top right corner.
+The boost does not need to be successful. You will still draw a card if boost was unsuccessful.
+The item is considered to have entered the arena.",,ARC009,,
+Teklo Core,"You may only play Teklo Core in your deck if your hero is Dash, Inventor Extraordinaire, or Dash (young hero).
+Teklo Core requires an action point to play as it is an action.
+You may not defend with Teklo Core (from hand) as it does not have a defense value.
+The effect is not optional. You must remove a steam counter and gain {r}{r} at the beginning of your action phase.",,ARC007,,
+Skullbone Crosswrap,"Turning a face down card face up is part of the cost. You cannot use Skullbone Crosswrap if you do not have a card in arsenal or the card is not face down.
+A face down card is a card with the back part of the card facing up. When you put a card into your arsenal at the end of turn or with reload, the card is face down.
+You may have multiple instances of arcane barrier.",,ARC041,,
+Bull's Eye Bracers,"You may activate Bull’s Eye Bracers if you have a card in your arsenal, however it will not put an arrow into your arsenal or give anything +{p}.
+When this card is destroyed, it is sent to your graveyard.",,ARC042,,
+Endless Arrow,"Endless Arrow is still considered an attack that hit and a chain link on the combat chain when it's returned to your hand.
+Endless Arrow will still require an action point (and to be played from arsenal) if you are attempting to replay the Endless Arrow returned to your hand.",,ARC045,,
+hamstring Shot,"This affects both attack action cards and weapon attacks.
+This does not change the base cost of the attack.
+If an attack has a cost reduction clause, the additional {r} from Hamstring Shot can be reduced. Effects that increase cost are applied first, then effects that reduce costs.",,ARC060-062,,
+head Shot,"It only gains the +2{p} until end of turn. If you do not attack with Head Shot on the same turn, it won’t have the bonus the following turn.
+Head Shot must be placed into your arsenal face up, turning a face down Head Shot in arsenal face up will not grant the bonus.",,ARC058-059,,
+Nock the Deathwhistle,"You may only play Nock the Deathwhistle in your deck if your hero is Azalea, Ace in the Hole or Azalea (young hero).
+You may elect not to put a card on the top of your deck, you still must shuffle your deck after.",,ARC046,,
+Rapid Fire,"Arrows are still required to be played from arsenal, this card does not bypass that restriction.",,ARC047,,
+Red in the Ledger,"You may only play Red in the Ledger in your deck if your hero is Azalea, Ace in the Hole or Azalea (young hero).
+The affected player can still play and activate instant and reaction cards as they are not actions.
+Multiple action points do not get around this ability. The affected player may only play or activate 1 action even if they have additional action points.
+Actions played as though they were an instant still count as action cards. Playing an action as though it was an instant does not get around Red in the Ledgers ability.",,ARC043,,
+Ridge Rider Shot,"Ridge Rider Shot must be placed into your arsenal face up, turning a face down Ridge Rider Shot in arsenal face up will not grant the bonus.",,ARC063-065,,
+Salvage Shot,"Salvage Shot is still considered an attack that hit and a chain link on the combat chain even when it is put on the bottom of your deck.
+Putting Salvage Shot on the bottom of your deck is not optional.",,ARC066-068,,
+Searing Shot,"The green symbol on Searing Shot is a hero's life.
+The loss of life cannot be defended or prevented.",,ARC069-071,,
+Silver theTip,"If you have a card in arsenal, Silver the Tip can still be played, however it will not do anything beyond replenishing your action point from **go again**.
+You do not look at the top 2/3/4 cards if you have a card in arsenal.
+You do not have to put an arrow card into your arsenal.",,ARC051-053,,
+Take Cover,"You may still play Take Cover with an arsenal in play.
+If you play Take Cover from your arsenal, you may **reload*when Take Cover resolves.
+Take Cover’s **reload*happens before damage calculation so you may play the card you reloaded from arsenal before damage calculation. For example you may **reload*another defense reaction and play that to the same chain link you played Take Cover.",,ARC048-050,,
+Three of a Kind,"You still need to pay the cost and action points to play cards out of your arsenal.
+You cannot play any cards except cards from arsenal, this includes cards from hand, banished zone or deck.
+The restriction applies to all card types. You cannot play instants or attack reactions unless they are played from your arsenal.
+You may still activate cards, such as weapons, equipment, hero abilities, and items.",,ARC044,,
+Grasp of the Arknight,"The cost checks how many runechant tokens you have at the time you activate it, it does not include the runechant token you are about to make.
+You cannot use this ability if you cannot pay the required costs. (You cannot sink resources into this if you cannot pay the full cost)",,ARC078,,
+Crown of Dichotomy,"This requires an action point to activate. It does not have **go again**.
+You must have two legal targets in order to use this.
+If one of the targets becomes illegal before resolution, it will still put the other target on top of the deck.",,ARC079,,
+Arcknight Ascendancy,"You may only play Arknight Ascendancy in your deck if your hero is Viserai, Rune Blood or Viserai (young hero).",,ARC080,,
+Become the Arknight,"You choose the mode at the time you play the card.
+Discarding the card happens on resolution of the of the card. If you cannot or choose not to discard a card, the effect will not resolve.
+You may elect not to put a card into your hand. If you do, you still shuffle your deck.
+You may not discard a non-action card, such as an instant.
+You cannot discard more than one card.",,ARC083,,
+Bloodspill Invocation,"Damage from attacks and arcane damage both count as being dealt damage.
+If Bloodspill Invocation triggers but is destroyed before the resolution, it will still create the tokens. This is because the clause is not tied into being destroyed. (Not an “If you do”.)",,ARC106-108,,
+Mordred Tide,"An additional one Runechant is created for the entire effect creating Runechants. For example if you were to make three Runechant tokens from a single effect, it would instead create four.
+Multiple Mordred Tide effects will result in that many additional Runechants being created.
+If playing Mordred Tide would trigger Viserai’s ability, it would not create an additional Runechant as Mordred Tide would not have resolved by the time Viserai’s ability has.",,ARC081,,
+Oath of the Arknight,This affects all types of Runeblade attacks including Runeblade Weapon attacks.,,ARC091-093,,
+Read the Runes,Read the Runes is an action and requires an action point to play. It does not have go again,,ARC109-111,,
+Reduce to Runechant,"Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Reduce to Runechant’s cost to play it.
+The Runechant Reduce to Runechant creates is not counted when calculating the reduction.
+Effects that increase cost are applied first, then effects that reduce costs. If a card increases the cost of Reduce to Runechant, if you control enough Runechants the cost of Reduce to Runechant can still be 0.",,ARC088-090,,
+Spellblade Assault,"The Runechant tokens created do not trigger or get destroyed by Spellblade Assault, as it is already played at the point the Runechant tokens are created.",,ARC085-087,,
+Spellblade Strike,"The Runechant token created does not trigger or get destroyed by Spellblade Strike, as it's already played at the point the Runechant token is created.",,ARC103-105,,
+Tome of the Arknight,"If the revealed cards do not meet the criteria, they are returned to the top of the deck in the same order.
+Instants, attack reactions, defense reactions and resources are not ‘non-attack’ action cards.",,ARC084,,
+Storm Striders,"You may have multiple instances of arcane barrier.
+You must pay [2 resource] to prevent arcane damage even if only one point of arcane damage would be prevented.
+The prevention does not carry over even if you only prevent one arcane damage.
+When this card is destroyed, it is sent to your graveyard.",,ARC116,,
+Robe of Rapture,This requires an action to activate. This does not have go again.,,ARC117,,
+Absorb in Aether,"Since defense reactions can’t defend in the defending window and must be played in the reaction window, you must pay Absorb in Aether’s cost to play it.
+The card must be played during your opponent’s turn after Absorb in Aether resolves to gain the buff.
+You cannot play this card during your own turn or without an attack to defend during the reaction window.",,ARC123-125,,
+Aether Flare,"Aether Flare does not have **go again**. The next card you play that benefits from this effect would require an action point or be played as an instant.
+If the next card you play does not have an effect that deals arcane damage, it will not gain this modifier however the next card played this turn that has an effect that deals arcane damage will still gain the bonus.",,ARC132-134,,
+Aether Spindle,You do not Opt if Aether Spindle does not deal arcane damage.,,ARC126-128,,
+Blazing Aether,"You may only play Blazing Aether in your deck if your hero is Kano, Dracai of Aether or Kano (young hero)",,ARC118,,
+Forked Lightning,"Modifiers will affect both damage effects. For example if the next arcane damage would deal plus one, Forked Lightning would deal 3 arcane damage twice thus dealing 6 arcane damage total.
+Arcane barrier 1 can only stop one arcane damage from Forked Lightning, as it's considered a single source of damage",,ARC120,,
+Index,"You must select one card to put on the top of your deck. (Provided there is at least one card to look at.)
+You can play this if there is less than the number of cards in your deck. You would look at as many as you can. For example if you only have 2 cards in deck, you would look at both of them and select one to put on the top of your deck.
+This is an action and requires an action point to play. Index does not have **go again**.",,ARC135-137,,
+Lesson in Lava,"You may only play Lesson in Lava in your deck if your hero is Kano, Dracai of Aether or Kano (young hero).
+You must deal damage with Lesson in Lava to search your deck. You cannot search for a 0 cost if Lesson in Lava did not deal damage.
+You may elect not to put a card on top of your deck, you still must shuffle your deck after.
+The resource cost is located in the top right corner of a card.",,ARC121,,
+Reverberate,"If you do not play the banished card, it stays in the banished zone.
+The resource cost is located in the top right corner of a card.",,ARC138-140,,
+Sonic Boom,"If you do not play the banished card, it stays in the banished zone.
+If the card is reduced by more than the card's resource cost, it will cost 0 to play. The cost cannot be negative.",,ARC119,,
+Stir the Aetherwinds,"This affects the next wizard non-attack action then checks if it has an effect that deals arcane damage. Even if the next wizard non-attack action can’t do arcane damage, the damage modifier effect will not carry over",,ARC129-131,,
+Tome of Aetherwind,"You may choose the same mode more than once
+If you choose the first mode twice, the next card you play with an effect that deals arcane damage, instead deals that much arcane damage plus 2.
+Tome of Aetherwind is an action and requires an action point. It does not have **go again**.",,ARC122,,

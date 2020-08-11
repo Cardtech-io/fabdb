@@ -1,561 +1,583 @@
-Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack
+Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
 ARC,0,Eye of Ophidia,F,"**Legendary** *(You may only have 1 Eye of Ophidia in your deck.)*
 
-When you pitch Eye of Ophidia, **opt 2**.","Beyond the turbulent waters of Death’s Knell, the ocean stretches as far as the eye can see, an endless, unfathomable expanse of deep blue. The keeper looks upon the shifting tides, feeling the weight of time within its weary soul. As the great divide draws near, it relinquishes a part of itself, bequeathing the gift of its immeasurable knowledge. Under the light of the pale moon, the ocean calls it home, and at last, the keeper sinks into the deep, undisturbed.","The second fabled card to be released, the Eye of Ophidia helped to establish the pattern that there will be a Fabled card in every set. Additionally, it set a new standard in artwork for the franchise, with the Eye of Ophidia being a truly beautiful card.","generic,resource,gem",,,3,,,
-ARC,1,"Dash, Inventor Extraordinaire",T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero",40,4,,,,
-ARC,2,Dash,T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero,young",20,4,,,,
+When you pitch Eye of Ophidia, **opt 2**.","Beyond the turbulent waters of Death’s Knell, the ocean stretches as far as the eye can see, an endless, unfathomable expanse of deep blue. The keeper looks upon the shifting tides, feeling the weight of time within its weary soul. As the great divide draws near, it relinquishes a part of itself, bequeathing the gift of its immeasurable knowledge. Under the light of the pale moon, the ocean calls it home, and at last, the keeper sinks into the deep, undisturbed.","The second fabled card to be released, the Eye of Ophidia helped to establish the pattern that there will be a Fabled card in every set. Additionally, it set a new standard in artwork for the franchise, with the Eye of Ophidia being a truly beautiful card.","generic,resource,gem",,,3,,,,,
+ARC,1,"Dash, Inventor Extraordinaire",T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero",40,4,,,,,,
+ARC,2,Dash,T,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero,young",20,4,,,,,,
 ARC,3,Teklo Plasma Pistol,T,"**Action** - Remove a steam counter from Teklo Plasma Pistol: **Attack**
 
-**Action** - [resource]: If there are no steam counters on Teklo Plasma Pistol, put a steam counter on it. **Go again**",,,"mechanologist,weapon,pistol,2h",,,,,,2
+**Action** - [resource]: If there are no steam counters on Teklo Plasma Pistol, put a steam counter on it. **Go again**",,,"mechanologist,weapon,pistol,2h",,,,,,2,,
 ARC,4,Teklo Foundry Heart,L,"**Once per Turn Action** - [resource]: Banish the top 2 cards of your deck. Gain [resource] for each Mechanologist card banished this way. Activate this ability only if you have **boosted** this turn.**Go again**
 
-**Battleworn** *(If you defend with Teklo Foundry Heart, put a [-1 defense] counter on it when the combat chain closes.)*",,,"mechanologist,equipment,chest",,,,,2,
+**Battleworn** *(If you defend with Teklo Foundry Heart, put a [-1 defense] counter on it when the combat chain closes.)*",,,"mechanologist,equipment,chest",,,,,2,,,
 ARC,5,Achilles Accelerator,C,"**Instant** - Destroy Achilles Accelerator: Gain 1 action point. Activate this ability only if you have **boosted** this turn.
 
-**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"mechanologist,equipment,legs",,,,,,2
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"mechanologist,equipment,legs",,,,,,2,,
 ARC,6,High Octane,M,"Whenever you **boost** a card this turn, gain 1 action point.
 
 Draw a card.
 
-**Go again**","""Now that's what I call blowing off steam!"" - Dash",,"mechanologist,action",,,1,1,3,
+**Go again**","""Now that's what I call blowing off steam!"" - Dash",,"mechanologist,action",,,1,1,3,,,
 ARC,7,Teklo Core,M,"**Dash specialization** *(You may only have Teklo Core in your deck if your hero is Dash.)*
 
 Teklo Core enters the arena with 2 steam counters on it. When Teklo Core has no steam counters on it, destroy it.
 
-At the beginning of your action phase, remove a steam counter from Teklo Core and gain [resource][resource].",,,"mechanologist,action,item",,,3,0,,
-ARC,8,Maximum Velocity,S,Play Maximum Velocity only if you have boosted 3 or more times this turn.,"Zoom! Zip! Kazam! Ever wanted to show 'ol Joey what for? Now you can, with the Velocitator 60-T! Turn that pesky rival into a smear on the pavement!",,"mechanologist,action,attack",,,1,2,3,10
+At the beginning of your action phase, remove a steam counter from Teklo Core and gain [resource][resource].",,,"mechanologist,action,item",,,3,0,,,,
+ARC,8,Maximum Velocity,S,Play Maximum Velocity only if you have boosted 3 or more times this turn.,"Zoom! Zip! Kazam! Ever wanted to show 'ol Joey what for? Now you can, with the Velocitator 60-T! Turn that pesky rival into a smear on the pavement!",,"mechanologist,action,attack",,,1,2,3,10,,
 ARC,9,Spark of Genius,S,"**Dash specialization** *(You may only have Teklo Core in your deck if your hero is Dash.)*
 
 Search your deck for a Mechanologist item card with cost X, put into the arena, then shuffle your deck.
 
-If you have boosted this turn, draw a card.","""So if I grab... then connect... That's it!"" - Dash",,"mechanologist,action",,,2,xx,3,
+If you have boosted this turn, draw a card.","""So if I grab... then connect... That's it!"" - Dash",,"mechanologist,action",,,2,xx,3,,,
 ARC,10,Induction Chamber,S,"**Action - [resource]**: If there are no steam counters on Induction Chamber, put a steam counter on it. **Go again**
 
-**Once per Turn Attack Reaction** - Remove a steam counter from Induction Chamber: Target Mechanologist pistol attaack gains **go again**.","""So if I grab... then connect... That's it!"" - Dash",,"mechanologist,action,item",,,1,2,,
-ARC,11,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,1,2,2,5
-ARC,12,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,2,2,2,4
-ARC,13,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,3,2,2,3
+**Once per Turn Attack Reaction** - Remove a steam counter from Induction Chamber: Target Mechanologist pistol attaack gains **go again**.","""So if I grab... then connect... That's it!"" - Dash",,"mechanologist,action,item",,,1,2,,,,
+ARC,11,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,1,2,2,5,,
+ARC,12,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,2,2,2,4,,
+ARC,13,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,3,2,2,3,,
 ARC,14,Pour the Mould,R,"Put a Mechanologist item with cost [2 resource] or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
-**Go again**",,,"mechanologist,action",,,1,0,3,
+**Go again**",,,"mechanologist,action",,,1,0,3,,,
 ARC,15,Pour the Mould,R,"Put a Mechanologist item with cost [resource] or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
-**Go again**",,,"mechanologist,action",,,2,0,3,
+**Go again**",,,"mechanologist,action",,,2,0,3,,,
 ARC,16,Pour the Mould,R,"Put a Mechanologist item with cost 0 or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
-**Go again**",,,"mechanologist,action",,,3,0,3,
+**Go again**",,,"mechanologist,action",,,3,0,3,,,
 ARC,17,Aether Sink,R,"Aether Sink enters the arena with a steam counter on it.
 
 **Action** - [resource]: If there are no steam counters on Aether Sink, put a steam counter on it. **Go again**
 
-**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",,,"mechanologist,action,item",,,2,1,,
+**Instant** - Remove a steam counter from Aether Sink: Aether Sink gains Arcane Barrier 2 until end of turn.",,,"mechanologist,action,item",,,2,1,,,,
 ARC,18,Cognition Nodes,R,"**Action** - [resource]: If there are no steam counters on Cognition Nodes, put a steam counter on it. **Go again**
 
-**Once per turn Attack Reaction** - Remove a steam counter from Cognition Nodes: Target attack action card gains “If this hits, put it on the bottom of your deck.”",,,"mechanologist,action,item",,,3,1,,
+**Once per turn Attack Reaction** - Remove a steam counter from Cognition Nodes: Target attack action card gains “If this hits, put it on the bottom of your deck.”",,,"mechanologist,action,item",,,3,1,,,,
 ARC,19,Convection Amplifier,R,"Convection amplifier enters the arena with 2 steam counters on it. When Convection Amplifier has no steam counters on it, destroy it.
 
-**Instant** - Remove a steam counter from Convection Amplifier: The next attack action card you play this turn gains **dominate. Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,item",,,1,0,,
+**Instant** - Remove a steam counter from Convection Amplifier: The next attack action card you play this turn gains **dominate. Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,item",,,1,0,,,,
 ARC,20,Over Loop,C,"If Over Loop hits, put it on the bottom of your deck.
 
-**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,1,2,3,5
+**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,1,2,3,5,,
 ARC,21,Over Loop,C,"If Over Loop hits, put it on the bottom of your deck.
 
-**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,2,2,3,4
+**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,2,2,3,4,,
 ARC,22,Over Loop,C,"If Over Loop hits, put it on the bottom of your deck.
 
-**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,3,2,3,3
-ARC,23,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,1,2,3,6
-ARC,24,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,2,2,3,5
-ARC,25,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,3,2,3,4
-ARC,26,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,1,0,3,4
-ARC,27,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,2,0,3,3
-ARC,28,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,3,0,3,2
-ARC,29,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,1,1,3,5
-ARC,30,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,2,1,3,4
-ARC,31,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,3,1,3,3
+**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Over Loop gains **go again**.)*",,,"mechanologist,action,attack",,,3,2,3,3,,
+ARC,23,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,1,2,3,6,,
+ARC,24,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,2,2,3,5,,
+ARC,25,Throttle,C,"**Boost** *(As an additional cost to play Over Loop, you may banish the top card of your deck. If it's a Mechanologist card, Throttle gains **go again**.)*","*Why, my steam-propelled hammer could increase mining efficiency by up to 38%! - Elias Edgecombe*",,"mechanologist,action,attack",,,3,2,3,4,,
+ARC,26,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,1,0,3,4,,
+ARC,27,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,2,0,3,3,,
+ARC,28,Zero to Sixty,C,"**Boost** *(As an additional cost to play Zero to Sixty, you may banish the top card of your deck. If it's a Mechanologist card, Zero to Sixty gains **go again**.)*",,,"mechanologist,action,attack",,,3,0,3,2,,
+ARC,29,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,1,1,3,5,,
+ARC,30,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,2,1,3,4,,
+ARC,31,Zipper Hit,C,"**Boost** *(As an additional cost to play Zipper Hit, you may banish the top card of your deck. If it's a Mechanologist card, Zipper Hit gains **go again**.)*","“Yes! Yes! Off you go, my tiny zipperwings! Take your gases to the masses!” - Maxwell",,"mechanologist,action,attack",,,3,1,3,3,,
 ARC,32,Locked and Loaded,C,"The next Mechanologist attack action card you play this turn gains [+3 attack].
 
 If you have **boosted** this turn, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*
 
-**Go again**",,,"mechanologist,action",,,1,0,3,
+**Go again**",,,"mechanologist,action",,,1,0,3,,,
 ARC,33,Locked and Loaded,C,"The next Mechanologist attack action card you play this turn gains [+2 attack].
 
 If you have **boosted** this turn, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*
 
-**Go again**",,,"mechanologist,action",,,2,0,3,
+**Go again**",,,"mechanologist,action",,,2,0,3,,,
 ARC,34,Locked and Loaded,C,"The next Mechanologist attack action card you play this turn gains [+1 attack].
 
 If you have **boosted** this turn, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*
 
-**Go again**",,,"mechanologist,action",,,3,0,3,
+**Go again**",,,"mechanologist,action",,,3,0,3,,,
 ARC,35,Dissipation Shield,C,"Dissipation Shield enters the arena with 4 steam counters on it.
 
 At the beginning of your action phase, destroy Dissipation Shield unless you remove a steam counter from it.
 
-**Instant** - Destroy Dissipation Shield: The next time your hero would be dealt damaage this turn, prevent X damage, where X is the number of steam counters on Dissipation Shield.",,,"mechanologist,action,item",,,2,2,,
+**Instant** - Destroy Dissipation Shield: The next time your hero would be dealt damaage this turn, prevent X damage, where X is the number of steam counters on Dissipation Shield.",,,"mechanologist,action,item",,,2,2,,,,
 ARC,36,Hyper Driver,C,"Hyper Driver enters the arena with 3 steam counters on it. When Hyper Driver has no steam counters on it, destroy it.
 
-**Once per turn effect** - When you **boost** a card, remove a steam counter from Hyper Driver and gain [resource].",,,"mechanologist,action,item",,,1,1,,
+**Once per turn effect** - When you **boost** a card, remove a steam counter from Hyper Driver and gain [resource].",,,"mechanologist,action,item",,,1,1,,,,
 ARC,37,Optekal Monocle,C,"Optekal Monocle enters the arena with 5 steam counters on it. When Optekal Monocle has no steam counters on it, destroy it.
 
-**Action** - Remove a steam counter from Optekal Monocle: **Opt 1. Go again** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"mechanologist,action,item",,,3,0,,
-ARC,38,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero",40,4,,,,
-ARC,39,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero,young",20,4,,,,
-ARC,40,Death Dealer,T,"**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",,,"ranger,weapon,bow,2h",,,,,,
+**Action** - Remove a steam counter from Optekal Monocle: **Opt 1. Go again** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"mechanologist,action,item",,,3,0,,,,
+ARC,38,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero",40,4,,,,,,
+ARC,39,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero,young",20,4,,,,,,
+ARC,40,Death Dealer,T,"**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",,,"ranger,weapon,bow,2h",,,,,,,,
 ARC,41,Skullbone Crosswrap,L,"**Once per Turn Action** - Turn a face down card in your arsenal face up: **Opt 1**. **Go again**
 
 **Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*
 
-**Blade Break** *(If you defend with Skullbone Crosswrap, destroy it when the combat chain closes.)*",,,"ranger,equipment,head",,,,,1,
+**Blade Break** *(If you defend with Skullbone Crosswrap, destroy it when the combat chain closes.)*",,,"ranger,equipment,head",,,,,1,,,
 ARC,42,Bull's Eye Bracers,C,"**Action** - Destroy Bull's Eye Bracers: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. It gains +1[attack] until end of turn. **Go again**
 
-**Arcane Barrier 1** *(If you rhero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"ranger,equipment,arms",,,,,0,
+**Arcane Barrier 1** *(If you rhero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"ranger,equipment,arms",,,,,0,,,
 ARC,43,Red in the Ledger,M,"**Azalea Specialization** *(You may only have Red in the lEdger in your deck if your hero is Azalea.)*
 
 *(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Red in the Ledger hits a hero, they can't play or activate more than 1 action during their next turn.",,,"ranger,action,arrow,attack",,,1,1,3,5
+If Red in the Ledger hits a hero, they can't play or activate more than 1 action during their next turn.",,,"ranger,action,arrow,attack",,,1,1,3,5,,
 ARC,44,Three of a Kind,M,"Draw 3 cards. Until end of turn, you may only play cards from arsenal.
 
-**Go again**","""Finally. Time to take out the trash."" - Azalea",,"ranger,action",,,1,1,2,
+**Go again**","""Finally. Time to take out the trash."" - Azalea",,"ranger,action",,,1,1,2,,,
 ARC,45,Endless Arrow,S,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Endless Arrow hits, put it into your hand.",,,"ranger,action,arrow,attack",,,1,0,3,4
+If Endless Arrow hits, put it into your hand.",,,"ranger,action,arrow,attack",,,1,0,3,4,,
 ARC,46,Nock the Deathwhistle,S,"**Azalea Specialization** *(You may only have Nock the Deathwhistle in your deck if your hero is Azalea.)*
 
 Search your deck for an arrow card, reveal it, then shuffle your deck and put it on top of your deck.
 
 **Reload** *(If you have no cards in your arsenal, you mayp ut a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,3,0,3,
+**Go again**",,,"ranger,action",,,3,0,3,,,
 ARC,47,Rapid Fire,S,"Until end of turn, arrows you control gain **go again**.
 
 **Reload** *(If you have no cards in your arsenal, you mayp ut a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,2,0,2,
-ARC,48,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,1,0,4,
-ARC,49,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,2,0,3,
-ARC,50,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,3,0,2,
+**Go again**",,,"ranger,action",,,2,0,2,,,
+ARC,48,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,1,0,4,,,
+ARC,49,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,2,0,3,,,
+ARC,50,Take Cover,R,"**Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*","In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.",,"ranger,defense,reaction",,,3,0,2,,,
 ARC,51,Silver the Tip,R,"If you have no cards in your arsenal, look at the top 4 cards of your deck. You may put an arrow card from among them face up into arsenal, then put the rest on the bottom of your deck in any order.
 
-*Go again**",,,"ranger,action",,,1,1,2,
+*Go again**",,,"ranger,action",,,1,1,2,,,
 ARC,52,Silver the Tip,R,"If you have no cards in your arsenal, look at the top 3 cards of your deck. You may put an arrow card from among them face up into arsenal, then put the rest on the bottom of your deck in any order.
 
-*Go again**",,,"ranger,action",,,2,1,2,
+*Go again**",,,"ranger,action",,,2,1,2,,,
 ARC,53,Silver the Tip,R,"If you have no cards in your arsenal, look at the top 2 cards of your deck. You may put an arrow card from among them face up into arsenal, then put the rest on the bottom of your deck in any order.
 
-*Go again**",,,"ranger,action",,,3,1,2,
+*Go again**",,,"ranger,action",,,3,1,2,,,
 ARC,54,Take Aim,R,"The next Ranger attack action card you play this turn gains +3[attack].
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,1,0,2,
+**Go again**",,,"ranger,action",,,1,0,2,,,
 ARC,55,Take Aim,R,"The next Ranger attack action card you play this turn gains +2[attack].
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,2,0,2,
+**Go again**",,,"ranger,action",,,2,0,2,,,
 ARC,56,Take Aim,R,"The next Ranger attack action card you play this turn gains +1[attack].
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,3,0,2,
+**Go again**",,,"ranger,action",,,3,0,2,,,
 ARC,57,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,1,1,3,4
+If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,1,1,3,4,,
 ARC,58,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,2,1,3,3
+If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,2,1,3,3,,
 ARC,59,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,3,1,3,2
+If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,3,1,3,2,,
 ARC,60,Hamstring Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,1,1,3,5
+If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,1,1,3,5,,
 ARC,61,Hamstring Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,2,1,3,4
+If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,2,1,3,4,,
 ARC,62,Hamstring Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,3,1,3,3
+If Hamstring Shot hits a hero, their first attack during their next turn costs an additional [resource] to play.",,,"ranger,action,arrow,attack",,,3,1,3,3,,
 ARC,63,Ridge Rider Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,1,0,3,4
+If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,1,0,3,4,,
 ARC,64,Ridge Rider Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,2,0,3,3
+If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,2,0,3,3,,
 ARC,65,Ridge Rider Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,3,0,3,2
+If Ridge Rider Shot is put into your arsenal face up, **opt 1**. *(Look at the top card of your deck. You may put it on the bottom.)*",,,"ranger,action,arrow,attack",,,3,0,3,2,,
 ARC,66,Salvage Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,1,1,3,5
+If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,1,1,3,5,,
 ARC,67,Salvage Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,2,1,3,4
+If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,2,1,3,4,,
 ARC,68,Salvage Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,3,1,3,2
+If Salvage Shot hits, put it on the bottom of your deck.",,,"ranger,action,arrow,attack",,,3,1,3,2,,
 ARC,69,Searing Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,1,0,3,4
+If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,1,0,3,4,,
 ARC,70,Searing Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,2,0,3,3
+If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,2,0,3,3,,
 ARC,71,Searing Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,3,0,3,2
+If Searing Shot hits a hero, they lose 1[life].",,,"ranger,action,arrow,attack",,,3,0,3,2,,
 ARC,72,Sic ‘Em Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-**Go again**",,,"ranger,action,arrow,attack",,,1,1,3,4
+**Go again**",,,"ranger,action,arrow,attack",,,1,1,3,4,,
 ARC,73,Sic ‘Em Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-**Go again**",,,"ranger,action,arrow,attack",,,2,1,3,3
+**Go again**",,,"ranger,action,arrow,attack",,,2,1,3,3,,
 ARC,74,Sic ‘Em Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
-**Go again**",,,"ranger,action,arrow,attack",,,3,1,3,2
-ARC,75,"Viserai, Rune Blood",T,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,
-ARC,76,Viserai,T,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,
+**Go again**",,,"ranger,action,arrow,attack",,,3,1,3,2,,
+ARC,75,"Viserai, Rune Blood",T,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,,,
+ARC,76,Viserai,T,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,,,
 ARC,77,Nebula Blade,T,"**Once per Turn Action** - [2 resource]: **Attack**
 
 If Nebula Blade hits , create a Runechant token.
 
-If you have played a ‘non-attack’ action card this turn, Nebula Blade gains [+3 attack] until end of turn.",,,"runeblade,weapon,sword,2h",,,,,,1
+If you have played a ‘non-attack’ action card this turn, Nebula Blade gains [+3 attack] until end of turn.",,,"runeblade,weapon,sword,2h",,,,,,1,,
 ARC,78,Grasp of the Arknight,L,"**Once per Turn Action** - [2 resource]: Create a Runechant token. This ability costs an additional [resource] to activate for each Runechant you control. **Go again**
 
-**Battleworn** *(If you defend with Grasp of the Arknight, put a -1[defense] counter on it when the combat chain closes.)*",,,"runeblade,equipment,arms",,,,,2,
+**Battleworn** *(If you defend with Grasp of the Arknight, put a -1[defense] counter on it when the combat chain closes.)*",,,"runeblade,equipment,arms",,,,,2,,,
 ARC,79,Crown of Dichotomy,C,"**Action** - [resource], destroy Crown of Dichotomy. Put target Runeblade attack action card and target Runeblade ‘non-attack’ action card from your graveyard on top of your deck in any order.
 
-**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"runeblade,equipment,head",,,,,0,
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"runeblade,equipment,head",,,,,0,,,
 ARC,80,Arknight Ascendancy,M,"**Viserai Specialization** *(You may only have Arknight Ascendancy in your deck if your hero is Viserai.)*
 
 Arknight Ascendancy costs [resource] less to play for each Runechant you control.
 
 If Arknight Ascendancy hits, create X Runechant tokens, where X is the damage dealt by Arknight Ascendancy.
 
-**Dominate**",,,"runeblade,action,attack",,,1,6,3,5
+**Dominate**",,,"runeblade,action,attack",,,1,6,3,5,,
 ARC,81,Mordred Tide,M,"Until end of turn, if you would create a Runechant token, instead create that many plus 1.
 
-**Go again**","With each step, the tide draws in, drowning the world in shadow.",,"runeblade,action",,,1,0,3,
-ARC,82,Ninth Blade of the Blood Oath,S,Ninth Blade of the Blood Oath costs [resource] less to play for each Runechant token you control.,,,"runeblade,action,attack",,,2,9,3,9
+**Go again**","With each step, the tide draws in, drowning the world in shadow.",,"runeblade,action",,,1,0,3,,,
+ARC,82,Ninth Blade of the Blood Oath,S,Ninth Blade of the Blood Oath costs [resource] less to play for each Runechant token you control.,,,"runeblade,action,attack",,,2,9,3,9,,
 ARC,83,Become the Arknight,S,"**Viserai Specialization** *(You may only have Become the Arknight in your deck if your hero is Viserai.)* **Choose 1;**
 
 Discard a ‘non-attack’ action card. Search your deck for a Runeblade attack action card, reveal it, put it into your hand, then shuffle your deck. **Go again**
-Discard an attack action card. Search for your deck for a Runeblade ‘non-attack’ action card, reveal it, put it into your hand, then shuffle your deck. **Go again**",,,"runeblade,action",,,3,0,3,
+Discard an attack action card. Search for your deck for a Runeblade ‘non-attack’ action card, reveal it, put it into your hand, then shuffle your deck. **Go again**",,,"runeblade,action",,,3,0,3,,,
 ARC,84,Tome of the Arknight,S,"Reveal the top 2 cards of your deck. If you reveal an attack action card and a 'non-attack' action card this way, put them into your hand.
 
-**Go again**","""And in abandoning the Light, I am consumed by the Shadow, and gifted true power..."" - Eldon, Lost Knight",,"runeblade,action",,,3,1,2,
-ARC,85,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,1,2,3,4
-ARC,86,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,2,2,3,3
-ARC,87,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,3,2,3,2
+**Go again**","""And in abandoning the Light, I am consumed by the Shadow, and gifted true power..."" - Eldon, Lost Knight",,"runeblade,action",,,3,1,2,,,
+ARC,85,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,1,2,3,4,,
+ARC,86,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,2,2,3,3,,
+ARC,87,Spellblade Assault,R,"Create 2 Runechant tokens. *(They’re auras with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,3,2,3,2,,
 ARC,88,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
 
-Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,1,1,4,
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,1,1,4,,,
 ARC,89,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
 
-Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,2,1,3,
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,2,1,3,,,
 ARC,90,Reduce to Runechant,R,"Reduce to Runechant costs [resource] less to play for each Runechant you control.
 
-Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,3,1,2,
+Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,defense,reaction",,,3,1,2,,,
 ARC,91,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +3[attack].
 
 Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
 
-**Go again**",,,"runeblade,action",,,1,2,3,
+**Go again**",,,"runeblade,action",,,1,2,3,,,
 ARC,92,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +2[attack].
 
 Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
 
-**Go again**",,,"runeblade,action",,,2,2,2,
+**Go again**",,,"runeblade,action",,,2,2,2,,,
 ARC,93,Oath of the Arknight,R,"Your next Runeblade attack this turn gains +1[attack].
 
 Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*
 
-**Go again**",,,"runeblade,action",,,3,2,1,
-ARC,94,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,1,3,3,6
-ARC,95,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,2,3,3,5
-ARC,96,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,3,3,3,4
+**Go again**",,,"runeblade,action",,,3,2,1,,,
+ARC,94,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,1,3,3,6,,
+ARC,95,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,2,3,3,5,,
+ARC,96,Amplify the Arknight,C,Amplify the Arknight costs [resource] less to play for each Runechant you control.,"As he is forced to rise once again and defend his long-forsaken tomb, he longs for sweet release of death's embrace.",,"runeblade,action,attack",,,3,3,3,4,,
 ARC,97,Drawn to the Dark Dimension,C,"Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.
 
-Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,1,2,3,3
+Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,1,2,3,3,,
 ARC,98,Drawn to the Dark Dimension,C,"Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.
 
-Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,2,2,3,2
+Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,2,2,3,2,,
 ARC,99,Drawn to the Dark Dimension,C,"Drawn to the Dark Dimension costs [resource] less to play for each Runechant you control.
 
-Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,3,2,3,1
+Draw a card.","Beware that which lies within the shadows, for its reach may extend beyond the physical plane.",,"runeblade,action,attack",,,3,2,3,1,,
 ARC,100,Rune Flash,C,"Rune Flash costs [resource] less to play for each Runechant you control.
 
-**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,1,3,3,4
+**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,1,3,3,4,,
 ARC,101,Rune Flash,C,"Rune Flash costs [resource] less to play for each Runechant you control.
 
-**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,2,3,3,3
+**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,2,3,3,3,,
 ARC,102,Rune Flash,C,"Rune Flash costs [resource] less to play for each Runechant you control.
 
-**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,3,3,3,2
-ARC,103,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,1,1,3,4
-ARC,104,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,2,1,3,3
-ARC,105,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,3,1,3,2
+**Go again**","Ancient runes guard its dusty windows, it's darkned halls where the Shadows sleep.",,"runeblade,action,attack",,,3,3,3,2,,
+ARC,103,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,1,1,3,4,,
+ARC,104,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,2,1,3,3,,
+ARC,105,Spellblade Strike,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,attack",,,3,1,3,2,,
 ARC,106,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
-When an attack action card you control hits, destroy Bloodspill Invocation then create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,1,1,2,
+When an attack action card you control hits, destroy Bloodspill Invocation then create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,1,1,2,,,
 ARC,107,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
-When an attack action card you control hits, destroy Bloodspill Invocation then create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,2,1,2,
+When an attack action card you control hits, destroy Bloodspill Invocation then create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,2,1,2,,,
 ARC,108,Bloodspill Invocation,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
-When an attack action card you control hits, destroy Bloodspill Invocation then create a Runechant token. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,3,1,2,
-ARC,109,Read the Runes,C,"Create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,1,0,2,
-ARC,110,Read the Runes,C,"Create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,2,0,2,
-ARC,111,Read the Runes,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,3,0,2,
+When an attack action card you control hits, destroy Bloodspill Invocation then create a Runechant token. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action,aura",,,3,1,2,,,
+ARC,109,Read the Runes,C,"Create 3 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,1,0,2,,,
+ARC,110,Read the Runes,C,"Create 2 Runechant tokens. *(They’re an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,2,0,2,,,
+ARC,111,Read the Runes,C,"Create a Runechant token. *(It’s an aura with “When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.”)*",,,"runeblade,action",,,3,0,2,,,
 ARC,112,Runechant,T,"*(Auras stay in the arena until they are destroyed.)*
 
-When you play an attack action card, or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.",,,"runeblade,token,aura",,,,,,
-ARC,113,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero",30,4,,,,
-ARC,114,"Kano, Dracei of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero,young",15,4,,,,
-ARC,115,Crucible of Aetherweave,T,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,,"wizard,weapon,staff,2h",,,,,,
+When you play an attack action card, or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.",,,"runeblade,token,aura",,,,,,,,
+ARC,113,"Kano, Dracai of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero",30,4,,,,,,
+ARC,114,"Kano, Dracai of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero,young",15,4,,,,,,
+ARC,115,Crucible of Aetherweave,T,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,,"wizard,weapon,staff,2h",,,,,,,,
 ARC,116,Storm Striders,L,"**Instant** - [resource], destroy Storm Striders: You may play your next Wizard ‘non-attack’ action card this turn as though it were an instant.
 
-**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,,"wizard,equipment,legs",,,,,0,
+**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,,"wizard,equipment,legs",,,,,0,,,
 ARC,117,Robe of Rapture,C,"**Action** - Destroy Robe of Rapture: Gain [2 resource]
 
-**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"wizard,equipment,chest",,,0,,0,
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"wizard,equipment,chest",,,0,,0,,,
 ARC,118,Blazing Aether,M,"**Kano Specialization** *(You may only have Blazing Aether in your deck if your hero is Kano.)*
 
-Deal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",,,"wizard,action",,,1,1,3,
+Deal X arcane damage to target hero, where X is the amount of arcane damage you have dealt to that hero this turn.",,,"wizard,action",,,1,1,3,,,
 ARC,119,Sonic Boom,M,"Deal 3 arcane damage to target opposing hero.
 
-If Sonic Boom deals damage, look at the top card of your deck. If it's a Wizard 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant and it costs X resource points less to play, where X is the damage dealt by Sonic Boom.",,,"wizard,action",,,2,2,3,
+If Sonic Boom deals damage, look at the top card of your deck. If it's a Wizard 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant and it costs X resource points less to play, where X is the damage dealt by Sonic Boom.",,,"wizard,action",,,2,2,3,,,
 ARC,120,Forked Lightning,S,"Deal 2 arcane damage to target hero.
 
 Deal 2 arcane damage to target hero.
 
-*(Effects that modify damage, modify both damage effects of Forked Lightning. Forked Lightning is considered a single source of damage.)*",,,"wizard,action",,,1,3,3,
+*(Effects that modify damage, modify both damage effects of Forked Lightning. Forked Lightning is considered a single source of damage.)*",,,"wizard,action",,,1,3,3,,,
 ARC,121,Lesson in Lava,S,"**Kano Specialization** *(You may only have Lesson in Lava in your deck if your hero is Kano.)*
 
 Deal 3 arcane damage to target opposing hero.
 
-If Lesson in Lava deals damage, you may search your deck for a Wizard card with [resource] cost equal to or less than the damaage dealt by Lesson in Lava, reveal it, then shuffle your deck and put it on top of your deck.",,,"wizard,action",,,2,1,3,
+If Lesson in Lava deals damage, you may search your deck for a Wizard card with [resource] cost equal to or less than the damaage dealt by Lesson in Lava, reveal it, then shuffle your deck and put it on top of your deck.",,,"wizard,action",,,2,1,3,,,
 ARC,122,Tome of Aetherwind,S,"Choose 2. You may choose the same mode more than once;
 
 * The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.
 
-* Draw a card.",,,"wizard,action",,,1,0,2,
-ARC,123,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,1,1,4,
-ARC,124,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,2,1,3,
-ARC,125,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,3,1,2,
+* Draw a card.",,,"wizard,action",,,1,0,2,,,
+ARC,123,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,1,1,4,,,
+ARC,124,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,2,1,3,,,
+ARC,125,Absorb in Aether,R,"The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 2.","The power of the Dracai burn in their veins, as they call upon the raging flames to guard their liege.",,"wizard,defense,reaction",,,3,1,2,,,
 ARC,126,Aether Spindle,R,"Deal 4 arcane damage to the target opposing hero.
 
-**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,1,2,3,
+**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,1,2,3,,,
 ARC,127,Aether Spindle,R,"Deal 3 arcane damage to the target opposing hero.
 
-**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,2,2,3,
+**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,2,2,3,,,
 ARC,128,Aether Spindle,R,"Deal 2 arcane damage to the target opposing hero.
 
-**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,3,2,3,
-ARC,129,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 3.",,,"wizard,action",,,1,2,2,
-ARC,130,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 2.",,,"wizard,action",,,2,2,2,
-ARC,131,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 1.",,,"wizard,action",,,3,2,2,
+**Opt X**, where X is the damage dealt by Aether Spindle. *(Look at the top X ards of your deck. You may put them on the top and/or bottom in any order.)*",,,"wizard,action",,,3,2,3,,,
+ARC,129,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 3.",,,"wizard,action",,,1,2,2,,,
+ARC,130,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 2.",,,"wizard,action",,,2,2,2,,,
+ARC,131,Stir the Aetherwinds,R,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant and if it has an effect that deals arcane damage, instead that effect deals that much arcane damage plus 1.",,,"wizard,action",,,3,2,2,,,
 ARC,132,Aether Flare,C,"Deal 3 arcane damage to target opposing hero.
 
-The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,1,1,3,
+The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,1,1,3,,,
 ARC,133,Aether Flare,C,"Deal 2 arcane damage to target opposing hero.
 
-The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,2,1,3,
+The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,2,1,3,,,
 ARC,134,Aether Flare,C,"Deal 3 arcane damage to target opposing hero.
 
-The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,3,1,3,
-ARC,135,Index,C,"Look at the top 5 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,1,0,2,
-ARC,136,Index,C,"Look at the top 4 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,2,0,2,
-ARC,137,Index,C,"Look at the top 3 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,3,0,2,
+The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage, plus X, where X is the damage dealt by Aether Flare.",,,"wizard,action",,,3,1,3,,,
+ARC,135,Index,C,"Look at the top 5 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,1,0,2,,,
+ARC,136,Index,C,"Look at the top 4 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,2,0,2,,,
+ARC,137,Index,C,"Look at the top 3 cards of your deck. Put 1 card from among them on top of your deck, and the rest on the bottom in any order.","“They banished me from their radiant kingdom, fearful in the face of true knowledge” - Xaine, Runescribe",,"wizard,action",,,3,0,2,,,
 ARC,138,Reverberate,C,"Deal 3 arcane damage to target opposing hero.
 
-If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,1,1,3,
+If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,1,1,3,,,
 ARC,139,Reverberate,C,"Deal 2 arcane damage to target opposing hero.
 
-If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,2,1,3,
+If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,2,1,3,,,
 ARC,140,Reverberate,C,"Deal 1 arcane damage to target opposing hero.
 
-If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,3,1,3,
-ARC,141,Scalding Rain,C,Deal 4 arcane damage to target hero.,,,"wizard,action",,,1,1,3,
-ARC,142,Scalding Rain,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,2,1,3,
-ARC,143,Scalding Rain,C,Deal 2 arcane damage to target hero.,,,"wizard,action",,,3,1,3,
-ARC,144,Zap,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,1,0,3,
-ARC,145,Zap,C,Deal 2 arcane damage to target hero.,,,"wizard,action",,,2,0,3,
-ARC,146,Zap,C,Deal 1 arcane damage to target hero.,,,"wizard,action",,,3,0,3,
-ARC,147,Voltic Bolt,C,Deal 5 arcane damage to target hero.,,,"wizard,action",,,1,2,2,
-ARC,148,Voltic Bolt,C,Deal 4 arcane damage to target hero.,,,"wizard,action",,,2,2,2,
-ARC,149,Voltic Bolt,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,3,2,2,
-ARC,150,Arcanite Skullcap,L,"If you have less [life] than your opponent, Arcanite Skullcap gains +1[defense] and **Arcane Barrier 3.** *(If your hero would be dealt arcane damage, you may pay [3 resource] instead. If you do, prevent 3 arcane damage that source would deal.)*",,,"generic,equipment,head",,,,,1,
-ARC,151,Talismanic Lens,C,**Instant** - Destroy Talismanic Lens: **Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*,,,"generic,equipment,head",,,,,0,
-ARC,152,Vest of the First Fist,C,"When an attack action card you control hits, you may destroy Vest of the First Fist. If you do, gain [2 resource].",,,"generic,equipment,chest",,,,,0,
-ARC,153,Bracers of Belief,C,"**Action** - Destroy Bracers of Belief: Real the top card of your deck. If you do, the next attack action card you play this turn gets [+X attack], where X is 3 minus the pitch value of the card revealed this way. **Go again**",,,"generic,equipment,arms",,,,,0,
-ARC,154,Mage Master Boots,C,"**Action** - [resource], destroy Mage Master Boots: The next ‘non-attack’ action card you play this turn gains **go again. Go again**",,,"generic,equipment,legs",,,,,0,
-ARC,155,Nullrune Hood,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,head",,,,,0,
-ARC,156,Nullrune Robe,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,chest",,,,,0,
-ARC,157,Nullrune Gloves,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,arms",,,,,0,
-ARC,158,Nullrune Boots,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,legs",,,,,0,
+If Reverberate deals damage, you may banish a Wizard 'non-attack' action card from your hand with [resource] cost less than or equal to the damage dealt by Reverberate. If you do, you may play it this turn as though it were an instant.",,,"wizard,action",,,3,1,3,,,
+ARC,141,Scalding Rain,C,Deal 4 arcane damage to target hero.,,,"wizard,action",,,1,1,3,,,
+ARC,142,Scalding Rain,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,2,1,3,,,
+ARC,143,Scalding Rain,C,Deal 2 arcane damage to target hero.,,,"wizard,action",,,3,1,3,,,
+ARC,144,Zap,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,1,0,3,,,
+ARC,145,Zap,C,Deal 2 arcane damage to target hero.,,,"wizard,action",,,2,0,3,,,
+ARC,146,Zap,C,Deal 1 arcane damage to target hero.,,,"wizard,action",,,3,0,3,,,
+ARC,147,Voltic Bolt,C,Deal 5 arcane damage to target hero.,,,"wizard,action",,,1,2,2,,,
+ARC,148,Voltic Bolt,C,Deal 4 arcane damage to target hero.,,,"wizard,action",,,2,2,2,,,
+ARC,149,Voltic Bolt,C,Deal 3 arcane damage to target hero.,,,"wizard,action",,,3,2,2,,,
+ARC,150,Arcanite Skullcap,L,"If you have less [life] than your opponent, Arcanite Skullcap gains +1[defense] and **Arcane Barrier 3.** *(If your hero would be dealt arcane damage, you may pay [3 resource] instead. If you do, prevent 3 arcane damage that source would deal.)*",,,"generic,equipment,head",,,,,1,,,
+ARC,151,Talismanic Lens,C,**Instant** - Destroy Talismanic Lens: **Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*,,,"generic,equipment,head",,,,,0,,,
+ARC,152,Vest of the First Fist,C,"When an attack action card you control hits, you may destroy Vest of the First Fist. If you do, gain [2 resource].",,,"generic,equipment,chest",,,,,0,,,
+ARC,153,Bracers of Belief,C,"**Action** - Destroy Bracers of Belief: Real the top card of your deck. If you do, the next attack action card you play this turn gets [+X attack], where X is 3 minus the pitch value of the card revealed this way. **Go again**",,,"generic,equipment,arms",,,,,0,,,
+ARC,154,Mage Master Boots,C,"**Action** - [resource], destroy Mage Master Boots: The next ‘non-attack’ action card you play this turn gains **go again. Go again**",,,"generic,equipment,legs",,,,,0,,,
+ARC,155,Nullrune Hood,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,head",,,,,0,,,
+ARC,156,Nullrune Robe,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,chest",,,,,0,,,
+ARC,157,Nullrune Gloves,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,arms",,,,,0,,,
+ARC,158,Nullrune Boots,C,"**Arcane Barrier 1** (If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"generic,equipment,legs",,,,,0,,,
 ARC,159,Command and Conquer,M,"Defense reactions can't be played to Command and Conquers chain link.
 
-If Command and Conquer hits a hero, destroy all cards in their arsenal.",,,"generic,action,attack",,,1,2,3,6
+If Command and Conquer hits a hero, destroy all cards in their arsenal.",,,"generic,action,attack",,,1,2,3,6,,
 ARC,160,Art of War,M,"Choose 2;
 
 * Attack action cards you control gain +1[attack] and +1[defense] this turn.
 * The next attack action card you play this turn, gains **go again**.
 * Until end of turn, you may defend with attack action cards from arsenal.
-* You may banish an attack action card from your hand. If you do, draw 2 cards.",,,"generic,instant",,,2,1,,
-ARC,161,Pursuit of Knowledge,S,"If Pursuit of Knowledge hits, your hero gains +1[intellect] until end of turn.",,,"generic,action,attack",,,3,2,2,4
+* You may banish an attack action card from your hand. If you do, draw 2 cards.",,,"generic,instant",,,2,1,,,,
+ARC,161,Pursuit of Knowledge,S,"If Pursuit of Knowledge hits, your hero gains +1[intellect] until end of turn.",,,"generic,action,attack",,,3,2,2,4,,
 ARC,162,Chains of Eminence,S,"**Go again**
 
 When Chains of Eminence enters the arena, name a card. The named card can’t be pitched, played, or used to defend while Chains of Eminence is in the arena.
 
-At the beginning of your action phase, destroy Chains of Eminence.",,,"generic,action,aura",,,1,0,2,
-ARC,163,Rusted Relic,S,"**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"generic,action,item",,,3,0,,
+At the beginning of your action phase, destroy Chains of Eminence.",,,"generic,action,aura",,,1,0,2,,,
+ARC,163,Rusted Relic,S,"**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.)*",,,"generic,action,item",,,3,0,,,,
 ARC,164,Life for a Life,R,"If Life for a Life hits, gain 1 [life].
 
-When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,1,1,2,4
+When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,1,1,2,4,,
 ARC,165,Life for a Life,R,"If Life for a Life hits, gain 1 [life].
 
-When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,2,1,2,3
+When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,2,1,2,3,,
 ARC,166,Life for a Life,R,"If Life for a Life hits, gain 1 [life].
 
-When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,3,1,2,2
+When you play Life for a Life, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,3,1,2,2,,
 ARC,167,Enchanting Melody,R,"*(Auras stay in the arena yntil they are destroyed.)*
 
 **Go again**
 
 If you would be dealt damage, instead destroy Enchanting Melody and prevent 4 of that damage.
 
-At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,1,2,2,
+At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,1,2,2,,,
 ARC,168,Enchanting Melody,R,"*(Auras stay in the arena yntil they are destroyed.)*
 
 **Go again**
 
 If you would be dealt damage, instead destroy Enchanting Melody and prevent 3 of that damage.
 
-At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,2,2,2,
+At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,2,2,2,,,
 ARC,169,Enchanting Melody,R,"*(Auras stay in the arena yntil they are destroyed.)*
 
 **Go again**
 
 If you would be dealt damage, instead destroy Enchanting Melody and prevent 2 of that damage.
 
-At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,3,2,2,
+At the beginning of your end phase, destroy Enchanting Melody unless you have played a 'non-attack' action card this turn.",,,"generic,action,aura",,,3,2,2,,,
 ARC,170,Plunder Run,R,"The next time an attack action card you control hits this turn, draw a card.
 If plunder run is played from arsenal, then next attack action card you play this turn gains [+3 attack].
 
-**Go again**",,,"generic,action",,,1,0,2,
+**Go again**",,,"generic,action",,,1,0,2,,,
 ARC,171,Plunder Run,R,"The next time an attack action card you control hits this turn, draw a card.
 If plunder run is played from arsenal, then next attack action card you play this turn gains [+2 attack].
 
-**Go again**",,,"generic,action",,,2,0,2,
+**Go again**",,,"generic,action",,,2,0,2,,,
 ARC,172,Plunder Run,R,"The next time an attack action card you control hits this turn, draw a card.
 If plunder run is played from arsenal, then next attack action card you play this turn gains [+1 attack].
 
-**Go again**",,,"generic,action",,,3,0,2,
-ARC,173,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,1,1,,
-ARC,174,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 5 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,2,1,,
-ARC,175,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 4 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,3,1,,
-ARC,176,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,1,1,2,5
-ARC,177,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,2,1,2,4
-ARC,178,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,3,1,2,3
-ARC,179,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,1,2,2,6
-ARC,180,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,2,2,2,5
-ARC,181,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,3,2,2,4
+**Go again**",,,"generic,action",,,3,0,2,,,
+ARC,173,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,1,1,,,,
+ARC,174,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 5 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,2,1,,,,
+ARC,175,Eirina's Prayer,R,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 4 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,instant",,,3,1,,,,
+ARC,176,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,1,1,2,5,,
+ARC,177,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,2,1,2,4,,
+ARC,178,Back Alley Breakline,C,"If an activated ability or action card effect puts Back Alley Breakline face-up into a zone from your deck, gain 1 action point.","“This is going to hurt your wallet more than your arm.” - Doctor Mortimer, ‘The Fixer’",,"generic,action,attack",,,3,1,2,3,,
+ARC,179,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,1,2,2,6,,
+ARC,180,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,2,2,2,5,,
+ARC,181,Cadaverous Contraband,C,"If Cadaverous Contraband hits, you may put a ‘non-attack’ action card from your graveyard on top of your deck.",,,"generic,action,attack",,,3,2,2,4,,
 ARC,182,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,1,0,2,3
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,1,0,2,3,,
 ARC,183,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,2,0,2,2
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,2,0,2,2,,
 ARC,184,Fervent Forerunner,C,"If Fervent Forerunner hits, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,3,0,2,1
-ARC,185,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,1,2,2,5
-ARC,186,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,2,2,2,4
-ARC,187,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,3,2,2,3
-ARC,188,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,1,1,2,4
-ARC,189,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,2,1,2,3
-ARC,190,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,3,1,2,2
+If Fervent Forerunner is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,3,0,2,1,,
+ARC,185,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,1,2,2,5,,
+ARC,186,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,2,2,2,4,,
+ARC,187,Moon Wish,C,"Reveal the top card of your deck. Prevent the next X arcane damage that would be dealt to you this turn, where X is 6 minus the pitch value of the card revealed this way. *(The pitch value is located in the top left corner of the card.)*",,,"generic,action,attack",,,3,2,2,3,,
+ARC,188,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,1,1,2,4,,
+ARC,189,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,2,1,2,3,,
+ARC,190,Push the Point,C,"If the last attack on this combat chain hit, Push the Point gains +2[attack].",,,"generic,action,attack",,,3,1,2,2,,
 ARC,191,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.
 
-**Go again**",,,"generic,action,attack",,,1,0,2,5
+**Go again**",,,"generic,action,attack",,,1,0,2,5,,
 ARC,192,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.
 
-**Go again**",,,"generic,action,attack",,,2,0,2,4
+**Go again**",,,"generic,action,attack",,,2,0,2,4,,
 ARC,193,Ravenous Rabble,C,"Reveal the top card of your deck. Ravenous Rabble gets [-X attack], where X is the pitch value of the card revealed this way.
 
-**Go again**",,,"generic,action,attack",,,3,0,2,3
-ARC,194,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,1,2,2,6
-ARC,195,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,2,2,2,5
-ARC,196,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,3,2,2,4
-ARC,197,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,1,1,2,4
-ARC,198,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,2,1,2,3
-ARC,199,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,3,1,2,2
-ARC,200,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,1,0,4,
-ARC,201,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,2,0,3,
-ARC,202,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,3,0,2,
+**Go again**",,,"generic,action,attack",,,3,0,2,3,,
+ARC,194,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,1,2,2,6,,
+ARC,195,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,2,2,2,5,,
+ARC,196,Rifting,C,"If Rifting hits, you may play your next ‘non-attack’ action card this turn as though it were an instant.","“Sir, might I suggest disposing of the ancient artefact?” - Jeeves",,"generic,action,attack",,,3,2,2,4,,
+ARC,197,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,1,1,2,4,,
+ARC,198,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,2,1,2,3,,
+ARC,199,Vigor Rush,C,"If you have played a ‘non-attack’ action card this turn, Vigor Rush gains **go again**.",,,"generic,action,attack",,,3,1,2,2,,
+ARC,200,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,1,0,4,,,
+ARC,201,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,2,0,3,,,
+ARC,202,Fate Foreseen,C,**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*,"“Should you wish to see the future, know this… what has been seen cannot be unseen.” - Vera",,"generic,defense,reaction",,,3,0,2,,,
 ARC,203,Come to Fight,C,"The next attack action card you play this turn gains +3[attack].
 
-**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,1,1,3,
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,1,1,3,,,
 ARC,204,Come to Fight,C,"The next attack action card you play this turn gains +2[attack].
 
-**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,2,1,3,
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,2,1,3,,,
 ARC,205,Come to Fight,C,"The next attack action card you play this turn gains +1[attack].
 
-**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,3,1,3,
+**Go again**","Graham the Gallant strode among the trees, tracking a band of notorious thieves.",,"generic,action",,,3,1,3,,,
 ARC,206,Force Sight,C,"The next attack action card you play this turn gains +3[attack].
 
 If Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-**Go again**",,,"generic,action",,,1,1,2,
+**Go again**",,,"generic,action",,,1,1,2,,,
 ARC,207,Force Sight,C,"The next attack action card you play this turn gains +2[attack].
 
 If Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-**Go again**",,,"generic,action",,,2,1,2,
+**Go again**",,,"generic,action",,,2,1,2,,,
 ARC,208,Force Sight,C,"The next attack action card you play this turn gains +1[attack].
 
 If Force Sight is played from arsenal, **opt 2**. *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-**Go again**",,,"generic,action",,,3,1,2,
+**Go again**",,,"generic,action",,,3,1,2,,,
 ARC,209,Lead the Charge,C,"The next time you play an action card with cost 0 or greater this turn, gain 1 action point.
 
-**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,1,0,2,
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,1,0,2,,,
 ARC,210,Lead the Charge,C,"The next time you play an action card with cost [resource] or greater this turn, gain 1 action point.
 
-**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,2,0,2,
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,2,0,2,,,
 ARC,211,Lead the Charge,C,"The next time you play an action card with cost [2 resource] or greater this turn, gain 1 action point.
 
-**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,3,0,2,
+**Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,3,0,2,,,
 ARC,212,Sun Kiss,C,"Gain 3[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,1,0,2,
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,1,0,2,,,
 ARC,213,Sun Kiss,C,"Gain 2[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,2,0,2,
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,2,0,2,,,
 ARC,214,Sun Kiss,C,"Gain 2[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,3,0,2,
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,3,0,2,,,
 ARC,215,Whisper of the Oracle,C,"**Opt 4** (Look at the top 4 cards of your deck. You may put them on the top and/or bottom in any order.)
 
-**Go again**",,,"generic,action",,,1,0,3,
+**Go again**",,,"generic,action",,,1,0,3,,,
 ARC,216,Whisper of the Oracle,C,"**Opt 3** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)
 
-**Go again**",,,"generic,action",,,2,0,3,
+**Go again**",,,"generic,action",,,2,0,3,,,
 ARC,217,Whisper of the Oracle,C,"**Opt 2** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)
 
-**Go again**",,,"generic,action",,,3,0,3,
-ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,
+**Go again**",,,"generic,action",,,3,0,3,,,
+ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,,,
+LGS,9,Teklo Plasma Pistol,P,,,,,,,,,,,ARC003,Cold Foil
+LGS,10,Death Dealer,P,,,,,,,,,,,ARC040,Cold Foil
+LGS,11,Nebula Blade,P,,,,,,,,,,,ARC077,Cold Foil
+LGS,12,Crucible of Aetherweave,P,,,,,,,,,,,ARC115,Cold Foil
+LGS,13,Over Loop,P,,,,,,,,,,,ARC020,Extended Art
+LGS,14,Sic ‘Em Shot,P,,,,,,,,,,,ARC072,Extended Art
+LGS,15,Reduce to Runechant,P,,,,,,,,,,,ARC088,Extended Art
+LGS,16,Voltic Bolt,P,,,,,,,,,,,ARC147,Extended Art
+HER,13,Dash,P,,,,,,,,,,,ARC002,Rainbow
+HER,17,Dash,P,,,,,,,,,,,ARC001,Rainbow
+HER,14,Azalea,P,,,,,,,,,,,ARC039,Rainbow
+HER,18,"Azalea, Ace in the Hole",P,,,,,,,,,,,ARC038,Rainbow
+HER,15,Viserai,P,,,,,,,,,,,ARC077,Rainbow
+HER,19,Viserai,P,,,,,,,,,,,ARC076,Rainbow
+HER,16,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC114,Rainbow
+HER,20,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC113,Rainbow
+FAB,7,Arcanite Skullcap,P,,,,,,,,,,,ARC150,Gold Foil
+FAB,10,Grasp of the Arknight,P,,,,,,,,,,,ARC078,Gold Foil
+HER,9,Dash,P,,,,,,,,,,,ARC001,Cold Foil
+HER,10,"Azlea, Ace in the Hole",P,,,,,,,,,,,ARC038,Cold Foil
+HER,11,"Viserai, Rune Blood",P,,,,,,,,,,,ARC076,Cold Foil
+HER,12,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC113,Cold Foil

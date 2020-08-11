@@ -16,6 +16,16 @@ class Card extends Model
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
 
+    public function variants()
+    {
+        return $this->belongsToMany(Card::class, 'variants', 'card_id', 'variant_id');
+    }
+
+    public function variantOf()
+    {
+        return $this->hasOneThrough(Card::class,Variant::class, 'variant_id', 'id', 'id', 'card_id');
+    }
+
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');

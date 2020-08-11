@@ -11,23 +11,28 @@
                         <router-link :to="'/cards/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 mr-2" v-if="card.prev">Previous</router-link>
                         <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 ml-2 text-right" v-if="card.next">Next</router-link>
                     </div>
-                </div>
 
-                <div class="md:w-2/3 md:float-right sm:px-4">
-                    <div class="p-4 pt-0 sm:p-0">
-                        <div v-if="card.text" class="border bg-gray-300 border-gray-500 rounded-lg mb-8">
-                            <div v-html="prettyText(card.text)" class="px-4"></div>
-                            <div class="italic border-t border-gray-400 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
-                        </div>
-
-                        <article>
-                            <p class="mb-4">
-                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
-                            </p>
-                        </article>
-                    </div>
-
-                    <ul class="sm:py-4">
+                    <ul class="pt-4">
+                        <li class="clearfix" v-if="!card.variantOf">
+                            <div class="float-left w-1/4 p-2 px-4">Variants</div>
+                            <div class="float-left w-3/4 p-2 px-4">
+                                <div v-if="card.variants.length">
+                                    <span v-for="(variant, key) in card.variants">
+                                        <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link">{{ variant.identifier }}</router-link>
+                                        <span v-if="key > 0">, </span>
+                                    </span>
+                                </div>
+                                <div v-else>
+                                    None
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix" v-else>
+                            <div class="float-left w-1/4 p-2 px-4">Variant</div>
+                            <div class="float-left w-3/4 p-2 px-4">
+                                <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link">{{ card.variantOf.identifier }}</router-link>
+                            </div>
+                        </li>
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/4 p-2 px-4">Rarity</div>
                             <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link">{{ rarity }}</router-link></div>
@@ -40,15 +45,29 @@
                                 </span>
                             </div>
                         </li>
-                        <li v-for="(value, stat) in card.stats" class="clearfix odd:bg-white" v-if="value">
+                        <li v-for="(value, stat) in card.stats" class="clearfix even:bg-white" v-if="value">
                             <div class="float-left w-1/4 p-2 px-4">{{ sentenceCase(stat) }}</div>
                             <div class="float-left w-3/4 p-2 px-4">{{ value }}</div>
                         </li>
                     </ul>
+                </div>
 
+                <div class="md:w-2/3 md:float-right sm:px-4">
+                    <div class="p-4 pt-0 sm:p-0">
+                        <div v-if="card.text" class="border bg-gray-300 border-gray-500 rounded-lg mb-8">
+                            <div v-html="prettyText(card.text)" class="px-4"></div>
+                            <div class="italic border-t border-gray-400 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                        </div>
+
+                        <article>
+                            <p class="mb-4 italic">
+                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                            </p>
+                        </article>
+                    </div>
+
+                    <rulings :rulings="rulings" v-if="rulings.length"></rulings>
                     <pricing :listings="card.listings" class="mb-8"></pricing>
-
-                    <rulings :rulings="card.rulings" v-if="card.rulings.length"></rulings>
 
                     <hr class="text-gray-500 mt-4">
 
@@ -96,7 +115,7 @@
         },
 
         computed: {
-            crumbs: function() {
+            crumbs() {
                 return [
                     { text: 'Home', link: '/' },
                     { text: this.$route.meta.parent.name, link: this.$route.meta.parent.path },
@@ -104,7 +123,7 @@
                 ];
             },
 
-            rarity: function() {
+            rarity() {
                 const levels = {
                     C: 'Common',
                     R: 'Rare',
@@ -117,6 +136,12 @@
                 };
 
                 return levels[this.card.rarity];
+            },
+
+            rulings() {
+                return this.card.rulings.map(ruling => {
+                    return ruling.description;
+                });
             }
         },
 

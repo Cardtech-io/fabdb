@@ -1,13 +1,13 @@
 <template>
     <div>
-        <h2 class="mt-4 border-b border-gray-500">
+        <h2 class="border-b border-gray-500">
             <div class="flex-1 px-4 sm:px-0 py-2 uppercase font-serif">
-                Rulings
+                Rulings, Clarifications, Erratas.etc.
             </div>
         </h2>
 
         <ul>
-            <li v-for="ruling in rulings" class="border-b border-gray-400 last:border-0 py-2 pr-2 text-base" v-html="prettyText(ruling.description)"></li>
+            <li v-for="ruling in rulings" class="border-b border-gray-400 last:border-0 py-2 pr-4 sm:pr-2 text-base sm:-pl-4" v-html="minimalMarkdown(ruling)"></li>
         </ul>
     </div>
 </template>

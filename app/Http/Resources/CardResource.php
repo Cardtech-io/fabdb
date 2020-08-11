@@ -11,9 +11,12 @@ class CardResource extends JsonResource
     {
         $this->resource->setAppends([]);
 
-        $response = Arr::except($this->resource->toArray(), ['listings', 'pivot', 'searchText']);
+        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'next', 'prev']);
         $response['image'] = $this->image($this->resource);
-        $response['rulings'] = RulingResource::collection($this->whenLoaded('rulings'));
+        $response['listings'] = $this->whenLoaded('listings');
+        $response['rulings'] = $this->whenLoaded('rulings');
+        $response['variants'] = CardResource::collection($this->whenLoaded('variants'));
+        $response['variantOf'] = new CardResource($this->whenLoaded('variantOf'));
 
         $this->polymorphicTotal($response, 'deck_cards');
         $this->polymorphicTotal($response, 'sideboard');
@@ -21,7 +24,7 @@ class CardResource extends JsonResource
         return $response;
     }
 
-    private function image(Card $card)
+    private function image($card)
     {
         $domain = config('services.imgix.domain');
         $set = strtolower($card->identifier->set());

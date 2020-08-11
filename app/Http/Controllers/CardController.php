@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Packs;
 use FabDB\Domain\Cards\Set;
+use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -26,7 +27,7 @@ class CardController extends Controller
 
     public function view(Request $request, CardRepository $cards)
     {
-        return $cards->view($request->card->identifier);
+        return new CardResource($cards->view($request->card->identifier));
     }
 
     public function generatePack(Request $request, Packs $packs)

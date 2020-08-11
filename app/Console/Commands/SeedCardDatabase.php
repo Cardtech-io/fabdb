@@ -3,8 +3,10 @@
 namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\Rarity;
+use FabDB\Domain\Cards\Variant;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -30,30 +32,49 @@ class SeedCardDatabase extends Command
     /**
      * Execute the console command.
      *
+     * @param CardRepository $cards
      * @return mixed
+     * @throws \League\Csv\Exception
      */
-    public function handle()
+    public function handle(CardRepository $cards)
     {
         $set = $this->selectSet();
 
         $csvFile = Storage::disk('carddb')->getAdapter()->getPathPrefix()."{$set}.csv";
         $csv = Reader::createFromPath($csvFile, 'r');
         $csv->setHeaderOffset(0);
-        $cards = $csv->getRecords();
+        $rows = $csv->getRecords();
 
-        foreach ($cards as $card) {
+        foreach ($rows as $card) {
             $this->line('Registering: '.$card['Set'].$card['ID']);
 
-            Card::register(
-                new Identifier($card['Set'], $card['ID']),
-                $card['Name'],
-                new Rarity($card['Rarity']),
-                $card['Text'],
-                Arr::get($card, 'Flavour'),
-                Arr::get($card, 'Comments'),
-                explode(',', $card['Keywords']),
-                $this->compileStats($card)
-            );
+            if ($card['Variant of']) {
+                $variantOf = $cards->findByIdentifier($card['Variant of']);
+
+                $saved = Card::register(
+                    new Identifier($card['Set'], $card['ID']),
+                    $variantOf->name,
+                    new Rarity($card['Rarity']),
+                    $variantOf->text,
+                    $variantOf->flavour,
+                    $variantOf->comments,
+                    $variantOf->keywords,
+                    $variantOf->stats
+                );
+
+                $saved->variantOf()->firstOrCreate(['card_id' => $variantOf->id]);
+            } else {
+                Card::register(
+                    new Identifier($card['Set'], $card['ID']),
+                    $card['Name'],
+                    new Rarity($card['Rarity']),
+                    $card['Text'],
+                    Arr::get($card, 'Flavour'),
+                    Arr::get($card, 'Comments'),
+                    explode(',', $card['Keywords']),
+                    $this->compileStats($card)
+                );
+            }
         }
 
         $this->info('Done.');

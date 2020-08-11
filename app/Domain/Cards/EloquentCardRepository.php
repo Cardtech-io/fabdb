@@ -13,6 +13,7 @@ use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
+use FabDB\Domain\Cards\Search\VariantsFilter;
 use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
@@ -59,6 +60,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new KeywordFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
+            new VariantsFilter,
             new ClassFilter,
             new TypeFilter,
             new CostFilter,
@@ -126,7 +128,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '-'))->identifier;
         });
 
-        $card->load('listings', 'listings.store', 'rulings');
+        $card->load(['listings', 'listings.store', 'rulings', 'variants' => function($query) {
+            $query->select('cards.identifier');
+        }, 'variantOf' => function($query) {
+            $query->select('cards.identifier');
+        }]);
 
         return $card;
     }
