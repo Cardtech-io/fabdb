@@ -7,6 +7,7 @@
         <div class="w-full lg:w-3/4">
             <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'metrics' }" @click.prevent="tab = 'metrics'">Metrics</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'rulings' }" @click.prevent="tab = 'rulings'">Rulings</a></li>
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'settings' }" @click.prevent="tab = 'settings'">Settings</a></li>
                 <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'export' }" @click.prevent="tab = 'export'">Export</a></li>
             </ul>
@@ -58,6 +59,10 @@
                 </div>
             </div>
 
+            <div class="sm:flex mt-8" v-if="tab == 'rulings'">
+                <rulings :rulings="rulings"></rulings>
+            </div>
+
             <div v-if="tab == 'settings'" class="bg-white px-4">
                 <deck-settings :deck="deck"></deck-settings>
             </div>
@@ -85,13 +90,15 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import DeckSettings from './DeckSettings.vue';
     import ManagesDecks from './ManagesDecks';
+    import Rulings from '../CardDatabase/Rulings';
     import Stat from './Stat.vue';
     import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
+    import _ from "lodash";
 
     export default {
         mixins: [ManagesDecks, Viewable],
-        components: { CardImage, DeckSettings, Stat, TtsExporter },
+        components: { CardImage, DeckSettings, Rulings, Stat, TtsExporter },
 
         data() {
             return {
@@ -108,6 +115,14 @@
 
             defenseRating: function() {
                 return ((this.blocks.length / this.totalCards).toFixed(2) * 100).toFixed(0) + '%';
+            },
+
+            rulings() {
+                let rulings = _.flatten(this.cards.map(card => {
+                    return _.flatten(card.rulings.map(ruling => { return ruling.description; }));
+                }));
+
+                return _.uniq(rulings);
             }
         },
 

@@ -45,16 +45,20 @@ class SeedCardDatabase extends Command
         $csv->setHeaderOffset(0);
         $rows = $csv->getRecords();
 
-        foreach ($rows as $card) {
-            $this->line('Registering: '.$card['Set'].$card['ID']);
+        foreach ($rows as $row) {
+            $this->line('Registering: '.$row['Set'].$row['ID']);
 
-            if ($card['Variant of']) {
-                $variantOf = $cards->findByIdentifier($card['Variant of']);
+            if ($row['Variant of']) {
+                $variantOf = $cards->findByIdentifier($row['Variant of']);
+
+                if (!$variantOf) {
+                    throw new \Exception('Invalid identifier for variant.');
+                }
 
                 $saved = Card::register(
-                    new Identifier($card['Set'], $card['ID']),
+                    new Identifier($row['Set'], $row['ID']),
                     $variantOf->name,
-                    new Rarity($card['Rarity']),
+                    new Rarity($row['Rarity']),
                     $variantOf->text,
                     $variantOf->flavour,
                     $variantOf->comments,
@@ -65,14 +69,14 @@ class SeedCardDatabase extends Command
                 $saved->variantOf()->firstOrCreate(['card_id' => $variantOf->id]);
             } else {
                 Card::register(
-                    new Identifier($card['Set'], $card['ID']),
-                    $card['Name'],
-                    new Rarity($card['Rarity']),
-                    $card['Text'],
-                    Arr::get($card, 'Flavour'),
-                    Arr::get($card, 'Comments'),
-                    explode(',', $card['Keywords']),
-                    $this->compileStats($card)
+                    new Identifier($row['Set'], $row['ID']),
+                    $row['Name'],
+                    new Rarity($row['Rarity']),
+                    $row['Text'],
+                    Arr::get($row, 'Flavour'),
+                    Arr::get($row, 'Comments'),
+                    explode(',', $row['Keywords']),
+                    $this->compileStats($row)
                 );
             }
         }
