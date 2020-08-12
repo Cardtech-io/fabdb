@@ -18,8 +18,8 @@
                             <div class="float-left w-3/4 p-2 px-4">
                                 <div v-if="card.variants.length">
                                     <span v-for="(variant, key) in card.variants">
-                                        <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link">{{ variant.identifier }}</router-link>
                                         <span v-if="key > 0">, </span>
+                                        <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link">{{ variant.identifier }}</router-link>
                                     </span>
                                 </div>
                                 <div v-else>
@@ -66,7 +66,7 @@
                         </article>
                     </div>
 
-                    <rulings :rulings="rulings" v-if="rulings.length"></rulings>
+                    <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
                     <pricing :listings="card.listings" class="mb-8"></pricing>
 
                     <hr class="text-gray-500 mt-4">

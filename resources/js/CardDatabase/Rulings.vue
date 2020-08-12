@@ -17,6 +17,6 @@
 
     export default {
         mixins: [Strings],
-        props: ['rulings'],
+        props: ['rulings']
     };
 </script>
