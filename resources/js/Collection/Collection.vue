@@ -2,16 +2,16 @@
     <div>
         <header-title title="My Collection"></header-title>
 
-        <div class="bg-orange-900 text-white font-serif uppercase">
+        <div class="bg-red-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('all')" :class="activeFilter('all')">All</a> <span class="text-orange-500">|</span>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('mine')" :class="activeFilter('mine')">Mine</a> <span class="text-orange-500">|</span>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="filter('need')" :class="activeFilter('need')">Need</a>
+                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('all')" :class="activeFilter('all')">All</a> <span class="text-red-500">|</span>
+                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('mine')" :class="activeFilter('mine')">Mine</a> <span class="text-red-500">|</span>
+                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('need')" :class="activeFilter('need')">Need</a>
                     </p>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                 <div v-if="results && results.data" class="px-4">
                     <div class="clearfix p-4">
                         <div class="float-left w-1/4 px-4 md:px-0">
-                            <a href="" @click.prevent="setView('gallery')" class="text-gray-800" :class="{ 'text-orange-700 hover:text-gray-500': view != 'gallery' }">
+                            <a href="" @click.prevent="setView('gallery')" class="text-gray-800" :class="{ 'text-red-700 hover:text-gray-500': view != 'gallery' }">
                                 <svg class="inline-block fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"/>
                                 </svg>
                             </a>
 
-                            <a href="" @click.prevent="setView('list')" class="text-gray-800" :class="{ 'text-orange-700 hover:text-gray-500': view != 'list' }">
+                            <a href="" @click.prevent="setView('list')" class="text-gray-800" :class="{ 'text-red-700 hover:text-gray-500': view != 'list' }">
                                 <svg class="inline-block fill-current h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z"/>
                                 </svg>
@@ -113,7 +113,7 @@
 
         methods: {
             activeFilter: function(view) {
-                return this.searchDefaults.view == view ? 'text-orange-300' : '';
+                return this.searchDefaults.view == view ? 'text-red-300' : '';
             },
 
             filter: function(view) {

@@ -72,7 +72,7 @@
                             </div>
                         </div>
 
-                        <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
+                        <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" :disabled="saving">
                     </form>
                 </div>
 

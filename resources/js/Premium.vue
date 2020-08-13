@@ -2,7 +2,7 @@
     <div>
         <header-title title="Premium features"></header-title>
 
-        <div class="bg-orange-900 text-white font-serif uppercase">
+        <div class="bg-red-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>

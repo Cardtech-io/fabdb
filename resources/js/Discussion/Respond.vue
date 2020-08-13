@@ -9,7 +9,7 @@
                 <textarea type="text" v-model="content" class="input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" :placeholder="'Type here to comment on this ' + type + '.'"></textarea>
             </div>
 
-            <input type="submit" value="Comment" class="appearance-none block w-full mt-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50" :disabled="saving">
+            <input type="submit" value="Comment" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" :disabled="saving">
         </form>
         <div v-else class="text-center">
             You must be <router-link :to="'/login/?from=' + $route.path" class="link">logged in</router-link> to participate in discussions.

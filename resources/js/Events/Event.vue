@@ -146,7 +146,7 @@
                         'border-b-2': this.event.type == type,
                         'border-gray-800': this.event.type == type,
                         'text-gray-800': this.event.type == type,
-                        'text-orange-400': this.event.type != type,
+                        'text-red-400': this.event.type != type,
                         'hover:text-gray-800': this.event.type != type,
                     }
                 } else {

@@ -14,7 +14,7 @@
             </button>
 
             <modal name="submit-deck" classes="bg-gray-100">
-                <h2 class="bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-8">Submit your deck</h2>
+                <h2 class="bg-red-900 text-white font-serif text-2xl uppercase py-3 px-8">Submit your deck</h2>
 
                 <ul v-if="decks.length">
                     <li v-for="deck in decks" class="even:bg-gray-200 hover:bg-white hover:cursor-pointer">

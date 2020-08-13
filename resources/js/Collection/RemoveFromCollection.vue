@@ -24,7 +24,7 @@
         computed: {
             classes: function() {
                 return {
-                    'text-orange-300': !this.disabled,
+                    'text-red-300': !this.disabled,
                     'hover:text-gray-800': !this.disabled,
                     'text-gray-400': this.disabled,
                     'cursor-not-allowed': this.disabled

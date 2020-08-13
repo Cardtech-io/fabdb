@@ -1,7 +1,7 @@
 <template>
     <modal name="complete-profile" :adaptive="true" height="auto" classes="bg-gray-100" v-if="user">
         <form @submit.prevent="completeProfile()">
-            <h2 class="bg-orange-900 text-white font-serif text-2xl uppercase py-3 px-4">Complete your profile</h2>
+            <h2 class="bg-red-900 text-white font-serif text-2xl uppercase py-3 px-4">Complete your profile</h2>
 
             <div class="px-4 pb-4">
                 <div class="w-full mt-4">
@@ -16,7 +16,7 @@
 
                 <div class="flex mt-8">
                     <input type="button" value="Cancel" class="appearance-none block w-1/2 bg-gray-600 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-gray-500 disabled:opacity-50" @click.prevent="close()">
-                    <input type="submit" value="Save" class="appearance-none block w-1/2 ml-2 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50">
+                    <input type="submit" value="Save" class="appearance-none block w-1/2 ml-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50">
                 </div>
             </div>
         </form>

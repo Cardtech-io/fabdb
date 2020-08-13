@@ -2,14 +2,14 @@
     <div>
         <header-title title="My articles"></header-title>
 
-        <div class="bg-orange-900 text-white font-serif uppercase">
+        <div class="bg-red-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
-                        <router-link to="/articles/write" class="text-white hover:text-orange-300">Write article</router-link>
+                        <router-link to="/articles/write" class="text-white hover:text-red-300">Write article</router-link>
                     </p>
                 </div>
             </div>

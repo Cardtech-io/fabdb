@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center rounded-lg mr-4" :class="{ 'bg-orange-600': filtersEnabled }">
+    <div class="flex items-center rounded-lg mr-4" :class="{ 'bg-red-600': filtersEnabled }">
         <button class="flex items-center text-sm text-white w-full h-full cursor-pointer" v-if="filtersEnabled" @click="clearFilters">
             <div class="w-full h-full p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="block fill-current h-4">

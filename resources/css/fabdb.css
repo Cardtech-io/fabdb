@@ -17,7 +17,7 @@ select:-moz-focusring {
 
 .theme-bg {
     background:
-        url('/img/volcor-blurred.jpg')
+        url('/img/background-crucible.jpg')
         no-repeat top left fixed;
     background-size: cover;
 }
@@ -54,7 +54,8 @@ button:focus {
 }
 
 .link {
-    @apply text-orange-400;
+    @apply text-red-400;
+    @apply underline;
 }
 
 .link:hover {
@@ -62,7 +63,8 @@ button:focus {
 }
 
 .link-white {
-    @apply text-orange-400;
+    @apply text-red-400;
+    @apply underline;
 }
 
 .link-white:hover {
@@ -70,11 +72,11 @@ button:focus {
 }
 
 footer.footer .link {
-    @apply text-orange-400;
-}
-
-footer.footer .link:hover {
     @apply text-white;
+    @apply underline;
+}
+footer.footer .link:hover {
+    @apply text-red-400;
 }
 
 @font-face {

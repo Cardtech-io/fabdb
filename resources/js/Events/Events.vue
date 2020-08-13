@@ -2,13 +2,13 @@
     <div>
         <header-title title="My events"></header-title>
 
-        <div class="bg-orange-900 text-white font-serif uppercase">
+        <div class="bg-red-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-auto">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="text-right flex-auto">
-                    <router-link :to="{ name: 'events.start' }" class="rounded-full py-2 px-4 bg-white text-orange-700 hover:bg-orange-700 hover:text-white" v-if="user.role == 'owner' || user.role == 'editor'">Schedule an event</router-link>
+                    <router-link :to="{ name: 'events.start' }" class="rounded-full py-2 px-4 bg-white text-red-700 hover:bg-red-700 hover:text-white" v-if="user.role == 'owner' || user.role == 'editor'">Schedule an event</router-link>
                 </div>
             </div>
         </div>

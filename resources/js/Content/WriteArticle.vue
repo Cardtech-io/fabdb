@@ -2,16 +2,16 @@
     <div>
         <header-title title="Write article"></header-title>
 
-        <div class="bg-orange-900 text-white font-serif uppercase">
+        <div class="bg-red-900 text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="view = 'edit'" :class="activeView('edit')">Edit</a> <span class="text-orange-500">|</span>
-                        <a href="" class="text-white hover:text-orange-300" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a> <span class="text-orange-500" v-if="article.slug">|</span>
-                        <router-link :to="{ name: 'articles.view', params: { title: kebabCase(article.title), article: article.slug } }" class="text-white hover:text-orange-300" target="_blank" v-if="article.slug">View</router-link>
+                        <a href="" class="text-white hover:text-red-300" @click.prevent="view = 'edit'" :class="activeView('edit')">Edit</a> <span class="text-red-500">|</span>
+                        <a href="" class="text-white hover:text-red-300" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a> <span class="text-red-500" v-if="article.slug">|</span>
+                        <router-link :to="{ name: 'articles.view', params: { title: kebabCase(article.title), article: article.slug } }" class="text-white hover:text-red-300" target="_blank" v-if="article.slug">View</router-link>
                     </p>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="flex">
-                        <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-orange-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-orange-500 disabled:opacity-50 mr-2" :disabled="saving">
+                        <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50 mr-2" :disabled="saving">
                     </div>
                 </form>
 
@@ -112,7 +112,7 @@
 
         methods: {
             activeView: function(view) {
-                return this.view == view ? 'text-orange-300' : '';
+                return this.view == view ? 'text-red-300' : '';
             },
 
             save: function() {
