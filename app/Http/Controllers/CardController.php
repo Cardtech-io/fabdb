@@ -32,7 +32,7 @@ class CardController extends Controller
 
     public function generatePack(Request $request, Packs $packs)
     {
-        return $packs->generate(new Set($request->get('set')));
+        return CardResource::collection($packs->generate(new Set($request->get('set'))));
     }
 
     public function prices(Request $request, CardRepository $cards)
