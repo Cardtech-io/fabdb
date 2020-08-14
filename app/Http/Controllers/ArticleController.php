@@ -68,8 +68,7 @@ class ArticleController extends Controller
         $userId = $request->user()->role == 'editor' ? null : $request->user()->id;
 
         return $articles->search(
-            $request->get('keywords'),
-            $request->get('per_page', 12),
+            $request->all(),
             'manage',
             $userId
         );
