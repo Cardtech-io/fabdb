@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="flex flex-col theme-bg relative h-full" :class="theme">
+    <div id="app" class="flex flex-col relative h-full">
         <!-- Header -->
         <div class="navigation">
             <navigation></navigation>
@@ -45,17 +45,7 @@
         },
 
         computed: {
-            ...mapGetters('session', ['user']),
-
-            theme() {
-                let theme = 'default';
-
-                if (this.user && this.user.theme) {
-                    theme = this.user.theme;
-                }
-
-                return 'theme-'+theme;
-            }
+            ...mapGetters('session', ['user'])
         },
 
         metaInfo: {

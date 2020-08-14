@@ -1,6 +1,7 @@
 <?php $user = auth()->user(); ?>
 <?php $settings = compile_settings(); ?>
 <?php $lang = compile_lang(); ?>
+<?php $theme = $user ? object_get($user, 'theme', 'default') : 'default'; ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -49,7 +50,7 @@
             </script>
         @endif
     </head>
-    <body class="font-sans md:text-lg h-full">
+    <body class="theme-bg theme-{{ $theme }} font-sans md:text-lg h-full">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};

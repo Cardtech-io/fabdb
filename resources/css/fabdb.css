@@ -17,7 +17,7 @@ body {
 }
 
 .theme-default {
-    --theme-background: theme('bg.gray.200') url('/img/background-crucible.jpg') no-repeat top left fixed;
+    --theme-background: theme('bg.gray.200') url('/img/background-crucible.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.red.700");
     --button-primary-hover-background-color: theme("colors.red.500");
     --button-primary-text-color: theme("colors.white");
@@ -30,7 +30,7 @@ body {
 }
 
 .theme-aria {
-    --theme-background: theme('bg.gray.200') url('/img/background-aria.jpg') no-repeat top left fixed;
+    --theme-background: theme('bg.gray.200') url('/img/background-aria.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.green.700");
     --button-primary-hover-background-color: theme("colors.green.500");
     --button-primary-text-color: theme("colors.white");
@@ -43,7 +43,7 @@ body {
 }
 
 .theme-demonastery {
-    --theme-background: theme('bg.gray.200') url('/img/background-demonastery.jpg') no-repeat top left fixed;
+    --theme-background: theme('bg.gray.200') url('/img/background-demonastery.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.indigo.700");
     --button-primary-hover-background-color: theme("colors.indigo.500");
     --button-primary-text-color: theme("colors.white");
@@ -56,7 +56,7 @@ body {
 }
 
 .theme-savage-lands {
-    --theme-background: theme('bg.black') url('/img/background-savage-lands.jpg') no-repeat top left fixed;
+    --theme-background: theme('bg.black') url('/img/background-savage-lands.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.gray.600");
     --button-primary-text-color: theme("colors.white");
@@ -69,7 +69,7 @@ body {
 }
 
 .theme-the-pits {
-    --theme-background: theme('bg.black') url('/img/background-the-pits.jpg') no-repeat top left fixed;
+    --theme-background: theme('bg.black') url('/img/background-the-pits.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.orange.700");
     --button-primary-hover-background-color: theme("colors.orange.500");
     --button-primary-text-color: theme("colors.white");
@@ -84,6 +84,7 @@ body {
 .theme-bg {
     background: var(--theme-background);
     background-size: cover;
+    background-attachment: fixed;
     color: var(--main-text-color);
 }
 
