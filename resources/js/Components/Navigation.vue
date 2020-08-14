@@ -1,6 +1,6 @@
 <template>
-    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 h-full">
-        <div class="flex items-center justify-between sm:border-0 h-full">
+    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full">
+        <div class="flex items-center justify-between sm:border-0 sm:h-full">
             <div class="relative overflow-visible logo ml-4 sm:ml-0 py-2">
                 <router-link to="/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 45" class="fill-current h-8">
