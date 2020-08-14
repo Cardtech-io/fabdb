@@ -49,8 +49,8 @@
             </script>
         @endif
     </head>
-    <body class="font-sans theme-bg bg-gray-200 text-gray-800 md:text-lg mh-full">
-        <div id="app" class="relative mh-full"></div>
+    <body class="font-sans md:text-lg mh-full">
+        <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
             window.version = '{{ fab_version()  }}';

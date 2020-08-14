@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="w-full md:w-1/5 pl-1">
-                    <input type="submit" value="Search" class="appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500">
+                    <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-3 px-4 leading-tight focus:outline-none">
                 </div>
             </div>
 

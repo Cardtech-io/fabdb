@@ -20,7 +20,7 @@
 
                         <div class="mb-4">
                             <label class="block font-serif uppercase tracking-wide mb-1 text-sm">&nbsp;</label>
-                            <input type="submit" value="Generate pack" class="appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" :disabled="disabled">
+                            <input type="submit" value="Generate pack" class="appearance-none block w-full button-primary rounded-lg py-3 px-4 disabled:opacity-50" :disabled="disabled">
                         </div>
                     </form>
                 </div>

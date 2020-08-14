@@ -2,16 +2,16 @@
     <div>
         <header-title title="My Collection"></header-title>
 
-        <div class="bg-red-900 text-white font-serif uppercase">
+        <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
-                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('all')" :class="activeFilter('all')">All</a> <span class="text-red-500">|</span>
-                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('mine')" :class="activeFilter('mine')">Mine</a> <span class="text-red-500">|</span>
-                        <a href="" class="text-white hover:text-red-300" @click.prevent="filter('need')" :class="activeFilter('need')">Need</a>
+                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('all')" :class="activeFilter('all')">All</a> <span class="opacity-25">|</span>
+                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('mine')" :class="activeFilter('mine')">Mine</a> <span class="opacity-25">|</span>
+                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('need')" :class="activeFilter('need')">Need</a>
                     </p>
                 </div>
             </div>
@@ -113,7 +113,7 @@
 
         methods: {
             activeFilter: function(view) {
-                return this.searchDefaults.view == view ? 'text-red-300' : '';
+                return this.searchDefaults.view == view ? 'opacity-50' : '';
             },
 
             filter: function(view) {

@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="flex">
-                        <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50 mr-2" :disabled="saving">
+                        <input type="submit" value="Save" class="appearance-none block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:mx-auto mt-8 rounded-lg py-3 px-4 button-primary disabled:opacity-50 mr-2" :disabled="saving">
                     </div>
                 </form>
 

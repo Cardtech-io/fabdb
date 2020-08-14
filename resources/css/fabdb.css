@@ -2,6 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    height: 100%;
+}
+
+:root {
+    --button-disabled-background-color: theme("colors.gray.400");
+    --button-disabled-text-color: theme("colors.white");
+    --crumbs-text-color: theme('colors.white');
+    --link-hover-color: theme("colors.white");
+    --main-text-color: theme('colors.gray.800');
+    --nav-text-color: theme('colors.white');
+    --nav-hover-background-color: theme('colors.black');
+}
+
+.theme-default {
+    --theme-background: theme('bg.gray.200') url('/img/background-crucible.jpg') no-repeat top left fixed;
+    --button-primary-background-color: theme("colors.red.700");
+    --button-primary-hover-background-color: theme("colors.red.500");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.red.900");
+    --button-secondary-hover-background-color: theme("colors.red.700");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.red.500");
+    --crumbs-background-color: theme('colors.red.900');
+    --nav-hover-text-color: theme('colors.red.400');
+}
+
+.theme-aria {
+    --theme-background: theme('bg.gray.200') url('/img/background-aria.jpg') no-repeat top left fixed;
+    --button-primary-background-color: theme("colors.green.700");
+    --button-primary-hover-background-color: theme("colors.green.500");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.blue.900");
+    --button-secondary-hover-background-color: theme("colors.blue.700");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.green.500");
+    --crumbs-background-color: theme('colors.green.800');
+    --nav-hover-text-color: theme('colors.green.400');
+}
+
+.theme-demonastery {
+    --theme-background: theme('bg.gray.200') url('/img/background-demonastery.jpg') no-repeat top left fixed;
+    --button-primary-background-color: theme("colors.indigo.700");
+    --button-primary-hover-background-color: theme("colors.indigo.500");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.teal.700");
+    --button-secondary-hover-background-color: theme("colors.teal.500");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.teal.500");
+    --crumbs-background-color: theme('colors.indigo.900');
+    --nav-hover-text-color: theme('colors.indigo.400');
+}
+
+.theme-savage-lands {
+    --theme-background: theme('bg.black') url('/img/background-savage-lands.jpg') no-repeat top left fixed;
+    --button-primary-background-color: theme("colors.black");
+    --button-primary-hover-background-color: theme("colors.gray.600");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.blue.700");
+    --button-secondary-hover-background-color: theme("colors.blue.500");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.blue.400");
+    --crumbs-background-color: theme('colors.teal.900');
+    --nav-hover-text-color: theme('colors.blue.400');
+}
+
+.theme-the-pits {
+    --theme-background: theme('bg.black') url('/img/background-the-pits.jpg') no-repeat top left fixed;
+    --button-primary-background-color: theme("colors.orange.700");
+    --button-primary-hover-background-color: theme("colors.orange.500");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.orange.900");
+    --button-secondary-hover-background-color: theme("colors.orange.700");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.orange.400");
+    --crumbs-background-color: theme('colors.orange.900');
+    --nav-hover-text-color: theme('colors.orange.400');
+}
+
+.theme-bg {
+    background: var(--theme-background);
+    background-size: cover;
+    color: var(--main-text-color);
+}
+
+.button-primary {
+    @apply leading-tight;
+    @apply outline-none;
+    background-color: var(--button-primary-background-color);
+    color: var(--button-primary-text-color)
+}
+
+.button-primary:hover {
+    background-color: var(--button-primary-hover-background-color);
+}
+
+.button-secondary {
+    @apply leading-tight;
+    @apply outline-none;
+    background-color: var(--button-secondary-background-color);
+    color: var(--button-secondary-text-color)
+}
+
+.button-secondary:hover {
+    background-color: var(--button-secondary-hover-background-color);
+}
+
+.button-disabled {
+    background-color: var(--button-disabled-background-color);
+    color: var(--button-disabled-text-color)
+}
+
+.crumbs {
+    background-color: var(--crumbs-background-color);
+    color: var(--crumbs-text-color);
+}
+
+.nav-item {
+    color: var(--nav-text-color);
+}
+
+.nav-item:hover {
+    background-color: var(--nav-hover-background-color);
+    color: var(--nav-hover-text-color);
+}
+
+.link {
+    @apply underline;
+    color: var(--link-color);
+}
+
+.link:hover {
+    color: var(--link-hover-color);
+}
+
+.link-alternate {
+    @apply underline;
+    color: var(--button-primary-background-color);
+}
+
+.link-alternate:hover {
+    color: var(--button-primary-hover-background-color);
+}
+
 html, body {
     height: 100%;
 }
@@ -9,17 +153,6 @@ html, body {
 select:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
-}
-
-#app {
-    height: 100%;
-}
-
-.theme-bg {
-    background:
-        url('/img/background-crucible.jpg')
-        no-repeat top left fixed;
-    background-size: cover;
 }
 
 .bg-semi-black {
@@ -49,34 +182,12 @@ select:-moz-focusring {
     left: 25%;
 }
 
-button:focus {
-    @apply outline-none;
-}
-
-.link {
-    @apply text-red-400;
-    @apply underline;
-}
-
-.link:hover {
-    @apply text-gray-800;
-}
-
-.link-white {
-    @apply text-red-400;
-    @apply underline;
-}
-
-.link-white:hover {
-    @apply text-white;
-}
-
 footer.footer .link {
-    @apply text-white;
+    color: var(--link-hover-color);
     @apply underline;
 }
 footer.footer .link:hover {
-    @apply text-red-400;
+    color: var(--link-color);
 }
 
 @font-face {

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-red-800 text-white font-serif uppercase">
+    <div class="crumbs font-serif uppercase">
         <div class="container sm:mx-auto p-4">
             <crumbs :crumbs="crumbs"></crumbs>
         </div>

@@ -16,7 +16,7 @@
 
                 <div class="flex mt-8">
                     <input type="button" value="Cancel" class="appearance-none block w-1/2 bg-gray-600 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-gray-500 disabled:opacity-50" @click.prevent="close()">
-                    <input type="submit" value="Save" class="appearance-none block w-1/2 ml-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50">
+                    <submit text="Save" class="w-1/2 ml-2"></submit>
                 </div>
             </div>
         </form>
@@ -26,8 +26,10 @@
 <script>
     import axios from 'axios';
     import { mapActions, mapGetters } from 'vuex';
+    import Submit from "../Components/Form/Submit";
 
     export default {
+        components: {Submit},
         computed: {
             ...mapGetters('session', ['user']),
 

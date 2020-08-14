@@ -9,7 +9,7 @@
             </p>
 
             <p class="mt-45">
-                <router-link to="/support" class="link-white">Supporters</router-link> gain access to the
+                <router-link to="/support" class="link">Supporters</router-link> gain access to the
                 premium deck builder, deck tester and more.
             </p>
 
@@ -26,13 +26,13 @@
                 <ol v-if="decks">
                     <li class="bg-semi-black rounded-lg mb-2 hover:bg-black" v-for="(deck, key) in decks">
                         <div class="flex">
-                            <router-link :to="'/decks/build/premium/' + deck.slug" class="block link-white flex-1 p-4" v-if="user.subscription">{{ deck.name }}</router-link>
-                            <router-link :to="'/decks/build/' + deck.slug" class="block link-white flex-1 p-4 pr-0" v-else>{{ deck.name }}</router-link>
+                            <router-link :to="'/decks/build/premium/' + deck.slug" class="block link flex-1 p-4" v-if="user.subscription">{{ deck.name }}</router-link>
+                            <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0" v-else>{{ deck.name }}</router-link>
                             <span v-if="user.subscription">
-                                <router-link :to="'/decks/build/' + deck.slug" class="block link-white p-4 pr-0">Classic</router-link>
+                                <router-link :to="'/decks/build/' + deck.slug" class="block link p-4 pr-0">Classic</router-link>
                             </span>
-                            <router-link :to="'/decks/test/' + deck.slug" class="block link-white p-4 pr-0" title="Test deck">Test</router-link>
-                            <a href="" class="block link-white p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
+                            <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>
+                            <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                         </div>
                     </li>
                 </ol>

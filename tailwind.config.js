@@ -1,6 +1,19 @@
 module.exports = {
     theme: {
         extend: {
+            backgroundColor: {
+                'button-primary': 'var(--button-primary-background-color)',
+                'button-primary-hover': 'var(--button-primary-background-color)',
+                'secondary': 'var(--button-secondary-background-color)',
+                'secondary-hover': 'var(--button-secondary-hover-background-color)',
+                'disabled': 'var(--button-disabled-background-color)',
+                'disabled-hover': 'var(--button-disabled-hover-background-color)',
+            },
+
+            borderColor: {
+                'crumbs': 'var(--crumbs-background-color)'
+            },
+
             margin: {
                 '1/4': '25%'
             },
@@ -61,7 +74,7 @@ module.exports = {
         borderRadius: ['responsive', 'first', 'last'],
         borderWidth: ['responsive', 'last'],
         margin: ['responsive', 'odd', 'even'],
-        opacity: ['disabled'],
+        opacity: ['disabled', 'hover'],
         textColor: ['responsive', 'hover', 'group-hover'],
 
     }

@@ -45,6 +45,16 @@
                                 <option value="USD">USD</option>
                             </select>
                         </div>
+                        <div class="w-full mt-4">
+                            <label class="block font-serif uppercase tracking-wide mb-1">Theme</label>
+                            <select v-model="theme" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                                <option value="">Default</option>
+                                <option value="aria">Aria</option>
+                                <option value="demonastery">Demonastery</option>
+                                <option value="savage-lands">Savage Lands</option>
+                                <option value="the-pits">The Pits</option>
+                            </select>
+                        </div>
 
                         <h2 class="font-serif text-xl uppercase mt-8 mb-4">Cards</h2>
 
@@ -72,7 +82,7 @@
                             </div>
                         </div>
 
-                        <input type="submit" value="Save" class="appearance-none block w-full mt-8 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50" :disabled="saving">
+                        <submit text="Save" class="mt-8" :disabled="saving"></submit>
                     </form>
                 </div>
 
@@ -111,11 +121,12 @@
 
     import Avatar from './Avatar.vue';
     import Badge from './Badge.vue';
-    import HeaderTitle from '../Components/HeaderTitle.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Submit from "../Components/Form/Submit";
 
     export default {
-        components: { Avatar, Badge, Breadcrumbs, HeaderTitle },
+        components: { Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },
 
         computed: {
             ...mapGetters('session', ['user']),
@@ -170,6 +181,16 @@
                 }
             },
 
+            theme: {
+                get() {
+                    return this.user.theme;
+                },
+
+                set(theme) {
+                    this.setUserParam({ param: 'theme', value: theme });
+                }
+            },
+
             view: {
                 get() {
                     return this.user.view;
@@ -217,6 +238,7 @@
                     need: this.need,
                     view: this.view,
                     avatar: this.avatar,
+                    theme: this.theme,
                 };
 
                 axios.put('/profile', data).then(response => {

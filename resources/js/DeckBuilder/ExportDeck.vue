@@ -38,7 +38,7 @@
                                     <input type="text" v-model="event" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                                 </div>
 
-                                <input type="submit" value="Export" class="appearance-none block w-full mt-8 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50">
+                                <submit text="Export" class="mt-8"></submit>
                             </form>
                         </div>
                         <div v-else>
@@ -65,6 +65,7 @@
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import Submit from "../Components/Form/Submit";
     import Viewable from './Viewable';
 
     export default {
@@ -72,7 +73,8 @@
             CardImage,
             CardSelector,
             Crumbs,
-            HeaderTitle
+            HeaderTitle,
+            Submit,
         },
 
         mixins: [ Cardable, Viewable ],

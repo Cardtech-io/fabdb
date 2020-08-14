@@ -2,7 +2,7 @@
     <div>
         <header-title title="Browse cards"></header-title>
 
-        <div class="bg-red-800 text-white font-serif uppercase">
+        <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
                     <li class="float-left" v-for="(name, set) in sets" :class="isActive(set)">
@@ -93,7 +93,7 @@
             isActive: function(set) {
                 return {
                     'border-white': this.set == set,
-                    'border-red-800': this.set != set
+                    'border-crumbs': this.set != set
                 }
             },
             refreshResults: function(results) {

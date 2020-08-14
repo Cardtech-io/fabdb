@@ -43,7 +43,12 @@ class ProfileWasUpdated
      */
     private $currency;
 
-    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $view, $avatar)
+    /**
+     * @var string
+     */
+    private $theme;
+
+    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -53,6 +58,7 @@ class ProfileWasUpdated
         $this->need = $need;
         $this->view = $view;
         $this->avatar = $avatar;
+        $this->theme = $theme;
     }
 
     public function userId(): int
@@ -93,5 +99,10 @@ class ProfileWasUpdated
     public function avatar(): string
     {
         return $this->avatar;
+    }
+
+    public function theme(): string
+    {
+        return $this->theme;
     }
 }

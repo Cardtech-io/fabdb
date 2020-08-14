@@ -13,9 +13,9 @@
         </div>
         <div class="px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
             <p class="my-4">
-                FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link-white">Flesh and Blood TCG</a> community project, with various features such as
-                <router-link to="/decks/build/" class="link-white">deck builder</router-link>,
-                <router-link to="/collection/" class="link-white">collection manager</router-link> and more.
+                FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link">Flesh and Blood TCG</a> community project, with various features such as
+                <router-link to="/decks/build/" class="link">deck builder</router-link>,
+                <router-link to="/collection/" class="link">collection manager</router-link> and more.
             </p>
 
             <div class="my-8">
@@ -25,7 +25,7 @@
             <p class="my-4 text-center">
                 FaB DB is powered by community support through financial donations and subscriptions for various
                 services.<br>
-                To find out more, visit our <router-link to="/support/" class="link-white">Support page</router-link>.
+                To find out more, visit our <router-link to="/support/" class="link">Support page</router-link>.
             </p>
         </div>
     </div>

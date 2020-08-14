@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="mh-full flex flex-col">
+    <div id="app" class="theme-bg relative mh-full" :class="theme">
         <!-- Header -->
         <div class="navigation">
             <navigation></navigation>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import {mapGetters, mapState} from 'vuex';
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
     import CompleteProfile from './Identity/CompleteProfile.vue';
@@ -42,6 +42,20 @@
             Messages,
             Navigation,
             VersionHandler
+        },
+
+        computed: {
+            ...mapGetters('session', ['user']),
+
+            theme() {
+                let theme = 'default';
+
+                if (this.user.theme) {
+                    theme = this.user.theme;
+                }
+
+                return 'theme-'+theme;
+            }
         },
 
         metaInfo: {

@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Save" class="appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 mt-8" :class="saving ? 'disabled' : ''">
+                <input type="submit" value="Save" class="appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-8" :class="saving ? 'disabled' : ''">
             </form>
         </div>
 

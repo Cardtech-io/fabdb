@@ -8,12 +8,12 @@
                 <div class="w-1/4">
                     <ul class="mr-4">
                         <li class="mb-2"><h2 class="text-xl font-serif uppercase">Getting started</h2></li>
-                        <li class="mb-1"><a href="#requests" class="block p-2 px-4 bg-white hover:bg-red-500 hover:text-white">Requests</a></li>
-                        <li class="mb-1"><a href="#formats" class="block p-2 px-4 bg-white hover:bg-red-500 hover:text-white">Formats</a></li>
-                        <li class="mb-1"><a href="#throttling" class="block p-2 px-4 bg-white hover:bg-red-500 hover:text-white">Throttling</a></li>
+                        <li class="mb-1"><a href="#requests" class="block p-2 px-4 button-secondary">Requests</a></li>
+                        <li class="mb-1"><a href="#formats" class="block p-2 px-4 button-secondary">Formats</a></li>
+                        <li class="mb-1"><a href="#throttling" class="block p-2 px-4 button-secondary">Throttling</a></li>
                         <li class="mt-4 mb-2"><h2 class="text-xl font-serif uppercase">Endpoints</h2></li>
-                        <li class="mb-1"><a href="#cards" class="block p-2 px-4 bg-white hover:bg-red-500 hover:text-white">Cards</a></li>
-                        <li class="mb-1"><a href="#decks" class="block p-2 px-4 bg-white hover:bg-red-500 hover:text-white">Decks</a></li>
+                        <li class="mb-1"><a href="#cards" class="block p-2 px-4 button-secondary">Cards</a></li>
+                        <li class="mb-1"><a href="#decks" class="block p-2 px-4 button-secondary">Decks</a></li>
                     </ul>
                 </div>
                 <div class="w-3/4">

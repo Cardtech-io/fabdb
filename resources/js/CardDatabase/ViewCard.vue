@@ -8,10 +8,8 @@
                 <div class="md:w-1/3 md:float-left p-4 md:py-0">
                     <card-image :card="card"></card-image>
                     <div class="flex mt-2">
-                        <card-nav :to="card.prev" text="Previous"></card-nav>
-                        <card-nav :to="card.next" text="Next"></card-nav>
-                        <router-link :to="'/cards/' + card.prev" class="w-1/2 appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 mr-2" :disabled="!card.prev" :class="{ 'bg-gray-500':  !card.prev }">Previous</router-link>
-                        <router-link :to="'/cards/' + card.next" class="w-1/2 appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 ml-2 text-right" :disabled="!card.next" :class="{ 'bg-gray-500':  !card.next }">Next</router-link>
+                        <card-nav :to="card.prev" text="Previous" class="mr-2"></card-nav>
+                        <card-nav :to="card.next" text="Next" class="ml2 text-right"></card-nav>
                     </div>
 
                     <ul class="pt-4">
@@ -21,7 +19,7 @@
                                 <div v-if="card.variants.length">
                                     <span v-for="(variant, key) in card.variants">
                                         <span v-if="key > 0">, </span>
-                                        <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link">{{ variant.identifier }}</router-link>
+                                        <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link-alternate">{{ variant.identifier }}</router-link>
                                     </span>
                                 </div>
                                 <div v-else>
@@ -32,18 +30,18 @@
                         <li class="clearfix" v-else>
                             <div class="float-left w-1/4 p-2 px-4">Variant</div>
                             <div class="float-left w-3/4 p-2 px-4">
-                                <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link">{{ card.variantOf.identifier }}</router-link>
+                                <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link-alternate">{{ card.variantOf.identifier }}</router-link>
                             </div>
                         </li>
                         <li class="clearfix bg-white">
                             <div class="float-left w-1/4 p-2 px-4">Rarity</div>
-                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link">{{ rarity }}</router-link></div>
+                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
                         </li>
                         <li class="clearfix">
                             <div class="float-left w-1/4 p-2 px-4">Keywords</div>
                             <div class="float-left w-3/4 p-2 px-4">
                                 <span v-for="(keyword, index) in card.keywords">
-                                    <router-link :to="'/cards/browse/?keywords=' + keyword" class="link">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
+                                    <router-link :to="'/cards/browse/?keywords=' + keyword" class="link-alternate">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                                 </span>
                             </div>
                         </li>
@@ -93,6 +91,7 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
+    import CardNav from "./CardNav";
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Pricing from './Pricing.vue';
@@ -108,6 +107,7 @@
         components: {
             Breadcrumbs,
             CardImage,
+            CardNav,
             Comment,
             CommentCount,
             HeaderTitle,

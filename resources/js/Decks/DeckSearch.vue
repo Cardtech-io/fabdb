@@ -23,7 +23,7 @@
         </div>
 
         <div class="w-1/4">
-            <input type="submit" value="Search" class="appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500">
+            <submit text="Search"></submit>
         </div>
     </form>
 </template>
@@ -32,7 +32,11 @@
     import axios from 'axios';
     import { mapActions, mapState } from 'vuex';
 
+    import Submit from "../Components/Form/Submit";
+
     export default {
+        components: {Submit},
+
         computed: {
             ...mapState('deckSearch', ['params']),
 

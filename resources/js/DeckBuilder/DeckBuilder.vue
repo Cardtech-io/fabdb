@@ -2,15 +2,15 @@
     <div>
         <header-title title="Deck Builder"></header-title>
 
-        <div class="bg-red-900 text-white font-serif uppercase">
+        <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-auto">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="text-right hidden sm:block flex-auto">
-                    <a href="" class="text-white hover:text-red-300" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="text-red-500">|</span>
-                    <a href="" class="text-white hover:text-red-300" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="text-red-500">|</span>
-                    <a href="" class="text-white hover:text-red-300" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
+                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="opacity-25">|</span>
+                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="opacity-25">|</span>
+                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
                 </div>
             </div>
         </div>
@@ -216,7 +216,7 @@
             },
 
             isActive: function(tab) {
-                return this.activeTab == tab ? 'text-red-300' : '';
+                return this.activeTab == tab ? 'opacity-50' : '';
             },
 
             setTab: function(tab) {
