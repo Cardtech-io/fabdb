@@ -4,7 +4,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto py-8 clearfix p-4">
+            <div class="article container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
                     <div><span>Written by {{ article.author.name }}</span> on <span>{{ article.published }}</span></div>
@@ -66,7 +66,7 @@
 
         computed: {
             ...mapGetters('session', ['user']),
-            
+
             crumbs: function () {
                 return [
                     { text: 'Home', link: '/' },

@@ -1,7 +1,7 @@
 <template>
-    <header class="sm:flex container sm:mx-auto items-center sm:px-4">
-        <div class="flex items-center justify-between py-2 sm:border-0">
-            <div class="relative overflow-visible logo ml-4 sm:ml-0">
+    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 h-full">
+        <div class="flex items-center justify-between sm:border-0 h-full">
+            <div class="relative overflow-visible logo ml-4 sm:ml-0 py-2">
                 <router-link to="/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 45" class="fill-current h-8">
                         <g fill="#FFF" fill-rule="evenodd">
@@ -17,7 +17,7 @@
                 </svg>
             </button>
         </div>
-        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2">
+        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full">
             <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" @clicked="clicked"></nav-item>
         </div>
     </header>
@@ -41,9 +41,13 @@
             ...mapGetters('session', ['user']),
 
             items: function() {
-                var items = [
+                let items = [
                     { link: '/', text: 'Home' },
-                    { link: '/articles', text: 'Articles' },
+                    { text: 'Articles', children: [
+                            { link: '/articles/spoilers', text: 'Spoilers!' },
+                            { link: '/articles', text: 'Latest news' }
+                    ]},
+
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/cards/prices', text: 'Price list' },

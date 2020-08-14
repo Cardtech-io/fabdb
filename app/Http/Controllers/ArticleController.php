@@ -29,8 +29,7 @@ class ArticleController extends Controller
     public function search(Request $request, ArticleRepository $articles)
     {
         return $articles->search(
-            $request->get('keywords'),
-            $request->get('per_page', 10),
+            $request->all(),
             'search'
         );
     }

@@ -1,6 +1,6 @@
 <template>
     <div v-if="!item.children">
-        <router-link :to="item.link" class="block px-4 sm:px-2 py-2 nav-item font-serif uppercase" @click.native="clicked(item)" :class="{ 'bg-black': isActive }">{{ item.text }}</router-link>
+        <router-link :to="item.link" class="block px-4 sm:px-2 py-2 nav-item font-serif uppercase sm:h-full" @click.native="clicked(item)" :class="{ 'bg-black': isActive }">{{ item.text }}</router-link>
     </div>
     <div v-else>
         <div class="z-50 overflow-visible" :class="{ 'bg-black': open }">

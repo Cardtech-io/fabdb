@@ -11,7 +11,7 @@ body {
     --button-disabled-text-color: theme("colors.white");
     --crumbs-text-color: theme('colors.white');
     --link-hover-color: theme("colors.white");
-    --main-text-color: theme('colors.gray.800');
+    --main-text-color: theme('colors.gray.700');
     --nav-text-color: theme('colors.white');
     --nav-hover-background-color: theme('colors.black');
 }
@@ -155,10 +155,6 @@ select:-moz-focusring {
     text-shadow: 0 0 0 #000;
 }
 
-.bg-semi-black {
-    background: rgba(0, 0, 0, 0.45);
-}
-
 .navigation {
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
@@ -264,4 +260,15 @@ footer.footer .link:hover {
 
 .regular {
     @apply bg-gray-600;
+}
+
+.article blockquote {
+    @apply border-gray-500;
+    @apply bg-gray-100;
+}
+
+.spoiler blockquote {
+    @apply border-black;
+    @apply bg-black;
+    @apply text-yellow-200;
 }

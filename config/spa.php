@@ -5,6 +5,7 @@ return [
     'client' => [
         '/',
         'articles/mine',
+        'articles/spoilers',
         'articles/write',
         'articles/([^/]+)/edit',
         'articles/([^/]+)/[a-z0-9\-]+',

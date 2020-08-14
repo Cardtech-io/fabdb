@@ -6,6 +6,7 @@ import Api from './Resources/Api.vue';
 import Articles from './Content/Articles.vue';
 import ArticleView from './Content/ViewArticle.vue';
 import ArticlesMine from './Content/MyArticles.vue';
+import ArticlesSpoilers from './Content/Spoilers.vue';
 import ArticleWrite from './Content/WriteArticle.vue';
 import BrowseCards from './CardDatabase/BrowseCards.vue';
 import FabledCards from './CardDatabase/Fabled.vue';
@@ -63,6 +64,7 @@ const router = new VueRouter({
         { path: "/articles", component: Articles, name: 'articles' },
         { path: "/articles/write", component: ArticleWrite, name: 'articles.write' },
         { path: "/articles/mine", component: ArticlesMine, name: 'articles.mine' },
+        { path: "/articles/spoilers", component: ArticlesSpoilers, name: 'articles.spoilers' },
         { path: "/articles/:article/edit", component: ArticleWrite, name: 'articles.edit' },
         { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
 

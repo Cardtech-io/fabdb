@@ -4,6 +4,7 @@ namespace FabDB\Domain\Content;
 use Carbon\Carbon;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Arr;
 
 class EloquentArticleRepository extends EloquentRepository implements ArticleRepository
 {
@@ -20,15 +21,23 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             ->firstOrFail();
     }
 
-    public function search($keywords, int $perPage, string $useCase, int $userId = null)
+    public function search(array $params, string $useCase, int $userId = null)
     {
+        $keywords = Arr::get($params,'keywords');
+        $perPage = Arr::get($params,'per_page');
+        $type = Arr::get($params,'type', 'article');
 
         $query = $this->newQuery()
             ->with('author')
-            ->select('id', 'slug', 'user_id', 'title', 'image', 'excerpt', 'status', 'publish_at', 'created_at');
+            ->select('id', 'slug', 'user_id', 'title', 'image', 'excerpt', 'status', 'publish_at', 'created_at')
+            ->whereType($type);
 
         if ($userId) {
             $query->where('user_id', $userId);
+        }
+
+        if ($type == 'spoiler') {
+            $query->addSelect('content');
         }
 
         if ($keywords) {
