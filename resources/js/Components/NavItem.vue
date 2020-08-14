@@ -1,10 +1,10 @@
 <template>
-    <div v-if="!item.children">
-        <router-link :to="item.link" class="block px-4 sm:px-2 py-2 nav-item font-serif uppercase sm:h-full" @click.native="clicked(item)" :class="{ 'bg-black': isActive }">{{ item.text }}</router-link>
+    <div v-if="!item.children" class="h-full">
+        <router-link :to="item.link" class="block px-4 sm:px-2 py-3 nav-item font-serif uppercase sm:h-full" @click.native="clicked(item)" :class="{ 'bg-black': isActive }">{{ item.text }}</router-link>
     </div>
-    <div v-else>
-        <div class="z-50 overflow-visible" :class="{ 'bg-black': open }">
-            <span @click="toggleChildren" class="block relative cursor-pointer px-4 sm:px-2 nav-item py-2 font-serif uppercase" :class="{ 'bg-black': isActive }">{{ item.text }}</span>
+    <div v-else class="h-full">
+        <div class="z-50 overflow-visible h-full" :class="{ 'bg-black': open }">
+            <span @click="toggleChildren" class="block h-full relative cursor-pointer px-4 sm:px-2 nav-item py-3 font-serif uppercase" :class="{ 'bg-black': isActive }">{{ item.text }}</span>
             <div v-if="open" class="sm:absolute bg-black py-1" style="min-width: 120px">
                 <router-link :to="child.link" class="block px-8 py-1 sm:px-4 nav-item font-serif uppercase" @click.native="clicked(child)" v-for="child in item.children" :key="child.link">{{ child.text }}</router-link>
             </div>
