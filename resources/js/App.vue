@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="theme-bg relative mh-full" :class="theme">
+    <div id="app" class="flex flex-col theme-bg relative h-full" :class="theme">
         <!-- Header -->
         <div class="navigation">
             <navigation></navigation>
