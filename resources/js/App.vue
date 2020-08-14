@@ -50,7 +50,7 @@
             theme() {
                 let theme = 'default';
 
-                if (this.user.theme) {
+                if (this.user && this.user.theme) {
                     theme = this.user.theme;
                 }
 
