@@ -268,8 +268,20 @@ footer.footer .link:hover {
     @apply bg-gray-100;
 }
 
+.spoiler {
+    @apply text-gray-300;
+}
+
+
+.spoiler strong,
+.spoiler h1 {
+    @apply text-white;
+}
+
 .spoiler blockquote {
     @apply border-black;
     @apply bg-black;
     @apply text-yellow-200;
+    @apply -mx-4;
+    @apply rounded-none;
 }

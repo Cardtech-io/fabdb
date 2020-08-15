@@ -29,13 +29,17 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         $query = $this->newQuery()
             ->with('author')
-            ->select('id', 'slug', 'user_id', 'title', 'image', 'excerpt', 'status', 'publish_at', 'created_at')
-            ->whereType($type);
+            ->select('id', 'slug', 'user_id', 'title', 'image', 'excerpt', 'status', 'publish_at', 'created_at');
+
+        // If we're managing articles, there's no need to restrict the type, as we want to see all of them.
+        if ($useCase != 'manage') {
+            $query->whereType($type);
+        }
 
         if ($userId) {
             $query->where('user_id', $userId);
         }
-
+        
         if ($type == 'spoiler') {
             $query->addSelect('content');
         }

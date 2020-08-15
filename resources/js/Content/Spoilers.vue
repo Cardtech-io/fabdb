@@ -1,12 +1,12 @@
 <template>
     <div class="container px-4 sm:mx-auto sm:px-0 text-white">
         <header-title title="Crucible of War Spoilers" class="text-center"></header-title>
-        <div v-if="articles.data.length">
+        <div v-if="articles.data.length" class="my-8 -mx-4">
             <div v-for="article in articles.data" class="flex bg-semi-black rounded-xl mx-4 p-4">
                 <div class="spoiler">
-                    <h1 class="font-serif uppercase text-6xl">{{ article.title }}</h1>
+                    <h1 class="font-serif uppercase text-4xl sm:text-6xl">{{ article.title }}</h1>
                     <div>{{ article.excerpt }}</div>
-                    <img :src="thumbUrl('/cards/cru/181.png', 450)" class="relative rounded-lg float-right m-8 mr-0 z-50">
+                    <img :src="thumbUrl('/cards/cru/181.png', 450)" class="relative rounded-lg float-right m-8 mr-0 z-50 max-w-full">
                     <div class="mt-8" v-html="prettyText(article.content)"></div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
 
         data() {
             return {
-                articles: []
+                articles: {}
             }
         },
 
