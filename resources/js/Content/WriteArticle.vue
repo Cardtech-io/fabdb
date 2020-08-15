@@ -2,16 +2,16 @@
     <div>
         <header-title title="Write article"></header-title>
 
-        <div class="bg-red-900 text-white font-serif uppercase">
+        <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
                 </div>
                 <div class="flex-1 text-right">
                     <p>
-                        <a href="" class="text-white hover:text-red-300" @click.prevent="view = 'edit'" :class="activeView('edit')">Edit</a> <span class="text-red-500">|</span>
-                        <a href="" class="text-white hover:text-red-300" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a> <span class="text-red-500" v-if="article.slug">|</span>
-                        <router-link :to="{ name: 'articles.view', params: { title: kebabCase(article.title), article: article.slug } }" class="text-white hover:text-red-300" target="_blank" v-if="article.slug">View</router-link>
+                        <a href="" class="hover:opacity-75" @click.prevent="view = 'edit'" :class="activeView('edit')">Edit</a> <span class="opacity-25">|</span>
+                        <a href="" class="hover:opacity-75" @click.prevent="view = 'preview'" :class="activeView('preview')">Preview</a> <span class="opacity-25" v-if="article.slug">|</span>
+                        <router-link :to="{ name: 'articles.view', params: { title: kebabCase(article.title), article: article.slug } }" class="hover:opacity-75" target="_blank" v-if="article.slug">View</router-link>
                     </p>
                 </div>
             </div>
@@ -112,7 +112,7 @@
 
         methods: {
             activeView: function(view) {
-                return this.view == view ? 'text-red-300' : '';
+                return this.view == view ? 'opacity-75' : '';
             },
 
             save: function() {

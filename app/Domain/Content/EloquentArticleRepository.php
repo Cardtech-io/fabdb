@@ -39,7 +39,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         if ($userId) {
             $query->where('user_id', $userId);
         }
-        
+
         if ($type == 'spoiler') {
             $query->addSelect('content');
         }

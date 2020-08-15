@@ -47,7 +47,7 @@
                 meta: [
                     { vmid: 'description', name: 'description', content: 'Each set of Flesh & Blood comes with a rare fabled card. And each one has a story to tell.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
-                    { vmid: 'og:title', property: 'og:title', content: 'The fabled cards of Flesh & Blood.' },
+                    { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Crucible of War Spoilers' },
                     { vmid: 'og:description', property: 'og:description', content: 'Each set of Flesh & Blood comes with a rare fabled card. And each one has a story to tell.' }
                 ]
             };
