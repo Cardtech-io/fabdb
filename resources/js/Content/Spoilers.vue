@@ -43,7 +43,7 @@
 
         metaInfo() {
             return {
-                title: 'The fabled cards of Flesh & Blood.',
+                title: 'Flesh & Blood - Crucible of War Spoilers',
                 meta: [
                     { vmid: 'description', name: 'description', content: 'Each set of Flesh & Blood comes with a rare fabled card. And each one has a story to tell.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
