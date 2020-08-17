@@ -19,17 +19,16 @@ class Packs
     {
         $this->packs->useSet($set);
 
-        // The first 5 slots, are class-specific common cards. We want to make sure we get distinct cards.
-        $first5 = $this->packs->getRandomCommons('other', 4);
+        $class = $this->packs->getRandomCommons('other', 7);
         $equipment = $this->packs->getRandomEquipmentCommon();
         $rare1 = $this->packs->getRandom(new Rarity('R'));
         $rare2 = $this->packs->getRandom(new Rarity($this->randomRarity()));
         $foil = $this->packs->getRandomFoil();
 
-        $generics = $this->packs->getRandomCommons('generic', 7);
+        $generics = $this->packs->getRandomCommons('generic', 4);
         $token1 = $this->packs->getRandom(new Rarity('T'));
 
-        $pack = $first5;
+        $pack = $class;
 
         if ($set->is(new Set('wtr'))) {
             $pack->add($equipment);
