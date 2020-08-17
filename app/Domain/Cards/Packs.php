@@ -26,7 +26,7 @@ class Packs
         $rare2 = $this->packs->getRandom(new Rarity($this->randomRarity()));
         $foil = $this->packs->getRandomFoil();
 
-        $generics = $this->packs->getRandomCommons('generic', 6);
+        $generics = $this->packs->getRandomCommons('generic', 7);
         $token1 = $this->packs->getRandom(new Rarity('T'));
 
         $pack = $first5;
