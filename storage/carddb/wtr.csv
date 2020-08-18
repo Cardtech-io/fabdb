@@ -122,7 +122,7 @@ WTR,42,Helm of Isen's Peak,C,"**Action** - [1 resource], destroy Helm of Isen's 
 
 **Battleworn** *(If you defend with Helm of Isen's Peak, put a -1[defense] counter on it when the combat chain closes.)*
 ",,,"guardian,equipment,head",,,,,1,,,
-WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
+WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only have Crippling Crush in your deck if your hero is Bravo.)*
 
 **Crush** - If Crippling Crush does 4 or more damage to a hero, they discard 2 random cards.",,,"guardian,action,attack",,,1,7,3,11,,
 WTR,44,Spinal Crush,M,"**Crush** - If Spinal Crush does 4 or more damage to a hero, action cards, activated abilities, and attacks they control lose and can't gain **go again** during their next action phase.",,,"guardian,action,attack",,,1,5,3,9,,
@@ -132,7 +132,7 @@ WTR,46,Forged for War,S,"**Go again**
 While Forged for War is in the arena, equipment you control gain +1[defense].
 
 At the beginning of your action phase, destroy Forged for War.",,,"guardian,action,aura",,,2,2,3,,,
-WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
+WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only have Show Time! in your deck if your hero is Bravo.)*
 
 When Show Time! enters the arena, search your deck for a Guardian attack action card, reveal it, put it into your hand, then shuffle your library.
 
