@@ -90,9 +90,6 @@ class ScrapeStores extends Command
 
                 $this->cache($baseUri, $query);
 
-
-                $response = $client->get($query);
-
                 while (true) {
                     try {
                         $response = $client->get($query);
