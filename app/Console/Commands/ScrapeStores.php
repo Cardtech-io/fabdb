@@ -8,6 +8,7 @@ use FabDB\Domain\Stores\ListingRepository;
 use FabDB\Domain\Stores\VariantParser;
 use FabDB\Domain\Stores\StoreRepository;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Log;
@@ -89,7 +90,21 @@ class ScrapeStores extends Command
 
                 $this->cache($baseUri, $query);
 
+
                 $response = $client->get($query);
+
+                while (true) {
+                    try {
+                        $response = $client->get($query);
+                        break;
+                    } catch (ServerException $e) {
+                        if (502 == $e->getCode()) {
+                            sleep(1);
+                            // wait a second, then try again.
+                        }
+                    }
+                }
+
                 $headers = $response->getHeaders();
 
                 $results = json_decode($response->getBody()->getContents());
