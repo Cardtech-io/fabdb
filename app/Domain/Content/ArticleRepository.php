@@ -11,4 +11,6 @@ interface ArticleRepository extends Repository
     public function search(array $params, string $useCase, int $userId = null);
 
     public function nextOrPrev(string $nextOrPrev, Carbon $publishedAt);
+
+    public function upcoming(array $params);
 }

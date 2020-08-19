@@ -67,6 +67,15 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         return $query->paginate($perPage);
     }
 
+    public function upcoming(array $params)
+    {
+        return $this->newQuery()
+            ->select('title', 'publish_at')
+            ->where('publish_at', '>', \DB::raw('NOW()'))
+            ->whereStatus('approved')
+            ->get();
+    }
+
     public function nextOrPrev(string $nextOrPrev, Carbon $publishedAt)
     {
         $operator = $nextOrPrev == 'next' ? '>' : '<';

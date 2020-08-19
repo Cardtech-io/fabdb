@@ -73,4 +73,9 @@ class ArticleController extends Controller
             $userId
         );
     }
+
+    public function upcoming(Request $request, ArticleRepository $articles)
+    {
+        return $articles->upcoming($request->all());
+    }
 }

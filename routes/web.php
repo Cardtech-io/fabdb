@@ -41,6 +41,7 @@ Route::middleware(['web'])->group(function() {
 
         Route::middleware(['auth', 'strip'])->group(function () {
             Route::get('articles/mine', 'ArticleController@mine');
+            Route::get('articles/upcoming', 'ArticleController@upcoming');
             Route::put('articles/{article}', 'ArticleController@update');
 
             Route::post('articles', 'ArticleController@draft');
