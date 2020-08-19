@@ -166,13 +166,13 @@ ARC,56,Take Aim,R,"The next Ranger attack action card you play this turn gains +
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
 **Go again**",,,"ranger,action",,,3,0,2,,,
-ARC,57,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+ARC,57,Head Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
 If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,1,1,3,4,,
-ARC,58,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+ARC,58,Head Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
 If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,2,1,3,3,,
-ARC,59,Head Shot,R,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+ARC,59,Head Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
 If Head Shot is put into your arsenal face up, it gains [+2 attack} until end of turn.",,,"ranger,action,arrow,attack",,,3,1,3,2,,
 ARC,60,Hamstring Shot,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
