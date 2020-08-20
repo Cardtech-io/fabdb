@@ -3,12 +3,12 @@
         <header-title title="Crucible of War Spoilers" class="text-center"></header-title>
 
         <div v-for="article in upcoming" class="bg-semi-black rounded-xl mx-4 p-4 mt-8 sm:mt-0 text-center font-serif text-4xl" v-if="upcoming">
-            <countdown :end-time="article.publishAt">
+            <countdown :end-time="localTime(article.publishAt)">
                 <span slot="process" slot-scope="{ timeObj }">
                     <span v-if="timeObj.d > 0">{{ timeObj.d }} :</span>
-                    <span v-if="timeObj.h > 0">{{ timeObj.h }} :</span>
-                    <span v-if="timeObj.m > 0">{{ timeObj.m }} :</span>
-                    <span v-if="timeObj.s > 0">{{ timeObj.s }}</span>
+                    <span v-if="timeObj.h">{{ timeObj.h }} :</span>
+                    <span v-if="timeObj.m">{{ timeObj.m }} :</span>
+                    <span v-if="timeObj.s">{{ timeObj.s }}</span>
                 </span>
             </countdown>
         </div>
@@ -31,6 +31,7 @@
 
 <script>
     import axios from 'axios';
+    import moment from 'moment';
 
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from "../Utilities/Imagery";
@@ -51,7 +52,9 @@
         },
 
         methods: {
-
+            localTime(time) {
+                return moment.utc(time).local();
+            }
         },
 
         metaInfo() {
