@@ -24,6 +24,7 @@ Route::middleware(['web'])->group(function() {
 
     Route::middleware(['spa', 'version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
+        Route::get('articles/upcoming', 'ArticleController@upcoming');
 
         Route::get('cards', 'CardController@list');
         Route::get('cards/fabled', 'CardController@fabled');
@@ -41,7 +42,6 @@ Route::middleware(['web'])->group(function() {
 
         Route::middleware(['auth', 'strip'])->group(function () {
             Route::get('articles/mine', 'ArticleController@mine');
-            Route::get('articles/upcoming', 'ArticleController@upcoming');
             Route::put('articles/{article}', 'ArticleController@update');
 
             Route::post('articles', 'ArticleController@draft');
