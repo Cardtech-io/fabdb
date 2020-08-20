@@ -18,7 +18,7 @@
                 <div class="spoiler">
                     <h1 class="font-serif uppercase text-4xl sm:text-6xl">{{ article.title }}</h1>
                     <div>{{ article.excerpt }}</div>
-                    <img :src="thumbUrl('/cards/cru/181.png', 450)" class="relative rounded-lg float-right m-8 mr-0 z-50 max-w-full">
+                    <img :src="thumbUrl(article.image, 450)" class="relative rounded-lg float-right m-8 mr-0 z-50 max-w-full">
                     <div class="mt-8" v-html="prettyText(article.content)"></div>
                 </div>
             </div>
@@ -61,10 +61,10 @@
             return {
                 title: 'Flesh & Blood - Crucible of War Spoilers',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Each set of Flesh & Blood comes with a rare fabled card. And each one has a story to tell.' },
+                    { vmid: 'description', name: 'description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
                     { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Crucible of War Spoilers' },
-                    { vmid: 'og:description', property: 'og:description', content: 'Each set of Flesh & Blood comes with a rare fabled card. And each one has a story to tell.' }
+                    { vmid: 'og:description', property: 'og:description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' }
                 ]
             };
         },

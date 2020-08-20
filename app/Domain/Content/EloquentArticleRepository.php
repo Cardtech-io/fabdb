@@ -73,6 +73,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             ->select('title', 'publish_at')
             ->where('publish_at', '>', \DB::raw('NOW()'))
             ->whereStatus('approved')
+            ->whereType(Arr::get($params, 'type', 'article'))
             ->get();
     }
 
