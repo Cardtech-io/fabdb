@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Decks;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Market\PriceAverage;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Support\Collection;
@@ -124,6 +125,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function search(array $params)
     {
         $query = $this->newQuery();
+        $priceDate = PriceAverage::max('created_at');
 
         $query->select([
             'decks.id',
@@ -135,7 +137,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->withVotes();
 
         $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards');
-        $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.mean) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' AND price_averages.created_at = (SELECT MAX(pa.created_at) FROM price_averages pa) WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
+        $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.mean) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' AND price_averages.created_at = \''.$priceDate.'\' WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
 
         $query->with(['cards' => function($include) {
             $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
