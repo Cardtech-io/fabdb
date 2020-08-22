@@ -131,13 +131,12 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.id',
             'decks.user_id',
             'decks.name',
-            'decks.slug'
+            'decks.slug',
+            DB::raw('SUM(dc2.total * price_averages.mean) AS total_price'),
+            DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
         ]);
 
         $query->withVotes();
-
-        $query->selectRaw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards');
-        $query->selectRaw('(SELECT SUM(deck_cards.total * price_averages.mean) FROM deck_cards JOIN price_averages ON price_averages.card_id = deck_cards.card_id AND price_averages.variant = \'regular\' AND price_averages.currency = \''.$params['currency'].'\' AND price_averages.created_at = \''.$priceDate.'\' WHERE deck_cards.deck_id = decks.id) - 1 AS total_price');
 
         $query->with(['cards' => function($include) {
             $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
@@ -150,15 +149,30 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->join(DB::raw('cards c1'), function($join) use ($params) {
             $join->on('c1.id', '=', 'dc1.card_id');
             $join->whereRaw("JSON_SEARCH(c1.keywords, 'one', 'hero')");
+
+            if (!empty($params['hero'])) {
+                $join->where('c1.identifier', $params['hero']);
+            }
         });
 
-        if (!empty($params['hero'])) {
-            $query->join(DB::raw('deck_cards dc2'), 'dc2.deck_id', '=', 'decks.id');
-            $query->join(DB::raw('cards c2'), function($join) use ($params) {
-                $join->on('c2.id', '=', 'dc2.card_id');
-                $join->where('c2.identifier', $params['hero']);
+        $query->join(DB::raw('deck_cards dc2'), 'dc2.deck_id', '=', 'decks.id');
+        $query->join(DB::raw('cards c2'), 'c2.id', 'dc2.card_id');
+
+        $query->leftJoin('price_averages', function($join) use ($params, $priceDate) {
+            $join->on('price_averages.card_id', '=', 'dc2.card_id');
+            $join->where(function($query) {
+                $query->where(function($query) {
+                    $query->whereIn('c2.rarity', ['L', 'F']);
+                    $query->where('price_averages.variant', 'cold');
+                });
+                $query->orWhere(function($query) {
+                    $query->whereNotIn('c2.rarity', ['L', 'F']);
+                    $query->where('price_averages.variant', 'regular');
+                });
             });
-        }
+            $join->where('price_averages.currency', $params['currency']);
+            $join->where('price_averages.created_at', $priceDate);
+        });
 
         if (!empty($params['order'])) {
             switch ($params['order']) {
