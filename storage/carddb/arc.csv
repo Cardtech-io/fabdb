@@ -542,13 +542,13 @@ ARC,211,Lead the Charge,C,"The next time you play an action card with cost [2 re
 **Go again**","“By the will of the Dracai we raise our arms, and ignite the flames of war.” - Lieutenant Yamada",,"generic,action",,,3,0,2,,,
 ARC,212,Sun Kiss,C,"Gain 3[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,1,0,2,,,
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.",,"generic,action",,,1,0,2,,,
 ARC,213,Sun Kiss,C,"Gain 2[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,2,0,2,,,
-ARC,214,Sun Kiss,C,"Gain 2[life].
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.",,"generic,action",,,2,0,2,,,
+ARC,214,Sun Kiss,C,"Gain 1[life].
 
-If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other acrosst he sky, wishing for nothing more than to reunite.",,"generic,action",,,3,0,2,,,
+If you have played a card named Moon Wish this turn, draw a card and Sun Kiss gains **go again**.","Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.",,"generic,action",,,3,0,2,,,
 ARC,215,Whisper of the Oracle,C,"**Opt 4** (Look at the top 4 cards of your deck. You may put them on the top and/or bottom in any order.)
 
 **Go again**",,,"generic,action",,,1,0,3,,,
