@@ -160,16 +160,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $query->leftJoin('price_averages', function($join) use ($params, $priceDate) {
             $join->on('price_averages.card_id', '=', 'dc2.card_id');
-            $join->where(function($query) {
-                $query->where(function($query) {
-                    $query->whereIn('c2.rarity', ['L', 'F']);
-                    $query->where('price_averages.variant', 'cold');
-                });
-                $query->orWhere(function($query) {
-                    $query->whereNotIn('c2.rarity', ['L', 'F']);
-                    $query->where('price_averages.variant', 'regular');
-                });
-            });
+            $join->whereIn('price_averages.variant', ['cold', 'regular']);
             $join->where('price_averages.currency', $params['currency']);
             $join->where('price_averages.created_at', $priceDate);
         });
