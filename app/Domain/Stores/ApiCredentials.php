@@ -41,9 +41,9 @@ class ApiCredentials
         return Arr::get($this->credentials, 'collection');
     }
 
-    public function setCollection($collection)
+    public function withCollection($collection): ApiCredentials
     {
-        $this->credentials['collection'] = $collection;
+        return new ApiCredentials($this->credentials + compact('collection'));
     }
 
     public function endpoint(): string

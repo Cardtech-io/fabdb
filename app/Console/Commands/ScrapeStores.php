@@ -148,7 +148,7 @@ class ScrapeStores extends Command
                     // there's no more records
                     break;
                 }
-                
+
                 $links = $headers['Link'][0];
                 preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $links, $matches);
                 // If there's 2 matches, then the next url is index 1, else 0.
