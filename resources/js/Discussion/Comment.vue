@@ -6,10 +6,10 @@
         <div>
             <header class="flex w-full">
                 <div class="w-1/2">
-                    <span class="mr-2 font-bold">{{ comment.user.name }}</span>
-                    <badge :subscription-level="comment.user.subscription" size="small"></badge>
+                    <span class="mr-2 font-bold">{{ comment.name }}</span>
+                    <badge :subscription-level="comment.subscription" size="small"></badge>
                 </div>
-                <div class="w-1/2 text-gray-500 text-sm text-right">{{ relative(comment.createdAt) }}</div>
+                <div class="w-1/2 text-gray-500 text-sm text-right">{{ comment.createdAt }}</div>
             </header>
             <div class="mt-2">{{ comment.content }}</div>
         </div>
@@ -24,13 +24,6 @@
 
     export default {
         props: ['comment'],
-
-        components: { Badge, Votes },
-
-        methods: {
-            relative: function(date) {
-                return moment(moment.utc(date)).local().fromNow();
-            }
-        }
+        components: { Badge, Votes }
     };
 </script>

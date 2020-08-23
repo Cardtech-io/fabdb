@@ -110,18 +110,9 @@
                         </div>
                     </div>
 
-                    <div class="pb-8">
-                        <hr class="text-gray-500 mt-4">
+                    <hr class="text-gray-500 mt-4">
 
-                        <comment-count :comments="comments"></comment-count>
-
-                        <div v-if="comments">
-                            <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
-                        </div>
-
-                        <!-- post a comment -->
-                        <respond type="deck" :foreign="deck.slug" @comment-posted="addComment"></respond>
-                    </div>
+                    <discussion type="deck" :id="deck.slug"></discussion>
                 </div>
             </div>
         </div>
@@ -147,8 +138,7 @@
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
-    import Comment from '../Discussion/Comment.vue';
-    import CommentCount from '../Discussion/CommentCount.vue';
+    import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
     import Respond from '../Discussion/Respond.vue';
@@ -161,8 +151,7 @@
 
         components: {
             Breadcrumbs,
-            Comment,
-            CommentCount,
+            Discussion,
             HeaderTitle,
             Respond,
             Rulings,
@@ -171,6 +160,10 @@
 
         computed: {
             ...mapGetters('session', ['user']),
+
+            cards() {
+                return this.deck.cards || [];
+            },
 
             crumbs() {
                 return [
@@ -191,16 +184,8 @@
 
         data() {
             return {
-                cards: [],
-                comments: null,
                 deck: null,
                 tab: 'composition',
-            }
-        },
-
-        methods: {
-            addComment: function(comment) {
-                this.comments.push(comment);
             }
         },
 
@@ -234,16 +219,11 @@
         },
 
         extends: LazyLoader((to, callback) => {
-            let deck = axios.get('/decks/' + to.params.deck);
-            let comments = axios.get('/comments/deck/' + to.params.deck);
-
-            axios.all([deck, comments]).then(axios.spread((...responses) => {
+            axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
-                    this.deck = responses[0].data;
-                    this.cards = this.deck.cards;
-                    this.comments = responses[1].data;
+                    this.deck = response.data;
                 })
-            }));
+            });
         })
     };
 </script>

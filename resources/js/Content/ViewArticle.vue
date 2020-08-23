@@ -23,14 +23,7 @@
                 </div>
 
                 <div class="border-t border-gray-400">
-                    <comment-count :comments="comments"></comment-count>
-
-                    <div v-if="comments">
-                        <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
-                    </div>
-
-                    <!-- post a comment -->
-                    <respond type="article" :foreign="article.slug" @comment-posted="addComment"></respond>
+                    <discussion type="article" :id="article.slug"></discussion>
                 </div>
             </div>
         </div>
@@ -44,22 +37,18 @@
     import Article from './Article';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
-    import Comment from '../Discussion/Comment.vue';
-    import CommentCount from '../Discussion/CommentCount.vue';
+    import Discussion from "../Discussion/Discussion";
     import Strings from '../Utilities/Strings';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
     import Models from '../Utilities/Models';
-    import Respond from '../Discussion/Respond.vue';
 
     export default {
         components: {
             Breadcrumbs,
-            Comment,
-            CommentCount,
-            HeaderTitle,
-            Respond
+            Discussion,
+            HeaderTitle
         },
 
         mixins: [ Cardable, Strings, Imagery ],
@@ -78,8 +67,7 @@
 
         data() {
             return {
-                article: null,
-                comments: null
+                article: null
             };
         },
 
@@ -98,24 +86,14 @@
             };
         },
 
-        methods: {
-            addComment: function(comment) {
-                this.comments.push(comment);
-            }
-        },
-
         extends: LazyLoader((to, callback) => {
-            let article = axios.get('/articles/' + to.params.article);
-            let comments = axios.get('/comments/article/' + to.params.article);
-
-            axios.all([article, comments]).then(axios.spread((...responses) => {
-                callback(function() {
-                    this.article = Models.hydrate(responses[0].data.article, Article);
-                    this.next = Models.hydrate(responses[0].data.next, Article);
-                    this.prev = Models.hydrate(responses[0].data.prev, Article);
-                    this.comments = responses[1].data;
+            axios.get('/articles/' + to.params.article).then(response => {
+                callback(function(){
+                    this.article = Models.hydrate(response.data.article, Article);
+                    this.next = Models.hydrate(response.data.next, Article);
+                    this.prev = Models.hydrate(response.data.prev, Article);
                 })
-            }));
+            });
         })
     };
 </script>

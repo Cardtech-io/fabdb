@@ -9,7 +9,7 @@
                 <textarea type="text" v-model="content" class="input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" :placeholder="'Type here to comment on this ' + type + '.'"></textarea>
             </div>
 
-            <submit :text="Comment" :disabled="saving" class="mt-2"></submit>
+            <submit text="Comment" :disabled="saving" class="mt-2"></submit>
         </form>
         <div v-else class="text-center">
             You must be <router-link :to="'/login/?from=' + $route.path" class="link">logged in</router-link> to participate in discussions.

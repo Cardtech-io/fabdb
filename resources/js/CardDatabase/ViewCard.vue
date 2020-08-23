@@ -71,14 +71,7 @@
 
                     <hr class="text-gray-500 mt-4">
 
-                    <comment-count :comments="comments"></comment-count>
-
-                    <div v-if="comments">
-                        <comment v-for="comment in comments" :key="comment.slug" :comment="comment"></comment>
-                    </div>
-
-                    <!-- post a comment -->
-                    <respond type="card" :foreign="card.identifier" @comment-posted="addComment"></respond>
+                    <discussion type="card" :id="card.identifier"></discussion>
                 </div>
             </div>
         </div>
@@ -92,12 +85,10 @@
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
     import CardNav from "./CardNav";
+    import Discussion from "../Discussion/Discussion";
     import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Pricing from './Pricing.vue';
-    import Respond from '../Discussion/Respond.vue';
-    import Comment from '../Discussion/Comment.vue';
-    import CommentCount from '../Discussion/CommentCount.vue';
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
 
@@ -108,11 +99,9 @@
             Breadcrumbs,
             CardImage,
             CardNav,
-            Comment,
-            CommentCount,
+            Discussion,
             HeaderTitle,
             Pricing,
-            Respond,
             Rulings,
         },
 
@@ -149,16 +138,11 @@
 
         data() {
             return {
-                card: null,
-                comments: null,
+                card: null
             }
         },
 
         methods: {
-            addComment: function(comment) {
-                this.comments.push(comment);
-            },
-
             keywords: function() {
                 var keywords = this.card.keywords;
 
@@ -192,15 +176,11 @@
         },
 
         extends: LazyLoader((to, callback) => {
-            let card = axios.get('/cards/' + to.params.identifier);
-            let comments = axios.get('/comments/card/' + to.params.identifier);
-
-            axios.all([card, comments]).then(axios.spread((...responses) => {
+            axios.get('/cards/' + to.params.identifier).then(response => {
                 callback(function() {
-                    this.card = responses[0].data;
-                    this.comments = responses[1].data;
+                    this.card = response.data;
                 })
-            }));
+            });
         })
     }
 </script>
