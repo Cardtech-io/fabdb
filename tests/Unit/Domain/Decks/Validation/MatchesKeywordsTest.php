@@ -31,9 +31,9 @@ class MatchesKeywordsTest extends TestCase
         $validator2 = new MatchesKeywords($deck, $card2);
         $validator3 = new MatchesKeywords($deck, $card3);
 
-        $this->cards->shouldReceive('find')->with('WTR001')->andReturn($card1);
-        $this->cards->shouldReceive('find')->with('WTR002')->andReturn($card2);
-        $this->cards->shouldReceive('find')->with('WTR003')->andReturn($card3);
+        $this->cards->shouldReceive('findByIdentifier')->with('WTR001')->andReturn($card1);
+        $this->cards->shouldReceive('findByIdentifier')->with('WTR002')->andReturn($card2);
+        $this->cards->shouldReceive('findByIdentifier')->with('WTR003')->andReturn($card3);
 
         $this->assertTrue($validator1->passes('card', 'WTR001'));
         $this->assertFalse($validator2->passes('card', 'WTR002'));
@@ -48,7 +48,7 @@ class MatchesKeywordsTest extends TestCase
         $card = $this->card('hero', ['guardian', 'hero']);
         $validator = new MatchesKeywords($deck, $card);
 
-        $this->cards->shouldReceive('find')->with('WTR001')->andReturn($card);
+        $this->cards->shouldReceive('findByIdentifier')->with('WTR001')->andReturn($card);
 
         $this->assertTrue($validator->passes('card', 'WTR001'));
     }

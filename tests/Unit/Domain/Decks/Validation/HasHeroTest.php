@@ -31,8 +31,8 @@ class HasHeroTest extends TestCase
         $deck->setRelation('cards', new Cards([$hero]));
 
         $validator = new HasHero($deck);
-        
-        $this->cards->shouldReceive('find')->andReturn($card);
+
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($card);
 
         $this->assertTrue($validator->passes('card', 'WTR005'));
     }
@@ -50,7 +50,7 @@ class HasHeroTest extends TestCase
 
         $validator = new HasHero($deck);
 
-        $this->cards->shouldReceive('find')->andReturn($hero);
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($hero);
 
         $this->assertTrue($validator->passes('card', 'WTR005'));
     }

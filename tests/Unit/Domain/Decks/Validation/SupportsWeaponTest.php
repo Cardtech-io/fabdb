@@ -22,7 +22,7 @@ class SupportsWeaponTest extends TestCase
     {
         $validator = new SupportsWeapon(new Deck);
 
-        $this->cards->shouldReceive('find')->andReturn($this->card('weapon', ['equipment']));
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($this->card('weapon', ['equipment']));
 
         $this->assertTrue($validator->passes('card', 'WTR003'));
     }
@@ -34,7 +34,7 @@ class SupportsWeaponTest extends TestCase
 
         $validator = new SupportsWeapon($deck);
 
-        $this->cards->shouldReceive('find')->andReturn($this->card('weapon', ['weapon']));
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($this->card('weapon', ['weapon']));
 
         $this->assertTrue($validator->passes('card', 'WTR00897'));
     }
@@ -46,7 +46,7 @@ class SupportsWeaponTest extends TestCase
 
         $validator = new SupportsWeapon($deck);
 
-        $this->cards->shouldReceive('find')->andReturn($this->card('weapon', ['weapon', '1h']));
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($this->card('weapon', ['weapon', '1h']));
 
         $this->assertTrue($validator->passes('card', 'WTR007'));
     }
@@ -58,7 +58,7 @@ class SupportsWeaponTest extends TestCase
 
         $validator = new SupportsWeapon($deck);
 
-        $this->cards->shouldReceive('find')->andReturn($this->card('weapon', ['weapon', '2h']));
+        $this->cards->shouldReceive('findByIdentifier')->andReturn($this->card('weapon', ['weapon', '2h']));
 
         $this->assertFalse($validator->passes('card', 'WTR018'));
     }

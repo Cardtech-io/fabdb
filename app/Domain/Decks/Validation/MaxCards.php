@@ -27,7 +27,7 @@ class MaxCards implements Rule
      * Implements rules based on the type of card, and how many of each type are allowed in a deck.
      *
      * @param  string $attribute
-     * @param  mixed $value
+     * @param  string $identifier
      * @return bool
      */
     public function passes($attribute, $identifier)
@@ -38,7 +38,7 @@ class MaxCards implements Rule
             return true;
         }
 
-        return $this->card->total < $this->maxNumber();
+        return $this->card->pivot->total < $this->maxNumber();
     }
 
     /**
