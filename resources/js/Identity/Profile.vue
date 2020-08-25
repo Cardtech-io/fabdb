@@ -48,7 +48,7 @@
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">Theme</label>
                             <select v-model="theme" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
-                                <option value="">Default</option>
+                                <option value="default">Default</option>
                                 <option value="aria">Aria</option>
                                 <option value="demonastery">Demonastery</option>
                                 <option value="savage-lands">Savage Lands</option>
@@ -183,7 +183,7 @@
 
             theme: {
                 get() {
-                    return this.user.theme;
+                    return this.user.theme || 'default';
                 },
 
                 set(theme) {
