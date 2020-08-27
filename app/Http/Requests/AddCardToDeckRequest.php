@@ -18,10 +18,7 @@ class AddCardToDeckRequest extends FormRequest
 
     public function rules()
     {
-        $rules = [
-            new HasHero($this->deck),
-            new SupportsWeapon($this->deck),
-        ];
+        $rules = [new HasHero($this->deck)];
 
         if ($this->deck->format == 'open') {
             return ['card' => $rules];
