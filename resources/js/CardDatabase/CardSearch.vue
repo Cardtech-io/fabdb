@@ -9,15 +9,7 @@
                 <div class="w-full md:w-1/5 px-1">
                     <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('class')">
                         <option value="">Class</option>
-                        <option value="generic">Generic</option>
-                        <option value="brute">Brute</option>
-                        <option value="guardian">Guardian</option>
-                        <option value="mechanologist">Mechanologist</option>
-                        <option value="ninja">Ninja</option>
-                        <option value="ranger">Ranger</option>
-                        <option value="runeblade">Runeblade</option>
-                        <option value="warrior">Warrior</option>
-                        <option value="wizard">Wizard</option>
+                        <option :value="klass" v-for="(name, klass) in $settings.game.classes">{{ name }}</option>
                     </select>
                 </div>
 

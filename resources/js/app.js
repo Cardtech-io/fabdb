@@ -20,6 +20,8 @@ Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);
 
+Vue.prototype.$settings = window.settings;
+
 App.router = router;
 App.store = store;
 

@@ -67,7 +67,7 @@ class SeedCardDatabase extends Command
                 );
 
                 $this->line('Linking variant: '.$saved->identifier->raw().' to: '.$variantOf->identifier->raw());
-                
+
                 Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
             } else {
                 Card::register(
@@ -91,9 +91,10 @@ class SeedCardDatabase extends Command
      */
     private function selectSet(): string
     {
-        $set = $this->choice('Which set would you like to import or update?', ['ARC', 'IRA', 'WTR']);
+        $availableSets = array_keys(config('game.sets'));
+        $set = $this->choice('Which set would you like to import or update?', $availableSets);
 
-        return strtolower($set);
+        return $set;
     }
 
     private function compileStats($card)

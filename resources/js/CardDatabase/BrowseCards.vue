@@ -5,8 +5,8 @@
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
-                    <li class="float-left" v-for="(name, set) in sets" :class="isActive(set)">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set)" :class="isActive(set)">{{ name }}</a>
+                    <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">{{ set.name }}</a>
                     </li>
                 </ul>
             </div>
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+    import _ from 'lodash';
+
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -68,11 +70,7 @@
             return {
                 page: Number(this.$route.query.page) || 1,
                 results: {},
-                sets: {
-                    all: 'All cards',
-                    wtr: 'Welcome to Rathe',
-                    arc: 'Arcane Rising'
-                },
+                sets: this.filterSets(),
                 set: this.$route.query.set || 'all',
                 view: 'gallery'
             }
@@ -90,21 +88,32 @@
         },
 
         methods: {
-            isActive: function(set) {
+            isActive(set) {
                 return {
                     'border-white': this.set == set,
                     'border-crumbs': this.set != set
                 }
             },
-            refreshResults: function(results) {
+
+            refreshResults(results) {
                 this.results = results;
             },
 
-            updatePage: function(page) {
+            filterSets() {
+                let sets = _.filter(this.$settings.game.sets, setting => {
+                    return setting.browseable;
+                });
+
+                sets.unshift({ id: 'all', name: 'All cards'});
+
+                return sets;
+            },
+
+            updatePage(page) {
                 this.page = page;
             },
 
-            switchSet: function(set) {
+            switchSet(set) {
                 this.set = set;
                 this.updatePage(1);
             }

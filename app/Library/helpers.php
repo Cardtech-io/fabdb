@@ -40,6 +40,7 @@ function compile_settings(): array
     return [
         'apiDomain' => config('api.domain'),
         'imageDomain' => config('services.imgix.domain'),
+        'game' => config('game'),
     ];
 }
 
