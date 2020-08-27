@@ -200,8 +200,3 @@
     };
 </script>
 
-<style>
-    select > option:first-child {
-        @apply text-gray-500;
-    }
-</style>
