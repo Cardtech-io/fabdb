@@ -62,7 +62,7 @@
             </div>
 
             <div class="w-full mt-2" v-if="useCase != 'build' && useCase != 'build-open'">
-                <button type="button" class="block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto" @click="openTray = !openTray">Advanced</button>
+                <button type="button" class="block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto focus:outline-none" @click="openTray = !openTray">Advanced</button>
             </div>
         </form>
     </div>

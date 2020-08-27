@@ -129,8 +129,9 @@ body {
     color: var(--nav-hover-text-color);
 }
 
-.link {
+.link, .link:focus {
     @apply underline;
+    @apply outline-none;
     color: var(--link-color);
 }
 
@@ -138,8 +139,9 @@ body {
     color: var(--link-hover-color);
 }
 
-.link-alternate {
+.link-alternate, .link-alternate:focus {
     @apply underline;
+    @apply outline-none;
     color: var(--button-primary-background-color);
 }
 
@@ -195,7 +197,7 @@ footer.footer .link:hover {
     font-style: normal;
 }
 
-.input {
+.input, input:focus {
     @apply appearance-none;
     @apply block;
     @apply w-full;
