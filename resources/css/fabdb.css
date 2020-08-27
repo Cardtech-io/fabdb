@@ -287,3 +287,7 @@ footer.footer .link:hover {
     @apply -mx-4;
     @apply rounded-none;
 }
+
+button, button:focus {
+    @apply outline-none;
+}

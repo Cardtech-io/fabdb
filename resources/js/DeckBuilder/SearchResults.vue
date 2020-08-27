@@ -2,7 +2,7 @@
     <div class="mb-40 clearfix -mx-4">
         <div class="clearfix">
             <div v-for="card in results.data" class="sm:w-1/2 float-left rounded-lg mb-4 sm:mb-8 px-2 sm:px-4" style="max-width: 300px">
-                <card-image :card="card" :clickHandler="addToDeck"></card-image>
+                <card-image :card="card" :width="300" :clickHandler="addToDeck"></card-image>
             </div>
         </div>
 

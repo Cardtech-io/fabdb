@@ -2,9 +2,9 @@
     <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-24" transition-duration="0.3s">
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative m-4">
-                <img :src="cardUrl(grouped[0].identifier, 450)" class="block w-full invisible" :style="margin(grouped.length)">
+                <img :src="cardUrl(grouped[0].identifier, 350)" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" :style="styles(i)" :class="rounded">
-                    <card-image :card="card" :rounded="rounded" :clickHandler="action || false"></card-image>
+                    <card-image :card="card" :width="350" :rounded="rounded" :clickHandler="action || false"></card-image>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
             rounded: function() {
                 let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
                 let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
-
+                
                 return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
             },
         },
