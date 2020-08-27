@@ -41,13 +41,13 @@ class RenameImages extends Command
     {
         $disk = Storage::disk('scraped');
 
-        $cards = $disk->files('arc/');
+        $cards = $disk->files('cru/');
 
         foreach ($cards as $name => $src) {
-            if (!preg_match_all('/arc\/ARC([0-9]+)/', $src, $matches)) continue;
+            if (!preg_match_all('/cru\/cru-?([0-9]+)/i', $src, $matches)) continue;
 
             $cardId = $matches[1][0];
-            $dest = 'arc/'.$cardId.'.png';
+            $dest = 'cru/'.$cardId.'.png';
 
             if ($disk->exists($dest) && $src) {
                 $disk->delete($dest);
