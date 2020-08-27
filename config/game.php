@@ -5,25 +5,25 @@ return [
         'arc' => [
             'id' => 'arc',
             'name' => 'Arcane Rising',
-            'year' => 2020,
+            'released' => '2020-03-27',
             'browseable' => true,
         ],
         'ira' => [
             'id' => 'ira',
             'name' => 'IRA Welcome Deck 2019',
-            'year' => 2019,
+            'released' => '2019-08-31',
             'browseable' => false,
         ],
         'cru' => [
             'id' => 'cru',
             'name' => 'Crucible of War',
-            'year' => 2020,
+            'released' => '2020-08-28',
             'browseable' => true,
         ],
         'wtr' => [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
-            'year' => 2019,
+            'released' => '2019-10-11',
             'browseable' => true,
         ],
     ],
@@ -50,5 +50,8 @@ return [
         'F' => 'Fabled',
         'T' => 'Token',
         'P' => 'Promo'
-    ]
+    ],
+
+    // Images when borderless get cropped to these dimensions
+    'img_crop' => [20, 21, 409, 586],
 ];

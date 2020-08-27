@@ -100,9 +100,9 @@
             },
 
             filterSets() {
-                let sets = _.filter(this.$settings.game.sets, setting => {
+                let sets = _.sortBy(_.filter(this.$settings.game.sets, setting => {
                     return setting.browseable;
-                });
+                }), 'released');
 
                 sets.unshift({ id: 'all', name: 'All cards'});
 
