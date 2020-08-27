@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="bg-white py-4 border-b-4 border-gray-300">
+        <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto px-4">
                 <card-search use-case="collection" @search-completed="refreshResults" :page="page" :refreshable="true" :external="searchDefaults"></card-search>
             </div>
