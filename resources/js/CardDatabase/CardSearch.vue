@@ -3,24 +3,24 @@
         <form @submit.prevent="newSearch" class="block">
             <div class="flex w-full px-4 md:px-0">
                 <div class="w-full md:w-3/5 pr-1">
-                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" placeholder="Enter search terms..." :class="active('keywords')">
+                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Enter search terms..." :class="active('keywords')">
                 </div>
 
                 <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" :class="active('class')">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('class')">
                         <option value="">Class</option>
                         <option :value="klass" v-for="(name, klass) in $settings.game.classes">{{ name }}</option>
                     </select>
                 </div>
 
                 <div class="w-full md:w-1/5 pl-1">
-                    <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-2 px-3 leading-tight focus:outline-none">
+                    <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-3 px-4 leading-tight focus:outline-none">
                 </div>
             </div>
 
             <div class="w-full flex pt-2 px-4 md:px-0" v-if="advanced">
                 <div class="w-full md:w-1/4 pr-1">
-                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" :class="active('pitch')">
+                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('pitch')">
                         <option value="">Pitch</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 px-1">
-                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" :class="active('cost')">
+                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cost')">
                         <option value="">Cost</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="w-full md:w-1/4 px-1">
-                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" :class="active('cardType')">
+                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cardType')">
                         <option value="">Card type</option>
                         <option value="action">Action</option>
                         <option value="attack">Attack</option>
@@ -54,14 +54,14 @@
                 </div>
 
                 <div class="w-full md:w-1/4 pl-1">
-                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-2 px-3 rounded-lg" :class="active('rarity')">
+                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('rarity')">
                         <option value="">Rarity</option>
                         <option :value="key" v-for="(rarity, key) in $settings.game.rarities">{{ rarity }}</option>
                     </select>
                 </div>
             </div>
 
-            <div class="w-full mt-2">
+            <div class="w-full mt-2" v-if="useCase != 'build' && useCase != 'build-open'">
                 <button type="button" class="block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto" @click="openTray = !openTray">Advanced</button>
             </div>
         </form>
@@ -200,3 +200,8 @@
     };
 </script>
 
+<style>
+    select > option:first-child {
+        @apply text-gray-500;
+    }
+</style>
