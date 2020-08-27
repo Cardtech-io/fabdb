@@ -120,13 +120,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $card = $this->findByIdentifier($identifier);
 
-        $card->next = $this->nav(function() use ($identifier) {
-            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '+'))->identifier;
-        });
-
-        $card->prev = $this->nav(function() use ($identifier) {
-            return $this->findByIdentifier($this->cardViewer->newIdentifier($identifier, '-'))->identifier;
-        });
+        $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
+        $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
 
         $card->load(['listings', 'listings.store', 'rulings', 'variants' => function($query) {
             $query->select('cards.identifier');
@@ -190,5 +185,31 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         try { return $exec(); }
         catch (ModelNotFoundException $e) {}
+    }
+
+    private function nextOrPrevCard(string $identifier, $direction)
+    {
+        if ($direction == 'next') {
+            $operator = '>';
+            $order = 'ASC';
+        } else {
+            $operator = '<';
+            $order = 'DESC';
+        }
+
+        $card = $this->newQuery()
+            ->doesntHave('variantOf')
+            ->where('identifier', $operator, $identifier)
+            ->orderBy('identifier', $order)
+            ->first();
+
+        if ($card) return $card;
+
+        $order =  $direction == 'next' ? 'DESC' : 'ASC';
+
+        return $this->newQuery()
+            ->doesntHave('variantOf')
+            ->orderBy('identifier', $order)
+            ->first();
     }
 }
