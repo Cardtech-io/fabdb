@@ -39,5 +39,16 @@ return [
         'runeblade' => 'Runeblade',
         'warrior' => 'Warrior',
         'wizard' => 'Wizard',
+    ],
+
+    'rarities' => [
+        'C' => 'Common',
+        'R' => 'Rare',
+        'S' => 'Super rare',
+        'M' => 'Majestic',
+        'L' => 'Legendary',
+        'F' => 'Fabled',
+        'T' => 'Token',
+        'P' => 'Promo'
     ]
 ];

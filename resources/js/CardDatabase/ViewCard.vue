@@ -115,18 +115,7 @@
             },
 
             rarity() {
-                const levels = {
-                    C: 'Common',
-                    R: 'Rare',
-                    S: 'Super rare',
-                    M: 'Majestic',
-                    L: 'Legendary',
-                    F: 'Fabled',
-                    T: 'Token',
-                    P: 'Promo'
-                };
-
-                return levels[this.card.rarity];
+                return this.$settings.game.rarities[this.card.rarity];
             },
 
             rulings() {
