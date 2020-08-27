@@ -4,13 +4,14 @@ export default {
             const set = this.setFromIdentifier(identifier);
             const id = this.id(identifier);
 
-            let url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
+            let url = 'http://' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
             if (!withBorder) {
                 const dimensions = {
                     arc: [20, 21, 409, 586],
                     ira: [23, 24, 419, 603],
-                    wtr: [20, 21, 409, 586]
+                    cru: [20, 21, 409, 586],
+                    wtr: [20, 21, 409, 586],
                 };
 
                 let rect = dimensions[set].join(',');

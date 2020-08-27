@@ -41,7 +41,7 @@ class PurgeImages extends Command
     public function handle()
     {
         $disk = Storage::disk('scraped');
-        $cards = $disk->files('arc/');
+        $cards = $disk->files('cru/');
 
         foreach ($cards as $name => $src) {
             if (preg_match('/DS_Store$/i', $src)) continue;
