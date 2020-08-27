@@ -28,7 +28,7 @@ CRU,20,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Th
 CRU,21,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Think Later, discard a random card.
 
 **Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,3,1,3,2,,"regular,rainbow"
-CRU,24,Sledge of Anvilheim,R,**Action - [4 resource: Attack**,"""Where Isen's Peak touches the heavens, mighty weapons fit for the Gods are forged."" - Olde tale of Anvilheim",,"guardian,weapon,hammer,2h",,,,,,6,,"regular,cold"
+CRU,24,Sledge of Anvilheim,R,**Action - [4 resource]: Attack**,"""Where Isen's Peak touches the heavens, mighty weapons fit for the Gods are forged."" - Olde tale of Anvilheim",,"guardian,weapon,hammer,2h",,,,,,6,,"regular,cold"
 CRU,25,Crater Fist,M,"**Action - [3 resource],** destroy Crater Fist: Your attacks with **crush** gain +2[attack] this turn. **Go again**
 
 **Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"guardian,equipment,arms",,,,,2,,,"regular,cold"
@@ -150,7 +150,12 @@ CRU,102,Viziertronic Model i,M,"**Action** - Destroy Viziertronic Model i: Whene
 
 **Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,,"mechanologist,equipment,head",,,,,0,,,"regular,cold"
 CRU,103,Meganetic Shockwave,M,"The defending hero must defend Meganetic Shockwave with X equipment they control, where X is the number of times you have boosted this turn.",,,"mechanologist,action,attack",,,3,2,3,4,,"regular,rainbow"
-CRU,104,Plasma Purifier,M,"**Action** - [resource]: If there are no steam counters on Plasma Purifier, put a steam counter on it. **Go again**
+CRU,104,Absorption Dome,M,"Absorption Dome enters the arena with steam counters on it equal to the number of times you have **boosted** this turn.
+
+If you would be dealt damage, remove that many steam counters from Absorption Dome instead, then prevent damage equal to the number of steam counters removed in this way.
+
+When Absorption Dome has no steam counters on it, destroy it.",,,"mechanologist,action,item",,,2,0,,,,"regular,rainbow"
+CRU,105,Plasma Purifier,M,"**Action** - [resource]: If there are no steam counters on Plasma Purifier, put a steam counter on it. **Go again**
 
 **Once per Turn Action** - Remove a steam counter from Plasma Purifier: Target Mechanologist Pistol you control gains +1[attack] until end of turn. **Go again**",,,"mechanologist,action,item",,,1,2,,,,"regular,rainbow"
 CRU,106,High Speed Impact,R,"If High Speed Impact hits, the next attack you **boost** this combat chain gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
