@@ -14,7 +14,7 @@ class CardController extends \FabDB\Http\Controllers\CardController
         }
 
         $cards = $cards->search($request->user(), $request->all())
-            ->simplePaginate($request->get('per_page'))
+            ->paginate($request->get('per_page'))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
