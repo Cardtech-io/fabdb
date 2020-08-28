@@ -1,5 +1,5 @@
 <template>
-    <img :src="cardUrl(card.identifier, imageWidth, wantsBorders)" :alt="card.name" :title="card.name" class="w-full" @click="clicked" :class="classes">
+    <img :src="cardUrl(card.identifier, imageWidth, wantsBorders)" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
 </template>
 
 <script>
@@ -8,20 +8,18 @@
 
     export default {
         mixins: [Cardable],
-        props: ['card', 'clickHandler', 'rounded', 'width'],
+        props: ['card', 'clickHandler', 'width'],
 
         computed: {
             ...mapGetters('session', ['user']),
 
             classes: function() {
                 return [
-                    this.handlerProvided() ? 'cursor-pointer' : '',
-                    this.rounded || 'rounded-lg sm:rounded-xl'
+                    this.handlerProvided() ? 'cursor-pointer' : ''
                 ];
             },
 
             imageWidth() {
-                console.log(this.width);
                 return this.width || 450;
             },
 

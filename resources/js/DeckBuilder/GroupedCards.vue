@@ -3,8 +3,8 @@
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative m-4">
                 <img :src="cardUrl(grouped[0].identifier, 350)" class="block w-full invisible" :style="margin(grouped.length)">
-                <div v-for="(card, i) in grouped" :style="styles(i)" :class="rounded">
-                    <card-image :card="card" :width="350" :rounded="rounded" :clickHandler="action || false"></card-image>
+                <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden" :style="styles(i)">
+                    <card-image :card="card" :width="350" :clickHandler="action || false"></card-image>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             cardClasses: function() {
                 return [
                     this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth,
-                    this.rounded
+                    'rounded-card'
                 ];
             },
 
@@ -66,7 +66,7 @@
             rounded: function() {
                 let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
                 let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
-                
+
                 return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
             },
         },

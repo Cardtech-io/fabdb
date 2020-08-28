@@ -18,7 +18,7 @@ class CardController extends \FabDB\Http\Controllers\CardController
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
-        return $cards;
+        return CardResource::collection($cards);
     }
 
     public function view(Request $request, CardRepository $cards)

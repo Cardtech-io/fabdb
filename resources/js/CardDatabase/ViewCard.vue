@@ -12,10 +12,10 @@
                         <card-nav :to="card.next" text="Next" class="ml2 text-right"></card-nav>
                     </div>
 
-                    <ul class="pt-4">
+                    <ul class="pt-4 text-base">
                         <li class="clearfix" v-if="!card.variantOf">
-                            <div class="float-left w-1/4 p-2 px-4">Variants</div>
-                            <div class="float-left w-3/4 p-2 px-4">
+                            <div class="float-left w-1/3 p-2 px-4">Variants</div>
+                            <div class="float-left w-2/3 p-2 px-4">
                                 <div v-if="card.variants.length">
                                     <span v-for="(variant, key) in card.variants">
                                         <span v-if="key > 0">, </span>
@@ -28,26 +28,26 @@
                             </div>
                         </li>
                         <li class="clearfix" v-else>
-                            <div class="float-left w-1/4 p-2 px-4">Variant</div>
-                            <div class="float-left w-3/4 p-2 px-4">
+                            <div class="float-left w-1/3 p-2 px-4">Variant of</div>
+                            <div class="float-left w-2/3 p-2 px-4">
                                 <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link-alternate">{{ card.variantOf.identifier }}</router-link>
                             </div>
                         </li>
                         <li class="clearfix bg-white">
-                            <div class="float-left w-1/4 p-2 px-4">Rarity</div>
-                            <div class="float-left w-3/4 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
+                            <div class="float-left w-1/3 p-2 px-4">Rarity</div>
+                            <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
                         </li>
                         <li class="clearfix">
-                            <div class="float-left w-1/4 p-2 px-4">Keywords</div>
-                            <div class="float-left w-3/4 p-2 px-4">
+                            <div class="float-left w-1/3 p-2 px-4">Keywords</div>
+                            <div class="float-left w-2/3 p-2 px-4">
                                 <span v-for="(keyword, index) in card.keywords">
                                     <router-link :to="'/cards/browse/?keywords=' + keyword" class="link-alternate">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                                 </span>
                             </div>
                         </li>
                         <li v-for="(value, stat) in card.stats" class="clearfix even:bg-white" v-if="value">
-                            <div class="float-left w-1/4 p-2 px-4">{{ sentenceCase(stat) }}</div>
-                            <div class="float-left w-3/4 p-2 px-4">{{ value }}</div>
+                            <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
+                            <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                         </li>
                     </ul>
                 </div>
@@ -61,7 +61,12 @@
 
                         <article>
                             <p class="mb-4 italic">
-                                <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                <span v-if="!card.variantOf">
+                                    <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                </span>
+                                <span v-else>
+                                    <strong>"{{ card.name }}" ({{ card.identifier }})</strong> is a trading card promo variant of {{ card.variantOf.identifier }}, from the <strong>"{{ setToString(setFromIdentifier(card.variantOf.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                </span>
                             </p>
                         </article>
                     </div>
