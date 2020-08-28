@@ -54,6 +54,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
+            'cards.rarity',
         ]);
 
         $filters = [
