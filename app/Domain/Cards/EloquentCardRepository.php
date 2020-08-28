@@ -6,6 +6,7 @@ use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
+use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\OwnedCardsFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
@@ -60,6 +61,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $filters = [
             new SetFilter,
             new KeywordFilter,
+            new NameFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
             new VariantsFilter,
