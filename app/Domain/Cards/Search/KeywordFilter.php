@@ -11,16 +11,17 @@ class KeywordFilter implements SearchFilter
     {
         return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier(implode(' ', $this->getWords($input['keywords'])));
     }
-    
+
     public function applyTo(Builder $query, array $input)
     {
         $words = $this->getWords($input['keywords']);
-        $search = implode(' ', $words);
 
         if (count($words) > 1) {
-            $query->whereRaw("MATCH(search_text) AGAINST ('$search' IN BOOLEAN MODE)");
+            $search = implode(' ', $words);
+            $query->whereRaw("MATCH(search_text) AGAINST ('?' IN BOOLEAN MODE)", [$search]);
         } else {
-            $query->where('search_text', 'LIKE', '%'.$search.'%');
+            $search = addslashes($input['keywords']);
+            $query->whereRaw("search_text LIKE '%$search%'");
         }
     }
 
