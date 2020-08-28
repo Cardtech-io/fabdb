@@ -21,6 +21,11 @@ class CardController extends \FabDB\Http\Controllers\CardController
         return CardResource::collection($cards);
     }
 
+    public function first(Request $request, CardRepository $cards)
+    {
+        return new CardResource($cards->searchFirst($request->all()));
+    }
+
     public function view(Request $request, CardRepository $cards)
     {
         return parent::view($request, $cards);

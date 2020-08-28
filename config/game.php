@@ -53,5 +53,5 @@ return [
     ],
 
     // Images when borderless get cropped to these dimensions
-    'img_crop' => [20, 21, 409, 586],
+    'img_crop' => [20, 21, 410, 586],
 ];

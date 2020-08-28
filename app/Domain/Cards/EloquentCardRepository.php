@@ -11,6 +11,7 @@ use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\OwnedCardsFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
+use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
@@ -75,11 +76,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new OrderFilter
         ];
 
-        foreach ($filters as $filter) {
-            if ($filter->applies($input)) {
-                $filter->applyTo($query, $input);
-            }
-        }
+        $this->applyFilters($query, $filters, $input);
 
         return $query;
     }
@@ -215,5 +212,42 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->doesntHave('variantOf')
             ->orderBy('identifier', $order)
             ->first();
+    }
+
+    public function searchFirst(array $params)
+    {
+        $query = $this->newQuery();
+
+        $query->select([
+            'cards.id',
+            'cards.identifier',
+            'cards.name',
+            'cards.keywords',
+            'cards.stats',
+            'cards.text',
+            'cards.rarity',
+        ]);
+
+        $filters = [
+            new NameFilter,
+            new IdentifierFilter,
+            new BannedCardsFilter,
+            new PitchFilter,
+            new RarityFilter,
+            new RulingsFilter,
+        ];
+
+        $this->applyFilters($query, $filters, $params);
+
+        return $query->first();
+    }
+
+    private function applyFilters($query, array $filters, $input)
+    {
+        foreach ($filters as $filter) {
+            if ($filter->applies($input)) {
+                $filter->applyTo($query, $input);
+            }
+        }
     }
 }

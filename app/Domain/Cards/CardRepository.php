@@ -34,4 +34,13 @@ interface CardRepository
      * @return mixed
      */
     public function prices(string $currency, string $set);
+
+    /**
+     * Finds the first card that matches the provided search conditions. This search is less feature-rich
+     * than full search, but returns more in regards to the card details (similar to find).
+     *
+     * @param array $params
+     * @return mixed
+     */
+    public function searchFirst(array $params);
 }
