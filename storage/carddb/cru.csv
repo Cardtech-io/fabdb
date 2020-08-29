@@ -1,329 +1,484 @@
 Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
+CRU,1,"Rhinar, Reckless Rampage",C,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,,,standard
 CRU,2,"Kayo, Berserker Runt",R,"Whenever you play an attack action card with 6 or more base [attack], roll a 6 sided die. On;
 
 * 1 to 4 - Half the attack's base [attack], rounded down.
-* 5 or 6 - Double the attack's base [attack].",,,"brute,hero,young",19,4,,,,,,"regular,rainbow"
+* 5 or 6 - Double the attack's base [attack].",,,"brute,hero,young",19,4,,,,,,"standard,rainbow"
+CRU,3,Romping Club,C,"**Once per turn Action** - [2 resource]: **Attack**
+
+**Once per Turn Effect** - When you discard a card with 6 or more [attack], Romping Club gains +1[attack] until end of turn.",,,"brute,weapon,club,2h",,,,,,4,,standard
 CRU,4,Mandible Claw,R,"**Once per Turn Action -- [2 resource]: Attack**
 
-If you have discarded a card with 6 or more [attack] this turn, Mandible Claw gains **go again**.",,,"brute,weapon,claw,1h",,,,,,3,,"regular,cold"
+If you have discarded a card with 6 or more [attack] this turn, Mandible Claw gains **go again**.",,,"brute,weapon,claw,1h",,,,,,3,,"standard,cold"
 CRU,5,Mandible Claw,R,"**Once per Turn Action -- [2 resource]: Attack**
 
-If you have discarded a card with 6 or more [attack] this turn, Mandible Claw gains **go again**.",,,"brute,weapon,claw,1h",,,,,,3,,"regular,cold"
+If you have discarded a card with 6 or more [attack] this turn, Mandible Claw gains **go again**.",,,"brute,weapon,claw,1h",,,,,,3,,"standard,cold"
 CRU,6,Skullhorn,M,"**Action** - Destroy Skullhorn: Draw a card then discard a random card. **Go again**
 
-**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.",,,"brute,equipment,head",,,,,0,,,"regular,cold"
-CRU,7,Beast Within,M,"If Beast Within is put into a graveyard from anywhere other than the combat chain, banish the top card of your deck and lose 1[life]. If it has 6 or more [attack], put it into your hand, otherwise repeat this process.",,,"brute,action,attack",,,2,3,3,6,,"regular,rainbow"
+**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.",,,"brute,equipment,head",,,,,0,,,"standard,cold"
+CRU,7,Beast Within,M,"If Beast Within is put into a graveyard from anywhere other than the combat chain, banish the top card of your deck and lose 1[life]. If it has 6 or more [attack], put it into your hand, otherwise repeat this process.",,,"brute,action,attack",,,2,3,3,6,,"standard,rainbow"
 CRU,8,Massacre,M,"If you have discarded a card with 6 or more [attack] this turn, Massacre gains +2[attack] and **intimidate**.
 
-If Massacre is discarded to pay the cost of a Brute attack action card, **intimidate**.",,,"brute,action,attack",,,1,3,3,6,,"regular,rainbow"
+If Massacre is discarded to pay the cost of a Brute attack action card, **intimidate**.",,,"brute,action,attack",,,1,3,3,6,,"standard,rainbow"
 CRU,9,ARGH... Smash!,M,"Roll a 6 sided die. Destroy up to X items where X is half the number, rounded down.
 
-**Go again**",,,"brute,action",,,2,3,3,,,"regular,rainbow"
+**Go again**",,,"brute,action",,,2,3,3,,,"standard,rainbow"
+CRU,10,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+
+While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,1,2,3,7,,"standard,rainbow"
+CRU,11,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+
+While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,2,2,3,6,,"standard,rainbow"
+CRU,12,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+
+While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,3,2,3,5,,"standard,rainbow"
+CRU,13,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
+CRU,14,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
+CRU,15,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
+CRU,16,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,1,3,3,7,,"standard,rainbow"
+CRU,17,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,2,3,3,6,,"standard,rainbow"
+CRU,18,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,3,3,3,5,,"standard,rainbow"
 CRU,19,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Think Later, discard a random card.
 
-**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,1,1,3,4,,"regular,rainbow"
+**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,1,1,3,4,,"standard,rainbow"
 CRU,20,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Think Later, discard a random card.
 
-**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,2,1,3,3,,"regular,rainbow"
+**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,2,1,3,3,,"standard,rainbow"
 CRU,21,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Think Later, discard a random card.
 
-**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,3,1,3,2,,"regular,rainbow"
-CRU,24,Sledge of Anvilheim,R,**Action - [4 resource]: Attack**,"""Where Isen's Peak touches the heavens, mighty weapons fit for the Gods are forged."" - Olde tale of Anvilheim",,"guardian,weapon,hammer,2h",,,,,,6,,"regular,cold"
+**Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,3,1,3,2,,"standard,rainbow"
+CRU,22,"Bravo, Showstopper",C,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero",40,4,,,,,,standard
+CRU,23,Anothos,C,"**Once per turn action [3 resource] - Attack**
+
+If you have 2 or more cards in your pitch zone with cost [3 resource] or greater, Anothos gains +2[attack].",,,"guardian,weapon,hammer,2h",,,,,,4,,standard
+CRU,24,Sledge of Anvilheim,R,**Action - [4 resource]: Attack**,"""Where Isen's Peak touches the heavens, mighty weapons fit for the Gods are forged."" - Olde tale of Anvilheim",,"guardian,weapon,hammer,2h",,,,,,6,,"standard,cold"
 CRU,25,Crater Fist,M,"**Action - [3 resource],** destroy Crater Fist: Your attacks with **crush** gain +2[attack] this turn. **Go again**
 
-**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"guardian,equipment,arms",,,,,2,,,"regular,cold"
-CRU,26,Mangle,M,"**Crush** - If Mangle deals 4 or more damage to a hero, destroy target equipment they control with a -1[defense] counter on it.","""There will be no peace for warmongers like you."" - Jarl Vetreidi",,"guardian,action,attack",,,1,4,3,8,,"regular,rainbow"
-CRU,27,Righteous Cleansing,M,"**Crush** - If Righteous Cleansing deals 4 or more damage to a hero, look at the top 5 cards of their deck. Banish 1 or more cards with the same name from among them, then put the rest on top of their deck in any order.",,,"guardian,action,attack",,,2,7,3,10,,"regular,rainbow"
+**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"guardian,equipment,arms",,,,,2,,,"standard,cold"
+CRU,26,Mangle,M,"**Crush** - If Mangle deals 4 or more damage to a hero, destroy target equipment they control with a -1[defense] counter on it.","""There will be no peace for warmongers like you."" - Jarl Vetreidi",,"guardian,action,attack",,,1,4,3,8,,"standard,rainbow"
+CRU,27,Righteous Cleansing,M,"**Crush** - If Righteous Cleansing deals 4 or more damage to a hero, look at the top 5 cards of their deck. Banish 1 or more cards with the same name from among them, then put the rest on top of their deck in any order.",,,"guardian,action,attack",,,2,7,3,10,,"standard,rainbow"
 CRU,28,Stamp Authority,M,"When Stamp Authority enters the arena, if you have 2 or more cards in your pitch zone with cost 3 or greater, your hero gains +1[intellect] until end of turn.
 
 While Stamp Authority is in the arena, attack action card effects do not trigger when they hit.
 
-At the beginning of your action phase, destroy Stamp Authority.",,,"guardian,action,aura",,,3,3,3,,,"regular,rainbow"
+At the beginning of your action phase, destroy Stamp Authority.",,,"guardian,action,aura",,,3,3,3,,,"standard,rainbow"
 CRU,29,Towering Titan,R,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +10[attack].",,,"guardian,action,aura",,,1,9,3,,,"regular,rainbow"
+At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +10[attack].",,,"guardian,action,aura",,,1,9,3,,,"standard,rainbow"
 CRU,30,Towering Titan,R,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +9[attack].",,,"guardian,action,aura",,,2,9,3,,,"regular,rainbow"
+At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +9[attack].",,,"guardian,action,aura",,,2,9,3,,,"standard,rainbow"
 CRU,31,Towering Titan,R,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +8[attack].",,,"guardian,action,aura",,,3,9,3,,,"regular,rainbow"
-CRU,35,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,1,4,3,8,,"regular,rainbow"
-CRU,36,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,2,4,3,7,,"regular,rainbow"
-CRU,37,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,3,4,3,6,,"regular,rainbow"
+At the beginning of your action phase, destroy Towering Titan then the next Guardian attack action card you play this turn gains +8[attack].",,,"guardian,action,aura",,,3,9,3,,,"standard,rainbow"
+CRU,32,Crush the Weak,C,"**Crush** - If Crush the Weak does 4 or more damage to a hero, they can't play attack action cards with 3 or less base [attack] during their next action phase.",,,"guardian,action,attack",,,1,3,3,7,,"standard,rainbow"
+CRU,33,Crush the Weak,C,"**Crush** - If Crush the Weak does 4 or more damage to a hero, they can't play attack action cards with 3 or less base [attack] during their next action phase.",,,"guardian,action,attack",,,2,3,3,6,,"standard,rainbow"
+CRU,34,Crush the Weak,C,"**Crush** - If Crush the Weak does 4 or more damage to a hero, they can't play attack action cards with 3 or less base [attack] during their next action phase.",,,"guardian,action,attack",,,3,3,3,5,,"standard,rainbow"
+CRU,35,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,1,4,3,8,,"standard,rainbow"
+CRU,36,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,2,4,3,7,,"standard,rainbow"
+CRU,37,Chokeslam,C,"**Crush** - If Chokeslam deals 4 or more damage to a hero, attack action cards they control can't gain [attack] during their next action phase.",,,"guardian,action,attack",,,3,4,3,6,,"standard,rainbow"
 CRU,38,Emerging Dominance,C,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +3[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,1,2,3,,,"regular,rainbow"
+At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +3[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,1,2,3,,,"standard,rainbow"
 CRU,39,Emerging Dominance,C,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +2[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,2,2,3,,,"regular,rainbow"
+At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +2[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,2,2,3,,,"standard,rainbow"
 CRU,40,Emerging Dominance,C,"*(Auras stay in the arena until they are destroyed.)*
 
-At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +1[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,3,2,3,,,"regular,rainbow"
-CRU,41,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 3 damage that source would deal.",,,"guardian,instant",,,1,0,,,,"regular,rainbow"
-CRU,42,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 2 damage that source would deal.",,,"guardian,instant",,,2,0,,,,"regular,rainbow"
-CRU,43,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 1 damage that source would deal.",,,"guardian,instant",,,3,0,,,,"regular,rainbow"
-CRu,47,"Benji, the Piercing Wind",R,"Attack action cards you control with 2 or less [attack] can't be defended by cards from hand. *(This includes defense reaction cards.)*
+At the beginning of your action phase, destroy Emerging Dominance then the next Guardian arttack action card you play this turn gains +1[attack] and **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"guardian,action,aura",,,3,2,3,,,"standard,rainbow"
+CRU,41,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 3 damage that source would deal.",,,"guardian,instant",,,1,0,,,,"standard,rainbow"
+CRU,42,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 2 damage that source would deal.",,,"guardian,instant",,,2,0,,,,"standard,rainbow"
+CRU,43,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 1 damage that source would deal.",,,"guardian,instant",,,3,0,,,,"standard,rainbow"
+CRU,44,Seismic Surge,R,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,,,rainbow
+CRU,45,"Katsu, the Wanderer",C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,standard
+CRU,46,"Ira, Crimson Haze",C,Your second attack each turn gains +1[attack].,,,"ninja,hero,young",20,4,,,,,,"standard,rainbow"
+CRU,47,"Benji, the Piercing Wind",R,"Attack action cards you control with 2 or less [attack] can't be defended by cards from hand. *(This includes defense reaction cards.)*
 
-**Once per Turn Effect** - When an attack action card you control hits, your next attack this turn gains +1[attack].",,,"ninja,hero,young",17,4,,,,,,"regular,rainbow"
+**Once per Turn Effect** - When an attack action card you control hits, your next attack this turn gains +1[attack].",,,"ninja,hero,young",17,4,,,,,,"standard,rainbow"
+CRU,48,Harmonized Kodachi,C,"**Once per Turn Action** - [resource]: Attack
+
+If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,standard
+CRU,49,Harmonized Kodachi,R,"**Once per Turn Action** - [resource]: Attack
+
+If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,"standard,cold"
+CRU,50,Edge of Autumn,R,**Once per Turn Action -- [resource]: Attack. Go again**,,,"ninja,weapon,2h",,,,,,,,"standard,cold"
 CRU,51,Zephyr Needle,R,"**Once per Turn Action -- [resource]: Attack. Go again**
 
-If Zephyr Needle is defended by a card with [defense] greater than Zephyr Needle's [attack], destroy Zephyr Needle when the combat chain closes.",,,"ninja,weapon,dagger,1h",,,,,,2,,"regular,cold"
+If Zephyr Needle is defended by a card with [defense] greater than Zephyr Needle's [attack], destroy Zephyr Needle when the combat chain closes.",,,"ninja,weapon,dagger,1h",,,,,,2,,"standard,cold"
 CRU,52,Zephyr Needle,R,"**Once per Turn Action -- [resource]: Attack. Go again**
 
-If Zephyr Needle is defended by a card with [defense] greater than Zephyr Needle's [attack], destroy Zephyr Needle when the combat chain closes.",,,"ninja,weapon,dagger,1h",,,,,,2,,"regular,cold"
+If Zephyr Needle is defended by a card with [defense] greater than Zephyr Needle's [attack], destroy Zephyr Needle when the combat chain closes.",,,"ninja,weapon,dagger,1h",,,,,,2,,"standard,cold"
 CRU,53,Breeze Rider Boots,M,"When a Ninja attack action card you control hits, you may destroy Breeze Rider Boots. If you do, attack action cards with **combo** gain **go again** this turn.
 
-**Battleworn** *(If you defend with Breeze Rider Boots, put a -1[defense] counter on it when the combat chain closes.)*",,,"ninja,equipment,legs",,,,,1,,,"regular,cold"
-CRU,54,Find Center,M,"**Combo** - If Crane Dance was the last attack this combat chain, Find Center can't be defended by cards with [resource] cost less than the number of chain links you control, and it gains ""If this hits, create a Zen State token.""","From your home, draw strength. From your family, take heart. From the mists, find peace.",,"ninja,action,attack",,,3,0,3,2,,"regular,rainbow"
-CRU,55,Flood of Force,M,"**Combo** - If Rushing River or Flood of Force was the last attack this combat chain, reveal the top card of your deck. If it's a card with **combo**, put it into your hand then Flood of Force gains +3[attack] and **go again**.",Every thunderstorm begins with a single drop of rain.,,"ninja,action,attack",,,2,0,3,1,,"regular,rainbow"
-CRU,56,Heron's Flight,M,"**Combo** - If Crane Dance was the last attack this combat chain, Heron's Flight gains +2[attack] and you choose attack action or 'non-attack' action. Heron's Flight can only be defended by cards of that type.",,,"ninja,action,attack",,,1,0,3,3,,"regular,rainbow"
-CRU,57,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,1,0,3,3,,"regular,rainbow"
-CRU,58,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,2,0,3,2,,"regular,rainbow"
-CRU,59,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,3,0,3,1,,"regular,rainbow"
-CRU,60,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,1,0,3,3,,"regular,rainbow"
-CRU,61,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,2,0,3,2,,"regular,rainbow"
-CRU,62,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,3,0,3,1,,"regular,rainbow"
-CRU,70,Torrent of Tempo,C,"If Torrent of Tempo hits, it gains **go again**.",,,"ninja,action,attack",,,2,1,3,4,,"regular,rainbow"
+**Battleworn** *(If you defend with Breeze Rider Boots, put a -1[defense] counter on it when the combat chain closes.)*",,,"ninja,equipment,legs",,,,,1,,,"standard,cold"
+CRU,54,Find Center,M,"**Combo** - If Crane Dance was the last attack this combat chain, Find Center can't be defended by cards with [resource] cost less than the number of chain links you control, and it gains ""If this hits, create a Zen State token.""","From your home, draw strength. From your family, take heart. From the mists, find peace.",,"ninja,action,attack",,,3,0,3,2,,"standard,rainbow"
+CRU,55,Flood of Force,M,"**Combo** - If Rushing River or Flood of Force was the last attack this combat chain, reveal the top card of your deck. If it's a card with **combo**, put it into your hand then Flood of Force gains +3[attack] and **go again**.",Every thunderstorm begins with a single drop of rain.,,"ninja,action,attack",,,2,0,3,1,,"standard,rainbow"
+CRU,56,Heron's Flight,M,"**Combo** - If Crane Dance was the last attack this combat chain, Heron's Flight gains +2[attack] and you choose attack action or 'non-attack' action. Heron's Flight can only be defended by cards of that type.",,,"ninja,action,attack",,,1,0,3,3,,"standard,rainbow"
+CRU,57,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,1,0,3,3,,"standard,rainbow"
+CRU,58,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,2,0,3,2,,"standard,rainbow"
+CRU,59,Crane Dance,R,"**Combo** - Soulbead Strike was the last attack this combat chain, Crane Dance gains +1[attack], **go again**, and it can't be defended by attack action cards with base [attack] greater than the number of chain links you control.",,,"ninja,action,attack",,,3,0,3,1,,"standard,rainbow"
+CRU,60,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,1,0,3,3,,"standard,rainbow"
+CRU,61,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,2,0,3,2,,"standard,rainbow"
+CRU,62,Rushing River,R,"**Combo** - If Torrent of Tempo was the last attack this combat chain, Rushing River gains +1[attack], **go again** and ""if Rushing River hits, draw X cards then put X cards from your hand on top of your deck in any order, where X is the number of attacks that have hit this combat chain.""",,,"ninja,action,attack",,,3,0,3,1,,"standard,rainbow"
+CRU,63,Flying Kick,C,"If Flying Kick is played as chain link 3 or higher, it gains +2[attack].",,,"ninja,action,attack",,,1,2,3,5,,"standard,rainbow"
+CRU,64,Flying Kick,C,"If Flying Kick is played as chain link 3 or higher, it gains +2[attack].",,,"ninja,action,attack",,,2,2,3,4,,"standard,rainbow"
+CRU,65,Flying Kick,C,"If Flying Kick is played as chain link 3 or higher, it gains +2[attack].",,,"ninja,action,attack",,,3,2,3,3,,"standard,rainbow"
+CRU,66,Soulbead Strike,C,"If Soulbead Strike hits, it gains **go again**.",,,"ninja,action,attack",,,1,0,3,4,,"standard,rainbow"
+CRU,67,Soulbead Strike,C,"If Soulbead Strike hits, it gains **go again**.",,,"ninja,action,attack",,,2,0,3,3,,"standard,rainbow"
+CRU,68,Soulbead Strike,C,"If Soulbead Strike hits, it gains **go again**.",,,"ninja,action,attack",,,3,0,3,2,,"standard,rainbow"
+CRU,69,Torrent of Tempo,C,"If Torrent of Tempo hits, it gains **go again**.",,,"ninja,action,attack",,,1,1,3,4,,"standard,rainbow"
+CRU,70,Torrent of Tempo,C,"If Torrent of Tempo hits, it gains **go again**.",,,"ninja,action,attack",,,2,1,3,3,,"standard,rainbow"
+CRU,71,Torrent of Tempo,C,"If Torrent of Tempo hits, it gains **go again**.",,,"ninja,action,attack",,,3,1,3,2,,"standard,rainbow"
+CRU,72,Bittering Thorns,C,"If Bittering Thorns hits, your next attack this turn gains +1[attack].",,,"ninja,action,attack",,,2,1,2,3,,"standard,rainbow"
+CRU,73,Salt the Wound,C,Salt the Wound gains +1[attack] for each attack that has hit this combat chain.,,,"ninja,action,attack",,,2,0,3,2,,"standard,rainbow"
+CRU,74,Whirling Mist Blossom,C,"**Ira Specialization** *(You may only have Whirling Mist Blossom in your deck if your hero is Ira.)*
+
+If Whirling Mist Blossom hits, and it's the second or higher chain link in a row to hit, draw 2 cards.
+
+**Go again**",,,"ninja,action,attack",,,2,1,2,2,,"standard,rainbow"
+CRU,75,Zen State,R,"Zen State enters the arena with 1 balance counter on it. At the beginning of your action phase, destroy Zen State unless you remove a balance counter from it.
+
+Whenever your hero would be dealt damage, prevent 1 damage that source would deal.",,,"ninja,token,aura",,,,,,,,"standard,rainbow"
+CRU,76,Dorinthea Ironsong,C,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",40,4,,,,,,standard
 CRU,77,"Kassai, Cintari Sellsword",R,"Your second sword attack each turn costs [resource] less.
 
-At the beginning of your end phase, if you have attacked 2 or more times with weapons this turn, create a Copper token for each weapon attack that hit. *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"warrior,hero,young",20,4,,,,,,"regular,rainbow"
+At the beginning of your end phase, if you have attacked 2 or more times with weapons this turn, create a Copper token for each weapon attack that hit. *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"warrior,hero,young",20,4,,,,,,"standard,rainbow"
+ CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
+
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
+
+At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 CRU,79,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"regular,cold"
+If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,80,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"regular,cold"
+If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,81,Courage of Bladehold,M,"**Action** - Destroy Courage of Bladehold: Your sword attacks cost [resource] less per turn. **Go again**
 
-**Temper** *(If you defend with Courage of Bladehold, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense])*",,,"warrior,equipment,chest",,,,,2,,,"regular,cold"
-CRU,82,Twinning Blade,M,You may attack an additional time with target sword this turn. *(You must have an action point to attack an additional time.)*,,,"warrior,attack,reaction",,,2,0,3,,,"regular,rainbow"
+**Temper** *(If you defend with Courage of Bladehold, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense])*",,,"warrior,equipment,chest",,,,,2,,,"standard,cold"
+CRU,82,Twinning Blade,M,You may attack an additional time with target sword this turn. *(You must have an action point to attack an additional time.)*,,,"warrior,attack,reaction",,,2,0,3,,,"standard,rainbow"
 CRU,83,Unified Decree,M,"Target weapon attack gains +3[attack].
 
-**Reprise** If the defending hero has defended with a card from their hand this chain link, look at top card of your deck. If it's an attack action card, you may banish it. If you do, you may play it this combat chain.","""In unity, we will overcome."" - Hala Goldenhelm",,"warrior,attack,reaction",,,2,2,3,,,"regular,rainbow"
+**Reprise** If the defending hero has defended with a card from their hand this chain link, look at top card of your deck. If it's an attack action card, you may banish it. If you do, you may play it this combat chain.","""In unity, we will overcome."" - Hala Goldenhelm",,"warrior,attack,reaction",,,2,2,3,,,"standard,rainbow"
+CRU,84,Spoils of War,M,"Your next weapon attack this turn gains +2[attack] and **go again**.
+
+Whenever a weapon you control hits this turn, create 2 Copper tokens.
+
+**Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,85,Dauntless,R,"Your next weapon attack this turn gains +3[attack].
 
 The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
-**Go again**",,,"warrior,action",,,1,1,3,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,86,Dauntless,R,"Your next weapon attack this turn gains +2[attack].
 
 The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
-**Go again**",,,"warrior,action",,,2,1,3,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 CRU,87,Dauntless,R,"Your next weapon attack this turn gains +1[attack].
 
 The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
-**Go again**",,,"warrior,action",,,3,1,3,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 CRU,88,Out for Blood,C,"Target weapon attack gains +3[attack].
 
-**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,1,1,3,,,"regular,rainbow"
+**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,1,1,3,,,"standard,rainbow"
 CRU,89,Out for Blood,C,"Target weapon attack gains +2[attack].
 
-**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,2,1,3,,,"regular,rainbow"
+**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,2,1,3,,,"standard,rainbow"
 CRU,90,Out for Blood,C,"Target weapon attack gains +1[attack].
 
-**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,3,1,3,,,"regular,rainbow"
+**Reprise** If the defending hero has defended with a card from their hand this chain link, your next attack this turn gains +1[attack].",,,"warrior,attack,reaction",,,3,1,3,,,"standard,rainbow"
 CRU,91,Hit and Run,C,"Your next weapon attack this turn gains **go again**.
 
 If you have attacked with a weapon this turn, your next attack this turn gains +3[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
 CRU,92,Hit and Run,C,"Your next weapon attack this turn gains **go again**.
 
 If you have attacked with a weapon this turn, your next attack this turn gains +2[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
 CRU,93,Hit and Run,C,"Your next weapon attack this turn gains **go again**.
 
 If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,"regular,rainbow"
-CRU,99,Data Doll MKII,R,"Whenever a Mechanologist item with cost 2 or less is put into your banished zone from your deck, put it into the arena.",,,"mechanologist,hero,young",20,3,,,,,,"regular,rainbow"
+**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
+CRU,94,Push Forward,C,"Your next weapon attack this turn gains +3[attack].
+
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+
+**Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
+CRU,95,Push Forward,C,"Your next weapon attack this turn gains +2[attack].
+
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+
+**Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
+CRU,96,Push Forward,C,"Your next weapon attack this turn gains +1[attack].
+
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+
+**Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
+CRU,98,"Dash, Inventor Extraordinaire",C,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero",40,4,,,,,,standard
+CRU,97,,L,,,,,,,,,,,,
+CRU,99,Data Doll MKII,R,"Whenever a Mechanologist item with cost 2 or less is put into your banished zone from your deck, put it into the arena.",,,"mechanologist,hero,young",20,3,,,,,,"standard,rainbow"
+CRU,100,Teklo Plasma Pistol,C,"**Action** - Remove a steam counter from Teklo Plasma Pistol: **Attack**
+
+**Action** - [resource]: If there are no steam counters on Teklo Plasma Pistol, put a steam counter on it. **Go again**",,,"mechanologist,weapon,pistol,2h",,,,,,2,,standard
 CRU,101,Plasma Barrel Shot,R,"**Once per Turn Action**: Remove a steam counter from Plasma Barrel Shot: **Attack**
 
 **Action** - [2 resource]: If there are no steam counters on Plasma Barrel Shot, put a steam counter on it. **Go again**
 
-X is equal to 1 plus the number of times you have **boosted** this combat chain.",,,"mechanologist,weapon,gun,2h",,,,,,X,,"regular,cold"
+X is equal to 1 plus the number of times you have **boosted** this combat chain.",,,"mechanologist,weapon,gun,2h",,,,,,X,,"standard,cold"
 CRU,102,Viziertronic Model i,M,"**Action** - Destroy Viziertronic Model i: Whenever you boost this turn, draw a card then put a card from your hand on top of your deck.
 
-**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,,"mechanologist,equipment,head",,,,,0,,,"regular,cold"
-CRU,103,Meganetic Shockwave,M,"The defending hero must defend Meganetic Shockwave with X equipment they control, where X is the number of times you have boosted this turn.",,,"mechanologist,action,attack",,,3,2,3,4,,"regular,rainbow"
+**Arcane Barrier 2** *(If your hero would be dealt arcane damage, you may pay [2 resource] instead. If you do, prevent 2 arcane damage that source would deal.)*",,,"mechanologist,equipment,head",,,,,0,,,"standard,cold"
+CRU,103,Meganetic Shockwave,M,"The defending hero must defend Meganetic Shockwave with X equipment they control, where X is the number of times you have boosted this turn.",,,"mechanologist,action,attack",,,3,2,3,4,,"standard,rainbow"
 CRU,104,Absorption Dome,M,"Absorption Dome enters the arena with steam counters on it equal to the number of times you have **boosted** this turn.
 
 If you would be dealt damage, remove that many steam counters from Absorption Dome instead, then prevent damage equal to the number of steam counters removed in this way.
 
-When Absorption Dome has no steam counters on it, destroy it.",,,"mechanologist,action,item",,,2,0,,,,"regular,rainbow"
+When Absorption Dome has no steam counters on it, destroy it.",,,"mechanologist,action,item",,,2,0,,,,"standard,rainbow"
 CRU,105,Plasma Purifier,M,"**Action** - [resource]: If there are no steam counters on Plasma Purifier, put a steam counter on it. **Go again**
 
-**Once per Turn Action** - Remove a steam counter from Plasma Purifier: Target Mechanologist Pistol you control gains +1[attack] until end of turn. **Go again**",,,"mechanologist,action,item",,,1,2,,,,"regular,rainbow"
+**Once per Turn Action** - Remove a steam counter from Plasma Purifier: Target Mechanologist Pistol you control gains +1[attack] until end of turn. **Go again**",,,"mechanologist,action,item",,,1,2,,,,"standard,rainbow"
 CRU,106,High Speed Impact,R,"If High Speed Impact hits, the next attack you **boost** this combat chain gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
-**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,1,1,3,4,,"regular,rainbow"
+**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,1,1,3,4,,"standard,rainbow"
 CRU,107,High Speed Impact,R,"If High Speed Impact hits, the next attack you **boost** this combat chain gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
-**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,2,1,3,3,,"regular,rainbow"
+**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,2,1,3,3,,"standard,rainbow"
 CRU,108,High Speed Impact,R,"If High Speed Impact hits, the next attack you **boost** this combat chain gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
-**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,3,1,3,2,,"regular,rainbow"
+**Boost** *(As an additional cost to play High Speed Impact, you may banish the top card of your deck. If it's a Mechanologist card, High Speed Impact gains **go again**.)* ",,,"mechanologist,action,attack",,,3,1,3,2,,"standard,rainbow"
+CRU,109,Combustible Courier,C,"If Combustible Courier hits, the next attack you **boost** this turn gains +3[attack].
+
+**Boost* *(As an additional cost to play Combustible Courier, you may banish the top card of your deck. If it's a Mechanologist card, Combustible Courier gains **go again**.)* ",,,"mechanologist,action,attack",,,1,2,3,4,,"standard,rainbow"
+CRU,110,Combustible Courier,C,"If Combustible Courier hits, the next attack you **boost** this turn gains +3[attack].
+
+**Boost* *(As an additional cost to play Combustible Courier, you may banish the top card of your deck. If it's a Mechanologist card, Combustible Courier gains **go again**.)* ",,,"mechanologist,action,attack",,,2,2,3,3,,"standard,rainbow"
+CRU,111,Combustible Courier,C,"If Combustible Courier hits, the next attack you **boost** this turn gains +3[attack].
+
+**Boost* *(As an additional cost to play Combustible Courier, you may banish the top card of your deck. If it's a Mechanologist card, Combustible Courier gains **go again**.)* ",,,"mechanologist,action,attack",,,3,2,3,1,,"standard,rainbow"
+CRU,112,Overblast,C,Overblast gains +X[attack] where X is the number of times you have **bosted** this turn.,,,"mechanologist,action,attack",,,1,2,3,5,,"standard,rainbow"
+CRU,113,Overblast,C,Overblast gains +X[attack] where X is the number of times you have **bosted** this turn.,,,"mechanologist,action,attack",,,2,2,3,4,,"standard,rainbow"
+CRU,114,Overblast,C,Overblast gains +X[attack] where X is the number of times you have **bosted** this turn.,,,"mechanologist,action,attack",,,3,2,3,3,,"standard,rainbow"
 CRU,115,Teklovossen's Workshop,C,"**Opt X**, where X is the number of times you have **boosted** this turn. *(Look at the top X cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-Reveal the top card of your deck. If it's a Mechanologist item card with cost 2 or less, put it into the arena.",,,"mechanologist,action",,,1,0,3,,,"regular,rainbow"
+Reveal the top card of your deck. If it's a Mechanologist item card with cost 2 or less, put it into the arena.",,,"mechanologist,action",,,1,0,3,,,"standard,rainbow"
 CRU,116,Teklovossen's Workshop,C,"**Opt X**, where X is the number of times you have **boosted** this turn. *(Look at the top X cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-Reveal the top card of your deck. If it's a Mechanologist item card with cost 1 or less, put it into the arena.",,,"mechanologist,action",,,2,0,3,,,"regular,rainbow"
+Reveal the top card of your deck. If it's a Mechanologist item card with cost 1 or less, put it into the arena.",,,"mechanologist,action",,,2,0,3,,,"standard,rainbow"
 CRU,117,Teklovossen's Workshop,C,"**Opt X**, where X is the number of times you have **boosted** this turn. *(Look at the top X cards of your deck. You may put them on the top and/or bottom in any order.)*
 
-Reveal the top card of your deck. If it's a Mechanologist item card with cost 0, put it into the arena.",,,"mechanologist,action",,,3,0,3,,,"regular,rainbow"
-CRU,118,"Kavdaen, Trader of Skins",R,"**Once per Turn Action** - [3 resource]: If a hero has more [life] than any other hero, they lose 1[life] and create a Copper token. Then if a hero has less [life] than any other hero, they gain 1[life]. **Go again** *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"merchant,hero,young",20,4,,,,,,
-CRU,121,Red Liner,R,"**Once per Turn Action - 0**: If you have no cards in your arsenal, put an arrow card your hand face up into your arsenal. **Go again** ",,,"ranger,weapon,bow,2h",,,,,,,,"regular,cold"
+Reveal the top card of your deck. If it's a Mechanologist item card with cost 0, put it into the arena.",,,"mechanologist,action",,,3,0,3,,,"standard,rainbow"
+CRU,118,"Kavdaen, Trader of Skins",R,"**Once per Turn Action** - [3 resource]: If a hero has more [life] than any other hero, they lose 1[life] and create a Copper token. Then if a hero has less [life] than any other hero, they gain 1[life]. **Go again** *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"merchant,hero,young",20,4,,,,,,"standard,rainbow"
+CRU,119,"Azalea, Ace in the Hole",C,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero",40,4,,,,,,standard
+CRU,120,Death Dealer,C,"**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",,,"ranger,weapon,bow,2h",,,,,,,,standard
+CRU,121,Red Liner,R,"**Once per Turn Action - 0**: If you have no cards in your arsenal, put an arrow card your hand face up into your arsenal. **Go again** ",,,"ranger,weapon,bow,2h",,,,,,,,"standard,cold"
 CRU,122,Perch Grapplers,R,"**Action - [2 resource],** Destroy Perch Grapplers: Until end of turn, face up arrow cards played from arsenal gain **go again**. **Go again**
 
-**Blade Break** *(If you defend with Perch Grapplers, destroy it when the combat chain closes.)*",,,"ranger,equipment,legs",,,,,2,,,"regular,cold"
+**Blade Break** *(If you defend with Perch Grapplers, destroy it when the combat chain closes.)*",,,"ranger,equipment,legs",,,,,2,,,"standard,cold"
 CRU,123,Remorseless,M,"*(Arrows can only be played from arsenal and only if you control a bow.)*
 
 If Remorseless is put into your arsenal face up, until end of turn it gains ""Defense reactions can't be played from arsenal to Remorseless' chain link.""
 
-If Remorseless hits a hero, until the end of their next turn, whenever they play an action card, they lose [life].",,,"ranger,action,attack",,,1,1,3,5,,"regular,rainbow"
+If Remorseless hits a hero, until the end of their next turn, whenever they play an action card, they lose [life].",,,"ranger,action,attack",,,1,1,3,5,,"standard,rainbow"
 CRU,124,Poison the Tips,M,"Until end of turn, arrows you control gain ""If this hits a hero, they discard a card.""
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action,attack",,,2,0,2,,,"regular,rainbow"
+**Go again**",,,"ranger,action,attack",,,2,0,2,,,"standard,rainbow"
 CRU,125,Feign Death,M,"Play Feign Death only if you have been dealt damage this turn.
 
-The next time you would be dealt damage this turn, prevent it.",,,"ranger,instant",,,2,1,,,,"regular,rainbow"
+The next time you would be dealt damage this turn, prevent it.",,,"ranger,instant",,,2,1,,,,"standard,rainbow"
 CRU,126,Tripwire Trap,R,"*(Traps can only be played from arsenal.)*
 
-Hit effects don't trigger this chain link unless the attacking hero pays [resource]. *(The attacking hero chooses whether to pay [resource] as Tripwire Trap resolves.)*","""A crossbow bolt ain't gonna make a dent in that thing"" - Spokes",,"ranger,defense,reaction,trap",,,1,0,4,,,"regular,rainbow"
+Hit effects don't trigger this chain link unless the attacking hero pays [resource]. *(The attacking hero chooses whether to pay [resource] as Tripwire Trap resolves.)*","""A crossbow bolt ain't gonna make a dent in that thing"" - Spokes",,"ranger,defense,reaction,trap",,,1,0,4,,,"standard,rainbow"
 CRU,127,Pitfall Trap,R,"*(Traps can only be played from arsenal.)*
 
-Deal 2 damage to the attacking hero unless they pay [resource].","""Ain't a dreg, an' it ain't human. The hell am I s'posed to do against it?"" - Jackdaw",,"ranger,defense,reaction,trap",,,2,0,3,,,"regular,rainbow"
+Deal 2 damage to the attacking hero unless they pay [resource].","""Ain't a dreg, an' it ain't human. The hell am I s'posed to do against it?"" - Jackdaw",,"ranger,defense,reaction,trap",,,2,0,3,,,"standard,rainbow"
+CRU,128,Rockslide Trap,R,"*(Traps can only be played from arsena.)*
+
+Target attack gets -2[attack] unless the attacking hero pays [resource]. *(The attacking hero chooses whether to pay [resource] as Rockslide Trap resolves.)*",,,"ranger,defense,reaction,trap",,,3,0,2,,,"standard,rainbow"
+CRU,129,Pathing Helix,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Pathing Helix hits and you have no cards in your arsenal, you may put a card from your hand, face down into your arsenal .",,,"ranger,action,arrow,attack",,,1,0,3,4,,"standard,rainbow"
+CRU,130,Pathing Helix,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Pathing Helix hits and you have no cards in your arsenal, you may put a card from your hand, face down into your arsenal .",,,"ranger,action,arrow,attack",,,2,0,3,3,,"standard,rainbow"
+CRU,131,Pathing Helix,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Pathing Helix hits and you have no cards in your arsenal, you may put a card from your hand, face down into your arsenal .",,,"ranger,action,arrow,attack",,,3,0,3,2,,"standard,rainbow"
+CRU,132,Sleep Dart,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Sleep Dart hits a hero, they lose all hero card effects and activated abilities until the end of their next turn. *(Treat the hero text box as though it was empty.)*",,,"ranger,action,arrow,attack",,,1,1,3,5,,"standard,rainbow"
+CRU,133,Sleep Dart,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Sleep Dart hits a hero, they lose all hero card effects and activated abilities until the end of their next turn. *(Treat the hero text box as though it was empty.)*",,,"ranger,action,arrow,attack",,,2,1,3,4,,"standard,rainbow"
+CRU,134,Sleep Dart,C,"*(Arrows can only be played from arsenal and only if you control a bow.)*
+
+If Sleep Dart hits a hero, they lose all hero card effects and activated abilities until the end of their next turn. *(Treat the hero text box as though it was empty.)*",,,"ranger,action,arrow,attack",,,3,1,3,3,,"standard,rainbow"
 CRU,135,Increase the Tension,C,"Your next arrow attack this turn gains +3[attack] and ""Defense reactions can't be played from hand this chain link.""
 
-**Go again**",,,"ranger,action",,,1,1,2,,,"regular,rainbow"
+**Go again**",,,"ranger,action",,,1,1,2,,,"standard,rainbow"
 CRU,136,Increase the Tension,C,"Your next arrow attack this turn gains +2[attack] and ""Defense reactions can't be played from hand this chain link.""
 
-**Go again**",,,"ranger,action",,,2,1,2,,,"regular,rainbow"
+**Go again**",,,"ranger,action",,,2,1,2,,,"standard,rainbow"
 CRU,137,Increase the Tension,C,"Your next arrow attack this turn gains +1[attack] and ""Defense reactions can't be played from hand this chain link.""
 
-**Go again**",,,"ranger,action",,,3,1,2,,,"regular,rainbow"
+**Go again**",,,"ranger,action",,,3,1,2,,,"standard,rainbow"
+CRU,138,"Viserai, Rune Blood",C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,,,standard
+CRU,139,Viserai,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,,,standard
 CRU,140,Reaping Blade,R,"**Once per Turn Action - [resource]: Attack**
 
-If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"regular,cold"
+If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"standard,cold"
 CRU,141,Bloodsheath Skeleta,M,"**Instant** - Destroy Bloodsheath Skeleta: The next attack action card and 'non-attack' action card you play this turn, gain ""This card costs [resource] less to play for each Runechant you control.""
 
-**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"regular,cold"
+**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"standard,cold"
 CRU,142,Dread Triptych,M,"If you've played a 'non-attack' action card this turn, create a Runechant token.
 
 If you've dealt arcane damage this turn, create a Runechant token.
 
-If you've Dread Triptych hits, create a Runechant token.",,,"runeblade,action,attack",,,3,3,3,4,,"regular,rainbow"
+If you've Dread Triptych hits, create a Runechant token.",,,"runeblade,action,attack",,,3,3,3,4,,"standard,rainbow"
 CRU,143,Rattle Bones,M,"Banish target Runeblade attack action card from your graveyard. You may play it this turn.
 
 If you have dealt arcane damage this turn, you may play Rattle Bones as though it were an instant.
 
-**Go again**",,,"runeblade,action",,,1,2,3,,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,1,2,3,,,"standard,rainbow"
 CRU,144,Runeblood Barrier,M,"Create 4 Runechant tokens.
 
 If your hero would be dealt damage, instead destroy that many Runechants you control and prevent 1 damage for each Runechant destroyed this way.
 
-At the beginning of your action phase, destroy Runeblood Barrier.",,,"runeblade,action",,,2,3,2,,,"regular,rainbow"
+At the beginning of your action phase, destroy Runeblood Barrier.",,,"runeblade,action",,,2,3,2,,,"standard,rainbow"
 CRU,145,Mauvrion Skies,R,"The next Runeblade attack action card you play this turn gains **go again** and ""If this hits, create 3 Runechant tokens."" *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,1,0,2,,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,1,0,2,,,"standard,rainbow"
 CRU,146,Mauvrion Skies,R,"The next Runeblade attack action card you play this turn gains **go again** and ""If this hits, create 2 Runechant tokens."" *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,2,0,2,,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,2,0,2,,,"standard,rainbow"
 CRU,147,Mauvrion Skies,R,"The next Runeblade attack action card you play this turn gains **go again** and ""If this hits, create 1 Runechant tokens."" *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,3,0,2,,,"regular,rainbow"
-CRU,148,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,1,1,3,4,,"regular,rainbow"
-CRU,149,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,2,1,3,3,,"regular,rainbow"
-CRU,150,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,3,1,3,2,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,3,0,2,,,"standard,rainbow"
+CRU,148,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,1,1,3,4,,"standard,rainbow"
+CRU,149,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,2,1,3,3,,"standard,rainbow"
+CRU,150,Consuming Volition,C,"If you have dealt or deal arcane damage this turn, Consuming Volition gains ""If this hits a hero, they discard a card.""",The tongue is the only weapon that grows sharper with use.,,"runeblade,action,attack",,,3,1,3,2,,"standard,rainbow"
 CRU,151,Meat and Greet,C,"If Meat and Greet hits, create a Runechant Token. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,1,1,3,4,,"regular,rainbow"
+If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,1,1,3,4,,"standard,rainbow"
 CRU,152,Meat and Greet,C,"If Meat and Greet hits, create a Runechant Token. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,2,1,3,3,,"regular,rainbow"
+If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,2,1,3,3,,"standard,rainbow"
 CRU,153,Meat and Greet,C,"If Meat and Greet hits, create a Runechant Token. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,3,1,3,2,,"regular,rainbow"
+If you have dealt or deal arcane damage to an opposing hero this turn, Meat and Greet gains **go again**.",,,"runeblade,action,attack",,,3,1,3,2,,"standard,rainbow"
 CRU,154,Sutcliffe's Research Notes,C,"Reveal the top 3 cards of your deck. Create a Runechant token for each Runeblade attack action card revealed this way, then put the cards on top of your deck in any order. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,1,1,2,,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,1,1,2,,,"standard,rainbow"
 CRU,155,Sutcliffe's Research Notes,C,"Reveal the top 2 cards of your deck. Create a Runechant token for each Runeblade attack action card revealed this way, then put the cards on top of your deck in any order. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,2,1,2,,,"regular,rainbow"
+**Go again**",,,"runeblade,action",,,2,1,2,,,"standard,rainbow"
 CRU,156,Sutcliffe's Research Notes,C,"Reveal the top card of your deck. Create a Runechant token for each Runeblade attack action card revealed this way, then put the cards on top of your deck in any order. *(They're auras with ""When you play an attack action card or attack with a weapon, destroy Runechant deal 1 arcane damage to target opposing hero."")*
 
-**Go again**",,,"runeblade,action",,,3,1,2,,,"regular,rainbow"
-CRU,160,Aether Conduit,R,**Once per Turn Action - [2 resource]: ** Deal 2 arcane damage to target hero. ,,,"wizard,weapon,staff,2h",,,,,,,,"regular,cold"
+**Go again**",,,"runeblade,action",,,3,1,2,,,"standard,rainbow"
+CRU,157,Runechant,C,"*(Auras stay in the arena until they are destroyed.)*
+
+When you play an attack action card, or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.",,,"runeblade,token,aura",,,,,,,,"standard,rainbow"
+CRU,158,"Kano, Dracai of Aether",C,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero",30,4,,,,,,standard
+CRU,159,Crucible of Aetherweave,C,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,,"wizard,weapon,staff,2h",,,,,,,,standard
+CRU,160,Aether Conduit,R,**Once per Turn Action - [2 resource]: ** Deal 2 arcane damage to target hero. ,,,"wizard,weapon,staff,2h",,,,,,,,"standard,cold"
 CRU,161,Metacarpus Node,M,"Whenever you play a card with an effect that deals arcane damage, you may pay [resource]. If you do, that effect deals that much arcane damage plus 1 and at the beginning of the end phase, destroy Metacarpus Node.
 
-**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"wizard,equipment,arms",,,,,0,,,"regular,cold"
+**Arcane Barrier 1** *(If your hero would be dealt arcane damage, you may pay [resource] instead. If you do, prevent 1 arcane damage that source would deal.",,,"wizard,equipment,arms",,,,,0,,,"standard,cold"
 CRU,162,Chain Lightning,M,"You may play your next Wizard 'non-attack' action card this turn as though it were an instant.
 
-If you have played another Wizard 'non-attack' action card this turn, deal 3 damage to each opposing hero.",,,"wizard,action",,,2,1,3,,,"regular,rainbow"
+If you have played another Wizard 'non-attack' action card this turn, deal 3 damage to each opposing hero.",,,"wizard,action",,,2,1,3,,,"standard,rainbow"
 CRU,163,Gaze the Ages,M,"**Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom of your deck in any order.)*
 
-If you have played another Wizard 'non-attack' action card this turn, put Gaze the Ages into your hand as it resolves.",,,"wizard,action",,,3,0,3,,,"regular,rainbow"
-CRU,164,Aetherize,M,**Negate** target instant card with cost 1 or less. *(The card does not resolve. Put it into its owner's graveyard.,"""I find it amusing how often mortals turn to prayer as their last line of defense."" - Kano",,"wizard,instant",,,3,1,,,,"regular,rainbow"
+If you have played another Wizard 'non-attack' action card this turn, put Gaze the Ages into your hand as it resolves.",,,"wizard,action",,,3,0,3,,,"standard,rainbow"
+CRU,164,Aetherize,M,**Negate** target instant card with cost 1 or less. *(The card does not resolve. Put it into its owner's graveyard.,"""I find it amusing how often mortals turn to prayer as their last line of defense."" - Kano",,"wizard,instant",,,3,1,,,,"standard,rainbow"
 CRU,165,Cindering Foresight,R,"If it's not your turn, you may play Cindering Foresight as though it were an instant.
 
 The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.
 
-**Opt 3** *(Look at the top 3 cards of your deck. You may put them on the top and/or bottom of your deck in any order.)*",,,"wizard,action",,,1,0,2,,,"regular,rainbow"
+**Opt 3** *(Look at the top 3 cards of your deck. You may put them on the top and/or bottom of your deck in any order.)*",,,"wizard,action",,,1,0,2,,,"standard,rainbow"
 CRU,166,Cindering Foresight,R,"If it's not your turn, you may play Cindering Foresight as though it were an instant.
 
 The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.
 
-**Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom of your deck in any order.)*",,,"wizard,action",,,2,0,2,,,"regular,rainbow"
+**Opt 2** *(Look at the top 2 cards of your deck. You may put them on the top and/or bottom of your deck in any order.)*",,,"wizard,action",,,2,0,2,,,"standard,rainbow"
 CRU,167,Cindering Foresight,R,"If it's not your turn, you may play Cindering Foresight as though it were an instant.
 
 The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.
 
-**Opt 1** *(Look at the top card of your deck. You may put it on the top or bottom or your deck.)*",,,"wizard,action",,,3,0,2,,,"regular,rainbow"
+**Opt 1** *(Look at the top card of your deck. You may put it on the top or bottom or your deck.)*",,,"wizard,action",,,3,0,2,,,"standard,rainbow"
+CRU,168,Foreboding Bolt,C,"Deal 3 arcane damage to target hero.
+
+**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
+CRU,169,Foreboding Bolt,C,"Deal 2 arcane damage to target hero.
+
+**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
+CRU,170,Foreboding Bolt,C,"Deal 1 arcane damage to target hero.
+
+**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
+CRU,171,Rousing Aether,C,"Deal 4 arcane damage to target hero.
+
+The next card you play this turn with an effect that deals arcane damage, instead deals that much damage plus 1.","""Please... you could never have unlocked its true power."" - Linnea, Mistress of Malady",,"wizard,action",,,1,2,3,,,"standard,rainbow"
+CRU,172,Rousing Aether,C,"Deal 3 arcane damage to target hero.
+
+The next card you play this turn with an effect that deals arcane damage, instead deals that much damage plus 1.","""Please... you could never have unlocked its true power."" - Linnea, Mistress of Malady",,"wizard,action",,,2,2,3,,,"standard,rainbow"
+CRU,173,Rousing Aether,C,"Deal 2 arcane damage to target hero.
+
+The next card you play this turn with an effect that deals arcane damage, instead deals that much damage plus 1.","""Please... you could never have unlocked its true power."" - Linnea, Mistress of Malady",,"wizard,action",,,3,2,3,,,"standard,rainbow"
 CRU,174,Snapback,C,"Deal 3 arcane damage to target hero.
 
-if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,1,1,3,,,"regular,rainbow"
+if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
 CRU,175,Snapback,C,"Deal 2 arcane damage to target hero.
 
-if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,2,1,3,,,"regular,rainbow"
+if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,2,1,3,,,"standard,rainbow"
 CRU,176,Snapback,C,"Deal 1 arcane damage to target hero.
 
-if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,3,1,3,,,"regular,rainbow"
+if you have played another Wizard 'non-attack' action card this turn, you may play Snapback as though it were an instant.",,,"wizard,action",,,3,1,3,,,"standard,rainbow"
 CRU,177,"Talishar, the Lost Prince",R,"**Once per Turn action - [2 resource]**, put a rust token on Talishar, the Lost Prince: **Attack**
 
-At the beginning of your end phase, if Talishar, the Lost Prince has 3 or more rust counters on it, destroy it.  ",,,"generic,weapon,sword,2h",,,,,,4,,"regular,cold"
-CRU,179,Gambler's Gloves,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Gloves. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Gloves after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"regular,cold"
+At the beginning of your end phase, if Talishar, the Lost Prince has 3 or more rust counters on it, destroy it.  ",,,"generic,weapon,sword,2h",,,,,,4,,"standard,cold"
+CRU,179,Gambler's Gloves,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Gloves. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Gloves after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"standard,cold"
 CRU,180,Coax a Commotion,M,"If Coax a Commotion hits, choose any number:
 
 * Each hero creates a Quicken Token
 * Each hero draws a card
-* Each hero gains 1[life].","In Aria, preparing for war means making the most of the time you have left.",,"generic,action,attack",,,1,0,2,4,,"regular,rainbow"
+* Each hero gains 1[life].","In Aria, preparing for war means making the most of the time you have left.",,"generic,action,attack",,,1,0,2,4,,"standard,rainbow"
 CRU,181,Gorganian Tome,M,"**Legendary** *(You may only have one Gorganian Tome in your deck.)*
 
 Draw X cards, where X is 1 plus the number of Gorganian Tomes in all graveyards.
 
-**Go again**",,,"generic,action,attack",,,,0,,,,"regular,rainbow"
+**Go again**",,,"generic,action,attack",,,,0,,,,"standard,rainbow"
+CRU,182,Snag,M,Attack action cards can't gain [attack] from their own effects or the effects of attack reaction cards this turn. *(This only affects [attack] that would be gained after Snag has resolved.)*,,,"generic,instant",,,3,0,,,,"standard,rainbow"
 CRU,183,Promise of Plenty,R,"If Promise of Plenty hits, each hero who doesn't have a card in arsenal puts the top card of their deck face down into their arsenal.
 
-If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,1,0,2,3,,"regular,rainbow"
+If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,1,0,2,3,,"standard,rainbow"
 CRU,184,Promise of Plenty,R,"If Promise of Plenty hits, each hero who doesn't have a card in arsenal puts the top card of their deck face down into their arsenal.
 
-If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,2,0,2,2,,"regular,rainbow"
+If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,2,0,2,2,,"standard,rainbow"
 CRU,185,Promise of Plenty,R,"If Promise of Plenty hits, each hero who doesn't have a card in arsenal puts the top card of their deck face down into their arsenal.
 
-If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,3,0,2,1,,"regular,rainbow"
+If Promise of Plenty is played from arsenal, it gains **go again**. ",,,"generic,action,attack",,,3,0,2,1,,"standard,rainbow"
+CRU,186,Lunging Press,R,Target attack action card gains +1[attack].,,,"generic,attack,reaction",,,3,0,2,,,"standard,rainbow"
+CRU,187,Springboard Somersault,R,"If Springboard Somersault is played from arsenal, it gains +2[defense].",,,"generic,defense,reaction",,,2,0,2,,,"standard,rainbow"
 CRU,188,Cash In,R,"You may destroy 4 Coppers, 2 Silvers, or 1 Gold you control rather than pay Cash In's cost.
 
 Draw 2 cards.
 
-**Go again**",,,"generic,action",,,2,4,2,,,"regular,rainbow"
-CRU,189,Reinforce the Line,R,Target defending attack action card gains +4[defense].,,,"generic,instant",,,1,0,,,,"regular,rainbow"
-CRU,190,Reinforce the Line,R,Target defending attack action card gains +3[defense].,,,"generic,instant",,,2,0,,,,"regular,rainbow"
-CRU,191,Reinforce the Line,R,Target defending attack action card gains +2[defense].,,,"generic,instant",,,3,0,,,,"regular,rainbow"
-CRU,197,Copper,C,"**Action** - [4 resource] ,destroy Copper: Draw a card. **Go again**",,,"generic,token,item",,,,,,,,"regular,rainbow"
+**Go again**",,,"generic,action",,,2,4,2,,,"standard,rainbow"
+CRU,189,Reinforce the Line,R,Target defending attack action card gains +4[defense].,,,"generic,instant",,,1,0,,,,"standard,rainbow"
+CRU,190,Reinforce the Line,R,Target defending attack action card gains +3[defense].,,,"generic,instant",,,2,0,,,,"standard,rainbow"
+CRU,191,Reinforce the Line,R,Target defending attack action card gains +2[defense].,,,"generic,instant",,,3,0,,,,"standard,rainbow"
+CRU,192,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,1,2,3,6,,"standard,rainbow"
+CRU,193,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,2,2,3,5,,"standard,rainbow"
+CRU,194,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,3,2,3,4,,"standard,rainbow"
+CRU,195,Cracked Bauble,C,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,,,rainbow
+CRU,196,Quicken,C,"*(Auras stay in the arena until they are destroyed.)*
+
+When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,rainbow
+CRU,197,Copper,C,"**Action** - [4 resource] ,destroy Copper: Draw a card. **Go again**",,,"generic,token,item",,,,,,,,"standard,rainbow"
