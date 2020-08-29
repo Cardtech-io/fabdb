@@ -132,6 +132,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.user_id',
             'decks.name',
             'decks.slug',
+            'decks.format',
             DB::raw('SUM(dc2.total * price_averages.mean) AS total_price'),
             DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
         ]);

@@ -65,7 +65,7 @@
             ...mapActions('deckSearch', ['setPage', 'updateParam']),
 
             active(field) {
-                if (this.params[field]) {
+                if (this.params[field]) {   
                     return 'shadow-active'
                 }
             },

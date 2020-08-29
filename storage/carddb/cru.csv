@@ -143,7 +143,7 @@ CRU,76,Dorinthea Ironsong,C,"**Once per Turn Effect** - When your weapon attack 
 CRU,77,"Kassai, Cintari Sellsword",R,"Your second sword attack each turn costs [resource] less.
 
 At the beginning of your end phase, if you have attacked 2 or more times with weapons this turn, create a Copper token for each weapon attack that hit. *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"warrior,hero,young",20,4,,,,,,"standard,rainbow"
- CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
+CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
 If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
 
