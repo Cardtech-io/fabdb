@@ -35,9 +35,9 @@ While Barraging Bighorn is defended by less than 2 non-equipment cards, it has *
 CRU,13,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
 CRU,14,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
 CRU,15,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
-CRU,16,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,1,3,3,7,,"standard,rainbow"
-CRU,17,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,2,3,3,6,,"standard,rainbow"
-CRU,18,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,,,,3,3,3,5,,"standard,rainbow"
+CRU,16,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,"brute,action,attack",,,1,3,3,7,,"standard,rainbow"
+CRU,17,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,"brute,action,attack",,,2,3,3,6,,"standard,rainbow"
+CRU,18,Riled Up,C,"If you have discarded a card with 6 or more [attack] this turn, Riled Up gains +1[attack].","When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!",,"brute,action,attack",,,3,3,3,5,,"standard,rainbow"
 CRU,19,"Swing Fist, Think Later",C,"As an additional cost to play Swing Fist, Think Later, discard a random card.
 
 **Go again**","""Nobody says that about my Mama."" - Thuk",,"brute,action,attack",,,1,1,3,4,,"standard,rainbow"
@@ -199,12 +199,12 @@ CRU,92,Hit and Run,C,"Your next weapon attack this turn gains **go again**.
 
 If you have attacked with a weapon this turn, your next attack this turn gains +2[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
+**Go again**",,,"warrior,action",,,2,0,3,,,"standard,rainbow"
 CRU,93,Hit and Run,C,"Your next weapon attack this turn gains **go again**.
 
 If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
+**Go again**",,,"warrior,action",,,3,0,3,,,"standard,rainbow"
 CRU,94,Push Forward,C,"Your next weapon attack this turn gains +3[attack].
 
 If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
