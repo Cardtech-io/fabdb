@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 class KeywordFilter implements SearchFilter
 {
@@ -9,30 +10,18 @@ class KeywordFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier(implode(' ', $this->getWords($input['keywords'])));
+        return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier($input['keywords']) && $this->keywordsOnly($input);
     }
 
     public function applyTo(Builder $query, array $input)
     {
-        $words = $this->getWords($input['keywords']);
+        $search = addslashes($input['keywords']);
 
-        if (count($words) > 1) {
-            $search = implode(' ', $words);
-            $query->whereRaw("MATCH(search_text) AGAINST ('?' IN BOOLEAN MODE)", [$search]);
-        } else {
-            $search = addslashes($input['keywords']);
-            $query->whereRaw("search_text LIKE '%$search%'");
-        }
+        $query->whereRaw("search_text LIKE ?", ["%$search%"]);
     }
 
-    private function getWords($keywords): array
+    private function keywordsOnly(array $input)
     {
-        $keywords = collect(explode(' ', $keywords))->map(function($keyword) {
-            return addslashes($keyword);
-        })->filter()->toArray();
-
-        return array_filter($keywords, function($keyword) {
-            return preg_match('/^[a-z]+$/i', $keyword);
-        });
+        return !Str::contains($input['keywords'], ['=', '>', '<']);
     }
 }
