@@ -17,7 +17,7 @@
                 </svg>
             </button>
         </div>
-        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full">
+        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full z-100">
             <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" @clicked="clicked"></nav-item>
         </div>
     </header>

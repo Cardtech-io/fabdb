@@ -21,6 +21,7 @@ use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Arr;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
@@ -148,6 +149,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function prices(array $params)
     {
+        $order = Arr::get($params, 'order', 'name');
+        $direction = Arr::get($params, 'direction', 'asc');
+
         $ordering = [
             'name' => 'name',
             'high' => 'current_high',
@@ -186,7 +190,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where('current.currency', $params['currency'])
             ->where('current.created_at', $dates[0])
             ->where('identifier', 'LIKE', $params['set'].'%')
-            ->orderBy($ordering[$params['order']], $params['direction'])
+            ->orderBy($ordering[$order], $direction)
             ->orderBy('cards.identifier');
     }
 

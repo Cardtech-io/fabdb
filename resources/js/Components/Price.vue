@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>{{ symbol }}</span><span>{{ value }}</span>
+        <span>{{ symbol }}</span><span>{{ value.toFixed(2) }}</span>
     </div>
 </template>
 

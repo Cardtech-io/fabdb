@@ -46,13 +46,13 @@
 
                                 <tr class="table-row sm:hidden">
                                     <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <a href="" @click.prevent="sort('high')">High</a>
+                                        <sorter field="low" text="Low" :order="order" :direction="direction" :clicked="sort"></sorter>
                                     </th>
                                     <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <a href="" @click.prevent="sort('mean')">Mean</a>
+                                        <sorter field="mean" text="Mean" :order="order" :direction="direction" :clicked="sort"></sorter>
                                     </th>
                                     <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <a href="" @click.prevent="sort('low')">Low</a>
+                                        <sorter field="high" text="High" :order="order" :direction="direction" :clicked="sort"></sorter>
                                     </th>
                                 </tr>
                             </thead>
@@ -161,13 +161,15 @@
             },
 
             sort(column) {
-                this.direction = 'asc';
-
-                if (this.order == column) {
-                    this.direction = 'desc';
+                // If this column is already ordered, then we flip the direction
+                if (column === this.order) {
+                    this.direction = this.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.direction = 'asc';
                 }
 
                 this.order = column;
+
                 this.search();
             },
 
