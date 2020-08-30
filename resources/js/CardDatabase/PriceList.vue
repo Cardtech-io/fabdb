@@ -29,17 +29,31 @@
                         <table class="w-full table-auto border-collapse bg-white">
                             <thead>
                                 <tr class="hidden sm:table-row text-base">
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left">Name</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left flex items-center">
+                                        <sorter field="name" text="Name" :order="order" :direction="direction" :clicked="sort"></sorter>
+                                    </th>
                                     <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Rarity</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">High</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Mean</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Low</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <sorter field="low" text="Low" :order="order" :direction="direction" :clicked="sort"></sorter>
+                                    </th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <sorter field="mean" text="Mean" :order="order" :direction="direction" :clicked="sort"></sorter>
+                                    </th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <sorter field="high" text="High" :order="order" :direction="direction" :clicked="sort"></sorter>
+                                    </th>
                                 </tr>
 
                                 <tr class="table-row sm:hidden">
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">High</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Mean</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Low</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <a href="" @click.prevent="sort('high')">High</a>
+                                    </th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <a href="" @click.prevent="sort('mean')">Mean</a>
+                                    </th>
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
+                                        <a href="" @click.prevent="sort('low')">Low</a>
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -62,17 +76,21 @@
 
     import CurrencySelector from '../Components/CurrencySelector.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Icon from "../Components/Icon";
     import Paginator from '../Components/Paginator.vue';
     import PriceListItem from './PriceListItem.vue';
     import SearchTips from './SearchTips.vue';
+    import Sorter from "../Components/Sorter";
 
     export default {
         components: {
             CurrencySelector,
             HeaderTitle,
+            Icon,
             Paginator,
             PriceListItem,
-            SearchTips
+            SearchTips,
+            Sorter
         },
 
         computed: {
@@ -142,8 +160,27 @@
                 this.search();
             },
 
+            sort(column) {
+                this.direction = 'asc';
+
+                if (this.order == column) {
+                    this.direction = 'desc';
+                }
+
+                this.order = column;
+                this.search();
+            },
+
             search() {
-                axios.get('/cards/prices?currency='+this.currency()+'&set='+this.set+'&page='+this.page).then(response => {
+                let params = {
+                    currency: this.currency(),
+                    set: this.set,
+                    page: this.page,
+                    order: this.order,
+                    direction: this.direction,
+                };
+
+                axios.get('/cards/prices', { params }).then(response => {
                     this.refreshResults(response.data);
                 });
             },

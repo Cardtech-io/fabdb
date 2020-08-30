@@ -1,5 +1,5 @@
 <template>
-    <select v-model="thisCurrency" dir="rtl" class="input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" @change="currencySelected">
+    <select v-model="thisCurrency" dir="rtl" class="input-white focus:border-gray-500 py-2 px-4 rounded-lg" @change="currencySelected">
         <option value="all" v-if="showAll">Currency - All</option>
         <option v-bind:value="c" v-for="c in currencies">{{ c }}</option>
     </select>

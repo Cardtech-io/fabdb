@@ -29,11 +29,10 @@ interface CardRepository
     /**
      * Return a collection of cards and their prices.
      *
-     * @param string $currency
-     * @param string $set
+     * @param array $params
      * @return mixed
      */
-    public function prices(string $currency, string $set);
+    public function prices(array $params);
 
     /**
      * Finds the first card that matches the provided search conditions. This search is less feature-rich

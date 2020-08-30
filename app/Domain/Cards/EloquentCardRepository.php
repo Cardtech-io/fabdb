@@ -146,8 +146,16 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return str_split($identifier, 3)[1];
     }
 
-    public function prices(string $currency, string $set)
+    public function prices(array $params)
     {
+        $ordering = [
+            'name' => 'name',
+            'high' => 'current_high',
+            'mean' => 'current_mean',
+            'low' => 'current_low',
+            'rarity' => 'rarity'
+        ];
+
         $dates = PriceAverage::selectRaw('DISTINCT created_at')
             ->orderBy('created_at', 'desc')->limit(2)
             ->pluck('created_at')
@@ -169,16 +177,16 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'previous.low AS previous_low'
             )
             ->join('price_averages AS current', 'current.card_id', 'cards.id')
-            ->join('price_averages AS previous', function($join) use ($currency, $dates) {
+            ->join('price_averages AS previous', function($join) use ($dates) {
                 $join->on('previous.card_id', 'current.card_id');
                 $join->whereRaw('previous.currency = current.currency');
                 $join->whereRaw('previous.variant = current.variant');
                 $join->where('previous.created_at', $dates[1]);
             })
-            ->where('current.currency', $currency)
+            ->where('current.currency', $params['currency'])
             ->where('current.created_at', $dates[0])
-            ->where('identifier', 'LIKE', $set.'%')
-            ->orderBy('cards.name')
+            ->where('identifier', 'LIKE', $params['set'].'%')
+            ->orderBy($ordering[$params['order']], $params['direction'])
             ->orderBy('cards.identifier');
     }
 

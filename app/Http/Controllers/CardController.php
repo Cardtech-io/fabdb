@@ -37,7 +37,7 @@ class CardController extends Controller
 
     public function prices(Request $request, CardRepository $cards)
     {
-        return $cards->prices($request->get('currency'), $request->get('set'))
+        return $cards->prices($request->all())
             ->paginate($request->get('per_page', 50))
             ->appends($request->except('page'));
     }
