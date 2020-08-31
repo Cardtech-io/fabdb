@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        props: ['item', 'toggle', 'active'],
+        props: ['item', 'toggle', 'active', 'opened'],
 
         data() {
             return {
@@ -24,41 +24,52 @@
         },
 
         computed: {
-            isActive: function() {
+            isActive() {
                 return this.selected || (this.active && (this.active.link == this.item.link || this.hasChild(this.active)));
             }
         },
 
         methods: {
-            hasChild: function(item) {
+            hasChild(item) {
                 return this.item.children && this.item.children.filter(child => {
                     return child.link == item.link;
                 }).length;
             },
 
-            toggleChildren: function() {
+            toggleChildren() {
                 this.open = !this.open;
             },
 
-            openChildren: function() {
+            openChildren() {
                 this.open = true;
             },
 
-            closeChildren: function() {
+            closeChildren() {
                 this.open = false;
             },
 
-            clicked: function(item) {
+            clicked(item) {
                 this.$emit('clicked', item);
-                this.selected = true;
                 this.closeChildren();
             }
         },
 
         watch: {
-            active: function(newValue, oldValue) {
+            active(newValue, oldValue) {
                 this.closeChildren();
                 this.selected = false;
+            },
+
+            open(value) {
+                if (value) {
+                    this.$emit('opened', this.item);
+                }
+            },
+
+            opened(openedItem) {
+                if (openedItem !== this.item && !this.hasChild(openedItem)) {
+                    this.closeChildren();
+                }
             }
         }
     };
