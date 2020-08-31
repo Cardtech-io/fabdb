@@ -26,6 +26,8 @@ class User extends Model implements Authenticatable
         'name',
         'gemId',
         'view',
+        'width',
+        'theme',
     ];
 
     protected $casts = [
@@ -59,7 +61,7 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $currency, $need, $view, string $avatar, string $theme)
+    public function updateProfile($email, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
     {
         $this->email = $email;
         $this->name = $name;
@@ -68,12 +70,13 @@ class User extends Model implements Authenticatable
         $this->need = $need;
         $this->view = $view;
         $this->theme = $theme;
+        $this->width = $width;
 
         if ($this->subscribed()) {
             $this->avatar = $avatar;
         }
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme));
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme, $width));
 
         return $this;
     }

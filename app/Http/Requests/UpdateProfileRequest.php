@@ -11,7 +11,8 @@ class UpdateProfileRequest extends FormRequest
         return [
             'email' => ['required', Rule::unique('users')->ignore($this->user()->id)],
             'name' => ['nullable', 'alpha_spaces'],
-            'gemId' => ['nullable', 'numeric']
+            'gemId' => ['nullable', 'numeric'],
+            'width' => ['required', 'in:narrow,wide'],
         ];
     }
 }

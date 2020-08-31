@@ -48,7 +48,9 @@ class ProfileWasUpdated
      */
     private $theme;
 
-    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme)
+    private $width;
+
+    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme, $width)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -59,6 +61,7 @@ class ProfileWasUpdated
         $this->view = $view;
         $this->avatar = $avatar;
         $this->theme = $theme;
+        $this->width = $width;
     }
 
     public function userId(): int
@@ -104,5 +107,10 @@ class ProfileWasUpdated
     public function theme(): string
     {
         return $this->theme;
+    }
+
+    public function width(): string
+    {
+        return $this->width;
     }
 }

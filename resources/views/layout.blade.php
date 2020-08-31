@@ -13,6 +13,16 @@
 
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
+        <style type="text/css">
+            @if ($user && $user->width == 'wide')
+                .container {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin-left: 0;
+                    margin-right: 0
+                }
+            @endif
+        </style>
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">

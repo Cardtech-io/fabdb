@@ -52,7 +52,12 @@ class UpdateProfile
      */
     private $theme;
 
-    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, string $view, string $avatar, string $theme)
+    /**
+     * @var string
+     */
+    private $width;
+
+    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, string $view, string $avatar, string $theme, string $width)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -63,13 +68,14 @@ class UpdateProfile
         $this->view = $view;
         $this->avatar = $avatar;
         $this->theme = $theme;
+        $this->width = $width;
     }
 
     public function handle(UserRepository $users)
     {
         $user = $users->find($this->userId);
 
-        $user->updateProfile($this->email, $this->name, $this->gemId, $this->currency, $this->need, $this->view, $this->avatar, $this->theme);
+        $user->updateProfile($this->email, $this->name, $this->gemId, $this->currency, $this->need, $this->view, $this->avatar, $this->theme, $this->width);
 
         $users->save($user);
 
