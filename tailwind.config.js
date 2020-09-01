@@ -15,13 +15,20 @@ module.exports = {
                 'crumbs': 'var(--crumbs-background-color)'
             },
 
+            height: {
+                '1/2': '50%'
+            },
+
             margin: {
+                '1px': '1px',
                 '1/4': '25%'
             },
 
             width: {
                 '1/7': '14.2857143%',
                 '1/8': '12.5%',
+                '1/10': '10%',
+                '9/10': '90%'
             }
         },
 

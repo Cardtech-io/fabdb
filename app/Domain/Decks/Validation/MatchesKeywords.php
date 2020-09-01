@@ -4,10 +4,16 @@ namespace FabDB\Domain\Decks\Validation;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
 
 class MatchesKeywords implements Rule
 {
     use RequiresCard;
+
+    /**
+     * @var Deck
+     */
+    public $deck;
 
     /**
      * @var string
@@ -16,6 +22,7 @@ class MatchesKeywords implements Rule
 
     public function __construct(Deck $deck)
     {
+        $this->deck = $deck;
         $this->mainKeyword = $deck->mainKeyword();
     }
 
@@ -30,7 +37,7 @@ class MatchesKeywords implements Rule
     {
         $card = $this->getCard($value);
 
-        return $card->isHero() || count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1;
+        return $card->isHero() || count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1 || $this->shapeshifting($card);
     }
 
     /**
@@ -41,5 +48,12 @@ class MatchesKeywords implements Rule
     public function message()
     {
         return 'Card must contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
+    }
+
+    private function shapeshifting(Card $card)
+    {
+        $hero = $this->deck->hero();
+
+        return $hero && $hero->keywords[0] == 'shapeshifter' && Str::contains(strtolower($card->text), 'specialization');
     }
 }

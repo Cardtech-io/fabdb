@@ -11,7 +11,7 @@
                 </router-link>
             </div>
         </div>
-        <div class="px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
+        <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
             <p class="my-4">
                 FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link">Flesh and Blood TCG</a> community project, with various features such as
                 <router-link to="/decks/build/" class="link">deck builder</router-link>,
