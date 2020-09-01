@@ -52,6 +52,8 @@ class MatchesKeywords implements Rule
 
     private function shapeshifting(Card $card)
     {
-        return $this->deck->hero()->keywords[0] == 'shapeshifter' && Str::contains(strtolower($card->text), 'specialization');
+        $hero = $this->deck->hero();
+
+        return $hero && $hero->keywords[0] == 'shapeshifter' && Str::contains(strtolower($card->text), 'specialization');
     }
 }
