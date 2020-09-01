@@ -62,8 +62,8 @@
                             </div>
                             <div class="mt-2 mb-8">
                                 <div class="flex">
-                                    <button @click.prevent="copyShareURL" class="w-1/2 appearance-none block w-full mt-2 bg-red-700 text-center text-white rounded-l-lg py-2 px-2 leading-tight focus:outline-none hover:bg-red-500 border-r border-gray-200">Share</button>
-                                    <button @click.prevent="showExportOptions = !showExportOptions" class="w-1/2 appearance-none block w-full mt-2 bg-red-700 text-center text-white rounded-r-lg py-2 px-2 leading-tight focus:outline-none hover:bg-red-500 border-gray-200">Export</button>
+                                    <button @click.prevent="copyShareURL" class="w-1/2 mt-2 button-primary rounded-l-lg p-2 mr-1px">Share</button>
+                                    <button @click.prevent="showExportOptions = !showExportOptions" class="w-1/2 mt-2 button-primary rounded-r-lg p-2 mr-1px">Export</button>
                                 </div>
                                 <tts-exporter :deck="deck" v-if="showExportOptions"></tts-exporter>
                             </div>
