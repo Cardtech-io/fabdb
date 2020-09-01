@@ -1,5 +1,5 @@
 <template>
-    <div class="z-100 absolute" :style="position()" v-if="visible">
+    <div class="hidden md:block z-100 absolute" :style="position()" v-if="visible">
         <card-image :card="card" :width="width" v-if="card"/>
     </div>
 </template>
@@ -15,16 +15,15 @@
             return {
                 coordinates: [],
                 visible: false,
-                width: 350
+                width: 300
             };
         },
 
         methods: {
             position() {
-                console.log(this.coordinates);
                 return {
-                    'width': '350px',
-                    'top': this.coordinates[1] + 'px',
+                    'width': this.width + 'px',
+                    'top': this.coordinates[1] + window.scrollY - 200 + 'px',
                     'left': this.coordinates[0] - this.width - 100 + 'px'
                 };
             }

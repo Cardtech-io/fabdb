@@ -103,11 +103,11 @@
                                             <button class="button-secondary flex-grow mb-1px" @click.prevent="addCard(weapon)">+</button>
                                             <button class="button-secondary flex-grow" @click.prevent="removeCard(weapon)">-</button>
                                         </div>
-                                        <a href="" @click.prevent="removeCard(weapon)" class="block w-9/10 p-1 pl-4">
+                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = weapon" @mouseleave="hoverCard = null">
                                             <span v-if="weapon.total > 1">({{ weapon.total }})</span>
                                             <span>{{ weapon.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
-                                        </a>
+                                        </div>
                                     </li>
                                 </ol>
                             </div>
@@ -116,12 +116,12 @@
                                 <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
                                 <ol>
                                     <li v-for="card in equipment" class="flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
-                                        <button class="button-secondary leading-tight h-full p-2" @click.prevent="removeCard(card)">-</button>
+                                        <button class="button-secondary leading-tight h-full p-2 w-1/10" @click.prevent="removeCard(card)">-</button>
 
-                                        <a href="" @click.prevent="removeCard(card)" class="block hover:bg-gray-300 p-1 pl-4">
+                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
                                             <span>{{ card.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </a>
+                                        </div>
                                     </li>
                                 </ol>
                             </div>
@@ -137,12 +137,12 @@
                                             <button class="button-secondary flex-grow" @click.prevent="removeCard(card)">-</button>
                                         </div>
 
-                                        <a href="" @click.prevent="removeCard(card)" class="w-9/10 block p-1 pl-4" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
+                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
                                             <span class="">({{ card.total }})</span>
                                             <span>{{ card.name }}</span>
                                             <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </a>
+                                        </div>
                                     </li>
                                 </ol>
                             </div>
