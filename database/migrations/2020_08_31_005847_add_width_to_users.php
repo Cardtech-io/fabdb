@@ -14,7 +14,7 @@ class AddWidthToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('width', ['narrow', 'wide'])->default('narrow')->after('theme');
+            $table->enum('width', ['narrow', 'wide'])->default('wide')->after('theme');
         });
     }
 
