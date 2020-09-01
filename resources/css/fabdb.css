@@ -89,7 +89,7 @@ body {
 }
 
 .button-primary {
-    @apply leading-tight;
+    @apply leading-none;
     @apply outline-none;
     background-color: var(--button-primary-background-color);
     color: var(--button-primary-text-color)

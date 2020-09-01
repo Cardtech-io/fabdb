@@ -40,6 +40,7 @@
             </div>
 
             <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
+                <hover-card :card="hoverCard"></hover-card>
                 <div v-if="cards && cards.length">
                     <div class="border-b border-gray-400 mb-8" v-if="hero">
                         <div class="flex-auto">
@@ -97,8 +98,12 @@
                             <div v-if="weapons.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
                                 <ol>
-                                    <li v-for="weapon in weapons" class="odd:bg-gray-100">
-                                        <a href="" @click.prevent="removeCard(weapon)" class="block hover:bg-gray-300 p-2 pl-4 w-full">
+                                    <li v-for="weapon in weapons" class="flex items-center odd:bg-gray-100 hover:bg-gray-300">
+                                        <div class="flex flex-col h-full w-1/10">
+                                            <button class="button-secondary flex-grow mb-1px" @click.prevent="addCard(weapon)">+</button>
+                                            <button class="button-secondary flex-grow" @click.prevent="removeCard(weapon)">-</button>
+                                        </div>
+                                        <a href="" @click.prevent="removeCard(weapon)" class="block w-9/10 p-1 pl-4">
                                             <span v-if="weapon.total > 1">({{ weapon.total }})</span>
                                             <span>{{ weapon.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
@@ -110,8 +115,10 @@
                             <div v-if="equipment.length" class="mb-8">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
                                 <ol>
-                                    <li v-for="card in equipment" class="odd:bg-gray-100">
-                                        <a href="" @click.prevent="removeCard(card)" class="block hover:bg-gray-300 p-2 pl-4 w-full">
+                                    <li v-for="card in equipment" class="flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
+                                        <button class="button-secondary leading-tight h-full p-2" @click.prevent="removeCard(card)">-</button>
+
+                                        <a href="" @click.prevent="removeCard(card)" class="block hover:bg-gray-300 p-1 pl-4">
                                             <span>{{ card.name }}</span>
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
                                         </a>
@@ -124,8 +131,13 @@
                             <div v-if="other.length">
                                 <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
-                                    <li v-for="card in other" class="odd:bg-gray-100">
-                                        <a href="" @click.prevent="removeCard(card)" class="block p-2 pl-4 w-full hover:bg-gray-300">
+                                    <li v-for="card in other" class="block flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
+                                        <div class="flex flex-col h-full w-1/10">
+                                            <button class="button-secondary flex-grow mb-1px" @click.prevent="addCard(card)">+</button>
+                                            <button class="button-secondary flex-grow" @click.prevent="removeCard(card)">-</button>
+                                        </div>
+
+                                        <a href="" @click.prevent="removeCard(card)" class="w-9/10 block p-1 pl-4" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
                                             <span class="">({{ card.total }})</span>
                                             <span>{{ card.name }}</span>
                                             <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
@@ -157,6 +169,7 @@
 
     import CardImage from '../CardDatabase/CardImage.vue';
     import CardSelector from './CardSelector.vue';
+    import HoverCard from './HoverCard.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import Crumbs from '../Components/Crumbs.vue';
     import DeckSettings from './DeckSettings.vue';
@@ -174,6 +187,7 @@
             Crumbs,
             DeckSettings,
             HeaderTitle,
+            HoverCard,
             TtsExporter
         },
 
@@ -197,7 +211,8 @@
                 cards: [],
                 deck: null,
                 exportingToTts: false,
-                showExportOptions: false,
+                hoverCard: null,
+                showExportOptions: false
             }
         },
 
