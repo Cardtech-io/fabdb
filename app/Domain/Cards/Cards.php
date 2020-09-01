@@ -57,7 +57,7 @@ class Cards extends Collection
 
     public function total()
     {
-        return $this->sum('total');
+        return $this->sum('pivot.total');
     }
 
     public function deckTotal()
