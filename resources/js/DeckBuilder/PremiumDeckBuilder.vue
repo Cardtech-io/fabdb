@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="w-1/3 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                            <input type="text" placeholder="Search" class="input rounded-l-lg outline-none py-3 px-4 focus:bg-white focus:border-gray-500" @key>
+                            <input type="text" v-model="name" placeholder="Card name" class="input rounded-l-lg outline-none py-3 px-4 focus:bg-white focus:border-gray-500" @keyup.enter="search(1)">
                             <select v-model="cardType" class="input" @change="search()" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none sm:px-4': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-lg': !fullScreen }">
                                 <option value="">All</option>
                                 <option value="non-attack action">Non-attack actions</option>
@@ -102,7 +102,7 @@
         data() {
             return {
                 cardIndex: 0,
-                keywords: '',
+                name: '',
                 cardType: '',
                 offset: 10,
                 pad: 17,
@@ -147,7 +147,7 @@
                 let params = {
                     cardType: this.cardType,
                     class: this.hero.keywords[0],
-                    keywords: this.keywords,
+                    name: this.name,
                     'use-case': 'build',
                     page: page,
                     perPage: 12,
