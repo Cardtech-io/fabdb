@@ -33,6 +33,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('packs/generate', 'CardController@generatePack');
 
         Route::get('featured/top', 'FeatureController@top');
+        Route::get('market/{card}', 'MarketController@cardTrend');
 
         Route::post('authenticate', 'AuthController@authenticate');
         Route::post('validate', 'AuthController@validateCode');

@@ -51,7 +51,7 @@
                     release: '{{ $version }}',
                     dsn: '{{ env('SENTRY_LARAVEL_DSN') }}'
                 });
-
+                
                 @if ($user)
                     Sentry.configureScope(function(scope) {
                         scope.setUser({id: "{{ $user->slug }}" });
@@ -60,7 +60,7 @@
             </script>
         @endif
     </head>
-    <body class="theme-bg theme-{{ $theme }} font-sans md:text-lg h-full">
+    <body class="theme-bg theme-{{ $theme }} font-sans h-full">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};

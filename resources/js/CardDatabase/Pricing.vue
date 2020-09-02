@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2 class="flex mt-4 bg-gray-500 sm:rounded-t-lg overflow-hidden">
-            <div class="flex-1 px-4 py-2 uppercase font-serif text-white">
+        <h2 class="flex bg-gray-500 sm:rounded-t-lg overflow-hidden">
+            <div class="flex-1 px-4 py-2 uppercase font-serif text-white text-base">
                 Pricing
             </div>
 
@@ -16,7 +16,7 @@
                 </svg>
             </div>
         </h2>
-        <ul v-if="filtered.length">
+        <ul v-if="filtered.length" class="text-base">
             <li v-for="listing in filtered" class="flex odd:bg-white">
                 <div class="w-1/3 p-2 px-4">{{ variant(listing.variant) }}</div>
                 <div class="w-1/3 p-2 px-4 text-center">
