@@ -24,7 +24,16 @@
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="w-1/3 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
-                            <input type="text" v-model="keywords" class="input w-full" placeholder="Search for a card..." @keyup.enter="search(1)" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none sm:px-8': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg': !fullScreen }">
+                            <input type="text" placeholder="Search" class="input rounded-l-lg outline-none py-3 px-4 focus:bg-white focus:border-gray-500" @key>
+                            <select v-model="cardType" class="input" @change="search()" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 leading-tight outline-none sm:px-4': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-lg': !fullScreen }">
+                                <option value="">All</option>
+                                <option value="non-attack action">Non-attack actions</option>
+                                <option value="attack action">Attack actions</option>
+                                <option value="attack reaction">Attack reactions</option>
+                                <option value="defense reaction">Defense reactions</option>
+                                <option value="instant">Instants</option>
+                                <option value="item">Items</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -93,7 +102,8 @@
         data() {
             return {
                 cardIndex: 0,
-                keywords: null,
+                keywords: '',
+                cardType: '',
                 offset: 10,
                 pad: 17,
                 results: []
@@ -135,6 +145,8 @@
                 this.setPage({ page });
 
                 let params = {
+                    cardType: this.cardType,
+                    class: this.hero.keywords[0],
                     keywords: this.keywords,
                     'use-case': 'build',
                     page: page,
@@ -145,6 +157,10 @@
                     this.results = response.data;
                 }).catch(error => {});
             }
+        },
+
+        mounted() {
+            this.search(1);
         },
 
         watch: {

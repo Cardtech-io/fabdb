@@ -12,6 +12,16 @@ class ClassFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$input['class']}') IS NOT NULL");
+        $classes = [$input['class']];
+
+        if ($input['use-case'] == 'build') {
+            $classes[] = 'generic';
+        }
+
+        $query->where(function($query) use ($classes) {
+            foreach ($classes as $class) {
+                $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '$class') IS NOT NULL");
+            }
+        });
     }
 }
