@@ -132,10 +132,6 @@
                 this.updateQuery(this.params);
             },
 
-            emptySearch: function() {
-                return !this.query('keywords') && !this.query('type') && !this.query('class');
-            },
-
             query(field) {
                 if (field) {
                     return this.$route.query[field];
