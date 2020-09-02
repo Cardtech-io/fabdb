@@ -140,7 +140,7 @@ class ScrapeStores extends Command
                             catch (ModelNotFoundException $e) {}
                         }
                     } else {
-                        Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.']');
+                        Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
                     }
                 }
 
