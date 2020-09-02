@@ -7,7 +7,7 @@
 
         <!-- Content -->
         <div class="clearfix flex-grow">
-            <router-view :key="$route.fullPath"></router-view>
+            <router-view></router-view>
         </div>
 
         <!-- Footer -->

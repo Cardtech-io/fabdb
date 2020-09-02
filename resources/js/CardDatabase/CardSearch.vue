@@ -69,6 +69,9 @@
 </template>
 
 <script>
+    import _ from 'lodash';
+    import Query from "../Utilities/Query";
+
     export default {
         props: {
             external: {
@@ -88,6 +91,8 @@
             wait: Boolean
         },
 
+        mixins: [Query],
+
         computed: {
             advanced() {
                 return this.openTray || this.hasAdvancedSearchParams;
@@ -99,104 +104,70 @@
         },
 
         data() {
+            let params = {
+                cost: '',
+                cardType: '',
+                keywords: '',
+                pitch: '',
+                class: '',
+                rarity: '',
+                ...this.onlyParams('cost', 'cardType', 'pitch', 'class'),
+            };
+
             return {
                 openTray: false,
-                params: {
-                    cost: '',
-                    class: '',
-                    keywords: this.$route.query.keywords,
-                    page: this.page,
-                    pitch: '',
-                    rarity: '',
-                    cardType: ''
-                }
+                params: params
             }
         },
 
         methods: {
             active(field) {
-                if (this.params[field]) {
+                if (this.query(field)) {
                     return 'shadow-active'
                 }
             },
 
-            filterCards: function() {
-                if (this.refreshable) {
-                    let params = this.params;
-
-                    params.set = this.external.set;
-
-                    this.$router.push({
-                        path: this.$route.path,
-                        query: params
-                    });
-                } else {
-                    if (this.emptySearch()) {
-                        this.$emit('search-completed', null);
-                        return;
-                    }
-                }
-
-                this.search();
-            },
-
             newSearch: function() {
                 this.params.page = 1;
-                this.filterCards();
+                this.updateQuery(this.params);
             },
 
             emptySearch: function() {
-                return !this.params.keywords && !this.params.type && !this.params['class'];
+                return !this.query('keywords') && !this.query('type') && !this.query('class');
+            },
+
+            query(field) {
+                if (field) {
+                    return this.$route.query[field];
+                }
+
+                return this.$route.query;
             },
 
             search: function() {
-                const params = this.buildSearchParams();
-
-                axios.get('/cards/', {params: params}).then(response => {
+                axios.get('/cards/', {params: this.$route.query}).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});
             },
-
-            buildSearchParams: function() {
-                var params = this.$route.query;
-
-                params.per_page = this.limit;
-
-                return {...this.external, ...params, ...this.params};
-            }
         },
 
         mounted() {
             if (this.wait) return;
 
-            this.params.keywords = this.$route.query.keywords;
-            this.params['class'] = this.$route.query['class'] || '';
-            this.params.cardType = this.$route.query.cardType || '';
-            this.params.rarity = this.$route.query.rarity || '';
-
             this.search();
         },
 
         watch: {
-            'external.set': function(external) {
-                this.params.page = 1;
-                this.filterCards();
-            },
-
-            'external.view': function(external) {
-                this.params.page = 1;
-                this.filterCards();
-            },
-
-            page: function(page) {
-                this.params.page = page;
-                this.filterCards();
+            '$route.query': {
+                handler(query) {
+                    this.search();
+                }
             }
         },
 
-        created: function() {
-            this.debouncedFilterCards = _.debounce(this.filterCards, 750);
-        }
+        // created: function() {
+        //     this.debouncedFilterCards = _.debounce(this.search, 750);
+        // }
     };
 </script>
 

@@ -39,10 +39,10 @@
                 </button>
             </div>
 
-            <div class="container sm:mx-auto py-8 px-4" v-show="activeTab == 'deck'">
+            <div class="container sm:mx-auto py-8 pt-4 px-4" v-show="activeTab == 'deck'">
                 <hover-card :card="hoverCard"></hover-card>
                 <div v-if="cards && cards.length">
-                    <div class="border-b border-gray-400 mb-8" v-if="hero">
+                    <div class="border-b border-gray-400 mb-4" v-if="hero">
                         <div class="flex-auto">
                             <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }}</h1>
                             <div class="text-gray-500 text-2xl font-serif uppercase -mt-2 mb-2">
@@ -55,8 +55,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clearfix">
-                        <div class="md:w-1/3 md:float-left" v-if="hero">
+                    <div class="md:flex">
+                        <div class="md:w-1/4 md:float-left" v-if="hero">
                             <div>
                                 <card-image :card="hero" :clickHandler="removeCard"></card-image>
                             </div>
@@ -69,34 +69,9 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left md:pl-8 md:pr-4">
-                            <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
-                                <ol>
-                                    <li class="block p-1 pl-4 w-full">Total cards: <span :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }}</span></li>
-                                    <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
-                                    <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
-                                    <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
-                                </ol>
-                            </div>
-
-                            <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
-                                <ol>
-                                    <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
-                                    <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 1: {{ pitchCount(1) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 2: {{ pitchCount(2) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Cost 0: {{ costCount(0) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Cost 1: {{ costCount(1) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Cost 2: {{ costCount(2) }}</li>
-                                    <li class="block p-1 pl-4 w-full">Cost 3+: {{ costCount(3) }}</li>
-                                </ol>
-                            </div>
-
+                        <div class="md:w-1/4 md:mx-4 md:ml-8">
                             <div v-if="weapons.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Weapons</h3>
+                                <h3 class="pb-2 font-serif uppercase text-2xl">Weapons</h3>
                                 <ol>
                                     <li v-for="weapon in weapons" class="flex items-center odd:bg-gray-100 hover:bg-gray-300">
                                         <div class="flex flex-col h-full w-1/10">
@@ -113,7 +88,7 @@
                             </div>
 
                             <div v-if="equipment.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Equipment</h3>
+                                <h3 class="pb-2 font-serif uppercase text-2xl">Equipment</h3>
                                 <ol>
                                     <li v-for="card in equipment" class="flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
                                         <button class="button-secondary leading-tight h-full p-2 w-1/10" @click.prevent="removeCard(card)">-</button>
@@ -127,9 +102,9 @@
                             </div>
                         </div>
 
-                        <div class="md:w-1/3 md:float-left md:pl-4">
+                        <div class="md:w-1/4 md:float-left md:px-2">
                             <div v-if="other.length">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Other</h3>
+                                <h3 class="pb-2 font-serif uppercase text-2xl">Other</h3>
                                 <ol>
                                     <li v-for="card in other" class="block flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
                                         <div class="flex flex-col h-full w-1/10">
@@ -144,6 +119,33 @@
                                             <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
                                         </div>
                                     </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 md:w-1/4 md:pl-8 md:pr-4 md:mt-0">
+                            <div v-if="other.length" class="mb-8">
+                                <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
+                                <ol>
+                                    <li class="block p-1 w-full">Total cards: <span :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }}</span></li>
+                                    <li class="block p-1 w-full">Attack actions: {{ totalAttackActions }}</li>
+                                    <li class="block p-1 w-full">Attack reactions: {{ totalAttackReactions }}</li>
+                                    <li class="block p-1 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
+                                </ol>
+                            </div>
+
+                            <div v-if="other.length" class="mb-8">
+                                <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
+                                <ol>
+                                    <li class="block p-1 w-full">Average card cost: {{ averageCost }}</li>
+                                    <li class="block p-1 w-full">Average pitch: {{ averagePitch }}</li>
+                                    <li class="block p-1 w-full">Pitch 1: {{ pitchCount(1) }}</li>
+                                    <li class="block p-1 w-full">Pitch 2: {{ pitchCount(2) }}</li>
+                                    <li class="block p-1 w-full">Pitch 3: {{ pitchCount(3) }}</li>
+                                    <li class="block p-1 w-full">Cost 0: {{ costCount(0) }}</li>
+                                    <li class="block p-1 w-full">Cost 1: {{ costCount(1) }}</li>
+                                    <li class="block p-1 w-full">Cost 2: {{ costCount(2) }}</li>
+                                    <li class="block p-1 w-full">Cost 3+: {{ costCount(3) }}</li>
                                 </ol>
                             </div>
                         </div>
