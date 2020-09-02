@@ -8,10 +8,10 @@ export default {
             return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
         },
 
-        heroProfile: function(heroName, format, width) {
-            let imageName = heroName.split(/[\s,]/)[0].toLowerCase();
+        heroProfile: function(hero, width) {
+            let imageName = hero.name.split(/[\s,]/)[0].toLowerCase();
 
-            if (format == 'blitz') {
+            if (hero.keywords[2] == 'young') {
                 imageName += '-blitz';
             }
 

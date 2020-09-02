@@ -22,19 +22,10 @@ use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
-    /**
-     * @var CardViewer
-     */
-    private $cardViewer;
-
-    public function __construct(CardViewer $cardViewer)
-    {
-        $this->cardViewer = $cardViewer;
-    }
-
     protected function model(): Model
     {
         return new Card;
@@ -59,6 +50,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.text',
             'cards.rarity',
         ]);
+
+        if ($input['use-case'] == 'build') {
+            $query->addSelect(DB::raw("IF(JSON_EXTRACT(cards.keywords, '$[0]') = 'generic', 1, 0) AS build_order"));
+        }
 
         $filters = [
             new SetFilter,
@@ -261,5 +256,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 $filter->applyTo($query, $input);
             }
         }
+    }
+
+    public function heroes()
+    {
+        return $this->newQuery()
+            ->select('cards.identifier', 'cards.name', 'cards.keywords')
+            ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
+            ->groupBy('cards.name')
+            ->get();
     }
 }

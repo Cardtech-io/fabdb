@@ -4,7 +4,7 @@ namespace FabDB\Domain\Cards;
 class CardViewer
 {
     /**
-     * Retrieves a new identifier based on the current identifer for next/previous navigation when viewing cards.
+     * Retrieves a new identifier based on the current identifier for next/previous navigation when viewing cards.
      *
      * @param string $identifier
      * @param string $operator

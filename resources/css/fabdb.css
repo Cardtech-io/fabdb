@@ -100,7 +100,7 @@ body {
 }
 
 .button-secondary {
-    @apply leading-tight;
+    @apply leading-none;
     @apply outline-none;
     background-color: var(--button-secondary-background-color);
     color: var(--button-secondary-text-color)
@@ -205,7 +205,7 @@ footer.footer .link:hover {
     @apply text-gray-700;
     @apply border;
     @apply border-gray-200;
-    @apply leading-tight;
+    @apply leading-none;
     @apply outline-none;
 }
 
@@ -217,7 +217,7 @@ footer.footer .link:hover {
     @apply text-gray-700;
     @apply border;
     @apply border-gray-200;
-    @apply leading-tight;
+    @apply leading-none;
     @apply outline-none;
 }
 

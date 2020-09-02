@@ -17,6 +17,11 @@ class CardController extends Controller
             ->appends($request->except('page'));
     }
 
+    public function heroes(CardRepository $cards)
+    {
+        return $cards->heroes();
+    }
+
     public function fabled(CardRepository $cards)
     {
         return collect([

@@ -42,4 +42,11 @@ interface CardRepository
      * @return mixed
      */
     public function searchFirst(array $params);
+
+    /**
+     * Returns all the heroes in the game (that aren't banned).
+     *
+     * @return mixed
+     */
+    public function heroes();
 }

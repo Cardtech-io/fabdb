@@ -2,6 +2,8 @@
 namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class OrderFilter implements SearchFilter
 {
@@ -13,6 +15,11 @@ class OrderFilter implements SearchFilter
     public function applyTo(Builder $query, array $input)
     {
         $order = $input['order'] ?? 'identifier';
+
+        if (Arr::get($input, 'use-case') === 'build') {
+            $query->orderBy('build_order');
+            return;
+        }
 
         switch ($order) {
             case 'identifier':

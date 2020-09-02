@@ -47,9 +47,20 @@ class VariantParser
         return $this->variant->price;
     }
 
+    /**
+     * Bit of logic here as some stores don't enter SKUs correctly. This effectively allows
+     * for lazy sku ids, such as: WTR0, CRU97.etc.
+     *
+     * @return Identifier
+     * @throws InvalidIdentifier
+     */
     public function identifier(): Identifier
     {
-        return Identifier::fromVariant($this->variant->sku);
+        preg_match('/([a-z]{3})([0-9]{1,3})/i', $this->variant->sku, $parts);
+
+        $parts[2] = str_pad($parts[2], 0, STR_PAD_LEFT);
+
+        return Identifier::fromVariant(implode('', array_slice($parts, 1)));
     }
 
     public function available()

@@ -1,18 +1,13 @@
 <template>
     <div>
-        <grouped-cards :cards="all" group-id="all" :action="mode == 'search' ? removeFromDeck : false" v-if="all.cards.length"></grouped-cards>
-        <div v-else class="text-center my-20 px-4">
-            <span v-if="!filters.length">
-                <div class="mb-8">
-                    You have not yet added any cards.
-                </div>
-                <div class="w-1/2 lg:w-1/4 mx-auto" v-if="mode != 'search'">
-                    <form-button :handler="updateMode" text="Search for cards" value="search"></form-button>
-                </div>
-            </span>
-            <span v-else>
+        <div v-if="!hero">
+            <hero-selector></hero-selector>
+        </div>
+        <div v-else>
+            <grouped-cards :cards="all" group-id="all" :action="mode == 'search' ? removeFromDeck : false" v-if="all.cards.length"></grouped-cards>
+            <div v-else class="text-center my-20 px-4">
                 There are no cards in your deck that match the selected filters.
-            </span>
+            </div>
         </div>
     </div>
 </template>
@@ -24,16 +19,17 @@
     import Cardable from '../CardDatabase/Cardable';
     import Cards from './Cards';
     import GroupedCards from './GroupedCards.vue';
+    import HeroSelector from "./HeroSelector";
     import ManagesDecks from './ManagesDecks';
     import Viewable from './Viewable';
 
     export default {
         props: ['collection'],
         mixins: [Cardable, ManagesDecks, Viewable],
-        components: {FormButton, GroupedCards},
+        components: {FormButton, GroupedCards, HeroSelector},
 
         computed: {
-            ...mapState('deck', ['filters', 'grouping', 'mode']),
+            ...mapState('deck', ['cards', 'filters', 'grouping', 'mode']),
 
             all: function() {
                 if (!this.collection.length) {
@@ -74,10 +70,6 @@
             removeFromDeck: function(card) {
                 this.removeRemote(card);
                 this.removeCard({ card });
-            },
-
-            updateMode: function(mode) {
-                this.setMode({ mode });
             }
         }
     };

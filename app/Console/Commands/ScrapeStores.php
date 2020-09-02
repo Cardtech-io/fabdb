@@ -107,10 +107,12 @@ class ScrapeStores extends Command
                 $results = json_decode($response->getBody()->getContents());
 
                 foreach ($results->products as $product) {
-                    if (preg_match('/[a-z]{3}[0-9]{3}/i', $product->variants[0]->sku)) {
-                        Log::debug('Identifier matched for ['.$product->id.':'.$product->title.']');
+                    if (preg_match('/([a-z]{3}[0-9]{1,3})/i', $product->variants[0]->sku)) {
+                        Log::debug('Identifier matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
 
                         foreach ($product->variants as $variant) {
+                            if (!preg_match('/([a-z]{3}[0-9]{1,3})/i', $variant->sku)) continue;
+
                             $parser = new VariantParser($product, $variant);
 
                             // Ignore any listings with zero price

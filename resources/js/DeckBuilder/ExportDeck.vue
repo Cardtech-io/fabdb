@@ -59,7 +59,6 @@
     import axios from 'axios';
     import { mapGetters, mapActions } from 'vuex';
 
-    import CardSelector from './CardSelector.vue';
     import Cardable from '../CardDatabase/Cardable.js';
     import CardImage from '../CardDatabase/CardImage.vue';
     import Crumbs from '../Components/Crumbs.vue';
@@ -71,7 +70,6 @@
     export default {
         components: {
             CardImage,
-            CardSelector,
             Crumbs,
             HeaderTitle,
             Submit,

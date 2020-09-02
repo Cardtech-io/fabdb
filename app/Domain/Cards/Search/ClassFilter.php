@@ -15,7 +15,7 @@ class ClassFilter implements SearchFilter
         $classes = [$input['class']];
 
         if ($input['use-case'] == 'build') {
-            $classes[] = 'generic';
+            array_unshift($classes, 'generic');
         }
 
         $query->where(function($query) use ($classes) {

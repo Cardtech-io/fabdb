@@ -2,7 +2,7 @@
     <div class="md:float-left md:px-2 w-full lg:w-1/2 my-2">
         <router-link :to="{ name: 'decks.view', params: { deck: deck.slug } }" class="block flex items-center bg-gray-100 hover:bg-white rounded-full overflow-hidden">
             <div class="flex-none">
-                <img :src="heroProfile(hero.name, deck.format, 100)" :alt="deck.name" class="rounded-full">
+                <hero-avatar :hero="hero" :name="deck.name"></hero-avatar>
             </div>
             <div class="flex-auto ml-4">
                 <h2 class="font-serif uppercase text-2xl overflow-hidden" style="max-height: 30px">{{ deck.name }}</h2>
@@ -19,12 +19,14 @@
 </template>
 
 <script>
-    import Viewable from '../DeckBuilder/Viewable';
     import Imagery from '../Utilities/Imagery';
+    import HeroAvatar from "../Components/HeroAvatar";
+    import Viewable from '../DeckBuilder/Viewable';
 
     export default {
         props: ['deck'],
         mixins: [Imagery, Viewable],
+        components: {HeroAvatar},
 
         computed: {
             cards: function() {

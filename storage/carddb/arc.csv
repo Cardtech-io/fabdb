@@ -106,7 +106,7 @@ ARC,37,Optekal Monocle,C,"Optekal Monocle enters the arena with 5 steam counters
 
 **Action** - Remove a steam counter from Optekal Monocle: **Opt 1. Go again** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"mechanologist,action,item",,,3,0,,,,
 ARC,38,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero",40,4,,,,,,
-ARC,39,"Azalea, Ace in the Hole",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero,young",20,4,,,,,,
+ARC,39,"Azalea",T,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero,young",20,4,,,,,,
 ARC,40,Death Dealer,T,"**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",,,"ranger,weapon,bow,2h",,,,,,,,
 ARC,41,Skullbone Crosswrap,L,"**Once per Turn Action** - Turn a face down card in your arsenal face up: **Opt 1**. **Go again**
 
@@ -324,7 +324,7 @@ ARC,112,Runechant,T,"*(Auras stay in the arena until they are destroyed.)*
 
 When you play an attack action card, or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero.",,,"runeblade,token,aura",,,,,,,,
 ARC,113,"Kano, Dracai of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero",30,4,,,,,,
-ARC,114,"Kano, Dracai of Aether",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero,young",15,4,,,,,,
+ARC,114,"Kano",T,"**Instant** - [3 resource]: Look at the top card of your deck. If it's a 'non-attack' action card, you may banish it. If you do, you may play it this turn as though it were an instant.",,,"wizard,hero,young",15,4,,,,,,
 ARC,115,Crucible of Aetherweave,T,"**Once per Turn Instant** - [resource]: The next card you play this turn with an effect that deals arcane damage, instead deals that much arcane damage plus 1.",,,"wizard,weapon,staff,2h",,,,,,,,
 ARC,116,Storm Striders,L,"**Instant** - [resource], destroy Storm Striders: You may play your next Wizard ‘non-attack’ action card this turn as though it were an instant.
 
