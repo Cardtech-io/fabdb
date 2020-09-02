@@ -5,8 +5,8 @@
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto px-4 flex h-full items-center">
                 <ul class="flex">
-                    <li class="float-left" v-for="(name, set) in sets" :class="isActive(set)">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set)" :class="isActive(set)">{{ name }}</a>
+                    <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
+                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">{{ set.name }}</a>
                     </li>
                 </ul>
             </div>
@@ -81,6 +81,7 @@
     import PriceListItem from './PriceListItem.vue';
     import SearchTips from './SearchTips.vue';
     import Sorter from "../Components/Sorter";
+    import _ from "lodash";
 
     export default {
         components: {
@@ -107,10 +108,7 @@
                 order: 'name',
                 page: 1,
                 direction: 'asc',
-                sets: {
-                    wtr: 'Welcome to Rathe',
-                    arc: 'Arcane Rising'
-                },
+                sets: this.filterSets(),
                 selectedCurrency: null,
                 set: this.$route.query.set || 'wtr'
             }
@@ -149,6 +147,16 @@
             changeCurrency(currency) {
                 this.selectedCurrency = currency;
                 this.search();
+            },
+
+            filterSets() {
+                let sets = _.sortBy(_.filter(this.$settings.game.sets, setting => {
+                    return setting.browseable;
+                }), 'released');
+
+                sets.unshift({ id: 'all', name: 'All cards'});
+
+                return sets;
             },
 
             refreshResults: function(results) {
