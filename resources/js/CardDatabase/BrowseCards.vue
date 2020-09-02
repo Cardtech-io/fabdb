@@ -113,12 +113,12 @@
             },
 
             updatePage(page) {
-                this.updateQuery({page})
+                this.updateQuery({page});
             },
 
             switchSet(set) {
                 this.set = set;
-                this.updatePage(1);
+                this.updateQuery({page: 1, set});
             }
         }
     };
