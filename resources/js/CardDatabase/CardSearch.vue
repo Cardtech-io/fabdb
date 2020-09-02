@@ -141,7 +141,9 @@
             },
 
             search: function() {
-                axios.get('/cards/', {params: this.$route.query}).then(response => {
+                let params = this.combineParams({ 'use-case': this.useCase });
+
+                axios.get('/cards/', {params: params}).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});
             },

@@ -49,6 +49,7 @@
     import CardItem from './CardItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
+    import Query from "../Utilities/Query";
     import SearchTips from './SearchTips.vue';
 
     export default {
@@ -59,6 +60,8 @@
             Paginator,
             SearchTips
         },
+
+        mixins: [Query],
 
         computed: {
             setDescription: function() {
@@ -110,7 +113,7 @@
             },
 
             updatePage(page) {
-                this.page = page;
+                this.updateQuery({page})
             },
 
             switchSet(set) {
