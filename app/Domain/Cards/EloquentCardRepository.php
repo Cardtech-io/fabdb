@@ -51,7 +51,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
         ]);
 
-        if ($input['use-case'] == 'build') {
+        if (Arr::get($input, 'use-case') == 'build') {
             $query->addSelect(DB::raw("IF(JSON_EXTRACT(cards.keywords, '$[0]') = 'generic', 1, 0) AS build_order"));
         }
 
