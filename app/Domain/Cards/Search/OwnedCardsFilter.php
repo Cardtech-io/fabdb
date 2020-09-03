@@ -19,7 +19,7 @@ class OwnedCardsFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return (bool) $this->user;
+        return (bool) $this->user && Arr::get($input, 'use-case') == 'collection';
     }
 
     public function applyTo(Builder $query, array $input)

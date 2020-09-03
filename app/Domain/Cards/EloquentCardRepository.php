@@ -160,7 +160,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->pluck('created_at')
             ->toArray();
 
-        return $this->newQuery()
+        $query = $this->newQuery()
             ->select(
                 'cards.id',
                 'cards.identifier',
@@ -176,7 +176,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'previous.low AS previous_low'
             )
             ->join('price_averages AS current', 'current.card_id', 'cards.id')
-            ->join('price_averages AS previous', function($join) use ($dates) {
+            ->leftJoin('price_averages AS previous', function($join) use ($dates) {
                 $join->on('previous.card_id', 'current.card_id');
                 $join->whereRaw('previous.currency = current.currency');
                 $join->whereRaw('previous.variant = current.variant');
@@ -184,9 +184,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             })
             ->where('current.currency', $params['currency'])
             ->where('current.created_at', $dates[0])
-            ->where('identifier', 'LIKE', $params['set'].'%')
             ->orderBy($ordering[$order], $direction)
             ->orderBy('cards.identifier');
+
+        if (isset($params['set']) && $params['set'] != 'all') {
+            $query->where('identifier', 'LIKE', $params['set'].'%');
+        }
+
+        return $query;
     }
 
     private function nav(\Closure $exec)

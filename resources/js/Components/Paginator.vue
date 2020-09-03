@@ -1,8 +1,8 @@
 <template>
     <div class="clearfix text-sm text-center" v-if="results">
-        <a href="" class="inline-block rounded px-2 py-1 mr-1" @click.prevent="previous" :class="disabled(results.current_page == 1)">&lt;</a>
-        <a v-for="n in pageRange" href="" class="inline-block rounded px-2 py-1 mr-1 button-primary" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
-        <a href="" class="inline-block rounded px-2 py-1 mr-1" @click.prevent="next" :class="disabled(results.current_page >= results.last_page)">&gt;</a>
+        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="previous" :class="disabled(results.current_page == 1)">&lt;</a>
+        <a v-for="n in pageRange" href="" class="inline-block rounded p-2 mr-1 button-primary" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
+        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="next" :class="disabled(results.current_page >= results.last_page)">&gt;</a>
     </div>
 </template>
 

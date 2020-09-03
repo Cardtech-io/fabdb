@@ -2,9 +2,10 @@
 namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Users\User;
+use FabDB\Library\Repository;
 use Illuminate\Database\Eloquent\Collection;
 
-interface CardRepository
+interface CardRepository extends Repository
 {
     public function search(?User $user, array $input);
 

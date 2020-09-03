@@ -111,6 +111,8 @@ body {
 }
 
 .button-disabled {
+    @apply leading-none;
+    @apply outline-none;
     background-color: var(--button-disabled-background-color);
     color: var(--button-disabled-text-color)
 }
