@@ -148,7 +148,7 @@ CRU,77,"Kassai, Cintari Sellsword",R,"Your second sword attack each turn costs [
 At the beginning of your end phase, if you have attacked 2 or more times with weapons this turn, create a Copper token for each weapon attack that hit. *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"warrior,hero,young",20,4,,,,,,"standard,rainbow"
 CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 CRU,79,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
@@ -171,17 +171,17 @@ Whenever a weapon you control hits this turn, create 2 Copper tokens.
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,85,Dauntless,R,"Your next weapon attack this turn gains +3[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
 
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,86,Dauntless,R,"Your next weapon attack this turn gains +2[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
 
 **Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 CRU,87,Dauntless,R,"Your next weapon attack this turn gains +1[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
 
 **Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 CRU,88,Out for Blood,C,"Target weapon attack gains +3[attack].
@@ -335,7 +335,7 @@ CRU,137,Increase the Tension,C,"Your next arrow attack this turn gains +1[attack
 
 **Go again**",,,"ranger,action",,,3,1,2,,,"standard,rainbow"
 CRU,138,"Viserai, Rune Blood",C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,,,standard
-CRU,139,Viserai,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,,,standard
+CRU,139,Runeblade,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,,,standard
 CRU,140,Reaping Blade,R,"**Once per Turn Action - [resource]: Attack**
 
 If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"standard,cold"
@@ -423,10 +423,10 @@ CRU,168,Foreboding Bolt,C,"Deal 3 arcane damage to target hero.
 **Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
 CRU,169,Foreboding Bolt,C,"Deal 2 arcane damage to target hero.
 
-**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
+**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,2,1,3,,,"standard,rainbow"
 CRU,170,Foreboding Bolt,C,"Deal 1 arcane damage to target hero.
 
-**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,1,1,3,,,"standard,rainbow"
+**Opt 1** *(Look at the top card of your deck. You may put it on the bottom.)*",,,"wizard,action",,,3,1,3,,,"standard,rainbow"
 CRU,171,Rousing Aether,C,"Deal 4 arcane damage to target hero.
 
 The next card you play this turn with an effect that deals arcane damage, instead deals that much damage plus 1.","""Please... you could never have unlocked its true power."" - Linnea, Mistress of Malady",,"wizard,action",,,1,2,3,,,"standard,rainbow"
