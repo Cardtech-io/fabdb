@@ -33,6 +33,7 @@
                                 <option value="defense reaction">Defense reactions</option>
                                 <option value="instant">Instants</option>
                                 <option value="item">Items</option>
+                                <option value="weapon">Weapons</option>
                             </select>
                         </div>
                     </div>
