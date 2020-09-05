@@ -13,6 +13,7 @@
                             <option value="attack action">Attack actions</option>
                             <option value="attack reaction">Attack reactions</option>
                             <option value="defense reaction">Defense reactions</option>
+                            <option value="equipment">Equipment</option>
                             <option value="hero">Hero</option>
                             <option value="instant">Instants</option>
                             <option value="item">Items</option>

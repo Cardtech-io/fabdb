@@ -31,7 +31,7 @@ export default {
                 if (card.stats.resource) {
                     return total + (card.stats.resource * card.total);
                 }
-                
+
                 return total + 0;
             }, 0);
 
