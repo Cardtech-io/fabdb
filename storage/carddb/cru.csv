@@ -335,7 +335,7 @@ CRU,137,Increase the Tension,C,"Your next arrow attack this turn gains +1[attack
 
 **Go again**",,,"ranger,action",,,3,1,2,,,"standard,rainbow"
 CRU,138,"Viserai, Rune Blood",C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,,,standard
-CRU,139,Runeblade,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero,young",20,4,,,,,,standard
+CRU,139,Nebula Blade,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,weapon,sword,2h",,,,,,1,,standard
 CRU,140,Reaping Blade,R,"**Once per Turn Action - [resource]: Attack**
 
 If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"standard,cold"
