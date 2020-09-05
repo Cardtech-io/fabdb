@@ -28,7 +28,11 @@ export default {
 
         averagePitch: function() {
             const totalPitch = this.other.reduce((total, card) => {
-                return total + (card.stats.resource * card.total);
+                if (card.stats.resource) {
+                    return total + (card.stats.resource * card.total);
+                }
+                
+                return total + 0;
             }, 0);
 
             return (totalPitch / this.totalOther).toFixed(2);
@@ -97,7 +101,7 @@ export default {
             }).reduce((total, card) => {
                 return total + card.total;
             }, 0);
-            
+
             return count +
                 this.equipment.reduce((total, card) => { return total + card.total; }, 0) +
                 this.weapons.reduce((total, card) => { return total + card.total; }, 0);

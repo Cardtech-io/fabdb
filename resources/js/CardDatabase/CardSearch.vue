@@ -111,7 +111,7 @@
                 pitch: '',
                 class: '',
                 rarity: '',
-                ...this.onlyParams('cost', 'cardType', 'pitch', 'class'),
+                ...this.onlyParams('keywords', 'cost', 'cardType', 'pitch', 'class', 'rarity'),
             };
 
             return {
