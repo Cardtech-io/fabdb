@@ -4,9 +4,21 @@
             <hero-selector></hero-selector>
         </div>
         <div v-else>
-            <grouped-cards :cards="all" group-id="all" :action="mode == 'search' ? removeFromDeck : false" v-if="all.cards.length"></grouped-cards>
-            <div v-else class="text-center my-20 px-4">
-                There are no cards in your deck that match the selected filters.
+            <div>
+                <h2 class="font-serif uppercase text-lg ml-4">Hero &amp; weapons</h2>
+                <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false">
+                    <div class="sm:w-1/3 sm:mr-4">
+                        <h3 class="font-serif uppercase text-2xl">Totals</h3>
+                    </div>
+                </grouped-cards>
+            </div>
+            <div>
+                <h2 class="font-serif uppercase text-lg ml-4">Equipment ({{ equipment.total() }})</h2>
+                <grouped-cards :cards="equipment" group-id="equipment" :action="mode == 'search' ? removeFromDeck : false"></grouped-cards>
+            </div>
+            <div>
+                <h2 class="font-serif uppercase text-lg ml-4">Other ({{ other.total() }})</h2>
+                <grouped-cards :cards="other" group-id="other" :action="mode == 'search' ? removeFromDeck : false"></grouped-cards>
             </div>
         </div>
     </div>
@@ -58,6 +70,18 @@
                     return cards.hydrate();
                 }
             },
+
+            loadout() {
+                return new Cards([this.all.hero(), ...this.all.weapons()]);
+            },
+
+            equipment() {
+                return new Cards(this.all.equipment());
+            },
+
+            other() {
+                return new Cards(this.all.other());
+            }
         },
 
         methods: {

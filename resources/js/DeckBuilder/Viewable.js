@@ -2,19 +2,19 @@ import _ from 'underscore';
 
 export default {
     computed: {
-        attacksPerHand: function() {
+        attacksPerHand() {
             return (this.totalAttacks / (this.totalOther / 4)).toFixed(1);
         },
 
-        averageAttack: function() {
+        averageAttack() {
             return (_.reduce(this.attacks, (total, card) => { return total + (card.stats.attack * card.total); }, 0) / this.totalAttacks).toFixed(1);
         },
 
-        averageBlock: function() {
+        averageBlock() {
             return (_.reduce(this.blocks, (total, card) => { return total + card.stats.defense * card.total; }, 0) / this.totalBlocks).toFixed(1);
         },
 
-        averageCost: function() {
+        averageCost() {
             const totalCost = this.other.reduce((total, card) => {
                 if (card.stats.cost && !isNaN(card.stats.cost)) {
                     return total + card.stats.cost * card.total;
@@ -26,7 +26,7 @@ export default {
             return (totalCost / this.totalOther).toFixed(2);
         },
 
-        averagePitch: function() {
+        averagePitch() {
             const totalPitch = this.other.reduce((total, card) => {
                 if (card.stats.resource) {
                     return total + (card.stats.resource * card.total);
@@ -38,7 +38,7 @@ export default {
             return (totalPitch / this.totalOther).toFixed(2);
         },
 
-        hero: function() {
+        hero() {
             if (!this.cards) {
                 return;
             }
@@ -48,31 +48,31 @@ export default {
             })[0];
         },
 
-        attacks: function() {
+        attacks() {
             return this.other.filter(card => {
                 return card.keywords.includes('attack') && !card.keywords.includes('reaction');
             });
         },
 
-        blocks: function() {
+        blocks() {
             return this.other.filter(card => {
                 return card.stats.defense && card.stats.defense > 0;
             });
         },
 
-        weapons: function() {
+        weapons() {
             return this.cards.filter(card => {
                 return card.keywords.includes('weapon');
             });
         },
 
-        equipment: function() {
+        equipment() {
             return this.cards.filter(card => {
                 return card.keywords.includes('equipment');
             });
         },
 
-        other: function() {
+        other() {
             const cards = this.cards.filter(card => {
                 return !(card.keywords.includes('hero') || card.keywords.includes('equipment') || card.keywords.includes('weapon'));
             });
@@ -81,21 +81,21 @@ export default {
             return _.sortBy(cards, card => { return card.stats.resource });
         },
 
-        totalOther: function() {
+        totalOther() {
             return this.other.reduce((total, card) => {
                 return total + card.total;
             }, 0);
         },
 
-        totalAttacks: function() {
+        totalAttacks() {
             return this.attacks.reduce((total, card) => { return total + card.total }, 0);
         },
 
-        totalBlocks: function() {
+        totalBlocks() {
             return this.blocks.reduce((total, card) => { return total + card.total }, 0);
         },
 
-        totalCards: function() {
+        totalCards() {
             let count = this.other.filter(card => {
                 return !card.keywords.includes('token');
             }).reduce((total, card) => {
@@ -107,27 +107,27 @@ export default {
                 this.weapons.reduce((total, card) => { return total + card.total; }, 0);
         },
 
-        totalActions: function() {
+        totalActions() {
             return this.totalCardType(this.other, ['action']);
         },
 
-        totalAttackActions: function() {
+        totalAttackActions() {
             return this.totalCardType(this.other, ['action', 'attack']);
         },
 
-        totalAttackReactions: function() {
+        totalAttackReactions() {
             return this.totalCardType(this.other, ['attack', 'reaction']);
         },
 
-        totalDefenseReactions: function() {
+        totalDefenseReactions() {
             return this.totalCardType(this.other, ['defense', 'reaction']);
         },
 
-        totalInstants: function() {
+        totalInstants() {
             return this.totalCardType(this.other, ['instant']);
         },
 
-        totalColoured: function() {
+        totalColoured() {
             return {
                 'blue': this.countColoured('blue'),
                 'yellow': this.countColoured('yellow'),
@@ -137,7 +137,7 @@ export default {
     },
 
     methods: {
-        costCount: function(cost) {
+        costCount(cost) {
             const cards = this.other.filter(card => {
                 if (cost < 3) {
                     return card.stats.cost == cost;
@@ -151,7 +151,7 @@ export default {
             }, 0);
         },
 
-        countColoured: function(colour) {
+        countColoured(colour) {
             const resources = {blue: 3, yellow: 2, red: 1};
             const cards = this.other.filter(card => { return card.stats.resource == resources[colour]});
 
@@ -164,7 +164,7 @@ export default {
             return count;
         },
 
-        pitchCount: function(type) {
+        pitchCount(type) {
             const cards = this.other.filter(card => {
                 return card.stats.resource == type;
             });
@@ -174,11 +174,11 @@ export default {
             }, 0);
         },
 
-        averageCardType: function(cards, keywords) {
+        averageCardType(cards, keywords) {
             return (this.totalCardType(cards, keywords) / cards.length).toFixed(1);
         },
 
-        totalCardType: function(cards, keywords) {
+        totalCardType(cards, keywords) {
             return cards.reduce((total, card) => {
                 let matches = 0;
 
@@ -196,7 +196,7 @@ export default {
             }, 0);
         },
 
-        countCards: function(cards) {
+        countCards(cards) {
             return _.reduce(cards, (total, card) => { return total + card.total; }, 0);
         }
     }
