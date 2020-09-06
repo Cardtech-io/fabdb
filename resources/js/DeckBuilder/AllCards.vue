@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pb-24">
         <div v-if="!hero">
             <hero-selector></hero-selector>
         </div>
@@ -7,8 +7,8 @@
             <div>
                 <h2 class="font-serif uppercase text-lg ml-4">Hero &amp; weapons</h2>
                 <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false">
-                    <div class="sm:w-1/3 sm:mr-4">
-                        <h3 class="font-serif uppercase text-2xl">Totals</h3>
+                    <div class="sm:w-1/3 sm:mr-4 -mt-6">
+                        <h3 class="font-serif uppercase text-xl">Totals</h3>
                     </div>
                 </grouped-cards>
             </div>

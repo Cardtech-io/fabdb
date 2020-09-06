@@ -76,7 +76,7 @@ export default {
         sideboard: [],
         fullScreen: false,
         mode: 'all',
-        zoom: 2,
+        zoom: 3,
     },
 
     getters: {
