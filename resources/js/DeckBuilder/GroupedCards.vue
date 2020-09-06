@@ -8,9 +8,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <slot></slot>
-        </div>
+        <slot v-bind:classes="cardClasses"></slot>
     </div>
 </template>
 
@@ -28,7 +26,7 @@
         components: {CardImage},
 
         computed: {
-            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'zoom']),
+            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
             ...mapGetters('session', ['user']),
 
             cardClasses: function() {
@@ -111,6 +109,13 @@
 
             zoom: function() {
                 this.redraw(this.groupId);
+            },
+
+            sections: {
+                handle() {
+                    this.redraw(this.groupId);
+                },
+                deep: true
             }
         }
     };

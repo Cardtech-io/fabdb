@@ -15,32 +15,12 @@
             <div class="sm:flex mt-8" v-if="tab == 'metrics'">
                 <div class="sm:w-1/3 sm:mr-4">
                     <h3 class="font-serif uppercase text-2xl">Totals</h3>
-                    <ol class="mt-2">
-                        <stat :value="totalCards" text="Total" position="both"></stat>
-                    </ol>
-
-                    <ol class="mt-4 text-base">
-                        <stat :value="totalActions" text="Total actions" position="top"></stat>
-                        <stat :value="totalAttackActions" text="Attack actions"></stat>
-                        <stat :value="totalAttackReactions" text="Attack reactions"></stat>
-                        <stat :value="totalDefenseReactions" text="Defense reactions"></stat>
-                        <stat :value="totalInstants" text="Instants" position="bottom"></stat>
-                    </ol>
+                    <totals></totals>
                 </div>
 
                 <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
                     <h3 class="font-serif uppercase text-2xl">General</h3>
-                    <ol class="mt-2 text-base">
-                        <stat :value="averageCost" text="Average cost" position="top"></stat>
-                        <stat :value="averagePitch" text="Average pitch"></stat>
-                        <stat :value="pitchCount(1)" text="Pitch 1"></stat>
-                        <stat :value="pitchCount(2)" text="Pitch 2"></stat>
-                        <stat :value="pitchCount(3)" text="Pitch 3"></stat>
-                        <stat :value="costCount(0)" text="Cost 0"></stat>
-                        <stat :value="costCount(1)" text="Cost 1"></stat>
-                        <stat :value="costCount(2)" text="Cost 2"></stat>
-                        <stat :value="costCount(3)" text="Cost 3+" position="bottom"></stat>
-                    </ol>
+                    <general></general>
                 </div>
 
                 <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
@@ -91,14 +71,15 @@
     import DeckSettings from './DeckSettings.vue';
     import ManagesDecks from './ManagesDecks';
     import Rulings from '../CardDatabase/Rulings';
-    import Stat from './Stat.vue';
+    import Stat from './Metrics/Stat.vue';
+    import Totals from "./Metrics/Totals";
     import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
     import _ from "lodash";
 
     export default {
         mixins: [ManagesDecks, Viewable],
-        components: { CardImage, DeckSettings, Rulings, Stat, TtsExporter },
+        components: { CardImage, DeckSettings, Rulings, Stat, Totals, TtsExporter },
 
         data() {
             return {

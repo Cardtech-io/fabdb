@@ -23,7 +23,7 @@ export default {
                 return total;
             }, 0);
 
-            return (totalCost / this.totalOther).toFixed(2);
+            return (this.totalOther ? (totalCost / this.totalOther) : 0).toFixed(2);
         },
 
         averagePitch() {
@@ -35,7 +35,7 @@ export default {
                 return total + 0;
             }, 0);
 
-            return (totalPitch / this.totalOther).toFixed(2);
+            return (this.totalPitch ? (totalCost / this.totalOther) : 0).toFixed(2)
         },
 
         hero() {
