@@ -73,10 +73,14 @@ export default {
         cards: [],
         filters: [],
         grouping: 'name',
+        sections: {
+            equipment: true,
+            other: true
+        },
         sideboard: [],
         fullScreen: false,
         mode: 'all',
-        zoom: 2,
+        zoom: 3,
     },
 
     getters: {
@@ -148,6 +152,10 @@ export default {
             controlMaxZoom(state);
         },
 
+        toggleSection(state, { section }) {
+            state.sections[section] = !state.sections[section];
+        },
+
         zoom(state, { n }) {
             let fs = state.fullScreen ? 0 : 1;
             let ms = state.mode == 'all' ? 0 : 1;
@@ -165,6 +173,10 @@ export default {
 
         addToSideboard({ commit, state }, { card }) {
             commit('addCard', { card, collection: state.sideboard });
+        },
+
+        toggleSection({ commit, state }, { section }) {
+            commit('toggleSection', { section });
         },
 
         removeFromSideBoard({ commit, state }, { card }) {

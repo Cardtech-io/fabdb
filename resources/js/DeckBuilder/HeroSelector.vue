@@ -29,11 +29,14 @@
         },
 
         methods: {
-            ...mapActions('deck', ['addCard']),
+            ...mapActions('deck', ['addCard', 'setMode']),
             ...mapActions('messages', ['addMessage']),
 
             addToDeck(card) {
-                this.addRemote(card, response => { this.addCard({card}); });
+                this.addRemote(card, response => {
+                    this.addCard({card});
+                    this.setMode({mode: 'search'});
+                });
             },
 
             type(hero) {

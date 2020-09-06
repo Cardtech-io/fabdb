@@ -1,13 +1,14 @@
 <template>
-    <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-24" transition-duration="0.3s">
+    <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-2 mx-2" transition-duration="0.3s">
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
-            <div class="relative m-4">
+            <div class="relative m-4 mx-2">
                 <img :src="cardUrl(grouped[0].identifier, 350)" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden" :style="styles(i)">
                     <card-image :card="card" :width="350" :clickHandler="action || false"></card-image>
                 </div>
             </div>
         </div>
+        <slot v-bind:classes="cardClasses"></slot>
     </div>
 </template>
 
@@ -25,7 +26,7 @@
         components: {CardImage},
 
         computed: {
-            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'zoom']),
+            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
             ...mapGetters('session', ['user']),
 
             cardClasses: function() {
@@ -108,6 +109,13 @@
 
             zoom: function() {
                 this.redraw(this.groupId);
+            },
+
+            sections: {
+                handle() {
+                    this.redraw(this.groupId);
+                },
+                deep: true
             }
         }
     };

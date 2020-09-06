@@ -110,6 +110,10 @@ export default class Cards {
         return new Cards(this.cards.reduce(reducer, []));
     }
 
+    total() {
+        return this.cards.length;
+    }
+
     add(card) {
         const deckCard = this.find(card);
 
