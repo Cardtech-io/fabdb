@@ -151,12 +151,12 @@ CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
-CRU,79,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
+CRU,79,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
-CRU,80,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
+If Cintari Saber is defended by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
+CRU,80,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
+If Cintari Saber is defended by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,81,Courage of Bladehold,M,"**Action** - Destroy Courage of Bladehold: Your sword attacks cost [resource] less per turn. **Go again**
 
 **Temper** *(If you defend with Courage of Bladehold, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense])*",,,"warrior,equipment,chest",,,,,2,,,"standard,cold"
@@ -210,17 +210,17 @@ If you have attacked with a weapon this turn, your next attack this turn gains +
 **Go again**",,,"warrior,action",,,3,0,3,,,"standard,rainbow"
 CRU,94,Push Forward,C,"Your next weapon attack this turn gains +3[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,95,Push Forward,C,"Your next weapon attack this turn gains +2[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
 **Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 CRU,96,Push Forward,C,"Your next weapon attack this turn gains +1[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
+If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
 
 **Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 CRU,98,"Dash, Inventor Extraordinaire",C,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero",40,4,,,,,,standard

@@ -73,13 +73,14 @@
     import Rulings from '../CardDatabase/Rulings';
     import Stat from './Metrics/Stat.vue';
     import Totals from "./Metrics/Totals";
+    import General from "./Metrics/General";
     import TtsExporter from './TtsExporter.vue';
     import Viewable from './Viewable';
     import _ from "lodash";
 
     export default {
         mixins: [ManagesDecks, Viewable],
-        components: { CardImage, DeckSettings, Rulings, Stat, Totals, TtsExporter },
+        components: { CardImage, DeckSettings, General, Rulings, Stat, Totals, TtsExporter },
 
         data() {
             return {

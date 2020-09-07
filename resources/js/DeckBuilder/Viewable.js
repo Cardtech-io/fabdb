@@ -35,7 +35,7 @@ export default {
                 return total + 0;
             }, 0);
 
-            return (this.totalPitch ? (totalCost / this.totalOther) : 0).toFixed(2)
+            return (this.totalOther ? (totalPitch / this.totalOther) : 0).toFixed(2)
         },
 
         hero() {
