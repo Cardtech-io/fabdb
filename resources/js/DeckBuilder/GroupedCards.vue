@@ -112,7 +112,7 @@
             },
 
             sections: {
-                handle() {
+                handler() {
                     this.redraw(this.groupId);
                 },
                 deep: true

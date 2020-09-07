@@ -8,7 +8,7 @@
             <div class="bg-white">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center w-2/3 p-4 sm:px-4" :class="{ 'sm:px-8': fullScreen, 'w-full': mode != 'search' }">
+                        <div class="flex items-center w-2/3 p-4" :class="{ 'sm:px-8': fullScreen, 'w-full': mode != 'search' }">
                             <div class="flex-auto hidden sm:block">
                                 <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} <span class="text-base">cards</span></h2>
                             </div>
@@ -43,7 +43,7 @@
 
             <div class="bg-gray-200 h-full relative">
                 <div class="clearfix flex h-full" :class="containers">
-                    <div class="w-2/3 h-full sm:py-4 overflow-y-auto" :class="{ 'sm:px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
+                    <div class="w-2/3 h-full py-4 overflow-y-auto" :class="{ 'sm:px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
                         <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
                         <deck-details v-if="mode == 'details'"></deck-details>
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
