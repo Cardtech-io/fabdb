@@ -15,10 +15,7 @@ class TypeFilter implements SearchFilter
     {
         if ($input['cardType'] == 'non-attack action') {
             $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') = 'action'");
-            $query->where(function($query) {
-                $query->whereRaw("JSON_EXTRACT(keywords, '$[2]') IS NULL");
-                $query->orWhereRaw("JSON_EXTRACT(keywords, '$[2]') != 'attack'");
-            });
+            $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
         } else {
             $type = explode(' ', $input['cardType']);
 
