@@ -20,7 +20,7 @@
         mixins: [ManagesDecks],
 
         computed: {
-            ...mapState('deck', ['deck', 'cards']),
+            ...mapState('deck', ['deck', 'cards', 'fullScreen']),
 
             available() {
                 if (this.card.keywords.includes('hero')) {
@@ -55,7 +55,11 @@
             ...mapActions('deck', ['addCard', 'setCardTotal']),
 
             active(count) {
-                return this.cardCount === count ? 'bg-black text-white' : 'bg-gray-300';
+                if (this.cardCount === count) {
+                    return 'bg-black text-white'
+                }
+
+                return this.fullScreen ? 'bg-gray-400' : 'bg-gray-300';
             },
 
             setTotal(total) {
