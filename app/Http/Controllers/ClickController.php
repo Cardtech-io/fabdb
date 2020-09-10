@@ -15,7 +15,8 @@ class ClickController extends Controller
         $this->dispatchNow(new RegisterClick(
             $to['id'],
             Listing::class,
-            $to['url']
+            $to['url'],
+            $request->ip()
         ));
 
         return redirect($to['url']);

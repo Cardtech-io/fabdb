@@ -89,7 +89,8 @@
                     window.session.user = user;
 
                     this.setUser({ user: user });
-                    this.$router.push(from);
+
+                    window.location = from;
                 }).catch(error => {
                     if (error.response.status === 404) {
                         this.addMessage({ status: 'error', message: 'The auth code you have provided is incorrect. Please check to that you have not copied it correctly.' });

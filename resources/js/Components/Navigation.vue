@@ -1,5 +1,5 @@
 <template>
-    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full">
+    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full z-0">
         <div class="flex items-center justify-between sm:border-0 sm:h-full">
             <div class="relative overflow-visible logo ml-4 sm:ml-0 py-2">
                 <router-link to="/">
@@ -17,7 +17,7 @@
                 </svg>
             </button>
         </div>
-        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full z-100">
+        <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full">
             <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" :opened="openedItem" @clicked="clicked" @opened="opened"></nav-item>
         </div>
     </header>

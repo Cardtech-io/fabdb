@@ -49,5 +49,5 @@ interface CardRepository extends Repository
      *
      * @return mixed
      */
-    public function heroes();
+    public function uniqueHeroes();
 }

@@ -11,7 +11,7 @@
                         <div class="w-full flex items-center">
                             <div class="mr-4">
                                 <div class="rounded-xl overflow-hidden">
-                                    <avatar :user="user" :width="75"></avatar>
+                                    <avatar :user="user" :width="100"></avatar>
                                 </div>
                             </div>
 
@@ -19,8 +19,7 @@
                                 <label class="block font-serif uppercase tracking-wide mb-1">Avatar</label>
                                 <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto">
                                     <option value="bauble">Bauble</option>
-                                    <option value="rhinar-young">Rhinar (Young)</option>
-                                    <option value="rhinar-adult">Rhinar (Adult)</option>
+                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name() }}</option>
                                 </select>
                             </div>
                         </div>
@@ -131,7 +130,10 @@
     import Avatar from './Avatar.vue';
     import Badge from './Badge.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import Card from "../CardDatabase/Card";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import LazyLoader from "../Components/LazyLoader";
+    import Models from "../Utilities/Models";
     import Submit from "../Components/Form/Submit";
 
     export default {
@@ -267,5 +269,13 @@
                 });
             }
         },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/cards/heroes').then(response => {
+                callback(function() {
+                    this.heroes = Models.hydrateMany(response.data, Card);
+                });
+            });
+        })
     };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="z-50">
         <header-title :title="hero ? deck.name + ' (' + hero.name + ')' : deck.name"></header-title>
 
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
