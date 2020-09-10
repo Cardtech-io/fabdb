@@ -13,7 +13,6 @@
                                 <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} <span class="text-base">cards</span></h2>
                             </div>
 
-                            <filter-selector v-if="mode != 'details'" class="hidden sm:block"></filter-selector>
                             <grouping-selector v-if="mode != 'details'" class="hidden sm:block"></grouping-selector>
                             <mode-selector class="w-full sm:w-auto"></mode-selector>
 

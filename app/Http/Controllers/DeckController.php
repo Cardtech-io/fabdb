@@ -18,6 +18,7 @@ use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
+use FabDB\Http\Requests\SetDeckCardTotalRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +56,7 @@ class DeckController extends Controller
         $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
     }
 
-    public function setCardTotal(Request $request, Deck $deck, Card $card)
+    public function setCardTotal(SetDeckCardTotalRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new SetDeckCardTotal($deck->id, $card->id, $request->get('total')));
     }
