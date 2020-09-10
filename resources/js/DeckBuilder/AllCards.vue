@@ -5,8 +5,11 @@
         </div>
         <div v-else>
             <div>
-                <h2 class="font-serif uppercase text-lg ml-4">Hero &amp; weapons</h2>
-                <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false">
+                <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'hero' })" :class="{ 'mb-4': !sections.hero }">
+                    <chevron :open="sections.hero" class="mr-2"></chevron>
+                    Hero &amp; weapons
+                </h2>
+                <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false" v-show="sections.hero">
                     <template v-slot:default="props">
                         <div style="margin-top: -28px" class="hidden sm:block" :class="props.classes" v-masonry-tile>
                             <div class="mx-2 mb-12">

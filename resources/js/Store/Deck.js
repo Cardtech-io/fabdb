@@ -76,6 +76,7 @@ export default {
         filters: [],
         grouping: 'name',
         sections: {
+            hero: true,
             equipment: true,
             other: true
         },
