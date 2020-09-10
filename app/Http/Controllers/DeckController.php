@@ -12,6 +12,7 @@ use FabDB\Domain\Decks\RemoveCardFromDeck;
 use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Domain\Decks\SaveDeckSettings;
+use FabDB\Domain\Decks\SetDeckCardTotal;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
@@ -52,6 +53,11 @@ class DeckController extends Controller
         $card = $cards->findByIdentifier($request->get('card'));
 
         $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
+    }
+
+    public function setCardTotal(Request $request, Deck $deck, Card $card)
+    {
+        $this->dispatchNow(new SetDeckCardTotal($deck->id, $card->id, $request->get('total')));
     }
 
     public function addToSideboard(AddCardToSideboardRequest $request, Deck $deck, CardRepository $cards)

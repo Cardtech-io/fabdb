@@ -8,13 +8,13 @@
                 <h2 class="font-serif uppercase text-lg ml-4">Hero &amp; weapons</h2>
                 <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false">
                     <template v-slot:default="props">
-                        <div style="margin-top: -28px" class="hidden md:block" :class="props.classes" v-masonry-tile v-if="zoom > 0">
+                        <div style="margin-top: -28px" class="hidden sm:block" :class="props.classes" v-masonry-tile>
                             <div class="mx-2 mb-12">
                                 <h3 class="font-serif uppercase text-lg">Totals</h3>
                                 <totals class="mt-4"></totals>
                             </div>
                         </div>
-                        <div style="margin-top: -28px" class="hidden md:block" :class="props.classes" v-masonry-tile v-if="zoom > 1">
+                        <div style="margin-top: -28px" class="hidden sm:block" :class="props.classes" v-masonry-tile>
                             <div class="mx-2">
                                 <h3 class="font-serif uppercase text-lg">General</h3>
                                 <general class="mt-4"></general>

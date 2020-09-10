@@ -3,8 +3,8 @@
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative m-4 mx-2">
                 <img :src="cardUrl(grouped[0].identifier, 350)" class="block w-full invisible" :style="margin(grouped.length)">
-                <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden" :style="styles(i)">
-                    <card-image :card="card" :width="350" :clickHandler="action || false"></card-image>
+                <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden w-full" :style="styles(i)">
+                    <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full"></card-image>
                 </div>
             </div>
         </div>

@@ -17,5 +17,7 @@ interface DeckRepository extends Repository
 
     public function addCardToSideboard(int $deckId, int $cardId);
 
+    public function setCardTotal(int $deckId, int $cardId, int $total);
+
     public function search(array $params);
 }

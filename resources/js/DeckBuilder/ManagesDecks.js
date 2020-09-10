@@ -57,7 +57,12 @@ export default {
         },
 
         removeRemote: function(card, handler) {
-            return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier + '/');
+            return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier);
+        },
+
+        setRemote(card, total, handler) {
+            console.log(this.$route.params.deck, card.identifier, total);
+            return axios.put('/decks/' + this.$route.params.deck + '/' + card.identifier, { total });
         },
 
         findCard: function (card) {

@@ -8,22 +8,24 @@ function find(card, cards) {
 
 // Add a card to a collection
 function add(card, cards) {
-    const existing = find(card, cards);
+    let existing = find(card, cards);
 
     if (existing) {
         existing.total += 1;
     } else {
-        card = _.clone(card);
-        card.total = 1;
-        cards.push(card);
+        existing = _.clone(card);
+        existing.total = 1;
+        cards.push(existing);
     }
+
+    return existing;
 };
 
 // Remove a card from a collection
-function remove(card, cards) {
+function remove(card, cards, bin) {
     const existing = find(card, cards);
 
-    if (existing && existing.total > 1) {
+    if (existing && existing.total > 1 && !bin) {
         existing.total -= 1;
     } else {
         // Need to remove from array completely
@@ -133,6 +135,22 @@ export default {
             }
         },
 
+        setCardTotal(state, { card, total }) {
+            let existing = find(card, state.cards);
+
+            // If it exists, manage it
+            if (existing) {
+                if (total) {
+                    existing.total = total;
+                } else {
+                    remove(card, state.cards, true);
+                }
+            } else if (total) {
+                existing = add(card, state.cards);
+                existing.total = total;
+            }
+        },
+
         setDeck(state, { deck }) {
             state.deck = deck;
             state.cards = _.sortBy(deck.cards, 'identifier');
@@ -185,6 +203,10 @@ export default {
 
         removeCard({ commit }, { card }) {
             commit('removeCardFromDeck', { card });
+        },
+
+        setCardTotal({ commit }, { card, total }) {
+            commit('setCardTotal', { card, total });
         },
 
         setDeck(context, { deck }) {

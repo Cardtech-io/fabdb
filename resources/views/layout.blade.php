@@ -16,10 +16,7 @@
         <style type="text/css">
             @if ($user && $user->width == 'wide')
                 .container {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    margin-left: 0;
-                    margin-right: 0
+                    max-width: 1800px !important;
                 }
             @endif
         </style>
@@ -51,7 +48,7 @@
                     release: '{{ $version }}',
                     dsn: '{{ env('SENTRY_LARAVEL_DSN') }}'
                 });
-                
+
                 @if ($user)
                     Sentry.configureScope(function(scope) {
                         scope.setUser({id: "{{ $user->slug }}" });

@@ -45,7 +45,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 $existing->total++;
                 $existing->save();
             } else {
-                DB::insert('INSERT INTO deck_cards SET deck_id = ?, card_id = ?, total = 1', [$deckId, $cardId]);
+                DeckCard::add($deckId, $cardId, 1);
             }
 
             $deck->touch();
@@ -182,5 +182,23 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->groupBy('decks.id');
 
         return $query;
+    }
+
+    public function setCardTotal(int $deckId, int $cardId, int $total)
+    {
+        DB::transaction(function() use ($deckId, $cardId, $total) {
+            $deckCard = $this->deckCard($deckId, $cardId);
+
+            if ($deckCard) {
+                if (!$total) {
+                    $deckCard->delete();
+                } else {
+                    $deckCard->total = $total;
+                    $deckCard->save();
+                }
+            } else {
+                DeckCard::add($deckId, $cardId, $total);
+            }
+        }, 3);
     }
 }

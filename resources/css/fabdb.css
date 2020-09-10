@@ -6,6 +6,10 @@ body {
     height: 100%;
 }
 
+* {
+    scrollbar-width: thin;
+}
+
 :root {
     --button-disabled-background-color: theme("colors.gray.400");
     --button-disabled-text-color: theme("colors.white");

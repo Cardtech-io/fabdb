@@ -7,6 +7,7 @@ use FabDB\Library\Model;
 class DeckCard extends Model
 {
     protected $table = 'deck_cards';
+    protected $fillable = ['deckId', 'cardId', 'total'];
 
     public function card()
     {
@@ -16,5 +17,10 @@ class DeckCard extends Model
     public function deck()
     {
         return $this->belongsTo(Deck::class);
+    }
+
+    public static function add(int $deckId, int $cardId, int $total)
+    {
+        return static::create(compact('deckId', 'cardId', 'total'));
     }
 }
