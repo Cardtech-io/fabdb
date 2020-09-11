@@ -56,7 +56,7 @@ class DeckController extends Controller
         $this->dispatchNow(new AddCardToDeck($deck->id, $card->id));
     }
 
-    public function setCardTotal(SetDeckCardTotalRequest $request, Deck $deck, Card $card)
+    public function setCardTotal(AddCardToDeckRequest $request, Deck $deck, Card $card)
     {
         $this->dispatchNow(new SetDeckCardTotal($deck->id, $card->id, $request->get('total')));
     }

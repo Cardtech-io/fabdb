@@ -57,6 +57,30 @@ export default class Cards {
         })[0];
     }
 
+    attackActions() {
+        return this.cards.filter(card => {
+            return this.isAttack(card);
+        });
+    }
+
+    nonAttackActions() {
+        return this.cards.filter(card => {
+            return this.isAction(card);
+        });
+    }
+
+    attackReactions() {
+        return this.cards.filter(card => {
+            return this.isAttackReaction(card);
+        });
+    }
+
+    defenseReactions() {
+        return this.cards.filter(card => {
+            return this.isDefenseReaction(card);
+        });
+    }
+
     weapons() {
         return this.cards.filter(card => {
             return card.keywords.includes('weapon');
@@ -66,6 +90,18 @@ export default class Cards {
     equipment() {
         return this.cards.filter(card => {
             return card.keywords.includes('equipment');
+        });
+    }
+
+    items() {
+        return this.cards.filter(card => {
+            return card.keywords.includes('item');
+        });
+    }
+
+    instants() {
+        return this.cards.filter(card => {
+            return this.isInstant(card);
         });
     }
 
@@ -108,6 +144,14 @@ export default class Cards {
         };
 
         return new Cards(this.cards.reduce(reducer, []));
+    }
+
+    sum(cards) {
+        let reducer = (carry, card) => {
+            return carry + card.total;
+        };
+
+        return cards.reduce(reducer, 0);
     }
 
     total() {

@@ -1,15 +1,17 @@
 <template>
     <div>
-        <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" width="sm:w-1/2"></grouped-cards>
-        <div v-if="!sideboard.cards.length" class="text-center my-20 mx-10">
-            You have not yet added<br>any cards<br>to your sideboard.
+        <div v-if="user.subscription">
+            <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'sm:w-1/3' : 'sm:w-1/2'"></grouped-cards>
+            <div v-if="!sideboard.cards.length" class="text-center my-20 mx-10">
+                You have not yet added<br>any cards<br>to your sideboard.
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import axios from 'axios';
-    import { mapActions, mapState } from 'vuex';
+    import {mapActions, mapGetters, mapState} from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
     import Cards from './Cards';
@@ -22,7 +24,8 @@
         components: {GroupedCards},
 
         computed: {
-            ...mapState('deck', ['deck']),
+            ...mapState('deck', ['deck', 'fullScreen']),
+            ...mapGetters('session', ['user']),
 
             sideboard: function() {
                 return (new Cards(this.collection)).hydrate();

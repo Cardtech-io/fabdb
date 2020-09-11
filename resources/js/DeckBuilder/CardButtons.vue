@@ -1,11 +1,12 @@
 <template>
-    <div class="w-full sm:w-3/4 flex mt-1 mx-auto rounded sm:rounded-lg overflow-hidden">
-        <button class="flex-1 py-1" :class="active(i)" @click="setTotal(i)" v-for="(n, i) in available + 1">{{ i }}</button>
+    <div class="flex overflow-hidden">
+        <button class="py-2 ml-1px" :class="classes(i)" @click="setTotal(i)" v-for="(n, i) in available + 1">{{ i }}</button>
+        <div class="flex-1 ml-1px" :class="basicBackground" v-if="view === 'text' || !user.subscription"></div>
     </div>
 </template>
 
 <script>
-    import {mapActions, mapState} from "vuex";
+    import {mapActions, mapGetters, mapState} from "vuex";
 
     import ManagesDecks from "./ManagesDecks";
 
@@ -20,7 +21,8 @@
         mixins: [ManagesDecks],
 
         computed: {
-            ...mapState('deck', ['deck', 'cards', 'fullScreen']),
+            ...mapState('deck', ['deck', 'cards', 'fullScreen', 'view']),
+            ...mapGetters('session', ['user']),
 
             available() {
                 if (this.card.keywords.includes('hero')) {
@@ -42,6 +44,14 @@
                 return this.deck.format === 'blitz' ? 2 : 3;
             },
 
+            basicBackground() {
+                return this.fullScreen ? 'bg-gray-400' : 'bg-gray-300';
+            },
+
+            background() {
+                return this.fullScreen ? 'bg-gray-400 hover:bg-gray-300' : 'bg-gray-300 hover:bg-gray-200';
+            },
+
             cardCount() {
                 let cards = this.cards.filter(card => {
                     return card.identifier === this.card.identifier;
@@ -49,22 +59,37 @@
 
                 return cards[0] ? cards[0].total : 0;
             },
+
+            visual() {
+                return this.view === 'gallery' && this.user.subscription;
+            }
         },
 
         methods: {
             ...mapActions('deck', ['addCard', 'setCardTotal']),
+            ...mapActions('messages', ['addMessage']),
 
             active(count) {
                 if (this.cardCount === count) {
-                    return 'bg-black text-white'
+                    return this.visual ? 'bg-black text-white' : '';
                 }
 
-                return this.fullScreen ? 'bg-gray-400' : 'bg-gray-300';
+                return this.background;
+            },
+
+            classes(count) {
+                let buttons = this.available + 1;
+
+                return [
+                    this.active(count),
+                    this.visual ? 'w-1/' + buttons : 'w-1/4'
+                ];
             },
 
             setTotal(total) {
-                this.setCardTotal({ card: this.card, total });
-                this.setRemote(this.card, total);
+                this.setRemote(this.card, total, () => {
+                    this.setCardTotal({ card: this.card, total });
+                });
             }
         }
     }

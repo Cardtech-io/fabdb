@@ -15,11 +15,11 @@
 
         computed: {
             ...mapGetters('deck', ['minZoom', 'maxZoom']),
-            ...mapState('deck', ['fullScreen', 'mode', 'zoom']),
+            ...mapState('deck', ['fullScreen', 'mode', 'view', 'zoom']),
 
             // Returns true if the button is active
             inactive: function() {
-                if (this.mode == 'metrics') return true;
+                if (this.mode == 'metrics' || this.view === 'text') return true;
 
                 if (this.action == 'in') {
                     return this.zoom == this.minZoom;

@@ -20,7 +20,6 @@ import ViewCard from './CardDatabase/ViewCard.vue';
 import Collection from './Collection/Collection.vue';
 import ListDecks from './DeckBuilder/ListDecks.vue';
 import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
-import PremiumDeckBuilder from './DeckBuilder/PremiumDeckBuilder.vue';
 import TestDeck from './DeckBuilder/TestDeck.vue';
 import ExportDeck from './DeckBuilder/ExportDeck.vue';
 import ViewDeck from './Decks/ViewDeck.vue';
@@ -55,7 +54,6 @@ const router = new VueRouter({
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
         { path: "/decks/build", component: ListDecks, name: 'list-decks' },
-        { path: "/decks/build/premium/:deck", component: PremiumDeckBuilder, name: 'decks.build-premium', meta: { auth: true, premium: true } },
         { path: "/decks/build/:deck", component: DeckBuilder, meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
