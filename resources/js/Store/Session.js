@@ -22,15 +22,15 @@ export default {
     actions: {
         setSession: function({ commit }, { session }) {
             commit('setSession', { session });
+
+            // If the user is a subscriber, switch the default deck view to gallery
+            if (session.user && session.user.subscription) {
+                commit('deck/toggleView', null, { root: true });
+            }
         },
 
         setUser: function({ commit }, { user }) {
             commit('setUser', { user });
-
-            // If the user is a subscriber, switch the default deck view to gallery
-            if (user.subscription) {
-                commit('deck/toggleView');
-            }
         },
 
         setUserParam: function({ commit }, { param, value }) {

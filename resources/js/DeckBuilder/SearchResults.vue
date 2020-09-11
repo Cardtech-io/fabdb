@@ -1,12 +1,12 @@
 <template>
-    <div class="mb-40 clearfix -mx-4">
+    <div class="mb-40 clearfix">
         <div class="clearfix">
             <div v-for="card in results.data">
-                <div class="w-full sm:w-1/2 float-left mb-4 sm:mb-8 px-2 sm:px-4 overflow-hidden" style="max-width: 350px" :class="classes" v-if="view === 'gallery' && user.subscription">
+                <div class="w-full xl:w-1/2 float-left mt-4 px-2 sm:px-4 overflow-hidden" style="max-width: 350px" :class="classes" v-if="galleryView">
                     <card-image :card="card" :width="300" :clickHandler="addToDeck"></card-image>
                     <card-buttons :card="card" class="w-1/2 mx-auto rounded sm:rounded-lg mt-1"></card-buttons>
                 </div>
-                <card-item :card="card" class="mx-4" v-else></card-item>
+                <card-item :card="card" v-else></card-item>
             </div>
         </div>
 
@@ -34,8 +34,12 @@
 
             classes() {
                 return {
-                    'lg:w-1/3': this.fullScreen
+                    'xl:w-1/3': this.fullScreen
                 }
+            },
+
+            galleryView() {
+                return this.view === 'gallery' && this.user.subscription;
             }
         },
 

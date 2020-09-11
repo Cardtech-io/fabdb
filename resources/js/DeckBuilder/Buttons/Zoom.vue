@@ -19,7 +19,7 @@
 
             // Returns true if the button is active
             inactive: function() {
-                if (this.mode == 'metrics' || this.view === 'text') return true;
+                if (this.mode === 'details' || this.view === 'text') return true;
 
                 if (this.action == 'in') {
                     return this.zoom == this.minZoom;

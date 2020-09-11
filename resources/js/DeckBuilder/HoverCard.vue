@@ -1,6 +1,6 @@
 <template>
     <div class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl" :style="position()" v-if="visible && card">
-        <card-image :card="card" :width="width" v-if="card"/>
+        <card-image :card="card" :width="width" v-if="card" :click-handler="hide"/>
     </div>
 </template>
 
@@ -46,6 +46,10 @@
                 } else {
                     this.visible = false;
                 }
+            },
+
+            hide() {
+                this.visible = false;
             }
         },
 

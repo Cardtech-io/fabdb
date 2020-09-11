@@ -45,11 +45,11 @@
             },
 
             basicBackground() {
-                return this.fullScreen ? 'bg-gray-400' : 'bg-gray-300';
+                return this.background;
             },
 
             background() {
-                return this.fullScreen ? 'bg-gray-400 hover:bg-gray-300' : 'bg-gray-300 hover:bg-gray-200';
+                return 'bg-gray-300 hover:bg-gray-200';
             },
 
             cardCount() {
@@ -71,7 +71,7 @@
 
             active(count) {
                 if (this.cardCount === count) {
-                    return this.visual ? 'bg-black text-white' : '';
+                    return 'bg-gray-400 text-black';
                 }
 
                 return this.background;
@@ -90,6 +90,7 @@
                 this.setRemote(this.card, total, () => {
                     this.setCardTotal({ card: this.card, total });
                 });
+                this.$eventHub.$emit('card-selected');
             }
         }
     }

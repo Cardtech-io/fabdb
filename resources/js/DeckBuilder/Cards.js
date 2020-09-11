@@ -114,6 +114,10 @@ export default class Cards {
         return _.sortBy(cards, card => { return card.stats.resource });
     }
 
+    sort() {
+        return new Cards(_.sort(this.cards));
+    }
+
     filter(handler) {
         return new Cards(this.cards.filter(handler));
     }
@@ -144,14 +148,6 @@ export default class Cards {
         };
 
         return new Cards(this.cards.reduce(reducer, []));
-    }
-
-    sum(cards) {
-        let reducer = (carry, card) => {
-            return carry + card.total;
-        };
-
-        return cards.reduce(reducer, 0);
     }
 
     total() {

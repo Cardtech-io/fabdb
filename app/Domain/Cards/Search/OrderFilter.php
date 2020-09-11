@@ -18,7 +18,8 @@ class OrderFilter implements SearchFilter
 
         if (Arr::get($input, 'use-case') === 'build') {
             $query->orderBy('build_order');
-            $query->orderBy('identifier');
+            $query->orderBy('cards.name');
+            $query->orderBy('cards.identifier');
             return;
         }
 

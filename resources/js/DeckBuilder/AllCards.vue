@@ -6,7 +6,7 @@
         <div v-else>
             <div v-if="view === 'gallery'">
                 <div v-if="user.subscription">
-                    <div>
+                    <div class="mt-4">
                         <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'hero' })" :class="{ 'mb-4': !sections.hero }">
                             <chevron :open="sections.hero" class="mr-2"></chevron>
                             Hero &amp; weapons
@@ -50,50 +50,24 @@
                 </div>
             </div>
 
-            <div class="sm:flex mx-4 my-4" v-else>
+            <div class="lg:flex m-4" v-else>
                 <!-- Text-based deck view -->
-                <div class="w-full sm:w-1/3 sm:mr-4" style="max-width: 450px">
+                <div class="hidden lg:block md:mr-8" style="max-width: 350px">
                     <card-image :card="cards.hero()" :clickHandler="removeFromDeck" v-if="mode === 'search'"></card-image>
                     <card-image :card="cards.hero()" v-else></card-image>
                 </div>
-                <div class="sm:w-1/3 sm:mx-4">
-                    <div class="mb-8" v-if="cards.weapons().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Weapons ({{ cards.sum(cards.weapons()) }})</h3>
-                        <card-item v-for="card in cards.weapons()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-                    <div class="mb-8" v-if="cards.equipment().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Equipment ({{ cards.sum(cards.equipment()) }})</h3>
-                        <card-item v-for="card in cards.equipment()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-                    <div class="mb-8" v-if="cards.items().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Items ({{ cards.sum(cards.items()) }})</h3>
-                        <card-item v-for="card in cards.items()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-                    <div class="mb-8" v-if="cards.instants().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Instants ({{ cards.sum(cards.instants()) }})</h3>
-                        <card-item v-for="card in cards.instants()" :key="card.identifier" :card="card"></card-item>
-                    </div>
+                <div class="sm:flex-1 sm:mr-4">
+                    <card-item-section :card="cards.hero()" title="Hero"></card-item-section>
+                    <card-item-section :cards="cards.weapons()" title="Weapons"></card-item-section>
+                    <card-item-section :cards="cards.equipment()" title="Equipment"></card-item-section>
+                    <card-item-section :cards="cards.items()" title="Items"></card-item-section>
+                    <card-item-section :cards="cards.instants()" title="Instants"></card-item-section>
                 </div>
-                <div class="sm:w-1/3">
-                    <div class="mb-8" v-if="cards.attackActions().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Attack actions ({{ cards.sum(cards.attackActions()) }})</h3>
-                        <card-item v-for="card in cards.attackActions()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-
-                    <div class="mb-8" v-if="cards.attackReactions().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Attack reactions ({{ cards.sum(cards.attackReactions()) }})</h3>
-                        <card-item v-for="card in cards.attackReactions()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-
-                    <div class="mb-8" v-if="cards.nonAttackActions().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">'Non-attack' actions ({{ cards.sum(cards.nonAttackActions()) }})</h3>
-                        <card-item v-for="card in cards.nonAttackActions()" :key="card.identifier" :card="card"></card-item>
-                    </div>
-
-                    <div class="mb-8" v-if="cards.defenseReactions().length">
-                        <h3 class="pb-2 font-serif uppercase text-2xl">Defense reactions ({{ cards.sum(cards.defenseReactions()) }})</h3>
-                        <card-item v-for="card in cards.defenseReactions()" :key="card.identifier" :card="card"></card-item>
-                    </div>
+                <div class="sm:flex-1">
+                    <card-item-section :cards="cards.attackActions()" title="Attack actions"></card-item-section>
+                    <card-item-section :cards="cards.attackReactions()" title="Attack reactions"></card-item-section>
+                    <card-item-section :cards="cards.nonAttackActions()" title="'Non-attack' actions"></card-item-section>
+                    <card-item-section :cards="cards.defenseReactions()" title="Defense reactions"></card-item-section>
                 </div>
             </div>
         </div>
@@ -106,7 +80,7 @@
     import FormButton from '../Components/Form/Button.vue';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage';
-    import CardItem from "./CardItem";
+    import CardItemSection from "./CardItemSection";
     import Cards from './Cards';
     import Chevron from "./Buttons/Chevron";
     import General from "./Metrics/General";
@@ -119,7 +93,7 @@
     export default {
         props: ['collection'],
         mixins: [Cardable, ManagesDecks, Viewable],
-        components: {CardImage, CardItem, Chevron, FormButton, General, GroupedCards, HeroSelector, Totals},
+        components: {CardImage, CardItemSection, Chevron, FormButton, General, GroupedCards, HeroSelector, Totals},
 
         computed: {
             ...mapState('deck', ['filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),

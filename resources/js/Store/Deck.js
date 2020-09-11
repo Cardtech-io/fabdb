@@ -241,10 +241,6 @@ export default {
 
         toggleFullScreen({ commit, state }) {
             commit('setFullScreen', { fullScreen: !state.fullScreen });
-
-            let n = state.fullScreen ? 1 : -1;
-
-            commit('zoom', { n })
         },
 
         zoomIn(context) {
