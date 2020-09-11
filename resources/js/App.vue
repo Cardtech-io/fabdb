@@ -24,11 +24,13 @@
         <messages></messages>
         <complete-profile></complete-profile>
         <version-handler></version-handler>
+        <hover-card></hover-card>
     </div>
 </template>
 
 <script>
     import {mapGetters, mapState} from 'vuex';
+    import HoverCard from "./DeckBuilder/HoverCard";
     import Navigation from './Components/Navigation.vue';
     import Messages from './Components/Messages.vue';
     import CompleteProfile from './Identity/CompleteProfile.vue';
@@ -39,6 +41,7 @@
     export default {
         components: {
             CompleteProfile,
+            HoverCard,
             Messages,
             Navigation,
             VersionHandler

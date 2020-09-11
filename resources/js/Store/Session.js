@@ -26,6 +26,11 @@ export default {
 
         setUser: function({ commit }, { user }) {
             commit('setUser', { user });
+
+            // If the user is a subscriber, switch the default deck view to gallery
+            if (user.subscription) {
+                commit('deck/toggleView');
+            }
         },
 
         setUserParam: function({ commit }, { param, value }) {

@@ -21,6 +21,7 @@ Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);
 
 Vue.prototype.$settings = window.settings;
+Vue.prototype.$eventHub = new Vue;
 
 App.router = router;
 App.store = store;

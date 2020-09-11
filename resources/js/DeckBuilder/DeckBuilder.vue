@@ -1,266 +1,184 @@
 <template>
-    <div>
-        <header-title title="Deck Builder"></header-title>
+    <div class="z-50">
+        <header-title :title="hero ? deck.name + ' (' + hero.name + ')' : deck.name"></header-title>
 
-        <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto p-4 flex">
-                <div class="flex-auto">
-                    <crumbs :crumbs="crumbs"></crumbs>
-                </div>
-                <div class="text-right hidden sm:block flex-auto">
-                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('deck')" :class="isActive('deck')">Deck</a> <span class="opacity-25">|</span>
-                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('add-cards')" :class="isActive('add-cards')">Add Cards</a> <span class="opacity-25">|</span>
-                    <a href="" class="hover:opacity-75 underline" @click.prevent="setTab('settings')" :class="isActive('settings')">Settings</a>
-                </div>
-            </div>
-        </div>
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
-            <div class="container sm:mx-auto sm:hidden bg-white flex border-b border-gray-200">
-                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('deck')" :class="activeTab == 'deck' ? 'bg-gray-200' : ''">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
-                        <path d="M10 1l10 6-10 6L0 7l10-6zm6.67 10L20 13l-10 6-10-6 3.33-2L10 15l6.67-4z"/>
-                    </svg>
-                    <div class="mt-1">Deck</div>
-                </button>
+        <div :class="fullScreenClasses">
+            <div class="bg-white">
+                <div :class="containers">
+                    <div class="flex">
+                        <div class="flex items-center w-2/3 p-4" :class="{ 'sm:px-8': fullScreen, 'w-full': mode != 'search' }">
+                            <div class="flex-auto hidden sm:block">
+                                <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} <span class="text-base">cards</span></h2>
+                            </div>
 
-                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('add-cards')" :class="activeTab == 'add-cards' ? 'bg-gray-200' : ''">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
-                        <path d="M15 9h-3v2h3v3h2v-3h3V9h-3V6h-2v3zM0 3h10v2H0V3zm0 8h10v2H0v-2zm0-4h10v2H0V7zm0 8h10v2H0v-2z"/>
-                    </svg>
-                    <div class="mt-1">Add cards</div>
-                </button>
+                            <grouping-selector v-if="mode != 'details'" class="hidden sm:block"></grouping-selector>
+                            <mode-selector class="w-full sm:w-auto"></mode-selector>
 
-                <button class="w-1/3 text-center font-serif uppercase text-gray-800 hover:text-black p-4 border-r border-gray-200" @click.prevent="setTab('settings')" :class="activeTab == 'settings' ? 'bg-gray-200' : ''">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 focus:outline-none mx-auto">
-                        <path d="M3.94 6.5L2.22 3.64l1.42-1.42L6.5 3.94c.52-.3 1.1-.54 1.7-.7L9 0h2l.8 3.24c.6.16 1.18.4 1.7.7l2.86-1.72 1.42 1.42-1.72 2.86c.3.52.54 1.1.7 1.7L20 9v2l-3.24.8c-.16.6-.4 1.18-.7 1.7l1.72 2.86-1.42 1.42-2.86-1.72c-.52.3-1.1.54-1.7.7L11 20H9l-.8-3.24c-.6-.16-1.18-.4-1.7-.7l-2.86 1.72-1.42-1.42 1.72-2.86c-.3-.52-.54-1.1-.7-1.7L0 11V9l3.24-.8c.16-.6.4-1.18.7-1.7zM10 13a3 3 0 100-6 3 3 0 000 6z"/>
-                    </svg>
-                    <div class="mt-1">Settings</div>
-                </button>
-            </div>
-
-            <div class="container sm:mx-auto py-8 pt-4 px-4" v-show="activeTab == 'deck'">
-                <hover-card :card="hoverCard"></hover-card>
-                <div v-if="cards && cards.length">
-                    <div class="border-b border-gray-400 mb-4" v-if="hero">
-                        <div class="flex-auto">
-                            <h1 class="inline-block font-serif text-4xl uppercase" v-if="hero">{{ hero.name }}</h1>
-                            <div class="text-gray-500 text-2xl font-serif uppercase -mt-2 mb-2">
-                                {{ deck.name }}
-                                <span class="inline-block bg-white text-lg rounded-full px-4 align-middle -mt-1 ml-2">
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
-                                </span>
+                            <div class="px-2 sm:px-1 flex">
+                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
+                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
+                                <view-button></view-button>
+                                <fullscreen-button></fullscreen-button>
                             </div>
                         </div>
-                    </div>
-                    <div class="md:flex">
-                        <div class="md:w-1/4 md:float-left" v-if="hero">
-                            <div>
-                                <card-image :card="hero" :clickHandler="removeCard"></card-image>
-                            </div>
-                            <div class="mt-2 mb-8">
-                                <div class="flex">
-                                    <button @click.prevent="copyShareURL" class="w-1/2 mt-2 button-primary rounded-l-lg p-2 mr-1px">Share</button>
-                                    <button @click.prevent="showExportOptions = !showExportOptions" class="w-1/2 mt-2 button-primary rounded-r-lg p-2 mr-1px">Export</button>
-                                </div>
-                                <tts-exporter :deck="deck" v-if="showExportOptions"></tts-exporter>
-                            </div>
-                        </div>
-
-                        <div class="md:w-1/4 md:mx-4 md:ml-8">
-                            <div v-if="weapons.length" class="mb-8">
-                                <h3 class="pb-2 font-serif uppercase text-2xl">Weapons</h3>
-                                <ol>
-                                    <li v-for="weapon in weapons" class="flex items-center odd:bg-gray-100 hover:bg-gray-300">
-                                        <div class="flex flex-col h-full w-1/10">
-                                            <button class="button-secondary flex-grow mb-1px" @click.prevent="addCard(weapon)">+</button>
-                                            <button class="button-secondary flex-grow" @click.prevent="removeCard(weapon)">-</button>
-                                        </div>
-                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = weapon" @mouseleave="hoverCard = null">
-                                            <span v-if="weapon.total > 1">({{ weapon.total }})</span>
-                                            <span>{{ weapon.name }}</span>
-                                            <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-
-                            <div v-if="equipment.length" class="mb-8">
-                                <h3 class="pb-2 font-serif uppercase text-2xl">Equipment</h3>
-                                <ol>
-                                    <li v-for="card in equipment" class="flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
-                                        <button class="button-secondary leading-tight h-full p-2 w-1/10" @click.prevent="removeCard(card)">-</button>
-
-                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
-                                            <span>{{ card.name }}</span>
-                                            <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="md:w-1/4 md:float-left md:px-2">
-                            <div v-if="other.length">
-                                <h3 class="pb-2 font-serif uppercase text-2xl">Other</h3>
-                                <ol>
-                                    <li v-for="card in other" class="block flex items-center odd:bg-gray-100 hover:bg-gray-300 mb-1px">
-                                        <div class="flex flex-col h-full w-1/10">
-                                            <button class="button-secondary flex-grow mb-1px" @click.prevent="addCard(card)">+</button>
-                                            <button class="button-secondary flex-grow" @click.prevent="removeCard(card)">-</button>
-                                        </div>
-
-                                        <div class="w-9/10 block p-1 pl-4 cursor-default" @mouseover="hoverCard = card" @mouseleave="hoverCard = null">
-                                            <span class="">({{ card.total }})</span>
-                                            <span>{{ card.name }}</span>
-                                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
-                                            <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="mt-8 md:w-1/4 md:pl-8 md:pr-4 md:mt-0">
-                            <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Card totals</h3>
-                                <ol>
-                                    <li class="block p-1 w-full">Total cards: <span :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }}</span></li>
-                                    <li class="block p-1 w-full">Attack actions: {{ totalAttackActions }}</li>
-                                    <li class="block p-1 w-full">Attack reactions: {{ totalAttackReactions }}</li>
-                                    <li class="block p-1 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
-                                </ol>
-                            </div>
-
-                            <div v-if="other.length" class="mb-8">
-                                <h3 class="p-2 font-serif uppercase text-2xl">Deck stats</h3>
-                                <ol>
-                                    <li class="block p-1 w-full">Average card cost: {{ averageCost }}</li>
-                                    <li class="block p-1 w-full">Average pitch: {{ averagePitch }}</li>
-                                    <li class="block p-1 w-full">Pitch 1: {{ pitchCount(1) }}</li>
-                                    <li class="block p-1 w-full">Pitch 2: {{ pitchCount(2) }}</li>
-                                    <li class="block p-1 w-full">Pitch 3: {{ pitchCount(3) }}</li>
-                                    <li class="block p-1 w-full">Cost 0: {{ costCount(0) }}</li>
-                                    <li class="block p-1 w-full">Cost 1: {{ costCount(1) }}</li>
-                                    <li class="block p-1 w-full">Cost 2: {{ costCount(2) }}</li>
-                                    <li class="block p-1 w-full">Cost 3+: {{ costCount(3) }}</li>
-                                </ol>
-                            </div>
+                        <div v-if="mode == 'search'" class="w-1/3 flex items-center px-4" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                            <input type="text" v-model="name" placeholder="Card name" class="input rounded-l-lg py-3 px-4" @keyup.enter="search(1)" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }">
+                            <select v-model="cardType" class="input" @change="search()" :class="{ 'appearance-none block w-full h-full bg-none text-gray-700 outline-none sm:px-4': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-lg': !fullScreen }">
+                                <option value="">All</option>
+                                <option value="non-attack action">Non-attack actions</option>
+                                <option value="attack action">Attack actions</option>
+                                <option value="attack reaction">Attack reactions</option>
+                                <option value="defense reaction">Defense reactions</option>
+                                <option value="equipment">Equipment</option>
+                                <option value="instant">Instants</option>
+                                <option value="item">Items</option>
+                                <option value="weapon">Weapons</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div v-else class="p-4">
-                    No cards.
+            </div>
+
+            <div class="bg-gray-200 h-full relative">
+                <div class="clearfix flex h-full" :class="containers">
+                    <div class="w-2/3 h-full py-4 overflow-y-auto" :class="{ 'sm:px-4': fullScreen, 'w-full': mode != 'search' && mode != 'sideboard' }">
+                        <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
+                        <deck-details v-if="mode == 'details'"></deck-details>
+                        <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
+                    </div>
+                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 p-4 sm:py-8 overflow-y-auto" :class="{ 'sm:px-8': fullScreen, 'bg-gray-300': fullScreen, 'border-l border-gray-300': !fullScreen }">
+                        <search-results v-if="mode == 'search'" :results="results"></search-results>
+                        <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
+                    </div>
                 </div>
             </div>
-
-            <div v-show="activeTab == 'add-cards'">
-                <card-selector @card-selected="addCard" :deck="deck"></card-selector>
-            </div>
-
-            <deck-settings :deck="deck" v-if="activeTab == 'settings'"></deck-settings>
         </div>
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
-    import { mapGetters } from 'vuex';
+    import _ from 'underscore';
+    import { VueMasonryPlugin } from 'vue-masonry';
+    import { mapActions, mapGetters, mapState } from 'vuex';
 
+    import AllCards from './AllCards.vue';
+    import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardSelector from './CardSelector.vue';
-    import HoverCard from './HoverCard.vue';
-    import Cardable from '../CardDatabase/Cardable.js';
-    import Crumbs from '../Components/Crumbs.vue';
-    import DeckSettings from './DeckSettings.vue';
+    import DeckDetails from './DeckDetails.vue';
+    import FilterSelector from './FilterSelector.vue';
+    import GroupingSelector from './GroupingSelector.vue';
+    import FullscreenButton from './Buttons/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import ManagesDecks from './ManagesDecks';
     import LazyLoader from '../Components/LazyLoader';
-    import TtsExporter from './TtsExporter.vue';
+    import MainDeck from './MainDeck.vue';
+    import ManagesDecks from './ManagesDecks';
+    import ModeSelector from './ModeSelector.vue';
+    import SearchResults from './SearchResults.vue';
+    import Sideboard from './Sideboard.vue';
     import Viewable from './Viewable';
-    import { mapActions } from 'vuex';
+    import ViewButton from "./Buttons/View";
+    import ZoomButton from './Buttons/Zoom';
 
     export default {
         components: {
+            AllCards,
+            Breadcrumbs,
             CardImage,
-            CardSelector,
-            Crumbs,
-            DeckSettings,
+            FilterSelector,
+            GroupingSelector,
+            FullscreenButton,
+            MainDeck,
+            DeckDetails,
+            ModeSelector,
             HeaderTitle,
-            HoverCard,
-            TtsExporter
+            SearchResults,
+            Sideboard,
+            ViewButton,
+            ZoomButton
         },
 
-        mixins: [ Cardable, ManagesDecks, Viewable ],
+        mixins: [ Cardable, ModeSelector, Viewable ],
+
+        data() {
+            return {
+                cardIndex: 0,
+                name: '',
+                cardType: '',
+                offset: 10,
+                pad: 17,
+                results: []
+            }
+        },
 
         computed: {
-            ...mapGetters('session', ['user']),
+            ...mapGetters('deck', ['mainDeck']),
+            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'view', 'zoom']),
+            ...mapState('cardSearch', ['params']),
+
+            containers: function() {
+                if (!this.fullScreen) {
+                    return 'container sm:mx-auto';
+                }
+            },
+
+            fullScreenClasses: function() {
+                if (this.fullScreen) {
+                    return 'fixed top-0 bottom-0 left-0 right-0';
+                }
+            },
 
             crumbs: function() {
                 return [
                     { text: 'Home', link: '/' },
-                    { text: 'Deck Builder', link: '/decks/build' },
+                    { text: 'Decks', link: '/decks/build/' },
                     { text: this.deck.name },
                 ]
-            }
-         },
-
-        data() {
-            return {
-                activeTab: 'deck',
-                cards: [],
-                deck: null,
-                exportingToTts: false,
-                hoverCard: null,
-                showExportOptions: false
             }
         },
 
         methods: {
             ...mapActions('messages', ['addMessage']),
+            ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
+            ...mapActions('cardSearch', ['setPage']),
 
-            addCard: function(card) {
-                this.addRemote(card, () => {
-                    this.addLocal(card);
-                });
-            },
+            search: function(page) {
+                this.setPage({ page });
 
-            removeCard: function(card) {
-                this.removeRemote(card);
-                this.removeLocal(card);
-            },
+                let params = {
+                    cardType: this.cardType,
+                    class: this.hero ? this.hero.keywords[0] : '',
+                    name: this.name,
+                    'use-case': 'build',
+                    page: page,
+                    per_page: 24,
+                };
 
-            isActive: function(tab) {
-                return this.activeTab == tab ? 'opacity-50' : '';
-            },
-
-            setTab: function(tab) {
-                this.activeTab = tab;
+                axios.get('/cards/', { params: params }).then(response => {
+                    this.results = response.data;
+                }).catch(error => {});
             }
         },
 
-        metaInfo() {
-            return {
-                title: this.deck ? 'Deck builder - Edit deck (' + this.deck.name + ')' : 'Deck builder - Edit deck',
-                meta: [
-                    {
-                        vmid: 'description',
-                        name: 'description',
-                        content: 'Fab DB is a suite of utilities for Flesh & Blood players, including a deck builder, collection manager and more.'
-                    }
-                ]
+        mounted() {
+            this.search(1);
+        },
+
+        watch: {
+            'params.page': function(value) {
+                this.search(value);
             }
         },
 
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
-                    this.deck = response.data;
-                    this.cards = _.sortBy(this.deck.cards, 'name');
+                    this.setMode({ mode: 'all' });
+                    this.setDeck({ deck: response.data });
                 });
             });
         })
-    };
+    }
 </script>

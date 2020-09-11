@@ -83,7 +83,8 @@ export default {
         sideboard: [],
         fullScreen: false,
         mode: 'all',
-        zoom: 3,
+        view: 'text',
+        zoom: 2,
     },
 
     getters: {
@@ -134,6 +135,10 @@ export default {
             } else {
                 state.filters.push(filter);
             }
+        },
+
+        toggleView(state) {
+            state.view = state.view === 'text' ? 'gallery' : 'text';
         },
 
         setCardTotal(state, { card, total }) {
@@ -196,6 +201,10 @@ export default {
 
         toggleSection({ commit, state }, { section }) {
             commit('toggleSection', { section });
+        },
+
+        toggleView({ commit, state }) {
+            commit('toggleView');
         },
 
         removeFromSideBoard({ commit, state }, { card }) {

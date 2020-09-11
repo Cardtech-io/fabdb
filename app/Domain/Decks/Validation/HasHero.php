@@ -28,8 +28,9 @@ class HasHero implements Rule
     public function passes($attribute, $value)
     {
         $card = $this->getCard($value);
+        $total = request()->get('total', 1);
 
-        return ($this->deckHero && !$card->isHero()) || (!$this->deckHero && $card->isHero());
+        return ($this->deckHero && (!$card->isHero() || $total == 0)) || (!$this->deckHero && $card->isHero());
     }
 
     /**

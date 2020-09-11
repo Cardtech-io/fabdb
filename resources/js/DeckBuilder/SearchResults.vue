@@ -1,33 +1,36 @@
 <template>
     <div class="mb-40 clearfix -mx-4">
         <div class="clearfix">
-            <div v-for="card in results.data" class="w-full sm:w-1/2 float-left mb-4 sm:mb-8 px-2 sm:px-4" style="max-width: 350px" :class="classes">
-                <div class="overflow-hidden">
+            <div v-for="card in results.data">
+                <div class="w-full sm:w-1/2 float-left mb-4 sm:mb-8 px-2 sm:px-4 overflow-hidden" style="max-width: 350px" :class="classes" v-if="view === 'gallery' && user.subscription">
                     <card-image :card="card" :width="300" :clickHandler="addToDeck"></card-image>
-                    <card-buttons :card="card"></card-buttons>
+                    <card-buttons :card="card" class="w-1/2 mx-auto rounded sm:rounded-lg mt-1"></card-buttons>
                 </div>
+                <card-item :card="card" class="mx-4" v-else></card-item>
             </div>
         </div>
 
-        <paginator :results="results" @page-selected="updatePage" v-if="results.total"></paginator>
+        <paginator :results="results" @page-selected="updatePage" v-if="results.total" class="mt-4"></paginator>
     </div>
 </template>
 
 <script>
-    import { mapActions, mapState } from 'vuex';
+    import {mapActions, mapGetters, mapState} from 'vuex';
 
     import CardButtons from "./CardButtons";
     import CardImage from '../CardDatabase/CardImage.vue';
+    import CardItem from "./CardItem";
     import ManagesDecks from './ManagesDecks';
     import Paginator from '../Components/Paginator.vue';
 
     export default {
         props: ['results'],
         mixins: [ManagesDecks],
-        components: {CardButtons, CardImage, Paginator},
+        components: {CardButtons, CardImage, CardItem, Paginator},
 
         computed: {
-            ...mapState('deck', ['cards', 'fullScreen']),
+            ...mapState('deck', ['cards', 'fullScreen', 'view']),
+            ...mapGetters('session', ['user']),
 
             classes() {
                 return {

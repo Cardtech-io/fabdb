@@ -61,8 +61,16 @@ export default {
         },
 
         setRemote(card, total, handler) {
-            console.log(this.$route.params.deck, card.identifier, total);
-            return axios.put('/decks/' + this.$route.params.deck + '/' + card.identifier, { total });
+            return axios.put('/decks/' + this.$route.params.deck + '/' + card.identifier, { card: card.identifier, total }).then(response => {
+                if (handler) {
+                    handler(response);
+                }
+            })
+            .catch(error => {
+                if (error.response && error.response.status == 422) {
+                    this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
+                }
+            });
         },
 
         findCard: function (card) {
