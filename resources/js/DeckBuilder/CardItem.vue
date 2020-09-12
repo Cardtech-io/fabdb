@@ -26,6 +26,10 @@
             ...mapState('deck', ['cards']),
 
             total() {
+                if (this.card.total !== undefined) {
+                    return this.card.total;
+                }
+
                 let cards = this.cards.filter(card => {
                     return card.identifier === this.card.identifier;
                 });

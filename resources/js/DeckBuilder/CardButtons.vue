@@ -56,20 +56,15 @@
             addCardToDeck() {
                 this.addRemote(this.card, () => {
                     this.addCard({ card: this.card });
+                    this.$eventHub.$emit('card-selected');
                 });
             },
 
             removeCardFromDeck() {
                 this.removeRemote(this.card, () => {
                     this.removeCard({ card: this.card });
+                    this.$eventHub.$emit('card-selected');
                 })
-            },
-
-            setTotal(total) {
-                this.setRemote(this.card, total, () => {
-                    this.setCardTotal({ card: this.card, total });
-                });
-                this.$eventHub.$emit('card-selected');
             }
         }
     }
