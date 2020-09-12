@@ -203,7 +203,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }, 3);
     }
 
-    public function copy(string $deckSlug, int $userId)
+    public function copy(string $deckSlug, int $userId): Deck
     {
         $deck = $this->bySlugWithCards($deckSlug, true);
         $newDeck = $deck->copy($userId);
@@ -214,5 +214,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         })->toArray();
 
         DB::table('deck_cards')->insert($inserts);
+
+        return $newDeck;
     }
 }

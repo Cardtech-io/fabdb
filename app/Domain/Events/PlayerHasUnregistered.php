@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Events;
 
-class PlayerHasUnregistered
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class PlayerHasUnregistered implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

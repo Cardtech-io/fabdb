@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Users;
 
-class UserRequestedAuth
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class UserRequestedAuth implements Loggable
 {
+    use LogsParams;
+
     private $user;
 
     public function __construct(User $user)

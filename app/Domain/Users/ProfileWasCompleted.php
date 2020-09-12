@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Users;
 
-class ProfileWasCompleted
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class ProfileWasCompleted implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

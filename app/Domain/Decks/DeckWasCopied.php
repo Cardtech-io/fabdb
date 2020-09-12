@@ -1,32 +1,32 @@
 <?php
-namespace FabDB\Domain\Events;
+namespace FabDB\Domain\Decks;
 
 use FabDB\Library\Loggable;
 use FabDB\Library\LogsParams;
 
-class PlayerHasRegistered implements Loggable
+class DeckWasCopied implements Loggable
 {
     use LogsParams;
 
     /**
      * @var int
      */
-    private $eventId;
+    private $deckId;
 
     /**
      * @var int
      */
     private $userId;
 
-    public function __construct(int $eventId, $userId)
+    public function __construct(int $deckId, int $userId)
     {
-        $this->eventId = $eventId;
+        $this->deckId = $deckId;
         $this->userId = $userId;
     }
 
-    public function eventId(): int
+    public function deckId(): int
     {
-        return $this->eventId;
+        return $this->deckId;
     }
 
     public function userId(): int

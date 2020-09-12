@@ -2,9 +2,12 @@
 namespace FabDB\Domain\Users;
 
 use FabDB\Library\Dispatchable;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class UpdateProfile
+class UpdateProfile implements Loggable
 {
+    use LogsParams;
     use Dispatchable;
 
     /**

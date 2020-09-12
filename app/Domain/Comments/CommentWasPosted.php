@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Comments;
 
-class CommentWasPosted
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class CommentWasPosted implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var CommentableType
      */

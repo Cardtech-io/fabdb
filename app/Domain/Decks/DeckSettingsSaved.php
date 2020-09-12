@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Decks;
 
-class DeckSettingsSaved
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class DeckSettingsSaved implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

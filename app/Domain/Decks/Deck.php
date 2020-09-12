@@ -159,6 +159,8 @@ class Deck extends Model
         $deck->userId = $userId;
         $deck->format = $this->format;
 
+        $deck->raise(new DeckWasCopied($this->id, $userId));
+
         return $deck;
     }
 }

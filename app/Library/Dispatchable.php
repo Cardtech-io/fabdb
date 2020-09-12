@@ -42,17 +42,15 @@ trait Dispatchable
      */
     protected function logEvent($event)
     {
-        $class = get_class($event);
-
-        Log::info("Event [$class] fired", get_object_vars($event));
+        Log::debug('Executed '.get_class($event).'.', $event->log());
     }
 
     /**
      * Fires the event provided.
      *
-     * @param object $event
+     * @param Loggable $event
      */
-    protected function fireEvent($event)
+    protected function fireEvent(Loggable $event)
     {
         Container::getInstance()->make('events')->dispatch($event);
     }

@@ -2,9 +2,13 @@
 namespace FabDB\Domain\Events;
 
 use Carbon\Carbon;
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
 
-class EventRegistered
+class EventRegistered implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */

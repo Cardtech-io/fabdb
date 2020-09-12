@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Users;
 
-class UserHasRegistered
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class UserHasRegistered implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var User
      */

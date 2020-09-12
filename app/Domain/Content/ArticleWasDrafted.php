@@ -1,8 +1,13 @@
 <?php
 namespace FabDB\Domain\Content;
 
-class ArticleWasDrafted
+use FabDB\Library\Loggable;
+use FabDB\Library\LogsParams;
+
+class ArticleWasDrafted implements Loggable
 {
+    use LogsParams;
+
     /**
      * @var int
      */
