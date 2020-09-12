@@ -57,6 +57,12 @@ export default class Cards {
         })[0];
     }
 
+    miscellaneous() {
+        return this.cards.filter(card => {
+            return card.keywords.includes('resource');
+        });
+    }
+
     attackActions() {
         return this.cards.filter(card => {
             return this.isAttack(card);

@@ -61,6 +61,7 @@
                     <card-item-section :cards="cards.weapons()" title="Weapons"></card-item-section>
                     <card-item-section :cards="cards.equipment()" title="Equipment"></card-item-section>
                     <card-item-section :cards="cards.instants()" title="Instants"></card-item-section>
+                    <card-item-section :cards="cards.miscellaneous()" title="Miscellaneous"></card-item-section>
                 </div>
                 <div class="sm:flex-1">
                     <card-item-section :cards="cards.attackActions()" title="Attack actions"></card-item-section>

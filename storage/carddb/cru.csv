@@ -463,7 +463,7 @@ CRU,181,Gorganian Tome,M,"**Legendary** *(You may only have one Gorganian Tome i
 
 Draw X cards, where X is 1 plus the number of Gorganian Tomes in all graveyards.
 
-**Go again**",,,"generic,action,attack",,,,0,,,,"standard,rainbow"
+**Go again**",,,"generic,action",,,,0,,,,"standard,rainbow"
 CRU,182,Snag,M,Attack action cards can't gain [attack] from their own effects or the effects of attack reaction cards this turn. *(This only affects [attack] that would be gained after Snag has resolved.)*,,,"generic,instant",,,3,0,,,,"standard,rainbow"
 CRU,183,Promise of Plenty,R,"If Promise of Plenty hits, each hero who doesn't have a card in arsenal puts the top card of their deck face down into their arsenal.
 
