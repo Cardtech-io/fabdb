@@ -9,8 +9,8 @@
             </p>
 
             <p class="mt-45">
-                <router-link to="/support" class="link">Supporters</router-link> gain access to the
-                premium deck builder, deck tester and more.
+                <router-link to="/support" class="link">Supporters</router-link> gain access to
+                premium deck builder features, the deck tester and more.
             </p>
 
             <router-link to="/support" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
@@ -32,6 +32,8 @@
                         </div>
                     </li>
                 </ol>
+
+                <paginator :results="response" @page-selected="search"></paginator>
             </div>
             <p v-else>The deck builder is available to registered users only, so if you do not yet have an account, you
                 must <router-link to="/login" class="link">register or login</router-link>.</p>
@@ -42,10 +44,12 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import AddDeck from './AddDeck.vue';
+    import AddDeck from './AddDeck';
+    import LazyLoader from "../Components/LazyLoader";
+    import Paginator from "../Components/Paginator";
 
     export default {
-        components: {AddDeck},
+        components: {AddDeck, Paginator},
 
         computed: {
             ...mapGetters('session', ['user'])
@@ -53,32 +57,36 @@
 
         data() {
             return {
-                decks: null
-            }
+                decks: null,
+                response: {},
+                page: 1,
+            };
         },
 
         methods: {
-            addDeck: function(deck) {
-                this.decks.push(deck);
+            addDeck(deck) {
+                this.decks.unshift(deck);
             },
 
-            removeDeck: function(deck, key) {
+            removeDeck(deck, key) {
                 const confirm = window.confirm('Are you sure you want to remove this deck? This action is not reversible.');
 
                 if (confirm) {
                     axios.delete('/decks/' + deck.slug).then(response => {
                         this.decks.splice(key, 1);
+                        this.search(this.page);
                     });
                 }
+            },
+
+            search(page) {
+                this.page = page;
+
+                axios.get('/decks/mine?page='+page).then(response => {
+                    this.response = response.data;
+                    this.decks = response.data.data;
+                });
             }
-        },
-
-        mounted() {
-            if (!this.user) return;
-
-            axios.get('/decks/mine/').then(response => {
-                this.decks = response.data;
-            });
         },
 
         metaInfo() {
@@ -86,6 +94,15 @@
                 title: 'Flesh & Blood Deck builder',
                 description: 'Create and customise tournament-winning decks for Flesh & Blood TCG.'
             }
-        }
+        },
+
+        extends: LazyLoader((to, callback) => {
+            axios.get('/decks/mine').then(response => {
+                callback(function() {
+                    this.response = response.data;
+                    this.decks = response.data.data;
+                });
+            });
+        })
     }
 </script>

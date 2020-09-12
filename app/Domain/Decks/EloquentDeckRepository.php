@@ -5,6 +5,7 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Market\PriceAverage;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -15,12 +16,12 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return new Deck;
     }
 
-    public function forUser(int $userId): Collection
+    public function forUser(int $userId): LengthAwarePaginator
     {
         return $this->newQuery()
             ->whereUserId($userId)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
     }
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model

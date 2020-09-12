@@ -1,9 +1,9 @@
 <template>
     <div class="w-full flex items-center mb-1px">
         <card-buttons :card="card" class="w-1/3"></card-buttons>
-        <div class="w-2/3 pl-4 p-2 ml-1px bg-gray-300 cursor-default" @mouseover="setHover(card)" @mouseleave="setHover(false)">
+        <div class="w-2/3 pl-4 p-2 ml-1px bg-gray-300 cursor-default">
             <div class="whitespace-no-wrap overflow-hidden">
-                {{ card.name }}
+                <span @mouseover="setHover(card)" @mouseleave="setHover(false)">{{ card.name }}</span>
                 <colour :resource="card.stats.resource" class="ml-2"></colour>
             </div>
         </div>
