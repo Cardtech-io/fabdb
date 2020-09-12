@@ -28,6 +28,7 @@
                         <div class="flex">
                             <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
                             <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>
+                            <a href="" class="block p-4" @click.prevent="copyDeck(deck)" title="Copy deck" :class="{ 'text-gray-500': copyDisabled, 'link': !copyDisabled }">Copy</a>
                             <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                         </div>
                     </li>
@@ -57,6 +58,7 @@
 
         data() {
             return {
+                copyDisabled: false,
                 decks: null,
                 response: {},
                 page: 1,
@@ -66,6 +68,20 @@
         methods: {
             addDeck(deck) {
                 this.decks.unshift(deck);
+            },
+
+            copyDeck(deck) {
+                if (this.copyDisabled) return;
+
+                this.copyDisabled = true;
+
+                setTimeout(() => {
+                    this.copyDisabled = false;
+                }, 3000);
+
+                axios.post('/decks/copy', { deck: deck.slug }).then(response => {
+                    this.search(1);
+                });
             },
 
             removeDeck(deck, key) {

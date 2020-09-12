@@ -202,4 +202,17 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             }
         }, 3);
     }
+
+    public function copy(string $deckSlug, int $userId)
+    {
+        $deck = $this->bySlugWithCards($deckSlug, true);
+        $newDeck = $deck->copy($userId);
+        $this->save($newDeck);
+
+        $inserts = $deck->cards->map(function($card) use ($newDeck) {
+            return ['deck_id' => $newDeck->id, 'card_id' => $card->id, 'total' => $card->pivot->total];
+        })->toArray();
+
+        DB::table('deck_cards')->insert($inserts);
+    }
 }

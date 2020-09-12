@@ -8,6 +8,7 @@ use FabDB\Domain\Decks\AddCardToSideboard;
 use FabDB\Domain\Decks\AddDeck;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
+use FabDB\Domain\Decks\CopyDeck;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
 use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
@@ -86,6 +87,11 @@ class DeckController extends Controller
     public function mine()
     {
         return $this->decks->forUser(Auth::user()->id);
+    }
+
+    public function copy(Request $request)
+    {
+        $this->dispatchNow(new CopyDeck($request->get('deck'), $request->user()->id));
     }
 
     public function view(Deck $deck)

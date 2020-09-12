@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Decks;
 
+use Carbon\Carbon;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Users\User;
 use FabDB\Domain\Voting\Vote;
@@ -8,6 +9,7 @@ use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
+use Illuminate\Support\Str;
 
 class Deck extends Model
 {
@@ -141,5 +143,22 @@ class Deck extends Model
         $this->cardBack = $cardBack;
 
         $this->raise(new DeckSettingsSaved($this->id, $name, $format, $visibility, $cardBack));
+    }
+
+    public function copy(int $userId)
+    {
+        $name = $this->name;
+
+        if (!Str::contains($name, '(copy)')) {
+            $name .= ' (copy)';
+        }
+
+        $deck = new Deck;
+        $deck->parentId = $this->id;
+        $deck->name = $name;
+        $deck->userId = $userId;
+        $deck->format = $this->format;
+
+        return $deck;
     }
 }
