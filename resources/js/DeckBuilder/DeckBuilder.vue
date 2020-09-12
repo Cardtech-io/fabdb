@@ -23,13 +23,13 @@
                                 <fullscreen-button></fullscreen-button>
                             </div>
                         </div>
-                        <div v-if="mode == 'search'" class="w-1/3 flex items-center" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300 px-4': !fullScreen }">
+                        <div v-if="mode == 'search'" class="w-1/3 flex items-center" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300 px-4 pr-0': !fullScreen }">
                             <div class="w-1/2">
                                 <input type="text" ref="nameSearch" v-model="name" placeholder="Card name" class="input w-auto py-3 px-4" @keyup="delayedSearch" @keyup.enter="search(1)" :class="{ 'rounded-l-lg focus:bg-white focus:border-gray-500': !fullScreen }">
                             </div>
                             <div class="w-1/2">
                                 <select v-model="cardType" class="input w-auto" @change="search()" :class="{ 'appearance-none bg-none text-gray-700 outline-none': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-lg': !fullScreen }">
-                                    <option value="">Filter</option>
+                                    <option value="">Filter (All)</option>
                                     <option value="non-attack action">'Non-attack' actions</option>
                                     <option value="attack action">Attack actions</option>
                                     <option value="attack reaction">Attack reactions</option>

@@ -57,7 +57,18 @@ export default {
         },
 
         removeRemote: function(card, handler) {
-            return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier);
+            return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier).then(response => {
+                this.addMessage({ status: 'success', message: 'Card removed.' });
+
+                if (handler) {
+                    handler(response);
+                }
+            })
+            .catch(error => {
+                if (error.response && error.response.status == 422) {
+                    this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
+                }
+            });
         },
 
         setRemote(card, total, handler) {

@@ -17,7 +17,7 @@
             ...mapGetters('deck', ['minZoom', 'maxZoom']),
             ...mapState('deck', ['fullScreen', 'mode', 'view', 'zoom']),
 
-            // Returns true if the button is active
+            // Returns true if the button is activeNumber
             inactive: function() {
                 if (this.mode === 'details' || this.view === 'text') return true;
 

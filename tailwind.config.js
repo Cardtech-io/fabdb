@@ -11,6 +11,10 @@ module.exports = {
                 'semi-black': 'rgba(0, 0, 0, 0.45)',
             },
 
+            cursor: {
+                'help': 'help'
+            },
+
             borderColor: {
                 'crumbs': 'var(--crumbs-background-color)'
             },

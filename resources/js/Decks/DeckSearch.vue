@@ -66,7 +66,7 @@
 
             active(field) {
                 if (this.params[field]) {
-                    return 'shadow-active'
+                    return 'shadow-activeNumber'
                 }
             },
 

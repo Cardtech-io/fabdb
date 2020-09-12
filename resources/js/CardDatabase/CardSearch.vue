@@ -123,7 +123,7 @@
         methods: {
             active(field) {
                 if (this.query(field)) {
-                    return 'shadow-active'
+                    return 'shadow-activeNumber'
                 }
             },
 
