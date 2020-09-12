@@ -60,7 +60,6 @@
                     <card-item-section :card="cards.hero()" title="Hero"></card-item-section>
                     <card-item-section :cards="cards.weapons()" title="Weapons"></card-item-section>
                     <card-item-section :cards="cards.equipment()" title="Equipment"></card-item-section>
-                    <card-item-section :cards="cards.items()" title="Items"></card-item-section>
                     <card-item-section :cards="cards.instants()" title="Instants"></card-item-section>
                 </div>
                 <div class="sm:flex-1">

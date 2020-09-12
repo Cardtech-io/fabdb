@@ -20,7 +20,7 @@ export default {
         },
 
         resourceColour: function(resource) {
-            const colours = {1: 'red-600', 2: 'yellow-300', 3: 'blue-400'};
+            const colours = {1: 'red-600', 2: 'yellow-400', 3: 'blue-400'};
             const colour = colours[resource];
 
             if (colour) {
