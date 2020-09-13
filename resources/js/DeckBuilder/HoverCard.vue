@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl" :style="position()" v-if="visible && card">
+    <div ref="hoverDiv" class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl" :style="position" v-show="visible && card">
         <card-image :card="card" :width="width" v-if="card" :click-handler="hide"/>
     </div>
 </template>
@@ -14,24 +14,39 @@
             return {
                 card: false,
                 coordinates: [],
+                position: {},
                 visible: false,
-                width: 350
+                width: 350,
+                height: 488
             };
         },
 
         methods: {
-            position() {
+            setPosition() {
+                this.position = {
+                    'width': this.width + 'px',
+                    'top': this.top() + 'px',
+                    'left': this.coordinates[0] - this.width - 100 + 'px'
+                };
+            },
+
+            top() {
+                if (!this.$refs.hoverDiv) {
+                    return 0;
+                }
+
                 let top = this.coordinates[1] + window.scrollY - 200;
+                let maxTop = window.innerHeight - this.height - 50;
 
                 if (top < 0) {
                     top = 100;
                 }
 
-                return {
-                    'width': this.width + 'px',
-                    'top': top + 'px',
-                    'left': this.coordinates[0] - this.width - 100 + 'px'
-                };
+                if (top > maxTop) {
+                    top = maxTop;
+                }
+
+                return top;
             },
 
             toggle(card) {
@@ -39,10 +54,15 @@
 
                 if (this.card) {
                     this.coordinates = [window.event.clientX, window.event.clientY];
+                    this.setPosition();
 
                     setTimeout(() => {
                         this.visible = true;
-                    }, 250);
+                    }, 150);
+
+                    setTimeout(() => {
+
+                    }, 155);
                 } else {
                     this.visible = false;
                 }

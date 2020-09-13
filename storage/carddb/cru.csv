@@ -294,7 +294,7 @@ CRU,124,Poison the Tips,M,"Until end of turn, arrows you control gain ""If this 
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action,attack",,,2,0,2,,,"standard,rainbow"
+**Go again**",,,"ranger,action",,,2,0,2,,,"standard,rainbow"
 CRU,125,Feign Death,M,"Play Feign Death only if you have been dealt damage this turn.
 
 The next time you would be dealt damage this turn, prevent it.",,,"ranger,instant",,,2,1,,,,"standard,rainbow"

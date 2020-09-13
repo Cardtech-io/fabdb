@@ -22,6 +22,10 @@ class ClassFilter implements SearchFilter
             foreach ($classes as $class) {
                 $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '$class') IS NOT NULL");
             }
+
+            if (in_array('shapeshifter', $classes)) {
+                $query->orWhere('search_text', 'LIKE', '%specialization%');
+            }
         });
     }
 }
