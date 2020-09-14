@@ -65,11 +65,8 @@
                                     <div v-if="weapons" class="mb-8">
                                         <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons</h3>
                                         <ol>
-                                            <li v-for="weapon in weapons" class="p-2 pl-4">
-                                                <router-link :to="/cards/ + weapon.identifier">
-                                                    <span>{{ weapon.name }}</span>
-                                                    <span class="text-gray-600 text-xs">{{ weapon.identifier }}</span>
-                                                </router-link>
+                                            <li v-for="card in weapons" class="p-2 pl-4">
+                                                <deck-card :card="card" :collapse="true"></deck-card>
                                             </li>
                                         </ol>
                                     </div>
@@ -78,10 +75,7 @@
                                         <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment</h3>
                                         <ol>
                                             <li v-for="card in equipment" class="p-2 pl-4">
-                                                <router-link :to="/cards/ + card.identifier">
-                                                    <span>{{ card.name }}</span>
-                                                    <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                                </router-link>
+                                                <deck-card :card="card" :collapse="true"></deck-card>
                                             </li>
                                         </ol>
                                     </div>
@@ -92,12 +86,7 @@
                                         <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other</h3>
                                         <ol>
                                             <li v-for="card in other" class="p-2 pl-4">
-                                                <router-link :to="/cards/ + card.identifier">
-                                                    <span class="">({{ card.total }})</span>
-                                                    <span :class="{ 'text-red-600': card.total > 3 }">{{ card.name }}</span>
-                                                    <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(card.stats.resource)" v-if="card.stats.resource"></span>
-                                                    <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
-                                                </router-link>
+                                                <deck-card :card="card"></deck-card>
                                             </li>
                                         </ol>
                                     </div>
@@ -119,7 +108,6 @@
 
         <div v-else>
             <header-title :title="deck.name"></header-title>
-
             <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
             <div class="bg-gray-200">
@@ -138,6 +126,7 @@
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
+    import DeckCard from "./DeckCard";
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import LazyLoader from '../Components/LazyLoader';
@@ -151,6 +140,7 @@
 
         components: {
             Breadcrumbs,
+            DeckCard,
             Discussion,
             HeaderTitle,
             Respond,

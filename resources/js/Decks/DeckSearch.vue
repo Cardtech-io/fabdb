@@ -96,7 +96,6 @@
         created() {
             axios.get('/cards/heroes').then(response => {
                 this.heroes = response.data;
-                console.log(this.heroes);
             });
 
             this.search();
