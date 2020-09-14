@@ -3,14 +3,7 @@
         <div class="w-2/4 pr-4">
             <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
-                <option value="ARC038">Azalea</option>
-                <option value="WTR038">Bravo</option>
-                <option value="ARC001">Dash</option>
-                <option value="WTR113">Dorinthea</option>
-                <option value="ARC113">Kano</option>
-                <option value="WTR076">Katsu</option>
-                <option value="WTR001">Rhinar</option>
-                <option value="ARC075">Viserai</option>
+                <option :value="hero.identifier" v-for="hero in heroes">{{ hero.name }}</option>
             </select>
         </div>
 
@@ -36,6 +29,12 @@
 
     export default {
         components: {Submit},
+
+        data() {
+            return {
+                heroes: []
+            }
+        },
 
         computed: {
             ...mapState('deckSearch', ['params']),
@@ -95,6 +94,11 @@
         },
 
         created() {
+            axios.get('/cards/heroes').then(response => {
+                this.heroes = response.data;
+                console.log(this.heroes);
+            });
+
             this.search();
         }
     };
