@@ -28,10 +28,16 @@ class ArticleWasDrafted implements Loggable
      */
     private $content;
 
-    public function __construct(int $author, string $title, string $excerpt, string $content)
+    /**
+     * @var string
+     */
+    private $tags;
+
+    public function __construct(int $author, string $title, string $tags, string $excerpt, string $content)
     {
         $this->author = $author;
         $this->title = $title;
+        $this->tags = $tags;
         $this->excerpt = $excerpt;
         $this->content = $content;
     }
@@ -44,6 +50,11 @@ class ArticleWasDrafted implements Loggable
     public function title(): string
     {
         return $this->title;
+    }
+
+    public function tags(): string
+    {
+        return $this->tags;
     }
 
     public function excerpt(): string

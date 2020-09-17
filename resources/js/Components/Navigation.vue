@@ -45,8 +45,8 @@
                 let items = [
                     { link: '/', text: 'Home' },
                     { text: 'Articles', children: [
+                            { link: '/articles', text: 'Latest news' },
                             { link: '/articles/spoilers', text: 'Spoilers!' },
-                            { link: '/articles', text: 'Latest news' }
                     ]},
 
                     { text: 'Cards', children: [

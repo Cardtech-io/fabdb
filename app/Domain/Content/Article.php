@@ -27,18 +27,19 @@ class Article extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public static function draft(int $author, string $title, string $excerpt, $image, $publishAt, $status, string $content)
+    public static function draft(int $author, string $title, string $tags, string $excerpt, $image, $publishAt, $status, string $content)
     {
         $article = new self;
         $article->userId = $author;
         $article->title = $title;
+        $article->tags = $tags;
         $article->excerpt = $excerpt;
         $article->image = $image;
         $article->publishAt = $publishAt;
         $article->status = $status;
         $article->content = $content;
 
-        $article->raise(new ArticleWasDrafted($author, $title, $excerpt, $content));
+        $article->raise(new ArticleWasDrafted($author, $title, $tags, $excerpt, $content));
 
         return $article;
     }

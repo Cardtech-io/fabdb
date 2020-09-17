@@ -27,11 +27,13 @@
                 <h1 class="mx-4 mb-4 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
 
                 <ol class="clearfix -mx-4 text-lg">
-                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl hover:nearly-black">
+                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl hover:bg-nearly-black">
                         <router-link :to="article.link">
                             <img :src="thumbUrl(article.image, 250, 250)" class="float-left mr-8 rounded-xl">
                             <div>
-                                <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold text-base">Tag</div>
+                                <div v-if="article.tags">
+                                    <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold text-base mr-2" v-for="tag in article.tags.split(',')">{{ ucfirst(tag.trim()) }}</div>
+                                </div>
                                 <h3 class="text-white font-serif uppercase text-3xl">{{ article.title }}</h3>
                                 <p class="mt-2 text-gray-400">{{ article.excerpt }}</p>
                                 <div class="mt-8 flex">

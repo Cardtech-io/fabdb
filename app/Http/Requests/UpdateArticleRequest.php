@@ -14,6 +14,7 @@ class UpdateArticleRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'tags' => 'required',
             'excerpt' => 'required',
             'content' => 'required',
         ];

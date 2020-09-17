@@ -10,6 +10,11 @@ class UpdateArticle
     /**
      * @var string
      */
+    private $tags;
+
+    /**
+     * @var string
+     */
     private $slug;
 
     /**
@@ -30,10 +35,11 @@ class UpdateArticle
     private $publishAt;
     private $status;
 
-    public function __construct(string $slug, string $title, string $excerpt, $image, $publishAt, $status, string $content)
+    public function __construct(string $slug, string $title, string $tags, string $excerpt, $image, $publishAt, $status, string $content)
     {
         $this->slug = $slug;
         $this->title = $title;
+        $this->tags = $tags;
         $this->excerpt = $excerpt;
         $this->content = $content;
         $this->image = $image;
@@ -46,6 +52,7 @@ class UpdateArticle
         $article = $articles->bySlug($this->slug);
 
         $article->title = $this->title;
+        $article->tags = $this->tags;
         $article->excerpt = $this->excerpt;
         $article->content = $this->content;
         $article->image = $this->image;

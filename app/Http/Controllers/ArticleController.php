@@ -40,6 +40,7 @@ class ArticleController extends Controller
             $observer = new ArticleObserver,
             $request->user()->id,
             $request->get('title'),
+            $request->get('tags'),
             $request->get('excerpt'),
             $request->get('image'),
             $request->get('publishAt'),
@@ -55,6 +56,7 @@ class ArticleController extends Controller
         $this->dispatchNow(new UpdateArticle(
             $request->article->slug,
             $request->get('title'),
+            $request->get('tags'),
             $request->get('excerpt'),
             $request->get('image'),
             $request->get('publishAt'),

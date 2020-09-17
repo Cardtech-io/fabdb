@@ -26,6 +26,12 @@
                     </div>
 
                     <div class="w-full mt-4">
+                        <label class="block font-serif uppercase tracking-wide mb-1">Tags</label>
+                        <input type="text" v-model="article.tags" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
+                        <span class="text-gray-500">Tags should be comma-delimited.</span>
+                    </div>
+
+                    <div class="w-full mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Excerpt</label>
                         <textarea type="text" v-model="article.excerpt" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" rows="4" maxlength="200"></textarea>
                     </div>
@@ -121,6 +127,7 @@
                 let payload = {
                     slug: this.article.slug,
                     title: this.article.title,
+                    tags: this.article.tags,
                     excerpt: this.article.excerpt,
                     image: this.article.image,
                     publishAt: this.article.publishAt,

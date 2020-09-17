@@ -34,8 +34,12 @@ class DraftArticle
     private $image;
     private $publishAt;
     private $status;
+    /**
+     * @var string
+     */
+    private $tags;
 
-    public function __construct(ArticleObserver $observer, int $author, string $title, string $excerpt, $image, $publishAt, $status, string $content)
+    public function __construct(ArticleObserver $observer, int $author, string $title, string $tags, string $excerpt, $image, $publishAt, $status, string $content)
     {
         $this->observer = $observer;
         $this->author = $author;
@@ -45,6 +49,7 @@ class DraftArticle
         $this->image = $image;
         $this->publishAt = $publishAt;
         $this->status = $status;
+        $this->tags = $tags;
     }
 
     public function handle(ArticleRepository $articles)
@@ -52,6 +57,7 @@ class DraftArticle
         $article = Article::draft(
             $this->author,
             $this->title,
+            $this->tags,
             $this->excerpt,
             $this->image,
             $this->publishAt,

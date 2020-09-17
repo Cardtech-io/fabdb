@@ -9,6 +9,7 @@ class DraftArticleRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'tags' => 'required',
             'excerpt' => 'required',
             'content' => 'required',
         ];

@@ -35,6 +35,10 @@ class Article
         return this.fields.slug;
     }
 
+    get tags() {
+        return this.fields.tags;
+    }
+
     get title() {
         return this.fields.title;
     }
