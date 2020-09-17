@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="container sm:mx-auto py-8 px-4">
-            <div class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
-                <h1 class="mx-4 mb-8 font-serif uppercase text-4xl text-white">Featured</h1>
+            <div class="sm:-mx-4" v-if="articles.current_page == 1">
+                <h1 class="mx-4 mb-4 font-serif uppercase text-4xl text-white">Featured</h1>
 
-                <div class="flex mx-4">
-                    <div class="w-2/3 mr-8 rounded-xl overflow-hidden">
+                <div class="md:flex mx-4">
+                    <div class="w-full md:w-2/3 md:mr-8 mb-4 rounded-xl overflow-hidden">
                         <router-link :to="firstThree[0].link" class="block w-full relative" :style="{ ...background(firstThree[0].image), 'height': '500px' }">
                             <div class="absolute bottom-0 p-8">
                                 <h2 class="text-white font-serif uppercase text-4xl">{{ firstThree[0].title }}</h2>
@@ -13,9 +13,9 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="w-1/3 flex flex-col">
-                        <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image), 'height': '50%' }" class="block relative rounded-xl odd:mb-4 even:mt-4">
-                            <div class="absolute bottom-0 p-8">
+                    <div class="w-full md:w-1/3 md:flex md:flex-col">
+                        <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image) }" class="block md:h-1/2 relative rounded-xl mb-4 md:odd:mb-4 md:even:mt-4">
+                            <div class="md:absolute md:bottom-0 p-8">
                                 <h2 class="text-white font-serif uppercase text-2xl">{{ article.title }}</h2>
                             </div>
                         </router-link>
@@ -24,14 +24,14 @@
             </div>
 
             <div class="mt-16">
-                <h1 class="mx-4 mb-8 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
+                <h1 class="mx-4 mb-4 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
 
                 <ol class="clearfix -mx-4 text-lg">
-                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl">
+                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl hover:nearly-black">
                         <router-link :to="article.link">
                             <img :src="thumbUrl(article.image, 250, 250)" class="float-left mr-8 rounded-xl">
                             <div>
-                                <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold">Tag</div>
+                                <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold text-base">Tag</div>
                                 <h3 class="text-white font-serif uppercase text-3xl">{{ article.title }}</h3>
                                 <p class="mt-2 text-gray-400">{{ article.excerpt }}</p>
                                 <div class="mt-8 flex">

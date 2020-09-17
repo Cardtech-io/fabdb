@@ -2375,7 +2375,11 @@ video {
 }
 
 .bg-semi-black {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-nearly-black {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .odd\:bg-transparent:nth-child(odd) {
@@ -2963,7 +2967,11 @@ video {
 }
 
 .odd\:bg-semi-black:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.odd\:bg-nearly-black:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .even\:bg-transparent:nth-child(even) {
@@ -3551,7 +3559,11 @@ video {
 }
 
 .even\:bg-semi-black:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.even\:bg-nearly-black:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .hover\:bg-transparent:hover {
@@ -4139,7 +4151,11 @@ video {
 }
 
 .hover\:bg-semi-black:hover {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hover\:bg-nearly-black:hover {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .focus\:bg-transparent:focus {
@@ -4727,7 +4743,11 @@ video {
 }
 
 .focus\:bg-semi-black:focus {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.focus\:bg-nearly-black:focus {
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .bg-opacity-0 {
@@ -25782,7 +25802,11 @@ button, button:focus {
   }
 
   .sm\:bg-semi-black {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sm\:bg-nearly-black {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .sm\:odd\:bg-transparent:nth-child(odd) {
@@ -26370,7 +26394,11 @@ button, button:focus {
   }
 
   .sm\:odd\:bg-semi-black:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sm\:odd\:bg-nearly-black:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .sm\:even\:bg-transparent:nth-child(even) {
@@ -26958,7 +26986,11 @@ button, button:focus {
   }
 
   .sm\:even\:bg-semi-black:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sm\:even\:bg-nearly-black:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .sm\:hover\:bg-transparent:hover {
@@ -27546,7 +27578,11 @@ button, button:focus {
   }
 
   .sm\:hover\:bg-semi-black:hover {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sm\:hover\:bg-nearly-black:hover {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .sm\:focus\:bg-transparent:focus {
@@ -28134,7 +28170,11 @@ button, button:focus {
   }
 
   .sm\:focus\:bg-semi-black:focus {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sm\:focus\:bg-nearly-black:focus {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .sm\:bg-opacity-0 {
@@ -48789,7 +48829,11 @@ button, button:focus {
   }
 
   .md\:bg-semi-black {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .md\:bg-nearly-black {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .md\:odd\:bg-transparent:nth-child(odd) {
@@ -49377,7 +49421,11 @@ button, button:focus {
   }
 
   .md\:odd\:bg-semi-black:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .md\:odd\:bg-nearly-black:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .md\:even\:bg-transparent:nth-child(even) {
@@ -49965,7 +50013,11 @@ button, button:focus {
   }
 
   .md\:even\:bg-semi-black:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .md\:even\:bg-nearly-black:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .md\:hover\:bg-transparent:hover {
@@ -50553,7 +50605,11 @@ button, button:focus {
   }
 
   .md\:hover\:bg-semi-black:hover {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .md\:hover\:bg-nearly-black:hover {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .md\:focus\:bg-transparent:focus {
@@ -51141,7 +51197,11 @@ button, button:focus {
   }
 
   .md\:focus\:bg-semi-black:focus {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .md\:focus\:bg-nearly-black:focus {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .md\:bg-opacity-0 {
@@ -71796,7 +71856,11 @@ button, button:focus {
   }
 
   .lg\:bg-semi-black {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .lg\:bg-nearly-black {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .lg\:odd\:bg-transparent:nth-child(odd) {
@@ -72384,7 +72448,11 @@ button, button:focus {
   }
 
   .lg\:odd\:bg-semi-black:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .lg\:odd\:bg-nearly-black:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .lg\:even\:bg-transparent:nth-child(even) {
@@ -72972,7 +73040,11 @@ button, button:focus {
   }
 
   .lg\:even\:bg-semi-black:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .lg\:even\:bg-nearly-black:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .lg\:hover\:bg-transparent:hover {
@@ -73560,7 +73632,11 @@ button, button:focus {
   }
 
   .lg\:hover\:bg-semi-black:hover {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .lg\:hover\:bg-nearly-black:hover {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .lg\:focus\:bg-transparent:focus {
@@ -74148,7 +74224,11 @@ button, button:focus {
   }
 
   .lg\:focus\:bg-semi-black:focus {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .lg\:focus\:bg-nearly-black:focus {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .lg\:bg-opacity-0 {
@@ -94803,7 +94883,11 @@ button, button:focus {
   }
 
   .xl\:bg-semi-black {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .xl\:bg-nearly-black {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .xl\:odd\:bg-transparent:nth-child(odd) {
@@ -95391,7 +95475,11 @@ button, button:focus {
   }
 
   .xl\:odd\:bg-semi-black:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .xl\:odd\:bg-nearly-black:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .xl\:even\:bg-transparent:nth-child(even) {
@@ -95979,7 +96067,11 @@ button, button:focus {
   }
 
   .xl\:even\:bg-semi-black:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .xl\:even\:bg-nearly-black:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .xl\:hover\:bg-transparent:hover {
@@ -96567,7 +96659,11 @@ button, button:focus {
   }
 
   .xl\:hover\:bg-semi-black:hover {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .xl\:hover\:bg-nearly-black:hover {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .xl\:focus\:bg-transparent:focus {
@@ -97155,7 +97251,11 @@ button, button:focus {
   }
 
   .xl\:focus\:bg-semi-black:focus {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .xl\:focus\:bg-nearly-black:focus {
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .xl\:bg-opacity-0 {

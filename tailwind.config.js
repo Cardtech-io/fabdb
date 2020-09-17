@@ -8,7 +8,8 @@ module.exports = {
                 'secondary-hover': 'var(--button-secondary-hover-background-color)',
                 'disabled': 'var(--button-disabled-background-color)',
                 'disabled-hover': 'var(--button-disabled-hover-background-color)',
-                'semi-black': 'rgba(0, 0, 0, 0.45)',
+                'semi-black': 'rgba(0, 0, 0, 0.5)',
+                'nearly-black': 'rgba(0, 0, 0, 0.75)',
             },
 
             cursor: {
