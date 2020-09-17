@@ -282,7 +282,7 @@ CRU,118,"Kavdaen, Trader of Skins",R,"**Once per Turn Action** - [3 resource]: I
 CRU,119,"Azalea, Ace in the Hole",C,"**Once per Turn Action** - 0: Put a card from your arsenal on the bottom of your deck. If you do, put the top card of your deck face up into your arsenal. If it's an arrow card, it gains **dominate** until end of turn. **Go again** *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"ranger,hero",40,4,,,,,,standard
 CRU,120,Death Dealer,C,"**Once per Turn Action** - [resource]: If you have no cards in your arsenal, you may put an arrow card from your hand face up into your arsenal. If you do, draw a card. **Go again**",,,"ranger,weapon,bow,2h",,,,,,,,standard
 CRU,121,Red Liner,R,"**Once per Turn Action - 0**: If you have no cards in your arsenal, put an arrow card your hand face up into your arsenal. **Go again** ",,,"ranger,weapon,bow,2h",,,,,,,,"standard,cold"
-CRU,122,Perch Grapplers,R,"**Action - [2 resource],** Destroy Perch Grapplers: Until end of turn, face up arrow cards played from arsenal gain **go again**. **Go again**
+CRU,122,Perch Grapplers,M,"**Action - [2 resource],** Destroy Perch Grapplers: Until end of turn, face up arrow cards played from arsenal gain **go again**. **Go again**
 
 **Blade Break** *(If you defend with Perch Grapplers, destroy it when the combat chain closes.)*",,,"ranger,equipment,legs",,,,,2,,,"standard,cold"
 CRU,123,Remorseless,M,"*(Arrows can only be played from arsenal and only if you control a bow.)*

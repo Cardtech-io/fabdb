@@ -50,6 +50,14 @@ export default {
             }
 
             commit('timeout', { index });
+        },
+
+        addValidationMessages({commit, dispatch}, {messages}) {
+            for (let i in messages) {
+                for (let x in messages[i]) {
+                    dispatch('addMessage', {status: 'error', message: messages[i][x]});
+                }
+            }
         }
     }
 };

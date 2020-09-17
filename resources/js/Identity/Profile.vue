@@ -246,7 +246,7 @@
 
         methods: {
             ...mapActions('session', ['setUserParam']),
-            ...mapActions('messages', ['addMessage']),
+            ...mapActions('messages', ['addMessage', 'addValidationMessages']),
 
             save: function() {
                 this.saving = true;
@@ -266,6 +266,10 @@
                 axios.put('/profile', data).then(response => {
                     this.addMessage({ status: 'success', message: 'Profile updated' });
                     this.saving = false;
+                }).catch(error => {
+                    if (error.response.status === 422) {
+                        this.addValidationMessages({messages: error.response.data.errors});
+                    }
                 });
             }
         },
