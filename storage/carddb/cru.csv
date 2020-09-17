@@ -341,7 +341,7 @@ CRU,140,Reaping Blade,R,"**Once per Turn Action - [resource]: Attack**
 If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"standard,cold"
 CRU,141,Bloodsheath Skeleta,M,"**Instant** - Destroy Bloodsheath Skeleta: The next attack action card and 'non-attack' action card you play this turn, gain ""This card costs [resource] less to play for each Runechant you control.""
 
-**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"standard,cold"
+**Temper** *(If you defend with Bloodsheath Skeleta, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"standard,cold"
 CRU,142,Dread Triptych,M,"If you've played a 'non-attack' action card this turn, create a Runechant token.
 
 If you've dealt arcane damage this turn, create a Runechant token.
