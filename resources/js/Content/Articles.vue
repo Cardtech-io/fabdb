@@ -101,7 +101,7 @@
         methods: {
             background(image) {
                 return {
-                    'background-image': 'linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0,0,0,0.8) 100%), url('+this.thumbUrl(image, 500, 300)+')',
+                    'background-image': 'linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0,0,0,0.8) 100%), url('+this.thumbUrl(image, 1000, 500)+')',
                     'background-size': 'cover'
                 }
             },
