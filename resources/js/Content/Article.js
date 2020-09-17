@@ -19,6 +19,10 @@ class Article
         return moment.utc(this.fields.publishAt).format('Do MMMM YYYY');
     }
 
+    get publishedRelative() {
+        return moment.utc(this.fields.publishAt).fromNow();
+    }
+
     get excerpt() {
         return this.fields.excerpt;
     }

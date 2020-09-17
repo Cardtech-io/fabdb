@@ -1,40 +1,46 @@
 <template>
     <div>
-        <header-title title="Articles"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <div class="container sm:mx-auto py-8 px-4">
+            <div class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
+                <h1 class="mx-4 mb-8 font-serif uppercase text-4xl text-white">Featured</h1>
 
-        <div class="bg-gray-200">
-            <div class="container sm:mx-auto py-8 px-4">
-                <ol class="clearfix sm:-mx-4" v-if="articles.current_page == 1">
-                    <li class="border-t-2 border-gray-400 mx-4 mb-8">
-                        <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Latest news</span>
-                    </li>
-                    <li v-for="article in firstThree" class="w-full sm:w-1/2 lg:w-1/3 sm:px-4 float-left mb-8">
-                        <div class="bg-white" style="height: 350px">
-                            <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                                <img :src="thumbUrl(article.image, 400, 150)" class="w-full">
-                                <div class="p-6">
-                                    <h3 class="font-serif uppercase text-2xl mb-2">{{ article.title }}</h3>
-                                    <p>{{ article.excerpt }}</p>
-                                </div>
-                            </router-link>
-                        </div>
-                    </li>
-                </ol>
+                <div class="flex mx-4">
+                    <div class="w-2/3 mr-8 rounded-xl overflow-hidden">
+                        <router-link :to="firstThree[0].link" class="block w-full relative" :style="{ ...background(firstThree[0].image), 'height': '500px' }">
+                            <div class="absolute bottom-0 p-8">
+                                <h2 class="text-white font-serif uppercase text-4xl">{{ firstThree[0].title }}</h2>
+                                <p class="text-lg text-gray-500">{{ firstThree[0].excerpt }}</p>
+                            </div>
+                        </router-link>
+                    </div>
+                    <div class="w-1/3 flex flex-col">
+                        <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image), 'height': '50%' }" class="block relative rounded-xl odd:mb-4 even:mt-4">
+                            <div class="absolute bottom-0 p-8">
+                                <h2 class="text-white font-serif uppercase text-2xl">{{ article.title }}</h2>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
 
-                <ol class="clearfix sm:-mx-4">
-                    <li class="border-t-2 border-gray-400 mx-4 mb-8" v-if="articles.current_page == 1">
-                        <span class="font-serif uppercase bg-gray-200 p-4 absolute -mt-8 ml-8">Recent news</span>
-                    </li>
-                    <li v-for="article in remainder" class="clearfix w-full mx-4 mb-4">
-                        <router-link :to="'/articles/' + kebabCase(article.title) + '/' + article.slug">
-                            <img :src="thumbUrl(article.image, 150, 150)" class="float-left mr-4">
+            <div class="mt-16">
+                <h1 class="mx-4 mb-8 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
+
+                <ol class="clearfix -mx-4 text-lg">
+                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl">
+                        <router-link :to="article.link">
+                            <img :src="thumbUrl(article.image, 250, 250)" class="float-left mr-8 rounded-xl">
                             <div>
-                                <h3 class="font-serif uppercase text-xl">{{ article.title }}</h3>
-                                <div class="text-base">
-                                    <span class="text-gray-500">by</span> {{ article.author.name }} <span class="text-gray-500">on</span> {{ article.published }}
+                                <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold">Tag</div>
+                                <h3 class="text-white font-serif uppercase text-3xl">{{ article.title }}</h3>
+                                <p class="mt-2 text-gray-400">{{ article.excerpt }}</p>
+                                <div class="mt-8 flex">
+                                    <avatar :user="article.author" :width="50" class="flex-0 rounded-bl-none"/>
+                                    <div class="ml-4">
+                                        <div class="text-lg text-white font-bold">{{ article.author.name }}</div>
+                                        <div class="text-lg text-gray-400">{{ article.publishedRelative }}</div>
+                                    </div>
                                 </div>
-                                <p class="mt-2">{{ article.excerpt }}</p>
                             </div>
                         </router-link>
                     </li>
@@ -47,7 +53,9 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import Article from './Article';
+    import Avatar from "../Identity/Avatar";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
@@ -57,8 +65,8 @@
     import Strings from '../Utilities/Strings';
 
     export default {
-        components: { Breadcrumbs, HeaderTitle, Paginator },
-        mixins: [ Imagery, Strings ],
+        components: {Avatar, Breadcrumbs, HeaderTitle, Paginator},
+        mixins: [Imagery, Strings],
 
         computed: {
             firstThree: function() {
@@ -89,9 +97,16 @@
         },
 
         methods: {
+            background(image) {
+                return {
+                    'background-image': 'linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0,0,0,0.8) 100%), url('+this.thumbUrl(image, 500, 300)+')',
+                    'background-size': 'cover'
+                }
+            },
+
             search(page) {
                 axios.get('/articles?page='+page).then(response => {
-                    this.articles = response.data;
+                    this.articles = Models.hydratePaginated(response.data, Article);
                 });
             }
         },
