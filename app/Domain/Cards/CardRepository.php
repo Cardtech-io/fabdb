@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Repository;
 use Illuminate\Database\Eloquent\Collection;
@@ -50,4 +51,14 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function uniqueHeroes();
+
+    /**
+     * Card search specific to deck building.
+     *
+     * @param User $user
+     * @param Deck $deck
+     * @param array $input
+     * @return mixed
+     */
+    public function buildSearch(User $user, Deck $deck, array $input);
 }

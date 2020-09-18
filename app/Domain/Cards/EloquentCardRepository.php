@@ -15,7 +15,9 @@ use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
+use FabDB\Domain\Cards\Search\UseCollectionFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
+use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
@@ -51,16 +53,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
         ]);
 
-        if (Arr::get($input, 'use-case') == 'build') {
-            $query->addSelect(DB::raw("IF(JSON_EXTRACT(cards.keywords, '$[0]') = 'generic', 1, 0) AS build_order"));
-        }
-
         $filters = [
             new SetFilter,
             new KeywordFilter,
-            new NameFilter,
             new IdentifierFilter,
-            new BannedCardsFilter,
             new VariantsFilter,
             new ClassFilter,
             new TypeFilter,
@@ -271,5 +267,43 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->groupBy('cards.name')
             ->orderBy('cards.name')
             ->get();
+    }
+
+    public function buildSearch(User $user, Deck $deck, array $input)
+    {
+        $query = $this->newQuery();
+
+        // Needed for some filters
+        $input['use-case'] = 'build';
+
+        $query->select([
+            'cards.identifier',
+            'cards.name',
+            'cards.keywords',
+            'cards.stats',
+            'cards.text',
+            'cards.rarity',
+            DB::raw("IF(JSON_EXTRACT(cards.keywords, '$[0]') = 'generic', 1, 0) AS build_order")
+        ]);
+
+        $filters = [
+            new SetFilter,
+            new NameFilter,
+            new IdentifierFilter,
+            new BannedCardsFilter,
+            new VariantsFilter,
+            new ClassFilter,
+            new TypeFilter,
+            new CostFilter,
+            new PitchFilter,
+            new RarityFilter,
+            new StatFilter,
+            new OrderFilter,
+            new UseCollectionFilter($user, $deck)
+        ];
+
+        $this->applyFilters($query, $filters, $input);
+
+        return $query;
     }
 }

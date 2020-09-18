@@ -36,7 +36,7 @@
                    modes.sideboard = 'Sideboard';
                 }
 
-                modes.details = 'Details';
+                modes.details = 'Settings';
 
                 return modes;
             }

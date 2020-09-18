@@ -17,6 +17,14 @@
                 </div>
 
                 <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Limit cards to collection</label>
+                    <select v-model="deck.useCollection" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option :value="false">No</option>
+                        <option :value="true">Yes</option>
+                    </select>
+                </div>
+
+                <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck visibility</label>
                     <select v-model="deck.visibility" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="private">Private</option>
@@ -47,7 +55,7 @@
             </form>
         </div>
 
-        <div class="mt-8 md:w-1/2 md:mt-0">
+        <div class="mt-8 md:w-1/2 md:mt-0 text-lg">
             <h2 class="text-xl font-serif uppercase mb-2">Deck settings</h2>
 
             <p class="my-4">With the various deck settings you can change two values:</p>
@@ -55,6 +63,7 @@
             <ul class="list-disc ml-8">
                 <li>Change your deck's visibility. This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link.</li>
                 <li>The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only.</li>
+                <li>Deck format: Whether your deck is for blitz/UPF or constructed play.</li>
             </ul>
         </div>
     </div>
@@ -85,7 +94,15 @@
 
                 let cardBack = this.deck.cardBack || 1;
 
-                axios.put('/decks/' + this.$route.params.deck + '/settings', { name: this.deck.name, format: this.deck.format, visibility: this.deck.visibility, cardBack: cardBack }).then(response => {
+                let params = {
+                    name: this.deck.name,
+                    format: this.deck.format,
+                    useCollection: this.deck.useCollection,
+                    visibility: this.deck.visibility,
+                    cardBack: cardBack
+                };
+
+                axios.put('/decks/' + this.$route.params.deck + '/settings', params).then(response => {
                     this.addMessage({ status: 'success', message: 'Settings saved.' });
                     this.saving = false;
                 });

@@ -17,7 +17,12 @@ class Deck extends Model
     use Sluggable;
     use Voteable;
 
-    protected $casts = ['slug' => 'string', 'decksheet_created_at' => 'datetime'];
+    protected $casts = [
+        'slug' => 'string',
+        'decksheet_created_at' => 'datetime',
+        'use_collection' => 'boolean',
+    ];
+
     protected $hidden = ['id', 'user_id'];
 
     public function user()
@@ -132,13 +137,14 @@ class Deck extends Model
         return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
     }
 
-    public function saveSettings(string $name, string $format, string $visibility, int $cardBack)
+    public function saveSettings(string $name, string $format, bool $useCollection, string $visibility, int $cardBack)
     {
         // We don't want timestamps updated as this shouldn't trigger a re-render of all the images when
         // downloading the deck sheet for tabletop simulator.
         $this->timestamps = false;
         $this->name = $name;
         $this->format = $format;
+        $this->useCollection = $useCollection;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
 

@@ -108,6 +108,7 @@ class DeckController extends Controller
             $request->deck->id,
             $request->get('name'),
             $request->get('format'),
+            (bool) $request->get('useCollection'),
             $request->get('visibility'),
             (int) $request->get('cardBack')
         ));

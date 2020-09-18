@@ -31,13 +31,19 @@ class SaveDeckSettings
      */
     private $format;
 
-    public function __construct(int $deckId, string $name, string $format, string $visibility, int $cardBack)
+    /**
+     * @var bool
+     */
+    private $useCollection;
+
+    public function __construct(int $deckId, string $name, string $format, bool $useCollection, string $visibility, int $cardBack)
     {
         $this->deckId = $deckId;
         $this->name = $name;
         $this->format = $format;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
+        $this->useCollection = $useCollection;
     }
 
     public function handle(DeckRepository $decks)
@@ -45,7 +51,7 @@ class SaveDeckSettings
         /** @var Deck $deck */
         $deck = $decks->find($this->deckId);
 
-        $deck->saveSettings($this->name, $this->format, $this->visibility, $this->cardBack);
+        $deck->saveSettings($this->name, $this->format, $this->useCollection, $this->visibility, $this->cardBack);
 
         $decks->save($deck);
 

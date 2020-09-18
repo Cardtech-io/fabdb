@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Packs;
 use FabDB\Domain\Cards\Set;
+use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,14 @@ class CardController extends Controller
             $cards->findByIdentifier('WTR000'),
             $cards->findByIdentifier('ARC000'),
         ]);
+    }
+
+    public function build(Request $request, DeckRepository $decks, CardRepository $cards)
+    {
+        $deck = $decks->bySlug($request->get('deck'));
+
+        return $cards->buildSearch($request->user(), $deck, $request->all())
+            ->paginate($request->get('per_page', 24));
     }
 
     public function view(Request $request, CardRepository $cards)

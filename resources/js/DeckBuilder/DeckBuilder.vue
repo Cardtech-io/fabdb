@@ -170,15 +170,14 @@
                 this.setPage({ page });
 
                 let params = {
+                    deck: this.deck.slug,
                     cardType: this.cardType,
                     class: this.hero ? this.hero.keywords[0] : '',
                     name: this.name,
-                    'use-case': 'build',
-                    page: page,
-                    per_page: 24,
+                    page: page
                 };
 
-                axios.get('/cards/', { params: params }).then(response => {
+                axios.get('/cards/build', { params: params }).then(response => {
                     this.results = response.data;
                 }).catch(error => {});
             },

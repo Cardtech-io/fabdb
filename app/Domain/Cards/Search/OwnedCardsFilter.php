@@ -12,20 +12,19 @@ class OwnedCardsFilter implements SearchFilter
      */
     private $user;
 
-    public function __construct($user)
+    public function __construct(?User $user)
     {
         $this->user = $user;
     }
 
     public function applies(array $input)
     {
-        return (bool) $this->user && Arr::get($input, 'use-case') == 'collection';
+        return (bool) $this->user && Arr::get($input, 'use-case') === 'collection';
     }
 
     public function applyTo(Builder $query, array $input)
     {
         $view = Arr::get($input, 'view', 'all');
-
         $join = $view === 'mine' ? 'join' : 'leftJoin';
 
         $query->$join('owned_cards', function($join) {

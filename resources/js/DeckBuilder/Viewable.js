@@ -95,6 +95,18 @@ export default {
             return this.blocks.reduce((total, card) => { return total + card.total }, 0);
         },
 
+        totalClass() {
+            return this.countCards(this.other.filter(card => {
+                return !card.keywords.includes('generic');
+            }));
+        },
+
+        totalGeneric() {
+            return this.countCards(this.other.filter(card => {
+                return card.keywords.includes('generic');
+            }));
+        },
+
         totalCards() {
             let count = this.other.filter(card => {
                 return !card.keywords.includes('token');
