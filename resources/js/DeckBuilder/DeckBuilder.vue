@@ -196,7 +196,6 @@
         created() {
             this.$eventHub.$on('card-selected', () => {
                 this.name = '';
-                this.$refs.nameSearch.focus();
             });
         },
 

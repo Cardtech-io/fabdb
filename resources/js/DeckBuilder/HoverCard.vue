@@ -36,10 +36,10 @@
                 }
 
                 let top = this.coordinates[1] + window.scrollY - 200;
-                let maxTop = window.innerHeight - this.height - 50;
+                let maxTop = window.innerHeight + window.scrollY - this.height - 50;
 
-                if (top < 0) {
-                    top = 100;
+                if (top < window.scrollY) {
+                    top = window.scrollY + 100;
                 }
 
                 if (top > maxTop) {
