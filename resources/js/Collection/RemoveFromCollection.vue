@@ -1,11 +1,5 @@
 <template>
-    <div class="self-center pl-2">
-        <a href="" @click.prevent="remove" :class="classes">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm5-9v2H5V9h10z"/>
-            </svg>
-        </a>
-    </div>
+    <button class="py-2 w-1/3" :class="{ 'hover:bg-primary hover:text-white': count > 0, 'text-gray-400': count === 0 }" @click="remove" :disabled="disabled">-</button>
 </template>
 
 <script>
@@ -31,7 +25,7 @@
             },
 
             disabled: function() {
-                return this.count == 0;
+                return this.count === 0;
             }
         },
 

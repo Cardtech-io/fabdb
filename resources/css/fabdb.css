@@ -203,7 +203,7 @@ footer.footer .link:hover {
     font-style: normal;
 }
 
-.input, input:focus {
+.input, .input:focus {
     @apply appearance-none;
     @apply block;
     @apply w-full;

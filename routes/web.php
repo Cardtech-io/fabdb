@@ -22,7 +22,7 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}/tts-images', 'ExportController@ttsImages')->middleware('version');
     Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
-    Route::middleware(['spa', 'version'])->group(function() {
+    Route::prefix('api')->middleware(['version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
         Route::get('articles/upcoming', 'ArticleController@upcoming');
 
@@ -51,6 +51,7 @@ Route::middleware(['web'])->group(function() {
 
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{card}', 'CollectionController@removeCard');
+            Route::put('collection', 'CollectionController@updateCard');
 
             Route::get('events', 'EventController@list');
             Route::post('events', 'EventController@setup');

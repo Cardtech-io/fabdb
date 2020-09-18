@@ -6,6 +6,7 @@ use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\CardType;
 use FabDB\Domain\Collection\AddCardToCollection;
 use FabDB\Domain\Collection\RemoveCardFromCollection;
+use FabDB\Domain\Collection\UpdateCardInCollection;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -19,6 +20,18 @@ class CollectionController extends Controller
             $request->user()->id,
             new CardType($request->get('type')),
             $request->get('total', 1)
+        ));
+    }
+
+    public function updateCard(Request $request, CardRepository $cards)
+    {
+        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
+
+        $this->dispatchNow(new UpdateCardInCollection(
+            $card->id,
+            $request->user()->id,
+            new CardType($request->get('type')),
+            $request->get('total')
         ));
     }
 

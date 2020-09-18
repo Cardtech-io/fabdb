@@ -2,6 +2,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundColor: {
+                'primary': 'var(--button-primary-background-color)',
                 'button-primary': 'var(--button-primary-background-color)',
                 'button-primary-hover': 'var(--button-primary-background-color)',
                 'secondary': 'var(--button-secondary-background-color)',

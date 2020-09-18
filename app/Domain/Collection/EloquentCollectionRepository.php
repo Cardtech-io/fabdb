@@ -44,4 +44,22 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             }
         }
     }
+
+    public function update(int $cardId, int $userId, CardType $type, int $total)
+    {
+        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
+
+        $field = $type->name();
+
+        if (!$ownedCard) {
+            $ownedCard = new OwnedCard;
+            $ownedCard->card_id = $cardId;
+            $ownedCard->user_id = $userId;
+        }
+
+        $ownedCard->{$field} = $total;
+        $ownedCard->save();
+
+        return $ownedCard;
+    }
 }
