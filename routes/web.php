@@ -19,8 +19,6 @@ Route::middleware(['web'])->group(function() {
     Route::get('click', 'ClickController@register');
     Route::post('export/{deck}.zip', 'ExportController@zip');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
-    Route::get('export/{deck}/tts-images', 'ExportController@ttsImages')->middleware('version');
-    Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
     Route::prefix('api')->middleware(['version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
@@ -33,6 +31,9 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/prices', 'CardController@prices');
         Route::get('cards/{card}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
+
+        Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
+        Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
         Route::get('featured/top', 'FeatureController@top');
         Route::get('market/{card}', 'MarketController@cardTrend');
