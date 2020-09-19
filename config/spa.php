@@ -19,6 +19,7 @@ return [
         'decks/build',
         'decks/browse',
         'decks/test',
+        'decks/([^/]+)',
         'events',
         'login',
         'profile',
