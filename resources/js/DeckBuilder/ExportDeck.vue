@@ -37,6 +37,17 @@
                                     <label class="block font-serif uppercase tracking-wide mb-1">Event</label>
                                     <input type="text" v-model="event" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                                 </div>
+                                <div class="w-full mt-4">
+                                    <label class="block font-serif uppercase tracking-wide mb-1">Export format</label>
+                                    <label fpr="pdf-export" class="block">
+                                        <input type="radio" name="format" v-model="format" value="pdf" class="focus:bg-white focus:border-gray-500" id="pdf-export">
+                                        <span class="ml-4">PDF</span>
+                                    </label>
+                                    <label for="zip-export" class="block mt-2">
+                                        <input type="radio" name="format" v-model="format" value="zip" class="focus:bg-white focus:border-gray-500" id="zip-export">
+                                        <span class="ml-4">ZIP</span>
+                                    </label>
+                                </div>
 
                                 <submit text="Export" class="mt-8"></submit>
                             </form>
@@ -117,7 +128,8 @@
             return {
                 deck: null,
                 event: null,
-                exportRequested: false
+                exportRequested: false,
+                format: 'pdf',
             }
         },
 
@@ -131,7 +143,7 @@
                     event: this.event
                 };
 
-                axios.post('/export/' + this.deck.slug + '.zip', payload).then(response => {
+                axios.post('/export/' + this.deck.slug + '.' + this.format, payload).then(response => {
                     this.exportRequested = true;
                 });
             }
