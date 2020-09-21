@@ -20,15 +20,23 @@ class CopyDeck implements Loggable
      */
     private $userId;
 
-    public function __construct(string $deckSlug, int $userId)
+    /**
+     * @var CopyDeckObserver
+     */
+    private $observer;
+
+    public function __construct(string $deckSlug, int $userId, CopyDeckObserver $observer)
     {
         $this->deckSlug = $deckSlug;
         $this->userId = $userId;
+        $this->observer = $observer;
     }
 
     public function handle(DeckRepository $decks)
     {
         $newDeck = $decks->copy($this->deckSlug, $this->userId);
+
+        $this->observer->deckWasCopied($this->deckSlug, $newDeck->slug);
 
         $this->dispatch($newDeck->releaseEvents());
     }

@@ -26,6 +26,14 @@
                         <div class="pt-4 md:pt-0 w-full md:w-1/3 pr-4">
                             <div class="mb-8">
                                 <img :src="cardUrl(hero.identifier, 350, user && user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
+                                <div class="mt-4">
+                                    <button @click="copyDeck" class="w-full sm:w-auto button-primary rounded-lg px-4 py-3">
+                                        <icon :size="4" class="inline-block">
+                                            <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
+                                        </icon>
+                                        <span class="ml-1">Copy deck</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -121,7 +129,7 @@
 
 <script>
     import axios from 'axios';
-    import { mapGetters } from 'vuex';
+    import { mapActions, mapGetters } from 'vuex';
     import _ from 'lodash';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
@@ -129,6 +137,7 @@
     import DeckCard from "./DeckCard";
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Icon from '../Components/Icon';
     import LazyLoader from '../Components/LazyLoader';
     import Respond from '../Discussion/Respond.vue';
     import Rulings from "../CardDatabase/Rulings";
@@ -143,6 +152,7 @@
             DeckCard,
             Discussion,
             HeaderTitle,
+            Icon,
             Respond,
             Rulings,
             Votes
@@ -176,6 +186,17 @@
             return {
                 deck: null,
                 tab: 'composition',
+            }
+        },
+
+        methods: {
+            ...mapActions('messages', ['addMessage']),
+
+            copyDeck() {
+                axios.post('/decks/copy', { deck: this.deck.slug }).then(response => {
+                    this.addMessage({ status: 'success', message: 'Deck successfully copied.' });
+                    this.$router.push({ name: 'decks.build', params: { deck: response.data.deck } });
+                });
             }
         },
 

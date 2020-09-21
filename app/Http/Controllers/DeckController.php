@@ -6,6 +6,7 @@ use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
 use FabDB\Domain\Decks\AddCardToSideboard;
 use FabDB\Domain\Decks\AddDeck;
+use FabDB\Domain\Decks\CopyDeckObserver;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\CopyDeck;
@@ -91,7 +92,11 @@ class DeckController extends Controller
 
     public function copy(Request $request)
     {
-        $this->dispatchNow(new CopyDeck($request->get('deck'), $request->user()->id));
+        $observer = new CopyDeckObserver;
+
+        $this->dispatchNow(new CopyDeck($request->get('deck'), $request->user()->id, $observer));
+
+        return ['deck' => $observer->copied()];
     }
 
     public function view(Deck $deck)
