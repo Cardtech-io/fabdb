@@ -17,7 +17,6 @@ Route::get('sitemap', 'SitemapController@view');
 
 Route::middleware(['web'])->group(function() {
     Route::get('click', 'ClickController@register');
-    Route::post('export/{deck}.zip', 'ExportController@zip');
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
 
     Route::prefix('api')->middleware(['version'])->group(function() {
@@ -32,6 +31,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/{card}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 
+        Route::post('export/{deck}.zip', 'ExportController@zip');
         Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
         Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
