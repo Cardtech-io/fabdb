@@ -13,6 +13,7 @@ return [
         'cards/browse',
         'cards/fabled',
         'cards/prices',
+        'cards/([^/]+)',
         'collection',
         'decks/export/([^/]+)',
         'decks/build/premium/([^/]+)',
