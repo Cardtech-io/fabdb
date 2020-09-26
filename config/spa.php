@@ -4,6 +4,7 @@ return [
     // The following are client-side routes only and should direct straight to the appropriate page
     'client' => [
         '/',
+        'articles',
         'articles/mine',
         'articles/spoilers',
         'articles/write',
