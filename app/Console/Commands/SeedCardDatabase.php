@@ -45,8 +45,8 @@ class SeedCardDatabase extends Command
         $csv->setHeaderOffset(0);
         $rows = $csv->getRecords();
 
-        DB::statement('TRUNCATE variants');
-        
+        DB::delete('DELETE variants FROM variants, cards WHERE cards.id = variants.card_id AND cards.identifier LIKE \''.$set.'%\'');
+
         foreach ($rows as $row) {
             $this->line('Registering: '.$row['Set'].$row['ID']);
 

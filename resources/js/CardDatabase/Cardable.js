@@ -92,7 +92,11 @@ export default {
         },
 
         setToString: function(set) {
-            return this.$settings.game.sets[set].name;
+            if (this.$settings.game.sets[set]) {
+                return this.$settings.game.sets[set].name
+            }
+
+            return 'Promo';
         }
     }
 };
