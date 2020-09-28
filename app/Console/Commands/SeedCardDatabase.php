@@ -45,6 +45,8 @@ class SeedCardDatabase extends Command
         $csv->setHeaderOffset(0);
         $rows = $csv->getRecords();
 
+        DB::statement('TRUNCATE variants');
+        
         foreach ($rows as $row) {
             $this->line('Registering: '.$row['Set'].$row['ID']);
 
