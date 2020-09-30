@@ -28,6 +28,7 @@ class CardController extends Controller
         return collect([
             $cards->findByIdentifier('WTR000'),
             $cards->findByIdentifier('ARC000'),
+            $cards->findByIdentifier('CRU000'),
         ]);
     }
 

@@ -1,7 +1,7 @@
 Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
 CRU,0,Arknight Shard,F,"**Legendary Viserai Specialization** *(You may only have 1 Arknight Shard in your deck, and only if your hero is Viserai.)*
 
-When you pitch Arknight Shard, create a Runechant token.",,,"runeblade,resource,gem",,,3,,,,,cold
+When you pitch Arknight Shard, create a Runechant token.","The flow of aether disturbs the ancient mists, ripples along the surface of a mirror, unravelling the fabric of time and space. Like grits of sand beneath the tongue, he feels the echoes of the forgotten, feels their gaze rasping against his skin. The foreign heartbeat is an ember within his ribcage, its icy burn heavy with the promise of power.","The Arknight Shard is the first fabled card in Flesh & Blood to be designed for a specific hero. Despite this unique quality, the Shard is still arguably a relatively weak card, like the fabled cards that came before it. That aside, it is still an utterly beautiful piece of artwork and continues the pattern of these rare artifacts within the world of Rathe.","runeblade,resource,gem",,,3,,,,,cold
 CRU,1,"Rhinar, Reckless Rampage",C,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,,,standard
 CRU,2,"Kayo, Berserker Runt",R,"Whenever you play an attack action card with 6 or more base [attack], roll a 6 sided die. On;
 
