@@ -57,7 +57,7 @@
             </script>
         @endif
     </head>
-    <body class="theme-bg theme-{{ $theme }} font-sans h-full">
+    <body class="theme-bg theme-{{ $theme }} font-sans h-full text-lg">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
