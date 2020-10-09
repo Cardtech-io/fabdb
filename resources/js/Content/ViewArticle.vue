@@ -11,9 +11,11 @@
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
-                <div class="clearfix border-t border-gray-400 py-4" v-if="article.author.blurb">
+                <div class="clearfix border-t border-gray-400 pt-4 mt-8" v-if="article.author.blurb">
                     <avatar :user="article.author" :width="100" class="float-left mr-4 mb-4"/>
-                    {{ article.author.blurb }}
+                    <div class="mb-4">
+                        {{ article.author.blurb }}
+                    </div>
                 </div>
 
                 <div class="flex w-full py-4 border-t border-gray-400">
