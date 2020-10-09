@@ -24,22 +24,7 @@
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="w-1/3 flex items-center" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300 px-4 pr-0': !fullScreen }">
-                            <div class="w-1/2">
-                                <input type="text" ref="nameSearch" v-model="keywords" placeholder="Search" class="input w-auto py-3 px-4" @keyup="delayedSearch" @keyup.enter="search(1)" :class="{ 'rounded-l-lg focus:bg-white focus:border-gray-500': !fullScreen }">
-                            </div>
-                            <div class="w-1/2">
-                                <select v-model="cardType" class="input w-auto" @change="search()" :class="{ 'appearance-none bg-none text-gray-700 outline-none': fullScreen, 'focus:bg-white focus:border-gray-500 py-3 px-4 rounded-r-lg': !fullScreen }">
-                                    <option value="">Filter (All)</option>
-                                    <option value="non-attack action">'Non-attack' actions</option>
-                                    <option value="attack action">Attack actions</option>
-                                    <option value="attack reaction">Attack reactions</option>
-                                    <option value="defense reaction">Defense reactions</option>
-                                    <option value="equipment">Equipment</option>
-                                    <option value="instant">Instants</option>
-                                    <option value="item">Items</option>
-                                    <option value="weapon">Weapons</option>
-                                </select>
-                            </div>
+                            <input type="text" ref="nameSearch" v-model="keywords" placeholder="Search" class="input w-auto py-3 px-4" @keyup="delayedSearch" @keyup.enter="search(1)" :class="{ 'rounded-lg focus:bg-white focus:border-gray-500': !fullScreen }">
                         </div>
                     </div>
                 </div>
@@ -53,7 +38,7 @@
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
                     <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 overflow-y-auto border-l border-gray-300">
-                        <search-results v-if="mode == 'search'" :results="results"></search-results>
+                        <search-results v-if="mode == 'search'" :results="results" @card-type-selected="updateCardType"></search-results>
                         <sideboard v-if="mode == 'sideboard'" :collection="sideboard" class="p-4"></sideboard>
                     </div>
                 </div>
@@ -161,7 +146,7 @@
 
                 this.searchTimeout = setTimeout(() => {
                     this.search(1);
-                }, 700);
+                }, 800);
             },
 
             search: function(page) {
@@ -180,6 +165,15 @@
                 axios.get('/cards/build', { params: params }).then(response => {
                     this.results = response.data;
                 }).catch(error => {});
+            },
+
+            updateCardType(value) {
+                if (value === 'all') {
+                    value = '';
+                }
+
+                this.cardType = value;
+                this.search();
             },
 
             clearSearch() {

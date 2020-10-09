@@ -92,6 +92,7 @@ module.exports = {
         borderWidth: ['responsive', 'last'],
         margin: ['responsive', 'odd', 'even'],
         opacity: ['disabled', 'hover'],
+        padding: ['responsive', 'even'],
         textColor: ['responsive', 'hover', 'group-hover'],
 
     }
