@@ -28,6 +28,7 @@
         "nprogress": "^0.2.0",
         "postcss-import": "^12.0.1",
         "requests": "^0.3.0",
+        "showdown": "^1.9.1",
         "tailwindcss": "^1.4.6",
         "tailwindcss-transitions": "^2.2.0",
         "underscore": "^1.10.2",

@@ -1,4 +1,5 @@
 import marked from 'marked';
+import showdown from './Markdown/showdown';
 
 export default {
     methods: {
@@ -6,73 +7,12 @@ export default {
             return this.snakeCase(string, '-');
         },
 
-        _renderer: function() {
-            const renderer = new marked.Renderer();
-
-            renderer.blockquote = quote => {
-                return '<blockquote class="relative py-2 px-8 my-8 text-xl italic border border-l-4 quote rounded-lg z-0">' +
-                    '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' +
-                    '<p>' + this.prettyText(quote) + '</p>' +
-                    '</blockquote>';
-            };
-
-            renderer.heading = (text, level, raw, slugger) => {
-                let element = 'h' + level;
-                let size = {
-                    '1': 'text-2xl',
-                    '2': 'text-xl',
-                    '3': 'text-lg'
-                };
-
-                return '<' + element + ' class="font-serif uppercase ' + size[level] + '">' + text + '</' + element + '>';
-            };
-
-            renderer.paragraph = function(text) {
-                return '<p class="my-4">' + text + '</p>';
-            };
-
-            renderer.link = function(href, title, text) {
-                return '<a href="' + href + '" title="' + title + '" class="link">' + text + '</a>';
-            };
-
-            renderer.list = function(body, ordered, start) {
-                return ordered ? '<ol class="list-decimal ml-8">' + body + '</ol>' : '<ul class="list-disc ml-8">' + body + '</ul>';
-            };
-
-            renderer.listitem = function(text, task, checked) {
-                return '<li>' + text + '</li>';
-            };
-
-            return renderer;
-        },
-
         parseMarkdown: function(string) {
-            const renderer = this._renderer();
-
-            // First we're gonna search for custom syntax
-            let content = string.split('\n').map(line => {
-                let regexp = /^#\[cards\]\((([A-Z]{3}[0-9]{3},?)+)\)/;
-                let matches = line.match(regexp);
-
-                if (!matches) {
-                    return line;
-                }
-
-                let userBorders = this.user && this.user.view == 'bordered';
-                let identifiers = matches[1].split(',');
-
-                let cards = identifiers.map(cardIdentifier => {
-                    return '<img src="' + this.cardUrl(cardIdentifier, 450, userBorders) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
-                });
-
-                return '<div class="text-center">' + cards.join('\n') + '</div>';
-            });
-
-            return marked(content.join('\n'), { renderer: renderer });
+            return showdown(string);
         },
 
         minimalMarkdown: function(string) {
-            return marked(this.prettified(string));
+            return showdown(string);
         },
 
         prettyText: function(text) {

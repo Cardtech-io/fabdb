@@ -1,10 +1,15 @@
 <template>
-    <router-link :to="/cards/ + card.identifier" class="block">
+    <router-link :to="/cards/ + card.identifier" class="block" v-if="useRouter">
         <colour :resource="card.stats.resource" class="mr-2" v-if="card.stats.resource || !collapse"></colour>
         <span @mouseover="toggleCard(card)" @mouseleave="toggleCard(false)">{{ card.name }}</span>
         <span class="text-gray-600 text-xs">{{ card.identifier }}</span>
         <span>({{ card.total }})</span>
     </router-link>
+    <a :href="'/cards/' + card.identifier" target="_blank" class="block" v-else>
+        <colour :resource="card.stats.resource" class="mr-2" v-if="card.stats.resource || !collapse"></colour>
+        <span @mouseover="toggleCard(card)" @mouseleave="toggleCard(false)">{{ card.name }}</span>
+        <span>({{ card.total }})</span>
+    </a>
 </template>
 
 <script>
@@ -21,6 +26,11 @@
                 type: Boolean,
                 default: false,
                 required: false
+            },
+
+            useRouter: {
+                type: Boolean,
+                default: true
             }
         },
 

@@ -21,6 +21,8 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
     Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
+    Route::get('decks/embed/{deck}', 'DeckController@view')->name('decks.embed');
+
     Route::prefix('api')->middleware(['version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
         Route::get('articles/upcoming', 'ArticleController@upcoming');

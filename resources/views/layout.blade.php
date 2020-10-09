@@ -1,7 +1,13 @@
-<?php $user = auth()->user(); ?>
-<?php $settings = compile_settings(); ?>
-<?php $lang = compile_lang(); ?>
-<?php $theme = $user ? object_get($user, 'theme', 'default') : 'default'; ?>
+<?php
+use Illuminate\Support\Facades\Route;
+
+$view = Route::currentRouteName() === 'decks.embed' ? 'embed' : 'app';
+$user = auth()->user();
+$settings = compile_settings();
+$lang = compile_lang();
+$theme = $user ? object_get($user, 'theme', 'default') : 'default';
+$jsFile = $view === 'embed' ? 'embed.js' : 'app.js';
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -57,7 +63,7 @@
             </script>
         @endif
     </head>
-    <body class="theme-bg theme-{{ $theme }} font-sans h-full text-lg">
+    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full text-lg">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
@@ -65,6 +71,7 @@
             window.settings = {!! json_encode($settings) !!};
             window.lang = {!! json_encode($lang) !!}
         </script>
-        <script src="{{ fab_asset('/js/app.js') }}"></script>
+
+        <script src="{{ fab_asset('/js/'.$jsFile) }}"></script>
     </body>
 </html>

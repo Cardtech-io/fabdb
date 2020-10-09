@@ -32,3 +32,4 @@ window.axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('m
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
