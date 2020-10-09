@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\File;
 function fab_asset(string $asset): string
 {
     $version = fab_version();
-    $versionedAsset = "js/$asset-$version.js";
+    $versionedAsset = "/js/$asset-$version.js";
 
     if (File::exists(public_path($versionedAsset))) {
         return $versionedAsset;
