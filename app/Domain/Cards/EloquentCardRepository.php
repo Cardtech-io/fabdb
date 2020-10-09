@@ -262,7 +262,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function uniqueHeroes()
     {
         return $this->newQuery()
-            ->select('cards.identifier', 'cards.name', 'cards.keywords')
+            ->select('cards.identifier', 'cards.name', 'cards.keywords', 'cards.stats')
             ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
             ->groupBy('cards.name')
             ->orderBy('cards.name')
@@ -288,7 +288,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         $filters = [
             new SetFilter,
-            new NameFilter,
+            new KeywordFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
             new VariantsFilter,

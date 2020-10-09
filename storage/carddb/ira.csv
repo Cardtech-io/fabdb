@@ -1,5 +1,5 @@
 Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
-IRA,1,"Ira, Crimson Haze",P,Your second attack each turn gains +1[attack].,,,"ninja,hero",20,,,,,,,Regular
+IRA,1,"Ira, Crimson Haze",P,Your second attack each turn gains +1[attack].,,,"ninja,hero",20,4,,,,,,Regular
 IRA,2,Edge of Autumn,P,,,,"ninja,weapon,sword,2h",,,,,,1,,Regular
 IRA,3,Whirling Mist Blossom,P,,,,"ninja,action,attack",,,2,1,2,2,,Regular
 IRA,4,Salt the Wound,P,,,,"ninja,action,attack",,,2,0,3,2,,Regular

@@ -66,10 +66,6 @@
         },
 
         methods: {
-            addDeck(deck) {
-                this.decks.unshift(deck);
-            },
-
             copyDeck(deck) {
                 if (this.copyDisabled) return;
 

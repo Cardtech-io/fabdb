@@ -265,8 +265,8 @@ WTR,109,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,3,2,2,3,,
 WTR,110,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,1,0,3,3,,
 WTR,111,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,2,0,3,2,,
 WTR,112,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,3,0,3,1,,
-WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",,4,,,,,,
-WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",,4,,,,,,
+WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",40,4,,,,,,
+WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",20,4,,,,,,
 WTR,115,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
 If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
