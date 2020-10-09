@@ -10,7 +10,7 @@
                     <div class="flex">
                         <div class="flex items-center p-4" :class="mainAreaClasses">
                             <div class="flex-auto hidden sm:block">
-                                <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} <span class="text-base">cards</span></h2>
+                                <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} / {{ maxCards(deck) }} <span class="text-base">cards</span></h2>
                             </div>
 
                             <grouping-selector v-if="mode !== 'details'" class="hidden lg:block"></grouping-selector>
