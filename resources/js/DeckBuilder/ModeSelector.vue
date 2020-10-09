@@ -30,15 +30,12 @@
             ...mapGetters('deck', ['requiresSideboard']),
 
             modes() {
-                let modes = {all: 'Deck', search: 'Search'};
-
-                if (this.requiresSideboard) {
-                   modes.sideboard = 'Sideboard';
-                }
-
-                modes.details = 'Settings';
-
-                return modes;
+                return {
+                    all: 'Deck',
+                    search: 'Search',
+                    sideboard: 'Sideboard',
+                    details: 'Settings'
+                };
             }
         },
 
