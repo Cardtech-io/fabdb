@@ -11,7 +11,10 @@
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
-                <div class="border-t border-gray-400 py-4" v-if="article.author.blurb">{{ article.author.blurb }}</div>
+                <div class="clearfix border-t border-gray-400 py-4" v-if="article.author.blurb">
+                    <avatar :user="article.author" :width="100" class="float-left mr-4 mb-4"/>
+                    {{ article.author.blurb }}
+                </div>
 
                 <div class="flex w-full py-4 border-t border-gray-400">
                     <div class="flex-1">
@@ -35,6 +38,7 @@
     import { mapGetters } from 'vuex';
 
     import Article from './Article';
+    import Avatar from "../Identity/Avatar";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import Discussion from "../Discussion/Discussion";
@@ -46,6 +50,7 @@
 
     export default {
         components: {
+            Avatar,
             Breadcrumbs,
             Discussion,
             HeaderTitle
