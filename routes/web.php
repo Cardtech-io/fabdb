@@ -21,8 +21,6 @@ Route::middleware(['web'])->group(function() {
     Route::get('export/{deck}.html', 'ExportController@html')->name('export.html');
     Route::get('export/{deck}/tts-json', 'ExportController@ttsJson');
 
-    Route::get('decks/embed/{deck}', 'DeckController@view')->name('decks.embed');
-
     Route::prefix('api')->middleware(['version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
         Route::get('articles/upcoming', 'ArticleController@upcoming');
@@ -94,6 +92,10 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/{deck}', 'DeckController@view');
     });
 
+    Route::get('decks/embed/{deck}', function() {
+        return response()->view('layout');
+    })->name('decks.embed');
+
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
     Route::fallback(function(Request $request) {
         function pathMatches(string $path) {
@@ -109,7 +111,7 @@ Route::middleware(['web'])->group(function() {
         }
 
         if (!$request->wantsJson() && pathMatches($request->path())) {
-            return response()->view('welcome');
+            return response()->view('layout');
         }
 
         abort(404);

@@ -21,7 +21,7 @@ export default [
                     return '<img src="' + Carding.cardUrl(cardIdentifier, 450, true) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
                 });
 
-                var pat = '<p>%CARDS' + i + '% *<\/p>';
+                let pat = '%CARDS' + i + '%';
 
                 text = text.replace(new RegExp(pat, 'gi'), '<div class="text-center">' + cards.join('\n') + '</div>');
             }

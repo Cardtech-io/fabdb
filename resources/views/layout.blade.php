@@ -6,7 +6,7 @@ $user = auth()->user();
 $settings = compile_settings();
 $lang = compile_lang();
 $theme = $user ? object_get($user, 'theme', 'default') : 'default';
-$jsFile = $view === 'embed' ? 'embed.js' : 'app.js';
+$jsFile = $view === 'embed' ? 'embed' : 'app';
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -72,6 +72,6 @@ $jsFile = $view === 'embed' ? 'embed.js' : 'app.js';
             window.lang = {!! json_encode($lang) !!}
         </script>
 
-        <script src="{{ fab_asset('/js/'.$jsFile) }}"></script>
+        <script src="{{ fab_asset($jsFile) }}"></script>
     </body>
 </html>

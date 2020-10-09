@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\File;
 function fab_asset(string $asset): string
 {
     $version = fab_version();
-    $versionedAsset = preg_replace('/([a-z]+).([a-z]+)$/i', "$version.$2", $asset);
+    $versionedAsset = "js/$asset-$version.js";
 
     if (File::exists(public_path($versionedAsset))) {
         return $versionedAsset;
     }
 
-    return $asset;
+    return "/js/$asset.js";
 }
 
 /**
