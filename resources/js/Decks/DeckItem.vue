@@ -6,7 +6,7 @@
             </div>
             <div class="flex-auto ml-4">
                 <h2 class="font-serif uppercase text-2xl overflow-hidden" style="max-height: 30px">{{ deck.name }}</h2>
-                <span class="block text-red-600" v-if="deck.totalPrice">${{ deck.totalPrice }}</span>
+                <span class="block font-italic text-blue-600" v-if="deck.totalPrice">${{ deck.totalPrice }}</span>
                 <span v-if="deck.user.name">by {{ deck.user.name }}</span>
                 <span v-else>Anonymous</span>
             </div>

@@ -3,7 +3,7 @@
         <div class="w-2/4 pr-4">
             <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
-                <option :value="hero.identifier" v-for="hero in heroes">{{ hero.name }}</option>
+                <option :value="hero.name" v-for="hero in heroes">{{ hero.name }}</option>
             </select>
         </div>
 
