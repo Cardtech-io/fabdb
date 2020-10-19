@@ -48,14 +48,15 @@
                 <div class="w-full md:w-1/5 px-1">
                     <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cardType')">
                         <option value="">Card type</option>
-                        <option value="action">Action</option>
-                        <option value="attack">Attack</option>
+                        <option value="non-attack action">'Non-attack' action</option>
+                        <option value="attack action">Attack action</option>
                         <option value="attack reaction">Attack reaction</option>
                         <option value="defense reaction">Defense reaction</option>
                         <option value="equipment">Equipment</option>
                         <option value="hero">Hero</option>
                         <option value="instant">Instant</option>
                         <option value="item">Item</option>
+                        <option value="weapon">Weapon</option>
                     </select>
                 </div>
 
