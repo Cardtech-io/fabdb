@@ -134,7 +134,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.name',
             'decks.slug',
             'decks.format',
-//            DB::raw('SUM(dc2.total * price_averages.mean) AS total_price'),
+            DB::raw('SUM(dc2.total * current_prices.mean_current) AS total_price'),
             DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
         ]);
 
@@ -160,12 +160,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->join(DB::raw('deck_cards dc2'), 'dc2.deck_id', '=', 'decks.id');
         $query->join(DB::raw('cards c2'), 'c2.id', 'dc2.card_id');
 
-//        $query->leftJoin('price_averages', function($join) use ($params, $priceDate) {
-//            $join->on('price_averages.card_id', '=', 'dc2.card_id');
-//            $join->whereIn('price_averages.variant', ['cold', 'regular']);
-//            $join->where('price_averages.currency', $params['currency']);
-//            $join->where('price_averages.created_at', $priceDate);
-//        });
+        $query->leftJoin('current_prices', function($join) use ($params, $priceDate) {
+            $join->on('current_prices.card_id', '=', 'dc2.card_id');
+            $join->whereIn('current_prices.variant', ['cold', 'regular']);
+            $join->where('current_prices.currency', $params['currency']);
+        });
 
         if (!empty($params['order'])) {
             switch ($params['order']) {
