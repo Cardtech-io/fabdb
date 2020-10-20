@@ -126,7 +126,13 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function search(array $params)
     {
         $query = $this->newQuery();
-        $priceDate = PriceAverage::max('created_at');
+
+        $priceCalc = DB::raw("(
+            SELECT SUM(deck_cards.total * current_prices.mean_current)
+            FROM deck_cards
+            JOIN current_prices ON current_prices.card_id = deck_cards.card_id AND current_prices.variant IN ('cold', 'regular') AND current_prices.currency = '{$params['currency']}'
+            WHERE deck_cards.deck_id = decks.id
+        ) AS total_price");
 
         $query->select([
             'decks.id',
@@ -134,7 +140,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.name',
             'decks.slug',
             'decks.format',
-            DB::raw('SUM(dc2.total * current_prices.mean_current) AS total_price'),
+            $priceCalc,
             DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
         ]);
 
@@ -157,15 +163,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             }
         });
 
-        $query->join(DB::raw('deck_cards dc2'), 'dc2.deck_id', '=', 'decks.id');
-        $query->join(DB::raw('cards c2'), 'c2.id', 'dc2.card_id');
-
-        $query->leftJoin('current_prices', function($join) use ($params, $priceDate) {
-            $join->on('current_prices.card_id', '=', 'dc2.card_id');
-            $join->whereIn('current_prices.variant', ['cold', 'regular']);
-            $join->where('current_prices.currency', $params['currency']);
-        });
-
         if (!empty($params['order'])) {
             switch ($params['order']) {
                 case 'newest':
@@ -179,7 +176,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $query->where('decks.visibility', 'public');
-        $query->groupBy('decks.id');
 
         return $query;
     }
