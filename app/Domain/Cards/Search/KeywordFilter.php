@@ -10,18 +10,32 @@ class KeywordFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier($input['keywords']) && $this->keywordsOnly($input);
+        return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier($input['keywords']) && $this->hasKeywords($input['keywords']);
     }
 
     public function applyTo(Builder $query, array $input)
     {
-        $search = addslashes($input['keywords']);
+        $keywords = $this->filter($input['keywords']);
 
-        $query->whereRaw("search_text LIKE ?", ["%$search%"]);
+        $query->where(function($query) use ($keywords) {
+            foreach ($keywords as $keyword) {
+                $search = addslashes($keyword);
+                $query->whereRaw("search_text LIKE ?", ["%$search%"]);
+            }
+        });
     }
 
-    private function keywordsOnly(array $input)
+    private function hasKeywords(string $keywords)
     {
-        return !Str::contains($input['keywords'], ['=', '>', '<']);
+        return count($this->filter($keywords)) > 0;
+    }
+
+    private function filter(string $keywords): array
+    {
+        $keywords = explode(' ', $keywords);
+
+        return array_filter($keywords, function($keyword) {
+            return !Str::contains($keyword, ['=', '>', '<']);
+        });
     }
 }

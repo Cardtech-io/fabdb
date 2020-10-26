@@ -36,6 +36,10 @@ class StatFilter implements SearchFilter
                 $matches[1] = 'resource';
             }
 
+            if (strtolower($matches[1]) == 'power') {
+                $matches[1] = 'attack';
+            }
+
             return $matches;
         });
     }
