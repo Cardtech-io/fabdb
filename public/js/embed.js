@@ -35885,7 +35885,7 @@ __webpack_require__.r(__webpack_exports__);
         return total + card.total;
       }, 0);
 
-      if (this.deck.format === 'blitz') {
+      if (this.deck && this.deck.format === 'blitz') {
         if (this.hero) {
           count++;
         }
