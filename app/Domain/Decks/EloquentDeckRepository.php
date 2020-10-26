@@ -163,6 +163,10 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             }
         });
 
+        if (!empty($params['format'])) {
+            $query->where('decks.format', $params['format']);
+        }
+
         if (!empty($params['order'])) {
             switch ($params['order']) {
                 case 'newest':

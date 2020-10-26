@@ -35884,6 +35884,13 @@ __webpack_require__.r(__webpack_exports__);
       }).reduce(function (total, card) {
         return total + card.total;
       }, 0);
+
+      if (this.deck.format === 'blitz') {
+        if (this.hero) {
+          count++;
+        }
+      }
+
       return count + this.equipment.reduce(function (total, card) {
         return total + card.total;
       }, 0) + this.weapons.reduce(function (total, card) {
@@ -36576,6 +36583,7 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     params: {
       currency: 'USD',
+      format: null,
       hero: null,
       order: 'newest',
       keywords: '',

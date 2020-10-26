@@ -11,7 +11,6 @@
         methods: {
             addDeck: function() {
                 axios.post('/decks/', {name: 'New deck'}).then(response => {
-                    console.log
                     this.$router.push({name: 'decks.build', params: {deck: response.data.slug}});
                 });
             }

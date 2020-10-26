@@ -1,13 +1,22 @@
 <template>
     <form class="px-4 md:px-0 block flex" @submit.prevent="newSearch">
-        <div class="w-2/4 pr-4">
+        <div class="sm:w-2/5 pr-4">
             <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
                 <option :value="hero.name" v-for="hero in heroes">{{ hero.name }}</option>
             </select>
         </div>
 
-        <div class="w-1/4 pr-4">
+        <div class="sm:w-1/5 pr-4">
+            <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
+                <option value="">Format</option>
+                <option value="blitz">Blitz</option>
+                <option value="constructed">Constructed</option>
+                <option value="open">Open</option>
+            </select>
+        </div>
+
+        <div class="sm:w-1/5 pr-4">
             <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
                 <option value="">Order</option>
                 <option value="newest">Newest</option>
@@ -15,7 +24,7 @@
             </select>
         </div>
 
-        <div class="w-1/4">
+        <div class="w-1/5">
             <submit text="Search"></submit>
         </div>
     </form>
@@ -38,6 +47,16 @@
 
         computed: {
             ...mapState('deckSearch', ['params']),
+
+            format: {
+                get() {
+                    return this.params.format || '';
+                },
+
+                set(value) {
+                    this.updateParam({ key: 'format', value: value });
+                }
+            },
 
             hero: {
                 get() {
@@ -73,6 +92,7 @@
                 const params = {
                     hero: this.hero,
                     order: this.order,
+                    format: this.format,
                     page: this.params.page
                 };
 

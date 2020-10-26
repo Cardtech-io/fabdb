@@ -114,6 +114,12 @@ export default {
                 return total + card.total;
             }, 0);
 
+            if (this.deck.format === 'blitz') {
+                if (this.hero) {
+                    count++;
+                }
+            }
+
             return count +
                 this.equipment.reduce((total, card) => { return total + card.total; }, 0) +
                 this.weapons.reduce((total, card) => { return total + card.total; }, 0);

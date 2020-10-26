@@ -4,6 +4,7 @@ export default {
     state: {
         params: {
             currency: 'USD',
+            format: null,
             hero: null,
             order: 'newest',
             keywords: '',
