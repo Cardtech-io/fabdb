@@ -1,6 +1,6 @@
 <template>
     <div class="container sm:mx-auto py-8 px-4">
-        <h1 class="mb-4 font-serif uppercase text-4xl text-white">{{ title }} Articles</h1>
+        <h1 class="mb-4 font-serif uppercase text-4xl text-white">{{ title }}</h1>
 
         <ol class="clearfix text-lg">
             <li v-for="article in articles.data" class="clearfix bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
@@ -28,6 +28,10 @@
             params.tag = args.tag.replace('-', ' ');
         }
 
+        if (args.author) {
+            params.author = args.author;
+        }
+
         return Strings.methods.buildQuery(params);
     };
 
@@ -46,7 +50,11 @@
                 let params = this.$route.params;
 
                 if (params.tag) {
-                    return this.ucfirst(params.tag);
+                    return this.ucfirst(params.tag) + ' Articles';
+                }
+
+                if (params.author) {
+                    return 'Articles authored by ' + this.author.name;
                 }
             }
         },
@@ -62,14 +70,15 @@
         },
 
         metaInfo() {
-            let title = 'Flesh & Blood ' + this.title + ' articles';
+            let title = 'Flesh & Blood ' + this.title;
+            let image = this.$route.params.author ? this.imageUrl('/heroes/' + this.author.avatar + '.jpg', 200) : 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202';
 
             return {
                 title: title,
                 meta: [
                     { vmid: 'og:type', property: 'og:type', content: 'website' },
                     { vmid: 'og:title', property: 'og:title', content: title },
-                    { vmid: 'og:image', property: 'og:image', content: 'https://' + this.imageDomain() + '/assets/fab-facebook-logo.png?w=210&h=202' },
+                    { vmid: 'og:image', property: 'og:image', content: image },
                     { vmid: 'og:width', property: 'og:width', content: 210 },
                     { vmid: 'og:height', property: 'og:height', content: 202 }
                 ]
@@ -78,10 +87,19 @@
 
         extends: LazyLoader((to, callback) => {
             let query = buildQuery(to.params);
+            let requests = [axios.get('/articles?'+query)];
 
-            axios.get('/articles?'+query).then(response => {
+            if (to.params.author) {
+                requests.push(axios.get('/users/'+to.params.author));
+            }
+
+            axios.all(requests).then(responses => {
                 callback(function() {
-                    this.articles = Models.hydratePaginated(response.data, Article);
+                    this.articles = Models.hydratePaginated(responses[0].data, Article);
+
+                    if (to.params.author) {
+                        this.author = responses[1].data;
+                    }
                 });
             });
         })

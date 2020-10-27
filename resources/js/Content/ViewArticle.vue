@@ -10,14 +10,19 @@
                     <div v-if="article.tags">
                         <tag :tag="tag" v-for="tag in article.tags.split(',')" :key="tag" v-if="article.tags" class="bg-gray-400 text-gray-600 text-sm"></tag>
                     </div>
-                    <div><span>Written by {{ article.author.name }}</span> on <span>{{ article.published }}</span></div>
+                    <div class="mb-8">
+                        <span class="text-gray-600">Written by <router-link :to="{ name: 'articles.author', params: { author: article.author.slug } }" class="link">{{ article.author.name }}</router-link></span> <span class="text-gray-500">on</span> <span class="text-gray-600">{{ article.published }}</span>
+                    </div>
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
 
-                <div class="clearfix border-t border-gray-400 pt-4 mt-8" v-if="article.author.blurb">
-                    <avatar :user="article.author" :width="100" class="float-left mr-4 mb-4"/>
-                    <div class="mb-4">
-                        {{ article.author.blurb }}
+                <div class="pt-4 my-8 clearfix" v-if="article.author.blurb">
+                    <div class="float-left rounded-r-full bg-gray-200 mr-4 mb-4">
+                        <router-link :to="{name: 'articles.author', params: {author: article.author.slug}}"><avatar :user="article.author" :width="150"/></router-link>
+                    </div>
+                    <div class="mb-4 mt-2 border-t border-gray-400 pt-4">
+                        <div class="font-serif uppercase text-2xl"><router-link :to="{name: 'articles.author', params: {author: article.author.slug}}">{{ article.author.name }}</router-link></div>
+                        <div>{{ article.author.blurb }}</div>
                     </div>
                 </div>
 

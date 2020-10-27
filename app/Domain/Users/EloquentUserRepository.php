@@ -25,4 +25,9 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
             ->whereToken($code)
             ->firstOrFail();
     }
+
+    public function view(string $slug)
+    {
+        return $this->newQuery()->select('slug', 'name', 'avatar')->whereSlug($slug)->first();
+    }
 }

@@ -8,4 +8,6 @@ interface UserRepository extends Repository
     public function findByEmail(string $email);
 
     public function findByEmailAndToken(string $email, string $code): User;
+
+    public function view(string $slug);
 }

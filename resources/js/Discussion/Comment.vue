@@ -1,15 +1,18 @@
 <template>
-    <div class="flex m-4 sm:mx-0">
+    <div class="flex m-4 my-8 sm:mx-0">
+        <div class="mr-4">
+            <avatar :user="comment.author" :width="100" class="rounded-bl-none"/>
+        </div>
         <div class="mr-4">
             <votes :size="4" :total="comment.totalVotes" :voted="comment.myVote" voteable="comment" :foreign="comment.slug" layout="vertical"></votes>
         </div>
         <div>
             <header class="flex w-full">
-                <div class="w-1/2">
-                    <span class="mr-2 font-bold">{{ comment.name }}</span>
+                <div class="flex items-center">
+                    <span class="mr-4 font-bold">{{ comment.name }}</span>
                     <badge :subscription-level="comment.subscription" size="small"></badge>
                 </div>
-                <div class="w-1/2 text-gray-500 text-sm text-right">{{ comment.createdAt }}</div>
+                <div class="text-gray-500 text-sm text-right">{{ comment.createdAt }}</div>
             </header>
             <div class="mt-2">{{ comment.content }}</div>
         </div>
@@ -19,11 +22,12 @@
 
 <script>
     import moment from 'moment';
+    import Avatar from "../Identity/Avatar";
     import Badge from '../Identity/Badge.vue';
     import Votes from '../Voting/Votes.vue';
 
     export default {
         props: ['comment'],
-        components: { Badge, Votes }
+        components: {Avatar, Badge, Votes}
     };
 </script>

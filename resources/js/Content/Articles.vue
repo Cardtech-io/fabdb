@@ -7,15 +7,21 @@
                 <div class="md:flex mx-4">
                     <div class="w-full md:w-2/3 md:mr-8 mb-4 rounded-xl overflow-hidden">
                         <router-link :to="firstThree[0].link" class="block w-full relative" :style="{ ...background(firstThree[0].image), 'height': '500px' }">
-                            <div class="absolute bottom-0 p-8">
-                                <h2 class="text-white font-serif uppercase text-4xl">{{ firstThree[0].title }}</h2>
-                                <p class="text-lg text-gray-500">{{ firstThree[0].excerpt }}</p>
+                            <div class="flex absolute bottom-0 p-8 w-full bg-semi-black">
+                                <div class="mr-8">
+                                    <avatar :user="firstThree[0].author" :width="100" class="flex-0 rounded-bl-none"/>
+                                </div>
+                                <div>
+                                    <h2 class="text-white font-serif uppercase text-4xl">{{ firstThree[0].title }}</h2>
+                                    <div class="text-gray-600 mb-2 -mt-1">by <span class="text-white">{{ firstThree[0].author.name }}</span></div>
+                                    <p class="text-lg text-gray-500">{{ firstThree[0].excerpt }}</p>
+                                </div>
                             </div>
                         </router-link>
                     </div>
                     <div class="w-full md:w-1/3 md:flex md:flex-col">
                         <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image) }" class="block md:h-1/2 relative rounded-xl mb-4 md:odd:mb-4 md:even:mt-4">
-                            <div class="md:absolute md:bottom-0 p-8">
+                            <div class="md:absolute md:bottom-0 p-8 py-4 bg-semi-black">
                                 <h2 class="text-white font-serif uppercase text-2xl">{{ article.title }}</h2>
                             </div>
                         </router-link>

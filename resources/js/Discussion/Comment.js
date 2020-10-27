@@ -7,8 +7,12 @@ class Comment
         this.fields = fields;
     }
 
+    get author() {
+        return this.fields.user;
+    }
+
     get name() {
-        return this.fields.name || 'Anonymous';
+        return this.fields.user.name || 'Anonymous';
     }
 
     get slug() {

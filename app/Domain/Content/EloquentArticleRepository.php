@@ -27,6 +27,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         $perPage = Arr::get($params,'per_page');
         $type = Arr::get($params,'type', 'article');
         $tag = Arr::get($params,'tag');
+        $author = Arr::get($params,'author');
 
         $query = $this->newQuery()
             ->with('author')
@@ -47,6 +48,12 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         if ($tag) {
             $query->where('tags', 'like', '%'.$tag.'%');
+        }
+
+        if ($author) {
+            $query->whereHas('author', function($query) use ($author) {
+                $query->whereSlug($author);
+            });
         }
 
         if ($keywords) {

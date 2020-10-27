@@ -66,6 +66,7 @@ const router = new VueRouter({
         { path: "/articles/spoilers", component: ArticlesSpoilers, name: 'articles.spoilers' },
         { path: "/articles/:article/edit", component: ArticleWrite, name: 'articles.edit' },
         { path: "/articles/tags/:tag", component: ArticleSearch, name: 'articles.tag' },
+        { path: "/articles/authors/:author", component: ArticleSearch, name: 'articles.author' },
         { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
 
         { path: "/login", component: Login, name: 'login' },

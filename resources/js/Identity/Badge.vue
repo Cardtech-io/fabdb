@@ -21,6 +21,8 @@
                     supporter: 'bg-blue-400',
                     majestic: 'bg-yellow-500',
                     legendary: 'bg-black',
+                    trial: 'bg-gray-400',
+                    promo: 'bg-orange-600',
                     fabled: 'bg-green-400'
                 };
 

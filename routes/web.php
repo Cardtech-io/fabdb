@@ -44,6 +44,8 @@ Route::middleware(['web'])->group(function() {
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');
 
+        Route::get('users/{user}', 'UserController@view');
+
         Route::get('events/{event}', 'EventController@view');
 
         Route::middleware(['auth', 'strip'])->group(function () {
