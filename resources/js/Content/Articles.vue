@@ -9,7 +9,7 @@
                         <router-link :to="firstThree[0].link" class="block w-full relative" :style="{ ...background(firstThree[0].image), 'height': '500px' }">
                             <div class="flex absolute bottom-0 p-8 w-full bg-semi-black">
                                 <div class="mr-8">
-                                    <avatar :user="firstThree[0].author" :width="100" class="flex-0 rounded-bl-none"/>
+                                    <avatar :user="firstThree[0].author" :width="110" class="flex-0 rounded-bl-none"/>
                                 </div>
                                 <div>
                                     <h2 class="text-white font-serif uppercase text-4xl">{{ firstThree[0].title }}</h2>
