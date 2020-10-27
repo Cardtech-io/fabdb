@@ -18,9 +18,9 @@
 
         <div class="md:my-20 md:flex-grow md:w-1/2">
             <div v-if="user">
-                <div class="flex pb-4">
+                <div class="flex items-center pb-4">
                     <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
-                    <div class="flex-1"><add-deck></add-deck></div>
+                    <add-deck class="flex-initial"></add-deck>
                 </div>
 
                 <ol v-if="decks">
