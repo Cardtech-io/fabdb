@@ -28,23 +28,7 @@
 
                 <ol class="clearfix -mx-4 text-lg">
                     <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl hover:bg-nearly-black">
-                        <router-link :to="article.link">
-                            <img :src="thumbUrl(article.image, 250, 250)" class="float-left mr-8 rounded-xl">
-                            <div>
-                                <div v-if="article.tags">
-                                    <div class="rounded-lg bg-black inline-block p-2 px-4 mb-4 text-gray-400 font-bold text-base mr-2" v-for="tag in article.tags.split(',')">{{ ucfirst(tag.trim()) }}</div>
-                                </div>
-                                <h3 class="text-white font-serif uppercase text-3xl">{{ article.title }}</h3>
-                                <p class="mt-2 text-gray-400">{{ article.excerpt }}</p>
-                                <div class="mt-8 flex">
-                                    <avatar :user="article.author" :width="50" class="flex-0 rounded-bl-none"/>
-                                    <div class="ml-4">
-                                        <div class="text-lg text-white font-bold">{{ article.author.name }}</div>
-                                        <div class="text-lg text-gray-400">{{ article.publishedRelative }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </router-link>
+                        <article-item :article="article"></article-item>
                     </li>
                 </ol>
 
@@ -57,6 +41,7 @@
 <script>
     import moment from 'moment';
     import Article from './Article';
+    import ArticleItem from "./ArticleItem";
     import Avatar from "../Identity/Avatar";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -65,14 +50,15 @@
     import Models from '../Utilities/Models';
     import Paginator from '../Components/Paginator.vue';
     import Strings from '../Utilities/Strings';
+    import Tag from './Tag';
 
     export default {
-        components: {Avatar, Breadcrumbs, HeaderTitle, Paginator},
+        components: {ArticleItem, Avatar, Breadcrumbs, HeaderTitle, Paginator, Tag},
         mixins: [Imagery, Strings],
 
         computed: {
             firstThree: function() {
-                if (this.articles.current_page == 1) {
+                if (this.articles.current_page === 1) {
                     return this.articles.data.slice(0, 3);
                 }
 
@@ -109,6 +95,7 @@
             search(page) {
                 axios.get('/articles?page='+page).then(response => {
                     this.articles = Models.hydratePaginated(response.data, Article);
+                    window.scrollTo(0,0);
                 });
             }
         },

@@ -60,7 +60,7 @@
                 </div>
                 <h2 class="font-serif text-2xl uppercase">Search syntax help</h2>
             </header>
-            <div class="m-4">
+            <div class="m-4 text-base">
                 <p class="italic bg-yellow-100 p-4 rounded-lg mb-4 -mx-4 text-center">Note: FaB DB's deck builder will automatically filter cards by your chosen hero's class, and generics.</p>
                 <h2 class="font-serif text-xl uppercase">Card stats available to search:</h2>
                 <ul class="list-disc ml-8 my-4">
@@ -69,12 +69,13 @@
                     <li>cost</li>
                     <li>defense</li>
                 </ul>
+                <p class="my-4">Modifiers available are: &lt;, &gt;, and =</p>
                 <p class="my-4">These stats can be used either on their own, or chained together, for example:</p>
-                <input type="text" class="input py-3 px-4 rounded-lg" value="pitch=2 power=5 cost=0">
+                <input type="text" class="input py-3 px-4 rounded-lg" value="pitch=2 power=5 cost>0">
                 <p class="my-4">You can also search using plain keywords. Looking for Back Alley Breakline (red)?</p>
                 <input type="text" class="input py-3 px-4 rounded-lg" value="back alley pitch=1">
                 <p class="my-4">The more conditions and clauses you add, the more specific and targeted the search results become, for example - there are only 3 cards that match this query:</p>
-                <input type="text" class="input py-3 px-4 rounded-lg" value="go again attack power=5 pitch=1">
+                <input type="text" class="input py-3 px-4 rounded-lg" value="go again attack power>4 pitch<3">
             </div>
         </modal>
     </div>

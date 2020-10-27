@@ -3,19 +3,19 @@ import showdown from './Markdown/showdown';
 
 export default {
     methods: {
-        kebabCase: function (string) {
+        kebabCase(string) {
             return this.snakeCase(string, '-');
         },
 
-        parseMarkdown: function(string) {
+        parseMarkdown(string) {
             return showdown(string);
         },
 
-        minimalMarkdown: function(string) {
+        minimalMarkdown(string) {
             return showdown(string);
         },
 
-        prettyText: function(text) {
+        prettyText(text) {
             function chunk(arr, len) {
                 var chunks = [],
                     i = 0,
@@ -33,7 +33,7 @@ export default {
             return this.parseMarkdown(content);
         },
 
-        prettified: function(text) {
+        prettified(text) {
             let content = text.split('\n');
 
             content = content.map(function(line) {
@@ -68,18 +68,26 @@ export default {
             return content.join('\n');
         },
 
-        snakeCase: function (string, delimiter) {
+        snakeCase(string, delimiter) {
             if (!delimiter) delimiter = '_';
 
             return string.toLowerCase().replace(/[^0-9a-z\s]+/g, '').replace(/\s+/g, delimiter);
         },
 
-        ucfirst: function(string) {
+        ucfirst(string) {
             return string[0].toUpperCase() + string.slice(1);
         },
 
-        imageDomain: function() {
+        imageDomain() {
             return window.settings.imageDomain;
+        },
+
+        buildQuery(params) {
+            let esc = encodeURIComponent;
+
+            return Object.keys(params)
+                .map(k => esc(k) + '=' + esc(params[k]))
+                .join('&');
         }
     }
 };

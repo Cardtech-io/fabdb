@@ -7,6 +7,9 @@
             <div class="article container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
+                    <div v-if="article.tags">
+                        <tag :tag="tag" v-for="tag in article.tags.split(',')" :key="tag" v-if="article.tags" class="bg-gray-400 text-gray-600 text-sm"></tag>
+                    </div>
                     <div><span>Written by {{ article.author.name }}</span> on <span>{{ article.published }}</span></div>
                     <div v-html="parseMarkdown(article.content)"></div>
                 </div>
@@ -44,18 +47,20 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import Discussion from "../Discussion/Discussion";
-    import Strings from '../Utilities/Strings';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
     import Models from '../Utilities/Models';
+    import Strings from '../Utilities/Strings';
+    import Tag from './Tag';
 
     export default {
         components: {
             Avatar,
             Breadcrumbs,
             Discussion,
-            HeaderTitle
+            HeaderTitle,
+            Tag
         },
 
         mixins: [ Cardable, Strings, Imagery ],

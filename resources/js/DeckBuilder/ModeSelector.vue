@@ -14,8 +14,8 @@
                 <button v-for="(text, mode) in modes" class="w-full text-base text-left px-4 py-2 hover:bg-blue-400 hover:text-white uppercase" @click="select({ mode })">{{ text }}</button>
             </div>
         </div>
-        <div class="hidden md:block">
-            <button type="button" class="py-3 px-4 mr-2 rounded-lg" v-for="(text, view) in modes" @click="select(view)" :class="mode === view ? 'button-disabled' : 'button-secondary'">
+        <div class="hidden md:block mr-2">
+            <button type="button" class="py-3 px-4 mr-1 rounded-lg text-sm" v-for="(text, view) in modes" @click="select(view)" :class="mode === view ? 'button-disabled' : 'button-secondary'">
                 {{ text }}
             </button>
         </div>

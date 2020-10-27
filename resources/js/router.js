@@ -1,34 +1,35 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
-import Home from './Home.vue';
-import Api from './Resources/Api.vue';
-import Articles from './Content/Articles.vue';
-import ArticleView from './Content/ViewArticle.vue';
-import ArticlesMine from './Content/MyArticles.vue';
-import ArticlesSpoilers from './Content/Spoilers.vue';
-import ArticleWrite from './Content/WriteArticle.vue';
-import BrowseCards from './CardDatabase/BrowseCards.vue';
-import FabledCards from './CardDatabase/Fabled.vue';
-import PriceList from './CardDatabase/PriceList.vue';
-import BrowseDecks from './Decks/Browse.vue';
-import Event from './Events/Event.vue';
-import Events from './Events/Events.vue';
-import EventView from './Events/ViewEvent.vue';
-import BoosterGenerator from './CardDatabase/BoosterGenerator.vue';
-import ViewCard from './CardDatabase/ViewCard.vue';
-import Collection from './Collection/Collection.vue';
-import ListDecks from './DeckBuilder/ListDecks.vue';
-import DeckBuilder from './DeckBuilder/DeckBuilder.vue';
-import TestDeck from './DeckBuilder/TestDeck.vue';
-import ExportDeck from './DeckBuilder/ExportDeck.vue';
-import ViewDeck from './Decks/ViewDeck.vue';
-import Support from './Support.vue';
-import Profile from './Identity/Profile.vue';
-import Privacy from './Privacy.vue';
-import Premium from './Premium.vue';
-import Login from './Auth/Login.vue';
-import Logout from './Auth/Logout.vue';
+import Home from './Home';
+import Api from './Resources/Api';
+import Articles from './Content/Articles';
+import ArticleView from './Content/ViewArticle';
+import ArticlesMine from './Content/MyArticles';
+import ArticleSearch from "./Content/ArticleSearch";
+import ArticlesSpoilers from './Content/Spoilers';
+import ArticleWrite from './Content/WriteArticle';
+import BrowseCards from './CardDatabase/BrowseCards';
+import FabledCards from './CardDatabase/Fabled';
+import PriceList from './CardDatabase/PriceList';
+import BrowseDecks from './Decks/Browse';
+import Event from './Events/Event';
+import Events from './Events/Events';
+import EventView from './Events/ViewEvent';
+import BoosterGenerator from './CardDatabase/BoosterGenerator';
+import ViewCard from './CardDatabase/ViewCard';
+import Collection from './Collection/Collection';
+import ListDecks from './DeckBuilder/ListDecks';
+import DeckBuilder from './DeckBuilder/DeckBuilder';
+import TestDeck from './DeckBuilder/TestDeck';
+import ExportDeck from './DeckBuilder/ExportDeck';
+import ViewDeck from './Decks/ViewDeck';
+import Support from './Support';
+import Profile from './Identity/Profile';
+import Privacy from './Privacy';
+import Premium from './Premium';
+import Login from './Auth/Login';
+import Logout from './Auth/Logout';
 
 Vue.use(VueRouter);
 
@@ -64,6 +65,7 @@ const router = new VueRouter({
         { path: "/articles/mine", component: ArticlesMine, name: 'articles.mine' },
         { path: "/articles/spoilers", component: ArticlesSpoilers, name: 'articles.spoilers' },
         { path: "/articles/:article/edit", component: ArticleWrite, name: 'articles.edit' },
+        { path: "/articles/tags/:tag", component: ArticleSearch, name: 'articles.tag' },
         { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
 
         { path: "/login", component: Login, name: 'login' },
@@ -106,6 +108,7 @@ router.beforeResolve((to, from, next) => {
 
 router.afterEach((to, from) => {
     NProgress.done();
+    window.scrollTo(0,0);
 });
 
 // ga may not be defined as it hasn't been loaded as no analytics id is available

@@ -26,6 +26,7 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
         $keywords = Arr::get($params,'keywords');
         $perPage = Arr::get($params,'per_page');
         $type = Arr::get($params,'type', 'article');
+        $tag = Arr::get($params,'tag');
 
         $query = $this->newQuery()
             ->with('author')
@@ -42,6 +43,10 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
 
         if ($type == 'spoiler') {
             $query->addSelect('content');
+        }
+
+        if ($tag) {
+            $query->where('tags', 'like', '%'.$tag.'%');
         }
 
         if ($keywords) {
