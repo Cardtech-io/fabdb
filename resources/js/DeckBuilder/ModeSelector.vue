@@ -11,7 +11,7 @@
             <button type="button" class="fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default" @click="isOpen = false" v-if="isOpen"></button>
 
             <div class="w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500" v-if="isOpen">
-                <button v-for="(text, mode) in modes" class="w-full text-base text-left px-4 py-2 hover:bg-blue-400 hover:text-white uppercase" @click="select({ mode })">{{ text }}</button>
+                <button v-for="(text, mode) in modes" class="w-full text-base text-left px-4 py-2 hover:bg-blue-400 hover:text-white uppercase" @click="select(mode)">{{ text }}</button>
             </div>
         </div>
         <div class="hidden md:block mr-2">
