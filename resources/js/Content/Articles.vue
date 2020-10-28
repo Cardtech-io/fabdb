@@ -20,7 +20,7 @@
                         </router-link>
                     </div>
                     <div class="w-full md:w-1/3 md:flex md:flex-col">
-                        <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image) }" class="block md:h-1/2 relative rounded-xl mb-4 md:odd:mb-4 md:even:mt-4">
+                        <router-link :to="article.link" v-for="article in firstThree.slice(1)" :key="article.slug" :style="{ ...background(article.image) }" class="block md:h-1/2 relative rounded-xl mb-4 md:odd:mb-4 md:even:mt-4 overflow-hidden">
                             <div class="md:absolute md:bottom-0 p-8 py-4 bg-semi-black">
                                 <h2 class="text-white font-serif uppercase text-2xl">{{ article.title }}</h2>
                             </div>
