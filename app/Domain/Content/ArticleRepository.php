@@ -13,4 +13,6 @@ interface ArticleRepository extends Repository
     public function nextOrPrev(string $nextOrPrev, Carbon $publishedAt);
 
     public function upcoming(array $params);
+
+    public function uniqueTags();
 }

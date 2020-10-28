@@ -7,7 +7,7 @@
             <div class="article container sm:mx-auto py-8 clearfix p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
-                    <div v-if="article.tags">
+                    <div v-if="article.tags" class="mb-4">
                         <tag :tag="tag" v-for="tag in article.tags.split(',')" :key="tag" v-if="article.tags" class="bg-gray-400 text-gray-600 text-sm"></tag>
                     </div>
                     <div class="mb-8">

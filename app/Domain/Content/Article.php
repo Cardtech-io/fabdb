@@ -7,6 +7,7 @@ use FabDB\Domain\Voting\Vote;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -62,5 +63,10 @@ class Article extends Model
     public function setExcerptAttribute($excerpt)
     {
         $this->attributes['excerpt'] = substr($excerpt, 0, 255); // Make sure we crop it so we don't get issues with mysql
+    }
+
+    public function setTagsAttribute($tags)
+    {
+        $this->attributes['tags'] = Str::lower($tags);
     }
 }

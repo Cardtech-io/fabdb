@@ -24,6 +24,7 @@ Route::middleware(['web'])->group(function() {
     Route::prefix('api')->middleware(['version'])->group(function() {
         Route::get('articles', 'ArticleController@search');
         Route::get('articles/upcoming', 'ArticleController@upcoming');
+        Route::get('articles/tags', 'ArticleController@tags');
 
         Route::get('cards', 'CardController@list');
         Route::get('cards/fabled', 'CardController@fabled');

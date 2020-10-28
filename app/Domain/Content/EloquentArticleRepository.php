@@ -100,4 +100,22 @@ class EloquentArticleRepository extends EloquentRepository implements ArticleRep
             ->orderBy('publish_at', $nextOrPrev == 'next' ? 'asc' : 'desc')
             ->first();
     }
+
+    public function uniqueTags()
+    {
+        $articles = $this->newQuery()
+            ->select('tags')
+            ->whereNotNull('publish_at')
+            ->whereStatus('approved')
+            ->whereNotNull('tags')
+            ->get();
+
+        $tags = $articles->map(function($article) {
+            return explode(',', $article->tags);
+        })->flatten()->unique()->toArray();
+
+        sort($tags);
+
+        return $tags;
+    }
 }

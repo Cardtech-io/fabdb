@@ -76,6 +76,11 @@ class ArticleController extends Controller
         );
     }
 
+    public function tags(ArticleRepository $articles)
+    {
+        return $articles->uniqueTags();
+    }
+
     public function upcoming(Request $request, ArticleRepository $articles)
     {
         return $articles->upcoming($request->all());

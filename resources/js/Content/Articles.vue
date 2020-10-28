@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="container sm:mx-auto py-8 px-4">
-            <div class="sm:-mx-4" v-if="articles.current_page == 1">
-                <h1 class="mx-4 mb-4 font-serif uppercase text-4xl text-white">Featured</h1>
+            <div v-if="articles.current_page == 1">
+                <h1 class="mb-4 font-serif uppercase text-4xl text-white">Featured</h1>
 
-                <div class="md:flex mx-4">
+                <div class="md:flex">
                     <div class="w-full md:w-2/3 md:mr-8 mb-4 rounded-xl overflow-hidden">
                         <router-link :to="firstThree[0].link" class="block w-full relative" :style="{ ...background(firstThree[0].image), 'height': '500px' }">
                             <div class="flex absolute bottom-0 p-8 w-full bg-semi-black">
-                                <div class="mr-8">
+                                <div class="mr-8 hidden sm:block">
                                     <avatar :user="firstThree[0].author" :width="110" class="flex-0 rounded-bl-none"/>
                                 </div>
                                 <div>
@@ -29,16 +29,30 @@
                 </div>
             </div>
 
-            <div class="mt-16">
-                <h1 class="mx-4 mb-4 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
+            <div class="flex mt-16">
+                <div class="w-full md:w-3/4">
+                    <h1 class="mb-4 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
 
-                <ol class="clearfix -mx-4 text-lg">
-                    <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mx-4 mb-8 rounded-xl hover:bg-nearly-black">
-                        <article-item :article="article"></article-item>
-                    </li>
-                </ol>
+                    <ol class="clearfix text-lg">
+                        <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
+                            <article-item :article="article"></article-item>
+                        </li>
+                    </ol>
 
-                <paginator :results="articles" @page-selected="search"></paginator>
+                    <paginator :results="articles" @page-selected="search"></paginator>
+                </div>
+
+                <div class="hidden md:block md:w-1/4 ml-16">
+                    <div class="mb-8">
+                        <mailchimp/>
+                    </div>
+
+                    <div class="mb-8">
+                        <h1 class="mb-4 font-serif uppercase text-4xl text-white">Tags</h1>
+
+                        <tag :tag="tag" v-for="tag in tags" :key="tag" class="bg-black text-gray-500 font-bold mb-2 hover:bg-semi-black"></tag>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -53,13 +67,14 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
     import LazyLoader from '../Components/LazyLoader';
+    import Mailchimp from "../Components/Mailchimp";
     import Models from '../Utilities/Models';
     import Paginator from '../Components/Paginator.vue';
     import Strings from '../Utilities/Strings';
     import Tag from './Tag';
 
     export default {
-        components: {ArticleItem, Avatar, Breadcrumbs, HeaderTitle, Paginator, Tag},
+        components: {ArticleItem, Avatar, Breadcrumbs, HeaderTitle, Mailchimp, Paginator, Tag},
         mixins: [Imagery, Strings],
 
         computed: {
@@ -124,9 +139,13 @@
         },
 
         extends: LazyLoader((to, callback) => {
-            axios.get('/articles').then(response => {
+            axios.all([
+                axios.get('/articles'),
+                axios.get('/articles/tags')
+            ]).then(responses => {
                 callback(function() {
-                    this.articles = Models.hydratePaginated(response.data, Article);
+                    this.articles = Models.hydratePaginated(responses[0].data, Article);
+                    this.tags = responses[1].data;
                 });
             });
         })
