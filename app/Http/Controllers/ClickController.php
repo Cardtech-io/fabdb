@@ -4,7 +4,6 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Clicks\RegisterClick;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Http\Requests\RegisterClickRequest;
-use Illuminate\Http\Request;
 
 class ClickController extends Controller
 {
@@ -16,7 +15,9 @@ class ClickController extends Controller
             $to['id'],
             Listing::class,
             $to['url'],
-            $request->ip()
+            $request->ip(),
+            $to['from'],
+            $to['fromType'],
         ));
 
         return redirect($to['url']);

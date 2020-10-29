@@ -36781,6 +36781,17 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     return 'Promo';
+  },
+  listingUrl: function listingUrl(domain, path, listingId, fromType) {
+    var payload = {
+      url: 'https://' + domain + path,
+      type: 'listing',
+      id: listingId,
+      from: window.location.href,
+      fromType: fromType
+    };
+    var to = btoa(JSON.stringify(payload));
+    return '/click?to=' + to;
   }
 });
 

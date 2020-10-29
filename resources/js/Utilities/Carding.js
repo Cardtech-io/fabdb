@@ -68,5 +68,19 @@ export default {
         }
 
         return 'Promo';
-    }
+    },
+
+    listingUrl(domain, path, listingId, fromType) {
+        let payload = {
+            url: 'https://'+domain+path,
+            type: 'listing',
+            id: listingId,
+            from: window.location.href,
+            fromType: fromType
+        };
+
+        let to = btoa(JSON.stringify(payload));
+
+        return '/click?to='+to;
+    },
 };

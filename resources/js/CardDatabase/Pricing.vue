@@ -37,6 +37,7 @@
 <script>
     import _ from 'underscore';
     import { mapGetters } from 'vuex';
+    import Carding from "../Utilities/Carding";
     import Price from '../Components/Price.vue';
     import Strings from '../Utilities/Strings';
 
@@ -87,15 +88,7 @@
             },
 
             listingUrl(listing) {
-                let payload = {
-                    url: 'https://'+listing.store.domain+listing.path,
-                    type: 'listing',
-                    id: listing.id
-                };
-
-                let to = btoa(JSON.stringify(payload));
-
-                return '/click?to='+to;
+                return Carding.listingUrl(listing.store.domain, listing.path, listing.id, 'listing');
             },
         },
 

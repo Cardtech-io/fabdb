@@ -9,8 +9,6 @@ class ListingResource extends JsonResource
 {
     public function toArray($request)
     {
-        $response = Arr::only($this->resource->toArray(), ['name', 'currency', 'price', 'path', 'domain']);
-
-        return $response;
+        return Arr::only($this->resource->toArray(), ['id', 'name', 'currency', 'price', 'path', 'domain']);
     }
 }

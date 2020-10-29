@@ -12,8 +12,8 @@ class Click extends Model
         return $this->morphTo(__FUNCTION__, 'clickable_type', 'clickable_id');
     }
 
-    public static function register($clickableId, $clickableType, $url, $ipAddress)
+    public static function register($clickableId, $clickableType, $url, $ipAddress, $from, $fromType)
     {
-        return static::create(compact('clickableId', 'clickableType', 'url', 'ipAddress'));
+        return static::create(compact('clickableId', 'clickableType', 'url', 'ipAddress', 'from', 'fromType'));
     }
 }
