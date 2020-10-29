@@ -8,12 +8,16 @@ import VueAwesomeCountdown from 'vue-awesome-countdown';
 import VModal from 'vue-js-modal'
 
 import App from './App.vue';
+import CardAd from "./CardDatabase/CardAd";
+import CardImage from "./CardDatabase/CardImage";
 import store from './Store/Application';
 import router from './router.js';
 import config from './axios-config';
 
 import 'vue-datetime/dist/vue-datetime.css';
 
+Vue.component('card-ad', CardAd);
+Vue.component('card-image', CardImage);
 Vue.use(VueAwesomeCountdown, 'vac');
 Vue.use(VModal, { injectModalsContainer: true });
 Vue.use(VueClipboard);

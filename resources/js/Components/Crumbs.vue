@@ -1,5 +1,5 @@
 <template>
-    <div class="z-0">
+    <div>
         <span v-for="crumb in crumbs">
             <span v-if="crumb.name" class="inline-block pr-1">
                 <router-link :to="{ name: crumb.name }" class="inline-block pr-1">{{ crumb.text }}</router-link><span class="opacity-25 inline-block">&gt;</span>

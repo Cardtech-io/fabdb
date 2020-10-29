@@ -7,5 +7,5 @@ import Decks from "./Decks";
 let converter = new showdown.Converter({extensions: [Cards, Decks, ...Classes, Blockquote]});
 
 export default function(string) {
-    return converter.makeHtml(string);
+    return '<div>'+converter.makeHtml(string)+'</div>';
 };

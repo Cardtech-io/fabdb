@@ -42,7 +42,12 @@ class CardController extends Controller
 
     public function view(Request $request, CardRepository $cards)
     {
-        return new CardResource($cards->view($request->card->identifier));
+        return new CardResource($cards->view($request->card->identifier, $request->all()));
+    }
+
+    public function ad(Request $request, CardRepository $cards)
+    {
+        return new CardResource($cards->ad($request->identifier, object_get($request->user(), 'currency', 'USD')));
     }
 
     public function generatePack(Request $request, Packs $packs)

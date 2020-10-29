@@ -1925,15 +1925,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: ['card', 'clickHandler', 'width'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['wantsBorders']), {
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
     imageWidth: function imageWidth() {
       return this.width || 450;
-    },
-    wantsBorders: function wantsBorders() {
-      return !this.user || this.user.view == 'bordered';
     }
   }),
   methods: {
@@ -36697,6 +36694,9 @@ __webpack_require__.r(__webpack_exports__);
   getters: {
     user: function user(state) {
       return state.session.user;
+    },
+    wantsBorders: function wantsBorders(state) {
+      return !state.session.user || state.session.user.view == 'bordered';
     }
   }
 });

@@ -1,6 +1,11 @@
 import Carding from '../Carding';
 
 let matches = [];
+let lastAlignment = 'left';
+let alignmentClasses = {
+    left: 'sm:float-left sm:m-4 sm:ml-0',
+    right: 'sm:float-right sm:m-4 sm:mr-0',
+};
 
 export default [
     {
@@ -18,12 +23,23 @@ export default [
             for (let i = 0; i < matches.length; ++i) {
                 let identifiers = matches[i].split(',');
                 let cards = identifiers.map(cardIdentifier => {
-                    return '<img src="' + Carding.cardUrl(cardIdentifier, 450, true) + '" class="inline-block sm:mr-8 rounded-lg sm:rounded-xl my-4" style="max-width: 350px">';
+                    return '<card-ad identifier="' + cardIdentifier + '"></card-ad>';
                 });
 
                 let pat = '%CARDS' + i + '%';
 
-                text = text.replace(new RegExp(pat, 'gi'), '<div class="text-center">' + cards.join('\n') + '</div>');
+                let classes = 'text-center ';
+
+                // Here we are moving and positioning the card in the article.
+                if (identifiers.length === 1) {
+                    let alignment = lastAlignment === 'right' ? 'left' : 'right';
+
+                    classes += alignmentClasses[alignment];
+
+                    lastAlignment = alignment;
+                }
+
+                text = text.replace(new RegExp(pat, 'gi'), '<div class="'+classes+'">' + cards.join('\n') + '</div>');
             }
 
             //reset array

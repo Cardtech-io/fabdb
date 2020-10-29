@@ -13,7 +13,7 @@
                     <div class="mb-8">
                         <span class="text-gray-600">Written by <router-link :to="{ name: 'articles.author', params: { author: article.author.slug } }" class="link">{{ article.author.name }}</router-link></span> <span class="text-gray-500">on</span> <span class="text-gray-600">{{ article.published }}</span>
                     </div>
-                    <div v-html="parseMarkdown(article.content)"></div>
+                    <markdown :content="parseMarkdown(article.content)"></markdown>
                 </div>
 
                 <div class="pt-4 my-8 clearfix" v-if="article.author.blurb">
@@ -54,6 +54,7 @@
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from '../Utilities/Imagery';
+    import Markdown from "../Components/Markdown";
     import LazyLoader from '../Components/LazyLoader';
     import Models from '../Utilities/Models';
     import Strings from '../Utilities/Strings';
@@ -65,10 +66,11 @@
             Breadcrumbs,
             Discussion,
             HeaderTitle,
+            Markdown,
             Tag
         },
 
-        mixins: [ Cardable, Strings, Imagery ],
+        mixins: [Cardable, Strings, Imagery],
 
         computed: {
             ...mapGetters('session', ['user']),

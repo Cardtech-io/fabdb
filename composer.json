@@ -24,6 +24,7 @@
         "sentry/sentry-laravel": "1.6.1"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "league/csv": "^9.0",

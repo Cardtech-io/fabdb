@@ -8,7 +8,6 @@ export default [
         regex: /\^deck\(([A-Z]+)\)/gi,
         replace: function(s, match) {
             matches.push(match);
-            console.log(match);
             let n = matches.length - 1;
             return '%DECK' + n + '%';
         }

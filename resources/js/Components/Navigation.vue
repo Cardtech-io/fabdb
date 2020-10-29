@@ -1,5 +1,5 @@
 <template>
-    <header class="block sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full z-0">
+    <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full z-25">
         <div class="flex items-center justify-between sm:border-0 sm:h-full">
             <div class="relative overflow-visible logo ml-4 sm:ml-0 py-2">
                 <router-link to="/">

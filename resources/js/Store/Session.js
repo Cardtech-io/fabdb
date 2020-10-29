@@ -41,6 +41,10 @@ export default {
     getters: {
         user: state => {
             return state.session.user;
+        },
+
+        wantsBorders: state => {
+            return !state.session.user || state.session.user.view == 'bordered';
         }
     }
 };

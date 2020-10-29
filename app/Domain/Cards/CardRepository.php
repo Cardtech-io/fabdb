@@ -21,6 +21,15 @@ interface CardRepository extends Repository
     public function view(string $identifier): Card;
 
     /**
+     * Returns a card with the data needed for an ad.
+     *
+     * @param string $identifier
+     * @param string $currency
+     * @return mixed
+     */
+    public function ad(string $identifier, string $currency): Card;
+
+    /**
      * Returns the first available identifier for a card set.
      *
      * @param string $set

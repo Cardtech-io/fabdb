@@ -11,7 +11,7 @@
         props: ['card', 'clickHandler', 'width'],
 
         computed: {
-            ...mapGetters('session', ['user']),
+            ...mapGetters('session', ['wantsBorders']),
 
             classes: function() {
                 return [
@@ -21,10 +21,6 @@
 
             imageWidth() {
                 return this.width || 450;
-            },
-
-            wantsBorders() {
-                return !this.user || this.user.view == 'bordered';
             }
         },
 

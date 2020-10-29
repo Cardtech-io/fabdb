@@ -3,8 +3,10 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Stores\Listing;
+use FabDB\Domain\Stores\Store;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
+use Illuminate\Support\Facades\DB;
 
 class Card extends Model
 {
@@ -15,6 +17,14 @@ class Card extends Model
     protected $casts = ['keywords' => 'array', 'stats' => 'array'];
     protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
+
+    public function ad()
+    {
+        return $this->hasOne(Listing::class, 'card_id', 'id')
+            ->join('stores', 'stores.id', '=', 'listings.store_id')
+            ->where('available', '>', 0)
+            ->orderBy(DB::raw('RAND()'));
+    }
 
     public function variants()
     {
