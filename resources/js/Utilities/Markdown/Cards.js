@@ -28,15 +28,14 @@ export default [
 
                 let pat = '%CARDS' + i + '%';
 
-                let classes = 'text-center ';
-
                 // Here we are moving and positioning the card in the article.
                 if (identifiers.length === 1) {
                     let alignment = lastAlignment === 'right' ? 'left' : 'right';
-
-                    classes += alignmentClasses[alignment];
+                    let classes = alignmentClasses[alignment];
 
                     lastAlignment = alignment;
+                } else {
+                    let classes = 'flex items-start justify-center';
                 }
 
                 text = text.replace(new RegExp(pat, 'gi'), '<div class="'+classes+'">' + cards.join('\n') + '</div>');

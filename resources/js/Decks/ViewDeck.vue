@@ -21,34 +21,31 @@
             </div>
 
             <div class="bg-gray-200">
-                <div class="container sm:mx-auto md:py-8 px-4">
-                    <div class="md:flex">
-                        <div class="pt-4 md:pt-0 w-full md:w-1/3 pr-4">
-                            <div class="mb-8">
-                                <img :src="cardUrl(hero.identifier, 350, user && user.view == 'bordered')" :alt="hero.name" class="w-full max-w-md rounded-xl" style="max-width: 400px">
-                                <div class="mt-4">
-                                    <button @click="copyDeck" class="w-full sm:w-auto button-primary rounded-lg px-4 py-3">
+                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero)+'); background-repeat: no-repeat'"></div>
+
+                <div class="container sm:mx-auto px-4">
+                    <div class="md:flex -mt-12 sm:mt-0">
+                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero)+'); background-repeat: no-repeat'"></div>
+
+                        <div class="w-full md:w-3/4 md:py-8">
+                            <ul class="flex border-b border-gray-400 mb-4">
+                                <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'composition'" :class="tabClasses('composition')">Composition</button></li>
+                                <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'rulings'" :class="tabClasses('rulings')">Rulings</button></li>
+                                <li class="text-right flex-1">
+                                    <button @click="copyDeck" class="w-full sm:w-auto button-primary rounded px-3 py-2 text-base">
                                         <icon :size="4" class="inline-block">
                                             <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
                                         </icon>
-                                        <span class="ml-1">Copy deck</span>
+                                        <span class="ml-1">Copy <span class="hidden sm:inline">deck</span></span>
                                     </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full md:w-2/3">
-                            <ul class="clearfix border-b border-gray-400 mb-4">
-                                <li class="float-left mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2 hover:bg-gray-100" @click="tab = 'composition'" :class="{ 'bg-white': tab == 'composition' }">Composition</button></li>
-                                <li class="float-left mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2 hover:bg-gray-100" @click="tab = 'rulings'" :class="{ 'bg-white': tab == 'rulings' }">Rulings</button></li>
+                                </li>
                             </ul>
 
                             <div class="lg:flex" v-if="tab == 'composition'">
                                 <div class="w-full lg:w-1/2">
                                     <div v-if="other.length" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Card totals</h3>
+                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Card totals ({{ totalCards }})</h3>
                                         <ol>
-                                            <li class="block p-1 pl-4 w-full">Total cards: {{ totalCards }}</li>
                                             <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
                                             <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
                                             <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
@@ -109,7 +106,7 @@
 
                     <hr class="text-gray-500 mt-4">
 
-                    <discussion type="deck" :id="deck.slug"></discussion>
+                    <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>
                 </div>
             </div>
         </div>
@@ -137,6 +134,8 @@
     import DeckCard from "./DeckCard";
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import HeroAvatar from "../Components/HeroAvatar";
+    import Imagery from "../Utilities/Imagery";
     import Icon from '../Components/Icon';
     import LazyLoader from '../Components/LazyLoader';
     import Respond from '../Discussion/Respond.vue';
@@ -145,13 +144,14 @@
     import Votes from '../Voting/Votes.vue';
 
     export default {
-        mixins: [ Cardable, Viewable ],
+        mixins: [Cardable, Imagery, Viewable],
 
         components: {
             Breadcrumbs,
             DeckCard,
             Discussion,
             HeaderTitle,
+            HeroAvatar,
             Icon,
             Respond,
             Rulings,
@@ -197,6 +197,20 @@
                     this.addMessage({ status: 'success', message: 'Deck successfully copied.' });
                     this.$router.push({ name: 'decks.build', params: { deck: response.data.deck } });
                 });
+            },
+
+            heroBackground(hero) {
+                let name = hero.name.split(' ')[0].replace(',', '').toLowerCase();
+
+                return this.imageUrl('/decks/backgrounds/'+name+'.jpg', 1700);
+            },
+
+            tabClasses(tab) {
+                if (this.tab === tab) {
+                    return 'relative bg-gray-200 -bottom-1px text-gray-800';
+                }
+
+                return 'bg-gray-200 hover:bg-white text-gray-600';
             }
         },
 

@@ -25,6 +25,10 @@ module.exports = {
                 '1/2': '50%',
             },
 
+            inset: {
+                '-1px': '-1px'
+            },
+
             margin: {
                 '1px': '1px',
                 '1/4': '25%'
