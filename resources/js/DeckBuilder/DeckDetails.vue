@@ -6,10 +6,10 @@
 
         <div class="w-full lg:w-3/4">
             <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
-                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'metrics' }" @click.prevent="tab = 'metrics'">Metrics</a></li>
-                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'rulings' }" @click.prevent="tab = 'rulings'">Rulings</a></li>
-                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'settings' }" @click.prevent="tab = 'settings'">Settings</a></li>
-                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="{ 'bg-gray-400': tab == 'export' }" @click.prevent="tab = 'export'">Export</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'settings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'settings'">Settings</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'metrics' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'metrics'">Metrics</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'rulings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'rulings'">Rulings</a></li>
+                <li class="float-left mr-4"><a href="" class="inline-block px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'export' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'export'">Export</a></li>
             </ul>
 
             <div class="sm:flex mt-8" v-if="tab == 'metrics'">
@@ -43,7 +43,7 @@
                 <rulings :rulings="rulings"></rulings>
             </div>
 
-            <div v-if="tab == 'settings'" class="bg-white px-4">
+            <div v-if="tab == 'settings'">
                 <deck-settings :deck="deck"></deck-settings>
             </div>
 
@@ -84,7 +84,7 @@
 
         data() {
             return {
-                tab: 'metrics'
+                tab: 'settings'
             }
         },
 

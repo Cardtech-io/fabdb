@@ -1,3 +1,4 @@
+
 <?php
 use Illuminate\Support\Facades\Route;
 
@@ -63,7 +64,7 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
             </script>
         @endif
     </head>
-    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full text-lg">
+    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full xl:text-lg">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};

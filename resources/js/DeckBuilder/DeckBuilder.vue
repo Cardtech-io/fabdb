@@ -1,6 +1,10 @@
 <template>
     <div>
-        <header-title :title="hero ? deck.name + ' (' + hero.name + ')' : deck.name"></header-title>
+        <header-title>
+            <template v-slot:title>
+                <deck-name :name="deck.name" :hero="hero"></deck-name>
+            </template>
+        </header-title>
 
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
@@ -91,6 +95,7 @@
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
     import DeckDetails from './DeckDetails.vue';
+    import DeckName from './DeckName';
     import FilterSelector from './FilterSelector.vue';
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from './Buttons/Fullscreen.vue';
@@ -111,6 +116,7 @@
             AllCards,
             Breadcrumbs,
             CardImage,
+            DeckName,
             FilterSelector,
             GroupingSelector,
             FullscreenButton,

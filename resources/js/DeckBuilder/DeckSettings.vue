@@ -1,15 +1,15 @@
 <template>
-    <div class="container sm:mx-auto bg-white py-8 px-4 md:flex">
+    <div class="container sm:mx-auto py-8 md:flex">
         <div class="md:w-1/2 md:pr-8">
             <form @submit.prevent="saveDeckSettings" class="block">
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
-                    <input type="text" v-model="deck.name" class="input focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
+                    <input type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
                 </div>
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
-                    <select v-model="deck.format" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="blitz">Blitz</option>
                         <option value="constructed">Constructed</option>
                         <option value="open">Open</option>
@@ -18,7 +18,7 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Limit cards to collection</label>
-                    <select v-model="deck.useCollection" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.useCollection" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option :value="false">No</option>
                         <option :value="true">Yes</option>
                     </select>
@@ -26,7 +26,7 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck visibility</label>
-                    <select v-model="deck.visibility" class="input focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.visibility" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="private">Private</option>
                         <option value="public">Public</option>
                     </select>
@@ -34,7 +34,7 @@
 
                 <div class="w-full">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
-                    <select v-model="deck.cardBack" class="input focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
+                    <select v-model="deck.cardBack" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
                         <option value="1">Original</option>
                         <option value="2">Worn</option>
                         <option value="3">Light</option>
