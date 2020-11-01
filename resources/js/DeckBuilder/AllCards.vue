@@ -1,46 +1,45 @@
 <template>
-    <div class="pb-24">
+    <div class="pb-24 text-base">
         <div v-if="!cards.hero()">
             <hero-selector></hero-selector>
         </div>
         <div v-else>
             <div v-if="view === 'gallery'">
-                <div v-if="user.subscription">
-                    <div class="mt-4">
-                        <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'hero' })" :class="{ 'mb-4': !sections.hero }">
-                            <chevron :open="sections.hero" class="mr-2"></chevron>
-                            Hero &amp; weapons
-                        </h2>
-                        <grouped-cards :cards="loadout" group-id="loadout" :action="mode == 'search' ? removeFromDeck : false" v-show="sections.hero">
-                            <template v-slot:default="props">
-                                <div style="margin-top: -28px" class="hidden sm:block" :class="props.classes" v-masonry-tile>
-                                    <div class="mx-2 mb-12">
-                                        <h3 class="font-serif uppercase text-lg">Totals</h3>
-                                        <totals class="mt-4"></totals>
-                                    </div>
-                                </div>
-                                <div style="margin-top: -28px" class="hidden sm:block" :class="props.classes" v-masonry-tile>
-                                    <div class="mx-2">
-                                        <h3 class="font-serif uppercase text-lg">General</h3>
-                                        <general class="mt-4"></general>
-                                    </div>
-                                </div>
-                            </template>
-                        </grouped-cards>
+                <div v-if="user.subscription" class="flex m-4">
+                    <div class="mr-4" style="max-width: 250px">
+                        <card-image :card="cards.hero()" class="mb-4"></card-image>
+                        <div>
+                            <deck-curves :cards="other.all()" stat="cost" style="height: 160px" class="mb-4"></deck-curves>
+                            <deck-curves :cards="other.all()" stat="resource" style="height: 160px"></deck-curves>
+                        </div>
+                        <div>
+                            <div class="mx-2 my-4">
+                                <h3 class="font-serif uppercase text-lg">Totals</h3>
+                                <totals class="mt-2"></totals>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mx-2">
+                                <h3 class="font-serif uppercase text-lg">General</h3>
+                                <general class="mt-2"></general>
+                            </div>
+                        </div>
                     </div>
-                    <div v-if="equipment.total()">
-                        <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'equipment' })" :class="{ 'mb-4': !sections.equipment }">
-                            <chevron :open="sections.equipment" class="mr-2"></chevron>
-                            Equipment ({{ equipment.total() }})
-                        </h2>
-                        <grouped-cards :cards="equipment" group-id="equipment" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.equipment"></grouped-cards>
-                    </div>
-                    <div v-if="other.total()">
-                        <h2 class="block flex cursor-pointer font-serif uppercase text-lg ml-4" @click="toggleSection({ section: 'other' })" :class="{ 'mb-4': !sections.other }">
-                            <chevron :open="sections.other" class="mr-2"></chevron>
-                            Other ({{ other.total() }})
-                        </h2>
-                        <grouped-cards :cards="other" group-id="other" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.other"></grouped-cards>
+                    <div class="flex-1">
+                        <div v-if="weapons.total()">
+                            <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'loadout' })" :class="{ 'mb-4': !sections.loadout }">
+                                <chevron :open="sections.loadout" class="mr-2"></chevron>
+                                Loadout ({{ loadout.total() }})
+                            </h2>
+                            <grouped-cards :cards="loadout" group-id="loadout" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.loadout"></grouped-cards>
+                        </div>
+                        <div v-if="other.total()">
+                            <h2 class="block flex cursor-pointer font-serif uppercase text-lg ml-4" @click="toggleSection({ section: 'other' })" :class="{ 'mb-4': !sections.other }">
+                                <chevron :open="sections.other" class="mr-2"></chevron>
+                                Other ({{ other.total() }})
+                            </h2>
+                            <grouped-cards :cards="other" group-id="other" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.other"></grouped-cards>
+                        </div>
                     </div>
                 </div>
                 <div v-else class="text-center my-20 mx-10">
@@ -50,11 +49,14 @@
                 </div>
             </div>
 
-            <div class="lg:flex m-4" v-else>
+            <div v-else class="lg:flex m-4">
                 <!-- Text-based deck view -->
-                <div class="hidden lg:block md:mr-8" style="max-width: 350px">
-                    <card-image :card="cards.hero()" :clickHandler="removeFromDeck" v-if="mode === 'search'"></card-image>
-                    <card-image :card="cards.hero()" v-else></card-image>
+                <div class="hidden lg:block md:mr-8" style="max-width: 250px">
+                    <card-image :card="cards.hero()" class="mb-4"></card-image>
+                    <div>
+                        <deck-curves :cards="other.all()" stat="cost" style="height: 160px" class="mb-4"></deck-curves>
+                        <deck-curves :cards="other.all()" stat="resource" style="height: 160px"></deck-curves>
+                    </div>
                 </div>
                 <div class="sm:flex-1 sm:mr-4">
                     <card-item-section :card="cards.hero()" title="Hero"></card-item-section>
@@ -83,6 +85,7 @@
     import CardItemSection from "./CardItemSection";
     import Cards from './Cards';
     import Chevron from "./Buttons/Chevron";
+    import DeckCurves from "./DeckCurves";
     import General from "./Metrics/General";
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "./HeroSelector";
@@ -93,7 +96,18 @@
     export default {
         props: ['collection'],
         mixins: [Cardable, ManagesDecks, Viewable],
-        components: {CardImage, CardItemSection, Chevron, FormButton, General, GroupedCards, HeroSelector, Totals},
+
+        components: {
+            CardImage,
+            CardItemSection,
+            Chevron,
+            DeckCurves,
+            FormButton,
+            General,
+            GroupedCards,
+            HeroSelector,
+            Totals
+        },
 
         computed: {
             ...mapState('deck', ['filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
@@ -127,11 +141,7 @@
             },
 
             loadout() {
-                return new Cards([this.all.hero(), ...this.all.weapons()]);
-            },
-
-            equipment() {
-                return new Cards(this.all.equipment());
+                return new Cards(this.all.weapons().concat(this.all.equipment()));
             },
 
             other() {

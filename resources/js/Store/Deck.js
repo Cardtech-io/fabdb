@@ -50,8 +50,8 @@ function remove(card, cards, bin) {
 // of the zoom level based on whether or not fullscreen
 // is enabled, and whether or not the mode is set to all.
 let zoomMatrix = [
-    [[5,4],[2,1]], // fullscreen
-    [[4,3],[1,0]]
+    [[4,3],[2,1]], // fullscreen
+    [[3,2],[1,0]]
 ];
 
 function controlMaxZoom(state) {
@@ -78,7 +78,8 @@ export default {
         sections: {
             hero: true,
             equipment: true,
-            other: true
+            loadout: true,
+            other: true,
         },
         sideboard: [],
         fullScreen: false,

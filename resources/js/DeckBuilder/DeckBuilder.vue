@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-base">
         <header-title>
             <template v-slot:title>
                 <deck-name :name="deck.name" :hero="hero"></deck-name>
