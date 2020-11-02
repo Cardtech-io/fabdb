@@ -42,31 +42,7 @@
                             </ul>
 
                             <div class="lg:flex" v-if="tab == 'composition'">
-                                <div class="w-full lg:w-1/2">
-                                    <div v-if="other.length" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Card totals ({{ totalCards }})</h3>
-                                        <ol>
-                                            <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
-                                            <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
-                                            <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
-                                        </ol>
-                                    </div>
-
-                                    <div v-if="other.length" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Deck stats</h3>
-                                        <ol>
-                                            <li class="block p-1 pl-4 w-full">Average card cost: {{ averageCost }}</li>
-                                            <li class="block p-1 pl-4 w-full">Average pitch: {{ averagePitch }}</li>
-                                            <li class="block p-1 pl-4 w-full">Pitch 1: {{ pitchCount(1) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Pitch 2: {{ pitchCount(2) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Pitch 3: {{ pitchCount(3) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Cost 0: {{ costCount(0) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Cost 1: {{ costCount(1) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Cost 2: {{ costCount(2) }}</li>
-                                            <li class="block p-1 pl-4 w-full">Cost 3+: {{ costCount(3) }}</li>
-                                        </ol>
-                                    </div>
-
+                                <div class="w-full md:w-2/7">
                                     <div v-if="weapons" class="mb-8">
                                         <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons</h3>
                                         <ol>
@@ -86,7 +62,7 @@
                                     </div>
                                 </div>
 
-                                <div class="w-full lg:w-1/2">
+                                <div class="w-full md:w-3/7">
                                     <div v-if="other.length">
                                         <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other</h3>
                                         <ol>
@@ -95,6 +71,19 @@
                                             </li>
                                         </ol>
                                     </div>
+                                </div>
+
+                                <div class="w-full md:w-2/7">
+                                    <h3 class="py-2 px-4 font-serif uppercase text-2xl mb-4">Deck stats</h3>
+
+                                    <ol class="mb-8">
+                                        <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
+                                        <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
+                                        <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
+                                    </ol>
+
+                                    <deck-curves :cards="other" stat="cost" style="height: 200px" class="mb-4"></deck-curves>
+                                    <deck-curves :cards="other" stat="resource" style="height: 200px"></deck-curves>
                                 </div>
                             </div>
 
@@ -132,6 +121,7 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import DeckCard from "./DeckCard";
+    import DeckCurves from "../DeckBuilder/DeckCurves";
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import HeroAvatar from "../Components/HeroAvatar";
@@ -149,6 +139,7 @@
         components: {
             Breadcrumbs,
             DeckCard,
+            DeckCurves,
             Discussion,
             HeaderTitle,
             HeroAvatar,

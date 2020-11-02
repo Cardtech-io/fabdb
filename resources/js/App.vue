@@ -25,15 +25,20 @@
         <complete-profile></complete-profile>
         <version-handler></version-handler>
         <hover-card></hover-card>
+
+        <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 rounded-xl">
+            <search-help></search-help>
+        </modal>
     </div>
 </template>
 
 <script>
     import {mapGetters, mapState} from 'vuex';
-    import HoverCard from "./DeckBuilder/HoverCard";
-    import Navigation from './Components/Navigation.vue';
-    import Messages from './Components/Messages.vue';
     import CompleteProfile from './Identity/CompleteProfile.vue';
+    import HoverCard from "./DeckBuilder/HoverCard";
+    import Messages from './Components/Messages.vue';
+    import Navigation from './Components/Navigation.vue';
+    import SearchHelp from "./CardDatabase/SearchHelp";
     import VersionHandler from './Components/VersionHandler.vue';
 
     import { mapActions } from 'vuex';
@@ -44,6 +49,7 @@
             HoverCard,
             Messages,
             Navigation,
+            SearchHelp,
             VersionHandler
         },
 

@@ -1,9 +1,14 @@
-`<template>
+<template>
     <div class="text-base">
         <form @submit.prevent="newSearch" class="block">
             <div class="flex w-full px-4 md:px-0">
-                <div class="w-full md:w-3/5 pr-1">
-                    <input type="text" v-model="params.keywords" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Enter search terms..." :class="active('keywords')">
+                <div class="w-full md:w-3/5 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
+                    <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-4" placeholder="Enter search terms..." :class="active('keywords')">
+                    <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
+                        <icon :size="6">
+                            <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
+                        </icon>
+                    </button>
                 </div>
 
                 <div class="w-full md:w-1/5 px-1">
@@ -77,6 +82,7 @@
 
 <script>
     import _ from 'lodash';
+    import Icon from '../Components/Icon';
     import Query from "../Utilities/Query";
 
     export default {
@@ -98,6 +104,7 @@
             wait: Boolean
         },
 
+        components: {Icon},
         mixins: [Query],
 
         computed: {
