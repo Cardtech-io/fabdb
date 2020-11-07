@@ -5,20 +5,22 @@
         </div>
         <div v-else>
             <div v-if="view === 'gallery'">
-                <div v-if="user.subscription" class="flex m-4">
-                    <div class="mr-4" style="max-width: 250px">
-                        <card-image :card="cards.hero()" class="mb-4"></card-image>
-                        <div>
-                            <deck-curves :cards="other.all()" stat="cost" style="height: 160px" class="mb-4"></deck-curves>
-                            <deck-curves :cards="other.all()" stat="resource" style="height: 160px"></deck-curves>
+                <div v-if="user.subscription" class="md:flex m-4">
+                    <div class="md:mr-4 md:w-auto md:max-w-250 clearfix">
+                        <div class="w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none">
+                            <card-image :card="cards.hero()" class="mb-4"></card-image>
                         </div>
-                        <div>
+                        <div class="w-1/2 md:w-auto float-left md:float-none">
+                            <deck-curves :cards="other.all()" stat="cost" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <deck-curves :cards="other.all()" stat="resource" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        </div>
+                        <div class="hidden md:block">
                             <div class="mx-2 my-4">
                                 <h3 class="font-serif uppercase text-lg">Totals</h3>
                                 <totals class="mt-2"></totals>
                             </div>
                         </div>
-                        <div>
+                        <div class="hidden md:block">
                             <div class="mx-2">
                                 <h3 class="font-serif uppercase text-lg">General</h3>
                                 <general class="mt-2"></general>
@@ -26,7 +28,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div v-if="weapons.total()">
+                        <div v-if="loadout.total()" class="mt-4 md:m-0">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'loadout' })" :class="{ 'mb-4': !sections.loadout }">
                                 <chevron :open="sections.loadout" class="mr-2"></chevron>
                                 Loadout ({{ loadout.total() }})
@@ -51,11 +53,11 @@
 
             <div v-else class="lg:flex m-4">
                 <!-- Text-based deck view -->
-                <div class="hidden lg:block md:mr-8" style="max-width: 250px">
+                <div class="hidden lg:block md:mr-8 max-w-250">
                     <card-image :card="cards.hero()" class="mb-4"></card-image>
                     <div>
-                        <deck-curves :cards="other.all()" stat="cost" style="height: 160px" class="mb-4"></deck-curves>
-                        <deck-curves :cards="other.all()" stat="resource" style="height: 160px"></deck-curves>
+                        <deck-curves :cards="other.all()" stat="cost" class="h-160 mb-4"></deck-curves>
+                        <deck-curves :cards="other.all()" stat="resource"class="h-160"></deck-curves>
                     </div>
                 </div>
                 <div class="sm:flex-1 sm:mr-4">

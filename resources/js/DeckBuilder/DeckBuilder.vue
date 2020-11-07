@@ -12,30 +12,23 @@
             <div class="bg-white">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center p-4" :class="mainAreaClasses">
+                        <div class="flex items-center p-4" :class="topAreaClasses">
                             <div class="flex-auto hidden sm:block">
-                                <h2 class="font-serif uppercase text-2xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} / {{ maxCards(deck) }} <span class="text-base hidden md:inline">cards</span></h2>
+                                <h2 class="font-serif uppercase text-xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} / {{ maxCards(deck) }} <span class="text-base">cards</span></h2>
                             </div>
 
-                            <grouping-selector v-if="mode !== 'details'" class="hidden lg:block"></grouping-selector>
-                            <mode-selector class="w-full sm:w-auto"></mode-selector>
+                            <grouping-selector v-if="mode !== 'details'" class="hidden xl:block"></grouping-selector>
+                            <mode-selector class="w-full lg:w-auto"></mode-selector>
 
-                            <div class="px-2 sm:px-1 flex">
-                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
-                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden sm:block"></zoom-button>
+                            <div class="px-2 lg:px-1 flex">
+                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
+                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
                                 <view-button></view-button>
                                 <fullscreen-button></fullscreen-button>
                             </div>
                         </div>
-                        <div v-if="mode == 'search'" class="flex items-center w-1/3" :class="{ 'px-0 bg-gray-200': fullScreen, 'border-l border-gray-300 px-4 pr-0': !fullScreen }">
-                            <div class="flex bg-gray-200 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }">
-                                <input type="text" ref="nameSearch" v-model="keywords" placeholder="Search" class="flex-1 bg-transparent outline-none py-3 px-4" @keyup="delayedSearch" @keyup.enter="search(1)">
-                                <button class="flex-initial mr-4 link-alternate" @click="$modal.show('search-help')">
-                                    <icon :size="6">
-                                        <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
-                                    </icon>
-                                </button>
-                            </div>
+                        <div v-if="mode == 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 bg-gray-200': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
+                            <card-search class="flex bg-gray-200 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"></card-search>
                         </div>
                     </div>
                 </div>
@@ -48,8 +41,8 @@
                         <deck-details v-if="mode == 'details'"></deck-details>
                         <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
                     </div>
-                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-1/3 overflow-y-auto border-l border-gray-300">
-                        <search-results v-if="mode == 'search'" :results="results" @card-type-selected="updateCardType"></search-results>
+                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto border-l border-gray-300" ref="searchResults">
+                        <search-results v-if="mode == 'search'" @search-completed="scrollTop"></search-results>
                         <sideboard v-if="mode == 'sideboard'" :collection="sideboard" class="p-4"></sideboard>
                     </div>
                 </div>
@@ -59,14 +52,13 @@
 </template>
 
 <script>
-    import _ from 'underscore';
-    import { VueMasonryPlugin } from 'vue-masonry';
     import { mapActions, mapGetters, mapState } from 'vuex';
 
     import AllCards from './AllCards.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
+    import CardSearch from "./CardSearch";
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName';
     import FilterSelector from './FilterSelector.vue';
@@ -76,7 +68,6 @@
     import Icon from '../Components/Icon';
     import LazyLoader from '../Components/LazyLoader';
     import MainDeck from './MainDeck.vue';
-    import ManagesDecks from './ManagesDecks';
     import ModeSelector from './ModeSelector.vue';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
@@ -89,6 +80,7 @@
             AllCards,
             Breadcrumbs,
             CardImage,
+            CardSearch,
             DeckName,
             FilterSelector,
             GroupingSelector,
@@ -104,17 +96,13 @@
             ZoomButton
         },
 
-        mixins: [ Cardable, ModeSelector, Viewable ],
+        mixins: [Cardable, ModeSelector, Viewable],
 
         data() {
             return {
                 cardIndex: 0,
-                keywords: '',
-                cardType: '',
                 offset: 10,
-                pad: 17,
-                results: [],
-                searchTimeout: null
+                pad: 17
             }
         },
 
@@ -125,7 +113,7 @@
 
             containers: function() {
                 if (!this.fullScreen) {
-                    return 'container sm:mx-auto';
+                    return 'container lg:mx-auto';
                 }
             },
 
@@ -136,10 +124,17 @@
             },
 
             mainAreaClasses() {
+                return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
+            },
+
+            sidebarClasses() {
                 return {
-                    'w-2/3': this.mode === 'search' || this.mode === 'sideboard',
-                    'w-full': this.mode !== 'search' && this.mode !== 'sideboard',
+                    'hidden lg:block lg:w-1/3 p-4': true
                 }
+            },
+
+            topAreaClasses() {
+                return this.mode === 'search' || this.mode === 'sideboard' ? 'w-full lg:w-2/3' : 'w-full';
             },
 
             crumbs: function() {
@@ -154,64 +149,17 @@
         methods: {
             ...mapActions('messages', ['addMessage']),
             ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
-            ...mapActions('cardSearch', ['setPage']),
 
-            delayedSearch() {
-                this.clearSearch();
-
-                this.searchTimeout = setTimeout(() => {
-                    this.search(1);
-                }, 800);
-            },
-
-            search: function(page) {
-                this.clearSearch();
-
-                this.setPage({ page });
-
-                let params = {
-                    deck: this.deck.slug,
-                    cardType: this.cardType,
-                    class: this.hero ? this.hero.keywords[0] : '',
-                    keywords: this.keywords,
-                    page: page
-                };
-
-                axios.get('/cards/build', { params: params }).then(response => {
-                    this.results = response.data;
-                }).catch(error => {});
-            },
-
-            updateCardType(value) {
-                if (value === 'all') {
-                    value = '';
-                }
-
-                this.cardType = value;
-                this.search();
-            },
-
-            clearSearch() {
-                if (this.searchTimeout) {
-                    clearTimeout(this.searchTimeout);
-                }
+            scrollTop() {
+                this.$refs.searchResults.scrollTop = 0;
+                window.scrollTo({top: 0});
             }
-        },
-
-        mounted() {
-            this.search(1);
         },
 
         created() {
             this.$eventHub.$on('card-selected', () => {
                 this.name = '';
             });
-        },
-
-        watch: {
-            'params.page': function(value) {
-                this.search(value);
-            }
         },
 
         extends: LazyLoader((to, callback) => {

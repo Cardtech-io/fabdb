@@ -23,6 +23,8 @@ module.exports = {
 
             height: {
                 '1/2': '50%',
+                '140': '140px',
+                '160': '160px',
             },
 
             inset: {
@@ -34,6 +36,10 @@ module.exports = {
                 '1/4': '25%'
             },
 
+            maxWidth: {
+                '250': '250px'
+            },
+
             width: {
                 '1/7': '14.2857143%',
                 '2/7': '28.5714286%',
@@ -42,7 +48,10 @@ module.exports = {
                 '1/10': '10%',
                 '3/10': '30%',
                 '7/10': '70%',
-                '9/10': '90%'
+                '9/10': '90%',
+                '250': '250px',
+                '350': '350px',
+                '450': '450px',
             }
         },
 
@@ -100,6 +109,5 @@ module.exports = {
         opacity: ['disabled', 'hover'],
         padding: ['responsive', 'even'],
         textColor: ['responsive', 'hover', 'group-hover'],
-
     }
 };

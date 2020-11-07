@@ -36239,6 +36239,7 @@ function controlMaxZoom(state) {
     deck: {},
     cards: [],
     filters: [],
+    keywords: '',
     grouping: 'name',
     sections: {
       hero: true,

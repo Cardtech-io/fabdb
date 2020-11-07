@@ -1,6 +1,6 @@
 <template>
-    <div ref="hoverDiv" class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl" :style="position" v-show="visible && card">
-        <card-image :card="card" :width="width" v-if="card" :click-handler="hide"/>
+    <div ref="hoverDiv" class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl w-250 md:w-350 lg:w-450" :style="position" v-show="visible && card">
+        <card-image :card="card" :width="450" v-if="card" :click-handler="hide"/>
     </div>
 </template>
 
@@ -16,7 +16,6 @@
                 coordinates: [],
                 position: {},
                 visible: false,
-                width: 350,
                 height: 488
             };
         },
@@ -24,9 +23,8 @@
         methods: {
             setPosition() {
                 this.position = {
-                    'width': this.width + 'px',
                     'top': this.top() + 'px',
-                    'left': this.coordinates[0] - this.width - 100 + 'px'
+                    'left': this.left() + 'px'
                 };
             },
 
@@ -47,6 +45,16 @@
                 }
 
                 return top;
+            },
+
+            left() {
+                let left = this.coordinates[0] - this.width - 100;
+
+                if (left < 0) {
+                    left = 0;
+                }
+
+                return left;
             },
 
             toggle(card) {
