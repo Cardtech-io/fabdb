@@ -43,7 +43,7 @@
                     </div>
                     <div v-if="mode == 'search' || mode == 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto border-l border-gray-300" ref="searchResults">
                         <search-results v-if="mode == 'search'" @search-completed="scrollTop"></search-results>
-                        <sideboard v-if="mode == 'sideboard'" :collection="sideboard" class="p-4"></sideboard>
+                        <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
             },
 
             topAreaClasses() {
-                return this.mode === 'search' || this.mode === 'sideboard' ? 'w-full lg:w-2/3' : 'w-full';
+                return this.mode === 'search' ? 'w-full lg:w-2/3' : 'w-full';
             },
 
             crumbs: function() {

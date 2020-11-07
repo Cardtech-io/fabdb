@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-40">
         <div v-if="user.subscription">
             <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'sm:w-1/3' : 'sm:w-1/2'"></grouped-cards>
             <div v-if="!sideboard.cards.length" class="text-center my-20 mx-10">
