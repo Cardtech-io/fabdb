@@ -1,7 +1,7 @@
 <template>
     <div>
         <ol class="clearfix my-8">
-            <li v-for="hero in heroes" class="float-left w-full sm:w-1/3 md:w-1/4 lg:w-1/6 mb-8">
+            <li v-for="hero in heroes" class="float-left w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-8">
                 <button class="block cursor-pointer mx-auto" @click.prevent="addToDeck(hero)">
                     <hero-avatar :hero="hero" :name="hero.name" :width="150"></hero-avatar>
                     <div class="flex -mt-5">

@@ -33,7 +33,7 @@ body {
     --nav-hover-text-color: theme('colors.red.400');
 }
 
-.theme-aria { 
+.theme-aria {
     --theme-background: theme('bg.gray.200') url('/img/background-aria.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.green.700");
     --button-primary-hover-background-color: theme("colors.green.500");
