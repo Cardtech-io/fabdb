@@ -58,7 +58,8 @@
                     ]},
                     { text: 'Decks', children: [
                         { link: '/decks/browse', text: 'Browse' },
-                        { link: '/decks/build', text: 'Deck Builder' }
+                        { link: '/decks/starters', text: 'Starter decks' },
+                        { link: '/decks/build', text: 'Deck builder' }
                     ]},
                     { link: '/support', text: 'Support' },
                     { link: '/resources/api', text: 'API' },
