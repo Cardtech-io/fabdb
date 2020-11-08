@@ -158,12 +158,12 @@
             swipe(direction) {
                 let modes = ['all', 'search', 'details'];
                 let current = modes.indexOf(this.mode);
-                
+
                 direction = direction === 'right' ? -1 : 1;
 
                 let newMode = current + direction;
 
-                if (newMode >= 0 && newMode <= 3) {
+                if (newMode >= 0 && newMode <= 2) {
                     this.setMode({ mode: modes[newMode] });
                 }
             }
