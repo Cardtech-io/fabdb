@@ -1,6 +1,6 @@
 <template>
-    <div ref="hoverDiv" class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl w-250 md:w-350 lg:w-450" :style="position" v-show="visible && card">
-        <card-image :card="card" :width="450" v-if="card" :click-handler="hide"/>
+    <div ref="hoverDiv" class="hidden md:block z-100 absolute shadow-2xl overflow-visible rounded-xl w-250 md:w-350" :style="position" v-show="visible && card">
+        <card-image :card="card" :width="width" v-if="card" :click-handler="hide"/>
     </div>
 </template>
 
@@ -16,7 +16,8 @@
                 coordinates: [],
                 position: {},
                 visible: false,
-                height: 488
+                height: 488,
+                width: 350
             };
         },
 
