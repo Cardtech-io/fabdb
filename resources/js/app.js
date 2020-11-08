@@ -20,7 +20,9 @@ import 'vue-datetime/dist/vue-datetime.css';
 Vue.component('card-ad', CardAd);
 Vue.component('card-image', CardImage);
 Vue.use(VueAwesomeCountdown, 'vac');
-Vue.use(Vue2TouchEvents, 'vac');
+Vue.use(Vue2TouchEvents, {
+    swipeTolerance: 60
+});
 Vue.use(VModal, { injectModalsContainer: true });
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
