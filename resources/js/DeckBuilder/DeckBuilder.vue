@@ -1,5 +1,5 @@
 <template>
-    <div class="text-base" v-touch:swipe="swipe">
+    <div class="text-base" v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight">
         <header-title>
             <template v-slot:title>
                 <deck-name :name="deck.name" :hero="hero"></deck-name>
@@ -101,6 +101,7 @@
         data() {
             return {
                 cardIndex: 0,
+                swipeModes: ['all', 'search', 'details'],
                 offset: 10,
                 pad: 17
             }
@@ -155,17 +156,22 @@
                 window.scrollTo({top: 0});
             },
 
-            swipe(direction) {
-                let modes = ['all', 'search', 'details'];
-                let current = modes.indexOf(this.mode);
+            swipeLeft() {
+                this.changeMode(this.currentSwipeMode() + 1);
+            },
 
-                direction = direction === 'right' ? -1 : 1;
+            swipeRight() {
+                this.changeMode(this.currentSwipeMode() - 1);
+            },
 
-                let newMode = current + direction;
-
+            changeMode(newMode) {
                 if (newMode >= 0 && newMode <= 2) {
-                    this.setMode({ mode: modes[newMode] });
+                    this.setMode({mode: this.swipeModes[newMode]});
                 }
+            },
+
+            currentSwipeMode() {
+                return this.swipeModes.indexOf(this.mode);
             }
         },
 
