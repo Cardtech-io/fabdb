@@ -1,5 +1,5 @@
 <template>
-    <div class="text-base">
+    <div class="text-base" v-touch:swipe="swipe">
         <header-title>
             <template v-slot:title>
                 <deck-name :name="deck.name" :hero="hero"></deck-name>
@@ -153,6 +153,19 @@
             scrollTop() {
                 this.$refs.searchResults.scrollTop = 0;
                 window.scrollTo({top: 0});
+            },
+
+            swipe(direction) {
+                let modes = ['all', 'search', 'details'];
+                let current = modes.indexOf(this.mode);
+                
+                direction = direction === 'right' ? -1 : 1;
+
+                let newMode = current + direction;
+
+                if (newMode >= 0 && newMode <= 3) {
+                    this.setMode({ mode: modes[newMode] });
+                }
             }
         },
 
