@@ -23,4 +23,6 @@ interface DeckRepository extends Repository
     public function search(array $params);
 
     public function copy(string $deckSlug, int $userId): Deck;
+
+    public function starters(): Collection;
 }

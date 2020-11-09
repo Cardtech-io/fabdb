@@ -44,6 +44,11 @@ class DeckController extends Controller
             ->appends($request->except('page'));
     }
 
+    public function starters()
+    {
+        return $this->decks->starters();
+    }
+
     public function addDeck(Request $request)
     {
         $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name')));

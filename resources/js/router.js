@@ -23,6 +23,7 @@ import ListDecks from './DeckBuilder/ListDecks';
 import DeckBuilder from './DeckBuilder/DeckBuilder';
 import TestDeck from './DeckBuilder/TestDeck';
 import ExportDeck from './DeckBuilder/ExportDeck';
+import StarterDecks from "./Decks/Starters";
 import ViewDeck from './Decks/ViewDeck';
 import Support from './Support';
 import Profile from './Identity/Profile';
@@ -58,6 +59,7 @@ const router = new VueRouter({
         { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
+        { path: "/decks/starters", component: StarterDecks, meta: { title: 'Flesh &amp; Blood Starter Decks' } },
         { path: "/decks/:deck", component: ViewDeck, name: 'decks.view', meta: { title: 'View deck' } },
 
         { path: "/articles", component: Articles, name: 'articles' },

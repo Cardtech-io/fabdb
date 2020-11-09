@@ -69,6 +69,7 @@ Route::middleware(['web'])->group(function() {
             Route::delete('events/{event}/registration', 'EventController@unregister');
 
             Route::get('decks/mine', 'DeckController@mine');
+            Route::get('decks/starters', 'DeckController@starters');
             Route::post('decks/copy', 'DeckController@copy');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');
