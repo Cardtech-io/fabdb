@@ -47,6 +47,7 @@
                 this.addRemote(card, response => {
                     this.addCard({card});
                     this.setMode({mode: 'search'});
+                    this.$eventHub.$emit('hero-selected', card, this.type(card));
                 });
             },
 
