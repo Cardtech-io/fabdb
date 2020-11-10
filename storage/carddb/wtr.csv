@@ -111,7 +111,7 @@ Your next brute attack this turn gains +3[attack].
 
 **Go again**",,,"brute,action",,,3,0,3,,,
 WTR,38,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero",40,4,,,,,,
-WTR,39,"Bravo",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,
+WTR,39,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,
 WTR,40,Anothos,T,"**Once per turn action [3 resource] - Attack**
 
 If you have 2 or more cards in your pitch zone with cost [3 resource] or greater, Anothos gains +2[attack].",,,"guardian,weapon,hammer,2h",,,,,,4,,
@@ -122,7 +122,7 @@ WTR,42,Helm of Isen's Peak,C,"**Action** - [1 resource], destroy Helm of Isen's 
 
 **Battleworn** *(If you defend with Helm of Isen's Peak, put a -1[defense] counter on it when the combat chain closes.)*
 ",,,"guardian,equipment,head",,,,,1,,,
-WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only have Crippling Crush in your deck if your hero is Bravo.)*
+WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
 
 **Crush** - If Crippling Crush does 4 or more damage to a hero, they discard 2 random cards.",,,"guardian,action,attack",,,1,7,3,11,,
 WTR,44,Spinal Crush,M,"**Crush** - If Spinal Crush does 4 or more damage to a hero, action cards, activated abilities, and attacks they control lose and can't gain **go again** during their next action phase.",,,"guardian,action,attack",,,1,5,3,9,,
@@ -132,7 +132,7 @@ WTR,46,Forged for War,S,"**Go again**
 While Forged for War is in the arena, equipment you control gain +1[defense].
 
 At the beginning of your action phase, destroy Forged for War.",,,"guardian,action,aura",,,2,2,3,,,
-WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only have Show Time! in your deck if your hero is Bravo.)*
+WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
 
 When Show Time! enters the arena, search your deck for a Guardian attack action card, reveal it, put it into your hand, then shuffle your library.
 
@@ -215,9 +215,9 @@ While Stonewall Confidence is in the arena, cards you control with cost [3 resou
 
 At the beginning of your action phase, destroy Stonewall Confidence.
 ",,,"guardian,action,aura",,,3,2,3,,,
-WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,,,,,,
-WTR,76,"Katsu, the Wanderer",C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,
-WTR,77,Katsu,C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero,young",20,4,,,,,,
+WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,,,
+WTR,76,"Katsu, the Wanderer",T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,
+WTR,77,Katsu,T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero,young",20,4,,,,,,
 WTR,78,Harmonized Kodachi,T,"**Once per Turn Action** - [resource]: Attack
 
 If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,
@@ -233,7 +233,7 @@ WTR,81,Lord of Wind,M,"**Katsu Specialization** *(You may only have Lord of Wind
 WTR,82,Ancestral Empowerment,M,"Target Ninja attack action card gains +1[attack].
 
 Draw a card.","They called to him from beyond the Mists. ""It's time to come home.""",,"ninja,attack,reaction",,,1,0,2,,,
-WTR,83,Mugenshi: RELEASE,S,"**Katsu Specialization** *(You may only have Mugenshi: RELEASE in your deck if your hero is Katsu.)*
+WTR,83,Mugenshi: RELEASE,M,"**Katsu Specialization** *(You may only have Mugenshi: RELEASE in your deck if your hero is Katsu.)*
 
 **Combo** - If Whelming Gustwave was the last attack this combat chain, Mugenshi: RELEASE gains +1[attack], **go again**, and  ""If this hits, search your deck for any number of cards named Lord of Wind, reveal them, put them into your hand, then shuffle your deck.""",,,"ninja,action,attack",,,2,1,3,4,,
 WTR,84,Hurricane Technique,S,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Hurricane Technique gains +1[attack], **go again*, and ""If Hurricane Technique hits, put it into your hand.""",,,"ninja,action,attack",,,2,1,3,4,,
@@ -265,11 +265,11 @@ WTR,109,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,3,2,2,3,,
 WTR,110,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,1,0,3,3,,
 WTR,111,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,2,0,3,2,,
 WTR,112,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,3,0,3,1,,
-WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",40,4,,,,,,
-WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",20,4,,,,,,
+WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",,4,,,,,,
+WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",,4,,,,,,
 WTR,115,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,
 WTR,116,Braveforge Bracers,L,"**Once per Turn Action** - [resource]: Your next weapon attack this turn gains +1[attack]. Activate this ability only if a weapon you control has hit this turn. **Go again**
@@ -312,7 +312,7 @@ WTR,127,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 d
 WTR,128,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,3,1,4,,,
 WTR,129,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,1,1,3,,,
 WTR,130,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,2,1,3,,,
-WTR,131,Warrior's Valor,R,"Your next weapon attack this turn gains +1[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,3,1,3,,,
+WTR,131,Warrior's Valor,C,"Your next weapon attack this turn gains +1[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,3,1,3,,,
 WTR,132,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +3[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,1,0,3,,,
 WTR,133,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +2[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,2,0,3,,,
 WTR,134,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +1[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,3,0,3,,,
@@ -385,7 +385,7 @@ WTR,160,Tome of Fyendal,M,"Draw 2 cards.
 
 If Tome of Fyendal is played from arsenal, gain 1[life] for each card in your hand.",Even the simplest recollection of the Old Ones holds immense power...,,"generic,action",,,2,1,2,,,
 WTR,161,Last Ditch Effort,S,"When you play Last Ditch Effort, if you have no cards in your deck, it gains +4[attack] and **go again**.","For creatures that feed on fear, the moment of death is a veritable feast.",,"generic,action,attack",,,3,3,3,4,,
-WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die.
+WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die. 
 On;
 
 * 1, 2 - Lose 2[life]. **Go again**
