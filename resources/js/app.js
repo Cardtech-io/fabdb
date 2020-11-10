@@ -21,6 +21,7 @@ Vue.component('card-ad', CardAd);
 Vue.component('card-image', CardImage);
 Vue.use(VueAwesomeCountdown, 'vac');
 Vue.use(Vue2TouchEvents, {
+    disableClick: true,
     swipeTolerance: 60
 });
 Vue.use(VModal, { injectModalsContainer: true });
