@@ -6,7 +6,9 @@
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
                     <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">{{ set.name }}</a>
+                        <a href="" class="block border-b-4 border-white p-2 sm:p-4 text-center" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">
+                            {{ set.name }}
+                        </a>
                     </li>
                 </ul>
             </div>
