@@ -63,5 +63,7 @@ class CachePriceAverages extends Command
                 mean_current = result.mean,
                 low_current = result.low
         ');
+
+        $this->call(CacheCardMeans::class);
     }
 }

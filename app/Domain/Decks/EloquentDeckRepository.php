@@ -128,11 +128,12 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query = $this->newQuery();
 
         $priceCalc = DB::raw("(
-            SELECT SUM(deck_cards.total * current_prices.mean_current)
-            FROM deck_cards
-            JOIN current_prices ON current_prices.card_id = deck_cards.card_id AND current_prices.variant IN ('cold', 'regular') AND current_prices.currency = '{$params['currency']}'
-            WHERE deck_cards.deck_id = decks.id
-        ) AS total_price");
+            SELECT
+                SUM(deck_cards.total * card_means.mean_{$params['currency']})
+                FROM deck_cards
+                JOIN card_means ON card_means.card_id = deck_cards.card_id
+                WHERE deck_cards.deck_id = decks.id
+            ) AS total_price");
 
         $query->select([
             'decks.id',
