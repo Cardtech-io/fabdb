@@ -223,7 +223,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return $this->newQuery()
             ->select('decks.id', 'decks.name', 'decks.format', 'decks.notes')
             ->with('cards')
-            ->whereUserId(0)
+            ->whereRaw('user_id = 0')
             ->get();
     }
 }

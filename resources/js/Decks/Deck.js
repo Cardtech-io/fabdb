@@ -1,3 +1,5 @@
+import Cards from "../DeckBuilder/Cards";
+
 class Deck {
     constructor(fields) {
         this.fields = fields;
@@ -8,7 +10,11 @@ class Deck {
     }
 
     get cards() {
-        return this.fields.cards;
+        return new Cards(this.fields.cards);
+    }
+
+    get hero() {
+        return this.cards.hero();
     }
 
     get format() {

@@ -1,11 +1,18 @@
 <template>
     <div>
         <header-title title="Starter decks"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
-
-        <div class="bg-gray-200">
-            <div class="container sm:mx-auto p-4 py-8">
-                <div v-for="deck in decks"></div>
+        <div class="container mx-auto">
+            <div class="px-4">
+                <p class="text-gray-500">
+                    Looking for the Official starter decks? Want to import them into TTS, or simply want to create your own
+                    deck from them? Look no further! This page lists all of the official Flesh & Blood starter decks, as well as
+                    providing all the usual features you've come to expect from FaB DB!
+                </p>
+            </div>
+            <div class="flex flex-wrap mt-8 mx-2" v-if="decks.length">
+                <div v-for="deck in decks" :key="decks.slug" class="w-1/4">
+                    <starter-deck :deck="deck"></starter-deck>
+                </div>
             </div>
         </div>
     </div>
@@ -13,13 +20,14 @@
 
 <script>
     import Breadcrumbs from "../Components/Breadcrumbs";
+    import Deck from "./Deck";
     import HeaderTitle from "../Components/HeaderTitle";
     import LazyLoader from "../Components/LazyLoader";
     import Models from "../Utilities/Models";
-    import Deck from "./Deck";
+    import StarterDeck from "./StarterDeck";
 
     export default {
-        components: {Breadcrumbs, HeaderTitle},
+        components: {Breadcrumbs, HeaderTitle, StarterDeck},
 
         data() {
             return {
@@ -35,7 +43,7 @@
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/starters').then(response => {
                 callback(function(){
-                    this.decks = Models.hydrate(response.data, Deck);
+                    this.decks = Models.hydrateMany(response.data, Deck);
                 })
             });
         })
