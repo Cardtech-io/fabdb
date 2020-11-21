@@ -43,7 +43,11 @@ class Card extends Model
 
     public function listings()
     {
-        return $this->hasMany(Listing::class);
+        return $this->hasMany(Listing::class)
+            ->join('stores', function($join) {
+                $join->on('stores.id', '=', 'listings.store_id');
+                $join->whereNull('stores.deleted_at');
+            });
     }
 
     public function rulings()
