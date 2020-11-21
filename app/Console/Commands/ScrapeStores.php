@@ -126,16 +126,14 @@ class ScrapeStores extends Command
                                 Log::debug('No price found for ['.$product->id.']');
                                 continue;
                             }
-
-                            $identifier = $parser->identifier()->raw();
-
+                            
                             try {
+                                $identifier = $parser->identifier()->raw();
+
                                 $this->createListing($identifier, $parser, $product, $store);
-                            }
-                            catch (InvalidIdentifier $e) {
-                                Log::debug('Invalid identifier ['.$identifier.']');
-                            }
-                            catch (ModelNotFoundException $e) {
+                            } catch (InvalidIdentifier $e) {
+                                Log::debug($e->getMessage());
+                            } catch (ModelNotFoundException $e) {
                                 Log::debug('Card not found for ['.$identifier.']');
                             }
                         }

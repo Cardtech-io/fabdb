@@ -72,7 +72,7 @@ final class Identifier implements \JsonSerializable
     public static function fromVariant($string)
     {
         if (!self::matches($string)) {
-            throw new InvalidIdentifier;
+            throw new InvalidIdentifier($string);
         }
 
         return self::fromString($string);
