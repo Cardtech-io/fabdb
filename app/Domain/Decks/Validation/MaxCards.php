@@ -38,9 +38,11 @@ class MaxCards implements Rule
             return true;
         }
 
-        $total = request()->get('total', 1);
+        if (request()->has('total')) {
+            return request()->get('total', 1) < $this->maxNumber();
+        }
 
-        return $this->card->pivot->total < $this->maxNumber() || $total <= 3;
+        return $this->card->pivot->total < $this->maxNumber();
     }
 
     /**

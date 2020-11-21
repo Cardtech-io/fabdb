@@ -24,7 +24,7 @@ class VariantParser
      *
      * @return mixed
      */
-    public function cardVariant()
+    public function finish()
     {
         foreach ([$this->variant->title, $this->product->title] as $title) {
             $title = Str::lower($title);
@@ -56,7 +56,7 @@ class VariantParser
      */
     public function identifier(): Identifier
     {
-        preg_match('/([a-z]{3})([0-9]{1,3})/i', $this->variant->sku, $parts);
+        preg_match('/([a-z]{3,4})([0-9]{1,3})/i', $this->variant->sku, $parts);
 
         $parts[2] = str_pad($parts[2], 0, STR_PAD_LEFT);
 

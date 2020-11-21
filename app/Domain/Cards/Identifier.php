@@ -3,6 +3,8 @@ namespace FabDB\Domain\Cards;
 
 final class Identifier implements \JsonSerializable
 {
+    const PATTERN = '/^([a-z]{3,4})([0-9]{3})$/i';
+
     /**
      * @var string
      */
@@ -13,7 +15,7 @@ final class Identifier implements \JsonSerializable
      */
     private $id;
 
-    public function __construct(string $set, string $id)
+    private function __construct(string $set, string $id)
     {
         $this->set = $set;
         $this->id = str_pad($id, 3, 0, STR_PAD_LEFT);
@@ -21,9 +23,29 @@ final class Identifier implements \JsonSerializable
 
     public static function fromString(string $identifier)
     {
-        [$set, $id] = str_split($identifier, 3);
+        $matches = self::matches($identifier);
 
-        return new self($set, $id);
+        return new self($matches[0], $matches[1]);
+    }
+
+    public static function fromStringAsUnlimited($identifier)
+    {
+        $identifier = 'U'.$identifier;
+
+        return self::fromString($identifier);
+    }
+
+    /**
+     * Returns the matched array minus the full match if the provided string matches a valid identifier.
+     *
+     * @param string $candidate
+     * @return array
+     */
+    public static function matches(string $candidate): array
+    {
+        preg_match(self::PATTERN, $candidate, $matches);
+
+        return array_slice($matches, 1);
     }
 
     public function set(): string
@@ -31,6 +53,16 @@ final class Identifier implements \JsonSerializable
         return $this->set;
     }
 
+    public function id(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * Stripped ID removes any padded zeroes.
+     *
+     * @return string
+     */
     public function strippedId(): string
     {
         return preg_replace('/^0{1,2}/', '', $this->id);
@@ -39,11 +71,11 @@ final class Identifier implements \JsonSerializable
     // Variants can have an identifier somewhere within the string, so find it and then instantiate
     public static function fromVariant($string)
     {
-        if (!preg_match('/[a-z]{3}[0-9]{3}/i', $string, $matches)) {
+        if (!self::matches($string)) {
             throw new InvalidIdentifier;
         }
 
-        return static::fromString($matches[0]);
+        return self::fromString($string);
     }
 
     public function __toString(): string

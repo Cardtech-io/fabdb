@@ -16,10 +16,10 @@ trait TestsCards
         return $cards;
     }
 
-    protected function card(string $name, array $keywords = [])
+    protected function card(string $identifier, string $name, array $keywords = [])
     {
         $card = new Card;
-        $card->identifier = new Identifier('WTR', $name);
+        $card->identifier = Identifier::fromString($identifier);
         $card->name = $name;
         $card->keywords = $keywords;
 

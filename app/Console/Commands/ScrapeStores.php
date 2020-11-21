@@ -8,6 +8,8 @@ use FabDB\Domain\Stores\ListingRepository;
 use FabDB\Domain\Stores\VariantParser;
 use FabDB\Domain\Stores\StoreRepository;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -73,6 +75,8 @@ class ScrapeStores extends Command
      */
     public function handle()
     {
+        $this->setLogChannel('scrape');
+
         foreach ($this->getStores() as $store) {
             $this->info('Importing store listings for store '.$store->id);
 
@@ -99,19 +103,21 @@ class ScrapeStores extends Command
                             sleep(1);
                             // wait a second, then try again.
                         }
+                    } catch (RequestException $e) {
+                        Log::info($e->getMessage());
+                        break 2;
                     }
                 }
 
                 $headers = $response->getHeaders();
-
                 $results = json_decode($response->getBody()->getContents());
 
                 foreach ($results->products as $product) {
-                    if (preg_match('/([a-z]{3}[0-9]{1,3})/i', $product->variants[0]->sku)) {
+                    if (preg_match('/([a-z]{3,4}[0-9]{1,3})/i', $product->variants[0]->sku)) {
                         Log::debug('Identifier matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
 
                         foreach ($product->variants as $variant) {
-                            if (!preg_match('/([a-z]{3}[0-9]{1,3})/i', $variant->sku)) continue;
+                            if (!preg_match('/([a-z]{3,4}[0-9]{1,3})/i', $variant->sku)) continue;
 
                             $parser = new VariantParser($product, $variant);
 
@@ -121,25 +127,17 @@ class ScrapeStores extends Command
                                 continue;
                             }
 
+                            $identifier = $parser->identifier()->raw();
+
                             try {
-                                Log::debug('New variant for ['.$parser->identifier()->raw().':'.$parser->cardVariant().' - '.$parser->price().']');
-
-                                $card = $this->cards->findByIdentifier($parser->identifier()->raw());
-                                $link = '/products/' . $product->handle;
-
-                                $listing = Listing::register(
-                                    $store->id,
-                                    $card->id,
-                                    $parser->cardVariant(),
-                                    $parser->price(),
-                                    $link,
-                                    $parser->available()
-                                );
-
-                                Log::debug('Listing ['.$listing->id.'] registered.');
+                                $this->createListing($identifier, $parser, $product, $store);
                             }
-                            catch (InvalidIdentifier $e) {}
-                            catch (ModelNotFoundException $e) {}
+                            catch (InvalidIdentifier $e) {
+                                Log::debug('Invalid identifier ['.$identifier.']');
+                            }
+                            catch (ModelNotFoundException $e) {
+                                Log::debug('Card not found for ['.$identifier.']');
+                            }
                         }
                     } else {
                         Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
@@ -184,5 +182,35 @@ class ScrapeStores extends Command
     private function completed($baseUri, $query)
     {
         return in_array($baseUri.$query, $this->cache);
+    }
+
+    private function setLogChannel(string $channel)
+    {
+        config()->set('logging.default', $channel);
+    }
+
+    /**
+     * @param string $identifier
+     * @param VariantParser $parser
+     * @param $product
+     * @param $store
+     */
+    private function createListing(string $identifier, VariantParser $parser, $product, $store): void
+    {
+        Log::debug('New variant for [' . $identifier . ':' . $parser->finish() . ' - ' . $parser->price() . ']');
+
+        $card = $this->cards->findByIdentifier($identifier);
+        $link = '/products/' . $product->handle;
+
+        $listing = Listing::register(
+            $store->id,
+            $card->id,
+            $parser->finish(),
+            $parser->price(),
+            $link,
+            $parser->available()
+        );
+
+        Log::info('Listing [' . $listing->id . '] registered.');
     }
 }

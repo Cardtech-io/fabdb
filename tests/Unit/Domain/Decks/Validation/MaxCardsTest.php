@@ -22,10 +22,10 @@ class MaxCardsTest extends TestCase
 
     function test_it_passes_when_none_of_the_required_cards_have_been_added()
     {
-        $card1 = $this->card('008');
+        $card1 = $this->card('WTR008', '008');
         $card1->pivot = (object) ['total' => 3];
 
-        $card2 = $this->card('011');
+        $card2 = $this->card('WTR011', '011');
         $card2->pivot = (object) ['total' => 2];
 
         $deck = new Deck;
@@ -40,7 +40,7 @@ class MaxCardsTest extends TestCase
 
     function test_it_limits_to_2_cards_for_blitz()
     {
-        $card1 = $this->card('008');
+        $card1 = $this->card('WTR008', '008');
         $card1->pivot = (object) ['total' => 2];
 
         $deck = new Deck;
