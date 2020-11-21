@@ -2,9 +2,12 @@
 namespace FabDB\Domain\Stores;
 
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Store extends Model
 {
+    use SoftDeletes;
+
     protected $hidden = ['id', 'api_credentials'];
 
     public function setApiCredentialsAttribute(ApiCredentials $credentials)
