@@ -33,16 +33,13 @@ class MaxCards implements Rule
     public function passes($attribute, $identifier)
     {
         $this->card = $this->deck->card($identifier);
+        $total = request()->get('total', 1);
 
         if (!$this->card) {
             return true;
         }
 
-        if (request()->has('total')) {
-            return request()->get('total', 1) < $this->maxNumber();
-        }
-
-        return $this->card->pivot->total < $this->maxNumber();
+        return $this->card->pivot->total + $total <= $this->maxNumber();
     }
 
     /**
