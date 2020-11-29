@@ -9,4 +9,9 @@ class Printing extends Model
     protected $casts = [
         'released_at' => 'date'
     ];
+
+    public function getFinishAttribute()
+    {
+        
+    }
 }

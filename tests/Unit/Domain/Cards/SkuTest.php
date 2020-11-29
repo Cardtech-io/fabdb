@@ -33,8 +33,8 @@ class SkuTest extends TestCase
 
         $this->assertFalse($sku1->firstEdition());
         $this->assertTrue($sku2->firstEdition());
-        $this->assertTrue($sku1->foiling()->rainbow());
-        $this->assertTrue($sku2->foiling()->cold());
-        $this->assertTrue($sku3->foiling()->none());
+        $this->assertTrue($sku1->finish()->rainbow());
+        $this->assertTrue($sku2->finish()->cold());
+        $this->assertTrue($sku3->finish()->none());
     }
 }

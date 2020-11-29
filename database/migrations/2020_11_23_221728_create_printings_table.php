@@ -8,7 +8,7 @@ class CreatePrintingsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * 
      * @return void
      */
     public function up()
@@ -17,6 +17,7 @@ class CreatePrintingsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('card_id')->unsigned();
             $table->string('sku');
+            $table->string('set')->index();
             $table->dateTime('released_at');
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
         });

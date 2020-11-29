@@ -69,7 +69,7 @@ class Card extends Model
 
     public function setIdentifierAttribute(Identifier $identifier)
     {
-        $this->attributes['identifier'] = (string) $identifier;
+        $this->attributes['identifier'] = $identifier->raw();
     }
 
     public function getIdentifierAttribute(string $identifier)

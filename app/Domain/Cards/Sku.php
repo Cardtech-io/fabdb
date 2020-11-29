@@ -37,11 +37,11 @@ class Sku
         return empty($matches[1]);
     }
 
-    public function foiling()
+    public function finish()
     {
         $matches = $this->match($this->sku);
 
-        return Foiling::fromString((string) Arr::get($matches, 4));
+        return Finish::fromString((string) Arr::get($matches, 4));
     }
 
     private function match(string $sku)
