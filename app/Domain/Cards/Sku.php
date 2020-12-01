@@ -1,10 +1,11 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Arr;
 use Webmozart\Assert\Assert;
 
-class Sku
+class Sku implements CastsAttributes
 {
     private $regex = '(U-)?([a-z]{3}[0-9]{3})(-(rf|cf|gf))?';
 
@@ -49,5 +50,15 @@ class Sku
         preg_match('/'.$this->regex.'/i', $sku, $matches);
 
         return $matches;
+    }
+
+    public function get($model, string $key, $value, array $attributes)
+    {
+        return new self($value);
+    }
+
+    public function set($model, string $key, $value, array $attributes)
+    {
+        return $value;
     }
 }
