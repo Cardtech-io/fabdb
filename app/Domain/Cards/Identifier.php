@@ -15,7 +15,7 @@ final class Identifier implements \JsonSerializable
      */
     private $id;
 
-    private function __construct(string $set, string $id)
+    public function __construct(string $set, string $id)
     {
         $this->set = $set;
         $this->id = str_pad($id, 3, 0, STR_PAD_LEFT);
