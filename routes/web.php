@@ -97,7 +97,9 @@ Route::middleware(['web'])->group(function() {
     });
 
     Route::get('decks/embed/{deck}', function() {
-        return response()->view('layout');
+        return response()
+            ->header('Access-control-origin', '*')
+            ->view('layout');
     })->name('decks.embed');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.

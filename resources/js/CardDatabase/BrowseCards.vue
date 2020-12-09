@@ -16,7 +16,7 @@
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set }"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set, per_page: per_page }"></card-search>
             </div>
         </div>
 
@@ -74,6 +74,7 @@
         data() {
             return {
                 page: Number(this.$route.query.page) || 1,
+                per_page: 20,
                 results: {},
                 sets: this.filterSets(),
                 set: this.$route.query.set || 'all',
