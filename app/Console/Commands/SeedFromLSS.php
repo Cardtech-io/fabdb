@@ -1,7 +1,9 @@
 <?php
 namespace FabDB\Console\Commands;
 
+use FabDB\Domain\Cards\CardsImport;
 use Illuminate\Console\Command;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SeedFromLSS extends Command
 {
@@ -20,22 +22,12 @@ class SeedFromLSS extends Command
     protected $description = 'Seeds the card + printing database, based on the XLS file provided by LSS.';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return int
      */
     public function handle()
     {
-        return 0;
+        Excel::import(new CardsImport, storage_path('carddb/lss.xlsx'));
     }
 }
