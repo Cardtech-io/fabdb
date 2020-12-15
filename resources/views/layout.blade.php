@@ -44,10 +44,6 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
             </script>
         @endif
 
-        @if (config('services.adsense.client'))
-            <script data-ad-client="ca-pub-7143493109878588" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        @endif
-
         @if (env('SENTRY_LARAVEL_DSN'))
             <script
                 src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"

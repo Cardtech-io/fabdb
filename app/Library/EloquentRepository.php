@@ -45,7 +45,7 @@ abstract class EloquentRepository implements Repository
         if (!$model) {
             throw new ModelNotFoundException;
         }
-        
+
         return $model;
     }
 
