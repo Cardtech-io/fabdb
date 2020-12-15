@@ -54,7 +54,7 @@ const router = new VueRouter({
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
-        { path: "/decks/build", component: ListDecks, name: 'list-decks' },
+        { path: "/decks/build", component: ListDecks, name: 'decks.mine' },
         { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
