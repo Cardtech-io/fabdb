@@ -13,7 +13,7 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-    'adsense' => [
+    'adspeed' => [
         'client' => 'ca-pub-7143493109878588'
     ],
 
