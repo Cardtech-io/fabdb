@@ -27,7 +27,7 @@
             </p>
         </div>
 
-        <div class="mt-4 mb-8">
+        <div class="my-4">
             <advertisement :width="728" :height="90" :zone="107209"></advertisement>
         </div>
     </div>

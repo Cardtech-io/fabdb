@@ -1,9 +1,5 @@
 <template>
-    <iframe :width="width" :height="height" :src="url('html', {target: '_blank'})" frameborder="0" scrolling="no" allowtransparency="true" hspace="0" vspace="0" class="block mx-auto">
-        <a :href="url('clk', {pair: 'as'})" target="_blank">
-            <img style="border:0;max-width:100%;height:auto;" :src="url('img', {pair: 'as'})" alt="i" :width="width" :height="height"/>
-        </a>
-    </iframe>
+    <iframe :width="width" :height="height" :src="url('html', {target: '_blank', noerror: 1})" frameborder="0" scrolling="no" allowtransparency="true" hspace="0" vspace="0" class="block mx-auto"></iframe>
 </template>
 
 <script>
