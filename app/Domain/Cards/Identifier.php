@@ -16,9 +16,14 @@ final class Identifier implements \JsonSerializable
         $this->identifier = $identifier;
     }
 
-    public static function fromName(string $name, array $stats)
+    public static function fromName(string $name)
     {
-        if (Arr::has($stats, 'resource') && is_numeric($stats['resource'])) {
+        return new self(Str::slug($name));
+    }
+
+    public static function fromStats(string $name, array $stats)
+    {
+        if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
             $name .= '-'.self::resourceName((int) $stats['resource']);
         }
 

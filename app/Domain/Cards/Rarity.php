@@ -22,6 +22,22 @@ final class Rarity implements \JsonSerializable
         return $this->rarity;
     }
 
+    public static function fromLss($rarity)
+    {
+        $map = [
+            'Common' => 'C',
+            'Rare' => 'R',
+            'Super Rare' => 'S',
+            'Majestic' => 'M',
+            'Legendary' => 'L',
+            'Fabled' => 'F',
+            'Token' => 'T',
+            'Promo' => 'P',
+        ];
+
+        return new self($map[$rarity]);
+    }
+
     function jsonSerialize()
     {
         return (string) $this;

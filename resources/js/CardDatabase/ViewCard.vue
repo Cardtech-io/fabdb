@@ -14,26 +14,6 @@
                         </div>
 
                         <ul class="pt-4 text-base">
-                            <li class="clearfix" v-if="!card.variantOf">
-                                <div class="float-left w-1/3 p-2 px-4">Variants</div>
-                                <div class="float-left w-2/3 p-2 px-4">
-                                    <div v-if="card.variants.length">
-                                        <span v-for="(variant, key) in card.variants">
-                                            <span v-if="key > 0">, </span>
-                                            <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link-alternate">{{ variant.identifier }}</router-link>
-                                        </span>
-                                    </div>
-                                    <div v-else>
-                                        None
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix" v-else>
-                                <div class="float-left w-1/3 p-2 px-4">Variant of</div>
-                                <div class="float-left w-2/3 p-2 px-4">
-                                    <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link-alternate">{{ card.variantOf.identifier }}</router-link>
-                                </div>
-                            </li>
                             <li class="clearfix bg-white">
                                 <div class="float-left w-1/3 p-2 px-4">Rarity</div>
                                 <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>

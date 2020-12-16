@@ -37,7 +37,7 @@ export default {
             let content = text.split('\n');
 
             content = content.map(function(line) {
-                let regex = new RegExp(/\[([+-])?(([X0-9]{1})\s)?([a-z]+)\]/);
+                let regex = new RegExp(/\[([+-])?(([X0-9]{1})\s)?([a-z]+)\]/i);
 
                 while (true) {
                     let matches = regex.exec(line);
@@ -50,6 +50,10 @@ export default {
                     let amount = matches[3];
                     let effect = matches[4];
                     let string = '';
+
+                    if (effect === 'Power') {
+                        effect = 'resource';
+                    }
 
                     if (modifier) {
                         string = modifier + amount + '<img src="/img/' + effect + '.png" class="inline-block h-5 align-middle">';

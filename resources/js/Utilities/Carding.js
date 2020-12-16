@@ -6,12 +6,23 @@ export default {
         let url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
         if (!withBorder) {
-            const rect = window.settings.game.img_crop.join(',');
-
-            url += '&rect=' + rect;
+            this.cropImage(url);
         }
 
         return url;
+    },
+
+    cardImage(path, withBorder) {
+        if (!withBorder) {
+            return this.cropImage(path);
+        }
+
+        return path;
+    },
+
+    cropImage(url) {
+        const rect = window.settings.game.img_crop.join(',');
+        return url+'&rect='+rect;
     },
 
     maxCards(deck) {

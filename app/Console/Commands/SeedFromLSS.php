@@ -3,7 +3,6 @@ namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\CardsImport;
 use Illuminate\Console\Command;
-use Maatwebsite\Excel\Facades\Excel;
 
 class SeedFromLSS extends Command
 {
@@ -12,7 +11,7 @@ class SeedFromLSS extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed-from-lss';
+    protected $signature = 'fabdb:seed-from-lss {--with-images} {--sheet=}';
 
     /**
      * The console command description.
@@ -28,6 +27,21 @@ class SeedFromLSS extends Command
      */
     public function handle()
     {
-        Excel::import(new CardsImport, storage_path('carddb/lss.xlsx'));
+        $this->output->title('Starting import');
+
+        $import = new CardsImport($this, $this->option('with-images'));
+        $import->withOutput($this->output);
+
+        if ($this->option('sheet')) {
+            $import->onlySheets($this->option('sheet'));
+        } else {
+            $import->onlySheets(...$import->availableSheets);
+        }
+
+        $import->import('lss.xlsx', 'carddb');
+
+        $this->output->success('Import successful.');
+
+        return 1;
     }
 }

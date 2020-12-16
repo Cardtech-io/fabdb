@@ -19,7 +19,19 @@ class Set
 
     public function __toString(): string
     {
+        return $this->raw();
+    }
+
+    public function raw(): string
+    {
         return $this->set;
+    }
+
+    public static function fromUid(string $uid)
+    {
+        preg_match('/([A-Z]{3})[0-9]{3}/i', $uid, $matches);
+
+        return new self($matches[1]);
     }
 
     public function uppercase(): string

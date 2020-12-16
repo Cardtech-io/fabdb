@@ -43,6 +43,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function search(?User $user, array $input)
     {
         $query = $this->newQuery();
+        $query->groupBy('cards.id');
+        $query->with('printings');
 
         $query->select([
             'cards.identifier',
@@ -57,7 +59,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new SetFilter,
             new KeywordFilter,
             new IdentifierFilter,
-            new VariantsFilter,
             new ClassFilter,
             new TypeFilter,
             new CostFilter,
@@ -116,11 +117,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
         $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
 
-        $card->load(['listings', 'listings.store', 'rulings', 'variants' => function($query) {
-            $query->select('cards.identifier');
-        }, 'variantOf' => function($query) {
-            $query->select('cards.identifier');
-        }]);
+        $card->load(['listings', 'listings.store', 'printings', 'rulings']);
 
         return $card;
     }

@@ -1929,6 +1929,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
+    imageUrl: function imageUrl() {
+      if (this.card.image) {
+        return this.cardImage(this.card.image, this.wantsBorders);
+      }
+
+      return this.cardUrl(this.card.identifier, this.imageWidth, this.wantsBorders);
+    },
     imageWidth: function imageWidth() {
       return this.width || 450;
     }
@@ -21902,11 +21909,7 @@ var render = function() {
   return _c("img", {
     staticClass: "w-full rounded-card",
     class: _vm.classes,
-    attrs: {
-      src: _vm.cardUrl(_vm.card.identifier, _vm.imageWidth, _vm.wantsBorders),
-      alt: _vm.card.name,
-      title: _vm.card.name
-    },
+    attrs: { src: _vm.imageUrl, alt: _vm.card.name, title: _vm.card.name },
     on: { click: _vm.clicked }
   })
 }
@@ -36716,11 +36719,21 @@ __webpack_require__.r(__webpack_exports__);
     var url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
     if (!withBorder) {
-      var rect = window.settings.game.img_crop.join(',');
-      url += '&rect=' + rect;
+      this.cropImage(url);
     }
 
     return url;
+  },
+  cardImage: function cardImage(path, withBorder) {
+    if (!withBorder) {
+      return this.cropImage(path);
+    }
+
+    return path;
+  },
+  cropImage: function cropImage(url) {
+    var rect = window.settings.game.img_crop.join(',');
+    return url + '&rect=' + rect;
   },
   maxCards: function maxCards(deck) {
     return deck.format === 'blitz' ? 52 : 80;

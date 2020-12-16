@@ -5,6 +5,8 @@ use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Stores\Store;
 use FabDB\Domain\Voting\Voteable;
+use FabDB\Library\Casts\CastsIdentifier;
+use FabDB\Library\Casts\CastsSet;
 use FabDB\Library\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -14,8 +16,13 @@ class Card extends Model
 
     public $timestamps = false;
 
-    protected $casts = ['keywords' => 'array', 'stats' => 'array'];
-    protected $fillable = ['identifier', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
+    protected $casts = [
+        'keywords' => 'array',
+        'stats' => 'array',
+        'identifier' => CastsIdentifier::class,
+    ];
+
+    protected $fillable = ['identifier', 'set', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
 
     public function ad()
@@ -24,6 +31,11 @@ class Card extends Model
             ->join('stores', 'stores.id', '=', 'listings.store_id')
             ->where('available', '>', 0)
             ->orderBy(DB::raw('RAND()'));
+    }
+
+    public function printings()
+    {
+        return $this->hasMany(Printing::class);
     }
 
     public function variants()
@@ -60,21 +72,11 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats)
+    public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
 
-        return static::updateOrCreate(['identifier' => $identifier], compact('name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'));
-    }
-
-    public function setIdentifierAttribute(Identifier $identifier)
-    {
-        $this->attributes['identifier'] = $identifier->raw();
-    }
-
-    public function getIdentifierAttribute(string $identifier)
-    {
-        return Identifier::fromString($identifier);
+        return static::updateOrCreate(['identifier' => $identifier], compact( 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'));
     }
 
     public function setRarityAttribute(Rarity $rarity)
