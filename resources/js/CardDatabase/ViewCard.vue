@@ -31,6 +31,9 @@
                                 <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                             </li>
                         </ul>
+
+                        <h2 class="font-serif uppercase text-lg mb-2 mt-4">Printings</h2>
+                        <span v-for="printing in card.printings" :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" title="printing.sku.finish">{{ printing.sku.sku }}</span>
                     </div>
 
                     <div class="md:w-3/4 md:float-right sm:px-4 md:flex">

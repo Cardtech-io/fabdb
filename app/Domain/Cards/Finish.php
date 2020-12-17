@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 
@@ -17,7 +18,13 @@ class Finish
      *
      * @var string[]
      */
-    private $validFinishes = ['', 'cf', 'ea', 'gf', 'rf'];
+    private static $validFinishes = [
+        '' => 'regular',
+        'cf' => 'cold',
+        'ea' => 'extended',
+        'gf' => 'gold',
+        'rf' => 'rainbow',
+    ];
 
     /**
      * @var string
@@ -28,7 +35,7 @@ class Finish
     {
         $foiling = Str::lower($foiling);
 
-        Assert::inArray($foiling, $this->validFinishes);
+        Assert::inArray($foiling, array_keys(static::$validFinishes));
 
         $this->finish = $foiling;
     }
@@ -58,8 +65,28 @@ class Finish
         return $this->finish === 'rf';
     }
 
-    public function none()
+    public function regular()
     {
         return empty($this->finish);
+    }
+
+    public function raw(): string
+    {
+        return $this->readable();
+    }
+
+    public function equals(Finish $that)
+    {
+        return $this->finish === $that->finish;
+    }
+
+    public function readable()
+    {
+        return static::$validFinishes[$this->finish];
+    }
+
+    public static function fromVariant(string $variant)
+    {
+        return new self(array_search($variant, static::$validFinishes));
     }
 }

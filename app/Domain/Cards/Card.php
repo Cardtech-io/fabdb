@@ -9,6 +9,7 @@ use FabDB\Library\Casts\CastsIdentifier;
 use FabDB\Library\Casts\CastsSet;
 use FabDB\Library\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Card extends Model
 {
@@ -22,7 +23,7 @@ class Card extends Model
         'identifier' => CastsIdentifier::class,
     ];
 
-    protected $fillable = ['identifier', 'set', 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
+    protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
 
     public function ad()
@@ -35,7 +36,7 @@ class Card extends Model
 
     public function printings()
     {
-        return $this->hasMany(Printing::class);
+        return $this->hasMany(Printing::class, 'card_id', 'id');
     }
 
     public function variants()
@@ -72,11 +73,37 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $name, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
+    public static function register(Identifier $identifier, string $cycle, string $name, string $image, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
 
-        return static::updateOrCreate(['identifier' => $identifier], compact( 'name', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'));
+        $card = static::whereIdentifier($identifier->raw())->first();
+
+        if ($card) {
+            if (!$card->image) {
+                $card->image = $image;
+            }
+            if (!$card->cycle) {
+                $card->cycle = $cycle;
+            }
+
+            $card->fill(compact('name', 'rarity', 'keywords', 'stats'));
+            $card->save();
+        } else {
+            $card = static::create(compact( 'name', 'cycle', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
+        }
+
+        return $card;
+    }
+
+    public function setNameAttribute($name)
+    {
+        // Remove colour information from name values, if they exist
+        if (Str::contains($name, ['(', ')'])) {
+            $name = preg_replace('/\s\([a-z]+\)/i', '', $name);
+        }
+
+        $this->attributes['name'] = $name;
     }
 
     public function setRarityAttribute(Rarity $rarity)

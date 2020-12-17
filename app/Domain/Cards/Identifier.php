@@ -4,12 +4,12 @@ namespace FabDB\Domain\Cards;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-final class Identifier implements \JsonSerializable
+class Identifier implements \JsonSerializable
 {
     /**
      * @var string
      */
-    private $identifier;
+    protected $identifier;
 
     private function __construct(string $identifier)
     {
@@ -23,8 +23,10 @@ final class Identifier implements \JsonSerializable
 
     public static function fromStats(string $name, array $stats)
     {
-        if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
-            $name .= '-'.self::resourceName((int) $stats['resource']);
+        if (!static::coloured($name)) {
+            if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
+                $name .= '-' . self::resourceName((int)$stats['resource']);
+            }
         }
 
         return new self(Str::slug($name));
@@ -42,6 +44,17 @@ final class Identifier implements \JsonSerializable
         return $names[$resource];
     }
 
+    /**
+     * Returns true if the string in question is "coloured", in that it mentions a colour in the title.
+     *
+     * @param string $name
+     * @return bool
+     */
+    private static function coloured(string $name)
+    {
+        return Str::contains($name, ['(', ')']);
+    }
+
     public function __toString(): string
     {
         return $this->raw();
@@ -54,6 +67,6 @@ final class Identifier implements \JsonSerializable
 
     function jsonSerialize()
     {
-        return (string) $this;
+        return $this->raw();
     }
 }

@@ -47,7 +47,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $query->with('printings');
 
         $query->select([
+            'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.keywords',
             'cards.stats',
@@ -86,6 +88,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $select = [
             'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.rarity',
             'cards.keywords',

@@ -12,11 +12,11 @@ class CardResource extends JsonResource
         $this->resource->setAppends([]);
 
         $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'next', 'prev']);
-        $response['image'] = $this->image($this->resource);
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = $this->whenLoaded('printings');
         $response['listings'] = $this->whenLoaded('listings');
         $response['rulings'] = $this->whenLoaded('rulings');
+        $response['image'] = $this->image($this->resource);
 
         $this->polymorphicTotal($response, 'deck_cards');
         $this->polymorphicTotal($response, 'sideboard');
@@ -27,8 +27,8 @@ class CardResource extends JsonResource
     private function image($card)
     {
         $domain = config('services.imgix.domain');
-        
-        return "https://$domain/cards/printings/{$card->printings->first()->sku->raw()}.png?w=300&fit=clip&auto=compress";
+
+        return "https://$domain/{$card->image}?w=300&fit=clip&auto=compress";
     }
 
     private function polymorphicTotal(array &$response, string $table)

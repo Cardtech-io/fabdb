@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Stores;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Clicks\Click;
 use FabDB\Library\Model;
 
@@ -8,6 +9,11 @@ class Listing extends Model
 {
     protected $fillable = ['store_id', 'card_id', 'variant', 'price', 'path', 'available'];
     protected $hidden = ['store_id', 'card_id'];
+
+    public function card()
+    {
+        return $this->belongsTo(Card::class);
+    }
 
     public function clicks()
     {

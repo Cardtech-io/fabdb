@@ -24628,6 +24628,11 @@ footer.footer .link:hover {
   background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
 }
 
+.gold {
+  background: rgb(110,76,20);
+  background: linear-gradient(324deg, rgba(110,76,20,1) 0%, rgba(255,237,0,1) 24%, rgba(189,110,39,1) 50%, rgba(191,174,62,1) 79%, rgba(255,220,0,1) 100%);
+}
+
 .regular {
   --bg-opacity: 1;
   background-color: #718096;

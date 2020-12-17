@@ -2,9 +2,10 @@
 namespace FabDB\Domain\Cards;
 
 use Illuminate\Support\Arr;
+use JsonSerializable;
 use Webmozart\Assert\Assert;
 
-class Sku
+class Sku implements JsonSerializable
 {
     private $regex = '(U-)?([a-z]{3}[0-9]{3})(-(rf|cf|gf|ea))?';
 
@@ -37,6 +38,11 @@ class Sku
         return empty($matches[1]);
     }
 
+    public function unlimited(): bool
+    {
+        return !$this->firstEdition();
+    }
+
     public function finish()
     {
         $matches = $this->match($this->sku);
@@ -49,5 +55,14 @@ class Sku
         preg_match('/'.$this->regex.'/i', $sku, $matches);
 
         return $matches;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'sku' => $this->sku,
+            'finish' => $this->finish()->readable(),
+            'first' => $this->firstEdition(),
+        ];
     }
 }

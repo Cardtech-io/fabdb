@@ -3,6 +3,7 @@ namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\CardsImport;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class SeedFromLSS extends Command
 {
@@ -29,19 +30,31 @@ class SeedFromLSS extends Command
     {
         $this->output->title('Starting import');
 
-        $import = new CardsImport($this, $this->option('with-images'));
-        $import->withOutput($this->output);
-
         if ($this->option('sheet')) {
-            $import->onlySheets($this->option('sheet'));
+            $this->import(function($import) {
+                $import->onlySheets($this->option('sheet'));
+            });
         } else {
-            $import->onlySheets(...$import->availableSheets);
+            $this->import(function($import) {
+                $import->except(['ira_singles', 'wtr_hero_singles', 'promo_singles']);
+            });
+            $this->import(function($import) {
+                $import->only(['ira_singles', 'wtr_hero_singles', 'promo_singles']);
+            });
         }
-
-        $import->import('lss.xlsx', 'carddb');
 
         $this->output->success('Import successful.');
 
         return 1;
+    }
+
+    private function import(\Closure $callback)
+    {
+        $import = new CardsImport($this, $this->option('with-images'));
+        $import->withOutput($this->output);
+
+        $callback($import);
+
+        $import->import('lss.xlsx', 'carddb');
     }
 }

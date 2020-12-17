@@ -19,7 +19,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     use Importable;
     use WithConditionalSheets;
 
-    public $availableSheets = [
+    private $availableSheets = [
         'ira_singles',
         'wtr_alpha_singles',
         'wtr_hero_singles',
@@ -61,11 +61,18 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $this->log('Registering card.');
 
+            // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
+            if ($this->withImages) {
+                $this->copyImage($row);
+            }
+
             $card = Card::register(
-                Identifier::fromName($row['card_name'], $stats),
+                $id = Identifier::fromStats($row['card_name'], $stats),
+                $this->cycle($row['uid']),
                 $row['card_name'],
+                $this->imagePath($row),
                 Rarity::fromLss($row['rarity']),
-                (string) $row['card_effect'],
+                '',
                 '',
                 '',
                 $this->keywords($row),
@@ -80,11 +87,6 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
                 $row['set_name'],
                 new Edition($row['edition'])
             );
-
-            // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
-            if ($this->withImages) {
-                $this->copyImage($row);
-            }
         }
     }
 
@@ -96,10 +98,10 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
      */
     private function keywords($row)
     {
-        return $this->weaponParts($row, [
+        return $this->weaponParts($row, Arr::flatten([
             Str::lower($row['class']),
-            Str::lower($row['card_type'])
-        ]);
+            explode(' ', Str::lower($row['card_type']))
+        ]));
     }
 
     private function weaponParts($row, array $keywords)
@@ -137,7 +139,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
     private function copyImage($row)
     {
-        $path = 'cards/printings/'.$row['uid'].'.png';
+        $path = $this->imagePath($row);
 
         if (!Storage::disk('do')->exists($path)) {
             $this->log("Copying image for [{$row['uid']}] from [{$row['product_image']}] to [$path]");
@@ -173,5 +175,38 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     private function log(string $message)
     {
         $this->logger->info("[{$this->identifier->raw()}] {$message}");
+    }
+
+    /**
+     * @param $row
+     * @return string
+     */
+    private function imagePath($row): string
+    {
+        return "cards/printings/{$row['uid']}.png";
+    }
+
+    /**
+     * The cycle determines the release cycle from the SKU. For example, WTR has both first and unlimited editions,
+     * so WTR is a WTR cycle covering all those releases.
+     *
+     * @param string $uid
+     * @return mixed
+     */
+    private function cycle(string $uid)
+    {
+        preg_match('/([a-z]{3})([0-9]{3})/i', $uid, $matches);
+
+        return $matches[1];
+    }
+
+    public function except(array $sheets)
+    {
+        $this->onlySheets(...array_flip(Arr::except(array_flip($this->availableSheets), $sheets)));
+    }
+
+    public function only(array $sheets)
+    {
+        $this->onlySheets(...array_flip(Arr::only(array_flip($this->availableSheets), $sheets)));
     }
 }
