@@ -24618,6 +24618,11 @@ footer.footer .link:hover {
   }
 }
 
+.extended {
+  background: rgb(34,65,39);
+  background: linear-gradient(315deg, rgba(34,65,39,1) 0%, rgba(106,236,100,1) 100%);
+}
+
 .rainbow {
   background-color: #ff1493;
   background-image: linear-gradient(319deg, #ff1493 0%, #0000ff 37%, #ff8c00 100%);

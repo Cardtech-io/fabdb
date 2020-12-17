@@ -36,16 +36,14 @@ class MigrateListingsToPrintings extends Command
                 $identifier = Identifier::fromStats($listing->card->name, $listing->card->stats)->raw();
 
                 // Now we need to find the first properly matching card that isn't a promo
-                $card = Card::with(['printings'])
-                    ->whereIdentifier($identifier)
-                    ->first();
+                $card = Card::with('printings')->whereIdentifier($identifier)->first();
 
                 if (!$card) {
                     $this->warn("No card found for identifier [{$identifier}]");
                     continue;
                 }
 
-                if ($card->printings->empty()) {
+                if ($card->printings->isEmpty()) {
                     $this->warn("No printings found for card [$card->id] with identifier [$card->identifier]");
                     continue;
                 }
