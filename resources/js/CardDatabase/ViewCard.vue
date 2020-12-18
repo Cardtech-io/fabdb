@@ -9,9 +9,11 @@
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <card-image :card="card"></card-image>
                         <div class="flex mt-2">
-                            <card-nav :to="card.prev" text="Previous" class="mr-2"></card-nav>
-                            <card-nav :to="card.next" text="Next" class="ml2 text-right"></card-nav>
+                            <card-nav :to="card.prev" text="Previous" class="mr-1"></card-nav>
+                            <card-nav :to="card.next" text="Next" class="ml-1 text-right"></card-nav>
                         </div>
+
+                        <advertisement :width="340" :height="340" :zone="107318" class="mt-4"></advertisement>
 
                         <ul class="pt-4 text-base">
                             <li class="clearfix bg-white">
@@ -76,6 +78,7 @@
 <script>
     import axios from 'axios';
 
+    import Advertisement from "../Components/Advertisement";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
@@ -92,6 +95,7 @@
         mixins: [ Cardable, Strings ],
 
         components: {
+            Advertisement,
             Breadcrumbs,
             CardImage,
             CardPrice,

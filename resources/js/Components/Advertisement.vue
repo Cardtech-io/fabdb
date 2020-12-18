@@ -1,8 +1,12 @@
 <template>
-    <iframe :width="width" :height="height" :src="url('html', {target: '_blank', noerror: 1})" frameborder="0" scrolling="no" allowtransparency="true" hspace="0" vspace="0" class="block mx-auto"></iframe>
+    <div :style="style">
+        <div ref="ad"></div>
+    </div>
 </template>
 
 <script>
+    import postscribe from 'postscribe';
+
     export default {
         props: {
             height: {
@@ -21,6 +25,12 @@
             }
         },
 
+        data() {
+            return {
+                style: 'max-width: '+this.width+'px; max-height: '+this.height+'px'
+            }
+        },
+
         methods: {
             params(data) {
                 let query = [];
@@ -32,22 +42,28 @@
                 return query.join('&');
             },
 
-            url(type, extra) {
+            url(type) {
                 let params = this.params({
+                    do: type,
                     zid: this.zone,
                     oid: 26444,
-                    do: type,
-                    wd: this.width,
-                    ht: this.height,
-                    ...extra
+                    wd: -1,
+                    ht: -1,
+                    target: '_blank',
+                    noerror: 1
                 });
 
                 return 'https://g.adspeed.net/ad.php?'+params;
             }
+        },
+
+        mounted() {
+            setTimeout(() => {
+                let url = this.url('js');
+                let tag = '<'+'script'+' src="'+url+'" async>'+'<'+'/script>';
+
+                postscribe(this.$refs.ad, tag);
+            }, 100)
         }
-    };
+    }
 </script>
-
-<style scoped>
-
-</style>
