@@ -28,7 +28,12 @@
         </div>
 
         <div class="my-4">
-            <advertisement :width="728" :height="90" :zone="107209"></advertisement>
+            <mq-layout mq="sm">
+                <advertisement :width="340" :height="340" :zone="107317"></advertisement>
+            </mq-layout>
+            <mq-layout mq="md+">
+                <advertisement :width="728" :height="90" :zone="107209" class="mx-auto"></advertisement>
+            </mq-layout>
         </div>
     </div>
 </template>
