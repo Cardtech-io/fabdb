@@ -87,7 +87,7 @@ class Card extends Model
                 $card->cycle = $cycle;
             }
 
-            $card->fill(compact('name', 'rarity', 'keywords', 'stats'));
+            $card->fill(compact('name', 'keywords', 'stats'));
             $card->save();
         } else {
             $card = static::create(compact( 'name', 'cycle', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
