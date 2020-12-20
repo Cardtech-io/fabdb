@@ -19,6 +19,11 @@ final class Rarity implements \JsonSerializable
 
     public function __toString(): string
     {
+        return $this->raw();
+    }
+
+    public function raw(): string
+    {
         return $this->rarity;
     }
 

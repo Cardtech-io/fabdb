@@ -25,7 +25,8 @@ class OrderFilter implements SearchFilter
 
         switch ($order) {
             case 'identifier':
-                $query->orderBy('cards.identifier');
+                $query->orderBy('cards.name');
+                $query->orderByRaw("JSON_EXTRACT(stats, '$.resource')");
                 break;
             case 'id':
                 $query->orderBy('cards.id');

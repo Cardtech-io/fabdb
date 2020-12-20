@@ -10,6 +10,7 @@ use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\OwnedCardsFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
+use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
@@ -58,7 +59,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         $filters = [
-            new SetFilter,
+            new PrintingFilter,
             new KeywordFilter,
             new IdentifierFilter,
             new ClassFilter,
