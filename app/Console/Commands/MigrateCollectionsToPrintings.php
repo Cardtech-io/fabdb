@@ -51,7 +51,12 @@ class MigrateCollectionsToPrintings extends Command
         $card = Card::with('printings')->whereIdentifier($identifier)->first();
 
         foreach ($card->printings as $printing) {
-
+            
         }
+    }
+
+    private function intendedFinish()
+    {
+        
     }
 }

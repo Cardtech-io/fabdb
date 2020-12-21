@@ -40,7 +40,7 @@ class MaxCards implements Rule
 
         // If the number of cards is specified, then we use that as the value
         if (request()->has('total')) {
-            return request()->get('total') < $this->maxNumber();
+            return request()->get('total') <= $this->maxNumber();
         }
 
         // Else, add 1.
@@ -69,6 +69,6 @@ class MaxCards implements Rule
             return 2;
         }
 
-        return 3;
+        return $this->deck->format === 'open' ? 100 : 3;
     }
 }

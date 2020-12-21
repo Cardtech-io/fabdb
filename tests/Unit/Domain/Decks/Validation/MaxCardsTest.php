@@ -54,6 +54,18 @@ class MaxCardsTest extends TestCase
         $this->assertFalse($validator->passes('card', 'dauntless-red'));
     }
 
+    function test_it_has_no_functional_limit_for_open_formats()
+    {
+        $card = $this->card('WTR011', '008');
+        $card->pivot = (object) ['total' => 3];
+
+        $deck = new Deck;
+        $deck->setRelation('cards', collect([$card]));
+        $deck->format = 'open';
+
+        $this->assertTrue((new MaxCards($deck))->passes('card', 'WTR008'));
+    }
+
     // The following test should SET the card's total
     function test_it_works_for_adding_more_than_one()
     {
