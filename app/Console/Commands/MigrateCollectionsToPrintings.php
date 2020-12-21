@@ -86,7 +86,7 @@ class MigrateCollectionsToPrintings extends Command
                 $requiredFinish = $foundCard->isEquipment() || $foundCard->isWeapon() || $foundCard->fabled() ? 'cf' : 'rf';
                 break;
             default:
-                $requiredFinish = $foundCard->legendary() ? 'cf' : '';
+                $requiredFinish = $foundCard->legendary() || $foundCard->fabled() ? 'cf' : '';
         }
 
         $printing = $this->findPrinting($foundCard, $requiredFinish);

@@ -59,7 +59,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $this->identifier = Identifier::fromName($row['card_name'], $stats);
 
-            $this->log('Registering card.');
+            $this->log("Registering card [{$row['uid']}");
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
