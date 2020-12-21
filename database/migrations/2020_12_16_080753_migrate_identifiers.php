@@ -23,14 +23,11 @@ class MigrateIdentifiers extends Migration
                     $identifier = Identifier::fromStats($card->name, $card->stats);
 
                     // see if a card already exists with the required identifier. Cards that are not updated
-                    // with identifiers, will need to be removed at a later date (and their associated card ids across
-                    // all resources updated).
+                    // with the new identifiers, will need to be removed at a later date (and their associated card
+                    // ids across all resources updated).
                     $existing = Card::whereIdentifier($identifier->raw())->first();
 
-                    if ($existing) {
-                        $card->identifier = new NullIdentifier;
-                        $card->save();
-                    } else {
+                    if (!$existing) {
                         // update the card with the identifier, this will be the main card
                         $card->identifier = $identifier;
                         $card->save();

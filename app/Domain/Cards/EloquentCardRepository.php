@@ -118,8 +118,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $card = $this->findByIdentifier($identifier);
 
-        $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
-        $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
+        $card->next = $this->nextOrPrevCard($card, 'next')->identifier;
+        $card->prev = $this->nextOrPrevCard($card, 'prev')->identifier;
 
         $card->load(['listings', 'listings.store', 'printings', 'rulings']);
 
@@ -197,7 +197,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         catch (ModelNotFoundException $e) {}
     }
 
-    private function nextOrPrevCard(string $identifier, $direction)
+    private function nextOrPrevCard(Card $current, $direction)
     {
         if ($direction == 'next') {
             $operator = '>';
@@ -208,18 +208,23 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         $card = $this->newQuery()
-            ->doesntHave('variantOf')
-            ->where('identifier', $operator, $identifier)
-            ->orderBy('identifier', $order)
+            ->where(function($query) use ($current, $operator, $order) {
+                if ($current->resourceful()) {
+                    $query->where(function ($query) use ($current, $operator, $order) {
+                        $query->whereName($current->name);
+                        $query->whereRaw("JSON_EXTRACT(stats, '$.resource') $operator {$current->stats['resource']}");
+                    });
+                }
+                $query->orWhere('name', $operator, $current->name);
+            })
+            ->orderBy('name', $order)
+            ->orderByRaw("JSON_EXTRACT(stats, '$.resource') $order")
             ->first();
 
         if ($card) return $card;
 
-        $order =  $direction == 'next' ? 'DESC' : 'ASC';
-
         return $this->newQuery()
-            ->doesntHave('variantOf')
-            ->orderBy('identifier', $order)
+            ->orderBy('name', $order)
             ->first();
     }
 

@@ -8,6 +8,7 @@ use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
 use FabDB\Library\Casts\CastsSet;
 use FabDB\Library\Model;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -94,6 +95,11 @@ class Card extends Model
         }
 
         return $card;
+    }
+
+    public function resourceful(): bool
+    {
+        return Arr::has($this->stats, 'resource');
     }
 
     public function setNameAttribute($name)
