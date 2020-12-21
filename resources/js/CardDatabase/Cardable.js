@@ -14,7 +14,7 @@ export default {
             if (this.card.keywords.includes('weapon')) {
                 return this.card.keywords.includes('2h') ? 1 : 2;
             }
-
+            
             if (this.card.text.toLowerCase().includes('legendary')) {
                 return 1;
             }
