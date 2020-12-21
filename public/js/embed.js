@@ -35678,7 +35678,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return 1;
       }
 
-      var available = this.deck.format === 'blitz' ? 2 : 3;
+      var limits = {
+        blitz: 2,
+        constructed: 3,
+        open: 100
+      };
+      var available = limits[this.deck.format];
 
       if (this.deck.useCollection && this.card.ownedTotal < available) {
         available = this.card.ownedTotal;

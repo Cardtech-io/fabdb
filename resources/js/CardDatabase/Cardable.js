@@ -19,7 +19,8 @@ export default {
                 return 1;
             }
 
-            let available = this.deck.format === 'blitz' ? 2 : 3;
+            let limits = {blitz: 2, constructed: 3, open: 100};
+            let available = limits[this.deck.format];
 
             if (this.deck.useCollection && this.card.ownedTotal < available) {
                 available = this.card.ownedTotal;
