@@ -69,6 +69,6 @@ class MaxCards implements Rule
             return 2;
         }
 
-        return 3;
+        return $this->deck->format === 'open' ? 100 : 3;
     }
 }
