@@ -14,12 +14,13 @@ export default {
             if (this.card.keywords.includes('weapon')) {
                 return this.card.keywords.includes('2h') ? 1 : 2;
             }
-
+            
             if (this.card.text.toLowerCase().includes('legendary')) {
                 return 1;
             }
 
-            let available = this.deck.format === 'blitz' ? 2 : 3;
+            let limits = {blitz: 2, constructed: 3, open: 100};
+            let available = limits[this.deck.format];
 
             if (this.deck.useCollection && this.card.ownedTotal < available) {
                 available = this.card.ownedTotal;

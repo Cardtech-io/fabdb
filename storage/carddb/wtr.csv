@@ -1,196 +1,196 @@
 Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
 WTR,0,Heart of Fyendal,F,"**Legendary** *(You may only have 1 Heart of Fyendal in your deck.)*
 
-When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].","Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber… yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.","The Heart of Fyendal was the first fabled card for Flesh & Blood. Additionally, it was a wonderful surprise to the community, as [Legend Story Studios](https://legendstory.com) never mentioned that such a card existed in the lead up to its release. As a result, the first player to find the Heart was confused by what they had found, as were we all.","generic,resource,gem",,,3,,,,,
-WTR,1,"Rhinar, Reckless Rampage",T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,,,
-WTR,2,Rhinar,T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero,young",20,4,,,,,,
+When you pitch Heart of Fyendal, if you have less [life] than your opponent, gain 1[life].","Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber… yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.","The Heart of Fyendal was the first fabled card for Flesh & Blood. Additionally, it was a wonderful surprise to the community, as [Legend Story Studios](https://legendstory.com) never mentioned that such a card existed in the lead up to its release. As a result, the first player to find the Heart was confused by what they had found, as were we all.","generic,resource,gem",,,3,,,,,cold
+WTR,1,"Rhinar, Reckless Rampage",T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,,,standard
+WTR,2,Rhinar,T,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero,young",20,4,,,,,,standard
 WTR,3,Romping Club,T,"**Once per turn Action** - [2 resource]: **Attack**
 
-**Once per Turn Effect** - When you discard a card with 6 or more [attack], Romping Club gains +1[attack] until end of turn.",,,"brute,weapon,club,2h",,,,,,4,,
+**Once per Turn Effect** - When you discard a card with 6 or more [attack], Romping Club gains +1[attack] until end of turn.",,,"brute,weapon,club,2h",,,,,,4,,standard
 WTR,4,Scabskin Leathers,L,"**Once per Turn Action** - 0: Roll a 6 sided die. Gain action points equal to half the number roll, rounded down.
 
-**Battleworn** *(If you defend with Scabskin Leathers, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,legs",,,,,2,,,
+**Battleworn** *(If you defend with Scabskin Leathers, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,legs",,,,,2,,,cold
 WTR,5,Barkbone Strapping,C,"**Instant** - Destroy Barkbone Strapping: Roll a 6 sided die. Gain [resource] equal to half the number rolled, rounded down.
 
-**Battleworn** *(If you defend with Backbone Strapping, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,chest",,,,,1,,,
+**Battleworn** *(If you defend with Backbone Strapping, put a -1[defense] counter on it when the combat chain closes.)*",,,"brute,equipment,chest",,,,,1,,,"standard,rainbow"
 WTR,6,Alpha Rampage,M,"**Rhinar Specialization** *(You may only have Alpha Rampage in your deck if your hero is Rhinar.)*
 
 As an additional cost to play Alpha Rampage, discard a random card.
 
-**Intimidate**",,,"brute,attack,action",,,1,3,3,9,,
+**Intimidate**",,,"brute,attack,action",,,1,3,3,9,,"standard,rainbow"
 WTR,7,Bloodrush Bellow,M,"As an additional cost to play Bloodrush Bellow, discard a random card.
 
 Your Brute attacks gain +2[attack] this turn.
 
-If the discarded card has 6 or more [attack], draw 2 cards and Bloodrush Bellow gains **go again**",,,"brute,action",,,2,1,3,,,
+If the discarded card has 6 or more [attack], draw 2 cards and Bloodrush Bellow gains **go again**",,,"brute,action",,,2,1,3,,,"standard,rainbow"
 WTR,8,Reckless Swing,S,"As an additional cost to play Reckless Swing, discard a random card.
 
-If the discarded card has 6 or more [attack], deal 2 damage to the attacking hero.",,,"brute,defense,reaction",,,3,0,4,,,
+If the discarded card has 6 or more [attack], deal 2 damage to the attacking hero.",,,"brute,defense,reaction",,,3,0,4,,,"standard,rainbow"
 WTR,9,Sand Sketched Plan,S,"**Rhinar Specialization** *(You may only have Sand Sketched Plan in your deck if your hero is Rhinar.)*
 
 Search your deck for a card, put it into your hand, discard a random card, then shuffle your deck.
 
-If the discarded card has 6 or more [attack], gain 2 action points.",,,"brute,action",,,3,0,3,,,
-WTR,10,Bone Head Barrier,S,"Rolla 6 sided die. Prevent the next X damage that would be dealt to your hero this turn, where X is the number rolled.",“Sometimes you gotta roll with the punches.”,,"brute,instant",,,2,1,,,,
+If the discarded card has 6 or more [attack], gain 2 action points.",,,"brute,action",,,3,0,3,,,"standard,rainbow"
+WTR,10,Bone Head Barrier,S,"Rolla 6 sided die. Prevent the next X damage that would be dealt to your hero this turn, where X is the number rolled.",“Sometimes you gotta roll with the punches.”,,"brute,instant",,,2,1,,,,"standard,rainbow"
 WTR,11,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,1,2,3,6,,
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
 WTR,12,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,2,2,3,5,,
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
 WTR,13,Breakneck Battery,R,"As an additional cost to play Breakneck Battery, discard a random card.
 
-If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,3,2,3,4,,
+If the discarded card has 6 or more [attack], Breakneck Battery gains **go again**.",,,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
 WTR,14,Savage Feast,R,"As an additional cost to play Savage Feast, discard a random card.
 
-If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,1,1,3,6,,
+If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,1,1,3,6,,"standard,rainbow"
 WTR,15,Savage Feast,R,"As an additional cost to play Savage Feast, discard a random card.
 
-If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,2,1,3,5,,
+If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,2,1,3,5,,"standard,rainbow"
 WTR,16,Savage Feast,R,"As an additional cost to play Savage Feast, discard a random card.
 
-If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,3,1,3,4,,
+If the discarded card has 6 or more [attack], Savage Feast gains **go again**.",,,"brute,action,attack",,,3,1,3,4,,"standard,rainbow"
 WTR,17,Barraging Beatdown,R,"Your next Brute attack this turn gains ""If this attack is defended by less than 2 non-equipment cards, it gains +4[attack].""
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
 **Go again**
-",,,"brute,action",,,1,0,3,,,
+",,,"brute,action",,,1,0,3,,,"standard,rainbow"
 WTR,18,Barraging Beatdown,R,"Your next Brute attack this turn gains ""If this attack is defended by less than 2 non-equipment cards, it gains +3[attack].""
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
 **Go again**
-",,,"brute,action",,,2,0,3,,,
+",,,"brute,action",,,2,0,3,,,"standard,rainbow"
 WTR,19,Barraging Beatdown,R,"Your next Brute attack this turn gains ""If this attack is defended by less than 2 non-equipment cards, it gains +2[attack].""
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
 **Go again**
-",,,"brute,action",,,3,0,3,,,
-WTR,20,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,1,1,3,7,,
-WTR,21,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,2,1,3,6,,
-WTR,22,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,3,1,3,5,,
-WTR,23,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,
-WTR,24,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,
-WTR,25,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,
-WTR,26,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,1,3,3,7,,
-WTR,27,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,2,3,3,6,,
-WTR,28,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,3,3,3,5,,
-WTR,29,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,1,2,3,8,,
-WTR,30,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,2,2,3,7,,
-WTR,31,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,3,2,3,6,,
+",,,"brute,action",,,3,0,3,,,"standard,rainbow"
+WTR,20,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,1,1,3,7,,"standard,rainbow"
+WTR,21,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,2,1,3,6,,"standard,rainbow"
+WTR,22,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,3,1,3,5,,"standard,rainbow"
+WTR,23,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
+WTR,24,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
+WTR,25,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
+WTR,26,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,1,3,3,7,,"standard,rainbow"
+WTR,27,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,2,3,3,6,,"standard,rainbow"
+WTR,28,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,3,3,3,5,,"standard,rainbow"
+WTR,29,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,1,2,3,8,,"standard,rainbow"
+WTR,30,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,2,2,3,7,,"standard,rainbow"
+WTR,31,Wrecker Romp,C,"As an additional cost to play Wrecker Romp, discard a random card.",The savage rule of the jungle; only the strong survive.,,"brute,action,attack",,,3,2,3,6,,"standard,rainbow"
 WTR,32,Awakening Bellow,C,"The next Brute attack action card you play this turn gains +3[attack].
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
-**Go again**",,,"brute,action",,,1,1,3,,,
+**Go again**",,,"brute,action",,,1,1,3,,,"standard,rainbow"
 WTR,33,Awakening Bellow,C,"The next Brute attack action card you play this turn gains +2[attack].
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
-**Go again**",,,"brute,action",,,2,1,3,,,
+**Go again**",,,"brute,action",,,2,1,3,,,"standard,rainbow"
 WTR,34,Awakening Bellow,C,"The next Brute attack action card you play this turn gains +1[attack].
 
 **Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.)*
 
-**Go again**",,,"brute,action",,,3,1,3,,,
+**Go again**",,,"brute,action",,,3,1,3,,,"standard,rainbow"
 WTR,35,Primeval Bellow,C,"As an additional cost to play Primeval Bellow, discard a random card.
 
 Your next brute attack this turn gains +5[attack].
 
-**Go again**",,,"brute,action",,,1,0,3,,,
+**Go again**",,,"brute,action",,,1,0,3,,,"standard,rainbow"
 WTR,36,Primeval Bellow,C,"As an additional cost to play Primeval Bellow, discard a random card.
 
 Your next brute attack this turn gains +4[attack].
 
-**Go again**",,,"brute,action",,,2,0,3,,,
+**Go again**",,,"brute,action",,,2,0,3,,,"standard,rainbow"
 WTR,37,Primeval Bellow,C,"As an additional cost to play Primeval Bellow, discard a random card.
 
 Your next brute attack this turn gains +3[attack].
 
-**Go again**",,,"brute,action",,,3,0,3,,,
-WTR,38,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero",40,4,,,,,,
-WTR,39,"Bravo",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,
+**Go again**",,,"brute,action",,,3,0,3,,,"standard,rainbow"
+WTR,38,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero",40,4,,,,,,standard
+WTR,39,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,standard
 WTR,40,Anothos,T,"**Once per turn action [3 resource] - Attack**
 
-If you have 2 or more cards in your pitch zone with cost [3 resource] or greater, Anothos gains +2[attack].",,,"guardian,weapon,hammer,2h",,,,,,4,,
+If you have 2 or more cards in your pitch zone with cost [3 resource] or greater, Anothos gains +2[attack].",,,"guardian,weapon,hammer,2h",,,,,,4,,standard
 WTR,41,Tectonic Plating,L,"**Once per turn action** - [resource]: Create a Seismic Surge aura token. **Go again**
 
-**Battleworn** *(If you defend with Tectonic Plating, put a -1[defense] counter on it when the combat chain closes.)*",,,"guardian,equipment,chest",,,,,2,,,
+**Battleworn** *(If you defend with Tectonic Plating, put a -1[defense] counter on it when the combat chain closes.)*",,,"guardian,equipment,chest",,,,,2,,,cold
 WTR,42,Helm of Isen's Peak,C,"**Action** - [1 resource], destroy Helm of Isen's Peak: Your hero gains +1[intellect] until end of turn.
 
 **Battleworn** *(If you defend with Helm of Isen's Peak, put a -1[defense] counter on it when the combat chain closes.)*
-",,,"guardian,equipment,head",,,,,1,,,
-WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only have Crippling Crush in your deck if your hero is Bravo.)*
+",,,"guardian,equipment,head",,,,,1,,,"standard,rainbow"
+WTR,43,Crippling Crush,M,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
 
-**Crush** - If Crippling Crush does 4 or more damage to a hero, they discard 2 random cards.",,,"guardian,action,attack",,,1,7,3,11,,
-WTR,44,Spinal Crush,M,"**Crush** - If Spinal Crush does 4 or more damage to a hero, action cards, activated abilities, and attacks they control lose and can't gain **go again** during their next action phase.",,,"guardian,action,attack",,,1,5,3,9,,
-WTR,45,Cranial Crush,S,"**Crush** - If Cranial Crush does 4 or more damage to a hero, they can't draw cards during their next action phase.","""Leave now, or a hangover will be the least of your worries."" - Valda Brightaxe",,"guardian,action,attack",,,3,6,3,8,,
+**Crush** - If Crippling Crush does 4 or more damage to a hero, they discard 2 random cards.",,,"guardian,action,attack",,,1,7,3,11,,"standard,rainbow"
+WTR,44,Spinal Crush,M,"**Crush** - If Spinal Crush does 4 or more damage to a hero, action cards, activated abilities, and attacks they control lose and can't gain **go again** during their next action phase.",,,"guardian,action,attack",,,1,5,3,9,,"standard,rainbow"
+WTR,45,Cranial Crush,S,"**Crush** - If Cranial Crush does 4 or more damage to a hero, they can't draw cards during their next action phase.","""Leave now, or a hangover will be the least of your worries."" - Valda Brightaxe",,"guardian,action,attack",,,3,6,3,8,,"standard,rainbow"
 WTR,46,Forged for War,S,"**Go again**
 
 While Forged for War is in the arena, equipment you control gain +1[defense].
 
-At the beginning of your action phase, destroy Forged for War.",,,"guardian,action,aura",,,2,2,3,,,
-WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only have Show Time! in your deck if your hero is Bravo.)*
+At the beginning of your action phase, destroy Forged for War.",,,"guardian,action,aura",,,2,2,3,,,"standard,rainbow"
+WTR,47,Show Time!,S,"**Bravo Specialization** *(You may only Crippling Crush in your deck if your hero is Bravo.)*
 
 When Show Time! enters the arena, search your deck for a Guardian attack action card, reveal it, put it into your hand, then shuffle your library.
 
-At the beginning of your action phase, destroy Show Time! then draw a card.",,,"guardian,action,aura",,,3,3,3,,,
-WTR,48,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,1,5,3,9,,
-WTR,49,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,2,5,3,8,,
-WTR,50,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,3,5,3,7,,
-WTR,51,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,1,2,7,,,
-WTR,52,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,2,2,6,,,
-WTR,53,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,3,2,5,,,
+At the beginning of your action phase, destroy Show Time! then draw a card.",,,"guardian,action,aura",,,3,3,3,,,"standard,rainbow"
+WTR,48,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,1,5,3,9,,"standard,rainbow"
+WTR,49,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,2,5,3,8,,"standard,rainbow"
+WTR,50,Disable,R,"**Crush** - If Disable deals 4 or more damage to a hero, put a card from their arsenal on the bottom of it's owners deck.",,,"guardian,action,attack",,,3,5,3,7,,"standard,rainbow"
+WTR,51,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,1,2,7,,,"standard,rainbow"
+WTR,52,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,2,2,6,,,"standard,rainbow"
+WTR,53,Staunch Response,R,"As an additional cost to play Staunch Response, you may pay [4 resource]. If you do, Staunch Response gains +3[defense].","""Whatever comes, we must not falter."" - Ragnar Frosthelm",,"guardian,defense,reaction",,,3,2,5,,,"standard,rainbow"
 WTR,54,Blessing of Deliverance,R,"**Go again**
 
 When Blessing of Deliverance enters the arena, if you have a card in your pitch zone with cost [3 resource] or greater, draw a card.
 
-At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top 3 cards of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,1,2,3,,,
+At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top 3 cards of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,1,2,3,,,"standard,rainbow"
 WTR,55,Blessing of Deliverance,R,"**Go again**
 
 When Blessing of Deliverance enters the arena, if you have a card in your pitch zone with cost [3 resource] or greater, draw a card.
 
-At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top 2 cards of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,2,2,3,,,
+At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top 2 cards of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,2,2,3,,,"standard,rainbow"
 WTR,56,Blessing of Deliverance,R,"**Go again**
 
 When Blessing of Deliverance enters the arena, if you have a card in your pitch zone with cost [3 resource] or greater, draw a card.
 
-At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top card of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,3,2,3,,,
-WTR,57,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,1,4,3,8,,
-WTR,58,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,2,4,3,7,,
-WTR,59,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,3,4,3,6,,
-WTR,60,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,1,3,3,7,,
-WTR,61,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,2,3,3,6,,
-WTR,62,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,3,3,3,5,,
-WTR,63,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,1,3,3,7,,
-WTR,64,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,2,3,3,6,,
-WTR,65,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,3,3,3,5,,
+At the beginning of your action phase, destroy Blessing of Deliverance then reveal the top card of your deck. Gain 1[life] for each card with cost [3 resource] or greater revealed this way.",,,"guardian,action,aura",,,3,2,3,,,"standard,rainbow"
+WTR,57,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,1,4,3,8,,"standard,rainbow"
+WTR,58,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,2,4,3,7,,"standard,rainbow"
+WTR,59,Buckling Blow,C,"**Crush** - If Buckling does 4 or more damage to a hero, put a -1[defense] counter on target equipment they control.",,,"guardian,action,attack",,,3,4,3,6,,"standard,rainbow"
+WTR,60,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,1,3,3,7,,"standard,rainbow"
+WTR,61,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,2,3,3,6,,"standard,rainbow"
+WTR,62,Cartilage Crush,C,"**Crush** - If Cartilage Crush does 4 or more damage to a hero, their first action during their next turn costs an additional [resource] to play.",,,"guardian,action,attack",,,3,3,3,5,,"standard,rainbow"
+WTR,63,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,1,3,3,7,,"standard,rainbow"
+WTR,64,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,2,3,3,6,,"standard,rainbow"
+WTR,65,Crush Confidence,C,"**Crush** - If Crush Confidence does 4 or more damage to a hero, they lose all hero card effects and abilities until the end of their next turn. *(Treat the hero card as if the text box was empt.)*",,,"guardian,action,attack",,,3,3,3,5,,"standard,rainbow"
 WTR,66,Debilitate,C,"
-**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,1,4,3,8,,
+**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,1,4,3,8,,"standard,rainbow"
 WTR,67,Debilitate,C,"
-**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,2,4,3,7,,
+**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,2,4,3,7,,"standard,rainbow"
 WTR,68,Debilitate,C,"
-**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,3,4,3,6,,
+**Crush** - If Debilitate does 4 or more damage to a hero, their first attack during their next turn has -2[attack].","...and at that moment, Flannigan knew failure was close at hand.",,"guardian,action,attack",,,3,4,3,6,,"standard,rainbow"
 WTR,69,Emerging Power,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
 At the beginning of your action phase, destroy Emerging Power then the next Guardian attack action card you play this turn gains +3[attack].
-",,,"guardian,action,aura",,,1,2,3,,,
+",,,"guardian,action,aura",,,1,2,3,,,"standard,rainbow"
 WTR,70,Emerging Power,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
 At the beginning of your action phase, destroy Emerging Power then the next Guardian attack action card you play this turn gains +2[attack].
-",,,"guardian,action,aura",,,2,2,3,,,
+",,,"guardian,action,aura",,,2,2,3,,,"standard,rainbow"
 WTR,71,Emerging Power,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
 
 At the beginning of your action phase, destroy Emerging Power then the next Guardian attack action card you play this turn gains +1[attack].
-",,,"guardian,action,aura",,,3,2,3,,,
+",,,"guardian,action,aura",,,3,2,3,,,"standard,rainbow"
 WTR,72,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
@@ -198,7 +198,7 @@ WTR,72,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroye
 While Stonewall Confidence is in the arena, cards you control with cost [3 resource] or greater, gain +4[defense] while defending.
 
 At the beginning of your action phase, destroy Stonewall Confidence.
-",,,"guardian,action,aura",,,1,2,3,,,
+",,,"guardian,action,aura",,,1,2,3,,,"standard,rainbow"
 WTR,73,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
@@ -206,7 +206,7 @@ WTR,73,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroye
 While Stonewall Confidence is in the arena, cards you control with cost [3 resource] or greater, gain +3[defense] while defending.
 
 At the beginning of your action phase, destroy Stonewall Confidence.
-",,,"guardian,action,aura",,,2,2,3,,,
+",,,"guardian,action,aura",,,2,2,3,,,"standard,rainbow"
 WTR,74,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroyed.)*
 
 **Go again**
@@ -214,319 +214,319 @@ WTR,74,Stonewall Confidence,C,"*(Auras stay in the arena until they are destroye
 While Stonewall Confidence is in the arena, cards you control with cost [3 resource] or greater, gain +2[defense] while defending.
 
 At the beginning of your action phase, destroy Stonewall Confidence.
-",,,"guardian,action,aura",,,3,2,3,,,
-WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,,,,,,
-WTR,76,"Katsu, the Wanderer",C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,
-WTR,77,Katsu,C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero,young",20,4,,,,,,
+",,,"guardian,action,aura",,,3,2,3,,,"standard,rainbow"
+WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,,,standard
+WTR,76,"Katsu, the Wanderer",T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,standard
+WTR,77,Katsu,T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero,young",20,4,,,,,,standard
 WTR,78,Harmonized Kodachi,T,"**Once per Turn Action** - [resource]: Attack
 
-If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,
+If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,standard
 WTR,79,Mask of Momentum,L,"**Once per Turn Effect** - When an attack action card you control is the third or higher chain link in a row to hit, draw a card.
 
-**Blade Break** *(If you defend with Mask of Momentum, destroy it when the combat chain closes.)*",,,"ninja,equipment,head",,,,,2,,,
+**Blade Break** *(If you defend with Mask of Momentum, destroy it when the combat chain closes.)*",,,"ninja,equipment,head",,,,,2,,,cold
 WTR,80,Breaking Scales,C,"**Attack reaction** - Destroy Breaking Scales: Target attack action card with **combo** gains +1[attack].
 
-**Battleworn** *(If you defend with Breaking Scales, put a -1[defense] counter on it when the combat chain closes.)*",,,"ninja,equipment,arms",,,,,1,,,
+**Battleworn** *(If you defend with Breaking Scales, put a -1[defense] counter on it when the combat chain closes.)*",,,"ninja,equipment,arms",,,,,1,,,"standard,rainbow"
 WTR,81,Lord of Wind,M,"**Katsu Specialization** *(You may only have Lord of Wind in your deck if your hero is Katsu.)*
 
-**Combo** - If Mugenshi: RELEASE was the last attack this combat chain, you may pay X resource points as an additional cost to play Lord of Wind. If you do, Shuffle X target cards named Surging Strike, Whelming Gustwave, and/or Mugenshi: RELEASE from your graveyard into your deck, then Lord of Wind gains +X[attack].",,,"ninja,action,attack",,,3,0,2,2,,
+**Combo** - If Mugenshi: RELEASE was the last attack this combat chain, you may pay X resource points as an additional cost to play Lord of Wind. If you do, Shuffle X target cards named Surging Strike, Whelming Gustwave, and/or Mugenshi: RELEASE from your graveyard into your deck, then Lord of Wind gains +X[attack].",,,"ninja,action,attack",,,3,0,2,2,,"standard,rainbow"
 WTR,82,Ancestral Empowerment,M,"Target Ninja attack action card gains +1[attack].
 
-Draw a card.","They called to him from beyond the Mists. ""It's time to come home.""",,"ninja,attack,reaction",,,1,0,2,,,
-WTR,83,Mugenshi: RELEASE,S,"**Katsu Specialization** *(You may only have Mugenshi: RELEASE in your deck if your hero is Katsu.)*
+Draw a card.","They called to him from beyond the Mists. ""It's time to come home.""",,"ninja,attack,reaction",,,1,0,2,,,"standard,rainbow"
+WTR,83,Mugenshi: RELEASE,M,"**Katsu Specialization** *(You may only have Mugenshi: RELEASE in your deck if your hero is Katsu.)*
 
-**Combo** - If Whelming Gustwave was the last attack this combat chain, Mugenshi: RELEASE gains +1[attack], **go again**, and  ""If this hits, search your deck for any number of cards named Lord of Wind, reveal them, put them into your hand, then shuffle your deck.""",,,"ninja,action,attack",,,2,1,3,4,,
-WTR,84,Hurricane Technique,S,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Hurricane Technique gains +1[attack], **go again*, and ""If Hurricane Technique hits, put it into your hand.""",,,"ninja,action,attack",,,2,1,3,4,,
-WTR,85,Pounding Gale,S,"**Combo** - If Open the Center was the last attack this combat chain, Pounding Gale gains, ""If Pounding Gale would deal damage to a hero, instead it deals double that damage.""",,,"ninja,action,attack",,,1,1,3,5,,
-WTR,86,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,1,0,3,4,,
-WTR,87,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,2,0,3,3,,
-WTR,88,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,3,0,3,2,,
-WTR,89,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +3[attack].","""Just a little off the top.""",,"ninja,action,attack",,,1,1,3,4,,
-WTR,90,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +2[attack].","""Just a little off the top.""",,"ninja,action,attack",,,2,1,3,3,,
-WTR,91,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +1[attack].","""Just a little off the top.""",,"ninja,action,attack",,,3,1,3,2,,
-WTR,92,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,1,0,4,,,
-WTR,93,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,2,0,4,,,
-WTR,94,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,3,0,4,,,
-WTR,95,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,1,2,3,5,,
-WTR,96,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,2,2,3,4,,
-WTR,97,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,3,2,3,3,,
-WTR,98,Head Jab,C,**Go again**,,,"ninja,action,attack",,,1,0,2,3,,
-WTR,99,Head Jab,C,**Go again**,,,"ninja,action,attack",,,2,0,2,2,,
-WTR,100,Head Jab,C,**Go again**,,,"ninja,action,attack",,,3,0,2,1,,
-WTR,101,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,1,1,2,4,,
-WTR,102,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,2,1,2,3,,
-WTR,103,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,3,1,2,2,,
-WTR,104,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,1,0,3,3,,
-WTR,105,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,2,0,3,2,,
-WTR,106,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,3,0,3,1,,
-WTR,107,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,1,2,2,5,,
-WTR,108,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,2,2,2,4,,
-WTR,109,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,3,2,2,3,,
-WTR,110,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,1,0,3,3,,
-WTR,111,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,2,0,3,2,,
-WTR,112,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,3,0,3,1,,
-WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",40,4,,,,,,
-WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",20,4,,,,,,
+**Combo** - If Whelming Gustwave was the last attack this combat chain, Mugenshi: RELEASE gains +1[attack], **go again**, and  ""If this hits, search your deck for any number of cards named Lord of Wind, reveal them, put them into your hand, then shuffle your deck.""",,,"ninja,action,attack",,,2,1,3,4,,"standard,rainbow"
+WTR,84,Hurricane Technique,S,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Hurricane Technique gains +1[attack], **go again*, and ""If Hurricane Technique hits, put it into your hand.""",,,"ninja,action,attack",,,2,1,3,4,,"standard,rainbow"
+WTR,85,Pounding Gale,S,"**Combo** - If Open the Center was the last attack this combat chain, Pounding Gale gains, ""If Pounding Gale would deal damage to a hero, instead it deals double that damage.""",,,"ninja,action,attack",,,1,1,3,5,,"standard,rainbow"
+WTR,86,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,1,0,3,4,,"standard,rainbow"
+WTR,87,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,2,0,3,3,,"standard,rainbow"
+WTR,88,Fluster Fist,R,"**Combo** - If Open the Center was the last attack this combat chain, Fluster Fist gains +1[attack] for each attack that has hit this combat chain.",,,"ninja,action,attack",,,3,0,3,2,,"standard,rainbow"
+WTR,89,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +3[attack].","""Just a little off the top.""",,"ninja,action,attack",,,1,1,3,4,,"standard,rainbow"
+WTR,90,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +2[attack].","""Just a little off the top.""",,"ninja,action,attack",,,2,1,3,3,,"standard,rainbow"
+WTR,91,Blackout Kick,R,"**Combo** - If Rising Knee Thrust was the last attack this combat chain, Blackout Kick gains +1[attack].","""Just a little off the top.""",,"ninja,action,attack",,,3,1,3,2,,"standard,rainbow"
+WTR,92,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,1,0,4,,,"standard,rainbow"
+WTR,93,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,2,0,4,,,"standard,rainbow"
+WTR,94,Flic Flak,R,"If the next card you defend with this turn is a card with **combo*, it gains +2[defense].","Silver flashes under the pale moonlight, blades slicing through air as Ira twisted and turned, narrowly avoiding their ambush.",,"ninja,defense,reaction",,,3,0,4,,,"standard,rainbow"
+WTR,95,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,1,2,3,5,,"standard,rainbow"
+WTR,96,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,2,2,3,4,,"standard,rainbow"
+WTR,97,Open the Center,C,"**Combo** If Head Jab was the last attack this combat chain, Open the Center gains +1[attack], **go again** and **dominate**. *(The defending hero can't defend Open the Center with more than 1 card from their hand.)*",,,"ninja,action,attack",,,3,2,3,3,,"standard,rainbow"
+WTR,98,Head Jab,C,**Go again**,,,"ninja,action,attack",,,1,0,2,3,,"standard,rainbow"
+WTR,99,Head Jab,C,**Go again**,,,"ninja,action,attack",,,2,0,2,2,,"standard,rainbow"
+WTR,100,Head Jab,C,**Go again**,,,"ninja,action,attack",,,3,0,2,1,,"standard,rainbow"
+WTR,101,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,1,1,2,4,,"standard,rainbow"
+WTR,102,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,2,1,2,3,,"standard,rainbow"
+WTR,103,Leg Tap,C,**Go again**,,,"ninja,action,attack",,,3,1,2,2,,"standard,rainbow"
+WTR,104,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,1,0,3,3,,"standard,rainbow"
+WTR,105,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,2,0,3,2,,"standard,rainbow"
+WTR,106,Rising Knee Thrust,C,"**Combo** If Leg Tap was the last attack this combat chain, Rising Knee Thrust gains +2[attack] and **go again**.",,,"ninja,action,attack",,,3,0,3,1,,"standard,rainbow"
+WTR,107,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,1,2,2,5,,"standard,rainbow"
+WTR,108,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,2,2,2,4,,"standard,rainbow"
+WTR,109,Surging Strike,C,**Go again**,,,"ninja,action,attack",,,3,2,2,3,,"standard,rainbow"
+WTR,110,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,1,0,3,3,,"standard,rainbow"
+WTR,111,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,2,0,3,2,,"standard,rainbow"
+WTR,112,Whelming Gustwave,C,"**Combo** If Surging Strike was the last attack this combat chain, Whelming Gustwave gains +1[attack], **go again** and ""If this hits, draw a card.""",,,"ninja,action,attack",,,3,0,3,1,,"standard,rainbow"
+WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero",,4,,,,,,standard
+WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",,4,,,,,,standard
 WTR,115,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
 
-At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,
+At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 WTR,116,Braveforge Bracers,L,"**Once per Turn Action** - [resource]: Your next weapon attack this turn gains +1[attack]. Activate this ability only if a weapon you control has hit this turn. **Go again**
 
-**Battleworn** *(If you defend with Braveforge Bracers, put a -1[defense] counter on it when the combat chain closes.)*",,,"warrior,equipment,arms",,,,,2,,,
+**Battleworn** *(If you defend with Braveforge Bracers, put a -1[defense] counter on it when the combat chain closes.)*",,,"warrior,equipment,arms",,,,,2,,,cold
 WTR,117,Refraction Bolters,C,"When your weapon attack hits, you may destroy Refraction Bolters. If you do, the attack gains **go again**.
 
-**Battleworn** *(If you defend with Refraction Bolters, put a -1[defense] counter on it when the combat chain closes.)*",,,"warrior,equipment,legs",,,,,1,,,
+**Battleworn** *(If you defend with Refraction Bolters, put a -1[defense] counter on it when the combat chain closes.)*",,,"warrior,equipment,legs",,,,,1,,,"standard,rainbow"
 WTR,118,Glint the Quicksilver,M,"Target weapon attack gains **go again**.
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card.",,,"warrior,attack,reaction",,,3,0,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card.",,,"warrior,attack,reaction",,,3,0,3,,,"standard,rainbow"
 WTR,119,Steelblade Supremacy,M,"**Dorinthea Specialization** *(You may only have Steelblade Supremacy in your deck if your hero is Dorinthea.)*
 
 Until end of turn, target weapon gains +2[attack] and ""Whenever this weapon hits, draw a card.""
 
-**Go again**",,,"warrior,action",,,1,1,3,,,
+**Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 WTR,120,Rout,S,"Target weapon attack gains +3[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, you may return target non-equipment defending card to its owners hand.",,,"warrior,attack,reaction",,,1,2,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, you may return target non-equipment defending card to its owners hand.",,,"warrior,attack,reaction",,,1,2,3,,,"standard,rainbow"
 WTR,121,Singing Steelblade,S,"**Dorinthea Specialization** *(You may only have Steelblade Supremacy in your deck if your hero is Dorinthea.)*
 
 Target weapon attack gains +1[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, search your deck for an attack reaction card, banish it face up, then shuffle your deck. You may play it this chain link.",,,"warrior,attack,reaction",,,2,1,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, search your deck for an attack reaction card, banish it face up, then shuffle your deck. You may play it this chain link.",,,"warrior,attack,reaction",,,2,1,3,,,"standard,rainbow"
 WTR,122,Ironsong Determination,S,"Target weapon gains +1[attack] and **dominate**.
 
 **Go again**
-","""The light of Sol will dispel the darkness , and guide us unto the path of righteousness.""",,"warrior,action",,,2,0,3,,,
+","""The light of Sol will dispel the darkness , and guide us unto the path of righteousness.""",,"warrior,action",,,2,0,3,,,"standard,rainbow"
 WTR,123,Overpower,R,"Target weapon attack gains +4[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,1,3,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,1,3,3,,,"standard,rainbow"
 WTR,124,Overpower,R,"Target weapon attack gains +3[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,2,3,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,2,3,3,,,"standard,rainbow"
 WTR,125,Overpower,R,"Target weapon attack gains +2[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,3,3,3,,,
-WTR,126,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,1,1,6,,,
-WTR,127,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,2,1,5,,,
-WTR,128,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,3,1,4,,,
-WTR,129,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,1,1,3,,,
-WTR,130,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,2,1,3,,,
-WTR,131,Warrior's Valor,R,"Your next weapon attack this turn gains +1[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,3,1,3,,,
-WTR,132,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +3[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,1,0,3,,,
-WTR,133,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +2[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,2,0,3,,,
-WTR,134,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +1[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,3,0,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, the attack gains an additional +2[attack].",,,"warrior,attack,reaction",,,3,3,3,,,"standard,rainbow"
+WTR,126,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,1,1,6,,,"standard,rainbow"
+WTR,127,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,2,1,5,,,"standard,rainbow"
+WTR,128,Steelblade Shunt,R,"If Steelbade shunt defends a weapon attack, deal 1 damage to the attacking hero.",A warrior of the Hand of Sol is trained to turn the enemies' advances to his advantage.,,"warrior,defense,reaction",,,3,1,4,,,"standard,rainbow"
+WTR,129,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,1,1,3,,,"standard,rainbow"
+WTR,130,Warrior's Valor,R,"Your next weapon attack this turn gains +3[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,2,1,3,,,"standard,rainbow"
+WTR,131,Warrior's Valor,C,"Your next weapon attack this turn gains +1[attack] and ""If this hits, the attack gains **go again**""","The Magister's voice filled the departure halls, as the blessing of Sol washed over them.",,"warrior,action",,,3,1,3,,,"standard,rainbow"
+WTR,132,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +3[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,1,0,3,,,"standard,rainbow"
+WTR,133,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +2[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,2,0,3,,,"standard,rainbow"
+WTR,134,Ironsong Response,C,"**Reprise** - If the defending hero has defended with a card from their hand this chain link, the target weapon attack gains +1[attack].","The song of a smith rings true, heard with every strike of steel on steel.",,"warrior,attack,reaction",,,3,0,3,,,"standard,rainbow"
 WTR,135,Biting Blade,C,"Target weapon attack gains +3[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,1,2,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,1,2,3,,,"standard,rainbow"
 WTR,136,Biting Blade,C,"Target weapon attack gains +2[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,2,2,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,2,2,3,,,"standard,rainbow"
 WTR,137,Biting Blade,C,"Target weapon attack gains +1[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,3,2,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, weapons you control gain +1[attack] until end of turn.",,,"warrior,attack,reaction",,,3,2,3,,,"standard,rainbow"
 WTR,138,Stroke of Foresight,C,"Target weapon attack gains +3[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,1,1,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,1,1,3,,,"standard,rainbow"
 WTR,139,Stroke of Foresight,C,"Target weapon attack gains +2[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,2,1,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,2,1,3,,,"standard,rainbow"
 WTR,140,Stroke of Foresight,C,"Target weapon attack gains +1[attack].
 
-**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,3,1,3,,,
+**Reprise** - If the defending hero has defended with a card from their hand this chain link, draw a card, then put a card from your hand on the top or bottom of your deck.",,,"warrior,attack,reaction",,,3,1,3,,,"standard,rainbow"
 WTR,141,Sharpen Steel,C,"Your next weapon attack this turn gains +3[attack].
 
-**Go again**",,,"warrior,action",,,1,0,3,,,
+**Go again**",,,"warrior,action",,,1,0,3,,,"standard,rainbow"
 WTR,142,Sharpen Steel,C,"Your next weapon attack this turn gains +2[attack].
 
-**Go again**",,,"warrior,action",,,2,0,3,,,
+**Go again**",,,"warrior,action",,,2,0,3,,,"standard,rainbow"
 WTR,143,Sharpen Steel,C,"Your next weapon attack this turn gains +1[attack].
 
-**Go again**",,,"warrior,action",,,3,0,3,,,
+**Go again**",,,"warrior,action",,,3,0,3,,,"standard,rainbow"
 WTR,144,Driving Blade,C,"Your next weapon attack this turn gains +3[attack] and **go again**.
 
-**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,1,2,3,,,
+**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,1,2,3,,,"standard,rainbow"
 WTR,145,Driving Blade,C,"Your next weapon attack this turn gains +2[attack] and **go again**.
 
-**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,2,2,3,,,
+**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,2,2,3,,,"standard,rainbow"
 WTR,146,Driving Blade,C,"Your next weapon attack this turn gains +1[attack] and **go again**.
 
-**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,3,2,3,,,
+**Go again**","""Our arms protect the great city, and all who live within."" - Lieutenant Timaeus",,"warrior,action",,,3,2,3,,,"standard,rainbow"
 WTR,147,Nature's Path Pilgrimage,C,"Your next weapon attack this turn gains +3[attack] and ""If this hits, and you have no cards in your arsenal, reveal the top card of your deck. If it's an action card, put it face down into your arsenal.""
 
-**Go again**",,,"warrior,action",,,1,1,3,,,
+**Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 WTR,148,Nature's Path Pilgrimage,C,"Your next weapon attack this turn gains +2[attack] and ""If this hits, and you have no cards in your arsenal, reveal the top card of your deck. If it's an action card, put it face down into your arsenal.""
 
-**Go again**",,,"warrior,action",,,2,1,3,,,
+**Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 WTR,149,Nature's Path Pilgrimage,C,"Your next weapon attack this turn gains +1[attack] and ""If this hits, and you have no cards in your arsenal, reveal the top card of your deck. If it's an action card, put it face down into your arsenal.""
 
-**Go again**",,,"warrior,action",,,3,1,3,,,
+**Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 WTR,150,Fyendal's Spring Tunic,L,"At the start of your turn, if Fyendal's Spring Tunic has less than 3 energy counters, you may put an energy counter on it.
 
 **Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]
 
-**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,,"generic,equipment,chest",,,,,1,,,
-WTR,151,Hope Merchant's Hood,C,"**Instant**  - Destroy Hope Merchant's Hood: Shuffle any number of cards from your hand into your deck, then draw that many cards.",,,"generic,equipment,head",,,,,0,,,
-WTR,152,Heartened Cross Strap,C,**Action** - Destroy Heartened Cross Strap: The next attack action card you play this turn costs [2 resource] less to play. **Go again**,,,"generic,equipment,chest",,,,,0,,,
-WTR,153,Goliath Gauntlet,C,**Action** - Destroy Goliath Gauntlet: The next attack action card with cost [2 resource] or greater you play this turn gains +2[attack]. **Go again**,,,"generic,equipment,arms",,,,,0,,,
-WTR,154,Snapdragon Scalers,C,**Attack reaction** - Destroy Snapdragon Scalers: Target attack action card with cost [resource] or less gains **go again**.,,,"generic,equipment,legs",,,,,0,,,
-WTR,155,Ironrot Helm,C,"**Blade break** *(If you defend with Ironrot Helm, destroy it when the combat chain closes.)*",,,"generic,equipment,head",,,,,1,,,
-WTR,156,Ironrot Plate,C,"**Blade break** *(If you defend with Ironrot Plate, destroy it when the combat chain closes.)*",,,"generic,equipment,chest",,,,,1,,,
-WTR,157,Ironrot Gauntlet,C,"**Blade break** *(If you defend with Ironrot Gauntlet, destroy it when the combat chain closes.)*",,,"generic,equipment,arms",,,,,1,,,
-WTR,158,Ironrot Legs,C,"**Blade break** *(If you defend with Ironrot Legs, destroy it when the combat chain closes.)*",,,"generic,equipment,legs",,,,,1,,,
+**Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,,"generic,equipment,chest",,,,,1,,,cold
+WTR,151,Hope Merchant's Hood,C,"**Instant**  - Destroy Hope Merchant's Hood: Shuffle any number of cards from your hand into your deck, then draw that many cards.",,,"generic,equipment,head",,,,,0,,,"standard,rainbow"
+WTR,152,Heartened Cross Strap,C,**Action** - Destroy Heartened Cross Strap: The next attack action card you play this turn costs [2 resource] less to play. **Go again**,,,"generic,equipment,chest",,,,,0,,,"standard,rainbow"
+WTR,153,Goliath Gauntlet,C,**Action** - Destroy Goliath Gauntlet: The next attack action card with cost [2 resource] or greater you play this turn gains +2[attack]. **Go again**,,,"generic,equipment,arms",,,,,0,,,"standard,rainbow"
+WTR,154,Snapdragon Scalers,C,**Attack reaction** - Destroy Snapdragon Scalers: Target attack action card with cost [resource] or less gains **go again**.,,,"generic,equipment,legs",,,,,0,,,"standard,rainbow"
+WTR,155,Ironrot Helm,C,"**Blade break** *(If you defend with Ironrot Helm, destroy it when the combat chain closes.)*",,,"generic,equipment,head",,,,,1,,,"standard,rainbow"
+WTR,156,Ironrot Plate,C,"**Blade break** *(If you defend with Ironrot Plate, destroy it when the combat chain closes.)*",,,"generic,equipment,chest",,,,,1,,,"standard,rainbow"
+WTR,157,Ironrot Gauntlet,C,"**Blade break** *(If you defend with Ironrot Gauntlet, destroy it when the combat chain closes.)*",,,"generic,equipment,arms",,,,,1,,,"standard,rainbow"
+WTR,158,Ironrot Legs,C,"**Blade break** *(If you defend with Ironrot Legs, destroy it when the combat chain closes.)*",,,"generic,equipment,legs",,,,,1,,,"standard,rainbow"
 WTR,159,Enlightened Strike,M,"As an additional cost to play Enlightened Strike, put a card from your hand on the bottom of your deck.
 
 Choose 1;
 
 * Draw a card.
 * Enlightened strike gains +2[attack].
-* Enlightened strike gains **go again**.",,,"generic,action,attack",,,1,0,3,5,,
+* Enlightened strike gains **go again**.",,,"generic,action,attack",,,1,0,3,5,,"standard,rainbow"
 WTR,160,Tome of Fyendal,M,"Draw 2 cards.
 
-If Tome of Fyendal is played from arsenal, gain 1[life] for each card in your hand.",Even the simplest recollection of the Old Ones holds immense power...,,"generic,action",,,2,1,2,,,
-WTR,161,Last Ditch Effort,S,"When you play Last Ditch Effort, if you have no cards in your deck, it gains +4[attack] and **go again**.","For creatures that feed on fear, the moment of death is a veritable feast.",,"generic,action,attack",,,3,3,3,4,,
-WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die.
+If Tome of Fyendal is played from arsenal, gain 1[life] for each card in your hand.",Even the simplest recollection of the Old Ones holds immense power...,,"generic,action",,,2,1,2,,,"standard,rainbow"
+WTR,161,Last Ditch Effort,S,"When you play Last Ditch Effort, if you have no cards in your deck, it gains +4[attack] and **go again**.","For creatures that feed on fear, the moment of death is a veritable feast.",,"generic,action,attack",,,3,3,3,4,,"standard,rainbow"
+WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die. 
 On;
 
 * 1, 2 - Lose 2[life]. **Go again**
 * 3, 4 - Gain 2[life]. **Go again**
-* 5, 6 - Gain [2 resource], gain 2 action points, and your next attack this turn gains +2[attack].",,,"generic,action,item",,,3,0,,,,
+* 5, 6 - Gain [2 resource], gain 2 action points, and your next attack this turn gains +2[attack].",,,"generic,action,item",,,3,0,,,,"standard,rainbow"
 WTR,163,Remembrance,S,"Shufle up to 3 action cards from your graveyard into your deck.
 
-Banish Rembrance.",,,"generic,instant",,,2,0,,,,
-WTR,164,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,1,2,2,6,,
-WTR,165,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,2,2,2,5,,
-WTR,166,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,3,2,2,4,,
-WTR,167,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,1,0,2,4,,
-WTR,168,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,2,0,2,3,,
-WTR,169,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,3,0,2,2,,
-WTR,170,Energy Potion,R,"**Instant** - Destroy Energy Potion, gain [2 resource].","Side effects may include agitation, confusion, aggression, tachycardia, fever and delirium.",,"generic,action,item",,,3,0,,,,
-WTR,171,Potion of Strength,R,**Action** - Destroy Potion of Strength: Your next attack this turn gains +2[attack]. **Go again**,"""There's something odd about Mabon's drinking horn.""",,"generic,action,item",,,3,0,,,,
-WTR,172,Timesnap Potion,R,**Action** - Destroy Timesnap Potion: Gain 2 action points.,"""...and only a slight chance of temporal dissociation!"" - Lena-Belle",,"generic,action,item",,,3,0,,,,
-WTR,173,Sigil of Solace,R,Gain 3[life],,,"generic,instant",,,1,0,,,,
-WTR,174,Sigil of Solace,R,Gain 2[life],,,"generic,instant",,,2,0,,,,
-WTR,175,Sigil of Solace,R,Gain 1[life],,,"generic,instant",,,3,0,,,,
-WTR,176,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,1,3,2,7,,
-WTR,177,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,2,3,2,6,,
-WTR,178,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,3,3,2,5,,
+Banish Rembrance.",,,"generic,instant",,,2,0,,,,"standard,rainbow"
+WTR,164,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,1,2,2,6,,"standard,rainbow"
+WTR,165,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,2,2,2,5,,"standard,rainbow"
+WTR,166,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,3,2,2,4,,"standard,rainbow"
+WTR,167,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,1,0,2,4,,"standard,rainbow"
+WTR,168,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,2,0,2,3,,"standard,rainbow"
+WTR,169,Snatch,R,"If Snatch hits, draw a card.",,,"generic,action,attack",,,3,0,2,2,,"standard,rainbow"
+WTR,170,Energy Potion,R,"**Instant** - Destroy Energy Potion, gain [2 resource].","Side effects may include agitation, confusion, aggression, tachycardia, fever and delirium.",,"generic,action,item",,,3,0,,,,"standard,rainbow"
+WTR,171,Potion of Strength,R,**Action** - Destroy Potion of Strength: Your next attack this turn gains +2[attack]. **Go again**,"""There's something odd about Mabon's drinking horn.""",,"generic,action,item",,,3,0,,,,"standard,rainbow"
+WTR,172,Timesnap Potion,R,**Action** - Destroy Timesnap Potion: Gain 2 action points.,"""...and only a slight chance of temporal dissociation!"" - Lena-Belle",,"generic,action,item",,,3,0,,,,"standard,rainbow"
+WTR,173,Sigil of Solace,R,Gain 3[life],,,"generic,instant",,,1,0,,,,"standard,rainbow"
+WTR,174,Sigil of Solace,R,Gain 2[life],,,"generic,instant",,,2,0,,,,"standard,rainbow"
+WTR,175,Sigil of Solace,R,Gain 1[life],,,"generic,instant",,,3,0,,,,"standard,rainbow"
+WTR,176,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,1,3,2,7,,"standard,rainbow"
+WTR,177,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,2,3,2,6,,"standard,rainbow"
+WTR,178,Barraging Brawnhide,C,"If Barraging Brawnhide is defended by less than  2 non-equipment cards, it gains +1[attack].",,,"generic,action,attack",,,3,3,2,5,,"standard,rainbow"
 WTR,179,Demolition Crew,C,"As an additional cost to play Demolition Crew, reveal a card with cost [2 resource] or greater.
 
-**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,1,2,2,6,,
+**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,1,2,2,6,,"standard,rainbow"
 WTR,180,Demolition Crew,C,"As an additional cost to play Demolition Crew, reveal a card with cost [2 resource] or greater.
 
-**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,2,2,2,5,,
+**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,2,2,2,5,,"standard,rainbow"
 WTR,181,Demolition Crew,C,"As an additional cost to play Demolition Crew, reveal a card with cost [2 resource] or greater.
 
-**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,3,2,2,4,,
-WTR,182,Flock of the Featherwalkers,C,"As an additional cost to play Flock of the Featherwalkers, reveal a card in your hand with cost [resource] or less.
+**Dominate** *(The defending hero can't defend Demolition Crew with more than 1 card from their hand.)*",,,"generic,action,attack",,,3,2,2,4,,"standard,rainbow"
+WTR,182,Flock of the Feather Walkers,C,"As an additional cost to play Flock of the Feather Walkers, reveal a card in your hand with cost [resource] or less.
 
-Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,1,1,2,5,,
-WTR,183,Flock of the Featherwalkers,C,"As an additional cost to play Flock of the Featherwalkers, reveal a card in your hand with cost [resource] or less.
+Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,1,1,2,5,,"standard,rainbow"
+WTR,183,Flock of the Feather Walkers,C,"As an additional cost to play Flock of the Feather Walkers, reveal a card in your hand with cost [resource] or less.
 
-Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,2,1,2,4,,
-WTR,184,Flock of the Featherwalkers,C,"As an additional cost to play Flock of the Featherwalkers, reveal a card in your hand with cost [resource] or less.
+Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,2,1,2,4,,"standard,rainbow"
+WTR,184,Flock of the Feather Walkers,C,"As an additional cost to play Flock of the Feather Walkers, reveal a card in your hand with cost [resource] or less.
 
-Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,3,1,2,3,,
-WTR,185,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,1,1,2,4,,
-WTR,186,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,2,1,2,3,,
-WTR,187,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,3,1,2,2,,
-WTR,188,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,1,3,3,7,,
-WTR,189,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,2,3,3,6,,
-WTR,190,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,3,3,3,5,,
-WTR,191,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,1,0,2,4,,
-WTR,192,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,2,0,2,3,,
-WTR,193,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,3,0,2,2,,
+Create a Quicken aura token with, ""When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**""",,,"generic,action,attack",,,3,1,2,3,,"standard,rainbow"
+WTR,185,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,1,1,2,4,,"standard,rainbow"
+WTR,186,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,2,1,2,3,,"standard,rainbow"
+WTR,187,Nimble Strike,C,"As an additional cost to play Nimble Strike, you may banish a card named Nimblism from your graveyard. If you do, Nimble Strike gains +1[attack] and **go again**.",,,"generic,action,attack",,,3,1,2,2,,"standard,rainbow"
+WTR,188,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,1,3,3,7,,"standard,rainbow"
+WTR,189,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,2,3,3,6,,"standard,rainbow"
+WTR,190,Raging Onslaught,C,,"Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.",,"generic,action,attack",,,3,3,3,5,,"standard,rainbow"
+WTR,191,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,1,0,2,4,,"standard,rainbow"
+WTR,192,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,2,0,2,3,,"standard,rainbow"
+WTR,193,Scar for a Scar,C,"When you play Scar for a Scar, if you have less [life] than your opponent, it gains **go again**.",,,"generic,action,attack",,,3,0,2,2,,"standard,rainbow"
 WTR,194,Scour the Battlescape,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.
 
-If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,1,0,2,3,,
+If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,1,0,2,3,,"standard,rainbow"
 WTR,195,Scour the Battlescape,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.
 
-If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,2,0,2,2,,
+If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,2,0,2,2,,"standard,rainbow"
 WTR,196,Scour the Battlescape,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.
 
-If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,3,0,2,1,,
-WTR,197,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,1,2,2,6,,
-WTR,198,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,2,2,2,5,,
-WTR,199,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,3,2,2,4,,
-WTR,200,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,1,3,2,7,,
-WTR,201,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,2,3,2,6,,
-WTR,202,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,3,3,2,5,,
-WTR,203,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,1,0,3,4,,
-WTR,204,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,2,0,3,3,,
-WTR,205,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,3,0,3,2,,
+If Scour the Battlescape is played from arsenal, it gains **go again**.",,,"generic,action,attack",,,3,0,2,1,,"standard,rainbow"
+WTR,197,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,1,2,2,6,,"standard,rainbow"
+WTR,198,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,2,2,2,5,,"standard,rainbow"
+WTR,199,Regurgitating Slog,C,"As an additional cost to play Regurgitating Slog, you may banish a card named Sloggism. If you do, Regurgitating Slog gains **dominate**. *(The defending hero can't defend Regurgitating Slog with more than 1 card from their hand.)*",,,"generic,action,attack",,,3,2,2,4,,"standard,rainbow"
+WTR,200,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,1,3,2,7,,"standard,rainbow"
+WTR,201,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,2,3,2,6,,"standard,rainbow"
+WTR,202,Wounded Bull,C,"When you play Wounded Bull, if you have less [life] than your opponent, Wounded Bull gains +1[attack].","In the Savage Lands, humans, like animals, are more dangerous when they bleed.",,"generic,action,attack",,,3,3,2,5,,"standard,rainbow"
+WTR,203,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,1,0,3,4,,"standard,rainbow"
+WTR,204,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,2,0,3,3,,"standard,rainbow"
+WTR,205,Wounding Blow,C,,"Farmhands, villagers, and slaves - easily replaceable wretches that must be taught the joys of obedience.",,"generic,action,attack",,,3,0,3,2,,"standard,rainbow"
 WTR,206,Pummel,C,"Choose 1;
 
 * Target club or hammer attack gains +4[attack].
-* Target attack action card with cost [2 resource] or greater gains +4[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,1,2,2,,,
+* Target attack action card with cost [2 resource] or greater gains +4[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,1,2,2,,,"standard,rainbow"
 WTR,207,Pummel,C,"Choose 1;
 
 * Target club or hammer attack gains +3[attack].
-* Target attack action card with cost [2 resource] or greater gains +3[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,2,2,2,,,
+* Target attack action card with cost [2 resource] or greater gains +3[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,2,2,2,,,"standard,rainbow"
 WTR,208,Pummel,C,"Choose 1;
 
 * Target club or hammer attack gains +2[attack].
-* Target attack action card with cost [2 resource] or greater gains +2[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,3,2,2,,,
+* Target attack action card with cost [2 resource] or greater gains +2[attack] and ""If this hits, the defending hero discards a card.""",,,"generic,attack,reaction",,,3,2,2,,,"standard,rainbow"
 WTR,209,Razor Reflex,C,"Choose 1;
 
 * Target sword or dagger attack gains +3[attack].
-* Target attack action card with cost [resource] or less gains +3[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,1,1,2,,,
+* Target attack action card with cost [resource] or less gains +3[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,1,1,2,,,"standard,rainbow"
 WTR,210,Razor Reflex,C,"Choose 1;
 
 * Target sword or dagger attack gains +2[attack].
-* Target attack action card with cost [resource] or less gains +2[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,2,1,2,,,
+* Target attack action card with cost [resource] or less gains +2[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,2,1,2,,,"standard,rainbow"
 WTR,211,Razor Reflex,C,"Choose 1;
 
 * Target sword or dagger attack gains +1[attack].
-* Target attack action card with cost [resource] or less gains +1[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,3,1,2,,,
-WTR,212,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,1,3,7,,,
-WTR,213,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,2,3,6,,,
-WTR,214,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,3,3,5,,,
-WTR,215,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,1,0,4,,,
-WTR,216,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,2,0,3,,,
-WTR,217,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,3,0,2,,,
+* Target attack action card with cost [resource] or less gains +1[attack] and ""If this hits, this attack gains **go again**.""",,,"generic,attack,reaction",,,3,1,2,,,"standard,rainbow"
+WTR,212,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,1,3,7,,,"standard,rainbow"
+WTR,213,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,2,3,6,,,"standard,rainbow"
+WTR,214,Unmovable,C,"If Unmovable is played from arsenal, it gains +1[defense].",,,"generic,defense,reaction",,,3,3,5,,,"standard,rainbow"
+WTR,215,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,1,0,4,,,"standard,rainbow"
+WTR,216,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,2,0,3,,,"standard,rainbow"
+WTR,217,Sink Below,C,"You may put a card from your hand on the bottom of your deck. If you do, draw a card.",Those blessed with Aether have an incredible gift - the power to shape the fabric of reality.,,"generic,defense,reaction",,,3,0,2,,,"standard,rainbow"
 WTR,218,Nimblism,C,"The next attack action card with cost [resource] or less you play this turn gains +3[attack].
 
-**Go again**",,,"generic,action",,,1,0,2,,,
+**Go again**",,,"generic,action",,,1,0,2,,,"standard,rainbow"
 WTR,219,Nimblism,C,"The next attack action card with cost [resource] or less you play this turn gains +2[attack].
 
-**Go again**",,,"generic,action",,,2,0,2,,,
+**Go again**",,,"generic,action",,,2,0,2,,,"standard,rainbow"
 WTR,220,Nimblism,C,"The next attack action card with cost [resource] or less you play this turn gains +1[attack].
 
-**Go again**",,,"generic,action",,,3,0,2,,,
+**Go again**",,,"generic,action",,,3,0,2,,,"standard,rainbow"
 WTR,221,Sloggism,C,"The next attack action card with cost [2 resource] or greater you play this turn gains +6[attack].
 
-**Go again**",,,"generic,action",,,1,3,2,,,
+**Go again**",,,"generic,action",,,1,3,2,,,"standard,rainbow"
 WTR,222,Sloggism,C,"The next attack action card with cost [2 resource] or greater you play this turn gains +5[attack].
 
-**Go again**",,,"generic,action",,,2,3,2,,,
+**Go again**",,,"generic,action",,,2,3,2,,,"standard,rainbow"
 WTR,223,Sloggism,C,"The next attack action card with cost [2 resource] or greater you play this turn gains +4[attack].
 
-**Go again**",,,"generic,action",,,3,3,2,,,
-WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Sealed Deck Formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.*",,,"generic,resource",,,,,,,,
+**Go again**",,,"generic,action",,,3,3,2,,,"standard,rainbow"
+WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Sealed Deck Formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.*",,,"generic,resource",,,,,,,,standard
 WTR,225,Quicken,T,"*(Auras stay in the arena until they are destroyed.)*
 
-When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,
-LGS,1,Romping Club,P,,,,,,,,,,,WTR003,Cold Foil
-LGS,2,Anothos,P,,,,,,,,,,,WTR040,Cold Foil
-LGS,3,Harmonized Kodachi,P,,,,,,,,,,,WTR078,Cold Foil
-LGS,4,Dawnblade,P,,,,,,,,,,,WTR115,Cold Foil
-LGS,5,Wrecker Romp,P,,,,,,,,,,,WTR031,Extended Art
-LGS,6,Blessing of Deliverance,P,,,,,,,,,,,WTR054,Extended Art
-LGS,7,Whelming Gustwave,P,,,,,,,,,,,WTR110,Extended Art
-LGS,8,Ironsong Response,P,,,,,,,,,,,WTR132,Extended Art
-FAB,1,Fyendal's Spring Tunic,P,,,,,,,,,,,WTR150,Gold Foil
-HER,1,Rhinar,P,,,,,,,,,,,WTR001,Cold Foil
-HER,2,"Bravo, Showstopper",P,,,,,,,,,,,WTR038,Cold Foil
-HER,3,Katsu,P,,,,,,,,,,,WTR076,Cold Foil
-HER,4,Dorinthea,P,,,,,,,,,,,WTR113,Cold Foil
-HER,5,Rhinar,P,,,,,,,,,,,WTR002,Rainbow Foil
-HER,6,"Bravo, Showstopper",P,,,,,,,,,,,WTR039,Rainbow Foil
-HER,7,Katsu,P,,,,,,,,,,,WTR077,Rainbow Foil
-HER,8,Dorinthea,P,,,,,,,,,,,WTR114,Rainbow Foil
-LSS,2,Go Bananas,P,"Name an action card. Open and reveal a booster pack of Flesh and Blood and put all cards with the chosen name into your hand. If the booster does not contain a card with the chosen name, you may repeat this process.",,,"generic,instant",,,2,0,,,,Rainbow Foil
-FAB,3,Scabskin Leathers,P,,,,,,,,,,,WTR004,Gold Foil
-FAB,4,Mask of Momentum,P,,,,,,,,,,,WTR079,Gold Foil
-FAB,6,Braveforge Bracers,P,,,,,,,,,,,WTR116,Gold Foil
-FAB,12,Energy Potion,P,,,,,,,,,,,WTR170,Cold Foil
-FAB,13,Potion of Strength,P,,,,,,,,,,,WTR171,Cold Foil
-FAB,14,Timesnap Potion,P,,,,,,,,,,,WTR172,Cold Foil
+When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,standard
+LGS,1,Romping Club,P,,,,,,,,,,,WTR003,cold
+LGS,2,Anothos,P,,,,,,,,,,,WTR040,cold
+LGS,3,Harmonized Kodachi,P,,,,,,,,,,,WTR078,cold
+LGS,4,Dawnblade,P,,,,,,,,,,,WTR115,cold
+LGS,5,Wrecker Romp,P,,,,,,,,,,,WTR031,extended
+LGS,6,Blessing of Deliverance,P,,,,,,,,,,,WTR054,extended
+LGS,7,Whelming Gustwave,P,,,,,,,,,,,WTR110,extended
+LGS,8,Ironsong Response,P,,,,,,,,,,,WTR132,extended
+FAB,1,Fyendal's Spring Tunic,P,,,,,,,,,,,WTR150,gold
+HER,1,Rhinar,P,,,,,,,,,,,WTR001,cold
+HER,2,"Bravo, Showstopper",P,,,,,,,,,,,WTR038,cold
+HER,3,Katsu,P,,,,,,,,,,,WTR076,cold
+HER,4,Dorinthea,P,,,,,,,,,,,WTR113,cold
+HER,5,Rhinar,P,,,,,,,,,,,WTR002,rainbow
+HER,6,"Bravo, Showstopper",P,,,,,,,,,,,WTR039,rainbow
+HER,7,Katsu,P,,,,,,,,,,,WTR077,rainbow
+HER,8,Dorinthea,P,,,,,,,,,,,WTR114,rainbow
+LSS,2,Go Bananas,P,"Name an action card. Open and reveal a booster pack of Flesh and Blood and put all cards with the chosen name into your hand. If the booster does not contain a card with the chosen name, you may repeat this process.",,,"generic,instant",,,2,0,,,,rainbow
+FAB,3,Scabskin Leathers,P,,,,,,,,,,,WTR004,gold
+FAB,4,Mask of Momentum,P,,,,,,,,,,,WTR079,gold
+FAB,6,Braveforge Bracers,P,,,,,,,,,,,WTR116,gold
+FAB,12,Energy Potion,P,,,,,,,,,,,WTR170,cold
+FAB,13,Potion of Strength,P,,,,,,,,,,,WTR171,cold
+FAB,14,Timesnap Potion,P,,,,,,,,,,,WTR172,cold
