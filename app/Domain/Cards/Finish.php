@@ -19,7 +19,7 @@ class Finish
      * @var string[]
      */
     private static $validFinishes = [
-        '' => 'regular',
+        ''   => 'regular',
         'cf' => 'cold',
         'ea' => 'extended',
         'gf' => 'gold',

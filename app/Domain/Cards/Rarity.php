@@ -27,6 +27,11 @@ final class Rarity implements \JsonSerializable
         return $this->rarity;
     }
 
+    public function equals(Rarity $that)
+    {
+        return $this->rarity === $that->rarity;
+    }
+
     public static function fromLss($rarity)
     {
         $map = [

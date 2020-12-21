@@ -6,6 +6,7 @@ use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Stores\Store;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
+use FabDB\Library\Casts\CastsRarity;
 use FabDB\Library\Casts\CastsSet;
 use FabDB\Library\Model;
 use Illuminate\Support\Arr;
@@ -22,6 +23,7 @@ class Card extends Model
         'keywords' => 'array',
         'stats' => 'array',
         'identifier' => CastsIdentifier::class,
+        'rarity' => CastsRarity::class,
     ];
 
     protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
@@ -97,6 +99,16 @@ class Card extends Model
         return $card;
     }
 
+    public function fabled()
+    {
+        return $this->rarity->equals(new Rarity('F'));
+    }
+
+    public function legendary()
+    {
+        return $this->rarity->equals(new Rarity('L'));
+    }
+
     public function resourceful(): bool
     {
         return Arr::has($this->stats, 'resource');
@@ -110,16 +122,6 @@ class Card extends Model
         }
 
         $this->attributes['name'] = $name;
-    }
-
-    public function setRarityAttribute(Rarity $rarity)
-    {
-        $this->attributes['rarity'] = (string) $rarity;
-    }
-
-    public function getRarityAttribute(string $rarity)
-    {
-        return new Rarity($rarity);
     }
 
     public function isHero(): bool
