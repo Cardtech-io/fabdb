@@ -59,7 +59,9 @@ class SeedCardDatabase extends Command
 
                 $saved = Card::register(
                     Identifier::fromName($variantOf->name, $variantOf->stats),
+                    '',
                     $variantOf->name,
+                    '',
                     new Rarity($row['Rarity']),
                     $variantOf->text,
                     $variantOf->flavour,
@@ -73,8 +75,10 @@ class SeedCardDatabase extends Command
                 Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
             } else {
                 Card::register(
-                    Identifier::fromName($row['Name'], $this->compileStats($row)),
+                    Identifier::fromString($row['Set'].str_pad($row['ID'], 3, 0, STR_PAD_LEFT)),
+                    '',
                     $row['Name'],
+                    '',
                     new Rarity($row['Rarity']),
                     $row['Text'],
                     Arr::get($row, 'Flavour'),
