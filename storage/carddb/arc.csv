@@ -35,17 +35,17 @@ ARC,10,Induction Chamber,S,"**Action - [resource]**: If there are no steam count
 ARC,11,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,1,2,2,5,,"standard,rainbow"
 ARC,12,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,2,2,2,4,,"standard,rainbow"
 ARC,13,Pedal to the Metal,R,"If Pedal to the Metal hits, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*",,,"mechanologist,action,attack",,,3,2,2,3,,"standard,rainbow"
-ARC,14,Pour the Mould,R,"Put a Mechanologist item with cost [2 resource] or less from your hand into the arena.
+ARC,14,Pour the Mold,R,"Put a Mechanologist item with cost [2 resource] or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
 **Go again**",,,"mechanologist,action",,,1,0,3,,,"standard,rainbow"
-ARC,15,Pour the Mould,R,"Put a Mechanologist item with cost [resource] or less from your hand into the arena.
+ARC,15,Pour the Mold,R,"Put a Mechanologist item with cost [resource] or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
 **Go again**",,,"mechanologist,action",,,2,0,3,,,"standard,rainbow"
-ARC,16,Pour the Mould,R,"Put a Mechanologist item with cost 0 or less from your hand into the arena.
+ARC,16,Pour the Mold,R,"Put a Mechanologist item with cost 0 or less from your hand into the arena.
 
 If you have **boosted** this turn, put a steam counter on it.
 
