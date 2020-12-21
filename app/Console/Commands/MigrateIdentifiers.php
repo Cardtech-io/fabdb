@@ -1,25 +1,39 @@
 <?php
+namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\NullIdentifier;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Console\Command;
 
-class MigrateIdentifiers extends Migration
+class MigrateIdentifiers extends Command
 {
     /**
-     * Run the migrations.
+     * The name and signature of the console command.
      *
-     * @return void
+     * @var string
      */
-    public function up()
+    protected $signature = 'fabdb:migrate-identifiers';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Migrates card identifiers to the new format.';
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
     {
-        Card::select('id', 'name', 'stats')
+        Card::select('id', 'identifier', 'name', 'stats')
             ->whereRaw("identifier REGEXP '(ARC|CRU|WTR)([0-9]{3})'")
             ->chunk(2500, function($cards) {
                 foreach ($cards as $card) {
+                    $this->info("Migrating card with identifier [{$card->identifier->raw()}]");
                     $identifier = Identifier::fromStats($card->name, $card->stats);
 
                     // see if a card already exists with the required identifier. Cards that are not updated
@@ -28,21 +42,16 @@ class MigrateIdentifiers extends Migration
                     $existing = Card::whereIdentifier($identifier->raw())->first();
 
                     if (!$existing) {
+                        $this->warn("No card exists for identifier [{$identifier->raw()}]");
                         // update the card with the identifier, this will be the main card
                         $card->identifier = $identifier;
                         $card->save();
+                    } else {
+                        $this->info("Card exists for identifier [{$identifier->raw()}]");
                     }
                 }
             });
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        // do nothing, irreversible
+        return 0;
     }
 }

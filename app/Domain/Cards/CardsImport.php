@@ -57,7 +57,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::fromName($row['card_name'], $stats);
+            $this->identifier = Identifier::fromStats($row['card_name'], $stats);
 
             $this->log("Registering card [{$row['uid']}");
 
@@ -66,8 +66,10 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
                 $this->copyImage($row);
             }
 
+            $this->log("Registering card [{$row['card_name']} using identifier [{$this->identifier->raw()}]");
+
             $card = Card::register(
-                $id = Identifier::fromStats($row['card_name'], $stats),
+                $this->identifier,
                 $this->cycle($row['uid']),
                 $row['card_name'],
                 $this->imagePath($row),
