@@ -8,6 +8,12 @@ return [
             'released' => '2020-03-27',
             'browseable' => true,
         ],
+        'u-arc' => [
+            'id' => 'u-arc',
+            'name' => 'Arcane Rising (Unlimited)',
+            'released' => '2020-11-20',
+            'browseable' => true,
+        ],
         'ira' => [
             'id' => 'ira',
             'name' => 'IRA Welcome Deck 2019',
@@ -24,6 +30,12 @@ return [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
             'released' => '2019-10-11',
+            'browseable' => true,
+        ],
+        'u-wtr' => [
+            'id' => 'u-wtr',
+            'name' => 'Welcome to Rathe (Unlimited)',
+            'released' => '2020-11-06',
             'browseable' => true,
         ],
     ],

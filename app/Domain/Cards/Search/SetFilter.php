@@ -14,7 +14,7 @@ class SetFilter implements SearchFilter
     {
         $query->join('printings', function($join) use ($input) {
             $join->on('printings.card_id', 'cards.id');
-            $join->where('printings.sku', 'LIKE', '%'.$input['set'].'%');
+            $join->where('printings.sku', 'LIKE', $input['set'].'%');
         });
     }
 }
