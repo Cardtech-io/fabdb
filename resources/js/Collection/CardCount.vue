@@ -1,10 +1,10 @@
 <template>
     <div class="flex items-center text-lg">
-        <remove :identifier="card.identifier" :type="type" :count="total" @card-removed="decrement"></remove>
+        <remove :sku="printing.sku.sku" :count="total" @card-removed="decrement"></remove>
         <div class="w-1/3">
             <input type="text" v-model="total" class="w-full bg-transparent text-center outline-none focus:bg-white" :tabindex="index">
         </div>
-        <add :identifier="card.identifier" :type="type" :count="total" @card-added="increment"></add>
+        <add :sku="printing.sku.sku" :count="total" @card-added="increment"></add>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
     import axios from "axios";
 
     export default {
-        props: ['card', 'type'],
+        props: ['card', 'printing'],
         components: {Add, Remove},
 
         data() {
@@ -26,13 +26,17 @@
         computed: {
             total: {
                 get() {
-                    return this.card[this.type] || 0;
+                    return this.ownedCard ? this.ownedCard.total : 0;
                 },
 
                 set(newValue) {
                     this.card[this.type] = newValue;
                     setTimeout(this.save, 2000);
                 }
+            },
+
+            ownedCard() {
+                return this.card.ownedCards.filter(ownedCard => ownedCard.printingId === this.printing.id).shift();
             }
         },
 

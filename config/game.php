@@ -14,6 +14,12 @@ return [
             'released' => null,
             'browseable => false'
         ],
+        'lgs' => [
+            'id' => 'lgs',
+            'name' => 'Local Game Store Promos',
+            'released' => null,
+            'browseable => false'
+        ],
         'lss' => [
             'id' => 'lss',
             'name' => 'Legend Story Studios Promos',

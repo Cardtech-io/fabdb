@@ -38,6 +38,18 @@ export default {
         }
     },
 
+    englishFinish(finish) {
+        let strings = {
+            'cold': 'Cold foil',
+            'extended': 'Extended art',
+            'gold': 'Gold foil',
+            'rainbow': 'Rainbow foil',
+            'regular': 'Regular',
+        };
+
+        return strings[finish];
+    },
+
     resourceColourLight: function (resource) {
         const colours = {1: 'red-100', 2: 'yellow-100', 3: 'blue-100'};
         const colour = colours[resource];

@@ -6,7 +6,7 @@
     import axios from 'axios';
 
     export default {
-        props: ['identifier', 'type', 'count'],
+        props: ['sku', 'count'],
 
         data() {
             return {

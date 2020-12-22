@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Stores\Store;
@@ -37,6 +38,11 @@ class Card extends Model
             ->orderBy(DB::raw('RAND()'));
     }
 
+    public function ownedCards()
+    {
+        return $this->hasMany(OwnedCard::class);
+    }
+
     public function printings()
     {
         return $this->hasMany(Printing::class, 'card_id', 'id');
@@ -65,7 +71,7 @@ class Card extends Model
                 $join->whereNull('stores.deleted_at');
             });
     }
-    
+
     public function rulings()
     {
         return $this->belongsToMany(Ruling::class);

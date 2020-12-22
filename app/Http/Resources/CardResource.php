@@ -1,7 +1,6 @@
 <?php
 namespace FabDB\Http\Resources;
 
-use FabDB\Domain\Cards\Card;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Arr;
 
@@ -14,6 +13,7 @@ class CardResource extends JsonResource
         $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'next', 'prev']);
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = $this->whenLoaded('printings');
+        $response['ownedCards'] = OwnedCardResource::collection($this->whenLoaded('ownedCards'));
         $response['listings'] = $this->whenLoaded('listings');
         $response['rulings'] = $this->whenLoaded('rulings');
         $response['image'] = $this->image($this->resource);

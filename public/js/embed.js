@@ -36755,6 +36755,16 @@ __webpack_require__.r(__webpack_exports__);
       return 'bg-' + colour;
     }
   },
+  englishFinish: function englishFinish(finish) {
+    var strings = {
+      'cold': 'Cold foil',
+      'extended': 'Extended art',
+      'gold': 'Gold foil',
+      'rainbow': 'Rainbow foil',
+      'regular': 'Regular'
+    };
+    return strings[finish];
+  },
   resourceColourLight: function resourceColourLight(resource) {
     var colours = {
       1: 'red-100',

@@ -61,8 +61,7 @@ class Sku implements JsonSerializable
     {
         return [
             'sku' => $this->sku,
-            'finish' => $this->finish()->readable(),
-            'first' => $this->firstEdition(),
+            'finish' => $this->finish()->readable()
         ];
     }
 }

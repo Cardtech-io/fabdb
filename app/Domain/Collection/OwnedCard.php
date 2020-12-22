@@ -19,6 +19,7 @@ class OwnedCard extends Model
     public static function add(int $userId, int $cardId, int $printingId, int $total, bool $trade, bool $want)
     {
         $owned = new OwnedCard(compact('total', 'trade', 'want'));
+        $owned->userId = $userId;
         $owned->cardId = $cardId;
         $owned->printingId = $printingId;
         $owned->save();
