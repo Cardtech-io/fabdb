@@ -564,7 +564,7 @@ ARC,216,Whisper of the Oracle,C,"**Opt 3** (Look at the top 3 cards of your deck
 ARC,217,Whisper of the Oracle,C,"**Opt 2** (Look at the top 3 cards of your deck. You may put them on the top and/or bottom in any order.)
 
 **Go again**",,,"generic,action",,,3,0,3,,,"standard,rainbow"
-ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,,,,,,standard
+ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,,,standard
 LGS,9,Teklo Plasma Pistol,P,,,,,,,,,,,ARC003,cold
 LGS,10,Death Dealer,P,,,,,,,,,,,ARC040,cold
 LGS,11,Nebula Blade,P,,,,,,,,,,,ARC077,cold

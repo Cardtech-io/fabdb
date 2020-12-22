@@ -502,7 +502,7 @@ WTR,222,Sloggism,C,"The next attack action card with cost [2 resource] or greate
 WTR,223,Sloggism,C,"The next attack action card with cost [2 resource] or greater you play this turn gains +4[attack].
 
 **Go again**",,,"generic,action",,,3,3,2,,,"standard,rainbow"
-WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Sealed Deck Formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.*",,,"generic,resource",,,,,,,,standard
+WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Sealed Deck Formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.*",,,"generic,resource",,,2,,,,,standard
 WTR,225,Quicken,T,"*(Auras stay in the arena until they are destroyed.)*
 
 When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,standard
