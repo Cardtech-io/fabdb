@@ -8,10 +8,23 @@ use FabDB\Library\Model;
 class OwnedCard extends Model
 {
     protected $fillable = [
+        'total',
+        'trade',
+        'want',
         'standard',
         'foil',
         'promo'
     ];
+
+    public static function add(int $userId, int $cardId, int $printingId, int $total, bool $trade, bool $want)
+    {
+        $owned = new OwnedCard(compact('total', 'trade', 'want'));
+        $owned->cardId = $cardId;
+        $owned->printingId = $printingId;
+        $owned->save();
+
+        return $owned;
+    }
 
     public function card()
     {

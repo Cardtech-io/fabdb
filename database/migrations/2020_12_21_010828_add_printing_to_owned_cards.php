@@ -14,10 +14,10 @@ class AddPrintingToOwnedCards extends Migration
     public function up()
     {
         Schema::table('owned_cards', function (Blueprint $table) {
-            $table->unsignedInteger('printing_id')->after('card_id')->index();
+            $table->unsignedInteger('printing_id')->nullable()->after('card_id')->index();
             $table->unsignedInteger('total')->after('user_id')->index();
-            $table->unsignedInteger('trade')->after('total')->index();
-            $table->unsignedInteger('want')->after('trade')->index();
+            $table->boolean('trade')->after('total')->index();
+            $table->boolean('want')->after('trade')->index();
         });
     }
 

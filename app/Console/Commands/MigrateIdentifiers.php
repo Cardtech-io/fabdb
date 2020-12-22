@@ -46,9 +46,11 @@ class MigrateIdentifiers extends Command
                         // update the card with the identifier, this will be the main card
                         $card->identifier = $identifier;
                         $card->save();
-                    } else {
+                    }
+                    else {
                         $this->info("Card exists for identifier [{$identifier->raw()}]");
                     }
+
                 }
             });
 

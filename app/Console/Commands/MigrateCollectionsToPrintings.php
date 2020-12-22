@@ -52,13 +52,19 @@ class MigrateCollectionsToPrintings extends Command
     private function migrate(OwnedCard $ownedCard, string $finish)
     {
         $identifier = Identifier::generate($ownedCard->card->name, $ownedCard->card->stats)->raw();
+
+        $this->info("Looking for card with identifier [$identifier]");
+
         $card = Card::with('printings')->whereIdentifier($identifier)->first();
 
         $printing = $this->printing($ownedCard, $card, $finish);
 
-//        foreach ($card->printings as $printing) {
-//
-//        }
+        if (!$printing) {
+            $this->error('wtf');
+            return;
+        }
+
+        OwnedCard::add($ownedCard->userId, $card->id, $printing->id, $ownedCard->$finish, false, false);
     }
 
     /**

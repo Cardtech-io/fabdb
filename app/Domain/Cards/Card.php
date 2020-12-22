@@ -65,7 +65,7 @@ class Card extends Model
                 $join->whereNull('stores.deleted_at');
             });
     }
-
+    
     public function rulings()
     {
         return $this->belongsToMany(Ruling::class);
@@ -93,7 +93,7 @@ class Card extends Model
             $card->fill(compact('name', 'keywords', 'stats'));
             $card->save();
         } else {
-            $card = static::create(compact( 'name', 'cycle', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
+            $card = static::create(compact( 'name', 'identifier', 'cycle', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
         }
 
         return $card;
