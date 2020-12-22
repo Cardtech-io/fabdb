@@ -33,7 +33,7 @@ class MigrateListingsToPrintings extends Command
     {
         Listing::with('card')->chunk(50, function($listings) {
             foreach ($listings as $listing) {
-                $identifier = Identifier::fromStats($listing->card->name, $listing->card->stats)->raw();
+                $identifier = Identifier::generate($listing->card->name,)->raw();
 
                 // Now we need to find the first properly matching card that isn't a promo
                 $card = Card::with('printings')->whereIdentifier($identifier)->first();

@@ -34,7 +34,7 @@ class MigrateIdentifiers extends Command
             ->chunk(2500, function($cards) {
                 foreach ($cards as $card) {
                     $this->info("Migrating card with identifier [{$card->identifier->raw()}]");
-                    $identifier = Identifier::fromStats($card->name, $card->stats);
+                    $identifier = Identifier::generate($card->name, $card->stats);
 
                     // see if a card already exists with the required identifier. Cards that are not updated
                     // with the new identifiers, will need to be removed at a later date (and their associated card

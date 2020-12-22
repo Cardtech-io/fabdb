@@ -2,6 +2,24 @@
 
 return [
     'sets' => [
+        'fab' => [
+            'id' => 'fab',
+            'name' => 'Flesh & Blood Promos',
+            'released' => null,
+            'browseable => false'
+        ],
+        'her' => [
+            'id' => 'her',
+            'name' => 'Hero Promos',
+            'released' => null,
+            'browseable => false'
+        ],
+        'lss' => [
+            'id' => 'lss',
+            'name' => 'Legend Story Studios Promos',
+            'released' => null,
+            'browseable => false'
+        ],
         'arc' => [
             'id' => 'arc',
             'name' => 'Arcane Rising',

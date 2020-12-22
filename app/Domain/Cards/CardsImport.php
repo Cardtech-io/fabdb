@@ -57,7 +57,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::fromStats($row['card_name'], $stats);
+            $this->identifier = Identifier::generate($row['card_name'], $this->stats($row));
 
             $this->log("Registering card [{$row['uid']}");
 

@@ -51,10 +51,10 @@ class MigrateCollectionsToPrintings extends Command
 
     private function migrate(OwnedCard $ownedCard, string $finish)
     {
-        $identifier = Identifier::fromStats($ownedCard->card->name, $ownedCard->card->stats)->raw();
+        $identifier = Identifier::generate($ownedCard->card->name, $ownedCard->card->stats)->raw();
         $card = Card::with('printings')->whereIdentifier($identifier)->first();
 
-        $intendedFinish = $this->intendedFinish($ownedCard, $card, $finish);
+        $printing = $this->printing($ownedCard, $card, $finish);
 
 //        foreach ($card->printings as $printing) {
 //
@@ -74,7 +74,7 @@ class MigrateCollectionsToPrintings extends Command
      * @param Card $foundCard
      * @param string $recordedFinish
      */
-    private function intendedFinish(OwnedCard $ownedCard, Card $foundCard, string $recordedFinish)
+    private function printing(OwnedCard $ownedCard, Card $foundCard, string $recordedFinish)
     {
         $this->info("Looking for printing for card [{$foundCard->identifier->raw()}] with recorded finish [$recordedFinish]");
 
@@ -91,13 +91,14 @@ class MigrateCollectionsToPrintings extends Command
 
         $printing = $this->findPrinting($foundCard, $requiredFinish);
 
-        if ($printing) {
-            $this->info("Found printing for card [{$foundCard->identifier->raw()}] with sku [{$printing->sku->raw()}]");
-        } else {
+        if (!$printing) {
             $this->warn("No printing found for card [{$foundCard->identifier->raw()}] with required finish [$requiredFinish]");
+            return false;
         }
 
-//        if ($ownedCard->card->rarity->is(new Rarity('F')));
+        $this->info("Found printing for card [{$foundCard->identifier->raw()}] with sku [{$printing->sku->raw()}]");
+
+        return $printing;
     }
 
     private function findPrinting(Card $foundCard, string $requiredFinish): ?Printing

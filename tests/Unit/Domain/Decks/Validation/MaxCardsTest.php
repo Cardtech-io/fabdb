@@ -56,7 +56,7 @@ class MaxCardsTest extends TestCase
 
     function test_it_has_no_functional_limit_for_open_formats()
     {
-        $card = $this->card('WTR011', '008');
+        $card = $this->card('WTR011', ['008']);
         $card->pivot = (object) ['total' => 3];
 
         $deck = new Deck;

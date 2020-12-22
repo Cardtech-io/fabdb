@@ -14,7 +14,7 @@ class Set
     {
         $this->set = strtolower($set);
 
-        Assert::oneOf($this->set, config('cards.sets'));
+        Assert::oneOf($this->set, arra_keys(config('game.sets')));
     }
 
     public function __toString(): string

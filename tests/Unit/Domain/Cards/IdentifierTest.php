@@ -18,7 +18,7 @@ class IdentifierTest extends TestCase
     {
         $identifier1 = Identifier::fromName('Head Shot (Red)');
         $identifier2 = Identifier::fromName('Head Shot (Yellow)');
-        $identifier3 = Identifier::fromName('Head Shot (Red)');
+        $identifier3 = Identifier::fromName('Head Shot (Blue)');
 
         $this->assertSame('head-shot-red', $identifier1->raw());
         $this->assertSame('head-shot-yellow', $identifier2->raw());

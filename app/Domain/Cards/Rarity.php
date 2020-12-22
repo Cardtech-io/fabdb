@@ -52,4 +52,14 @@ final class Rarity implements \JsonSerializable
     {
         return (string) $this;
     }
+
+    public function token()
+    {
+        return $this->rarity === 'T';
+    }
+
+    public function matches(string ...$rarities)
+    {
+        return in_array($this->rarity, $rarities);
+    }
 }

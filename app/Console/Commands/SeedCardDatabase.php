@@ -63,7 +63,7 @@ class SeedCardDatabase extends Command
                     }
 
                     $saved = Card::register(
-                        Identifier::fromName($variantOf->name, $variantOf->stats),
+                        $this->identifier($row),
                         '',
                         $variantOf->name,
                         '',
@@ -80,7 +80,7 @@ class SeedCardDatabase extends Command
                     Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
                 } else {
                     Card::register(
-                        Identifier::fromString($row['Set'] . str_pad($row['ID'], 3, 0, STR_PAD_LEFT)),
+                        $this->identifier($row),
                         '',
                         $row['Name'],
                         '',
@@ -130,5 +130,10 @@ class SeedCardDatabase extends Command
         if (isset($card[$column]) && $card[$column] != '') {
             $stats[$name] = $card[$column];
         }
+    }
+
+    private function identifier(array $row)
+    {
+        return Identifier::fromString($row['Set'] . str_pad($row['ID'], 3, 0, STR_PAD_LEFT));
     }
 }
