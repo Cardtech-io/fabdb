@@ -21,8 +21,14 @@ class UpdateCardInCollection
      */
     private $printingId;
 
-    public function __construct(int $printingId, int $userId, int $total)
+    /**
+     * @var int
+     */
+    private $cardId;
+
+    public function __construct(int $cardId, int $printingId, int $userId, int $total)
     {
+        $this->cardId = $cardId;
         $this->printingId = $printingId;
         $this->userId = $userId;
         $this->total = $total;
@@ -33,7 +39,7 @@ class UpdateCardInCollection
         if ($this->total === 0) {
             $collection->remove($this->printingId, $this->userId, $this->total);
         } else {
-            return $collection->update($this->printingId, $this->userId, $this->total);
+            return $collection->update($this->cardId, $this->printingId, $this->userId, $this->total);
         }
     }
 }

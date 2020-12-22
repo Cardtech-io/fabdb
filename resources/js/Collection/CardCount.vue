@@ -26,7 +26,7 @@
         computed: {
             total: {
                 get() {
-                    return this.printing.total || 0;
+                    return this.printing.total;
                 },
 
                 set(newValue) {

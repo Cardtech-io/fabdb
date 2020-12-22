@@ -1,5 +1,5 @@
 <template>
-    <button class="py-2 w-1/3 hover:bg-primary hover:text-white" @click="add">+</button>
+    <button class="py-2 w-1/3 rounded hover:bg-primary hover:text-white" @click="add">+</button>
 </template>
 
 <script>

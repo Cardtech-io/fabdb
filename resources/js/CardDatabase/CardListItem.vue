@@ -8,9 +8,9 @@
             <td class="border border-gray-300 px-2">{{ englishFinish(printing.sku.finish) }}</td>
             <td class="border border-gray-300 px-2">{{ printing.set }}</td>
             <td class="border border-gray-300 text-center"><card-count :printing="printing" type="total"></card-count></td>
-            <td class="border border-gray-300 text-center">
-                <div class="inline-block">
-                    <icon :size="5" class="text-green-500">
+            <td class="border border-gray-300 text-center py-2 align-middle">
+                <div class="inline-block border border-gray-400 p-1 mt-1 bg-white rounded">
+                    <icon :size="4" class="text-green-500">
                         <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
                     </icon>
                 </div>

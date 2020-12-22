@@ -29,9 +29,10 @@ class CollectionController extends Controller
         $printing = $printings->findBySku($request->get('sku'));
 
         $this->dispatchNow(new UpdateCardInCollection(
+            $printing->cardId,
             $printing->id,
             $request->user()->id,
-            $request->get('total')
+            (int) $request->get('total')
         ));
     }
 

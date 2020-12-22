@@ -1,5 +1,5 @@
 <template>
-    <button class="py-2 w-1/3" :class="{ 'hover:bg-primary hover:text-white': count > 0, 'text-gray-400': count === 0 }" @click="remove" :disabled="disabled">-</button>
+    <button class="py-2 w-1/3 rounded" :class="{ 'hover:bg-primary hover:text-white': count > 0, 'text-gray-400': count === 0 }" @click="remove" :disabled="disabled">-</button>
 </template>
 
 <script>

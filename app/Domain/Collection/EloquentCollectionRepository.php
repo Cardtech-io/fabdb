@@ -48,7 +48,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
     public function update(int $cardId, int $printingId, int $userId, int $total)
     {
         $ownedCard = $this->newQuery()
-            ->whereCardId($printingId)
+            ->whereCardId($cardId)
             ->wherePrintingId($printingId)
             ->whereUserId($userId)
             ->first();
