@@ -12,7 +12,7 @@ class RemoveCardFromCollection implements Loggable
     /**
      * @var int
      */
-    private $cardId;
+    private $printingId;
 
     /**
      * @var int
@@ -20,25 +20,19 @@ class RemoveCardFromCollection implements Loggable
     private $userId;
 
     /**
-     * @var CardType
-     */
-    private $cardType;
-
-    /**
      * @var int
      */
     private $total;
 
-    public function __construct(int $cardId, int $userId, CardType $cardType, int $total)
+    public function __construct(int $printingId, int $userId, int $total)
     {
-        $this->cardId = $cardId;
+        $this->printingId = $printingId;
         $this->userId = $userId;
-        $this->cardType = $cardType;
         $this->total = $total;
     }
 
     public function handle(CollectionRepository $collection)
     {
-        return $collection->remove($this->cardId, $this->userId, $this->cardType, $this->total);
+        return $collection->remove($this->printingId, $this->userId, $this->total);
     }
 }

@@ -41,7 +41,7 @@
                 }
 
                 this.save = setTimeout(() => {
-                    axios.delete('/collection/' + this.identifier + '/?type=' + this.type + '&total=' + this.total);
+                    axios.delete('/collection/' + this.sku + '?total=' + this.total);
 
                     this.total = 0;
                 }, 1000);

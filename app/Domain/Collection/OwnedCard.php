@@ -19,9 +19,9 @@ class OwnedCard extends Model
     public static function add(int $userId, int $cardId, int $printingId, int $total, bool $trade, bool $want)
     {
         $owned = new OwnedCard(compact('total', 'trade', 'want'));
-        $owned->userId = $userId;
         $owned->cardId = $cardId;
         $owned->printingId = $printingId;
+        $owned->userId = $userId;
         $owned->save();
 
         return $owned;
@@ -39,18 +39,21 @@ class OwnedCard extends Model
 
     public function hasNone()
     {
-        return !$this->standard && !$this->foil && !$this->promo;
+        return !$this->total;
     }
 
-    public function remove(string $type, int $total)
+    public function remove(int $total)
     {
-        $current = $this->$type;
-        $new = $current - $total;
+        $new = $this->total - $total;
 
         if ($new < 0) $new = 0;
 
-        $this->$type = $new;
+        $this->total = $new;
 
-        $this->save();
+        if ($this->hasNone()) {
+            $this->delete();
+        } else {
+            $this->save();
+        }
     }
 }

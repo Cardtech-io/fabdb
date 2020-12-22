@@ -7,7 +7,7 @@
             <td class="border border-gray-300 px-2 pl-8 text-right"><span :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span></td>
             <td class="border border-gray-300 px-2">{{ englishFinish(printing.sku.finish) }}</td>
             <td class="border border-gray-300 px-2">{{ printing.set }}</td>
-            <td class="border border-gray-300 text-center"><card-count :card="card" :printing="printing" type="total"></card-count></td>
+            <td class="border border-gray-300 text-center"><card-count :printing="printing" type="total"></card-count></td>
             <td class="border border-gray-300 text-center">
                 <div class="inline-block">
                     <icon :size="5" class="text-green-500">

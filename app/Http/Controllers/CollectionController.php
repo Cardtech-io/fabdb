@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\CardType;
+use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Collection\AddCardToCollection;
 use FabDB\Domain\Collection\RemoveCardFromCollection;
 use FabDB\Domain\Collection\UpdateCardInCollection;
@@ -11,36 +12,36 @@ use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
-    public function addCard(Request $request, CardRepository $cards)
+    public function addCard(Request $request, PrintingRepository $printings)
     {
-        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
+        $printing = $printings->findBySku($request->get('sku'));
 
         $this->dispatchNow(new AddCardToCollection(
-            $card->id,
+            $printing->cardId,
+            $printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
             $request->get('total', 1)
         ));
     }
 
-    public function updateCard(Request $request, CardRepository $cards)
+    public function updateCard(Request $request, PrintingRepository $printings)
     {
-        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
+        $printing = $printings->findBySku($request->get('sku'));
 
         $this->dispatchNow(new UpdateCardInCollection(
-            $card->id,
+            $printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
             $request->get('total')
         ));
     }
 
-    public function removeCard(Request $request, Card $card)
+    public function removeCard(Request $request, PrintingRepository $printings)
     {
+        $printing = $printings->findBySku($request->sku);
+
         $this->dispatchNow(new RemoveCardFromCollection(
-            $card->id,
+            $printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
             $request->get('total', 1)
         ));
     }

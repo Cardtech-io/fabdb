@@ -14,7 +14,7 @@
     import axios from "axios";
 
     export default {
-        props: ['card', 'printing'],
+        props: ['printing'],
         components: {Add, Remove},
 
         data() {
@@ -26,34 +26,30 @@
         computed: {
             total: {
                 get() {
-                    return this.ownedCard ? this.ownedCard.total : 0;
+                    return this.printing.total || 0;
                 },
 
                 set(newValue) {
-                    this.card[this.type] = newValue;
+                    this.printing.total = newValue;
                     setTimeout(this.save, 2000);
                 }
             },
-
-            ownedCard() {
-                return this.card.ownedCards.filter(ownedCard => ownedCard.printingId === this.printing.id).shift();
-            }
         },
 
         methods: {
             decrement: function(type) {
-                if (this.card[type] - 1 < 0) return;
+                if (this.printing.total - 1 < 0) return;
 
-                this.card[type] -= 1;
+                this.printing.total -= 1;
             },
 
             increment: function(type) {
-                this.card[type] += 1;
+                this.printing.total += 1;
             },
 
             save() {
                 let payload = {
-                    identifier: this.card.identifier,
+                    sku: this.printing.sku.sku,
                     type: this.type,
                     total: this.total
                 };

@@ -24,9 +24,20 @@ class OwnedCardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->with(['ownedCards' => function($query) {
-            $query->whereNotNull('printing_id');
-            $query->where('user_id', $this->user->id);
+        $query->with(['printings' => function($query) {
+            $query->select(
+                'printings.id',
+                'printings.card_id',
+                'printings.sku',
+                'printings.set',
+                'owned_cards.total',
+                'owned_cards.trade',
+                'owned_cards.want'
+            );
+            $query->leftJoin('owned_cards', function($join) {
+                $join->on('owned_cards.printing_id', 'printings.id');
+                $join->where('owned_cards.user_id', $this->user->id);
+            });
         }]);
     }
 }

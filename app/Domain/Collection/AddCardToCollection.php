@@ -29,16 +29,21 @@ class AddCardToCollection implements Loggable
      */
     private $total;
 
-    public function __construct(int $cardId, int $userId, CardType $type, int $total)
+    /**
+     * @var int
+     */
+    private $printingId;
+
+    public function __construct(int $cardId, int $printingId, int $userId, int $total)
     {
         $this->cardId = $cardId;
+        $this->printingId = $printingId;
         $this->userId = $userId;
-        $this->type = $type;
         $this->total = $total;
     }
 
     public function handle(CollectionRepository $collection)
     {
-        return $collection->add($this->cardId, $this->userId, $this->type, $this->total);
+        return $collection->add($this->cardId, $this->printingId, $this->userId, $this->total);
     }
 }

@@ -16,7 +16,7 @@ class PrintingFilter implements SearchFilter
             $join->on('printings.card_id', 'cards.id');
 
             if (isset($input['set']) && $input['set'] != 'all') {
-                $join->where('printings.sku', 'LIKE', '%' . $input['set'] . '%');
+                $join->where('printings.sku', 'LIKE', $input['set'].'%');
             }
         });
 

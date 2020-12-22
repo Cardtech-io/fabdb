@@ -12,52 +12,55 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
         return new OwnedCard;
     }
 
-    public function add(int $cardId, int $userId, CardType $type, int $total)
+    public function add(int $cardId, int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
-
-        $field = $type->name();
+        $ownedCard = $this->newQuery()
+            ->whereCardId($cardId)
+            ->wherePrintingId($printingId)
+            ->whereUserId($userId)
+            ->first();
 
         if (!$ownedCard) {
             $ownedCard = new OwnedCard;
-            $ownedCard->card_id = $cardId;
-            $ownedCard->user_id = $userId;
+            $ownedCard->cardId = $cardId;
+            $ownedCard->printingId = $printingId;
+            $ownedCard->userId = $userId;
         }
 
-        $ownedCard->{$field} += $total;
+        $ownedCard->total += $total;
         $ownedCard->save();
 
         return $ownedCard;
     }
 
-    public function remove(int $cardId, int $userId, CardType $type, int $total)
+    public function remove(int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
-
-        $field = $type->name();
+        $ownedCard = $this->newQuery()
+            ->wherePrintingId($printingId)
+            ->whereUserId($userId)
+            ->first();
 
         if ($ownedCard) {
-            $ownedCard->remove($field, $total);
-
-            if ($ownedCard->hasNone()) {
-                $ownedCard->delete();
-            }
+            $ownedCard->remove($total);
         }
     }
 
-    public function update(int $cardId, int $userId, CardType $type, int $total)
+    public function update(int $cardId, int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
-
-        $field = $type->name();
+        $ownedCard = $this->newQuery()
+            ->whereCardId($printingId)
+            ->wherePrintingId($printingId)
+            ->whereUserId($userId)
+            ->first();
 
         if (!$ownedCard) {
             $ownedCard = new OwnedCard;
-            $ownedCard->card_id = $cardId;
-            $ownedCard->user_id = $userId;
+            $ownedCard->cardId = $cardId;
+            $ownedCard->printingId = $printingId;
+            $ownedCard->userId = $userId;
         }
 
-        $ownedCard->{$field} = $total;
+        $ownedCard->total = $total;
         $ownedCard->save();
 
         return $ownedCard;
