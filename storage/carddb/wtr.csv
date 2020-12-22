@@ -215,7 +215,7 @@ While Stonewall Confidence is in the arena, cards you control with cost [3 resou
 
 At the beginning of your action phase, destroy Stonewall Confidence.
 ",,,"guardian,action,aura",,,3,2,3,,,"standard,rainbow"
-WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,,,standard
+WTR,75,Seismic Surge,T,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,,,,,,standard
 WTR,76,"Katsu, the Wanderer",T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,standard
 WTR,77,Katsu,T,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero,young",20,4,,,,,,standard
 WTR,78,Harmonized Kodachi,T,"**Once per Turn Action** - [resource]: Attack

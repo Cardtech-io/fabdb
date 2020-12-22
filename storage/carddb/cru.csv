@@ -487,7 +487,7 @@ CRU,191,Reinforce the Line,R,Target defending attack action card gains +2[defens
 CRU,192,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,1,2,3,6,,"standard,rainbow"
 CRU,193,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,2,2,3,5,,"standard,rainbow"
 CRU,194,Brutal Assault,C,,"""By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take - Wait. What are you doing? Don't - no!"" - Septus",,"generic,action,attack",,,3,2,3,4,,"standard,rainbow"
-CRU,195,Cracked Bauble,C,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,,,rainbow
+CRU,195,Cracked Bauble,C,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,,,,,,rainbow
 CRU,196,Quicken,C,"*(Auras stay in the arena until they are destroyed.)*
 
 When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,rainbow
