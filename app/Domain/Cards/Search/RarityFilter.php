@@ -14,6 +14,6 @@ class RarityFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->whereRarity(Str::upper($input['rarity']));
+        $query->where('printings.rarity', Str::upper($input['rarity']));
     }
 }

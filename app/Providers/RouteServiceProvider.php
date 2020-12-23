@@ -3,6 +3,7 @@
 namespace FabDB\Providers;
 
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Events\EventRepository;
@@ -45,6 +46,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('event', function($slug) {
             return app(EventRepository::class)->view($slug, @Auth::user()->id);
+        });
+
+        Route::bind('printing', function($sku) {
+            return app(PrintingRepository::class)->findBySku($sku);
         });
     }
 

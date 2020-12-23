@@ -8,6 +8,9 @@ use FabDB\Library\Model;
 class OwnedCard extends Model
 {
     protected $fillable = [
+        'card_id',
+        'user_id',
+        'printing_id',
         'total',
         'trade',
         'want',
@@ -25,6 +28,11 @@ class OwnedCard extends Model
         $owned->save();
 
         return $owned;
+    }
+
+    public function toggle($type)
+    {
+        $this->$type = !$this->$type;
     }
 
     public function card()
@@ -50,10 +58,20 @@ class OwnedCard extends Model
 
         $this->total = $new;
 
-        if ($this->hasNone()) {
+        if ($this->hasNone() && !$this->listed()) {
             $this->delete();
         } else {
             $this->save();
         }
+    }
+
+    /**
+     * Returns true if this owned card is listed, in that it's wanted or willing to be traded.
+     *
+     * @return bool
+     */
+    private function listed(): bool
+    {
+        return $this->trade || $this->want;
     }
 }

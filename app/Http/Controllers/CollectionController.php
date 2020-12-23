@@ -7,6 +7,7 @@ use FabDB\Domain\Cards\CardType;
 use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Collection\AddCardToCollection;
 use FabDB\Domain\Collection\RemoveCardFromCollection;
+use FabDB\Domain\Collection\TogglePrintingList;
 use FabDB\Domain\Collection\UpdateCardInCollection;
 use Illuminate\Http\Request;
 
@@ -36,14 +37,22 @@ class CollectionController extends Controller
         ));
     }
 
-    public function removeCard(Request $request, PrintingRepository $printings)
+    public function removeCard(Request $request)
     {
-        $printing = $printings->findBySku($request->sku);
-
         $this->dispatchNow(new RemoveCardFromCollection(
-            $printing->id,
+            $request->printing->id,
             $request->user()->id,
             $request->get('total', 1)
+        ));
+    }
+
+    public function toggleList(Request $request)
+    {
+        $this->dispatchNow(new TogglePrintingList(
+            $request->printing->cardId,
+            $request->printing->id,
+            $request->user()->id,
+            $request->type
         ));
     }
 }

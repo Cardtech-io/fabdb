@@ -50,6 +50,11 @@ class Sku implements JsonSerializable
         return Finish::fromString((string) Arr::get($matches, 4));
     }
 
+    public function set(): Set
+    {
+        return Set::fromUid($this->raw());
+    }
+
     private function match(string $sku)
     {
         preg_match('/'.$this->regex.'/i', $sku, $matches);
@@ -61,7 +66,8 @@ class Sku implements JsonSerializable
     {
         return [
             'sku' => $this->sku,
-            'finish' => $this->finish()->readable()
+            'finish' => $this->finish()->readable(),
+            'set' => $this->set(),
         ];
     }
 }

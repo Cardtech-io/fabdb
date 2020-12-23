@@ -1,8 +1,8 @@
 <template>
-    <div class="flex items-center text-lg">
+    <div class="flex items-center">
         <remove :sku="printing.sku.sku" :count="total" @card-removed="decrement"></remove>
         <div class="w-1/3">
-            <input type="text" v-model="total" class="w-full bg-transparent text-center outline-none focus:bg-white" :tabindex="index">
+            <input type="text" v-model="total" class="w-full bg-transparent text-center outline-none focus:bg-white px-2" :tabindex="index">
         </div>
         <add :sku="printing.sku.sku" :count="total" @card-added="increment"></add>
     </div>

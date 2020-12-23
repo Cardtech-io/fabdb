@@ -3,7 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use Webmozart\Assert\Assert;
 
-class Set
+class Set implements \JsonSerializable
 {
     /**
      * @var string
@@ -14,7 +14,7 @@ class Set
     {
         $this->set = strtolower($set);
 
-        Assert::oneOf($this->set, arra_keys(config('game.sets')));
+        Assert::oneOf($this->set, array_keys(config('game.sets')));
     }
 
     public function __toString(): string
@@ -29,7 +29,7 @@ class Set
 
     public static function fromUid(string $uid)
     {
-        preg_match('/([A-Z]{3})[0-9]{3}/i', $uid, $matches);
+        preg_match('/((U-)?[A-Z]{3})[0-9]{3}/i', $uid, $matches);
 
         return new self($matches[1]);
     }
@@ -48,5 +48,10 @@ class Set
     public function is(Set $other)
     {
         return $this->set === $other->set;
+    }
+
+    public function jsonSerialize()
+    {
+        return config('game.sets.'.$this->set);
     }
 }

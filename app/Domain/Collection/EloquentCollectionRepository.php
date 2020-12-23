@@ -4,6 +4,7 @@ namespace FabDB\Domain\Collection;
 use FabDB\Domain\Cards\CardType;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Facades\DB;
 
 class EloquentCollectionRepository extends EloquentRepository implements CollectionRepository
 {
@@ -15,9 +16,9 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
     public function add(int $cardId, int $printingId, int $userId, int $total)
     {
         $ownedCard = $this->newQuery()
-            ->whereCardId($cardId)
             ->wherePrintingId($printingId)
             ->whereUserId($userId)
+            ->whereCardId($cardId)
             ->first();
 
         if (!$ownedCard) {
@@ -48,9 +49,9 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
     public function update(int $cardId, int $printingId, int $userId, int $total)
     {
         $ownedCard = $this->newQuery()
-            ->whereCardId($cardId)
             ->wherePrintingId($printingId)
             ->whereUserId($userId)
+            ->whereCardId($cardId)
             ->first();
 
         if (!$ownedCard) {
@@ -64,5 +65,21 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
         $ownedCard->save();
 
         return $ownedCard;
+    }
+
+    public function toggleList(int $cardId, int $printingId, int $userId, string $type)
+    {
+        DB::transaction(function() use ($cardId, $userId, $printingId, $type) {
+            $payload = [
+                'printing_id' => $printingId,
+                'user_id' => $userId,
+                'card_id' => $cardId
+            ];
+
+            $ownedCard = OwnedCard::firstOrNew($payload, $payload);
+            $ownedCard->toggle($type);
+
+            $this->save($ownedCard);
+        });
     }
 }

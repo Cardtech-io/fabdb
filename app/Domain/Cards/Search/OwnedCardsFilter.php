@@ -38,6 +38,7 @@ class OwnedCardsFilter implements SearchFilter
                 $join->on('owned_cards.printing_id', 'printings.id');
                 $join->where('owned_cards.user_id', $this->user->id);
             });
+            $query->orderBy('printings.sku');
         }]);
     }
 }

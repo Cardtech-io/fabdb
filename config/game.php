@@ -2,6 +2,30 @@
 
 return [
     'sets' => [
+        'bvo' => [
+            'id' => 'bvo',
+            'name' => 'Bravo Hero Deck',
+            'released' => '2019-10-11',
+            'browseable' => false,
+        ],
+        'ksu' => [
+            'id' => 'ksu',
+            'name' => 'Katsu Hero Deck',
+            'released' => '2019-10-11',
+            'browseable' => false,
+        ],
+        'rnr' => [
+            'id' => 'rnr',
+            'name' => 'Rhinar Hero Deck',
+            'released' => '2019-10-11',
+            'browseable' => false,
+        ],
+        'tea' => [
+            'id' => 'tea',
+            'name' => 'Dorinthea Hero Deck',
+            'released' => '2019-10-11',
+            'browseable' => false,
+        ],
         'fab' => [
             'id' => 'fab',
             'name' => 'Flesh & Blood Promos',
