@@ -14,7 +14,7 @@ class CardResource extends JsonResource
         $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'next', 'prev']);
         $response['image'] = $this->image($this->resource);
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
-        $response['listings'] = $this->whenLoaded('listings');
+        $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');
         $response['variants'] = CardResource::collection($this->whenLoaded('variants'));
         $response['variantOf'] = new CardResource($this->whenLoaded('variantOf'));

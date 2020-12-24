@@ -109,18 +109,20 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $query->firstOrFail();
     }
 
-    public function view(string $identifier): Card
+    public function view(string $identifier, array $related = []): Card
     {
         $card = $this->findByIdentifier($identifier);
 
         $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
         $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
 
-        $card->load(['listings', 'listings.store', 'rulings', 'variants' => function($query) {
+        $related = array_merge(['rulings', 'variants' => function($query) {
             $query->select('cards.identifier');
         }, 'variantOf' => function($query) {
             $query->select('cards.identifier');
-        }]);
+        }], $related);
+
+        $card->load($related);
 
         return $card;
     }

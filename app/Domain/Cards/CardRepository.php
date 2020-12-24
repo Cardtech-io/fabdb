@@ -16,9 +16,10 @@ interface CardRepository extends Repository
      * View a specific card, and retrieve the previous/next card ids, as well.
      *
      * @param string $identifier
+     * @param array $related
      * @return Card
      */
-    public function view(string $identifier): Card;
+    public function view(string $identifier, array $related = []): Card;
 
     /**
      * Returns a card with the data needed for an ad.

@@ -25,6 +25,9 @@ final class Identifier implements \JsonSerializable
     {
         $matches = self::matches($identifier);
 
+        if (!isset($matches[0])) {
+            dd($identifier);
+        }
         return new self($matches[0], $matches[1]);
     }
 
@@ -41,7 +44,7 @@ final class Identifier implements \JsonSerializable
      * @param string $candidate
      * @return array
      */
-    public static function matches(string $candidate): array
+    public static function  matches(string $candidate): array
     {
         preg_match(self::PATTERN, $candidate, $matches);
 
