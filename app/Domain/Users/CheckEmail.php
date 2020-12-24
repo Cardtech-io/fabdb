@@ -5,7 +5,7 @@ use FabDB\Library\Dispatchable;
 use FabDB\Library\Loggable;
 use FabDB\Library\LogsParams;
 
-class AuthenticateUser implements Loggable
+class CheckEmail implements Loggable
 {
     use Dispatchable;
     use LogsParams;
@@ -30,18 +30,25 @@ class AuthenticateUser implements Loggable
     {
         $user = $users->findByEmail($this->email);
 
-        if (! $user) {
-            $user = User::register($this->email);
-            $this->observer->registered();
-        } else {
-            $user->auth();
-            $this->observer->codeRequested();
+        if (!$user) {
+            $this->observer->registrationRequired();
+            return;
         }
 
+        if ($user->hasPassword()) {
+            $this->observer->passwordRequired();
+            return;
+        }
+
+        $this->requestCode($users, $user);
+        $this->observer->codeRequested();
+    }
+
+    private function requestCode(UserRepository $users, User $user)
+    {
+        $user->auth();
         $users->save($user);
 
         $this->dispatch($user->releaseEvents());
-
-        return $user;
     }
 }

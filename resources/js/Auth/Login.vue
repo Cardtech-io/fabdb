@@ -9,20 +9,34 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto">
                 <div class="bg-white p-8 pb-16">
-                    <div v-if="!submitted">
+                    <div v-if="step === 'first'">
                         <form @submit.prevent="submitEmail()">
-                            <div class="flex mb-8">
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
-                                <input type="submit" class="w-1/3 p-4 button-primary rounded-r-lg" value="Send code">
+                            <div class="flex mb-4">
+                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-3/4 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
+                                <input type="submit" class="w-1/4 p-4 button-primary rounded-r-lg" value="Next">
                             </div>
 
-                            <p>Some features on FaB DB require an account. Registration/login is super easy! Just
-                                provide your email and grab the code sent to you in a few moments. If you do not yet
-                                have an account, we'll create one for you. If you already have one, we'll simply send you
-                                a new authentication code. You do not require a separate password.</p>
+                            <p>
+                                Some features on FaB DB require an account. Registration &amp; login is super easy! Just
+                                provide your email address and we'll take it from here!
+                            </p>
                         </form>
                     </div>
-                    <div v-else>
+                    <div v-if="step === 'registration-required'">
+                        <form @submit.prevent="register()">
+                            <div class="mb-4">
+                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-full p-4 rounded-l-lg mb-2" placeholder="Email address" v-model="email" required="required" readonly>
+                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-full p-4 rounded-l-lg mb-2" placeholder="Confirm email" v-model="email_confirmation" required="required">
+                                <input type="submit" class="w-full p-4 button-primary rounded-lg" value="Confirm email">
+                            </div>
+
+                            <p>
+                                Please confirm your email address. We'll send you a login code to confirm your email.
+                                Once completed, you may if you wish configure your account to use a password instead.
+                            </p>
+                        </form>
+                    </div>
+                    <div v-if="step === 'validateCode'">
                         <form @submit.prevent="submitCode()">
                             <div class="flex mb-8">
                                 <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code" required="required">
@@ -52,7 +66,7 @@
             return {
                 code: '',
                 email: '',
-                submitted: false
+                step: 'first'
             }
         },
 
@@ -61,12 +75,8 @@
             ...mapActions('session', ['setUser']),
 
             submitEmail: function() {
-                axios.post('/authenticate/', { email: this.email }).then(response => {
-                    this.submitted = true;
-
-                    const action = response.data.registered ? 'Registered' : 'Code requested';
-
-                    Tracker.track('Authentication', action);
+                axios.post('/check-email/', {email: this.email}).then(response => {
+                    this.step = response.data.status;
                 }).catch(error => {
                     if (error.response.status === 422) {
                         let errors = error.response.data.errors;

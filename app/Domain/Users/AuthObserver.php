@@ -3,6 +3,11 @@ namespace FabDB\Domain\Users;
 
 class AuthObserver
 {
+    /**
+     * @var string
+     */
+    private $status;
+
     private $registered;
     private $user;
 
@@ -13,12 +18,7 @@ class AuthObserver
 
     public function codeRequested()
     {
-        $this->registered = false;
-    }
-
-    public function result(): bool
-    {
-        return $this->registered;
+        $this->status = 'code-requested';
     }
 
     public function codeValidated(User $user)
@@ -29,5 +29,20 @@ class AuthObserver
     public function user(): User
     {
         return $this->user;
+    }
+
+    public function registrationRequired()
+    {
+        $this->status = 'registration-required';
+    }
+
+    public function passwordRequired()
+    {
+        $this->status = 'password-required';
+    }
+
+    public function status(): string
+    {
+        return $this->status;
     }
 }

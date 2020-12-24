@@ -1,7 +1,7 @@
 <?php
 namespace FabDB\Http\Controllers;
 
-use FabDB\Domain\Users\AuthenticateUser;
+use FabDB\Domain\Users\CheckEmail;
 use FabDB\Domain\Users\AuthObserver;
 use FabDB\Domain\Users\ValidateAuthenticationCode;
 use FabDB\Http\Requests\AuthenticationRequest;
@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function authenticate(AuthenticationRequest $request)
+    public function checkEmail(AuthenticationRequest $request)
     {
-        $this->dispatchNow(new AuthenticateUser($observer = new AuthObserver, $request->get('email')));
+        $this->dispatchNow(new CheckEmail($observer = new AuthObserver, $request->get('email')));
 
-        return ['registered' => $observer->result()];
+        return ['status' => $observer->status()];
     }
 
     public function validateCode(Request $request)

@@ -42,7 +42,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('featured/top', 'FeatureController@top');
         Route::get('market/{card}', 'MarketController@cardTrend');
 
-        Route::post('authenticate', 'AuthController@authenticate');
+        Route::post('check-email', 'AuthController@checkEmail');
         Route::post('validate', 'AuthController@validateCode');
         Route::delete('authenticate', 'AuthController@logout');
 
