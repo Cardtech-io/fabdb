@@ -13,6 +13,7 @@
     import axios from "axios";
     import {mapActions} from "vuex";
     import Submit from "../../Components/Form/Submit";
+    import SuccessfulAuth from "./SuccessfulAuth";
     import Tracker from "../../Components/Tracker";
 
     export default {
@@ -22,6 +23,10 @@
                 type: String
             }
         },
+
+        mixins: [
+            SuccessfulAuth
+        ],
 
         components: {
             Submit
@@ -38,17 +43,9 @@
             ...mapActions('session', ['setUser']),
 
             submitCode: function() {
-                axios.post('/validate/', { email: this.email, code: this.code }).then(response => {
-                    Tracker.track('Authentication', 'Authenticated');
-
-                    const user = response.data.user;
-                    const from = this.$route.query.from || '/decks/build';
-
-                    window.session.user = user;
-
-                    this.setUser({ user: user });
-
-                    window.location = from;
+                axios.post('/auth/validate/', { email: this.email, code: this.code }).then(response => {
+                    Tracker.track('Authentication', 'Authenticated code');
+                    this.success(response.data.user);
                 }).catch(error => {
                     if (error.response.status === 404) {
                         this.addMessage({ status: 'error', message: 'The auth code you have provided is incorrect. Please check to that you have not copied it correctly.' });

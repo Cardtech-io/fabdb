@@ -42,9 +42,10 @@ Route::middleware(['web'])->group(function() {
         Route::get('featured/top', 'FeatureController@top');
         Route::get('market/{card}', 'MarketController@cardTrend');
 
-        Route::post('check-email', 'AuthController@checkEmail');
-        Route::post('validate', 'AuthController@validateCode');
-        Route::delete('authenticate', 'AuthController@logout');
+        Route::post('auth/check-email', 'AuthController@checkEmail');
+        Route::post('auth/validate', 'AuthController@validateCode');
+        Route::post('auth/password', 'AuthController@validatePassword');
+        Route::delete('auth/session', 'AuthController@logout');
 
         Route::get('users/{user}', 'UserController@view');
 

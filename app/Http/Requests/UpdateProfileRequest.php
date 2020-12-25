@@ -13,6 +13,8 @@ class UpdateProfileRequest extends FormRequest
             'name' => ['nullable', 'alpha_spaces'],
             'gemId' => ['nullable', 'numeric'],
             'width' => ['required', 'in:narrow,wide'],
+            'oldPassword' => ['password'],
+            'newPassword' => ['required_with:oldPassword', 'confirmed', 'min:8', 'regex:/[\!\?><,.]+/i'],
         ];
     }
 }

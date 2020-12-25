@@ -35,7 +35,7 @@ class CheckEmail implements Loggable
             return;
         }
 
-        if ($user->hasPassword()) {
+        if ($user->hasPassword) {
             $this->observer->passwordRequired();
             return;
         }

@@ -27,7 +27,7 @@
                             <label class="block font-serif uppercase tracking-wide mb-1">Email address</label>
                             <input type="email" v-model="email" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
                         </div>
-                        <button v-if="!changePassword" class="button-primary py-3 px-4 mt-4 rounded-lg" @click="changePassword = true">I'd like to add or change my password</button>
+                        <button v-if="!changePassword" class="button-secondary text-sm py-3 px-4 mt-4 rounded-lg" @click="changePassword = true">I'd like to add or change my password</button>
                         <div v-if="changePassword" class="p-4 bg-gray-100 rounded-lg mt-4">
                             <div class="w-full mb-4" v-if="user.hasPassword">
                                 <label class="block font-serif uppercase tracking-wide mb-1">Old password</label>
@@ -41,6 +41,7 @@
                                 <label class="block font-serif uppercase tracking-wide mb-1">Confirm password</label>
                                 <input type="password" v-model="newPasswordConfirmation" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
                             </div>
+                            <p class="border border-blue-500 text-blue-500 p-2 rounded-lg text-sm mt-4">At FaB DB we take security seriously. Your password must be at least 8 characters long, and consist of at least 1 non-alpha character (!?<>.,)</p>
                         </div>
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
@@ -291,6 +292,7 @@
                     if (error.response.status === 422) {
                         this.addValidationMessages({messages: error.response.data.errors});
                     }
+                    this.saving = false;
                 });
             }
         },

@@ -32,7 +32,7 @@
             ...mapActions('messages', ['addMessage']),
 
             checkEmail() {
-                axios.post('/check-email/', {email: this.email}).then(response => {
+                axios.post('/auth/check-email', {email: this.email}).then(response => {
                     this.$emit('email-changed', this.email);
                     this.$emit('status-changed', response.data.status);
                 }).catch(error => {

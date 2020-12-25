@@ -12,6 +12,7 @@
                     <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"></check-email>
                     <register v-if="step === 'registration-required'" :email="email"></register>
                     <validate-code v-if="step === 'code-requested'" :email="email"></validate-code>
+                    <enter-password v-if="step === 'password-required'" :email="email"></enter-password>
                 </div>
             </div>
         </div>
@@ -24,9 +25,10 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Register from "./Login/Register";
     import ValidateCode from "./Login/ValidateCode";
+    import EnterPassword from "./Login/EnterPassword";
 
     export default {
-        components: {CheckEmail, HeaderTitle, Register, ValidateCode},
+        components: {CheckEmail, EnterPassword, HeaderTitle, Register, ValidateCode},
 
         data() {
             return {

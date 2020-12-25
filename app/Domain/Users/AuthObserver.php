@@ -26,6 +26,11 @@ class AuthObserver
         $this->user = $user;
     }
 
+    public function passwordValidated(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function user(): User
     {
         return $this->user;
