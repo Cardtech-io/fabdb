@@ -24,6 +24,7 @@ class User extends Model implements Authenticatable
     protected $fillable = [
         'email',
         'name',
+        'password',
         'gemId',
         'view',
         'width',
@@ -36,10 +37,13 @@ class User extends Model implements Authenticatable
 
     protected $hidden = [
         'id',
+        'password',
         'created_at',
         'updated_at',
         'token'
     ];
+
+    protected $appends = ['hasPassword'];
 
     public static function register($email)
     {
@@ -61,9 +65,15 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
+    public function getHasPasswordAttribute(): bool
+    {
+        return $this->password !== null;
+    }
+
+    public function updateProfile($email, $newPassword, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
     {
         $this->email = $email;
+        $this->password = $newPassword;
         $this->name = $name;
         $this->gemId = $gemId;
         $this->currency = $currency;
@@ -127,5 +137,12 @@ class User extends Model implements Authenticatable
     public function subscribed()
     {
         return !is_null($this->subscription);
+    }
+
+    public function setPasswordAttribute(string $password)
+    {
+        if (empty($password)) return;
+
+        $this->attributes['password'] = bcrypt($password);
     }
 }

@@ -8,44 +8,10 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto">
-                <div class="bg-white p-8 pb-16">
-                    <div v-if="step === 'first'">
-                        <form @submit.prevent="submitEmail()">
-                            <div class="flex mb-4">
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-3/4 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
-                                <input type="submit" class="w-1/4 p-4 button-primary rounded-r-lg" value="Next">
-                            </div>
-
-                            <p>
-                                Some features on FaB DB require an account. Registration &amp; login is super easy! Just
-                                provide your email address and we'll take it from here!
-                            </p>
-                        </form>
-                    </div>
-                    <div v-if="step === 'registration-required'">
-                        <form @submit.prevent="register()">
-                            <div class="mb-4">
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-full p-4 rounded-l-lg mb-2" placeholder="Email address" v-model="email" required="required" readonly>
-                                <input type="email" class="input focus:bg-white focus:border-gray-500 w-full p-4 rounded-l-lg mb-2" placeholder="Confirm email" v-model="email_confirmation" required="required">
-                                <input type="submit" class="w-full p-4 button-primary rounded-lg" value="Confirm email">
-                            </div>
-
-                            <p>
-                                Please confirm your email address. We'll send you a login code to confirm your email.
-                                Once completed, you may if you wish configure your account to use a password instead.
-                            </p>
-                        </form>
-                    </div>
-                    <div v-if="step === 'validateCode'">
-                        <form @submit.prevent="submitCode()">
-                            <div class="flex mb-8">
-                                <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code" required="required">
-                                <input type="submit" class="w-1/3 p-4 rounded-r-lg button-primary text-center" value="Login">
-                            </div>
-
-                            <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above.</p>
-                        </form>
-                    </div>
+                <div class="bg-white p-4 pb-16">
+                    <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"></check-email>
+                    <register v-if="step === 'registration-required'" :email="email"></register>
+                    <validate-code v-if="step === 'code-requested'" :email="email"></validate-code>
                 </div>
             </div>
         </div>
@@ -53,18 +19,17 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import { mapActions } from 'vuex';
+    import CheckEmail from "./Login/CheckEmail";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import NProgress from 'nprogress';
-    import Tracker from '../Components/Tracker';
+    import Register from "./Login/Register";
+    import ValidateCode from "./Login/ValidateCode";
 
     export default {
-        components: { HeaderTitle },
+        components: {CheckEmail, HeaderTitle, Register, ValidateCode},
 
         data() {
             return {
-                code: '',
                 email: '',
                 step: 'first'
             }
@@ -74,38 +39,12 @@
             ...mapActions('messages', ['addMessage']),
             ...mapActions('session', ['setUser']),
 
-            submitEmail: function() {
-                axios.post('/check-email/', {email: this.email}).then(response => {
-                    this.step = response.data.status;
-                }).catch(error => {
-                    if (error.response.status === 422) {
-                        let errors = error.response.data.errors;
-                        for (let i in errors) {
-                            for (let x in errors[i]) {
-                                this.addMessage({ status: 'error', message: errors[i][x] });
-                            }
-                        }
-                    }
-                });
+            updateEmail(email) {
+                this.email = email;
             },
 
-            submitCode: function() {
-                axios.post('/validate/', { email: this.email, code: this.code }).then(response => {
-                    Tracker.track('Authentication', 'Authenticated');
-
-                    const user = response.data.user;
-                    const from = this.$route.query.from || '/decks/build';
-
-                    window.session.user = user;
-
-                    this.setUser({ user: user });
-
-                    window.location = from;
-                }).catch(error => {
-                    if (error.response.status === 404) {
-                        this.addMessage({ status: 'error', message: 'The auth code you have provided is incorrect. Please check to that you have not copied it correctly.' });
-                    }
-                });
+            updateStep(stepChange) {
+                this.step = stepChange;
             }
         },
     }
