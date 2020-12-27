@@ -67,7 +67,7 @@ class User extends Model implements Authenticatable
 
     public function getHasPasswordAttribute(): bool
     {
-        return $this->password !== null;
+        return !empty($this->password);
     }
 
     public function updateProfile($email, $newPassword, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)

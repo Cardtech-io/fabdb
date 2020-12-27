@@ -10,8 +10,8 @@
             <div class="container sm:mx-auto">
                 <div class="bg-white p-4 pb-16">
                     <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"></check-email>
-                    <register v-if="step === 'registration-required'" :email="email"></register>
-                    <validate-code v-if="step === 'code-requested'" :email="email"></validate-code>
+                    <register v-if="step === 'registration-required'" :email="email"@status-changed="updateStep"></register>
+                    <validate-code v-if="step === 'code-requested' || step === 'user-registered'" :email="email"></validate-code>
                     <enter-password v-if="step === 'password-required'" :email="email"></enter-password>
                 </div>
             </div>

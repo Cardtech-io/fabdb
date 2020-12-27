@@ -3,9 +3,10 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Users\CheckEmail;
 use FabDB\Domain\Users\AuthObserver;
+use FabDB\Domain\Users\RegisterUser;
 use FabDB\Domain\Users\ValidateAuthenticationCode;
-use FabDB\Domain\Users\ValidatePassword;
 use FabDB\Http\Requests\AuthenticationRequest;
+use FabDB\Http\Requests\RegistrationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,13 @@ class AuthController extends Controller
         ));
 
         return ['user' => $observer->user()];
+    }
+
+    public function register(RegistrationRequest $request)
+    {
+        $this->dispatchNow(new RegisterUser($observer = new AuthObserver, $request->get('email')));
+
+        return ['status' => $observer->status()];
     }
 
     public function validatePassword(Request $request)

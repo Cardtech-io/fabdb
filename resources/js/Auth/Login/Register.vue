@@ -40,8 +40,8 @@
             ...mapActions('messages', ['addMessage']),
 
             register() {
-                axios.post('/register/', {email: this.email, emailConfirmation: this.emailConfirmation}).then(response => {
-                    this.step = response.data.status;
+                axios.post('/auth/register', {email: this.email, email_confirmation: this.emailConfirmation}).then(response => {
+                    this.$emit('status-changed', response.data.status);
                 }).catch(error => {
                     if (error.response.status === 422) {
                         let errors = error.response.data.errors;

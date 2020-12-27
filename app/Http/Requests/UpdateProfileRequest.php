@@ -14,7 +14,7 @@ class UpdateProfileRequest extends FormRequest
             'gemId' => ['nullable', 'numeric'],
             'width' => ['required', 'in:narrow,wide'],
             'oldPassword' => ['password'],
-            'newPassword' => ['required_with:oldPassword', 'confirmed', 'min:8', 'regex:/[\!\?><,.]+/i'],
+            'newPassword' => ['confirmed', 'min:8', 'regex:/[\!\?><,.]+/i'],
         ];
     }
 }

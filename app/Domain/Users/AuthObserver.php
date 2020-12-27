@@ -8,12 +8,12 @@ class AuthObserver
      */
     private $status;
 
-    private $registered;
+    /** @var ?User */
     private $user;
 
     public function registered()
     {
-        $this->registered = true;
+        $this->status = 'user-registered';
     }
 
     public function codeRequested()
