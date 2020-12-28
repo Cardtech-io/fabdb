@@ -1,6 +1,6 @@
 <template>
-    <div class="container px-4 py-0 sm:mx-auto sm:px-0 text-white flex flex-col">
-        <div class="px-8 my-10 rounded-xl sm:mt-20">
+    <div class="sm:max-w-3/4 px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
+        <div class="my-10">
             <router-link to="/">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 45" class="fill-current h-24 mx-auto">
                     <g fill="#FFF" fill-rule="evenodd">
