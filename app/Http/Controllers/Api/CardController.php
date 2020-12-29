@@ -13,6 +13,8 @@ class CardController extends \FabDB\Http\Controllers\CardController
             $request->merge(['per_page' => 25]);
         }
 
+        $request->
+
         $cards = $cards->search($request->user(), $request->all())
             ->paginate($request->get('per_page'))
             ->withPath('/'.$request->path())
