@@ -44,4 +44,11 @@ class CollectionController extends Controller
             $request->get('total', 1)
         ));
     }
+
+    public function clarify(Request $request)
+    {
+        $user = $request->user();
+        $user->clarification = $request->get('clarification');
+        $user->save();
+    }
 }

@@ -61,6 +61,7 @@ Route::middleware(['web'])->group(function() {
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{card}', 'CollectionController@removeCard');
             Route::put('collection', 'CollectionController@updateCard');
+            Route::post('collection/clarify', 'CollectionController@clarify');
 
             Route::get('events', 'EventController@list');
             Route::post('events', 'EventController@setup');

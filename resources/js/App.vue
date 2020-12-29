@@ -86,8 +86,8 @@
         },
 
         watch: {
-            user(newValue, oldValue) {
-                if (newValue && !newValue.clarification) {
+            user(user, oldValue) {
+                if (user && user.hasCollection && !user.clarification) {
                     this.$modal.show('collection-clarification');
                 }
             }

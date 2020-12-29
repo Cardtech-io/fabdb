@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -43,8 +44,12 @@ class User extends Model implements Authenticatable
         'token'
     ];
 
-    protected $appends = ['hasPassword'];
+    protected $appends = ['hasCollection', 'hasPassword'];
 
+    public function ownedCards()
+    {
+        return $this->hasMany(OwnedCard::class);
+    }
     public static function register($email)
     {
         $user = new User(['email' => $email]);
@@ -63,6 +68,11 @@ class User extends Model implements Authenticatable
     public function clearToken()
     {
         $this->token = null;
+    }
+
+    public function getHasCollectionAttribute(): bool
+    {
+        return !empty($this->ownedCards()->count());
     }
 
     public function getHasPasswordAttribute(): bool
