@@ -1,5 +1,5 @@
 <template>
-    <div :style="style">
+    <div :style="style" class="mx-auto">
         <div ref="ad"></div>
     </div>
 </template>
