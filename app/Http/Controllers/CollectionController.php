@@ -55,4 +55,11 @@ class CollectionController extends Controller
             $request->type
         ));
     }
+
+    public function clarify(Request $request)
+    {
+        $user = $request->user();
+        $user->clarification = $request->get('clarification');
+        $user->save();
+    }
 }

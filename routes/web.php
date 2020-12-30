@@ -42,9 +42,11 @@ Route::middleware(['web'])->group(function() {
         Route::get('featured/top', 'FeatureController@top');
         Route::get('market/{card}', 'MarketController@cardTrend');
 
-        Route::post('authenticate', 'AuthController@authenticate');
-        Route::post('validate', 'AuthController@validateCode');
-        Route::delete('authenticate', 'AuthController@logout');
+        Route::post('auth/check-email', 'AuthController@checkEmail');
+        Route::post('auth/validate', 'AuthController@validateCode');
+        Route::post('auth/register', 'AuthController@register');
+        Route::post('auth/password', 'AuthController@validatePassword');
+        Route::delete('auth/session', 'AuthController@logout');
 
         Route::get('users/{user}', 'UserController@view');
 
@@ -60,6 +62,7 @@ Route::middleware(['web'])->group(function() {
             Route::delete('collection/{printing}', 'CollectionController@removeCard');
             Route::post('collection/{printing}/{type}', 'CollectionController@toggleList');
             Route::put('collection', 'CollectionController@updateCard');
+            Route::post('collection/clarify', 'CollectionController@clarify');
 
             Route::get('events', 'EventController@list');
             Route::post('events', 'EventController@setup');

@@ -1,5 +1,4 @@
 <?php
-
 namespace FabDB\Domain\Users;
 
 trait UserAuthenticatable
@@ -31,7 +30,7 @@ trait UserAuthenticatable
      */
     public function getAuthPassword()
     {
-
+        return $this->password;
     }
 
     /**

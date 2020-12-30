@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Users;
 
+use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
@@ -24,6 +25,7 @@ class User extends Model implements Authenticatable
     protected $fillable = [
         'email',
         'name',
+        'password',
         'gemId',
         'view',
         'width',
@@ -36,11 +38,18 @@ class User extends Model implements Authenticatable
 
     protected $hidden = [
         'id',
+        'password',
         'created_at',
         'updated_at',
         'token'
     ];
 
+    protected $appends = ['hasCollection', 'hasPassword'];
+
+    public function ownedCards()
+    {
+        return $this->hasMany(OwnedCard::class);
+    }
     public static function register($email)
     {
         $user = new User(['email' => $email]);
@@ -61,9 +70,20 @@ class User extends Model implements Authenticatable
         $this->token = null;
     }
 
-    public function updateProfile($email, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
+    public function getHasCollectionAttribute(): bool
+    {
+        return !empty($this->ownedCards()->count());
+    }
+
+    public function getHasPasswordAttribute(): bool
+    {
+        return !empty($this->password);
+    }
+
+    public function updateProfile($email, $newPassword, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
     {
         $this->email = $email;
+        $this->password = $newPassword;
         $this->name = $name;
         $this->gemId = $gemId;
         $this->currency = $currency;
@@ -127,5 +147,12 @@ class User extends Model implements Authenticatable
     public function subscribed()
     {
         return !is_null($this->subscription);
+    }
+
+    public function setPasswordAttribute(string $password)
+    {
+        if (empty($password)) return;
+
+        $this->attributes['password'] = bcrypt($password);
     }
 }

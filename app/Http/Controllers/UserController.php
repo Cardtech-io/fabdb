@@ -17,6 +17,7 @@ class UserController extends Controller
         $this->dispatchNow(new UpdateProfile(
             $request->user()->id,
             $request->get('email'),
+            $request->get('newPassword'),
             $request->get('name'),
             $request->get('gemId'),
             $request->get('currency'),

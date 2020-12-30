@@ -11,7 +11,7 @@
                 <header class="flex w-full">
                     <div class="flex items-center">
                         <span class="mr-4 font-bold">{{ comment.name }}</span>
-                        <badge :subscription-level="comment.subscription" size="small"></badge>
+                        <badge :subscription-level="comment.subscription" size="small" v-if="comment.subscription"></badge>
                     </div>
                     <div class="text-gray-500 text-sm text-right">{{ comment.createdAt }}</div>
                 </header>

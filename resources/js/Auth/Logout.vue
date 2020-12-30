@@ -8,7 +8,7 @@
 
     export default {
         mounted() {
-            axios.delete('/authenticate').then(() => {
+            axios.delete('/auth/session').then(() => {
                 window.session.user = null;
                 this.setUser({ user: null });
                 this.$router.push('/');
