@@ -27,7 +27,10 @@ class EloquentPackRepository extends EloquentRepository implements PackRepositor
             throw new MustDefineSet;
         }
 
-        return parent::newQuery()->where('identifier', 'LIKE', $this->set->uppercase().'%');
+        return parent::newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->groupBy('cards.id')
+            ->where('sku', 'LIKE', '%'.$this->set->uppercase().'%');
     }
 
     public function getRandomCommons($class, int $num): Collection
@@ -35,8 +38,8 @@ class EloquentPackRepository extends EloquentRepository implements PackRepositor
         $operator = $class == 'generic' ? '=' : '<>';
 
         return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity('C')
+            ->select('cards.id', 'cards.identifier', 'cards.name')
+            ->where('cards.rarity', 'C')
             ->whereRaw("REPLACE(JSON_EXTRACT(keywords, '$[0]'), '\"', '') $operator 'generic'")
             ->whereRaw("REPLACE(JSON_EXTRACT(keywords, '$[1]'), '\"', '') NOT IN ('hero', 'equipment')")
             ->orderBy(DB::raw('RAND()'))
@@ -47,8 +50,8 @@ class EloquentPackRepository extends EloquentRepository implements PackRepositor
     public function getRandomEquipmentCommon(): Card
     {
         return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity('C')
+            ->select('cards.id', 'cards.identifier', 'cards.name')
+            ->where('cards.rarity', 'C')
             ->where(DB::raw("JSON_EXTRACT(keywords, '$[1]')"), 'equipment')
             ->orderBy(DB::raw('RAND()'))
             ->first();
@@ -57,12 +60,12 @@ class EloquentPackRepository extends EloquentRepository implements PackRepositor
     public function getRandom(Rarity $rarity, array $exclude = []): Card
     {
         $query = $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->whereRarity($rarity)
+            ->select('cards.id', 'cards.identifier', 'cards.name')
+            ->where('cards.rarity', $rarity)
             ->orderBy(DB::raw('RAND()'));
 
         if ($exclude) {
-            $query->whereNotIn('id', $exclude);
+            $query->whereNotIn('cards.id', $exclude);
         }
 
         return $query->first();
@@ -71,8 +74,8 @@ class EloquentPackRepository extends EloquentRepository implements PackRepositor
     public function getRandomFoil(): Card
     {
         return $this->newQuery()
-            ->select('id', 'identifier', 'name')
-            ->where('rarity', '!=', 'T')
+            ->select('cards.id', 'cards.identifier', 'cards.name')
+            ->where('cards.rarity', '!=', 'T')
             ->where(DB::raw("JSON_EXTRACT(keywords, '$[1]')"), '<>', 'hero')
             ->orderBy(DB::raw('RAND()'))
             ->first();

@@ -60,7 +60,7 @@ return [
             'id' => 'u-arc',
             'name' => 'Arcane Rising (Unlimited)',
             'released' => '2020-11-20',
-            'browseable' => true,
+            'browseable' => false,
         ],
         'ira' => [
             'id' => 'ira',
@@ -84,7 +84,7 @@ return [
             'id' => 'u-wtr',
             'name' => 'Welcome to Rathe (Unlimited)',
             'released' => '2020-11-06',
-            'browseable' => true,
+            'browseable' => false,
         ],
     ],
 
