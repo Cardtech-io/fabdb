@@ -50,10 +50,9 @@ class MigrateIdentifiers extends Command
                     else {
                         $this->info("Card exists for identifier [{$identifier->raw()}]");
                     }
-
                 }
             });
 
-        return 0;
+        return 1;
     }
 }

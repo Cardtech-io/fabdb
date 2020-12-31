@@ -122,7 +122,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $card->prev = $this->nextOrPrevCard($card, 'prev')->identifier;
 
         $card->load(array_merge(['rulings'], $related));
-        
+
         return $card;
     }
 

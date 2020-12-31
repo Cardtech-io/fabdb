@@ -7,7 +7,9 @@ use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\Printing;
 use FabDB\Domain\Cards\Rarity;
 use FabDB\Domain\Collection\OwnedCard;
+use FabDB\Domain\Users\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 
 class MigrateCollectionsToPrintings extends Command
 {
@@ -32,7 +34,7 @@ class MigrateCollectionsToPrintings extends Command
      */
     public function handle()
     {
-        OwnedCard::with('card')->chunk(50, function($ownedCards) {
+        OwnedCard::with('card', 'user')->chunk(50, function($ownedCards) {
             foreach ($ownedCards as $ownedCard) {
                 if ($ownedCard->standard > 0) {
                     $this->migrate($ownedCard, 'standard');
@@ -49,6 +51,21 @@ class MigrateCollectionsToPrintings extends Command
         return 1;
     }
 
+    /**
+     * Determines whether the collection should be migrated to alpha/first or unlimited. Returns the method to be
+     * called based on the migration requirement.
+     *
+     * @param User $user
+     */
+    private function migrateTo(User $user): string
+    {
+        if ($user->clarification) {
+            return $user->clarification;
+        }
+
+        return $user->createdAt->lt(new \Carbon\Carbon('1st November 2020')) ? 'firstEdition' : 'unlimited';
+    }
+
     private function migrate(OwnedCard $ownedCard, string $finish)
     {
         $identifier = Identifier::generate($ownedCard->card->name, $ownedCard->card->stats)->raw();
@@ -60,7 +77,7 @@ class MigrateCollectionsToPrintings extends Command
         $printing = $this->printing($ownedCard, $card, $finish);
 
         if (!$printing) {
-            $this->error('wtf');
+            $this->error("No printing found for identifier [$identifier]");
             return;
         }
 
@@ -95,7 +112,7 @@ class MigrateCollectionsToPrintings extends Command
                 $requiredFinish = $foundCard->legendary() || $foundCard->fabled() ? 'cf' : '';
         }
 
-        $printing = $this->findPrinting($foundCard, $requiredFinish);
+        $printing = $this->findPrinting($ownedCard, $foundCard, $requiredFinish);
 
         if (!$printing) {
             $this->warn("No printing found for card [{$foundCard->identifier->raw()}] with required finish [$requiredFinish]");
@@ -107,15 +124,17 @@ class MigrateCollectionsToPrintings extends Command
         return $printing;
     }
 
-    private function findPrinting(Card $foundCard, string $requiredFinish): ?Printing
+    private function findPrinting(OwnedCard $ownedCard, Card $foundCard, string $requiredFinish): ?Printing
     {
-        return $foundCard->printings->first(function ($printing) use ($requiredFinish) {
+        return $foundCard->printings->first(function ($printing) use ($ownedCard, $requiredFinish) {
+            $method = $this->migrateTo($ownedCard->user);
+
             // promo, just grab by rarity
             if ($requiredFinish === 'P') {
-                return !$printing->sku->unlimited() && $printing->rarity->equals(new Rarity('P'));
+                return $printing->sku->$method() && $printing->rarity->equals(new Rarity('P'));
             }
 
-            return !$printing->sku->unlimited() && $printing->sku->finish()->equals(Finish::fromString($requiredFinish));
+            return $printing->sku->$method() && $printing->sku->finish()->equals(Finish::fromString($requiredFinish));
         });
     }
 }
