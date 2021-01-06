@@ -50,6 +50,20 @@ class Set implements \JsonSerializable
         return $this->set === $other->set;
     }
 
+    /**
+     * Tries to create a new set object from a string title. Said title should include the name of the set.
+     */
+    public static function fromTitle(string $title)
+    {
+        $title = strtolower($title);
+
+        foreach (config('game.sets') as $set) {
+            if (strpos($title, strtolower($set['name']))) {
+                return new self($set['id']);
+            }
+        }
+    }
+
     public function jsonSerialize()
     {
         return config('game.sets.'.$this->set);
