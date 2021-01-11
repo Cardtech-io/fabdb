@@ -13,6 +13,9 @@ use Illuminate\Support\Carbon;
 
 class MigrateCollectionsToPrintings extends Command
 {
+    private $missed = 0;
+    private $migrated = 0;
+
     /**
      * The name and signature of the console command.
      *
@@ -47,8 +50,11 @@ class MigrateCollectionsToPrintings extends Command
                 }
             }
         });
+
+        $this->info("{$this->missed} total missed.");
+        $this->info("{$this->migrated} total migrated.");
     }
-    
+
     /**
      * Determines whether the collection should be migrated to alpha/first or unlimited. Returns the method to be
      * called based on the migration requirement.
@@ -75,10 +81,13 @@ class MigrateCollectionsToPrintings extends Command
         $printing = $this->printing($ownedCard, $card, $finish);
 
         if (!$printing) {
+            $this->missed++;
             $this->error("No printing found for identifier [$identifier]");
             return;
         }
 
+        $this->migrated++;
+        
         OwnedCard::add($ownedCard->userId, $card->id, $printing->id, $ownedCard->$finish, false, false);
     }
 
