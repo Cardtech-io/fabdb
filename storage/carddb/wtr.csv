@@ -111,7 +111,7 @@ Your next brute attack this turn gains +3[attack].
 
 **Go again**",,,"brute,action",,,3,0,3,,,"standard,rainbow"
 WTR,38,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero",40,4,,,,,,standard
-WTR,39,"Bravo, Showstopper",T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,standard
+WTR,39,Bravo,T,"**Action** - [2 resource]: Until end of turn, your attack action cards with cost [3 resource] or greater gain **dominate**. **Go again** *(The defending hero can't the attack with more than 1 card from their hand.*",,,"guardian,hero,young",20,4,,,,,,standard
 WTR,40,Anothos,T,"**Once per turn action [3 resource] - Attack**
 
 If you have 2 or more cards in your pitch zone with cost [3 resource] or greater, Anothos gains +2[attack].",,,"guardian,weapon,hammer,2h",,,,,,4,,standard
@@ -393,7 +393,7 @@ On;
 * 5, 6 - Gain [2 resource], gain 2 action points, and your next attack this turn gains +2[attack].",,,"generic,action,item",,,3,0,,,,"standard,rainbow"
 WTR,163,Remembrance,S,"Shufle up to 3 action cards from your graveyard into your deck.
 
-Banish Rembrance.",,,"generic,instant",,,2,0,,,,"standard,rainbow"
+Banish Remembrance.",,,"generic,instant",,,2,0,,,,"standard,rainbow"
 WTR,164,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,1,2,2,6,,"standard,rainbow"
 WTR,165,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,2,2,2,5,,"standard,rainbow"
 WTR,166,Drone of Brutality,R,"If Drone of Brutality would be put into your graveyard from anywhere, instead put it on the bottom of your deck.",,,"generic,action,attack",,,3,2,2,4,,"standard,rainbow"
