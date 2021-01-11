@@ -87,7 +87,7 @@ class MigrateCollectionsToPrintings extends Command
         }
 
         $this->migrated++;
-        
+
         OwnedCard::add($ownedCard->userId, $card->id, $printing->id, $ownedCard->$finish, false, false);
     }
 

@@ -30,6 +30,11 @@ class OwnedCard extends Model
         return $owned;
     }
 
+    public function scopeWants($query)
+    {
+        return $query->where('want', '>', 0);
+    }
+
     public function toggle($type)
     {
         $this->$type = !$this->$type;

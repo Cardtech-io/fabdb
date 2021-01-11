@@ -30,5 +30,6 @@ return [
         'premium',
         'resources/api',
         'support',
+        'user/([^/]+)'
     ]
 ];

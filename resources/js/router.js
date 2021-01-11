@@ -30,6 +30,7 @@ import Privacy from './Privacy';
 import Premium from './Premium';
 import Login from './Auth/Login';
 import Logout from './Auth/Logout';
+import ViewProfile from "./Identity/ViewProfile";
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,8 @@ const router = new VueRouter({
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
         { path: "/premium", component: Premium, name: 'premium', meta: { title: 'Premium feature' } },
+
+        { path: '/user/:user', component: ViewProfile, name: 'user.profile' },
 
         { path: "/resources/api", component: Api, name: 'resources.api', meta: { title: 'API Documentation' } },
 
