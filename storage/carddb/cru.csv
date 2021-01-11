@@ -92,7 +92,7 @@ At the beginning of your action phase, destroy Emerging Dominance then the next 
 CRU,41,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 3 damage that source would deal.",,,"guardian,instant",,,1,0,,,,"standard,rainbow"
 CRU,42,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 2 damage that source would deal.",,,"guardian,instant",,,2,0,,,,"standard,rainbow"
 CRU,43,Blessing of Serenity,C,"The next time you would be dealt [attack] damage this turn, prevent 1 damage that source would deal.",,,"guardian,instant",,,3,0,,,,"standard,rainbow"
-CRU,44,Seismic Surge,R,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,1,2,3,,,rainbow
+CRU,44,Seismic Surge,R,"At the beginning of your action phase, destroy Seismic Surge then the next Guardian attack action card you pay, costs [cost] less to play.",,,"guardian,token,aura",,,,,,,,rainbow
 CRU,45,"Katsu, the Wanderer",C,"**Once per Turn Effect** When an attack action card you control hits, you may discard a card with cost 0. If you do, search your deck for a card with **combo**, banish it face up, then shuffle your deck. You may play it this turn.",,,"ninja,hero",40,4,,,,,,standard
 CRU,46,"Ira, Crimson Haze",C,Your second attack each turn gains +1[attack].,,,"ninja,hero,young",20,4,,,,,,"standard,rainbow"
 CRU,47,"Benji, the Piercing Wind",R,"Attack action cards you control with 2 or less [attack] can't be defended by cards from hand. *(This includes defense reaction cards.)*
