@@ -151,7 +151,7 @@ CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
-CRU,79,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
+CRU,79,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
 If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,80,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
