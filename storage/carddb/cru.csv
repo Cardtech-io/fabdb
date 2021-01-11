@@ -154,7 +154,7 @@ At the beginning of your end phase, if Dawnblade did not hit this turn, remove a
 CRU,79,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
 If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
-CRU,80,Cintar Saber,R,"**Once per Turn Action - [resource]: Attack**
+CRU,80,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
 If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,81,Courage of Bladehold,M,"**Action** - Destroy Courage of Bladehold: Your sword attacks cost [resource] less per turn. **Go again**
