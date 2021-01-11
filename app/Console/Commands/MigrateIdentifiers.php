@@ -52,7 +52,5 @@ class MigrateIdentifiers extends Command
                     }
                 }
             });
-
-        return 1;
     }
 }

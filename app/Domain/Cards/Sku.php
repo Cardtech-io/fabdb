@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use ErrorException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use JsonSerializable;
@@ -58,7 +59,7 @@ class Sku implements JsonSerializable
         return $this->raw();
     }
 
-    public function firstEdition(): bool
+    public function first(): bool
     {
         $matches = self::match($this->sku);
 
@@ -67,7 +68,7 @@ class Sku implements JsonSerializable
 
     public function unlimited(): bool
     {
-        return !$this->firstEdition();
+        return !$this->first();
     }
 
     public function finish()
@@ -81,7 +82,7 @@ class Sku implements JsonSerializable
     {
         $matches = self::match($this->sku);
 
-        return Set::fromUid(Arr::get($matches, 3));
+        return Set::fromUid($this->sku);
     }
 
     public static function match(string $sku)
@@ -93,10 +94,14 @@ class Sku implements JsonSerializable
 
     public function jsonSerialize()
     {
-        return [
-            'sku' => $this->sku,
-            'finish' => $this->finish()->readable(),
-            'set' => $this->set(),
-        ];
+        try {
+            return [
+                'sku' => $this->sku,
+                'finish' => $this->finish()->readable(),
+                'set' => $this->set(),
+            ];
+        } catch (ErrorException $e) {
+            dd($this->set());
+        }
     }
 }

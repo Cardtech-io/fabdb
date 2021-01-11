@@ -44,7 +44,7 @@ class CardController extends Controller
 
     public function view(Request $request, CardRepository $cards)
     {
-        return new CardResource($cards->view($request->card->identifier, ['listings', 'listings.store']));
+        return new CardResource($cards->view($request->card->identifier, ['listings', 'listings.store', 'printings']));
     }
 
     public function ad(Request $request, CardRepository $cards)

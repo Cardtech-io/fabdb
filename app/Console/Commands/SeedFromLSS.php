@@ -44,8 +44,6 @@ class SeedFromLSS extends Command
         }
 
         $this->output->success('Import successful.');
-
-        return 1;
     }
 
     private function import(\Closure $callback)

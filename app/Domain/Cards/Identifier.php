@@ -26,8 +26,12 @@ class Identifier implements \JsonSerializable
         $name = static::stripColour($name);
 
         if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
+            if ($name === 'Seismic Surge') {
+                dd($stats);
+            }
             $name .= '-' . self::resourceName((int)$stats['resource']);
         }
+
 
         return new self(Str::slug($name));
     }

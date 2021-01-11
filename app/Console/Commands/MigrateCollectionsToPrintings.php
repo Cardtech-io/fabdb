@@ -47,10 +47,8 @@ class MigrateCollectionsToPrintings extends Command
                 }
             }
         });
-
-        return 1;
     }
-
+    
     /**
      * Determines whether the collection should be migrated to alpha/first or unlimited. Returns the method to be
      * called based on the migration requirement.
@@ -63,7 +61,7 @@ class MigrateCollectionsToPrintings extends Command
             return $user->clarification;
         }
 
-        return $user->createdAt->lt(new \Carbon\Carbon('1st November 2020')) ? 'firstEdition' : 'unlimited';
+        return $user->createdAt->lt(new \Carbon\Carbon('1st November 2020')) ? 'first' : 'unlimited';
     }
 
     private function migrate(OwnedCard $ownedCard, string $finish)
@@ -126,15 +124,46 @@ class MigrateCollectionsToPrintings extends Command
 
     private function findPrinting(OwnedCard $ownedCard, Card $foundCard, string $requiredFinish): ?Printing
     {
-        return $foundCard->printings->first(function ($printing) use ($ownedCard, $requiredFinish) {
-            $method = $this->migrateTo($ownedCard->user);
+        $method = $method = $this->migrateTo($ownedCard->user);
 
+        $found = $this->locatePrinting($foundCard, $ownedCard, $requiredFinish, $method);
+
+        // we couldn't find a printing fort the required edition, let's flip the script and try with the other.
+        if (!$found) {
+            $found = $this->locatePrinting($foundCard, $ownedCard, $requiredFinish, $method == 'first' ? 'unlimited' : 'first');
+        }
+
+        if (!$found) {
+            $this->info("Logical error for card [{$foundCard->identifier->raw()}] and required finish [$requiredFinish]");
+        }
+
+        return $found;
+    }
+
+    /**
+     * @param Card $foundCard
+     * @param OwnedCard $ownedCard
+     * @param string $requiredFinish
+     * @param string $method
+     * @return mixed
+     */
+    private function locatePrinting(Card $foundCard, OwnedCard $ownedCard, string $requiredFinish, string $method)
+    {
+        return $foundCard->printings->first(function ($printing) use ($foundCard, $ownedCard, $requiredFinish, $method) {
             // promo, just grab by rarity
             if ($requiredFinish === 'P') {
-                return $printing->sku->$method() && $printing->rarity->equals(new Rarity('P'));
+                return $printing->rarity->equals(new Rarity('P'));
             }
 
-            return $printing->sku->$method() && $printing->sku->finish()->equals(Finish::fromString($requiredFinish));
+            // It can only be a first edition
+            if ($requiredFinish === 'cf') {
+                return $printing->sku->first() && $printing->sku->finish()->equals(Finish::fromString($requiredFinish));
+            }
+
+            return (
+                ($printing->sku->$method() || $printing->edition->none()) &&
+                $printing->sku->finish()->equals(Finish::fromString($requiredFinish))
+            );
         });
     }
 }

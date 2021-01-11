@@ -20,6 +20,12 @@ return [
             'released' => '2019-10-11',
             'browseable' => false,
         ],
+        'oxo' => [
+            'id' => 'oxo',
+            'name' => 'Slingshot Underground',
+            'released' => '2018-12-01',
+            'browseable' => false,
+        ],
         'tea' => [
             'id' => 'tea',
             'name' => 'Dorinthea Hero Deck',

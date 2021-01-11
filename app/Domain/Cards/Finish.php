@@ -77,7 +77,7 @@ class Finish
 
     public function equals(Finish $that)
     {
-        return $this->finish === $that->finish;
+        return $this->finish == $that->finish;
     }
 
     public function readable()
