@@ -1,23 +1,22 @@
 <template>
-    <div>
-        <header-title :title="user.name"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
-
-        <div class="bg-gray-200">
-            <div class="sm:mx-auto p-4 flex">
-                <div class="flex-1">
-                    <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
-                        <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'decks' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'decks'">Decks</a></li>
-                        <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'wants' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'wants'">Want list</a></li>
-                        <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'trades' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'trades'">Trade list</a></li>
-                    </ul>
-                </div>
-                <div class="flex-0">
-                    <div class="rounded-xl overflow-hidden">
-                        <avatar :user="user" :width="200"></avatar>
+    <div class="container p-4 py-8 sm:mx-auto text-white flex">
+        <div class="pb-8 flex-1 w-2/3">
+            <div class="flex navigation pb-8">
+                <avatar :user="user" :width="100" class="mr-4"></avatar>
+                <div>
+                    <h1 class="font-serif text-4xl uppercase mb-2">{{ user.name }}</h1>
+                    <div class="text-base">
+                        <button class="bg-black py-2 px-3 text-gray-300 rounded-lg mr-2 hover:bg-gray-800">Decks</button>
+                        <button class="bg-black py-2 px-3 text-gray-300 rounded-lg mr-2 hover:bg-gray-800">Want list</button>
+                        <button class="bg-black py-2 px-3 text-gray-300 rounded-lg mr-2 hover:bg-gray-800">Trade list</button>
                     </div>
                 </div>
             </div>
+
+            lkajsdflkjasdf
+        </div>
+        <div class="rounded-xl bg-black p-4 w-1/3">
+            lkjasdlkjasdfljkasdflj
         </div>
     </div>
 </template>
@@ -30,6 +29,7 @@
     import Models from "../Utilities/Models";
     import User from "./User";
     import Avatar from "./Avatar";
+    import Imagery from "../Utilities/Imagery";
 
     export default {
         components: {
@@ -37,6 +37,8 @@
             Breadcrumbs,
             HeaderTitle,
         },
+
+        mixins: [Imagery],
 
         data() {
             return {
