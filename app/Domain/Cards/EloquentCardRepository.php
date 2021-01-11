@@ -315,8 +315,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function ad(string $identifier, string $currency): Card
     {
-        return $this->newQuery()->select('id', 'identifier', 'name')->with(['ad' => function($query) use ($currency) {
-            $query->where('stores.currency', $currency);
-        }])->whereIdentifier($identifier)->first();
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->select('cards.id', 'cards.identifier', 'cards.image', 'cards.name')
+            ->with(['ad' => function($query) use ($currency) {
+                $query->where('stores.currency', $currency);
+            }])
+            ->where('printings.sku', $identifier)->first();
     }
 }
