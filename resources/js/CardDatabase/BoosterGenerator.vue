@@ -27,7 +27,7 @@
 
                 <div class="sm:w-1/2 sm:float-left">
                     <div v-for="card in cards" class="overflow-hidden rounded-xl cursor-pointer mb-1 mx-auto sm:mx-0" @click="toggle(card)" :class="height(card)" style="max-width: 350px">
-                        <img :src="cardUrl(card.identifier, 350)" :alt="card.name" :title="card.name" class="w-full rounded-xl" style="max-width: 350px">
+                        <card-image :card="card" :width="350" style="max-width: 350px"></card-image>
                     </div>
                 </div>
             </div>
@@ -40,11 +40,12 @@
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable';
+    import CardImage from "./CardImage";
     import HeaderTitle from '../Components/HeaderTitle.vue';
 
     export default {
-        components: { Breadcrumbs, HeaderTitle },
-        mixins: [ Cardable ],
+        components: {Breadcrumbs, CardImage, HeaderTitle},
+        mixins: [Cardable],
 
         data() {
             return {
