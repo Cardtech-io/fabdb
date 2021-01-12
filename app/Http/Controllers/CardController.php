@@ -12,10 +12,12 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        return $cards->search($request->user(), $request->all())
+        $cards = $cards->search($request->user(), $request->all())
             ->paginate($request->get('per_page', 12))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
+
+        return CardResource::collection($cards);
     }
 
     public function heroes(CardRepository $cards)
@@ -42,7 +44,7 @@ class CardController extends Controller
 
     public function view(Request $request, CardRepository $cards)
     {
-        return new CardResource($cards->view($request->card->identifier, ['listings', 'listings.store']));
+        return new CardResource($cards->view($request->card->identifier, ['listings', 'listings.store', 'printings']));
     }
 
     public function ad(Request $request, CardRepository $cards)

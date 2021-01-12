@@ -1,12 +1,12 @@
 <template>
-    <button class="py-2 w-1/3 hover:bg-primary hover:text-white" @click="add">+</button>
+    <button class="py-2 w-1/3 rounded sm:hover:bg-secondary active:bg-primary sm:hover:text-white" @click="add">+</button>
 </template>
 
 <script>
     import axios from 'axios';
 
     export default {
-        props: ['identifier', 'type', 'count'],
+        props: ['sku', 'count'],
 
         data() {
             return {
@@ -25,7 +25,7 @@
                 }
 
                 this.save = setTimeout(() => {
-                    axios.post('/collection/', {identifier: this.identifier, type: this.type, total: this.total});
+                    axios.post('/collection/', {sku: this.sku, total: this.total});
 
                     this.total = 0;
                 }, 1000);

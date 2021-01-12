@@ -20,7 +20,7 @@ class SeedCardDatabase extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed';
+    protected $signature = 'fabdb:seed {--all}';
 
     /**
      * The console command description.
@@ -38,50 +38,60 @@ class SeedCardDatabase extends Command
      */
     public function handle(CardRepository $cards)
     {
-        $set = $this->selectSet();
+        if (!$this->option('all')) {
+            $sets = [$this->selectSet()];
+        } else {
+            $sets = ['arc', 'cru', 'wtr'];
+        }
 
-        $csvFile = Storage::disk('carddb')->getAdapter()->getPathPrefix()."{$set}.csv";
-        $csv = Reader::createFromPath($csvFile, 'r');
-        $csv->setHeaderOffset(0);
-        $rows = $csv->getRecords();
+        foreach ($sets as $set) {
+            $csvFile = Storage::disk('carddb')->getAdapter()->getPathPrefix() . "{$set}.csv";
+            $csv = Reader::createFromPath($csvFile, 'r');
+            $csv->setHeaderOffset(0);
+            $rows = $csv->getRecords();
 
-        DB::delete('DELETE variants FROM variants, cards WHERE cards.id = variants.card_id AND cards.identifier LIKE \''.$set.'%\'');
+            DB::delete('DELETE variants FROM variants, cards WHERE cards.id = variants.card_id AND cards.identifier LIKE \'' . $set . '%\'');
 
-        foreach ($rows as $row) {
-            $this->line('Registering: '.$row['Set'].$row['ID']);
+            foreach ($rows as $row) {
+                $this->line('Registering: ' . $row['Set'] . $row['ID']);
 
-            if ($row['Variant of']) {
-                $variantOf = $cards->findByIdentifier($row['Variant of']);
+                if ($row['Variant of']) {
+                    $variantOf = $cards->findByIdentifier($row['Variant of']);
 
-                if (!$variantOf) {
-                    throw new \Exception('Invalid identifier for variant: ['.$row['Variant of'].']');
+                    if (!$variantOf) {
+                        throw new \Exception('Invalid identifier for variant: [' . $row['Variant of'] . ']');
+                    }
+
+                    $saved = Card::register(
+                        $this->identifier($row),
+                        '',
+                        $variantOf->name,
+                        '',
+                        new Rarity($row['Rarity']),
+                        $variantOf->text,
+                        $variantOf->flavour,
+                        $variantOf->comments,
+                        $variantOf->keywords,
+                        $variantOf->stats
+                    );
+
+                    //                $this->line('Linking variant: '.$saved->identifier->raw().' to: '.$variantOf->identifier->raw());
+
+                    Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
+                } else {
+                    Card::register(
+                        $this->identifier($row),
+                        '',
+                        $row['Name'],
+                        '',
+                        new Rarity($row['Rarity']),
+                        $row['Text'],
+                        Arr::get($row, 'Flavour'),
+                        Arr::get($row, 'Comments'),
+                        explode(',', $row['Keywords']),
+                        $this->compileStats($row)
+                    );
                 }
-
-                $saved = Card::register(
-                    new Identifier($row['Set'], $row['ID']),
-                    $variantOf->name,
-                    new Rarity($row['Rarity']),
-                    $variantOf->text,
-                    $variantOf->flavour,
-                    $variantOf->comments,
-                    $variantOf->keywords,
-                    $variantOf->stats
-                );
-
-                $this->line('Linking variant: '.$saved->identifier->raw().' to: '.$variantOf->identifier->raw());
-
-                Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
-            } else {
-                Card::register(
-                    new Identifier($row['Set'], $row['ID']),
-                    $row['Name'],
-                    new Rarity($row['Rarity']),
-                    $row['Text'],
-                    Arr::get($row, 'Flavour'),
-                    Arr::get($row, 'Comments'),
-                    explode(',', $row['Keywords']),
-                    $this->compileStats($row)
-                );
             }
         }
 
@@ -120,5 +130,10 @@ class SeedCardDatabase extends Command
         if (isset($card[$column]) && $card[$column] != '') {
             $stats[$name] = $card[$column];
         }
+    }
+
+    private function identifier(array $row)
+    {
+        return Identifier::fromString($row['Set'] . str_pad($row['ID'], 3, 0, STR_PAD_LEFT));
     }
 }

@@ -21,11 +21,11 @@
             </div>
 
             <div class="bg-gray-200">
-                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero)+'); background-repeat: no-repeat'"></div>
+                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero.name)+'); background-repeat: no-repeat'"></div>
 
                 <div class="container sm:mx-auto px-4">
                     <div class="md:flex -mt-12 sm:mt-0">
-                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero)+'); background-repeat: no-repeat'"></div>
+                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero.name)+'); background-repeat: no-repeat'"></div>
 
                         <div class="w-full md:w-3/4 md:py-8">
                             <ul class="flex border-b border-gray-400 mb-4">
@@ -188,12 +188,6 @@
                     this.addMessage({ status: 'success', message: 'Deck successfully copied.' });
                     this.$router.push({ name: 'decks.build', params: { deck: response.data.deck } });
                 });
-            },
-
-            heroBackground(hero) {
-                let name = hero.name.split(' ')[0].replace(',', '').toLowerCase();
-
-                return this.imageUrl('/decks/backgrounds/'+name+'.jpg', 1700);
             },
 
             tabClasses(tab) {

@@ -111,5 +111,9 @@ module.exports = {
         opacity: ['disabled', 'hover'],
         padding: ['responsive', 'even'],
         textColor: ['responsive', 'hover', 'group-hover'],
-    }
+    },
+
+    plugins: [
+        require('@tailwindcss/custom-forms'),
+    ]
 };

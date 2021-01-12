@@ -48,7 +48,7 @@ Route::middleware(['web'])->group(function() {
         Route::post('auth/password', 'AuthController@validatePassword');
         Route::delete('auth/session', 'AuthController@logout');
 
-        Route::get('users/{user}', 'UserController@view');
+        Route::get('users/{user}/view', 'UserController@public');
 
         Route::get('events/{event}', 'EventController@view');
 
@@ -58,8 +58,10 @@ Route::middleware(['web'])->group(function() {
 
             Route::post('articles', 'ArticleController@draft');
 
+            Route::get('collection/lists', 'CollectionController@lists');
             Route::post('collection', 'CollectionController@addCard');
-            Route::delete('collection/{card}', 'CollectionController@removeCard');
+            Route::delete('collection/{printing}', 'CollectionController@removeCard');
+            Route::post('collection/{printing}/{type}', 'CollectionController@toggleList');
             Route::put('collection', 'CollectionController@updateCard');
             Route::post('collection/clarify', 'CollectionController@clarify');
 
@@ -85,6 +87,8 @@ Route::middleware(['web'])->group(function() {
             Route::put('profile/name', 'UserController@updateName');
             Route::put('profile', 'UserController@updateProfile');
             Route::put('profile/complete', 'UserController@completeProfile');
+
+            Route::get('users/{user}', 'UserController@view');
 
             Route::post('comments', 'CommentController@post')->middleware('throttle:2,1');
 

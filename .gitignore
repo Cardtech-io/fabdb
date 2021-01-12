@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /storage/debugbar
+/storage/framework/laravel-excel
 /scraped
 /vendor
 .env

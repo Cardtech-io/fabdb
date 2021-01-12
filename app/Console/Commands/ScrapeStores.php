@@ -3,6 +3,9 @@ namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\InvalidIdentifier;
+use FabDB\Domain\Cards\PrintingRepository;
+use FabDB\Domain\Cards\Sku;
+use FabDB\Domain\Stores\InvalidSet;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Stores\ListingRepository;
 use FabDB\Domain\Stores\VariantParser;
@@ -52,20 +55,31 @@ class ScrapeStores extends Command
      * @var ListingRepository
      */
     private $listings;
+    /**
+     * @var PrintingRepository
+     */
+    private $printings;
 
     /**
      * Create a new command instance.
      *
      * @param CardRepository $cards
      * @param StoreRepository $stores
+     * @param ListingRepository $listings
+     * @param PrintingRepository $printings
      */
-    public function __construct(CardRepository $cards, StoreRepository $stores, ListingRepository $listings)
-    {
+    public function __construct(
+        CardRepository $cards,
+        StoreRepository $stores,
+        ListingRepository $listings,
+        PrintingRepository $printings
+    ) {
         parent::__construct();
 
         $this->cards = $cards;
         $this->stores = $stores;
         $this->listings = $listings;
+        $this->printings = $printings;
     }
 
     /**
@@ -113,11 +127,13 @@ class ScrapeStores extends Command
                 $results = json_decode($response->getBody()->getContents());
 
                 foreach ($results->products as $product) {
-                    if (preg_match('/([a-z]{3,4}[0-9]{1,3})/i', $product->variants[0]->sku)) {
-                        Log::debug('Identifier matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
+                    if (!$product->variants[0]->sku) continue;
+
+                    if ($this->possibleMatch($product->variants[0]->sku)) {
+                        Log::debug('Sku matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
 
                         foreach ($product->variants as $variant) {
-                            if (!preg_match('/([a-z]{3,4}[0-9]{1,3})/i', $variant->sku)) continue;
+                            if (!$this->possibleMatch($variant->sku)) continue;
 
                             $parser = new VariantParser($product, $variant);
 
@@ -128,12 +144,11 @@ class ScrapeStores extends Command
                             }
 
                             try {
-                                $identifier = $parser->identifier()->raw();
-                                $this->createListing($identifier, $parser, $product, $store);
+                                $this->createListing($parser, $product, $store);
                             } catch (InvalidIdentifier $e) {
                                 Log::debug($e->getMessage());
                             } catch (ModelNotFoundException $e) {
-                                Log::debug('Card not found for ['.$identifier.']');
+                                Log::debug("Card not found for [{$parser->sku()}]");
                             }
                         }
                     } else {
@@ -187,27 +202,43 @@ class ScrapeStores extends Command
     }
 
     /**
-     * @param string $identifier
      * @param VariantParser $parser
      * @param $product
      * @param $store
      */
-    private function createListing(string $identifier, VariantParser $parser, $product, $store): void
+    private function createListing(VariantParser $parser, $product, $store): void
     {
-        Log::debug('New variant for [' . $identifier . ':' . $parser->finish() . ' - ' . $parser->price() . ']');
+        try {
+            Log::debug("New listing for [{$parser->sku()}, priced at: [{$parser->price()}]");
 
-        $card = $this->cards->findByIdentifier($identifier);
-        $link = '/products/' . $product->handle;
+            $printing = $this->printings->findBySku($parser->sku()->raw());
 
-        $listing = Listing::register(
-            $store->id,
-            $card->id,
-            $parser->finish(),
-            $parser->price(),
-            $link,
-            $parser->available()
-        );
+            if (!$printing) {
+                Log::debug("No valid printing found for sku [{$parser->sku()}]");
+                return;
+            }
 
-        Log::info('Listing [' . $listing->id . '] registered.');
+            $link = '/products/' . $product->handle;
+
+            $listing = Listing::register(
+                $store->id,
+                $printing->cardId,
+                $printing->id,
+                $parser->sku()->finish()->raw(),
+                $parser->price(),
+                $link,
+                $parser->available()
+            );
+
+            Log::info("Listing [$listing->id] registered.");
+        }
+        catch (InvalidSet $e) {
+            Log::warning("Unable to determine set from [{$e->title()}, {$e->set()}]");
+        }
+    }
+
+    private function possibleMatch(string $sku)
+    {
+        return preg_match(VariantParser::REGEX, $sku);
     }
 }

@@ -6,16 +6,12 @@
     import Imagery from '../Utilities/Imagery';
 
     export default {
-        mixins: [ Imagery ],
+        mixins: [Imagery],
 
         props: {
             user: {
                 type: Object,
                 required: true
-            },
-            rounded: {
-                type: String,
-                default: 'lg'
             },
             width: {
                 type: Number,

@@ -6,28 +6,22 @@ use Tests\TestCase;
 
 class IdentifierTest extends TestCase
 {
-    function test_identifiers_can_be_created_from_valid_strings()
+    function test_identifiers_can_be_created_from_names()
     {
-        $identifier = Identifier::fromString('WTR000');
+        $identifier = Identifier::fromName('Fyendal\'s Spring Tunic');
 
         $this->assertInstanceOf(Identifier::class, $identifier);
-        $this->assertSame('WTR', $identifier->set());
-        $this->assertSame('000', $identifier->id());
-        $this->assertSame('0', $identifier->strippedId());
+        $this->assertSame('fyendals-spring-tunic', $identifier->raw());
     }
 
-    function test_it_validates_possible_identifier_candidates()
+    function test_it_appends_the_correct_colour_with_each_resource_value()
     {
-        $this->assertTrue((bool) Identifier::matches('ARC017'));
-        $this->assertTrue((bool) Identifier::matches('UWTR000'));
-        $this->assertFalse((bool) Identifier::matches('ARC12017'));
-    }
+        $identifier1 = Identifier::fromName('Head Shot (Red)');
+        $identifier2 = Identifier::fromName('Head Shot (Yellow)');
+        $identifier3 = Identifier::fromName('Head Shot (Blue)');
 
-    function test_it_can_create_new_identifiers_as_unlimited()
-    {
-        $identifier = Identifier::fromStringAsUnlimited('WTR150');
-
-        $this->assertInstanceOf(Identifier::class, $identifier);
-        $this->assertSame('UWTR150', $identifier->raw());
+        $this->assertSame('head-shot-red', $identifier1->raw());
+        $this->assertSame('head-shot-yellow', $identifier2->raw());
+        $this->assertSame('head-shot-blue', $identifier3->raw());
     }
 }

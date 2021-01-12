@@ -24,27 +24,21 @@ class OwnedCardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $view = Arr::get($input, 'view', 'all');
-        $join = $view === 'mine' ? 'join' : 'leftJoin';
-
-        $query->$join('owned_cards', function($join) {
-            $join->on('owned_cards.card_id', '=', 'cards.id');
-            $join->where('owned_cards.user_id', $this->user->id);
-            $join->where(function($clause) {
-                $clause->where('owned_cards.standard', '>', 0);
-                $clause->orWhere('owned_cards.foil', '>', 0);
-                $clause->orWhere('owned_cards.promo', '>', 0);
+        $query->with(['printings' => function($query) {
+            $query->select(
+                'printings.id',
+                'printings.card_id',
+                'printings.sku',
+                'printings.set',
+                'owned_cards.total',
+                'owned_cards.trade',
+                'owned_cards.want'
+            );
+            $query->leftJoin('owned_cards', function($join) {
+                $join->on('owned_cards.printing_id', 'printings.id');
+                $join->where('owned_cards.user_id', $this->user->id);
             });
-        });
-
-        // If their main search parameter is to find needed cards, then only show cards where there is no record of the owned card
-        if ($view == 'need') {
-            $query->where(function($clause) {
-                $clause->whereNull('owned_cards.id');
-                $clause->orWhereRaw('owned_cards.standard + owned_cards.foil + owned_cards.promo < '.(int) $this->user->need);
-            });
-        }
-
-        $query->addSelect('owned_cards.standard', 'owned_cards.foil', 'owned_cards.promo');
+            $query->orderBy('printings.sku');
+        }]);
     }
 }

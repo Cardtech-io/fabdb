@@ -25,9 +25,11 @@ return [
         'decks/([^/]+)',
         'events',
         'login',
+        'packs/generate',
         'profile',
         'premium',
         'resources/api',
         'support',
+        'user/([^/]+)'
     ]
 ];

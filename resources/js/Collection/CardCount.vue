@@ -1,10 +1,10 @@
 <template>
-    <div class="flex items-center text-lg">
-        <remove :identifier="card.identifier" :type="type" :count="total" @card-removed="decrement"></remove>
+    <div class="flex items-center">
+        <remove :sku="printing.sku.sku" :count="total" @card-removed="decrement"></remove>
         <div class="w-1/3">
-            <input type="text" v-model="total" class="w-full bg-transparent text-center outline-none focus:bg-white" :tabindex="index">
+            <input type="text" v-model="total" class="w-full bg-transparent text-center outline-none focus:bg-white px-2" :tabindex="index">
         </div>
-        <add :identifier="card.identifier" :type="type" :count="total" @card-added="increment"></add>
+        <add :sku="printing.sku.sku" :count="total" @card-added="increment"></add>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
     import axios from "axios";
 
     export default {
-        props: ['card', 'type'],
+        props: ['printing'],
         components: {Add, Remove},
 
         data() {
@@ -26,30 +26,30 @@
         computed: {
             total: {
                 get() {
-                    return this.card[this.type] || 0;
+                    return this.printing.total;
                 },
 
                 set(newValue) {
-                    this.card[this.type] = newValue;
+                    this.printing.total = newValue;
                     setTimeout(this.save, 2000);
                 }
-            }
+            },
         },
 
         methods: {
             decrement: function(type) {
-                if (this.card[type] - 1 < 0) return;
+                if (this.printing.total - 1 < 0) return;
 
-                this.card[type] -= 1;
+                this.printing.total -= 1;
             },
 
             increment: function(type) {
-                this.card[type] += 1;
+                this.printing.total += 1;
             },
 
             save() {
                 let payload = {
-                    identifier: this.card.identifier,
+                    sku: this.printing.sku.sku,
                     type: this.type,
                     total: this.total
                 };

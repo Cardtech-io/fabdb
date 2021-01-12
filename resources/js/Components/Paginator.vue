@@ -11,10 +11,18 @@
         props: ['results'],
 
         computed: {
+            data() {
+                if (this.results.meta) {
+                    return this.results.meta;
+                } else {
+                    return this.results;
+                }
+            },
+
             pageRange: function() {
                 const rangeLimit = 6;
-                const currentPage = this.results.current_page;
-                const lastPage = this.results.last_page;
+                const currentPage = this.data.current_page;
+                const lastPage = this.data.last_page;
 
                 let first = currentPage - 3;
 
@@ -45,7 +53,7 @@
         methods: {
             active: function(n) {
                 return {
-                    'button-secondary': this.results.current_page == n
+                    'button-secondary': this.data.current_page == n
                 }
             },
 
@@ -62,15 +70,15 @@
             },
 
             next: function() {
-                if (this.results.current_page >= this.results.last_page) return;
+                if (this.data.current_page >= this.data.last_page) return;
 
-                this.selectPage(this.results.current_page + 1);
+                this.selectPage(this.data.current_page + 1);
             },
 
             previous: function() {
                 if (this.results.current_page <= 1) return;
 
-                this.selectPage(this.results.current_page - 1);
+                this.selectPage(this.data.current_page - 1);
             },
 
             selectPage: function(page) {

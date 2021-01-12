@@ -19,13 +19,14 @@ class OrderFilter implements SearchFilter
         if (Arr::get($input, 'use-case') === 'build') {
             $query->orderBy('build_order');
             $query->orderBy('cards.name');
-            $query->orderBy('cards.identifier');
+            $query->orderBy('cards.id');
             return;
         }
 
         switch ($order) {
             case 'identifier':
-                $query->orderBy('cards.identifier');
+                $query->orderBy('cards.name');
+                $query->orderByRaw("JSON_EXTRACT(stats, '$.resource')");
                 break;
             case 'id':
                 $query->orderBy('cards.id');

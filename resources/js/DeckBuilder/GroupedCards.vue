@@ -2,7 +2,7 @@
     <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-2 mx-2" transition-duration="0.3s">
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative my-4 mx-2">
-                <img :src="cardUrl(grouped[0].identifier, 350)" class="block w-full invisible" :style="margin(grouped.length)">
+                <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden w-full" :style="styles(i)">
                     <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full"></card-image>
                 </div>

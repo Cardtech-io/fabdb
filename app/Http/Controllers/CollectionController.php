@@ -4,44 +4,60 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\CardType;
+use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Collection\AddCardToCollection;
+use FabDB\Domain\Collection\CollectionRepository;
 use FabDB\Domain\Collection\RemoveCardFromCollection;
+use FabDB\Domain\Collection\TogglePrintingList;
 use FabDB\Domain\Collection\UpdateCardInCollection;
+use FabDB\Domain\Users\UserRepository;
+use FabDB\Http\Requests\UserListsRequest;
+use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CollectionController extends Controller
 {
-    public function addCard(Request $request, CardRepository $cards)
+    public function addCard(Request $request, PrintingRepository $printings)
     {
-        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
+        $printing = $printings->findBySku($request->get('sku'));
 
         $this->dispatchNow(new AddCardToCollection(
-            $card->id,
+            $printing->cardId,
+            $printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
             $request->get('total', 1)
         ));
     }
 
-    public function updateCard(Request $request, CardRepository $cards)
+    public function updateCard(Request $request, PrintingRepository $printings)
     {
-        $card = $cards->findByIdentifier($request->get('identifier'), $request->user()->id);
+        $printing = $printings->findBySku($request->get('sku'));
 
         $this->dispatchNow(new UpdateCardInCollection(
-            $card->id,
+            $printing->cardId,
+            $printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
-            $request->get('total')
+            (int) $request->get('total')
         ));
     }
 
-    public function removeCard(Request $request, Card $card)
+    public function removeCard(Request $request)
     {
         $this->dispatchNow(new RemoveCardFromCollection(
-            $card->id,
+            $request->printing->id,
             $request->user()->id,
-            new CardType($request->get('type')),
             $request->get('total', 1)
+        ));
+    }
+
+    public function toggleList(Request $request)
+    {
+        $this->dispatchNow(new TogglePrintingList(
+            $request->printing->cardId,
+            $request->printing->id,
+            $request->user()->id,
+            $request->type
         ));
     }
 
@@ -50,5 +66,17 @@ class CollectionController extends Controller
         $user = $request->user();
         $user->clarification = $request->get('clarification');
         $user->save();
+    }
+
+    public function lists(UserListsRequest $request, CardRepository $cards, UserRepository $users)
+    {
+        $user = $users->bySlug($request->get('user'));
+
+        $cards = $cards->lists($request->get('view'), $user->id)
+            ->paginate($request->get('per_page', 12))
+            ->withPath('/'.$request->path())
+            ->appends($request->except('page'));
+
+        return CardResource::collection($cards);
     }
 }

@@ -22,8 +22,8 @@
             <div>@section('message')@show</div>
         </div>
         <div class="text-lg mt-4">
-            We are currently moving servers. Please bear with us as we <br>
-            complete this move and check back in approximately an hour.
+            Hi there! We're currently doing a major upgrade to our servers and data storage.<br>
+            Please bear with us as we complete this move and check back in approximately an hour.
         </div>
     </div>
 </body>

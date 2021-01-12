@@ -39,7 +39,6 @@ abstract class EloquentRepository implements Repository
     public function bySlug(string $slug): Model
     {
         $query = $this->newQuery()->select($this->model()->getTable().'.*');
-
         $model = $this->slugQuery($query, $slug)->first();
 
         if (!$model) {

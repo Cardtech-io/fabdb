@@ -1,81 +1,71 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-final class Identifier implements \JsonSerializable
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
+class Identifier implements \JsonSerializable
 {
-    const PATTERN = '/^([a-z]{3,4})([0-9]{3})$/i';
-
     /**
      * @var string
      */
-    private $set;
+    protected $identifier;
 
-    /**
-     * @var string
-     */
-    private $id;
-
-    public function __construct(string $set, string $id)
+    private function __construct(string $identifier)
     {
-        $this->set = $set;
-        $this->id = str_pad($id, 3, 0, STR_PAD_LEFT);
+        $this->identifier = $identifier;
+    }
+
+    public static function fromName(string $name)
+    {
+        return new self(Str::slug($name));
+    }
+
+    public static function generate(string $name, array $stats)
+    {
+        $name = static::stripColour($name);
+
+        if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
+            if ($name === 'Seismic Surge') {
+                dd($stats);
+            }
+            $name .= '-' . self::resourceName((int)$stats['resource']);
+        }
+
+
+        return new self(Str::slug($name));
     }
 
     public static function fromString(string $identifier)
     {
-        $matches = self::matches($identifier);
-
-        return new self($matches[0], $matches[1]);
+        return new self($identifier);
     }
 
-    public static function fromStringAsUnlimited($identifier)
+    private static function resourceName(int $resource)
     {
-        $identifier = 'U'.$identifier;
+        $names = [1 => 'red', 'yellow', 'blue'];
 
-        return self::fromString($identifier);
-    }
-
-    /**
-     * Returns the matched array minus the full match if the provided string matches a valid identifier.
-     *
-     * @param string $candidate
-     * @return array
-     */
-    public static function  matches(string $candidate): array
-    {
-        preg_match(self::PATTERN, $candidate, $matches);
-
-        return array_slice($matches, 1);
-    }
-
-    public function set(): string
-    {
-        return $this->set;
-    }
-
-    public function id(): string
-    {
-        return $this->id;
+        return $names[$resource];
     }
 
     /**
-     * Stripped ID removes any padded zeroes.
+     * Returns true if the string in question is "coloured", in that it mentions a colour in the title.
      *
-     * @return string
+     * @param string $name
+     * @return bool
      */
-    public function strippedId(): string
+    private static function coloured(string $name)
     {
-        return preg_replace('/^0{1,2}/', '', $this->id);
+        return Str::contains($name, ['(', ')']);
     }
 
-    // Variants can have an identifier somewhere within the string, so find it and then instantiate
-    public static function fromVariant($string)
+    private static function stripColour(string $name)
     {
-        if (!self::matches($string)) {
-            throw new InvalidIdentifier($string);
+        if (!static::coloured($name)) {
+            return $name;
         }
 
-        return self::fromString($string);
+        return preg_replace('/\s+\([a-z]+\)$/i', '', $name);
     }
 
     public function __toString(): string
@@ -85,11 +75,11 @@ final class Identifier implements \JsonSerializable
 
     public function raw()
     {
-        return $this->set.$this->id;
+        return $this->identifier;
     }
 
     function jsonSerialize()
     {
-        return (string) $this;
+        return $this->raw();
     }
 }

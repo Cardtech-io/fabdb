@@ -10,6 +10,7 @@ use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\OwnedCardsFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
+use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
@@ -43,9 +44,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function search(?User $user, array $input)
     {
         $query = $this->newQuery();
+        $query->groupBy('cards.id');
+        $query->with('printings');
 
         $query->select([
+            'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.keywords',
             'cards.stats',
@@ -54,10 +59,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         $filters = [
-            new SetFilter,
+            new PrintingFilter,
             new KeywordFilter,
             new IdentifierFilter,
-            new VariantsFilter,
             new ClassFilter,
             new TypeFilter,
             new CostFilter,
@@ -85,6 +89,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $select = [
             'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.rarity',
             'cards.keywords',
@@ -113,16 +118,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $card = $this->findByIdentifier($identifier);
 
-        $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
-        $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
+        $card->next = $this->nextOrPrevCard($card, 'next')->identifier;
+        $card->prev = $this->nextOrPrevCard($card, 'prev')->identifier;
 
-        $related = array_merge(['rulings', 'variants' => function($query) {
-            $query->select('cards.identifier');
-        }, 'variantOf' => function($query) {
-            $query->select('cards.identifier');
-        }], $related);
-
-        $card->load($related);
+        $card->load(array_merge(['rulings'], $related));
 
         return $card;
     }
@@ -198,7 +197,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         catch (ModelNotFoundException $e) {}
     }
 
-    private function nextOrPrevCard(string $identifier, $direction)
+    private function nextOrPrevCard(Card $current, $direction)
     {
         if ($direction == 'next') {
             $operator = '>';
@@ -209,18 +208,23 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         $card = $this->newQuery()
-            ->doesntHave('variantOf')
-            ->where('identifier', $operator, $identifier)
-            ->orderBy('identifier', $order)
+            ->where(function($query) use ($current, $operator, $order) {
+                if ($current->resourceful()) {
+                    $query->where(function ($query) use ($current, $operator, $order) {
+                        $query->whereName($current->name);
+                        $query->whereRaw("JSON_EXTRACT(stats, '$.resource') $operator {$current->stats['resource']}");
+                    });
+                }
+                $query->orWhere('name', $operator, $current->name);
+            })
+            ->orderBy('name', $order)
+            ->orderByRaw("JSON_EXTRACT(stats, '$.resource') $order")
             ->first();
 
         if ($card) return $card;
 
-        $order =  $direction == 'next' ? 'DESC' : 'ASC';
-
         return $this->newQuery()
-            ->doesntHave('variantOf')
-            ->orderBy('identifier', $order)
+            ->orderBy('name', $order)
             ->first();
     }
 
@@ -311,8 +315,33 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function ad(string $identifier, string $currency): Card
     {
-        return $this->newQuery()->select('id', 'identifier', 'name')->with(['ad' => function($query) use ($currency) {
-            $query->where('stores.currency', $currency);
-        }])->whereIdentifier($identifier)->first();
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->select('cards.id', 'cards.identifier', 'cards.image', 'cards.name')
+            ->with(['ad' => function($query) use ($currency) {
+                $query->where('stores.currency', $currency);
+            }])
+            ->where('printings.sku', $identifier)->first();
     }
+
+    public function lists(string $view, int $userId)
+    {
+        return $this->newQuery()
+            ->select('cards.id', 'cards.identifier', 'cards.name', 'cards.rarity')
+            ->with(['printings' => function($query) use ($view, $userId) {
+                $query->join('owned_cards', 'owned_cards.printing_id', 'printings.id');
+                $query->where('owned_cards.user_id', $userId);
+                $query->where("owned_cards.$view", '<>', 0);
+            }])
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->join('owned_cards', function($join) {
+                $join->on('owned_cards.card_id', 'cards.id');
+                $join->whereNotNull('owned_cards.printing_id');
+            })
+            ->where('owned_cards.user_id', $userId)
+            ->where("owned_cards.$view", '<>', 0)
+            ->groupBy('cards.id');
+    }
+
+
 }

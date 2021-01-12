@@ -111,6 +111,8 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
+<!--                    <router-link :to="{ name: 'user.profile', params: { user: user.slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>-->
+
                     <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
 
                     <div class="mb-8">
