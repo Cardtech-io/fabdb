@@ -92,16 +92,30 @@ class Sku implements JsonSerializable
         return $matches;
     }
 
+    /**
+     * Strips the unlimited and finish from the sku, resulting in a "pure" sku card identifier.
+     *
+     * @return string
+     */
+    public function stripped(): string
+    {
+        $parts = explode('-', $this->sku);
+
+        // Unlimited: U-WTR000-RF
+        if (count($parts) === 3) {
+            return $parts[1];
+        }
+
+        // Alpha/first editions (WTR000-CF)
+        return $parts[0];
+    }
+
     public function jsonSerialize()
     {
-        try {
-            return [
-                'sku' => $this->sku,
-                'finish' => $this->finish()->readable(),
-                'set' => $this->set(),
-            ];
-        } catch (ErrorException $e) {
-            dd($this->set());
-        }
+        return [
+            'sku' => $this->sku,
+            'finish' => $this->finish()->readable(),
+            'set' => $this->set(),
+        ];
     }
 }

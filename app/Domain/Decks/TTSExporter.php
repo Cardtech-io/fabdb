@@ -3,6 +3,7 @@ namespace FabDB\Domain\Decks;
 
 use Carbon\Carbon;
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Cards\Sku;
 use Illuminate\Http\File;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -154,8 +155,10 @@ class TTSExporter
      */
     public function deckImages(): array
     {
+        $this->deck->load('cards.printings');
+
         $images = $this->deck->cards->map(function(Card $card) {
-            return $this->cardImagePath($card->identifier);
+            return $this->cardImagePath($card->printings->first()->sku);
         })->toArray();
 
         // Now we push the "hidden" card back:
@@ -164,9 +167,9 @@ class TTSExporter
         return $images;
     }
 
-    private function cardImagePath($identifier): string
+    private function cardImagePath(Sku $sku): string
     {
-        list($set, $id) = str_split(strtolower($identifier), 3);
+        list($set, $id) = str_split(strtolower($sku->stripped()), 3);
 
         $id = preg_replace('/^0{1,2}/', '', $id);
 
