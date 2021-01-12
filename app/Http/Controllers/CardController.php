@@ -27,11 +27,11 @@ class CardController extends Controller
 
     public function fabled(CardRepository $cards)
     {
-        return collect([
-            $cards->findByIdentifier('WTR000'),
-            $cards->findByIdentifier('ARC000'),
-            $cards->findByIdentifier('CRU000'),
-        ]);
+        return CardResource::collection(collect([
+            $cards->findByIdentifier('heart-of-fyendal-blue'),
+            $cards->findByIdentifier('eye-of-ophidia-blue'),
+            $cards->findByIdentifier('arknight-shard-blue'),
+        ]));
     }
 
     public function build(Request $request, DeckRepository $decks, CardRepository $cards)
