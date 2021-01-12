@@ -38,8 +38,8 @@ class CardController extends Controller
     {
         $deck = $decks->bySlug($request->get('deck'));
 
-        return $cards->buildSearch($request->user(), $deck, $request->all())
-            ->paginate($request->get('per_page', 24));
+        return CardResource::collection($cards->buildSearch($request->user(), $deck, $request->all())
+            ->paginate($request->get('per_page', 24)));
     }
 
     public function view(Request $request, CardRepository $cards)
