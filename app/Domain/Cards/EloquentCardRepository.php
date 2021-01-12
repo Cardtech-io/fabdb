@@ -116,7 +116,11 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function view(string $identifier, array $related = []): Card
     {
-        $card = $this->findByIdentifier($identifier);
+        if (preg_match('/[A-Z]{3}[0-9]{3}/i', $identifier)) {
+            $card = $this->findBySku($identifier);
+        } else {
+            $card = $this->findByIdentifier($identifier);
+        }
 
         $card->next = $this->nextOrPrevCard($card, 'next')->identifier;
         $card->prev = $this->nextOrPrevCard($card, 'prev')->identifier;
@@ -343,5 +347,24 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->groupBy('cards.id');
     }
 
+    private function findBySku(string $identifier)
+    {
+        $query = $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('sku', 'like', $identifier.'%')
+            ->select([
+                'cards.id',
+                'cards.identifier',
+                'cards.image',
+                'cards.name',
+                'cards.rarity',
+                'cards.keywords',
+                'cards.stats',
+                'cards.text',
+                'cards.flavour',
+                'cards.comments',
+            ]);
 
+        return $query->firstOrFail();
+    }
 }
