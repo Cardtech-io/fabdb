@@ -30,7 +30,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query = $this->slugQuery($query, $slug);
 
         if ($includeCards) {
-            $query->with('cards');
+            $query->with('cards', 'cards.printings');
         }
 
         return $query->firstOrFail();
