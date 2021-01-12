@@ -2,15 +2,15 @@
 namespace FabDB\Http\Controllers\Api;
 
 use FabDB\Domain\Decks\Deck;
-use FabDB\Http\Resources\DeckResource;
+use FabDB\Http\Resources\OscResource;
 
 class DeckController extends \FabDB\Http\Controllers\DeckController
 {
-    public function view(Deck $deck)
+    public function osc(Deck $deck)
     {
-        $deck->load('cards', 'cards.printings');
-        $deck->load('sideboard');
+        $deck->load('cards', 'cards.rulings', 'cards.printings');
+        $deck->load('sideboard', 'sideboard.cards', 'sideboard.cards.printings');
 
-        return new DeckResource($deck);
+        return new OscResource($deck);
     }
 }

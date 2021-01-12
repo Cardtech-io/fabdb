@@ -23,4 +23,5 @@ Route::group(['middleware' => LogRequests::class], function() {
     Route::get('cards/{card}', 'CardController@view');
 
     Route::get('decks/{deck}', 'DeckController@view');
+    Route::get('decks/{deck}/osc', 'DeckController@osc');
 });
