@@ -6,10 +6,15 @@ use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\CardType;
 use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Collection\AddCardToCollection;
+use FabDB\Domain\Collection\CollectionRepository;
 use FabDB\Domain\Collection\RemoveCardFromCollection;
 use FabDB\Domain\Collection\TogglePrintingList;
 use FabDB\Domain\Collection\UpdateCardInCollection;
+use FabDB\Domain\Users\UserRepository;
+use FabDB\Http\Requests\UserListsRequest;
+use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CollectionController extends Controller
 {
@@ -61,5 +66,17 @@ class CollectionController extends Controller
         $user = $request->user();
         $user->clarification = $request->get('clarification');
         $user->save();
+    }
+
+    public function lists(UserListsRequest $request, CardRepository $cards, UserRepository $users)
+    {
+        $user = $users->bySlug($request->get('user'));
+
+        $cards = $cards->lists($request->get('view'), $user->id)
+            ->paginate($request->get('per_page', 12))
+            ->withPath('/'.$request->path())
+            ->appends($request->except('page'));
+
+        return CardResource::collection($cards);
     }
 }

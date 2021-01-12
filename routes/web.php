@@ -58,6 +58,7 @@ Route::middleware(['web'])->group(function() {
 
             Route::post('articles', 'ArticleController@draft');
 
+            Route::get('collection/lists', 'CollectionController@lists');
             Route::post('collection', 'CollectionController@addCard');
             Route::delete('collection/{printing}', 'CollectionController@removeCard');
             Route::post('collection/{printing}/{type}', 'CollectionController@toggleList');
