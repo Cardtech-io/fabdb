@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <paginator :results="results" @page-selected="updatePage" v-if="results.total" class="mt-4"></paginator>
+        <paginator :results="results" @page-selected="updatePage" class="mt-4"></paginator>
     </div>
 </template>
 
