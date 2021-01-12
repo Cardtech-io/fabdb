@@ -457,7 +457,7 @@ CRU,178,Fyendal's Spring Tunic,L,"At the start of your turn, if Fyendal's Spring
 **Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]
 
 **Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,,"generic,equipment,chest",,,,,1,,,standard
-CRU,179,Gambler's Glove,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Glove. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Glove after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"standard,cold"
+CRU,179,Gambler's Gloves,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Gloves. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Glove after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"standard,cold"
 CRU,180,Coax a Commotion,M,"If Coax a Commotion hits, choose any number:
 
 * Each hero creates a Quicken Token
