@@ -70,7 +70,6 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $card = Card::register(
                 $this->identifier,
-                $this->cycle($row['uid']),
                 $row['card_name'],
                 $this->imagePath($row),
                 Rarity::fromLss($row['rarity']),
@@ -125,6 +124,8 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $keywords[] = $weapon;
             $keywords[] = $size;
+        } elseif (!empty($possibleWeapon)) {
+            $keywords[] = Str::lower($possibleWeapon);
         }
 
         return $keywords;

@@ -82,24 +82,20 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $cycle, string $name, string $image, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
+    public static function register(Identifier $identifier, string $name, string $image, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
-
         $card = static::whereIdentifier($identifier->raw())->first();
 
         if ($card) {
             if (!$card->image) {
                 $card->image = $image;
             }
-            if (!$card->cycle) {
-                $card->cycle = $cycle;
-            }
 
             $card->fill(compact('name', 'keywords', 'stats'));
             $card->save();
         } else {
-            $card = static::create(compact( 'name', 'identifier', 'cycle', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
+            $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
         }
 
         return $card;

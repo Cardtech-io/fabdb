@@ -50,48 +50,20 @@ class SeedCardDatabase extends Command
             $csv->setHeaderOffset(0);
             $rows = $csv->getRecords();
 
-            DB::delete('DELETE variants FROM variants, cards WHERE cards.id = variants.card_id AND cards.identifier LIKE \'' . $set . '%\'');
-
             foreach ($rows as $row) {
-                $this->line('Registering: ' . $row['Set'] . $row['ID']);
+                $this->line('Registering: ' . $row['Name'] . $row['ID']);
 
-                if ($row['Variant of']) {
-                    $variantOf = $cards->findByIdentifier($row['Variant of']);
-
-                    if (!$variantOf) {
-                        throw new \Exception('Invalid identifier for variant: [' . $row['Variant of'] . ']');
-                    }
-
-                    $saved = Card::register(
-                        $this->identifier($row),
-                        '',
-                        $variantOf->name,
-                        '',
-                        new Rarity($row['Rarity']),
-                        $variantOf->text,
-                        $variantOf->flavour,
-                        $variantOf->comments,
-                        $variantOf->keywords,
-                        $variantOf->stats
-                    );
-
-                    //                $this->line('Linking variant: '.$saved->identifier->raw().' to: '.$variantOf->identifier->raw());
-
-                    Variant::create(['card_id' => $variantOf->id, 'variant_id' => $saved->id]);
-                } else {
-                    Card::register(
-                        $this->identifier($row),
-                        '',
-                        $row['Name'],
-                        '',
-                        new Rarity($row['Rarity']),
-                        $row['Text'],
-                        Arr::get($row, 'Flavour'),
-                        Arr::get($row, 'Comments'),
-                        explode(',', $row['Keywords']),
-                        $this->compileStats($row)
-                    );
-                }
+                Card::register(
+                    $this->identifier($row),
+                    $row['Name'],
+                    '',
+                    new Rarity($row['Rarity']),
+                    $row['Text'],
+                    Arr::get($row, 'Flavour'),
+                    Arr::get($row, 'Comments'),
+                    explode(',', $row['Keywords']),
+                    $this->compileStats($row)
+                );
             }
         }
 
@@ -109,16 +81,16 @@ class SeedCardDatabase extends Command
         return $set;
     }
 
-    private function compileStats($card)
+    private function compileStats($row)
     {
         $stats = [];
 
-        $this->stat($stats, $card, 'life');
-        $this->stat($stats, $card, 'intellect');
-        $this->stat($stats, $card, 'resource');
-        $this->stat($stats, $card, 'cost');
-        $this->stat($stats, $card, 'defense');
-        $this->stat($stats, $card, 'attack');
+        $this->stat($stats, $row, 'life');
+        $this->stat($stats, $row, 'intellect');
+        $this->stat($stats, $row, 'resource');
+        $this->stat($stats, $row, 'cost');
+        $this->stat($stats, $row, 'defense');
+        $this->stat($stats, $row, 'attack');
 
         return $stats;
     }
@@ -134,6 +106,6 @@ class SeedCardDatabase extends Command
 
     private function identifier(array $row)
     {
-        return Identifier::fromString($row['Set'] . str_pad($row['ID'], 3, 0, STR_PAD_LEFT));
+        return Identifier::generate($row['Name'], $this->compileStats($row));
     }
 }

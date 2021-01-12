@@ -286,6 +286,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         // Needed for some filters
         $input['use-case'] = 'build';
 
+        $query->groupBy('cards.id');
+
         $query->select([
             'cards.identifier',
             'cards.name',
@@ -298,7 +300,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         $filters = [
-            new SetFilter,
+            new PrintingFilter,
             new KeywordFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
