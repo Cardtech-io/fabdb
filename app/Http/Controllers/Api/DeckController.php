@@ -9,7 +9,7 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
     public function osc(Deck $deck)
     {
         $deck->load('cards', 'cards.rulings', 'cards.printings');
-        $deck->load('sideboard', 'sideboard.cards', 'sideboard.cards.printings');
+        $deck->load('sideboard', 'sideboard', 'sideboard.printings');
 
         return new OscResource($deck);
     }
