@@ -17,7 +17,7 @@ class OscResource extends JsonResource
         $response['weapons'] = $this->cards($this->resource->cards->weapons());
         $response['equipment'] = $this->cards($this->resource->cards->equipment());
         $response['maindeck'] = $this->cards($this->resource->cards->other());
-        $response['sideboard'] = $this->cards($this->resource->sideboard);
+        $response['sideboard'] = $this->cards($this->resource->sideboard, false);
 
         return $response;
     }
@@ -30,16 +30,31 @@ class OscResource extends JsonResource
         $response['hero_id'] = $hero->printings->first()->sku->stripped();
     }
 
-    private function cards(Collection $cards)
+    private function cards(Collection $cards, bool $removeSideboard = true)
     {
-        return $cards->map(function($card) {
-            return ['id' => $this->id($card), 'name' => $card->name, 'count' => $card->pivot->total];
+        return $cards->map(function($card) use ($removeSideboard) {
+            $payload = ['id' => $this->id($card), 'name' => $card->name, 'count' => $card->pivot->total];
+
+            if ($removeSideboard) {
+                $payload['count'] -= $this->sideboardTotal($card);
+            }
+
+            return $payload;
         });
     }
 
     private function id(Card $card)
     {
         return $card->printings->first()->sku->stripped();
+    }
+
+    private function sideboardTotal(Card $card)
+    {
+        $sideboard = $this->resource->sideboard->first(function($sideboardCard) use ($card) {
+            return $sideboardCard->identifier->raw() === $card->identifier->raw();
+        });
+
+        return object_get($sideboard, 'pivot.total', 0);
     }
 }
 
