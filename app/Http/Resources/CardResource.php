@@ -23,7 +23,7 @@ class CardResource extends JsonResource
         return $response;
     }
 
-    private function image($card)
+    protected function image($card)
     {
         $domain = config('services.imgix.domain');
 
