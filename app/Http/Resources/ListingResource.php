@@ -18,6 +18,7 @@ class ListingResource extends JsonResource
             'store',
             'variant'
         ]);
+
         $response['store'] = new StoreResource($this->whenLoaded('store'));
 
         return $response;

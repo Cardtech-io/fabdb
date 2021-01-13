@@ -17,7 +17,7 @@ class ClickController extends Controller
             $to['url'],
             $request->ip(),
             $to['from'],
-            $to['fromType'],
+            $to['fromType']
         ));
 
         return redirect($to['url']);

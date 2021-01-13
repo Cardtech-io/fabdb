@@ -1,40 +1,41 @@
 <template>
-    <div class="container p-4 py-8 pt-16 sm:mx-auto text-white flex">
-        <div class="flex-1 w-1/3">
-            <div class="flex navigation pb-8">
+    <div class="container p-4 py-8 sm:mx-auto text-white">
+        <div class="flex navigation pb-8">
+            <div class="flex-0">
                 <avatar :user="user" :width="100" class="mr-4"></avatar>
-                <div>
-                    <h1 class="font-serif text-4xl uppercase mb-2">{{ user.name }}</h1>
-                    <div class="text-base">
-                        Decks - Want list - Trade list
-                    </div>
+            </div>
+            <div>
+                <h1 class="font-serif text-4xl uppercase mb-2">{{ user.name }}</h1>
+                <div class="text-base">
+                    <button class="bg-semi-black hover:bg-gray-800 py-2 px-3 rounded">Decks</button>
+                    <button class="bg-semi-black hover:bg-gray-800 py-2 px-3 rounded">Want list</button>
+                    <button class="bg-semi-black hover:bg-gray-800 py-2 px-3 rounded">Trade list</button>
                 </div>
             </div>
         </div>
-        <div class="w-2/3">
-            <div class="flex">
-                <div class="w-1/2">
-                    <div class="inline-block bg-semi-black py-2 px-3 text-gray-300 rounded-t-lg">
-                        <h2 class="inline font-serif uppercase mr-2">Want list</h2>
-                        <span class="text-gray-600">(</span>{{ wants.meta.total }}<span class="text-gray-600">)</span>
-                    </div>
-                    <div class="bg-semi-black text-gray-400">
-                        <div v-for="card in wants.data" class="px-4 py-2">
-                            <div class="font-serif uppercase text-lg">{{ card.name }}</div>
-                            <span v-for="printing in card.printings" :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span>
-                        </div>
+
+        <router-view></router-view>
+        <div>
+                <div class="inline-block bg-semi-black py-2 px-3 text-gray-300 rounded-t-lg">
+                    <h2 class="inline font-serif uppercase mr-2">Want list</h2>
+                    <span class="text-gray-600">(</span>{{ wants.meta.total }}<span class="text-gray-600">)</span>
+                </div>
+                <div class="bg-semi-black text-gray-400">
+                    <div v-for="card in wants.data" class="px-4 py-2">
+                        <div class="font-serif uppercase text-lg">{{ card.name }}</div>
+                        <span v-for="printing in card.printings" :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span>
                     </div>
                 </div>
-                <div class="w-1/2">
-                    <div class="inline-block bg-semi-black py-2 px-3 text-gray-300 rounded-t-lg">
-                        <h2 class="inline font-serif uppercase mr-2">Trade list</h2>
-                        <span class="text-gray-600">(</span>{{ trades.meta.total }}<span class="text-gray-600">)</span>
-                    </div>
-                    <div class="bg-semi-black text-gray-400">
-                        <div v-for="card in trades.data" class="px-4 py-2">
-                            <div class="font-serif uppercase text-lg">{{ card.name }} {{ card.rarity }}</div>
-                            <span v-for="printing in card.printings" :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span>
-                        </div>
+            </div>
+            <div class="w-1/2">
+                <div class="inline-block bg-semi-black py-2 px-3 text-gray-300 rounded-t-lg">
+                    <h2 class="inline font-serif uppercase mr-2">Trade list</h2>
+                    <span class="text-gray-600">(</span>{{ trades.meta.total }}<span class="text-gray-600">)</span>
+                </div>
+                <div class="bg-semi-black text-gray-400">
+                    <div v-for="card in trades.data" class="px-4 py-2">
+                        <div class="font-serif uppercase text-lg">{{ card.name }} {{ card.rarity }}</div>
+                        <span v-for="printing in card.printings" :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span>
                     </div>
                 </div>
             </div>

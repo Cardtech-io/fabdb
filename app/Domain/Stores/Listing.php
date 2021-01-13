@@ -8,7 +8,7 @@ use FabDB\Library\Model;
 class Listing extends Model
 {
     protected $fillable = ['store_id', 'card_id', 'printing_id', 'variant', 'price', 'path', 'available'];
-    protected $hidden = ['id', 'storeId', 'cardId'];
+    protected $hidden = ['storeId', 'cardId'];
 
     public function card()
     {
