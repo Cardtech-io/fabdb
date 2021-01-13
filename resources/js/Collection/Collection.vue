@@ -27,6 +27,7 @@
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">Sku</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Finish</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Set/Release</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Rarity</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase" width="150">Total</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Trade</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Want</th>

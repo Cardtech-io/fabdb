@@ -7,6 +7,7 @@
             <td class="border border-gray-300 px-2 sm:pl-8 text-right"><span :class="printing.sku.finish" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">{{ printing.sku.sku }}</span></td>
             <td class="border border-gray-300 px-2 hidden sm:table-cell">{{ englishFinish(printing.sku.finish) }}</td>
             <td class="border border-gray-300 px-2 hidden sm:table-cell">{{ printing.sku.set.name }}</td>
+            <td class="border border-gray-300 px-2 hidden sm:table-cell">{{ card.rarity }}</td>
             <td class="border border-gray-300 text-center"><card-count :printing="printing"></card-count></td>
             <td class="border border-gray-300 text-center py-2 align-middle">
                 <input type="checkbox" class="form-checkbox h-5 w-5 text-green-500 focus:outline-none" v-model="printing.trade" @click="toggle(printing, 'trade')">
