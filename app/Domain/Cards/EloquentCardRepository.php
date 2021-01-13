@@ -8,7 +8,7 @@ use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
-use FabDB\Domain\Cards\Search\OwnedCardsFilter;
+use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
@@ -68,7 +68,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new PitchFilter,
             new RarityFilter,
             new StatFilter,
-            new OwnedCardsFilter($user),
+            new CollectionFilter($user),
             new OrderFilter
         ];
 

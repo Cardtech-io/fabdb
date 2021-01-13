@@ -19,7 +19,5 @@ class PrintingFilter implements SearchFilter
                 $join->where('printings.sku', 'LIKE', $input['set'].'%');
             }
         });
-
-
     }
 }

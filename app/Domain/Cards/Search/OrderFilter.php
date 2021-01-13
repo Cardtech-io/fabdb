@@ -24,6 +24,8 @@ class OrderFilter implements SearchFilter
         }
 
         switch ($order) {
+            case 'sku':
+                $query->orderBy('printings.sku');
             case 'identifier':
                 $query->orderBy('cards.name');
                 $query->orderByRaw("JSON_EXTRACT(stats, '$.resource')");

@@ -10,7 +10,7 @@
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto sm:px-4">
-                <card-search use-case="collection" @search-completed="refreshResults" :external="{ per_page: 15, view: search.view }"></card-search>
+                <card-search use-case="collection" @search-completed="refreshResults" :external="{ per_page: 15, ...search }"></card-search>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
 
                 page: 1,
                 results: {},
-                search: { view: this.$route.query.view || 'mine' },
+                search: { view: this.$route.query.view || 'mine', order: 'sku' },
                 title: 'My collection',
                 display: 'list'
             }
@@ -110,15 +110,6 @@
         mounted() {
             this.$root.collectionTabIndex = 0;
         },
-
-        // watch: {
-        //     'search': {
-        //         handler() {
-        //
-        //         },
-        //         deep: true
-        //     }
-        // }
 
         metaInfo() {
             return {

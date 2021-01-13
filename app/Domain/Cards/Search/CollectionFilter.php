@@ -5,7 +5,7 @@ use FabDB\Domain\Users\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 
-class OwnedCardsFilter implements SearchFilter
+class CollectionFilter implements SearchFilter
 {
     /**
      * @var User
