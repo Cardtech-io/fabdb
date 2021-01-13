@@ -1,11 +1,12 @@
 <template>
-    <div :style="style" class="mx-auto">
+    <div :style="style" class="mx-auto" v-if="marketable">
         <div ref="ad"></div>
     </div>
 </template>
 
 <script>
     import postscribe from 'postscribe';
+    import {mapGetters} from 'vuex';
 
     export default {
         props: {
@@ -29,6 +30,10 @@
             return {
                 style: 'max-width: '+this.width+'px; max-height: '+this.height+'px'
             }
+        },
+
+        computed: {
+            ...mapGetters('session', ['marketable'])
         },
 
         methods: {
@@ -58,6 +63,8 @@
         },
 
         mounted() {
+            if (!this.marketable) return;
+
             setTimeout(() => {
                 let url = this.url('js');
                 let tag = '<'+'script'+' src="'+url+'" async>'+'<'+'/script>';

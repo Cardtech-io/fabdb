@@ -119,7 +119,7 @@
                         <div v-if="user.subscription">
                             <badge :subscription-level="user.subscription"></badge>
                         </div>
-                        <p v-else>If you love what you're doing, please <a href="https://www.patreon.com/fabdb" class="link">support us on Patreon.</a></p>
+                        <p v-else>If you love what we're doing, please <a href="https://www.patreon.com/fabdb" class="link">support us on Patreon.</a></p>
                     </div>
 
                     <h2 class="text-xl font-serif uppercase">What data do we collect?</h2>
