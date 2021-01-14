@@ -19,4 +19,13 @@ interface CollectionRepository
      * @return mixed
      */
     public function toggleList(int $cardId, int $printingId, int $userId, string $type);
+
+    /**
+     * Retrieves a paginated list of trade or want lists for the given user.
+     *
+     * @param string $view
+     * @param int $userId
+     * @return mixed
+     */
+    public function lists(string $view, int $userId);
 }

@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http\Resources;
 
+use FabDB\Domain\Cards\Sku;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Arr;
 
@@ -11,6 +12,11 @@ class CardResource extends JsonResource
         $this->resource->setAppends([]);
 
         $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'next', 'prev']);
+
+        if (object_get($this->resource, 'sku')) {
+            $response['sku'] = new Sku($this->resource->sku);
+        }
+
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));

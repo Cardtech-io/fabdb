@@ -1,6 +1,6 @@
 <template>
     <div class="md:float-left md:px-2 w-full lg:w-1/2 my-2">
-        <router-link :to="{ name: 'decks.view', params: { deck: deck.slug } }" class="block flex items-center bg-gray-100 hover:bg-white rounded-full overflow-hidden">
+        <router-link :to="{ name: 'decks.view', params: { deck: deck.slug } }" class="block flex items-center rounded-full overflow-hidden" :class="themeClasses()">
             <div class="flex-none">
                 <hero-avatar :hero="hero" :name="deck.name"></hero-avatar>
             </div>
@@ -24,13 +24,19 @@
     import Viewable from '../DeckBuilder/Viewable';
 
     export default {
-        props: ['deck'],
+        props: ['deck', 'theme'],
         mixins: [Imagery, Viewable],
         components: {HeroAvatar},
 
         computed: {
             cards: function() {
                 return this.deck.cards;
+            }
+        },
+
+        methods: {
+            themeClasses() {
+                return this.theme === 'light' ? 'bg-gray-100 hover:bg-white' : 'bg-semi-black hover:bg-black';
             }
         }
     };

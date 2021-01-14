@@ -4,7 +4,10 @@
 
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
-                <crumbs :crumbs="crumbs"></crumbs>
+                <crumbs :crumbs="crumbs" class="flex-1"></crumbs>
+                <div class="text-right">
+                    <router-link :to="{ name: 'user.profile.wants', params: { user: user.slug }}" class="hover:opacity-75">My public want/trade list</router-link>
+                </div>
             </div>
         </div>
 
@@ -21,7 +24,7 @@
                         <paginator :results="results" @page-selected="updatePage"></paginator>
                     </div>
 
-                    <table v-if="display == 'list'" class="w-full table-auto border-collapse bg-white">
+                    <table class="w-full table-auto border-collapse bg-white">
                         <thead>
                             <tr>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">Sku</th>
@@ -47,6 +50,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import CardItem from '../CardDatabase/CardItem.vue';
     import CardListItem from '../CardDatabase/CardListItem.vue';
     import CardSearch from '../CardDatabase/CardSearch.vue';
@@ -82,6 +86,10 @@
                 title: 'My collection',
                 display: 'list'
             }
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         methods: {

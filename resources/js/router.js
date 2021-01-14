@@ -31,6 +31,8 @@ import Premium from './Premium';
 import Login from './Auth/Login';
 import Logout from './Auth/Logout';
 import ViewProfile from "./Identity/ViewProfile";
+import LatestDecks from "./Decks/LatestDecks";
+import WantTradeList from "./Collection/WantTradeList";
 
 Vue.use(VueRouter);
 
@@ -77,7 +79,11 @@ const router = new VueRouter({
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
         { path: "/premium", component: Premium, name: 'premium', meta: { title: 'Premium feature' } },
 
-        { path: '/user/:user', component: ViewProfile, name: 'user.profile' },
+        { path: '/user/:user', component: ViewProfile, children: [
+            { path: '', component: LatestDecks, name: 'user.profile.decks' },
+            { path: 'wants', component: WantTradeList, name: 'user.profile.wants', meta: { view: 'want' } },
+            { path: 'trades', component: WantTradeList, name: 'user.profile.trades', meta: { view: 'trade' } },
+        ]},
 
         { path: "/resources/api", component: Api, name: 'resources.api', meta: { title: 'API Documentation' } },
 

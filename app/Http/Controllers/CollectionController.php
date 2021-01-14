@@ -68,11 +68,11 @@ class CollectionController extends Controller
         $user->save();
     }
 
-    public function lists(UserListsRequest $request, CardRepository $cards, UserRepository $users)
+    public function lists(UserListsRequest $request, CollectionRepository $collection, UserRepository $users)
     {
         $user = $users->bySlug($request->get('user'));
 
-        $cards = $cards->lists($request->get('view'), $user->id)
+        $cards = $collection->lists($request->get('view'), $user->id)
             ->paginate($request->get('per_page', 12))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));

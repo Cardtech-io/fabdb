@@ -331,25 +331,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where('printings.sku', $identifier)->first();
     }
 
-    public function lists(string $view, int $userId)
-    {
-        return $this->newQuery()
-            ->select('cards.id', 'cards.identifier', 'cards.name', 'cards.rarity')
-            ->with(['printings' => function($query) use ($view, $userId) {
-                $query->join('owned_cards', 'owned_cards.printing_id', 'printings.id');
-                $query->where('owned_cards.user_id', $userId);
-                $query->where("owned_cards.$view", '<>', 0);
-            }])
-            ->join('printings', 'printings.card_id', 'cards.id')
-            ->join('owned_cards', function($join) {
-                $join->on('owned_cards.card_id', 'cards.id');
-                $join->whereNotNull('owned_cards.printing_id');
-            })
-            ->where('owned_cards.user_id', $userId)
-            ->where("owned_cards.$view", '<>', 0)
-            ->groupBy('cards.id');
-    }
-
     private function findBySku(string $identifier)
     {
         $query = $this->newQuery()

@@ -71,13 +71,4 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function buildSearch(User $user, Deck $deck, array $input);
-
-    /**
-     * Retrieves a paginated list of trade or want lists for the given user.
-     *
-     * @param string $view
-     * @param int $userId
-     * @return mixed
-     */
-    public function lists(string $view, int $userId);
 }

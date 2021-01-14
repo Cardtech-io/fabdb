@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-full">
         <div id="app" class="flex flex-col relative h-full">
             <!-- Header -->
             <div class="navigation">
@@ -12,7 +12,7 @@
             </div>
 
             <!-- Footer -->
-            <footer class="footer p-8">
+            <footer class="footer p-8 bg-semi-black">
                 <div class="container sm:mx-auto sm:text-center text-sm text-gray-400">
                     <p class="my-2"><router-link to="/support" class="link">Support</router-link> |  <a href="https://facebook.com/fleshandblooddb" class="link" target="_blank">Facebook</a> |  <router-link to="/privacy" class="link">Privacy policy</router-link></p>
                     <p><a href="/" class="link">fabdb.net</a> is a free online resource for the Flesh &amp; Blood™ TCG by <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>

@@ -61,16 +61,17 @@
                             <div class=" float-left p-2 h-8">Pitch 3 (Blue)</div>
                         </td>
                     </tr>
-                    @for ($i = 0; $i < max($deck->other(1)->count(), $deck->other(2)->count(), $deck->other(3)->count()); $i++)
+                    <?php $maxLines = max($deck->other(1)->count(), $deck->other(2)->count(), $deck->other(3)->count()); ?>
+                    @for ($i = 0; $i < $maxLines; $i++)
                     <tr>
                         <?php $pitch1 = $deck->other(1)->get($i); ?>
                         <?php $pitch2 = $deck->other(2)->get($i); ?>
                         <?php $pitch3 = $deck->other(3)->get($i); ?>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch1, 'pivot.total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == $maxLines-1) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch1, 'pivot.total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch1, 'name', '&nbsp;') !!}</td>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch2, 'pivot.total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == $maxLines-1) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch2, 'pivot.total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch2, 'name', '&nbsp;') !!}</td>
-                        <td class="px-2 py-1 border border-gray-500 @if ($i == 15) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch3, 'pivot.total', '&nbsp;') !!}</td>
+                        <td class="px-2 py-1 border border-gray-500 @if ($i == $maxLines-1) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch3, 'pivot.total', '&nbsp;') !!}</td>
                         <td class="px-2 py-1 border border-gray-500 font-serif" width="30%">{!! object_get($pitch3, 'name', '&nbsp;') !!}</td>
                     </tr>
                     @endfor
@@ -90,7 +91,7 @@
             <div class="float-left flex">
                 <a href="https://fabdb.net" class="font-serif uppercase">Deck managed at fabdb.net</a>
             </div>
-            <div class="float-right border-2 border-black px-2 py-1 font-serif text-xl w-2/5">Card Total: {{  $deck->equipmentTotal() + $deck->otherTotal() }}</div>
+            <div class="float-right border-2 border-black px-2 py-1 font-serif text-xl w-2/5">Card Total: {{ $deck->cards->total() - 1 }}</div>
         </div>
     </body>
 </html>

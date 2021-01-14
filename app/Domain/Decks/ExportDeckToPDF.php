@@ -39,6 +39,7 @@ class ExportDeckToPDF
     public function handle(DeckRepository $decks)
     {
         $deck = $decks->find($this->deckId);
+
         $pdf = $this->requestPDF($deck);
         $pdfFile = "tmp/{$deck->slug}.pdf";
 
