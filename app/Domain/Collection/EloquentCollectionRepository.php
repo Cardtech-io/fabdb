@@ -15,56 +15,62 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
 
     public function add(int $cardId, int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()
-            ->wherePrintingId($printingId)
-            ->whereUserId($userId)
-            ->whereCardId($cardId)
-            ->first();
+        DB::transaction(function() use ($cardId, $printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->whereCardId($cardId)
+                ->first();
 
-        if (!$ownedCard) {
-            $ownedCard = new OwnedCard;
-            $ownedCard->cardId = $cardId;
-            $ownedCard->printingId = $printingId;
-            $ownedCard->userId = $userId;
-        }
+            if (!$ownedCard) {
+                $ownedCard = new OwnedCard;
+                $ownedCard->cardId = $cardId;
+                $ownedCard->printingId = $printingId;
+                $ownedCard->userId = $userId;
+            }
 
-        $ownedCard->total += $total;
-        $ownedCard->save();
+            $ownedCard->total += $total;
+            $ownedCard->save();
 
-        return $ownedCard;
+            return $ownedCard;
+        });
     }
 
     public function remove(int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()
-            ->wherePrintingId($printingId)
-            ->whereUserId($userId)
-            ->first();
+        DB::transaction(function() use ($printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->first();
 
-        if ($ownedCard) {
-            $ownedCard->remove($total);
-        }
+            if ($ownedCard) {
+                $ownedCard->remove($total);
+            }
+        });
     }
 
     public function update(int $cardId, int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()
-            ->wherePrintingId($printingId)
-            ->whereUserId($userId)
-            ->whereCardId($cardId)
-            ->first();
+        DB::transaction(function() use ($cardId, $printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->whereCardId($cardId)
+                ->first();
 
-        if (!$ownedCard) {
-            $ownedCard = new OwnedCard;
-            $ownedCard->cardId = $cardId;
-            $ownedCard->printingId = $printingId;
-            $ownedCard->userId = $userId;
-        }
+            if (!$ownedCard) {
+                $ownedCard = new OwnedCard;
+                $ownedCard->cardId = $cardId;
+                $ownedCard->printingId = $printingId;
+                $ownedCard->userId = $userId;
+            }
 
-        $ownedCard->total = $total;
-        $ownedCard->save();
+            $ownedCard->total = $total;
+            $ownedCard->save();
 
-        return $ownedCard;
+            return $ownedCard;
+        });
     }
 
     public function toggleList(int $cardId, int $printingId, int $userId, string $type)
