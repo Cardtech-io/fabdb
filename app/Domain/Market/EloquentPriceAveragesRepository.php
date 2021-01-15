@@ -31,16 +31,25 @@ class EloquentPriceAveragesRepository extends EloquentRepository implements Pric
         $order = Arr::get($params, 'order', 'name');
         $direction = Arr::get($params, 'direction', 'asc');
 
+        $ordering = [
+            'name' => 'name',
+            'high' => 'high_current',
+            'mean' => 'mean_current',
+            'low' => 'low_current',
+            'rarity' => 'rarity'
+        ];
+
         $query = (new CurrentPrice)
             ->newQuery()
             ->select('current_prices.*', 'printings.sku', 'cards.identifier', 'cards.name', 'cards.rarity')
             ->join('printings', 'printings.id', 'current_prices.printing_id')
             ->join('cards', 'cards.id', 'printings.card_id')
-            ->where('currency', $params['currency']);
+            ->where('currency', $params['currency'])
+            ->orderBy($ordering[$order], $direction);
 
-            if (isset($params['set']) && $params['set'] != 'all') {
-                $query->where('printings.sku', 'LIKE', $params['set'].'%');
-            }
+        if (isset($params['set']) && $params['set'] != 'all') {
+            $query->where('printings.sku', 'LIKE', $params['set'].'%');
+        }
 
         return $query;
     }
