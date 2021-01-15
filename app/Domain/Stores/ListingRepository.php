@@ -6,4 +6,6 @@ use FabDB\Library\Repository;
 interface ListingRepository extends Repository
 {
     public function remove(int $storeId, int $cardId);
+
+    public function forCard(int $cardId);
 }

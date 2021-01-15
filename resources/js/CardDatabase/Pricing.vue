@@ -18,13 +18,13 @@
         </h2>
         <ul v-if="filtered.length" class="text-base">
             <li v-for="listing in filtered" class="flex odd:bg-white">
-                <div class="w-1/3 p-2 px-4">{{ variant(listing.variant) }}</div>
+                <div class="w-1/3 p-2 px-4"><sku-finish :sku="listing.sku"></sku-finish></div>
                 <div class="w-1/3 p-2 px-4 text-center">
                     <price :amount="listing.price" :currency="useCurrency(listing)" :showCurrency="currency == 'all'"></price>
                 </div>
                 <div class="w-1/3 p-2 px-4 text-right">
-                    <a :href="listingUrl(listing)" class="link" target="_blank" v-if="listing.available">{{ listing.store.name }}</a>
-                    <span class="text-gray-500" v-else>{{ listing.store.name }}</span>
+                    <a :href="listingUrl(listing)" class="link" target="_blank" v-if="listing.available">{{ listing.name }}</a>
+                    <span class="text-gray-500" v-else>{{ listing.name }}</span>
                 </div>
             </li>
         </ul>
@@ -39,16 +39,24 @@
     import { mapGetters } from 'vuex';
     import Carding from "../Utilities/Carding";
     import Price from '../Components/Price.vue';
+    import SkuFinish from "./SkuFinish";
     import Strings from '../Utilities/Strings';
 
     export default {
-        props: ['listings'],
+        props: {
+            card: {
+                required: true,
+                type: Object
+            }
+        },
+
         mixins: [Strings],
-        components: {Price},
+        components: {Price, SkuFinish},
 
         data() {
             return {
-                currency: 'all'
+                currency: 'all',
+                listings: []
             }
         },
 
@@ -57,7 +65,7 @@
 
             currencies() {
                 let reduced = this.listings.reduce((carry, listing) => {
-                    carry.push(listing.store.currency);
+                    carry.push(listing.currency);
                     return carry;
                 }, []);
 
@@ -66,14 +74,14 @@
 
             filtered() {
                 return _.sortBy(this.listings.filter(listing => {
-                    return this.currency == 'all' || listing.store.currency == this.currency;
+                    return this.currency == 'all' || listing.currency == this.currency;
                 }), 'price');
             }
         },
 
         methods: {
             useCurrency(listing) {
-                return this.currency == 'all' ? listing.store.currency : this.currency;
+                return this.currency == 'all' ? listing.currency : this.currency;
             },
 
             variant(variant) {
@@ -88,11 +96,13 @@
             },
 
             listingUrl(listing) {
-                return Carding.listingUrl(listing.store.domain, listing.path, listing.id, 'listing');
+                return Carding.listingUrl(listing.domain, listing.path, listing.id, 'listing');
             },
         },
 
         mounted() {
+            axios.get('/market/listings?card='+this.card.identifier).then(response => this.listings = response.data);
+
             if (this.user && this.user.currency && this.currencies.indexOf(this.user.currency) !== -1) {
                 this.currency = this.user.currency;
             }

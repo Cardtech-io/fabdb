@@ -3,12 +3,14 @@ namespace FabDB\Domain\Stores;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Clicks\Click;
+use FabDB\Library\Casts\CastsSku;
 use FabDB\Library\Model;
 
 class Listing extends Model
 {
     protected $fillable = ['store_id', 'card_id', 'printing_id', 'variant', 'price', 'path', 'available'];
     protected $hidden = ['storeId', 'cardId'];
+    protected $casts = ['sku' => CastsSku::class];
 
     public function card()
     {
@@ -25,9 +27,9 @@ class Listing extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public static function register(int $store_id, int $card_id, int $printing_id, string $variant, $price, $path, $available)
+    public static function register(int $store_id, int $card_id, int $printing_id, $price, $path, $available)
     {
-        $search = compact('store_id', 'card_id', 'printing_id', 'variant');
+        $search = compact('store_id', 'card_id', 'printing_id');
         $payload = compact('price', 'path', 'available');
 
         return self::updateOrCreate($search, $payload);

@@ -129,11 +129,11 @@ class ScrapeStores extends Command
                 foreach ($results->products as $product) {
                     if (!$product->variants[0]->sku) continue;
 
-                    if ($this->possibleMatch($product->variants[0]->sku)) {
+                    if ($product->variants[0]->sku && $this->possibleMatch($product->variants[0]->sku)) {
                         Log::debug('Sku matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
 
                         foreach ($product->variants as $variant) {
-                            if (!$this->possibleMatch($variant->sku)) continue;
+                            if (!$variant->sku || !$this->possibleMatch($variant->sku)) continue;
 
                             $parser = new VariantParser($product, $variant);
 
@@ -180,6 +180,12 @@ class ScrapeStores extends Command
     private function getStores()
     {
         if ($storeId = $this->argument('store')) {
+            if (strpos($storeId, '+') !== -1) {
+                $storeId = (int) substr($storeId, 0, strlen($storeId) - 1);
+
+                return $this->stores->findAllOver($storeId);
+            }
+
             return collect([$this->stores->find($storeId)]);
         }
 
@@ -224,7 +230,6 @@ class ScrapeStores extends Command
                 $store->id,
                 $printing->cardId,
                 $printing->id,
-                $parser->sku()->finish()->raw(),
                 $parser->price(),
                 $link,
                 $parser->available()

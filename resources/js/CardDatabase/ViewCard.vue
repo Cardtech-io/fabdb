@@ -50,7 +50,7 @@
 
                                 <article>
                                     <p class="mb-4 italic">
-                                        <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                        <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.printings[0].sku.sku)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
                                     </p>
                                 </article>
                             </div>
@@ -58,7 +58,7 @@
                             <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
                         </div>
                         <div class="md:w-1/2 md:ml-8">
-                            <pricing :listings="card.listings" class="mb-8 mt-4 md:mt-0"></pricing>
+                            <pricing :card="card" class="mb-8 mt-4 md:mt-0"></pricing>
                             <card-price :card="card"></card-price>
                         </div>
                     </div>

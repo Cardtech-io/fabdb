@@ -1,7 +1,7 @@
 <template>
     <div>
-        <price :amount="current" :currency="currency">{{ current }}</price>
-        <span v-if="current != previous" class="text-sm">
+        <price :amount="current" :currency="currency"></price>
+        <span v-if="current != previous && previous" class="text-sm">
             <price :amount="difference" :currency="currency" :class="textDifference"></price>
         </span>
     </div>

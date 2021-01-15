@@ -30,7 +30,6 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/fabled', 'CardController@fabled');
         Route::get('cards/heroes', 'CardController@heroes');
         Route::get('cards/build', 'CardController@build');
-        Route::get('cards/prices', 'CardController@prices');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
@@ -40,6 +39,8 @@ Route::middleware(['web'])->group(function() {
         Route::post('export/{deck}.zip', 'ExportController@zip');
 
         Route::get('featured/top', 'FeatureController@top');
+        Route::get('market/prices', 'MarketController@prices');
+        Route::get('market/listings', 'MarketController@listings');
         Route::get('market/{card}', 'MarketController@cardTrend');
 
         Route::post('auth/check-email', 'AuthController@checkEmail');

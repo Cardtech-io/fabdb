@@ -157,7 +157,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ];
 
         $dates = PriceAverage::selectRaw('DISTINCT created_at')
-            ->orderBy('created_at', 'desc')->limit(2)
+            ->orderBy('created_at', 'desc')
+            ->limit(2)
             ->pluck('created_at')
             ->toArray();
 
@@ -168,7 +169,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.name',
                 'cards.rarity',
                 'cards.stats',
-                'current.variant',
                 'current.high AS current_high',
                 'current.mean AS current_mean',
                 'current.low AS current_low',
@@ -180,8 +180,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->leftJoin('price_averages AS previous', function($join) use ($dates) {
                 $join->on('previous.card_id', 'current.card_id');
                 $join->whereRaw('previous.currency = current.currency');
-                $join->whereRaw('previous.variant = current.variant');
-                $join->where('previous.created_at', $dates[1]);
+                $join->where('previous.created_at', object_get($dates, '1', $dates[0]));
             })
             ->where('current.currency', $params['currency'])
             ->where('current.created_at', $dates[0])
