@@ -36699,7 +36699,7 @@ __webpack_require__.r(__webpack_exports__);
   getters: {
     // Returns true if the user can be marketed to (ads)
     marketable: function marketable(state) {
-      return !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
+      return !state.session.user || !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
     },
     user: function user(state) {
       return state.session.user;

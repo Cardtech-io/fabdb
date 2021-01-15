@@ -41,7 +41,7 @@ export default {
     getters: {
         // Returns true if the user can be marketed to (ads)
         marketable: state => {
-            return !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
+            return !state.session.user || !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
         },
 
         user: state => {
