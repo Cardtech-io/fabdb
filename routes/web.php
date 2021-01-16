@@ -51,6 +51,7 @@ Route::middleware(['web'])->group(function() {
 
         Route::get('users/{user}', 'UserController@view');
         Route::get('collection/lists', 'CollectionController@lists');
+        Route::get('decks/starters', 'DeckController@starters');
 
         Route::get('events/{event}', 'EventController@view');
 
@@ -75,7 +76,6 @@ Route::middleware(['web'])->group(function() {
             Route::delete('events/{event}/registration', 'EventController@unregister');
 
             Route::get('decks/mine', 'DeckController@mine');
-            Route::get('decks/starters', 'DeckController@starters');
             Route::post('decks/copy', 'DeckController@copy');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');

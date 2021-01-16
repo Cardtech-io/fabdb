@@ -3,8 +3,8 @@
         <header-title title="Starter decks"></header-title>
         <div class="container mx-auto">
             <div class="px-4">
-                <p class="text-gray-500">
-                    Looking for the Official starter decks? Want to import them into TTS, or simply want to create your own
+                <p class="text-gray-400 bg-semi-black p-4 rounded-lg leading-8">
+                    <span class="block text-5xl font-serif uppercase float-left relative leading-3" style="top: 15px">L</span>ooking for the Official starter decks? Want to import them into TTS, or simply want to create your own
                     deck from them? Look no further! This page lists all of the official Flesh & Blood starter decks, as well as
                     providing all the usual features you've come to expect from FaB DB!
                 </p>

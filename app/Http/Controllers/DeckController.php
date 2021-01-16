@@ -46,7 +46,7 @@ class DeckController extends Controller
 
     public function starters()
     {
-        return $this->decks->starters();
+        return DeckResource::collection($this->decks->starters());
     }
 
     public function latest(Request $request)

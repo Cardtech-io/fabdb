@@ -227,7 +227,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         // The user ID zero is official, or system decks (usable only by fab db, not editable by any user)
         return $this->newQuery()
-            ->select('decks.id', 'decks.name', 'decks.format', 'decks.notes')
+            ->select('decks.id', 'decks.slug', 'decks.name', 'decks.format', 'decks.notes')
             ->with('cards')
             ->whereRaw('user_id = 0')
             ->get();
