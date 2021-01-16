@@ -15,11 +15,6 @@ class IdentifierFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        if (is_numeric($input['keywords'])) {
-            $query->where('identifier', 'LIKE', '%'.addslashes($input['keywords']));
-        }
-        else {
-            $query->where('identifier', $input['keywords']);
-        }
+        $query->where('printings.sku', 'LIKE', '%'.addslashes($input['keywords']).'%');
     }
 }
