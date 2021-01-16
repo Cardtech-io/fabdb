@@ -12,10 +12,12 @@ class CardController extends Controller
 {
     public function list(Request $request, CardRepository $cards)
     {
-        return $cards->search($request->user(), $request->all())
+        $cards = $cards->search($request->user(), $request->all())
             ->paginate($request->get('per_page', 12))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
+
+        return CardResource::collection($cards);
     }
 
     public function heroes(CardRepository $cards)
@@ -25,24 +27,24 @@ class CardController extends Controller
 
     public function fabled(CardRepository $cards)
     {
-        return collect([
-            $cards->findByIdentifier('WTR000'),
-            $cards->findByIdentifier('ARC000'),
-            $cards->findByIdentifier('CRU000'),
-        ]);
+        return CardResource::collection(collect([
+            $cards->findByIdentifier('heart-of-fyendal-blue'),
+            $cards->findByIdentifier('eye-of-ophidia-blue'),
+            $cards->findByIdentifier('arknight-shard-blue'),
+        ]));
     }
 
     public function build(Request $request, DeckRepository $decks, CardRepository $cards)
     {
         $deck = $decks->bySlug($request->get('deck'));
 
-        return $cards->buildSearch($request->user(), $deck, $request->all())
-            ->paginate($request->get('per_page', 24));
+        return CardResource::collection($cards->buildSearch($request->user(), $deck, $request->all())
+            ->paginate($request->get('per_page', 24)));
     }
 
     public function view(Request $request, CardRepository $cards)
     {
-        return new CardResource($cards->view($request->card->identifier, $request->all()));
+        return new CardResource($cards->view($request->identifier, ['listings', 'listings.store', 'printings']));
     }
 
     public function ad(Request $request, CardRepository $cards)

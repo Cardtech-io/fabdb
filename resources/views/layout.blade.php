@@ -46,7 +46,7 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
 
         @if (env('SENTRY_LARAVEL_DSN'))
             <script
-                src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"
+                src="https://browser.sentry-cdn.com/5.29.2/bundle.min.js"
                 integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT"
                 crossorigin="anonymous"></script>
             <script>

@@ -27,6 +27,22 @@
                             <label class="block font-serif uppercase tracking-wide mb-1">Email address</label>
                             <input type="email" v-model="email" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
                         </div>
+                        <button v-if="!changePassword" class="button-secondary text-sm py-3 px-4 mt-4 rounded-lg" @click="changePassword = true">I'd like to add or change my password</button>
+                        <div v-if="changePassword" class="p-4 bg-gray-100 rounded-lg mt-4">
+                            <div class="w-full mb-4" v-if="user.hasPassword">
+                                <label class="block font-serif uppercase tracking-wide mb-1">Old password</label>
+                                <input type="password" v-model="oldPassword" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                            </div>
+                            <div class="w-full">
+                                <label class="block font-serif uppercase tracking-wide mb-1">New password</label>
+                                <input type="password" v-model="newPassword" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                            </div>
+                            <div class="w-full mt-4" v-if="newPassword">
+                                <label class="block font-serif uppercase tracking-wide mb-1">Confirm password</label>
+                                <input type="password" v-model="newPasswordConfirmation" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                            </div>
+                            <p class="border border-blue-500 text-blue-500 p-2 rounded-lg text-sm mt-4">At FaB DB we take security seriously. Your password must be at least 8 characters long, and consist of at least 1 non-alpha character (!?<>.,)</p>
+                        </div>
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
                             <input type="text" v-model="name" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
@@ -95,13 +111,15 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
+                    <router-link :to="{ name: 'user.profile.decks', params: { user: user.slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>
+
                     <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
 
                     <div class="mb-8">
                         <div v-if="user.subscription">
                             <badge :subscription-level="user.subscription"></badge>
                         </div>
-                        <p v-else>If you love what you're doing, please <a href="https://www.patreon.com/fabdb" class="link">support us on Patreon.</a></p>
+                        <p v-else>If you love what we're doing, please <a href="https://www.patreon.com/fabdb" class="link">support us on Patreon.</a></p>
                     </div>
 
                     <h2 class="text-xl font-serif uppercase">What data do we collect?</h2>
@@ -239,7 +257,10 @@
                     { text: 'Home', link: '/' },
                     { text: 'Profile Update' }
                 ],
-
+                changePassword: false,
+                oldPassword: '',
+                newPassword: '',
+                newPasswordConfirmation: '',
                 saving: false
             }
         },
@@ -258,6 +279,9 @@
                     currency: this.currency,
                     need: this.need,
                     view: this.view,
+                    oldPassword: this.oldPassword,
+                    newPassword: this.newPassword,
+                    newPassword_confirmation: this.newPasswordConfirmation,
                     avatar: this.avatar,
                     theme: this.theme,
                     width: this.width,
@@ -270,6 +294,7 @@
                     if (error.response.status === 422) {
                         this.addValidationMessages({messages: error.response.data.errors});
                     }
+                    this.saving = false;
                 });
             }
         },

@@ -38,9 +38,13 @@ class MaxCards implements Rule
             return true;
         }
 
-        $total = request()->get('total', 1);
+        // If the number of cards is specified, then we use that as the value
+        if (request()->has('total')) {
+            return request()->get('total') <= $this->maxNumber();
+        }
 
-        return $this->card->pivot->total < $this->maxNumber() || $total <= 3;
+        // Else, add 1.
+        return $this->card->pivot->total + 1 <= $this->maxNumber();
     }
 
     /**
@@ -65,6 +69,6 @@ class MaxCards implements Rule
             return 2;
         }
 
-        return 3;
+        return $this->deck->format === 'open' ? 100 : 3;
     }
 }

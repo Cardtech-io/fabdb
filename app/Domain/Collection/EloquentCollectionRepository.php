@@ -4,6 +4,7 @@ namespace FabDB\Domain\Collection;
 use FabDB\Domain\Cards\CardType;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Facades\DB;
 
 class EloquentCollectionRepository extends EloquentRepository implements CollectionRepository
 {
@@ -12,54 +13,91 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
         return new OwnedCard;
     }
 
-    public function add(int $cardId, int $userId, CardType $type, int $total)
+    public function add(int $cardId, int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
+        DB::transaction(function() use ($cardId, $printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->whereCardId($cardId)
+                ->first();
 
-        $field = $type->name();
-
-        if (!$ownedCard) {
-            $ownedCard = new OwnedCard;
-            $ownedCard->card_id = $cardId;
-            $ownedCard->user_id = $userId;
-        }
-
-        $ownedCard->{$field} += $total;
-        $ownedCard->save();
-
-        return $ownedCard;
-    }
-
-    public function remove(int $cardId, int $userId, CardType $type, int $total)
-    {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
-
-        $field = $type->name();
-
-        if ($ownedCard) {
-            $ownedCard->remove($field, $total);
-
-            if ($ownedCard->hasNone()) {
-                $ownedCard->delete();
+            if (!$ownedCard) {
+                $ownedCard = new OwnedCard;
+                $ownedCard->cardId = $cardId;
+                $ownedCard->printingId = $printingId;
+                $ownedCard->userId = $userId;
             }
-        }
+
+            $ownedCard->total += $total;
+            $ownedCard->save();
+
+            return $ownedCard;
+        });
     }
 
-    public function update(int $cardId, int $userId, CardType $type, int $total)
+    public function remove(int $printingId, int $userId, int $total)
     {
-        $ownedCard = $this->newQuery()->whereCardId($cardId)->whereUserId($userId)->first();
+        DB::transaction(function() use ($printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->first();
 
-        $field = $type->name();
+            if ($ownedCard) {
+                $ownedCard->remove($total);
+            }
+        });
+    }
 
-        if (!$ownedCard) {
-            $ownedCard = new OwnedCard;
-            $ownedCard->card_id = $cardId;
-            $ownedCard->user_id = $userId;
-        }
+    public function update(int $cardId, int $printingId, int $userId, int $total)
+    {
+        DB::transaction(function() use ($cardId, $printingId, $userId, $total) {
+            $ownedCard = $this->newQuery()
+                ->wherePrintingId($printingId)
+                ->whereUserId($userId)
+                ->whereCardId($cardId)
+                ->first();
 
-        $ownedCard->{$field} = $total;
-        $ownedCard->save();
+            if (!$ownedCard) {
+                $ownedCard = new OwnedCard;
+                $ownedCard->cardId = $cardId;
+                $ownedCard->printingId = $printingId;
+                $ownedCard->userId = $userId;
+            }
 
-        return $ownedCard;
+            $ownedCard->total = $total;
+            $ownedCard->save();
+
+            return $ownedCard;
+        });
+    }
+
+    public function toggleList(int $cardId, int $printingId, int $userId, string $type)
+    {
+        DB::transaction(function() use ($cardId, $userId, $printingId, $type) {
+            $payload = [
+                'printing_id' => $printingId,
+                'user_id' => $userId,
+                'card_id' => $cardId
+            ];
+
+            $ownedCard = OwnedCard::firstOrNew($payload, $payload);
+            $ownedCard->toggle($type);
+
+            $this->save($ownedCard);
+        });
+    }
+
+    public function lists(string $view, int $userId)
+    {
+        return $this->newQuery()
+            ->select('cards.id', 'cards.identifier', 'cards.image', 'cards.name', 'cards.rarity', 'printings.sku')
+            ->join('printings', 'printings.id', 'owned_cards.printing_id')
+            ->join('cards', 'cards.id', 'printings.card_id')
+            ->whereNotNull('owned_cards.printing_id')
+            ->where('owned_cards.user_id', $userId)
+            ->where("owned_cards.$view", '>', 0)
+            ->groupBy('owned_cards.printing_id');
     }
 }

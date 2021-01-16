@@ -6,7 +6,9 @@
             <div class="container sm:mx-auto px-4">
                 <ul class="flex">
                     <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
-                        <a href="" class="block border-b-4 border-white p-4" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">{{ set.name }}</a>
+                        <a href="" class="block border-b-4 border-white p-2 sm:p-4 text-center" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">
+                            {{ set.name }}
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -14,7 +16,7 @@
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set }"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set, per_page: per_page }"></card-search>
             </div>
         </div>
 
@@ -72,6 +74,7 @@
         data() {
             return {
                 page: Number(this.$route.query.page) || 1,
+                per_page: 20,
                 results: {},
                 sets: this.filterSets(),
                 set: this.$route.query.set || 'all',

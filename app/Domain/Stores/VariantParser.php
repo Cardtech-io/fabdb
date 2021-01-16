@@ -3,10 +3,15 @@ namespace FabDB\Domain\Stores;
 
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\InvalidIdentifier;
+use FabDB\Domain\Cards\Set;
+use FabDB\Domain\Cards\Sku;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class VariantParser
 {
+    public const REGEX = '/(U-)?(([A-Z]{3})(U)?([0-9]{3}))(-(rf|cf|gf|ea))?/i';
+
     /**
      * @var object
      */
@@ -24,22 +29,25 @@ class VariantParser
      *
      * @return mixed
      */
-    public function cardVariant()
+    public function finish()
     {
         foreach ([$this->variant->title, $this->product->title] as $title) {
             $title = Str::lower($title);
 
             switch (true) {
                 case Str::contains($title, 'cold'):
-                    return 'cold';
+                    return 'cf';
                     break;
                 case Str::contains($title, 'rainbow'):
-                    return 'rainbow';
+                    return 'rf';
+                    break;
+                case Str::contains($title, 'gold'):
+                    return 'gf';
                     break;
             }
         }
 
-        return 'regular';
+        return '';
     }
 
     public function price()
@@ -48,19 +56,38 @@ class VariantParser
     }
 
     /**
-     * Bit of logic here as some stores don't enter SKUs correctly. This effectively allows
-     * for lazy sku ids, such as: WTR0, CRU97.etc.
+     * Determines the SKU based on the variant and product data provided.
      *
-     * @return Identifier
-     * @throws InvalidIdentifier
+     * @return Sku
      */
-    public function identifier(): Identifier
+    public function sku(): Sku
     {
-        preg_match('/([a-z]{3})([0-9]{1,3})/i', $this->variant->sku, $parts);
+        try {
+            return new Sku($this->variant->sku);
+        }
+        // Although the sku is "valid", it doesn't match what we expect as a truly valid sku, as it's missing
+        // critical information such as the finish, whether it's unlimited or not.etc. So, we'll try and
+        // build a valid for use on our systems.
+        catch (\InvalidArgumentException $e) {
+            preg_match(self::REGEX, $this->variant->sku, $matches);
 
-        $parts[2] = str_pad($parts[2], 0, STR_PAD_LEFT);
+            $rawSkuParts = [];
 
-        return Identifier::fromVariant(implode('', array_slice($parts, 1)));
+            // Unlimited
+            if (!empty($matches[1]) || strpos(strtolower($this->product->title), 'unlimited') || strtolower(substr(Arr::get($matches, 4), 3, 1)) === 'u') {
+                $rawSkuParts[] = 'U-';
+            }
+
+            // Main identifier part
+            $rawSkuParts[] = $this->identifier($matches);
+
+            // Card finish
+            if (!isset($matches[6]) && $this->finish()) {
+                $rawSkuParts[] = '-'.$this->finish();
+            }
+
+            return new Sku(strtoupper(implode('', $rawSkuParts)));
+        }
     }
 
     public function available()
@@ -68,5 +95,21 @@ class VariantParser
         $available = $this->variant->inventory_quantity;
 
         return $available < 0 ? 0 : $available;
+    }
+
+    private function identifier($matches)
+    {
+        try {
+            $set = new Set($matches[3]);
+        }
+        catch (\InvalidArgumentException $e) {
+            $set = Set::fromTitle($this->product->title);
+        }
+
+        if (!$set) {
+            throw new InvalidSet($this->product->title, $matches[3]);
+        }
+
+        return $set->raw().Arr::get($matches, 5);
     }
 }

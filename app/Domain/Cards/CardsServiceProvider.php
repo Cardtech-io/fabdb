@@ -9,6 +9,7 @@ final class CardsServiceProvider extends AppServiceProvider
     protected $interfaces = [
         CardRepository::class => EloquentCardRepository::class,
         PackRepository::class => EloquentPackRepository::class,
+        PrintingRepository::class => EloquentPrintingRepository::class,
     ];
 
     public function boot()

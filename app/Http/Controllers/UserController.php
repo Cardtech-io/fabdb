@@ -8,6 +8,7 @@ use FabDB\Domain\Users\UserRepository;
 use FabDB\Http\Requests\CompleteProfileRequest;
 use FabDB\Http\Requests\UpdateNameRequest;
 use FabDB\Http\Requests\UpdateProfileRequest;
+use FabDB\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,6 +18,7 @@ class UserController extends Controller
         $this->dispatchNow(new UpdateProfile(
             $request->user()->id,
             $request->get('email'),
+            $request->get('newPassword'),
             $request->get('name'),
             $request->get('gemId'),
             $request->get('currency'),
@@ -47,6 +49,6 @@ class UserController extends Controller
 
     public function view(Request $request, UserRepository $users)
     {
-        return $users->view($request->user);
+        return new UserResource($users->view($request->user));
     }
 }

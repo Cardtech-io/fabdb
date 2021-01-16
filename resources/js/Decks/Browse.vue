@@ -15,7 +15,7 @@
                     <div class="clearfix py-4">
                         <ul class="clearfix sm:-mx-4">
                             <div v-if="results.data.length">
-                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug"></deck-item>
+                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"></deck-item>
                             </div>
                             <div class="text-center py-8" v-else>
                                 There are no decks that match your search criteria.

@@ -1,7 +1,7 @@
 Set,ID,Name,Rarity,Text,Flavour,Comments,Keywords,Life,Intellect,Resource,Cost,Defense,Attack,Variant of,Finish
 CRU,0,Arknight Shard,F,"**Legendary Viserai Specialization** *(You may only have 1 Arknight Shard in your deck, and only if your hero is Viserai.)*
 
-When you pitch Arknight Shard, create a Runechant token.","The flow of aether disturbs the ancient mists, ripples along the surface of a mirror, unravelling the fabric of time and space. Like grits of sand beneath the tongue, he feels the echoes of the forgotten, feels their gaze rasping against his skin. The foreign heartbeat is an ember within his ribcage, its icy burn heavy with the promise of power.","The Arknight Shard is the first fabled card in Flesh & Blood to be designed for a specific hero. Despite this unique quality, the Shard is still arguably a relatively weak card, like the fabled cards that came before it. That aside, it is still an utterly beautiful piece of artwork and continues the pattern of these rare artifacts within the world of Rathe.","runeblade,resource,gem",,,3,,,,,cold
+When you pitch Arknight Shard, create a Runechant token.",,,"runeblade,resource,gem",,,3,,,,,cold
 CRU,1,"Rhinar, Reckless Rampage",C,"When you discard a card with 6 or more [attack] during your action phase, *intimidate*.",,,"brute,hero",40,4,,,,,,standard
 CRU,2,"Kayo, Berserker Runt",R,"Whenever you play an attack action card with 6 or more base [attack], roll a 6 sided die. On;
 
@@ -26,15 +26,15 @@ If Massacre is discarded to pay the cost of a Brute attack action card, **intimi
 CRU,9,ARGH... Smash!,M,"Roll a 6 sided die. Destroy up to X items where X is half the number, rounded down.
 
 **Go again**",,,"brute,action",,,2,3,3,,,"standard,rainbow"
-CRU,10,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+CRU,10,Barraging Big Horn,R,"As an additional cost to play Barraging Big Horn, discard a random card.
 
-While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,1,2,3,7,,"standard,rainbow"
-CRU,11,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+While Barraging Big Horn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,1,2,3,7,,"standard,rainbow"
+CRU,11,Barraging Big Horn,R,"As an additional cost to play Barraging Big Horn, discard a random card.
 
-While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,2,2,3,6,,"standard,rainbow"
-CRU,12,Barraging Bighorn,R,"As an additional cost to play Barraging Bighorn, discard a random card.
+While Barraging Big Horn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,2,2,3,6,,"standard,rainbow"
+CRU,12,Barraging Big Horn,R,"As an additional cost to play Barraging Big Horn, discard a random card.
 
-While Barraging Bighorn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,3,2,3,5,,"standard,rainbow"
+While Barraging Big Horn is defended by less than 2 non-equipment cards, it has **go again**.","""Big Horn? Big problem!"" - Togark",,"brute,action,attack",,,3,2,3,5,,"standard,rainbow"
 CRU,13,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
 CRU,14,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
 CRU,15,Predatory Assault,C,"If you have discarded a card with 6 or more [attack] this turn, Predatory Assault gains **dominate**. *(The defending hero can't defend Predatory Assault with more than 1 card from their hand.)*",,,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
@@ -104,7 +104,7 @@ If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go
 CRU,49,Harmonized Kodachi,R,"**Once per Turn Action** - [resource]: Attack
 
 If you have a card in your pitch zone with cost 0, Harmonized Kodachi gains **go again**.",,,"ninja,weapon,dagger,1h",,,,,,1,,"standard,cold"
-CRU,50,Edge of Autumn,R,**Once per Turn Action -- [resource]: Attack. Go again**,,,"ninja,weapon,2h",,,,,,,,"standard,cold"
+CRU,50,Edge of Autumn,R,**Once per Turn Action -- [resource]: Attack. Go again**,,,"ninja,weapon,2h",,,,,,1,,"standard,cold"
 CRU,51,Zephyr Needle,R,"**Once per Turn Action -- [resource]: Attack. Go again**
 
 If Zephyr Needle is defended by a card with [defense] greater than Zephyr Needle's [attack], destroy Zephyr Needle when the combat chain closes.",,,"ninja,weapon,dagger,1h",,,,,,2,,"standard,cold"
@@ -148,19 +148,19 @@ CRU,77,"Kassai, Cintari Sellsword",R,"Your second sword attack each turn costs [
 At the beginning of your end phase, if you have attacked 2 or more times with weapons this turn, create a Copper token for each weapon attack that hit. *(It's an item with ""**Action** - [4 resource], destroy Copper: Draw a card. **Go again**"")*",,,"warrior,hero,young",20,4,,,,,,"standard,rainbow"
 CRU,78,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 CRU,79,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defended by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
+If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,80,Cintari Saber,R,"**Once per Turn Action - [resource]: Attack**
 
-If Cintari Saber is defended by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
+If Cintari Saber is defined by an attack action card, it gains +1[attack] until end of turn.",,,"warrior,weapon,sword,1h",,,,,,2,,"standard,cold"
 CRU,81,Courage of Bladehold,M,"**Action** - Destroy Courage of Bladehold: Your sword attacks cost [resource] less per turn. **Go again**
 
 **Temper** *(If you defend with Courage of Bladehold, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense])*",,,"warrior,equipment,chest",,,,,2,,,"standard,cold"
-CRU,82,Twinning Blade,M,You may attack an additional time with target sword this turn. *(You must have an action point to attack an additional time.)*,,,"warrior,attack,reaction",,,2,0,3,,,"standard,rainbow"
+CRU,82,Twinning Blade,M,You may attack an additional time with target sword this turn. *(You must have an action point to attack an additional time.)*,,,"warrior,attack,reaction",,,2,0,3,,,"standard,rainbow,full rainbow"
 CRU,83,Unified Decree,M,"Target weapon attack gains +3[attack].
 
 **Reprise** If the defending hero has defended with a card from their hand this chain link, look at top card of your deck. If it's an attack action card, you may banish it. If you do, you may play it this combat chain.","""In unity, we will overcome."" - Hala Goldenhelm",,"warrior,attack,reaction",,,2,2,3,,,"standard,rainbow"
@@ -171,17 +171,17 @@ Whenever a weapon you control hits this turn, create 2 Copper tokens.
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,85,Dauntless,R,"Your next weapon attack this turn gains +3[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,86,Dauntless,R,"Your next weapon attack this turn gains +2[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
 **Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 CRU,87,Dauntless,R,"Your next weapon attack this turn gains +1[attack].
 
-The next defense reaction card the defending hero plays this turn costs an additional [resource] to play.
+The next defense reaction card the defending hero plays this turn costs an additional [resource] to play. 
 
 **Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 CRU,88,Out for Blood,C,"Target weapon attack gains +3[attack].
@@ -210,17 +210,17 @@ If you have attacked with a weapon this turn, your next attack this turn gains +
 **Go again**",,,"warrior,action",,,3,0,3,,,"standard,rainbow"
 CRU,94,Push Forward,C,"Your next weapon attack this turn gains +3[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
 
 **Go again**",,,"warrior,action",,,1,1,3,,,"standard,rainbow"
 CRU,95,Push Forward,C,"Your next weapon attack this turn gains +2[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
 
 **Go again**",,,"warrior,action",,,2,1,3,,,"standard,rainbow"
 CRU,96,Push Forward,C,"Your next weapon attack this turn gains +1[attack].
 
-If you have attacked with a weapon this turn, your next attack this turn gains **dominate**. *(The defending hero can't defend the attack with more than 1 card from their hand.)*
+If you have attacked with a weapon this turn, your next attack this turn gains +1[attack].
 
 **Go again**",,,"warrior,action",,,3,1,3,,,"standard,rainbow"
 CRU,98,"Dash, Inventor Extraordinaire",C,You may start the game with a Mechanologist item with cost [2 resource] or less in the arena. *(It's considered to have entered the arena.)*,,,"mechanologist,hero",40,4,,,,,,standard
@@ -294,7 +294,7 @@ CRU,124,Poison the Tips,M,"Until end of turn, arrows you control gain ""If this 
 
 **Reload** *(If you have no cards in your arsenal, you may put a card from your hand face down into your arsenal.)*
 
-**Go again**",,,"ranger,action",,,2,0,2,,,"standard,rainbow"
+**Go again**",,,"ranger,action,attack",,,2,0,2,,,"standard,rainbow"
 CRU,125,Feign Death,M,"Play Feign Death only if you have been dealt damage this turn.
 
 The next time you would be dealt damage this turn, prevent it.",,,"ranger,instant",,,2,1,,,,"standard,rainbow"
@@ -335,13 +335,17 @@ CRU,137,Increase the Tension,C,"Your next arrow attack this turn gains +1[attack
 
 **Go again**",,,"ranger,action",,,3,1,2,,,"standard,rainbow"
 CRU,138,"Viserai, Rune Blood",C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,hero",40,4,,,,,,standard
-CRU,139,Nebula Blade,C,"Whenever you play a Runeblade card, if you have played another 'non-attack' action card this turn, create a Runechant token. *(It's an aura with ""When you play an attack action card or attack with a weapon, destroy Runechant and deal 1 arcane damage to target opposing hero."")*",,,"runeblade,weapon,sword,2h",,,,,,1,,standard
+CRU,139,Nebula Blade,T,"**Once per Turn Action** - [2 resource]: **Attack**
+
+If Nebula Blade hits , create a Runechant token.
+
+If you have played a ‘non-attack’ action card this turn, Nebula Blade gains [+3 attack] until end of turn.",,,"runeblade,weapon,sword,2h",,,,,,1,,"standard,rainbow"
 CRU,140,Reaping Blade,R,"**Once per Turn Action - [resource]: Attack**
 
 If a hero has more [life] than any other hero, they can't gain [life].",,,"runeblade,weapon,sword,2h",,,,,,3,,"standard,cold"
 CRU,141,Bloodsheath Skeleta,M,"**Instant** - Destroy Bloodsheath Skeleta: The next attack action card and 'non-attack' action card you play this turn, gain ""This card costs [resource] less to play for each Runechant you control.""
 
-**Temper** *(If you defend with Bloodsheath Skeleta, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"standard,cold"
+**Temper** *(If you defend with Crater Fist, put a -1[defense] counter on it when the combat chain closes then destroy it if it has 0[defense].)*",,,"runeblade,equipment,chest",,,,,,,,"standard,cold"
 CRU,142,Dread Triptych,M,"If you've played a 'non-attack' action card this turn, create a Runechant token.
 
 If you've dealt arcane damage this turn, create a Runechant token.
@@ -453,7 +457,7 @@ CRU,178,Fyendal's Spring Tunic,L,"At the start of your turn, if Fyendal's Spring
 **Instant** - Remove 3 energy counters from Fyendal's Spring tunic: Gain [resource]
 
 **Blade Break** (If you defend with Fyendal's Spring tunic, destroy it when the combat chain closes.)",,,"generic,equipment,chest",,,,,1,,,standard
-CRU,179,Gambler's Gloves,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Gloves. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Gloves after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"standard,cold"
+CRU,179,Gambler's Gloves,M,"Whenever a hero rolls a 6-sided die, you may destroy Gambler's Gloves. If you do, that hero rerolls the die. *(You decide whether to use Gambler's Glove after seeing the result of the die roll.)*",,,"generic,equipment,arms",,,,,0,,,"standard,cold"
 CRU,180,Coax a Commotion,M,"If Coax a Commotion hits, choose any number:
 
 * Each hero creates a Quicken Token
@@ -463,7 +467,7 @@ CRU,181,Gorganian Tome,M,"**Legendary** *(You may only have one Gorganian Tome i
 
 Draw X cards, where X is 1 plus the number of Gorganian Tomes in all graveyards.
 
-**Go again**",,,"generic,action",,,,0,,,,"standard,rainbow"
+**Go again**",,,"generic,action,attack",,,,0,,,,"standard,rainbow"
 CRU,182,Snag,M,Attack action cards can't gain [attack] from their own effects or the effects of attack reaction cards this turn. *(This only affects [attack] that would be gained after Snag has resolved.)*,,,"generic,instant",,,3,0,,,,"standard,rainbow"
 CRU,183,Promise of Plenty,R,"If Promise of Plenty hits, each hero who doesn't have a card in arsenal puts the top card of their deck face down into their arsenal.
 

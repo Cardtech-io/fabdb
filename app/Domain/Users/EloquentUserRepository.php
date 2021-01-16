@@ -26,8 +26,12 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
             ->firstOrFail();
     }
 
-    public function view(string $slug)
+    public function view(string $slug, array $relations = [])
     {
-        return $this->newQuery()->select('slug', 'name', 'avatar')->whereSlug($slug)->first();
+        return $this->newQuery()
+            ->with($relations)
+            ->select('id', 'slug', 'name', 'avatar')
+            ->whereSlug($slug)
+            ->first();
     }
 }

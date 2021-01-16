@@ -31,6 +31,9 @@ import Privacy from './Privacy';
 import Premium from './Premium';
 import Login from './Auth/Login';
 import Logout from './Auth/Logout';
+import ViewProfile from "./Identity/ViewProfile";
+import LatestDecks from "./Decks/LatestDecks";
+import WantTradeList from "./Collection/WantTradeList";
 
 Vue.use(VueRouter);
 
@@ -55,7 +58,7 @@ const router = new VueRouter({
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
-        { path: "/decks/build", component: ListDecks, name: 'list-decks' },
+        { path: "/decks/build", component: ListDecks, name: 'decks.mine' },
         { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
@@ -77,6 +80,12 @@ const router = new VueRouter({
         { path: "/profile", component: Profile, name: 'profile', meta: { title: 'Your user profile', auth: true } },
         { path: "/privacy", component: Privacy, name: 'privacy', meta: { title: 'FaB DB Privacy Policy' } },
         { path: "/premium", component: Premium, name: 'premium', meta: { title: 'Premium feature' } },
+
+        { path: '/user/:user', component: ViewProfile, children: [
+            { path: '', component: LatestDecks, name: 'user.profile.decks' },
+            { path: 'wants', component: WantTradeList, name: 'user.profile.wants', meta: { view: 'want' } },
+            { path: 'trades', component: WantTradeList, name: 'user.profile.trades', meta: { view: 'trade' } },
+        ]},
 
         { path: "/resources/api", component: Api, name: 'resources.api', meta: { title: 'API Documentation' } },
 

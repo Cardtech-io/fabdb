@@ -12,6 +12,9 @@ class SetFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->where('identifier', 'LIKE', $input['set'] . '%');
+        $query->join('printings', function($join) use ($input) {
+            $join->on('printings.card_id', 'cards.id');
+            $join->where('printings.sku', 'LIKE', $input['set'].'%');
+        });
     }
 }

@@ -4,60 +4,36 @@
 
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
-                <div class="flex-1">
-                    <crumbs :crumbs="crumbs"></crumbs>
-                </div>
-                <div class="flex-1 text-right">
-                    <p>
-                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('all')" :class="{ 'opacity-50': search.view === 'all' }">All</a> <span class="opacity-25">|</span>
-                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('mine')" :class="{ 'opacity-50': search.view === 'mine' }">Mine</a> <span class="opacity-25">|</span>
-                        <a href="" class="hover:opacity-75 underline" @click.prevent="filter('need')" :class="{ 'opacity-50': search.view === 'need' }">Need</a>
-                    </p>
+                <crumbs :crumbs="crumbs" class="flex-1"></crumbs>
+                <div class="text-right">
+                    <router-link :to="{ name: 'user.profile.wants', params: { user: user.slug }}" class="hover:opacity-75">My public want/trade list</router-link>
                 </div>
             </div>
         </div>
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
-            <div class="container sm:mx-auto px-4">
-                <card-search use-case="collection" @search-completed="refreshResults" :external="{ per_page: 15, view: search.view }"></card-search>
+            <div class="container sm:mx-auto sm:px-4">
+                <card-search use-case="collection" @search-completed="refreshResults" :external="{ per_page: 15, ...search }"></card-search>
             </div>
         </div>
 
-        <div class="bg-gray-200 py-8">
+        <div class="bg-gray-200 pb-8 text-base">
             <div class="container sm:mx-auto">
-                <div v-if="results && results.data" class="px-4">
-                    <div class="flex items-center">
-                        <div class="hidden sm:block sm:w-1/4 px-4 md:px-0"></div>
-                        <div class="w-3/4 sm:w-2/4 p-4">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
-                        </div>
-                        <div class="w-1/4 text-right">
-                            <button @click="toggleDisplay()" class="text-red-700 hover:text-gray-500">
-                                <icon :size="5">
-                                    <path d="M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z" v-if="display === 'list'"/>
-                                    <path d="M0 3h20v2H0V3zm0 4h20v2H0V7zm0 4h20v2H0v-2zm0 4h20v2H0v-2z" v-else/>
-                                </icon>
-                            </button>
-                        </div>
+                <div v-if="results && results.data" class="sm:px-4">
+                    <div class="mx-auto py-4">
+                        <paginator :results="results" @page-selected="updatePage"></paginator>
                     </div>
 
-                    <ul class="clearfix -mx-4" v-if="display == 'gallery'">
-                        <card-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-item>
-                    </ul>
-
-                    <table v-if="display == 'list'" class="w-full table-auto border-collapse bg-white">
+                    <table class="w-full table-auto border-collapse bg-white">
                         <thead>
-                            <tr class="hidden sm:table-row">
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left">ID</th>
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left">Name</th>
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Rarity</th>
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Standard</th>
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Foil</th>
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Promo</th>
-                            </tr>
-
-                            <tr class="table-row sm:hidden">
-                                <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left" colspan="5">Card details</th>
+                            <tr>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">Sku</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Finish</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Set/Release</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase hidden sm:table-cell">Rarity</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase" width="150">Total</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Trade</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Want</th>
                             </tr>
                         </thead>
 
@@ -74,6 +50,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import CardItem from '../CardDatabase/CardItem.vue';
     import CardListItem from '../CardDatabase/CardListItem.vue';
     import CardSearch from '../CardDatabase/CardSearch.vue';
@@ -105,10 +82,14 @@
 
                 page: 1,
                 results: {},
-                search: { view: this.$route.query.view || 'mine' },
+                search: { view: this.$route.query.view || 'mine', order: 'sku' },
                 title: 'My collection',
                 display: 'list'
             }
+        },
+
+        computed: {
+            ...mapGetters('session', ['user'])
         },
 
         methods: {
@@ -138,15 +119,6 @@
         mounted() {
             this.$root.collectionTabIndex = 0;
         },
-
-        // watch: {
-        //     'search': {
-        //         handler() {
-        //
-        //         },
-        //         deep: true
-        //     }
-        // }
 
         metaInfo() {
             return {

@@ -9,31 +9,18 @@
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <card-image :card="card"></card-image>
                         <div class="flex mt-2">
-                            <card-nav :to="card.prev" text="Previous" class="mr-2"></card-nav>
-                            <card-nav :to="card.next" text="Next" class="ml2 text-right"></card-nav>
+                            <card-nav :to="card.prev" text="Previous" class="mr-1"></card-nav>
+                            <card-nav :to="card.next" text="Next" class="ml-1 text-right"></card-nav>
                         </div>
 
+                        <h2 class="font-serif uppercase text-lg mb-1 mt-4">Printings</h2>
+                        <button @click="card.image = cardImageFromSku(printing.sku.sku, 300)" v-for="printing in card.printings" :class="printingClasses(printing)" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">
+                            {{ printing.sku.sku }}
+                        </button>
+
+                        <advertisement :width="340" :height="340" :zone="107318" class="mt-4"></advertisement>
+
                         <ul class="pt-4 text-base">
-                            <li class="clearfix" v-if="!card.variantOf">
-                                <div class="float-left w-1/3 p-2 px-4">Variants</div>
-                                <div class="float-left w-2/3 p-2 px-4">
-                                    <div v-if="card.variants.length">
-                                        <span v-for="(variant, key) in card.variants">
-                                            <span v-if="key > 0">, </span>
-                                            <router-link :to="{ name: 'cards.view', params: { identifier: variant.identifier } }" class="link-alternate">{{ variant.identifier }}</router-link>
-                                        </span>
-                                    </div>
-                                    <div v-else>
-                                        None
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="clearfix" v-else>
-                                <div class="float-left w-1/3 p-2 px-4">Variant of</div>
-                                <div class="float-left w-2/3 p-2 px-4">
-                                    <router-link :to="{ name: 'cards.view', params: { identifier: card.variantOf.identifier } }" class="link-alternate">{{ card.variantOf.identifier }}</router-link>
-                                </div>
-                            </li>
                             <li class="clearfix bg-white">
                                 <div class="float-left w-1/3 p-2 px-4">Rarity</div>
                                 <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
@@ -63,12 +50,7 @@
 
                                 <article>
                                     <p class="mb-4 italic">
-                                        <span v-if="!card.variantOf">
-                                            <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
-                                        </span>
-                                        <span v-else>
-                                            <strong>"{{ card.name }}" ({{ card.identifier }})</strong> is a trading card promo variant of {{ card.variantOf.identifier }}, from the <strong>"{{ setToString(setFromIdentifier(card.variantOf.identifier)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
-                                        </span>
+                                        <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.printings[0].sku.sku)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
                                     </p>
                                 </article>
                             </div>
@@ -76,7 +58,7 @@
                             <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
                         </div>
                         <div class="md:w-1/2 md:ml-8">
-                            <pricing :listings="card.listings" class="mb-8 mt-4 md:mt-0"></pricing>
+                            <pricing :card="card" class="mb-8 mt-4 md:mt-0"></pricing>
                             <card-price :card="card"></card-price>
                         </div>
                     </div>
@@ -93,6 +75,7 @@
 <script>
     import axios from 'axios';
 
+    import Advertisement from "../Components/Advertisement";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
@@ -104,11 +87,13 @@
     import Pricing from './Pricing.vue';
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
+    import Imagery from "../Utilities/Imagery";
 
     export default {
-        mixins: [ Cardable, Strings ],
+        mixins: [Cardable, Imagery, Strings],
 
         components: {
+            Advertisement,
             Breadcrumbs,
             CardImage,
             CardPrice,
@@ -146,6 +131,10 @@
         },
 
         methods: {
+            printingClasses(printing) {
+                return this.card.image === this.cardImageFromSku(printing.sku.sku, 300) ? 'bg-black' :  printing.sku.finish;
+            },
+
             keywords: function() {
                 var keywords = this.card.keywords;
 

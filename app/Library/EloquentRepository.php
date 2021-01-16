@@ -2,6 +2,7 @@
 namespace FabDB\Library;
 
 use FabDB\Domain\Voting\Voteable;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 
 abstract class EloquentRepository implements Repository
@@ -38,8 +39,13 @@ abstract class EloquentRepository implements Repository
     public function bySlug(string $slug): Model
     {
         $query = $this->newQuery()->select($this->model()->getTable().'.*');
+        $model = $this->slugQuery($query, $slug)->first();
 
-        return $this->slugQuery($query, $slug)->first();
+        if (!$model) {
+            throw new ModelNotFoundException;
+        }
+
+        return $model;
     }
 
     protected function slugQuery($query, string $slug)

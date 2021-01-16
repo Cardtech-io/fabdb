@@ -8,8 +8,9 @@ use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
-use FabDB\Domain\Cards\Search\OwnedCardsFilter;
+use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
+use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
@@ -43,9 +44,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function search(?User $user, array $input)
     {
         $query = $this->newQuery();
+        $query->groupBy('cards.id');
+        $query->with('printings');
 
         $query->select([
+            'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.keywords',
             'cards.stats',
@@ -54,17 +59,16 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         $filters = [
-            new SetFilter,
+            new PrintingFilter,
             new KeywordFilter,
             new IdentifierFilter,
-            new VariantsFilter,
             new ClassFilter,
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
             new StatFilter,
-            new OwnedCardsFilter($user),
+            new CollectionFilter($user),
             new OrderFilter
         ];
 
@@ -85,6 +89,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $select = [
             'cards.id',
             'cards.identifier',
+            'cards.image',
             'cards.name',
             'cards.rarity',
             'cards.keywords',
@@ -109,18 +114,18 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $query->firstOrFail();
     }
 
-    public function view(string $identifier): Card
+    public function view(string $identifier, array $related = []): Card
     {
-        $card = $this->findByIdentifier($identifier);
+        if (preg_match('/[A-Z]{3}[0-9]{3}/i', $identifier)) {
+            $card = $this->findBySku($identifier);
+        } else {
+            $card = $this->findByIdentifier($identifier);
+        }
 
-        $card->next = $this->nextOrPrevCard($identifier, 'next')->identifier;
-        $card->prev = $this->nextOrPrevCard($identifier, 'prev')->identifier;
+        $card->next = $this->nextOrPrevCard($card, 'next')->identifier;
+        $card->prev = $this->nextOrPrevCard($card, 'prev')->identifier;
 
-        $card->load(['listings', 'listings.store', 'rulings', 'variants' => function($query) {
-            $query->select('cards.identifier');
-        }, 'variantOf' => function($query) {
-            $query->select('cards.identifier');
-        }]);
+        $card->load(array_merge(['rulings'], $related));
 
         return $card;
     }
@@ -152,7 +157,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ];
 
         $dates = PriceAverage::selectRaw('DISTINCT created_at')
-            ->orderBy('created_at', 'desc')->limit(2)
+            ->orderBy('created_at', 'desc')
+            ->limit(2)
             ->pluck('created_at')
             ->toArray();
 
@@ -163,7 +169,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.name',
                 'cards.rarity',
                 'cards.stats',
-                'current.variant',
                 'current.high AS current_high',
                 'current.mean AS current_mean',
                 'current.low AS current_low',
@@ -175,8 +180,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->leftJoin('price_averages AS previous', function($join) use ($dates) {
                 $join->on('previous.card_id', 'current.card_id');
                 $join->whereRaw('previous.currency = current.currency');
-                $join->whereRaw('previous.variant = current.variant');
-                $join->where('previous.created_at', $dates[1]);
+                $join->where('previous.created_at', object_get($dates, '1', $dates[0]));
             })
             ->where('current.currency', $params['currency'])
             ->where('current.created_at', $dates[0])
@@ -196,7 +200,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         catch (ModelNotFoundException $e) {}
     }
 
-    private function nextOrPrevCard(string $identifier, $direction)
+    private function nextOrPrevCard(Card $current, $direction)
     {
         if ($direction == 'next') {
             $operator = '>';
@@ -207,18 +211,23 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         $card = $this->newQuery()
-            ->doesntHave('variantOf')
-            ->where('identifier', $operator, $identifier)
-            ->orderBy('identifier', $order)
+            ->where(function($query) use ($current, $operator, $order) {
+                if ($current->resourceful()) {
+                    $query->where(function ($query) use ($current, $operator, $order) {
+                        $query->whereName($current->name);
+                        $query->whereRaw("JSON_EXTRACT(stats, '$.resource') $operator {$current->stats['resource']}");
+                    });
+                }
+                $query->orWhere('name', $operator, $current->name);
+            })
+            ->orderBy('name', $order)
+            ->orderByRaw("JSON_EXTRACT(stats, '$.resource') $order")
             ->first();
 
         if ($card) return $card;
 
-        $order =  $direction == 'next' ? 'DESC' : 'ASC';
-
         return $this->newQuery()
-            ->doesntHave('variantOf')
-            ->orderBy('identifier', $order)
+            ->orderBy('name', $order)
             ->first();
     }
 
@@ -276,9 +285,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         // Needed for some filters
         $input['use-case'] = 'build';
 
+        $query->groupBy('cards.id');
+
         $query->select([
             'cards.identifier',
             'cards.name',
+            'cards.image',
             'cards.keywords',
             'cards.stats',
             'cards.text',
@@ -287,7 +299,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ]);
 
         $filters = [
-            new SetFilter,
+            new PrintingFilter,
             new KeywordFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
@@ -309,8 +321,33 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function ad(string $identifier, string $currency): Card
     {
-        return $this->newQuery()->select('id', 'identifier', 'name')->with(['ad' => function($query) use ($currency) {
-            $query->where('stores.currency', $currency);
-        }])->whereIdentifier($identifier)->first();
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->select('cards.id', 'cards.identifier', 'cards.image', 'cards.name')
+            ->with(['ad' => function($query) use ($currency) {
+                $query->where('stores.currency', $currency);
+            }])
+            ->where('printings.sku', $identifier)->first();
+    }
+
+    private function findBySku(string $identifier)
+    {
+        $query = $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('sku', 'like', $identifier.'%')
+            ->select([
+                'cards.id',
+                'cards.identifier',
+                'cards.image',
+                'cards.name',
+                'cards.rarity',
+                'cards.keywords',
+                'cards.stats',
+                'cards.text',
+                'cards.flavour',
+                'cards.comments',
+            ]);
+
+        return $query->firstOrFail();
     }
 }

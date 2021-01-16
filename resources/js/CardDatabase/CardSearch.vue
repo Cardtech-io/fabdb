@@ -2,8 +2,8 @@
     <div class="text-base">
         <form @submit.prevent="newSearch" class="block">
             <div class="flex w-full px-4 md:px-0">
-                <div class="w-full md:w-3/5 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
-                    <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-4" placeholder="Enter search terms..." :class="active('keywords')">
+                <div class="w-2/4 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
+                    <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-2 sm:px-4" placeholder="Keywords..." :class="active('keywords')">
                     <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
                         <icon :size="6">
                             <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
@@ -11,27 +11,27 @@
                     </button>
                 </div>
 
-                <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('class')">
+                <div class="w-1/4 px-1">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('class')">
                         <option value="">Class</option>
                         <option :value="klass" v-for="(name, klass) in $settings.game.classes">{{ name }}</option>
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 pl-1">
-                    <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-3 px-4 leading-tight focus:outline-none">
+                <div class="w-1/4">
+                    <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none">
                 </div>
             </div>
 
-            <div class="w-full flex pt-2 px-4 md:px-0" v-if="advanced">
-                <div class="w-full md:w-1/5 pr-1">
-                    <select v-model="params.set" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('set')">
+            <div class="w-full flex flex-wrap pt-1 px-4 md:px-0" v-if="advanced">
+                <div class="w-3/5 md:w-1/5 pr-1">
+                    <select v-model="params.set" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('set')">
                         <option :value="set.id" v-for="set in sets">{{ set.name }}</option>
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 pr-1">
-                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('pitch')">
+                <div class="w-2/5 md:w-1/5 md:pr-1">
+                    <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('pitch')">
                         <option value="">Pitch</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -39,8 +39,8 @@
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cost')">
+                <div class="w-1/3 md:w-1/5 mt-1 md:mt-0 md:pl-1">
+                    <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cost')">
                         <option value="">Cost</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -50,8 +50,8 @@
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 px-1">
-                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('cardType')">
+                <div class="w-1/3 md:w-1/5 mt-1 md:mt-0 px-1">
+                    <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cardType')">
                         <option value="">Card type</option>
                         <option value="non-attack action">'Non-attack' action</option>
                         <option value="attack action">Attack action</option>
@@ -65,8 +65,8 @@
                     </select>
                 </div>
 
-                <div class="w-full md:w-1/5 pl-1">
-                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('rarity')">
+                <div class="w-1/3 md:w-1/5 mt-1 md:mt-0">
+                    <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('rarity')">
                         <option value="">Rarity</option>
                         <option :value="key" v-for="(rarity, key) in $settings.game.rarities">{{ rarity }}</option>
                     </select>

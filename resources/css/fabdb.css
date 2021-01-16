@@ -130,6 +130,35 @@ body {
     color: var(--nav-text-color);
 }
 
+.common, .token {
+    background: #919191;
+}
+
+.promo {
+    background: #48BB78;
+}
+
+.rare {
+    background: #008CCC;
+}
+
+.superrare {
+    background: #784E99;
+}
+
+.majestic {
+    background: #C20E10;
+}
+
+.legendary {
+    background: #E59B46;
+}
+
+.fabled {
+    background: rgb(110,76,20);
+    background: linear-gradient(324deg, rgba(110,76,20,1) 0%, rgba(255,237,0,1) 24%, rgba(189,110,39,1) 50%, rgba(191,174,62,1) 79%, rgba(255,220,0,1) 100%);
+}
+
 .nav-item:hover {
     background-color: var(--nav-hover-background-color);
     color: var(--nav-hover-text-color);
@@ -257,6 +286,11 @@ footer.footer .link:hover {
     }
 }
 
+.extended {
+    background: rgb(34,65,39);
+    background: linear-gradient(315deg, rgba(34,65,39,1) 0%, rgba(106,236,100,1) 100%);
+}
+
 .rainbow {
     background-color: #ff1493;
     background-image: linear-gradient(319deg, #ff1493 0%, #0000ff 37%, #ff8c00 100%);
@@ -265,6 +299,11 @@ footer.footer .link:hover {
 .cold {
     background-color: #2a2a72;
     background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+.gold {
+    background: rgb(110,76,20);
+    background: linear-gradient(324deg, rgba(110,76,20,1) 0%, rgba(255,237,0,1) 24%, rgba(189,110,39,1) 50%, rgba(191,174,62,1) 79%, rgba(255,220,0,1) 100%);
 }
 
 .regular {

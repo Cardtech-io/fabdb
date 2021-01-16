@@ -8,10 +8,37 @@ use FabDB\Library\Model;
 class OwnedCard extends Model
 {
     protected $fillable = [
+        'card_id',
+        'user_id',
+        'printing_id',
+        'total',
+        'trade',
+        'want',
         'standard',
         'foil',
         'promo'
     ];
+
+    public static function add(int $userId, int $cardId, int $printingId, int $total, bool $trade, bool $want)
+    {
+        $owned = new OwnedCard(compact('total', 'trade', 'want'));
+        $owned->cardId = $cardId;
+        $owned->printingId = $printingId;
+        $owned->userId = $userId;
+        $owned->save();
+
+        return $owned;
+    }
+
+    public function scopeWants($query)
+    {
+        return $query->where('want', '>', 0);
+    }
+
+    public function toggle($type)
+    {
+        $this->$type = !$this->$type;
+    }
 
     public function card()
     {
@@ -25,18 +52,31 @@ class OwnedCard extends Model
 
     public function hasNone()
     {
-        return !$this->standard && !$this->foil && !$this->promo;
+        return !$this->total;
     }
 
-    public function remove(string $type, int $total)
+    public function remove(int $total)
     {
-        $current = $this->$type;
-        $new = $current - $total;
+        $new = $this->total - $total;
 
         if ($new < 0) $new = 0;
 
-        $this->$type = $new;
+        $this->total = $new;
 
-        $this->save();
+        if ($this->hasNone() && !$this->listed()) {
+            $this->delete();
+        } else {
+            $this->save();
+        }
+    }
+
+    /**
+     * Returns true if this owned card is listed, in that it's wanted or willing to be traded.
+     *
+     * @return bool
+     */
+    private function listed(): bool
+    {
+        return $this->trade || $this->want;
     }
 }

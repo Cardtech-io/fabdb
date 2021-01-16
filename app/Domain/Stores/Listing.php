@@ -1,13 +1,21 @@
 <?php
 namespace FabDB\Domain\Stores;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Clicks\Click;
+use FabDB\Library\Casts\CastsSku;
 use FabDB\Library\Model;
 
 class Listing extends Model
 {
-    protected $fillable = ['store_id', 'card_id', 'variant', 'price', 'path', 'available'];
-    protected $hidden = ['store_id', 'card_id'];
+    protected $fillable = ['store_id', 'card_id', 'printing_id', 'variant', 'price', 'path', 'available'];
+    protected $hidden = ['storeId', 'cardId'];
+    protected $casts = ['sku' => CastsSku::class];
+
+    public function card()
+    {
+        return $this->belongsTo(Card::class);
+    }
 
     public function clicks()
     {
@@ -19,8 +27,11 @@ class Listing extends Model
         return $this->belongsTo(Store::class);
     }
 
-    public static function register(int $storeId, int $cardId, string $variant, $price, $path, $available)
+    public static function register(int $store_id, int $card_id, int $printing_id, $price, $path, $available)
     {
-        return self::updateOrCreate(['store_id' => $storeId, 'card_id' => $cardId, 'variant' => $variant], compact('price', 'path', 'available'));
+        $search = compact('store_id', 'card_id', 'printing_id');
+        $payload = compact('price', 'path', 'available');
+
+        return self::updateOrCreate($search, $payload);
     }
 }

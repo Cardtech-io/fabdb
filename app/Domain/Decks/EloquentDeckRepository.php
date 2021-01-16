@@ -30,7 +30,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query = $this->slugQuery($query, $slug);
 
         if ($includeCards) {
-            $query->with('cards');
+            $query->with('cards', 'cards.printings');
         }
 
         return $query->firstOrFail();
@@ -128,11 +128,12 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query = $this->newQuery();
 
         $priceCalc = DB::raw("(
-            SELECT SUM(deck_cards.total * current_prices.mean_current)
-            FROM deck_cards
-            JOIN current_prices ON current_prices.card_id = deck_cards.card_id AND current_prices.variant IN ('cold', 'regular') AND current_prices.currency = '{$params['currency']}'
-            WHERE deck_cards.deck_id = decks.id
-        ) AS total_price");
+            SELECT
+                SUM(deck_cards.total * card_means.mean_{$params['currency']})
+                FROM deck_cards
+                JOIN card_means ON card_means.card_id = deck_cards.card_id
+                WHERE deck_cards.deck_id = decks.id
+            ) AS total_price");
 
         $query->select([
             'decks.id',
@@ -153,6 +154,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $query->with('user');
 
+        $query->join('users', 'users.id', 'decks.user_id');
         $query->join(DB::raw('deck_cards dc1'), 'dc1.deck_id', '=', 'decks.id');
         $query->join(DB::raw('cards c1'), function($join) use ($params) {
             $join->on('c1.id', '=', 'dc1.card_id');
@@ -165,6 +167,10 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
+        }
+
+        if (!empty($params['user'])) {
+            $query->where('users.slug', $params['user']);
         }
 
         if (!empty($params['order'])) {

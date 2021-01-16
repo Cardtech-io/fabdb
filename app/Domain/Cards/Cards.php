@@ -41,18 +41,18 @@ class Cards extends Collection
         })->filter(function(Card $card) use ($pitch) {
             if (!$pitch) return true;
 
-            return Arr::get($card->stats, 'resource') === "$pitch";
+            return Arr::get($card->stats, 'resource') == $pitch;
         })->values();
     }
 
     public function equipmentTotal()
     {
-        return $this->equipment()->sum('total') + $this->weapons()->sum('total');
+        return $this->equipment()->sum('pivot.total') + $this->weapons()->sum('pivot.total');
     }
 
     public function otherTotal()
     {
-        return $this->other()->sum('total');
+        return $this->other()->sum('pivot.total');
     }
 
     public function total()

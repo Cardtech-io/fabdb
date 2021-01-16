@@ -1,12 +1,12 @@
 <template>
-    <button class="py-2 w-1/3" :class="{ 'hover:bg-primary hover:text-white': count > 0, 'text-gray-400': count === 0 }" @click="remove" :disabled="disabled">-</button>
+    <button class="py-2 w-1/3 rounded" :class="{ 'sm:hover:bg-secondary active:bg-primary sm:hover:text-white': count > 0, 'text-gray-400': count === 0 }" @click="remove" :disabled="disabled">-</button>
 </template>
 
 <script>
     import axios from 'axios';
 
     export default {
-        props: ['identifier', 'type', 'count'],
+        props: ['sku', 'count'],
 
         data() {
             return {
@@ -41,7 +41,7 @@
                 }
 
                 this.save = setTimeout(() => {
-                    axios.delete('/collection/' + this.identifier + '/?type=' + this.type + '&total=' + this.total);
+                    axios.delete('/collection/' + this.sku + '?total=' + this.total);
 
                     this.total = 0;
                 }, 1000);

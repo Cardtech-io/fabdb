@@ -1,5 +1,5 @@
 <template>
-    <img :src="cardUrl(card.identifier, imageWidth, wantsBorders)" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
+    <img :src="imageUrl" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
 </template>
 
 <script>
@@ -17,6 +17,14 @@
                 return [
                     this.handlerProvided() ? 'cursor-pointer' : ''
                 ];
+            },
+
+            imageUrl() {
+                if (this.card.image) {
+                    return this.cardImage(this.card.image, this.wantsBorders);
+                }
+
+                return this.cardUrl(this.card.identifier, this.imageWidth, this.wantsBorders);
             },
 
             imageWidth() {

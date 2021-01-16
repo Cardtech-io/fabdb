@@ -1,49 +1,71 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-final class Identifier implements \JsonSerializable
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
+class Identifier implements \JsonSerializable
 {
     /**
      * @var string
      */
-    private $set;
+    protected $identifier;
 
-    /**
-     * @var string
-     */
-    private $id;
-
-    public function __construct(string $set, string $id)
+    private function __construct(string $identifier)
     {
-        $this->set = $set;
-        $this->id = str_pad($id, 3, 0, STR_PAD_LEFT);
+        $this->identifier = $identifier;
+    }
+
+    public static function fromName(string $name)
+    {
+        return new self(Str::slug($name));
+    }
+
+    public static function generate(string $name, array $stats)
+    {
+        $name = static::stripColour($name);
+
+        if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
+            if ($name === 'Seismic Surge') {
+                dd($stats);
+            }
+            $name .= '-' . self::resourceName((int)$stats['resource']);
+        }
+
+
+        return new self(Str::slug($name));
     }
 
     public static function fromString(string $identifier)
     {
-        [$set, $id] = str_split($identifier, 3);
-
-        return new self($set, $id);
+        return new self($identifier);
     }
 
-    public function set(): string
+    private static function resourceName(int $resource)
     {
-        return $this->set;
+        $names = [1 => 'red', 'yellow', 'blue'];
+
+        return $names[$resource];
     }
 
-    public function strippedId(): string
+    /**
+     * Returns true if the string in question is "coloured", in that it mentions a colour in the title.
+     *
+     * @param string $name
+     * @return bool
+     */
+    private static function coloured(string $name)
     {
-        return preg_replace('/^0{1,2}/', '', $this->id);
+        return Str::contains($name, ['(', ')']);
     }
 
-    // Variants can have an identifier somewhere within the string, so find it and then instantiate
-    public static function fromVariant($string)
+    private static function stripColour(string $name)
     {
-        if (!preg_match('/[a-z]{3}[0-9]{3}/i', $string, $matches)) {
-            throw new InvalidIdentifier;
+        if (!static::coloured($name)) {
+            return $name;
         }
 
-        return static::fromString($matches[0]);
+        return preg_replace('/\s+\([a-z]+\)$/i', '', $name);
     }
 
     public function __toString(): string
@@ -53,11 +75,11 @@ final class Identifier implements \JsonSerializable
 
     public function raw()
     {
-        return $this->set.$this->id;
+        return $this->identifier;
     }
 
     function jsonSerialize()
     {
-        return (string) $this;
+        return $this->raw();
     }
 }

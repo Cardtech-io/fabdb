@@ -30,9 +30,8 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/fabled', 'CardController@fabled');
         Route::get('cards/heroes', 'CardController@heroes');
         Route::get('cards/build', 'CardController@build');
-        Route::get('cards/prices', 'CardController@prices');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
-        Route::get('cards/{card}', 'CardController@view');
+        Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 
         Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
@@ -40,13 +39,18 @@ Route::middleware(['web'])->group(function() {
         Route::post('export/{deck}.zip', 'ExportController@zip');
 
         Route::get('featured/top', 'FeatureController@top');
+        Route::get('market/prices', 'MarketController@prices');
+        Route::get('market/listings', 'MarketController@listings');
         Route::get('market/{card}', 'MarketController@cardTrend');
 
-        Route::post('authenticate', 'AuthController@authenticate');
-        Route::post('validate', 'AuthController@validateCode');
-        Route::delete('authenticate', 'AuthController@logout');
+        Route::post('auth/check-email', 'AuthController@checkEmail');
+        Route::post('auth/validate', 'AuthController@validateCode');
+        Route::post('auth/register', 'AuthController@register');
+        Route::post('auth/password', 'AuthController@validatePassword');
+        Route::delete('auth/session', 'AuthController@logout');
 
         Route::get('users/{user}', 'UserController@view');
+        Route::get('collection/lists', 'CollectionController@lists');
 
         Route::get('events/{event}', 'EventController@view');
 
@@ -57,8 +61,10 @@ Route::middleware(['web'])->group(function() {
             Route::post('articles', 'ArticleController@draft');
 
             Route::post('collection', 'CollectionController@addCard');
-            Route::delete('collection/{card}', 'CollectionController@removeCard');
+            Route::delete('collection/{printing}', 'CollectionController@removeCard');
+            Route::post('collection/{printing}/{type}', 'CollectionController@toggleList');
             Route::put('collection', 'CollectionController@updateCard');
+            Route::post('collection/clarify', 'CollectionController@clarify');
 
             Route::get('events', 'EventController@list');
             Route::post('events', 'EventController@setup');
@@ -94,11 +100,14 @@ Route::middleware(['web'])->group(function() {
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
         Route::get('decks', 'DeckController@search');
+        Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
     });
 
     Route::get('decks/embed/{deck}', function() {
-        return response()->view('layout');
+        return response()
+            ->header('Access-control-origin', '*')
+            ->view('layout');
     })->name('decks.embed');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.

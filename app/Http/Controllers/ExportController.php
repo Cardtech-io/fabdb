@@ -24,12 +24,21 @@ class ExportController extends Controller
 
     public function pdf(Request $request, Deck $deck)
     {
-        $this->dispatch(new ExportDeckToPDF(
+        $this->dispatchNow(new ExportDeckToPDF(
             $deck->id,
             $request->get('name'),
             $request->get('gemId'),
             $request->get('event')
         ));
+
+//        $params = [
+//            'deck' => $deck,
+//            'name' => $request->get('name'),
+//            'gemId' => $request->get('gemId'),
+//            'event' => $request->get('event')
+//        ];
+//
+//        return view('export/pdf', $params);
     }
 
     public function ttsImages(Deck $deck)

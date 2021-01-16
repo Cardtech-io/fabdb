@@ -28,7 +28,8 @@
 
                         <table class="w-full table-auto border-collapse bg-white">
                             <thead>
-                                <tr class="hidden sm:table-row text-base">
+                                <tr class="text-base">
+                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">Sku</th>
                                     <th class="border border-gray-300 py-2 px-4 font-serif uppercase text-left flex items-center">
                                         <sorter field="name" text="Name" :order="order" :direction="direction" :clicked="sort"></sorter>
                                     </th>
@@ -43,21 +44,9 @@
                                         <sorter field="high" text="High" :order="order" :direction="direction" :clicked="sort"></sorter>
                                     </th>
                                 </tr>
-
-                                <tr class="table-row sm:hidden">
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <sorter field="low" text="Low" :order="order" :direction="direction" :clicked="sort"></sorter>
-                                    </th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <sorter field="mean" text="Mean" :order="order" :direction="direction" :clicked="sort"></sorter>
-                                    </th>
-                                    <th class="border border-gray-300 py-2 px-4 font-serif uppercase">
-                                        <sorter field="high" text="High" :order="order" :direction="direction" :clicked="sort"></sorter>
-                                    </th>
-                                </tr>
                             </thead>
 
-                            <price-list-item v-for="card in results.data" :key="card.identifier + card.variant" :card="card"></price-list-item>
+                            <price-list-item v-for="card in results.data" :key="card.sku.sku" :card="card"></price-list-item>
                         </table>
 
                         <div class="py-4">
@@ -190,7 +179,7 @@
                     direction: this.direction,
                 };
 
-                axios.get('/cards/prices', { params }).then(response => {
+                axios.get('/market/prices', { params }).then(response => {
                     this.refreshResults(response.data);
                 });
             },

@@ -23,9 +23,9 @@ class MatchesKeywordsTest extends TestCase
         $deck = new Deck;
         $deck->setRelation('cards', new Cards([$this->card('hero', ['guardian', 'hero'])]));
 
-        $card1 = $this->card('WTR001', ['guardian', 'weapon', '1h']);
-        $card2 = $this->card('WTR002', ['ninja', 'weapon', '1h']);
-        $card3 = $this->card('WTR003', ['generic', 'weapon', '1h']);
+        $card1 = $this->card('001', ['guardian', 'weapon', '1h']);
+        $card2 = $this->card('002', ['ninja', 'weapon', '1h']);
+        $card3 = $this->card('003', ['generic', 'weapon', '1h']);
 
         $validator1 = new MatchesKeywords($deck, $card1);
         $validator2 = new MatchesKeywords($deck, $card2);

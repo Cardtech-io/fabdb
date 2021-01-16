@@ -37,6 +37,8 @@ module.exports = {
             },
 
             maxWidth: {
+                '1/2': '50%',
+                '3/4': '75%',
                 '250': '250px'
             },
 
@@ -109,5 +111,9 @@ module.exports = {
         opacity: ['disabled', 'hover'],
         padding: ['responsive', 'even'],
         textColor: ['responsive', 'hover', 'group-hover'],
-    }
+    },
+
+    plugins: [
+        require('@tailwindcss/custom-forms'),
+    ]
 };

@@ -179,6 +179,10 @@
             this.$eventHub.$on('card-selected', () => {
                 this.name = '';
             });
+
+            this.$eventHub.$on('hero-selected', (hero, type) => {
+                this.deck.format = type.toLowerCase();
+            });
         },
 
         extends: LazyLoader((to, callback) => {

@@ -1929,6 +1929,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
+    imageUrl: function imageUrl() {
+      if (this.card.image) {
+        return this.cardImage(this.card.image, this.wantsBorders);
+      }
+
+      return this.cardUrl(this.card.identifier, this.imageWidth, this.wantsBorders);
+    },
     imageWidth: function imageWidth() {
       return this.width || 450;
     }
@@ -21902,11 +21909,7 @@ var render = function() {
   return _c("img", {
     staticClass: "w-full rounded-card",
     class: _vm.classes,
-    attrs: {
-      src: _vm.cardUrl(_vm.card.identifier, _vm.imageWidth, _vm.wantsBorders),
-      alt: _vm.card.name,
-      title: _vm.card.name
-    },
+    attrs: { src: _vm.imageUrl, alt: _vm.card.name, title: _vm.card.name },
     on: { click: _vm.clicked }
   })
 }
@@ -35678,7 +35681,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return 1;
       }
 
-      var available = this.deck.format === 'blitz' ? 2 : 3;
+      var limits = {
+        blitz: 2,
+        constructed: 3,
+        open: 100
+      };
+      var available = limits[this.deck.format];
 
       if (this.deck.useCollection && this.card.ownedTotal < available) {
         available = this.card.ownedTotal;
@@ -36689,6 +36697,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   getters: {
+    // Returns true if the user can be marketed to (ads)
+    marketable: function marketable(state) {
+      return !state.session.user || !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
+    },
     user: function user(state) {
       return state.session.user;
     },
@@ -36716,11 +36728,21 @@ __webpack_require__.r(__webpack_exports__);
     var url = window.location.protocol + '//' + window.settings.imageDomain + '/cards/' + set + '/' + id + '.png?w=' + width + '&fit=clip&auto=compress';
 
     if (!withBorder) {
-      var rect = window.settings.game.img_crop.join(',');
-      url += '&rect=' + rect;
+      this.cropImage(url);
     }
 
     return url;
+  },
+  cardImage: function cardImage(path, withBorder) {
+    if (!withBorder) {
+      return this.cropImage(path);
+    }
+
+    return path;
+  },
+  cropImage: function cropImage(url) {
+    var rect = window.settings.game.img_crop.join(',');
+    return url + '&rect=' + rect;
   },
   maxCards: function maxCards(deck) {
     return deck.format === 'blitz' ? 52 : 80;
@@ -36736,6 +36758,16 @@ __webpack_require__.r(__webpack_exports__);
     if (colour) {
       return 'bg-' + colour;
     }
+  },
+  englishFinish: function englishFinish(finish) {
+    var strings = {
+      'cold': 'Cold foil',
+      'extended': 'Extended art',
+      'gold': 'Gold foil',
+      'rainbow': 'Rainbow foil',
+      'regular': 'Regular'
+    };
+    return strings[finish];
   },
   resourceColourLight: function resourceColourLight(resource) {
     var colours = {

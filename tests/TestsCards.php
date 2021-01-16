@@ -19,7 +19,7 @@ trait TestsCards
     protected function card(string $name, array $keywords = [])
     {
         $card = new Card;
-        $card->identifier = new Identifier('WTR', $name);
+        $card->identifier = Identifier::fromName($name, []);
         $card->name = $name;
         $card->keywords = $keywords;
 

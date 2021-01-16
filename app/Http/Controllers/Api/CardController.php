@@ -28,6 +28,6 @@ class CardController extends \FabDB\Http\Controllers\CardController
 
     public function view(Request $request, CardRepository $cards)
     {
-        return parent::view($request, $cards);
+        return new CardResource($cards->view($request->card->identifier));
     }
 }

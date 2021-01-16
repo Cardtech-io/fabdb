@@ -3,7 +3,7 @@
 return [
     'sets' => [
         'arc',
-        'ira',
+        'cru',
         'wtr',
     ],
 

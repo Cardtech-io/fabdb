@@ -10,4 +10,11 @@ class EloquentStoreRepository extends EloquentRepository implements StoreReposit
     {
         return new Store;
     }
+
+    public function findAllOver(int $storeId)
+    {
+        return $this->newQuery()
+            ->where('id', '>', $storeId)
+            ->get();
+    }
 }

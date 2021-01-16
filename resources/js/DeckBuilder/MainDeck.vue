@@ -1,15 +1,8 @@
 <template>
     <div>
-        <div v-if="user.subscription">
-            <grouped-cards :cards="mainDeck" group-id="maindeck" :action="add" v-if="mainDeck.cards.length"></grouped-cards>
-            <div v-else class="text-center my-20">
-                There are no cards available yet in your main deck. Go to search, and then add cards to your deck from there.
-            </div>
-        </div>
-        <div v-else class="text-center my-20 mx-10">
-            Sideboard feature is only available to FaB DB patrons.<br>
-            <br>
-            <router-link to="/support" class="link-alternate">Upgrade to access the sideboarding feature.</router-link>
+        <grouped-cards :cards="mainDeck" group-id="maindeck" :action="add" v-if="mainDeck.cards.length"></grouped-cards>
+        <div v-else class="text-center my-20">
+            There are no cards available yet in your main deck. Go to search, and then add cards to your deck from there.
         </div>
     </div>
 </template>

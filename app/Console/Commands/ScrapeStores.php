@@ -3,11 +3,16 @@ namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\InvalidIdentifier;
+use FabDB\Domain\Cards\PrintingRepository;
+use FabDB\Domain\Cards\Sku;
+use FabDB\Domain\Stores\InvalidSet;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Stores\ListingRepository;
 use FabDB\Domain\Stores\VariantParser;
 use FabDB\Domain\Stores\StoreRepository;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -50,20 +55,31 @@ class ScrapeStores extends Command
      * @var ListingRepository
      */
     private $listings;
+    /**
+     * @var PrintingRepository
+     */
+    private $printings;
 
     /**
      * Create a new command instance.
      *
      * @param CardRepository $cards
      * @param StoreRepository $stores
+     * @param ListingRepository $listings
+     * @param PrintingRepository $printings
      */
-    public function __construct(CardRepository $cards, StoreRepository $stores, ListingRepository $listings)
-    {
+    public function __construct(
+        CardRepository $cards,
+        StoreRepository $stores,
+        ListingRepository $listings,
+        PrintingRepository $printings
+    ) {
         parent::__construct();
 
         $this->cards = $cards;
         $this->stores = $stores;
         $this->listings = $listings;
+        $this->printings = $printings;
     }
 
     /**
@@ -73,6 +89,8 @@ class ScrapeStores extends Command
      */
     public function handle()
     {
+        $this->setLogChannel('scrape');
+
         foreach ($this->getStores() as $store) {
             $this->info('Importing store listings for store '.$store->id);
 
@@ -99,19 +117,23 @@ class ScrapeStores extends Command
                             sleep(1);
                             // wait a second, then try again.
                         }
+                    } catch (RequestException $e) {
+                        Log::info($e->getMessage());
+                        break 2;
                     }
                 }
 
                 $headers = $response->getHeaders();
-
                 $results = json_decode($response->getBody()->getContents());
 
                 foreach ($results->products as $product) {
-                    if (preg_match('/([a-z]{3}[0-9]{1,3})/i', $product->variants[0]->sku)) {
-                        Log::debug('Identifier matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
+                    if (!$product->variants[0]->sku) continue;
+
+                    if ($product->variants[0]->sku && $this->possibleMatch($product->variants[0]->sku)) {
+                        Log::debug('Sku matched for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
 
                         foreach ($product->variants as $variant) {
-                            if (!preg_match('/([a-z]{3}[0-9]{1,3})/i', $variant->sku)) continue;
+                            if (!$variant->sku || !$this->possibleMatch($variant->sku)) continue;
 
                             $parser = new VariantParser($product, $variant);
 
@@ -122,24 +144,12 @@ class ScrapeStores extends Command
                             }
 
                             try {
-                                Log::debug('New variant for ['.$parser->identifier()->raw().':'.$parser->cardVariant().' - '.$parser->price().']');
-
-                                $card = $this->cards->findByIdentifier($parser->identifier()->raw());
-                                $link = '/products/' . $product->handle;
-
-                                $listing = Listing::register(
-                                    $store->id,
-                                    $card->id,
-                                    $parser->cardVariant(),
-                                    $parser->price(),
-                                    $link,
-                                    $parser->available()
-                                );
-
-                                Log::debug('Listing ['.$listing->id.'] registered.');
+                                $this->createListing($parser, $product, $store);
+                            } catch (InvalidIdentifier $e) {
+                                Log::debug($e->getMessage());
+                            } catch (ModelNotFoundException $e) {
+                                Log::debug("Card not found for [{$parser->sku()}]");
                             }
-                            catch (InvalidIdentifier $e) {}
-                            catch (ModelNotFoundException $e) {}
                         }
                     } else {
                         Log::debug('Could not find a matching sku for ['.$product->id.':'.$product->title.'] using sku ['.$product->variants[0]->sku.']');
@@ -170,6 +180,12 @@ class ScrapeStores extends Command
     private function getStores()
     {
         if ($storeId = $this->argument('store')) {
+            if (strpos($storeId, '+') !== -1) {
+                $storeId = (int) substr($storeId, 0, strlen($storeId) - 1);
+
+                return $this->stores->findAllOver($storeId);
+            }
+
             return collect([$this->stores->find($storeId)]);
         }
 
@@ -184,5 +200,50 @@ class ScrapeStores extends Command
     private function completed($baseUri, $query)
     {
         return in_array($baseUri.$query, $this->cache);
+    }
+
+    private function setLogChannel(string $channel)
+    {
+        config()->set('logging.default', $channel);
+    }
+
+    /**
+     * @param VariantParser $parser
+     * @param $product
+     * @param $store
+     */
+    private function createListing(VariantParser $parser, $product, $store): void
+    {
+        try {
+            Log::debug("New listing for [{$parser->sku()}, priced at: [{$parser->price()}]");
+
+            $printing = $this->printings->findBySku($parser->sku()->raw());
+
+            if (!$printing) {
+                Log::debug("No valid printing found for sku [{$parser->sku()}]");
+                return;
+            }
+
+            $link = '/products/' . $product->handle;
+
+            $listing = Listing::register(
+                $store->id,
+                $printing->cardId,
+                $printing->id,
+                $parser->price(),
+                $link,
+                $parser->available()
+            );
+
+            Log::info("Listing [$listing->id] registered.");
+        }
+        catch (InvalidSet $e) {
+            Log::warning("Unable to determine set from [{$e->title()}, {$e->set()}]");
+        }
+    }
+
+    private function possibleMatch(string $sku)
+    {
+        return preg_match(VariantParser::REGEX, $sku);
     }
 }

@@ -60,7 +60,10 @@ class UpdateProfile implements Loggable
      */
     private $width;
 
-    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, string $view, string $avatar, string $theme, string $width)
+    /** @var string */
+    private $newPassword;
+
+    public function __construct(int $userId, $email, $newPassword, $name, $gemId, $currency, $need, string $view, string $avatar, string $theme, string $width)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -72,13 +75,25 @@ class UpdateProfile implements Loggable
         $this->avatar = $avatar;
         $this->theme = $theme;
         $this->width = $width;
+        $this->newPassword = $newPassword;
     }
 
     public function handle(UserRepository $users)
     {
         $user = $users->find($this->userId);
 
-        $user->updateProfile($this->email, $this->name, $this->gemId, $this->currency, $this->need, $this->view, $this->avatar, $this->theme, $this->width);
+        $user->updateProfile(
+            $this->email,
+            $this->newPassword,
+            $this->name,
+            $this->gemId,
+            $this->currency,
+            $this->need,
+            $this->view,
+            $this->avatar,
+            $this->theme,
+            $this->width
+        );
 
         $users->save($user);
 

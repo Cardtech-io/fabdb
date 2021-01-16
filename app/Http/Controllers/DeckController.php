@@ -49,6 +49,17 @@ class DeckController extends Controller
         return $this->decks->starters();
     }
 
+    public function latest(Request $request)
+    {
+        $params = array_merge($request->all(), [
+            'currency' => object_get($request->user(), 'currency', 'USD'),
+            'order' => 'newest'
+        ]);
+
+        return $this->decks->search($params)
+            ->paginate(10);
+    }
+
     public function addDeck(Request $request)
     {
         $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name')));
