@@ -45,7 +45,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $query = $this->newQuery();
         $query->groupBy('cards.id');
-        $query->with('printings');
 
         $query->select([
             'cards.id',
