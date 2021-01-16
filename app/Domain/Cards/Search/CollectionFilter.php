@@ -24,7 +24,11 @@ class CollectionFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->with(['printings' => function($query) {
+        $query->with(['printings' => function($query) use ($input) {
+            if (isset($input['set'])) {
+                $query->where('sku', 'LIKE', $input['set'].'%');
+            }
+
             $query->select(
                 'printings.id',
                 'printings.card_id',
