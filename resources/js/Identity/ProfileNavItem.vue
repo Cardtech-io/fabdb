@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="to" class="py-2 px-3 rounded" :class="classes()">
+    <router-link :to="to" class="block p-2 px-3 sm:rounded sm:mr-2" :class="classes()">
         <slot></slot>
     </router-link>
 </template>
@@ -15,7 +15,7 @@
 
         methods: {
             classes() {
-                return this.$route.name === this.to.name ? 'bg-gray-800': 'bg-semi-black hover:bg-gray-800';
+                return this.$route.name === this.to.name ? 'bg-gray-800': 'sm:bg-semi-black hover:bg-gray-800';
             }
         }
     }
