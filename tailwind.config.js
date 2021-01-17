@@ -13,6 +13,17 @@ module.exports = {
                 'nearly-black': 'rgba(0, 0, 0, 0.75)',
             },
 
+            textColor: {
+                'common': '#919191',
+                'token': '#919191',
+                'promo': '#48BB78',
+                'rare': '#008CCC',
+                'superrare': '#784E99',
+                'majestic': '#C20E10',
+                'legendary': '#E59B46',
+                'fabled': 'rgba(191,174,62,1)',
+            },
+
             cursor: {
                 'help': 'help'
             },
@@ -23,6 +34,7 @@ module.exports = {
 
             height: {
                 '1/2': '50%',
+                '1/4': '25%',
                 '140': '140px',
                 '160': '160px',
             },

@@ -13,7 +13,7 @@ class CardController extends Controller
     public function list(Request $request, CardRepository $cards)
     {
         $cards = $cards->search($request->user(), $request->all())
-            ->paginate($request->get('per_page', 24))
+            ->paginate($request->get('per_page', 30))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 

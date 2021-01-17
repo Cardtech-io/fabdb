@@ -46,7 +46,7 @@ class Sku implements JsonSerializable
     {
         $matches = self::match($this->sku);
 
-        return Set::fromUid(Arr::get($matches, 5));
+        return Arr::get($matches, 2);
     }
 
     public function raw(): string
@@ -116,6 +116,7 @@ class Sku implements JsonSerializable
             'sku' => $this->sku,
             'finish' => $this->finish()->readable(),
             'set' => $this->set(),
+            'number' => $this->cardNumber()
         ];
     }
 }

@@ -12,6 +12,7 @@ import VueMq from 'vue-mq'
 import App from './App.vue';
 import CardAd from "./CardDatabase/CardAd";
 import CardImage from "./CardDatabase/CardImage";
+import RaritySymbol from "./CardDatabase/RaritySymbol";
 import SkuFinish from "./CardDatabase/SkuFinish";
 import store from './Store/Application';
 import router from './router.js';
@@ -21,6 +22,7 @@ import 'vue-datetime/dist/vue-datetime.css';
 
 Vue.component('card-ad', CardAd);
 Vue.component('card-image', CardImage);
+Vue.component('rarity-symbol', RaritySymbol);
 Vue.component('sku-finish', SkuFinish);
 Vue.use(VueAwesomeCountdown, 'vac');
 
