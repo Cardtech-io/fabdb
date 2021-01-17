@@ -338,8 +338,9 @@ button, button:focus {
 }
 
 .card-details-enter-to, .card-details-leave {
-    height: 25%;
+    height: 40%;
 }
+
 .card-details-enter, .card-details-leave-to {
     height: 0;
 }

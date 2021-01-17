@@ -33,8 +33,10 @@ module.exports = {
             },
 
             height: {
-                '1/2': '50%',
+                'card-drawer': '40%',
                 '1/4': '25%',
+                '1/2': '50%',
+                '1/3': '33.3333%',
                 '140': '140px',
                 '160': '160px',
             },
@@ -119,6 +121,7 @@ module.exports = {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
         borderRadius: ['responsive', 'first', 'last'],
         borderWidth: ['responsive', 'last'],
+        height: ['responsive'],
         margin: ['responsive', 'odd', 'even'],
         opacity: ['disabled', 'hover'],
         padding: ['responsive', 'even'],

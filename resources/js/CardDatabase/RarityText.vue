@@ -1,5 +1,5 @@
 <template>
-    <span class="text-center text-sm" :class="classes()">
+    <span class="text-center" :class="classes()">
         {{ text() }}
     </span>
 </template>
