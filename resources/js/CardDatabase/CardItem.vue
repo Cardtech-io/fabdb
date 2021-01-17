@@ -1,17 +1,17 @@
 <template>
-    <li class="float-left p-2 sm:p-4 w-1/2 md:w-1/4 xl:w-1/5" @mouseenter="toggleDetails" @mouseleave="toggleDetails">
+    <li class="float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6" @mouseenter="toggleDetails" @mouseleave="toggleDetails">
         <div class="relative overflow-hidden rounded-card">
             <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" v-if="path"><card-image :card="card" :width="350"></card-image></router-link>
             <card-image :card="card" :width="300" v-else />
             <transition
                 name="card-details"
-                enter-active-class="transition-all duration-200 ease-out-quad"
+                enter-active-class="transition-all duration-150 ease-out-quad"
                 leave-active-class="transition-all duration-100 ease-in-quad"
             >
-                <div v-if="viewDetails" class="bg-nearly-black absolute bottom-0 h-card-drawer z-100 w-full">
+                <div v-if="viewDetails" class="hidden sm:block bg-nearly-black absolute bottom-0 h-card-drawer z-100 w-full">
                     <div class="p-2 text-gray-400 text-sm h-full" :class="{'cursor-pointer': !!path}" @click="go">
                         <header class="mb-8">
-                            <h3 class="block font-serif uppercase text-center text-sm overflow-x-auto -mb-1 text-gray-300">{{ card.name }}</h3>
+                            <div class="font-serif uppercase text-center text-sm whitespace-nowrap overflow-hidden -mb-1 text-gray-300" style="white-space: nowrap">{{ card.name }}</div>
                             <div class="font-serif uppercase text-gray-500 text-center">{{ card.printings[0].sku.number }}</div>
                         </header>
                         <footer class="bottom-0 flex items-center text-sm">

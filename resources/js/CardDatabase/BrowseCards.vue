@@ -28,7 +28,7 @@
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
 
-                        <ul class="clearfix sm:-mx-4">
+                        <ul class="clearfix -mx-2">
                             <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
                         </ul>
 

@@ -157,7 +157,7 @@ body {
 .fabled {
     background: rgb(110,76,20);
     background: linear-gradient(324deg, rgba(110,76,20,1) 0%, rgba(255,237,0,1) 24%, rgba(189,110,39,1) 50%, rgba(191,174,62,1) 79%, rgba(255,220,0,1) 100%);
-},
+}
 
 .nav-item:hover {
     background-color: var(--nav-hover-background-color);

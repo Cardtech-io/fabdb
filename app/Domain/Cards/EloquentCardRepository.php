@@ -15,6 +15,7 @@ use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
+use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
 use FabDB\Domain\Cards\Search\UseCollectionFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
@@ -60,6 +61,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $filters = [
             new PrintingFilter,
             new KeywordFilter,
+            new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
             new TypeFilter,

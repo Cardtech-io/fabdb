@@ -35,7 +35,7 @@ class KeywordFilter implements SearchFilter
         $keywords = explode(' ', $keywords);
 
         return array_filter($keywords, function($keyword) {
-            return !Str::contains($keyword, ['=', '>', '<']);
+            return !Str::contains($keyword, ['=', '>', '<', ':']);
         });
     }
 }
