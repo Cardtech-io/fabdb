@@ -119,4 +119,9 @@ class Sku implements JsonSerializable
             'number' => $this->cardNumber()
         ];
     }
+
+    public function appendFinish(Finish $finish)
+    {
+        $this->sku .= $finish->raw();
+    }
 }

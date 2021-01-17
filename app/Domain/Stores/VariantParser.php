@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Stores;
 
+use FabDB\Domain\Cards\Finish;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\InvalidIdentifier;
 use FabDB\Domain\Cards\Set;
@@ -63,7 +64,14 @@ class VariantParser
     public function sku(): Sku
     {
         try {
-            return new Sku($this->variant->sku);
+            $sku = new Sku($this->variant->sku);
+
+            // They've used the wrong sku
+            if ($sku->finish()->regular() && $this->finish() !== '') {
+                $sku->appendFinish(Finish::fromString($this->finish()));
+            }
+            
+            return $sku;
         }
         // Although the sku is "valid", it doesn't match what we expect as a truly valid sku, as it's missing
         // critical information such as the finish, whether it's unlimited or not.etc. So, we'll try and
