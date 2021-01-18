@@ -32,7 +32,7 @@ class KeywordFilter implements SearchFilter
 
     private function filter(string $keywords): array
     {
-        $keywords = explode(' ', $keywords);
+        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
 
         return array_filter($keywords, function($keyword) {
             return !Str::contains($keyword, ['=', '>', '<', ':']);

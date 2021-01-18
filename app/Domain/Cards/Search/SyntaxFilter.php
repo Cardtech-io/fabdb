@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use function Symfony\Component\String\s;
 
 class SyntaxFilter implements SearchFilter
 {
@@ -31,7 +32,7 @@ class SyntaxFilter implements SearchFilter
 
     private function filter(string $keywords): array
     {
-        $keywords = explode(' ', $keywords);
+        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
 
         return array_filter($keywords, function($keyword) {
             return Str::contains($keyword, [':']);
@@ -42,14 +43,27 @@ class SyntaxFilter implements SearchFilter
     {
         list($filter, $value) =  explode(':', $terms);
 
+        $value = explode(' ', str_replace('"', '', $value));
+
         switch (strtolower($filter)) {
             // class
             case 'c':
+                $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value[0]') IS NOT NULL");
+                break;
+            // Card type
             case 't':
-                $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value') IS NOT NULL");
+                foreach ($value as $part) {
+                    $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$part') IS NOT NULL");
+                }
                 break;
             case 'r':
                 $query->where('cards.rarity', $value);
+                break;
+            case 'p':
+                $query->where("stats->resource", $value);
+                break;
+            case 'co':
+                $query->where("stats->cost", $value);
         }
     }
 }
