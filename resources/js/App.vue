@@ -76,13 +76,15 @@
         },
 
         methods: {
-            ...mapActions('session', ['setSession']),
+            ...mapActions('session', ['bootState', 'setSession']),
         },
 
         created() {
             if (window.session) {
                 this.setSession({ session: window.session });
             }
+
+            this.bootState();
         },
 
         watch: {

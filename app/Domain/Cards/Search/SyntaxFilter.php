@@ -3,10 +3,11 @@ namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use function Symfony\Component\String\s;
 
 class SyntaxFilter implements SearchFilter
 {
+    private $operators = ['=', '>', '<'];
+
     public function applies(array $input)
     {
         return isset($input['keywords']) && !empty($input['keywords']) && $this->isProgrammatic($input['keywords']);
@@ -27,7 +28,7 @@ class SyntaxFilter implements SearchFilter
      */
     private function isProgrammatic(string $keywords): bool
     {
-        return Str::contains($keywords, ':');
+        return Str::contains($keywords, $this->operators);
     }
 
     private function filter(string $keywords): array
@@ -35,35 +36,47 @@ class SyntaxFilter implements SearchFilter
         $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
 
         return array_filter($keywords, function($keyword) {
-            return Str::contains($keyword, [':']);
+            return Str::contains($keyword, $this->operators);
         });
     }
 
     private function apply(Builder $query, string $terms)
     {
-        list($filter, $value) =  explode(':', $terms);
+        preg_match('/[\=\<\>]/', $terms, $operator);
+
+        list($filter, $value) =  preg_split('/[\=\<\>]/', $terms);
 
         $value = explode(' ', str_replace('"', '', $value));
 
         switch (strtolower($filter)) {
+            case 'a':
+            case 'attack':
+            case 'power':
+                $query->where("stats->attack", $operator[0], $value[0]);
+                break;
             // class
             case 'c':
+            case 'class':
                 $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value[0]') IS NOT NULL");
                 break;
             // Card type
             case 't':
+            case 'type':
                 foreach ($value as $part) {
                     $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$part') IS NOT NULL");
                 }
                 break;
             case 'r':
-                $query->where('cards.rarity', $value);
+            case 'rarity':
+                $query->where('cards.rarity', $value[0]);
                 break;
             case 'p':
-                $query->where("stats->resource", $value);
+            case 'pitch':
+                $query->where("stats->resource", $operator[0], $value[0]);
                 break;
             case 'co':
-                $query->where("stats->cost", $value);
+            case 'cost':
+                $query->where("stats->cost", $operator[0], $value[0]);
         }
     }
 }

@@ -2,7 +2,8 @@ export default {
     namespaced: true,
 
     state: {
-        session: {}
+        collapsed: false,
+        session: {},
     },
 
     mutations: {
@@ -20,7 +21,16 @@ export default {
     },
 
     actions: {
-        setSession: function({ commit }, { session }) {
+        bootState({ state }) {
+            state.collapsed = localStorage.getItem('collapsed') === 'true';
+        },
+
+        toggleCollapse({ state }) {
+            state.collapsed = !state.collapsed;
+            localStorage.setItem('collapsed', state.collapsed.toString());
+        },
+
+        setSession({ commit }, { session }) {
             commit('setSession', { session });
 
             // If the user is a subscriber, switch the default deck view to gallery
