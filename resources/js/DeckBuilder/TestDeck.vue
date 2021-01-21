@@ -19,7 +19,7 @@
                         </li>
                         <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24">
                             <button @click="draw(1)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary">Draw 1</button>
-                            <button @click="draw(4)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-2">Draw {{ hero.stats['hand-size'] }}</button>
+                            <button @click="draw(hero.stats.intellect)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-2">Draw {{ hero.stats['hand-size'] }}</button>
                         </li>
                         <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
                             <div v-if="arsenal">
