@@ -1,5 +1,5 @@
 <template>
-    <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 sm:h-full z-25">
+    <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 z-25" v-if="show">
         <div class="flex items-center justify-between sm:border-0 sm:h-full">
             <div class="relative overflow-visible logo ml-4 sm:ml-0 py-2">
                 <router-link to="/">
@@ -26,9 +26,11 @@
 <script>
     import { mapGetters } from 'vuex';
     import NavItem from './NavItem.vue';
+    import RouteHide from "./RouteHide";
 
     export default {
-        components: { NavItem },
+        mixins: [RouteHide],
+        components: {NavItem},
 
         data() {
             return {
@@ -54,6 +56,7 @@
                         { link: '/cards/prices', text: 'Price list' },
                         { link: '/cards/fabled', text: 'Fabled cards' },
                         { link: '/collection', text: 'My Collection' },
+                        { link: '/tools/life-counter', text: 'Life counter' },
                         { link: '/packs/generate', text: 'Booster generator' }
                     ]},
                     { text: 'Decks', children: [
@@ -94,6 +97,10 @@
 
             toggle() {
                 this.isOpen = !this.isOpen;
+            },
+
+            routeName() {
+                return 'tools.life-counter';
             }
         }
     }

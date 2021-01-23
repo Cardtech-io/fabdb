@@ -1,7 +1,7 @@
 <template>
     <div class="pb-24 text-base">
         <div v-if="!cards.hero()">
-            <hero-selector></hero-selector>
+            <hero-selector @hero-selected="addToDeck"></hero-selector>
         </div>
         <div v-else>
             <div v-if="view === 'gallery'">
@@ -90,7 +90,7 @@
     import DeckCurves from "./DeckCurves";
     import General from "./Metrics/General";
     import GroupedCards from './GroupedCards.vue';
-    import HeroSelector from "./HeroSelector";
+    import HeroSelector from "../Components/HeroSelector";
     import ManagesDecks from './ManagesDecks';
     import Totals from "./Metrics/Totals";
     import Viewable from './Viewable';
@@ -152,7 +152,15 @@
         },
 
         methods: {
-            ...mapActions('deck', ['setMode', 'removeCard', 'toggleSection']),
+            ...mapActions('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']),
+
+            addToDeck(card) {
+                this.addRemote(card, response => {
+                    this.addCard({card});
+                    this.setMode({mode: 'search'});
+                    this.$eventHub.$emit('hero-selected', card, this.type(card));
+                });
+            },
 
             filter: function(cards) {
                 return cards.applyFilters(this.filters);

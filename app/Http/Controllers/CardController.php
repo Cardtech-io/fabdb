@@ -22,7 +22,7 @@ class CardController extends Controller
 
     public function heroes(CardRepository $cards)
     {
-        return $cards->uniqueHeroes();
+        return CardResource::collection($cards->uniqueHeroes());
     }
 
     public function fabled(CardRepository $cards)

@@ -3,8 +3,6 @@ export default {
         addRemote: function(card, handler) {
             return axios.post('/decks/' + this.$route.params.deck, { card: card.identifier })
                 .then(response => {
-                    this.addMessage({ status: 'success', message: 'Card added.' });
-
                     if (handler) {
                         handler(response);
                     }
@@ -58,8 +56,6 @@ export default {
 
         removeRemote: function(card, handler) {
             return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier).then(response => {
-                this.addMessage({ status: 'success', message: 'Card removed.' });
-
                 if (handler) {
                     handler(response);
                 }

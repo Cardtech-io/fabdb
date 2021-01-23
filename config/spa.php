@@ -30,6 +30,7 @@ return [
         'premium',
         'resources/api',
         'support',
+        'tools/life-counter',
         'user/([^/]+)'
     ]
 ];

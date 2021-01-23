@@ -20,6 +20,7 @@ import BoosterGenerator from './CardDatabase/BoosterGenerator';
 import ViewCard from './CardDatabase/ViewCard';
 import Collection from './Collection/Collection';
 import ListDecks from './DeckBuilder/ListDecks';
+import LifeCounter from './LifeCounter/Main';
 import DeckBuilder from './DeckBuilder/DeckBuilder';
 import TestDeck from './DeckBuilder/TestDeck';
 import ExportDeck from './DeckBuilder/ExportDeck';
@@ -55,6 +56,8 @@ const router = new VueRouter({
 
         { path: "/collection", component: Collection, name: 'collection', meta: { title: 'My collection', auth: true } },
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
+
+        { path: '/tools/life-counter', component: LifeCounter, name: 'tools.life-counter', meta: { title: 'Flesh & Blood Life Counter' } },
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
         { path: "/decks/build", component: ListDecks, name: 'decks.mine' },
