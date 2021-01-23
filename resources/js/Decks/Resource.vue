@@ -1,7 +1,7 @@
 <template>
     <button @click="pitch()" class="flex items-center my-1 focus-none">
+        <span class="mr-4 font-serif font-bold text-xl" :class="player.resource === resource ? 'text-blue-500' : 'text-gray-300'">{{ resource }}</span>
         <img src="/img/resource.png" width="40" class="rounded-full" :class="resourceClass">
-        <span class="text-gray-300 ml-4 text-lg">{{ resource }}</span>
     </button>
 </template>
 

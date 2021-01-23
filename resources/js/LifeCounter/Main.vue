@@ -5,16 +5,16 @@
                 <h1 class="text-white font-serif uppercase text-2xl">Select Player {{ players.length + 1 }}</h1>
                 <button class="button-primary ml-auto py-3 px-4 rounded" v-if="players.length === 1" @click="skip()">Skip</button>
             </div>
-            <hero-selector @hero-selected="newPlayer" class="text-gray-500"></hero-selector>
+            <hero-selector @hero-selected="newPlayer" class="text-gray-500 shadow-lg"></hero-selector>
         </div>
         <div v-else class="w-full flex flex-col h-full">
             <div class="h-full flex flex-col items-center">
-                <player :player="secondPlayer" :players="players.length" v-if="players.length === 2" class="h-9/20 transform rotate-180"></player>
-                <div class="h-1/10 flex items-center">
-                    <button class="button-primary py-3 px-4 pb-2 font-serif uppercase rounded-lg mr-4" @click="reset()">Reset</button>
-                    <button class="button-primary py-3 px-4 pb-2 font-serif uppercase rounded-lg" @click="chooseHeroes()">Heroes</button>
+                <player :player="secondPlayer" :players="players.length" v-if="players.length === 2" class="transform rotate-180"></player>
+                <div class="flex items-center">
+                    <button class="button-primary py-3 px-4 pb-2 font-serif uppercase rounded-l-lg" @click="reset()">Reset</button>
+                    <button class="button-secondary py-3 px-4 pb-2 font-serif uppercase rounded-r-lg" @click="chooseHeroes()">Heroes</button>
                 </div>
-                <player :player="firstPlayer" :players="players.length" :class="players.length === 1 ? 'h-9/10' : 'h-9/20'"></player>
+                <player :player="firstPlayer" :players="players.length"></player>
             </div>
         </div>
         <div class="absolute bottom-0 right-0 p-4">

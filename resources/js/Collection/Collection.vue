@@ -2,11 +2,15 @@
     <div>
         <header-title title="My Collection"></header-title>
 
-        <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto p-4 flex">
-                <crumbs :crumbs="crumbs" class="flex-1"></crumbs>
-                <div class="text-right">
-                    <router-link :to="{ name: 'user.profile.wants', params: { user: user.slug }}" class="hover:opacity-75">My public want/trade list</router-link>
+        <div class="crumbs">
+            <div class="container sm:mx-auto p-4 pb-0 flex items-center">
+                <div class="flex text-base">
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('all')" :class="tabClasses('all')">All</button>
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('have')" :class="tabClasses('have')">Have</button>
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('need')" :class="tabClasses('need')">Need</button>
+                </div>
+                <div class="ml-auto">
+                    <router-link :to="{name: 'user.profile.wants', params: {user: user.slug }}" class="font-serif uppercase hover:opacity-50">My want/trade list</router-link>
                 </div>
             </div>
         </div>
@@ -89,7 +93,7 @@
                 page: 1,
                 results: {},
                 search: {
-                    view: this.$route.query.view || 'mine',
+                    view: this.$route.query.view || 'all',
                     order: this.$route.query.order || 'sku',
                     direction:  this.$route.query.direction || 'asc'
                 },
@@ -104,12 +108,12 @@
 
         methods: {
             activeFilter(view) {
-                return this.search.view === view ? 'opacity-50' : '';
+                return this.search.view === view ? 'bg-white' : '';
             },
 
             filter(view) {
                 this.search.view = view;
-                this.updateQuery({ page: 1 });
+                this.updateQuery({ page: 1, view: this.search.view });
             },
 
             refreshResults(results) {
@@ -127,6 +131,10 @@
                 this.search.order = column;
 
                 this.updateQuery({ direction: this.search.direction, order: this.search.order });
+            },
+
+            tabClasses(tab) {
+                return tab === this.search.view ? 'bg-white text-gray-700' : 'bg-orange-700 hover:bg-orange-600';
             },
 
             toggleDisplay() {
