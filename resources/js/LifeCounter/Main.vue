@@ -1,5 +1,5 @@
 <template>
-    <div class="container flex h-full">
+    <div class="container relative flex h-full">
         <div v-if="requirePlayers" class="p-4">
             <div class="flex">
                 <h1 class="text-white font-serif uppercase text-2xl">Select Player {{ players.length + 1 }}</h1>
@@ -16,6 +16,9 @@
                 </div>
                 <player :player="firstPlayer" :players="players.length" :class="players.length === 1 ? 'h-9/10' : 'h-9/20'"></player>
             </div>
+        </div>
+        <div class="absolute bottom-0 right-0 p-4">
+            <router-link :to="{ name: 'home' }" class="link">Back to FaB DB</router-link>
         </div>
     </div>
 </template>
@@ -54,6 +57,7 @@
                 this.players.push({
                     maxLife: hero.stats.life,
                     life: hero.stats.life,
+                    resource: 0,
                     hero,
                 });
 
