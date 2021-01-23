@@ -51,13 +51,25 @@
 
             swipe(event) {
                 if (this.lastSwipe !== null) {
-                    if (event.changedTouches[0].clientY < this.lastSwipe.clientY + 10) {
-                        this.heal();
-                        this.lastSwipe = event.changedTouches[0];
-                    }
-                    else if (event.changedTouches[0].clientY > this.lastSwipe.clientY - 10) {
-                        this.hurt();
-                        this.lastSwipe = event.changedTouches[0];
+                    let current = event.changedTouches[0].clientY;
+                    let previous = this.lastSwipe.clientY;
+
+                    if (this.player.first) {
+                        if (current < previous - 10) {
+                            this.heal();
+                            this.lastSwipe = event.changedTouches[0];
+                        } else if (current > previous + 10) {
+                            this.hurt();
+                            this.lastSwipe = event.changedTouches[0];
+                        }
+                    } else {
+                        if (current > previous + 10) {
+                            this.heal();
+                            this.lastSwipe = event.changedTouches[0];
+                        } else if (current < previous - 10) {
+                            this.hurt();
+                            this.lastSwipe = event.changedTouches[0];
+                        }
                     }
                 } else {
                     this.lastSwipe = event.changedTouches[0];

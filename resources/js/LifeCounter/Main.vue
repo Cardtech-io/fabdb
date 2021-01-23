@@ -54,12 +54,15 @@
             },
 
             newPlayer(hero) {
-                this.players.push({
+                let player = {
                     maxLife: hero.stats.life,
                     life: hero.stats.life,
                     resource: 0,
+                    first: !this.players.length,
                     hero,
-                });
+                };
+
+                this.players.push(player);
 
                 if (this.players.length === 2) {
                     this.requirePlayers = false;
