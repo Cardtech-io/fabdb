@@ -51,11 +51,11 @@
 
             swipe(event) {
                 if (this.lastSwipe !== null) {
-                    if (event.changedTouches[0].clientY > this.lastSwipe.clientY + 10) {
+                    if (event.changedTouches[0].clientY < this.lastSwipe.clientY + 10) {
                         this.heal();
                         this.lastSwipe = event.changedTouches[0];
                     }
-                    else if (event.changedTouches[0].clientY < this.lastSwipe.clientY - 10) {
+                    else if (event.changedTouches[0].clientY > this.lastSwipe.clientY - 10) {
                         this.hurt();
                         this.lastSwipe = event.changedTouches[0];
                     }
