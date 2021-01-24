@@ -1,18 +1,18 @@
 <template>
-    <div class="inline-block flex flex-col w-full" v-touch:moving="swipe">
-        <div class="mx-auto mt-8 w-full relative">
-            <div class="absolute left-0 flex flex-col justify-center px-4 pr-2 py-2 bg-nearly-black rounded-r-xl">
-                <resource :resource="3" :player="player"></resource>
-                <resource :resource="2" :player="player"></resource>
-                <resource :resource="1" :player="player"></resource>
-                <resource :resource="0" :player="player"></resource>
-            </div>
-            <hero-avatar :hero="player.hero" :name="player.hero.name" :width="players === 1 ? 200 : 180" class="mx-auto"></hero-avatar>
+    <div class="flex-grow relative flex flex-col w-full " v-touch:moving="swipe">
+        <hero-avatar :hero="player.hero" :name="player.hero.name" :width="80" class="absolute top-0 left-0 m-4 z-25"></hero-avatar>
+
+        <div class="relative flex mx-auto z-100 mt-4">
+            <button class="text-white px-8 text-4xl" @click="hurt()">-</button>
+            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass">{{ this.player.life }}</h2>
+            <button class="text-white px-8 text-4xl" @click="heal()">+</button>
         </div>
-        <div class="flex mx-auto">
-            <button class="text-white p-4 w-1/4 text-2xl" @click="hurt()">-</button>
-            <h2 class="font-serif uppercase w-1/2 text-6xl text-center" :class="this.player.life === 0 ? 'text-red-500' : 'text-white'">{{ this.player.life }}</h2>
-            <button class="text-white p-4 w-1/4 text-2xl" @click="heal()">+</button>
+
+        <div class="flex justify-center px-4 pr-2 py-2">
+            <resource :resource="0" :player="player"></resource>
+            <resource :resource="1" :player="player"></resource>
+            <resource :resource="2" :player="player"></resource>
+            <resource :resource="3" :player="player"></resource>
         </div>
     </div>
 </template>
@@ -30,13 +30,27 @@
             players: Number
         },
 
+        components: {HeroAvatar, Resource},
+
         data() {
             return {
                 lastSwipe: null
             };
         },
 
-        components: {HeroAvatar, Resource},
+        computed: {
+            lifeClass() {
+                if (this.player.life > this.player.maxLife) {
+                    return 'text-green-400';
+                }
+
+                if (this.player.life === 0) {
+                    return 'text-red-500';
+                }
+
+                return 'text-white';
+            }
+        },
 
         methods: {
             heal() {

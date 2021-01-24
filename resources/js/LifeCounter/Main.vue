@@ -1,5 +1,5 @@
 <template>
-    <div class="container relative flex h-full">
+    <div class="fixed top-0 right-0 bottom-0 left-0 flex flex-col overflow-y-scroll bg-nearly-black">
         <div v-if="requirePlayers" class="p-4">
             <div class="flex">
                 <h1 class="text-white font-serif uppercase text-2xl">Select Player {{ players.length + 1 }}</h1>
@@ -12,13 +12,11 @@
                 <player :player="secondPlayer" :players="players.length" v-if="players.length === 2" class="transform rotate-180"></player>
                 <div class="flex items-center">
                     <button class="button-primary py-3 px-4 pb-2 font-serif uppercase rounded-l-lg" @click="reset()">Reset</button>
-                    <button class="button-secondary py-3 px-4 pb-2 font-serif uppercase rounded-r-lg" @click="chooseHeroes()">Heroes</button>
+                    <button class="button-primary py-3 px-4 pb-2 font-serif uppercase" @click="chooseHeroes()">Heroes</button>
+                    <router-link :to="{name: 'home'}" class="button-secondary py-3 px-4 pb-2 font-serif uppercase rounded-r-lg">FaB DB</router-link>
                 </div>
                 <player :player="firstPlayer" :players="players.length"></player>
             </div>
-        </div>
-        <div class="absolute bottom-0 right-0 p-4">
-            <router-link :to="{ name: 'home' }" class="link">Back to FaB DB</router-link>
         </div>
     </div>
 </template>

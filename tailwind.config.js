@@ -13,6 +13,14 @@ module.exports = {
                 'nearly-black': 'rgba(0, 0, 0, 0.75)',
             },
 
+            fontSize: {
+                '12xl': '8rem',
+            },
+
+            lineHeight: {
+                '12': '12rem',
+            },
+
             textColor: {
                 'common': '#919191',
                 'token': '#919191',
@@ -91,6 +99,7 @@ module.exports = {
             '2xl': '0 25px 50px -12px rgba(0, 0, 0, .25)',
             inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
             active: 'inset 0 0 0 2px #68d391',
+            highlight: '0 0 0 5px rgba(66,153,225,0.8)',
             outline: '0 0 0 5px rgba(66,153,225,0.5)',
             pitched: '0 0 0 5px #4299e1',
             played: '0 0 0 5px #48bb78',
