@@ -9,13 +9,13 @@
         </div>
         <div v-else class="w-full flex flex-col h-full">
             <div class="h-full flex flex-col items-center">
-                <player :player="secondPlayer" :players="players.length" v-if="players.length === 2" class="transform rotate-180"></player>
+                <player :player="secondPlayer" :players="players.length" v-if="players.length === 2" class="transform rotate-180" @player-destroyed="logEvent"></player>
                 <div class="flex items-center">
                     <button class="button-primary py-3 px-4 pb-2 font-serif uppercase rounded-l-lg" @click="reset()">Reset</button>
                     <button class="button-primary py-3 px-4 pb-2 font-serif uppercase" @click="chooseHeroes()">Heroes</button>
                     <router-link :to="{name: 'home'}" class="button-secondary py-3 px-4 pb-2 font-serif uppercase rounded-r-lg">FaB DB</router-link>
                 </div>
-                <player :player="firstPlayer" :players="players.length"></player>
+                <player :player="firstPlayer" :players="players.length" @player-destroyed="logEvent"></player>
             </div>
         </div>
     </div>
@@ -23,7 +23,9 @@
 
 <script>
     import HeroSelector from "../Components/HeroSelector";
+    import moment from 'moment';
     import Player from "./Player";
+    import Tracker from "../Components/Tracker";
 
     export default {
         components: {HeroSelector, Player},
@@ -31,7 +33,8 @@
         data() {
             return {
                 players: [],
-                requirePlayers: true
+                requirePlayers: true,
+                timer: null,
             }
         },
 
@@ -49,6 +52,13 @@
             chooseHeroes() {
                 this.players = [];
                 this.requirePlayers = true;
+            },
+
+            logEvent() {
+                if (this.timer && this.timer.diff(moment(), 'minutes') >= 5) {
+                    Tracker.track('Game', 'Completed');
+                    this.timer = null;
+                }
             },
 
             newPlayer(hero) {
@@ -72,10 +82,22 @@
                     this.players[i].life = this.players[i].maxLife;
                     this.players[i].resource = 0;
                 }
+
+                this.timer = moment();
             },
 
             skip() {
                 this.requirePlayers = false;
+            }
+        },
+
+        watch: {
+            requirePlayers(require) {
+                if (!require) {
+                    this.timer = moment();
+                } else {
+                    this.timer = null;
+                }
             }
         }
     }

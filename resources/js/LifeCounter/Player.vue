@@ -60,6 +60,8 @@
             hurt() {
                 if (this.player.life > 0) {
                     this.player.life -= 1;
+                } else {
+                    this.$emit('player-destroyed');
                 }
             },
 
