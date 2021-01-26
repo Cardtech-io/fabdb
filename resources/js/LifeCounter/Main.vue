@@ -1,5 +1,5 @@
 <template>
-    <div class="no-dtz fixed top-0 right-0 bottom-0 left-0 flex flex-col overflow-y-scroll bg-nearly-black">
+    <div class="no-dtz fixed top-0 right-0 bottom-0 left-0 flex flex-col overflow-y-scroll bg-semi-black">
         <div v-if="requirePlayers" class="p-4">
             <div class="flex">
                 <h1 class="text-white font-serif uppercase text-2xl">Select Player {{ players.length + 1 }}</h1>

@@ -180,7 +180,7 @@ class ScrapeStores extends Command
     private function getStores()
     {
         if ($storeId = $this->argument('store')) {
-            if (strpos($storeId, '+') !== -1) {
+            if (strpos($storeId, '+')) {
                 $storeId = (int) substr($storeId, 0, strlen($storeId) - 1);
 
                 return $this->stores->findAllOver($storeId);
