@@ -153,14 +153,16 @@
         },
 
         metaInfo() {
+            let title = this.card.name + ' - ' + this.card.printings[0].sku.sku;
+
             return {
-                title: this.card.name + ' - ' + this.card.identifier,
+                title: title,
                 meta: [
                     { vmid: 'description', name: 'description', content: 'View Flesh & Blood card, ' + this.card.name + '.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
-                    { vmid: 'og:title', property: 'og:title', content: this.card.name + ' - ' + this.card.identifier },
+                    { vmid: 'og:title', property: 'og:title', content: title },
                     { vmid: 'og:description', property: 'og:description', content: this.card.text },
-                    { vmid: 'og:image', property: 'og:image', content: this.cardUrl(this.$route.params.identifier, 450, true) },
+                    { vmid: 'og:image', property: 'og:image', content: this.cardImage(this.card.image, true) },
                     { vmid: 'og:image:width', property: 'og:image:width', content: '450' },
                     { vmid: 'og:image:height', property: 'og:image:height', content: '628' }
                 ]

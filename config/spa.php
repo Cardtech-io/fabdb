@@ -21,6 +21,7 @@ return [
         'decks/build/([^/]+)',
         'decks/build',
         'decks/browse',
+        'decks/starters',
         'decks/test',
         'decks/([^/]+)',
         'events',
@@ -30,6 +31,7 @@ return [
         'premium',
         'resources/api',
         'support',
+        'tools/life-counter',
         'user/([^/]+)'
     ]
 ];

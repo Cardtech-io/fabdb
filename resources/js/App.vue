@@ -2,9 +2,7 @@
     <div class="h-full">
         <div id="app" class="flex flex-col relative h-full">
             <!-- Header -->
-            <div class="navigation">
-                <navigation></navigation>
-            </div>
+            <navigation class="navigation"></navigation>
 
             <!-- Content -->
             <div class="clearfix flex-grow">
@@ -12,15 +10,7 @@
             </div>
 
             <!-- Footer -->
-            <footer class="footer p-8 bg-semi-black">
-                <div class="container sm:mx-auto sm:text-center text-sm text-gray-400">
-                    <p class="my-2"><router-link to="/support" class="link">Support</router-link> |  <a href="https://facebook.com/fleshandblooddb" class="link" target="_blank">Facebook</a> |  <router-link to="/privacy" class="link">Privacy policy</router-link></p>
-                    <p><a href="/" class="link">fabdb.net</a> is a free online resource for the Flesh &amp; Blood™ TCG by <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
-                    <p><a href="/" class="link">fabdb.net</a> is in no way affiliated with <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
-                    <p>All intellectual IP belongs to <a href="https://legendstory.com" class="link">Legend Story Studios®</a>, Flesh &amp; Blood™, and set names are trademarks of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>. Flesh and Blood™ characters, cards, logos, and art are property of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
-                    <p><a href="/" class="link">fabdb.net</a> is not a digital gaming product.</p>
-                </div>
-            </footer>
+            <app-footer></app-footer>
         </div>
 
         <messages></messages>
@@ -39,8 +29,9 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
     import CollectionClarification from "./Collection/CollectionClarification";
+    import AppFooter from "./Components/Layout/Footer";
     import CompleteProfile from './Identity/CompleteProfile.vue';
     import HoverCard from "./DeckBuilder/HoverCard";
     import Messages from './Components/Messages.vue';
@@ -48,12 +39,11 @@
     import SearchHelp from "./CardDatabase/SearchHelp";
     import VersionHandler from './Components/VersionHandler.vue';
 
-    import { mapActions } from 'vuex';
-
     export default {
         components: {
             CollectionClarification,
             CompleteProfile,
+            AppFooter,
             HoverCard,
             Messages,
             Navigation,
@@ -76,13 +66,15 @@
         },
 
         methods: {
-            ...mapActions('session', ['setSession']),
+            ...mapActions('session', ['bootState', 'setSession']),
         },
 
         created() {
             if (window.session) {
                 this.setSession({ session: window.session });
             }
+
+            this.bootState();
         },
 
         watch: {

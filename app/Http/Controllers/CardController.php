@@ -13,7 +13,7 @@ class CardController extends Controller
     public function list(Request $request, CardRepository $cards)
     {
         $cards = $cards->search($request->user(), $request->all())
-            ->paginate($request->get('per_page', 12))
+            ->paginate($request->get('per_page', 30))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
@@ -22,7 +22,7 @@ class CardController extends Controller
 
     public function heroes(CardRepository $cards)
     {
-        return $cards->uniqueHeroes();
+        return CardResource::collection($cards->uniqueHeroes());
     }
 
     public function fabled(CardRepository $cards)

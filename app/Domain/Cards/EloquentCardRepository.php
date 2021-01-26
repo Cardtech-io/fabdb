@@ -15,6 +15,7 @@ use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
+use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
 use FabDB\Domain\Cards\Search\UseCollectionFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
@@ -45,7 +46,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $query = $this->newQuery();
         $query->groupBy('cards.id');
-        $query->with('printings');
 
         $query->select([
             'cards.id',
@@ -61,13 +61,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $filters = [
             new PrintingFilter,
             new KeywordFilter,
+            new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new StatFilter,
             new CollectionFilter($user),
             new OrderFilter
         ];
@@ -239,6 +239,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.id',
             'cards.identifier',
             'cards.name',
+            'cards.image',
             'cards.keywords',
             'cards.stats',
             'cards.text',
@@ -271,7 +272,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function uniqueHeroes()
     {
         return $this->newQuery()
-            ->select('cards.identifier', 'cards.name', 'cards.keywords', 'cards.stats')
+            ->select('cards.identifier', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats')
+            ->join('printings', 'printings.card_id', 'cards.id')
             ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
             ->groupBy('cards.name')
             ->orderBy('cards.name')

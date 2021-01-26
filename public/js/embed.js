@@ -1910,6 +1910,7 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1922,14 +1923,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"]],
-  props: ['card', 'clickHandler', 'width'],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  props: ['card', 'clickHandler', 'width', 'sku'],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['wantsBorders']), {
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
-    imageUrl: function imageUrl() {
+    image: function image() {
+      if (this.sku) {
+        return this.cardImageFromSku(this.sku, 300);
+      }
+
       if (this.card.image) {
         return this.cardImage(this.card.image, this.wantsBorders);
       }
@@ -21909,7 +21915,7 @@ var render = function() {
   return _c("img", {
     staticClass: "w-full rounded-card",
     class: _vm.classes,
-    attrs: { src: _vm.imageUrl, alt: _vm.card.name, title: _vm.card.name },
+    attrs: { src: _vm.image, alt: _vm.card.name, title: _vm.card.name },
     on: { click: _vm.clicked }
   })
 }
@@ -36648,6 +36654,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
+    collapsed: false,
     session: {}
   },
   mutations: {
@@ -36666,9 +36673,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    setSession: function setSession(_ref4, _ref5) {
-      var commit = _ref4.commit;
-      var session = _ref5.session;
+    bootState: function bootState(_ref4) {
+      var state = _ref4.state;
+      state.collapsed = localStorage.getItem('collapsed') === 'true';
+    },
+    toggleCollapse: function toggleCollapse(_ref5) {
+      var state = _ref5.state;
+      state.collapsed = !state.collapsed;
+      localStorage.setItem('collapsed', state.collapsed.toString());
+    },
+    setSession: function setSession(_ref6, _ref7) {
+      var commit = _ref6.commit;
+      var session = _ref7.session;
       commit('setSession', {
         session: session
       }); // If the user is a subscriber, switch the default deck view to gallery
@@ -36679,17 +36695,17 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    setUser: function setUser(_ref6, _ref7) {
-      var commit = _ref6.commit;
-      var user = _ref7.user;
+    setUser: function setUser(_ref8, _ref9) {
+      var commit = _ref8.commit;
+      var user = _ref9.user;
       commit('setUser', {
         user: user
       });
     },
-    setUserParam: function setUserParam(_ref8, _ref9) {
-      var commit = _ref8.commit;
-      var param = _ref9.param,
-          value = _ref9.value;
+    setUserParam: function setUserParam(_ref10, _ref11) {
+      var commit = _ref10.commit;
+      var param = _ref11.param,
+          value = _ref11.value;
       commit('setUserParam', {
         param: param,
         value: value
@@ -36821,6 +36837,44 @@ __webpack_require__.r(__webpack_exports__);
     };
     var to = btoa(JSON.stringify(payload));
     return '/click?to=' + to;
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Imagery.js":
+/*!*******************************************!*\
+  !*** ./resources/js/Utilities/Imagery.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    imageUrl: function imageUrl(path, width) {
+      return window.location.protocol + '//' + window.settings.imageDomain + path + '?w=' + width + '&fit=clip&auto=compress';
+    },
+    thumbUrl: function thumbUrl(path, width, height) {
+      return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
+    },
+    heroBackground: function heroBackground(hero) {
+      var name = hero.split(' ')[0].replace(',', '').toLowerCase();
+      return this.imageUrl('/decks/backgrounds/' + name + '.jpg', 1700);
+    },
+    heroProfile: function heroProfile(hero, width) {
+      var imageName = hero.name.split(/[\s,]/)[0].toLowerCase();
+
+      if (hero.keywords[2] == 'young') {
+        imageName += '-blitz';
+      }
+
+      return this.imageUrl('/heroes/' + imageName + '.jpg', width);
+    },
+    cardImageFromSku: function cardImageFromSku(sku, width) {
+      return this.imageUrl('/cards/printings/' + sku + '.png', width);
+    }
   }
 });
 

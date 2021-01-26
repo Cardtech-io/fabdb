@@ -23,7 +23,7 @@
             <p class="my-4">To support fabdb.net, go to our
                 <a href="https://www.patreon.com/fabdb" target="_blank" class="link">patreon
                     page</a> and sign up there or donate via our
-                <a href="https://www.paypal.me/kirkbushell" class="link">paypal page</a> :)</p>
+                <a href="https://www.paypal.me/fleshandblooddb" class="link">paypal page</a> :)</p>
 
             <p class="my-4">FaB DB is a work of love, a contribution to the broader community to help everyone in
                 researching cards, as well as managing their collections and decks. It is a completely free service, but

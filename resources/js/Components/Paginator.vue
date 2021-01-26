@@ -1,8 +1,10 @@
 <template>
-    <div class="clearfix text-sm text-center" v-if="results">
-        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="previous" :class="disabled(results.current_page == 1)">&lt;</a>
-        <a v-for="n in pageRange" href="" class="inline-block rounded p-2 mr-1 button-primary" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
-        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="next" :class="disabled(results.current_page >= results.last_page)">&gt;</a>
+    <div class="flex text-sm justify-center" v-if="data">
+        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="previous" :class="disabled(data.current_page == 1)">&lt;</a>
+        <span class="inline-block rounded overflow-hidden">
+            <a v-for="n in pageRange" href="" class="inline-block sm:rounded p-2 sm:mr-1 button-primary" :class="active(n)" @click.prevent="select(n)">{{ n }}</a>
+        </span>
+        <a href="" class="inline-block rounded p-2 ml-1 sm:ml-0" @click.prevent="next" :class="disabled(data.current_page >= data.last_page)">&gt;</a>
     </div>
 </template>
 
@@ -53,13 +55,13 @@
         methods: {
             active: function(n) {
                 return {
-                    'button-secondary': this.data.current_page == n
+                    'button-secondary': this.data.current_page === n
                 }
             },
 
             disabled: function(disabled) {
                 if (disabled) {
-                    return 'button-disabled cursor-not-allowed';
+                    return 'hidden';
                 } else {
                     return 'button-secondary';
                 }

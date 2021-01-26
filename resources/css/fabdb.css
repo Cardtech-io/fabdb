@@ -336,3 +336,11 @@ footer.footer .link:hover {
 button, button:focus {
     @apply outline-none;
 }
+
+.card-details-enter-to, .card-details-leave {
+    height: 40%;
+}
+
+.card-details-enter, .card-details-leave-to {
+    height: 0;
+}

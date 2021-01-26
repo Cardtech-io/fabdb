@@ -17,7 +17,7 @@
             </p>
 
             <div class="my-8">
-                <input type="text" v-model="keywords" class="input rounded-lg p-4" placeholder="Search for a card..." @keyup.enter="search()">
+                <input type="text" ref="search" v-model="keywords" class="input rounded-lg p-4" placeholder="Search for a card..." @keyup.enter="search()">
             </div>
 
             <p class="my-4 text-center">
@@ -60,6 +60,10 @@
             search: function() {
                 this.$router.push({ name: 'cards.browse', query: { keywords: this.keywords }});
             }
+        },
+
+        mounted() {
+            this.$refs.search.focus();
         },
 
         metaInfo() {

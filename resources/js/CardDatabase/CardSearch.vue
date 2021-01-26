@@ -126,7 +126,7 @@
                 set: 'all',
                 class: '',
                 rarity: '',
-                ...this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'),
+                ...this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')
             };
 
             return {
@@ -149,9 +149,7 @@
             },
 
             filterSets() {
-                let sets = _.sortBy(_.filter(this.$settings.game.sets, setting => {
-                    return setting.browseable;
-                }), 'name');
+                let sets = _.sortBy(this.$settings.game.sets, 'name');
 
                 sets.unshift({ id: 'all', name: 'All sets'});
 
@@ -166,10 +164,10 @@
                 return this.$route.query;
             },
 
-            search: function() {
-                let params = this.combineParams({ 'use-case': this.useCase, ...this.external });
+            search() {
+                let params = this.combineParams({ 'use-case': this.useCase, ...this.$route.query });
 
-                axios.get('/cards/', {params: params}).then(response => {
+                axios.get('/cards/', { params }).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});
             },
@@ -182,10 +180,8 @@
         },
 
         watch: {
-            '$route.query': {
-                handler(query) {
-                    this.search();
-                }
+            '$route.query': function() {
+                this.search();
             }
         },
 

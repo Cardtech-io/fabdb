@@ -12,6 +12,8 @@ class PrintingFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
+        $query->with('printings');
+
         $query->join('printings', function ($join) use ($input) {
             $join->on('printings.card_id', 'cards.id');
 

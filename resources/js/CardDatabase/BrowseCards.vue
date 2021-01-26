@@ -3,7 +3,7 @@
         <header-title title="Browse cards"></header-title>
 
         <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto px-4">
+            <div class="container sm:mx-auto px-4 flex justify-center">
                 <ul class="flex">
                     <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
                         <a href="" class="block border-b-4 border-white p-2 sm:p-4 text-center" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">
@@ -11,6 +11,7 @@
                         </a>
                     </li>
                 </ul>
+                <collapser></collapser>
             </div>
         </div>
 
@@ -28,7 +29,7 @@
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
 
-                        <ul class="clearfix sm:-mx-4">
+                        <ul class="clearfix -mx-2">
                             <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
                         </ul>
 
@@ -49,6 +50,7 @@
 
     import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
+    import Collapser from "../Components/Collapser";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
     import Query from "../Utilities/Query";
@@ -58,6 +60,7 @@
         components: {
             CardItem,
             CardSearch,
+            Collapser,
             HeaderTitle,
             Paginator,
             SearchTips

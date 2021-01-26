@@ -10,6 +10,11 @@ class Store extends Model
 
     protected $hidden = ['id', 'api_credentials'];
 
+    protected static function booted()
+    {
+        static::addGlobalScope(new ActiveScope);
+    }
+
     public function setApiCredentialsAttribute(ApiCredentials $credentials)
     {
         $this->attributes['api_credentials'] = encrypt($credentials->toJson());

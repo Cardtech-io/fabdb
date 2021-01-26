@@ -2,11 +2,15 @@
     <div>
         <header-title title="My Collection"></header-title>
 
-        <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto p-4 flex">
-                <crumbs :crumbs="crumbs" class="flex-1"></crumbs>
-                <div class="text-right">
-                    <router-link :to="{ name: 'user.profile.wants', params: { user: user.slug }}" class="hover:opacity-75">My public want/trade list</router-link>
+        <div class="crumbs">
+            <div class="container sm:mx-auto p-4 pb-0 flex items-center">
+                <div class="flex text-base">
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('all')" :class="tabClasses('all')">All</button>
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('have')" :class="tabClasses('have')">Have</button>
+                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('need')" :class="tabClasses('need')">Need</button>
+                </div>
+                <div class="ml-auto">
+                    <router-link :to="{name: 'user.profile.wants', params: {user: user.slug }}" class="font-serif uppercase hover:opacity-50">My want/trade list</router-link>
                 </div>
             </div>
         </div>
@@ -27,10 +31,14 @@
                     <table class="w-full table-auto border-collapse bg-white">
                         <thead>
                             <tr>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">Sku</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">
+                                    <sorter field="name" text="Name \ Sku" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                                </th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Finish</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Set/Release</th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase hidden sm:table-cell">Rarity</th>
+                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase hidden sm:table-cell">
+                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                                </th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase" width="150">Total</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Trade</th>
                                 <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Want</th>
@@ -59,6 +67,7 @@
     import Icon from "../Components/Icon";
     import Query from "../Utilities/Query";
     import Paginator from '../Components/Paginator.vue';
+    import Sorter from "../Components/Sorter";
 
     export default {
         components: {
@@ -68,7 +77,8 @@
             Crumbs,
             Icon,
             HeaderTitle,
-            Paginator
+            Paginator,
+            Sorter
         },
 
         mixins: [Query],
@@ -82,7 +92,11 @@
 
                 page: 1,
                 results: {},
-                search: { view: this.$route.query.view || 'mine', order: 'sku' },
+                search: {
+                    view: this.$route.query.view || 'all',
+                    order: this.$route.query.order || 'sku',
+                    direction:  this.$route.query.direction || 'asc'
+                },
                 title: 'My collection',
                 display: 'list'
             }
@@ -94,17 +108,33 @@
 
         methods: {
             activeFilter(view) {
-                return this.search.view === view ? 'opacity-50' : '';
+                return this.search.view === view ? 'bg-white' : '';
             },
 
             filter(view) {
                 this.search.view = view;
-                this.updateQuery({ view });
-                this.updateQuery({ page: 1 });
+                this.updateQuery({ page: 1, view: this.search.view });
             },
 
             refreshResults(results) {
                 this.results = results;
+            },
+
+            sort(column) {
+                // If this column is already ordered, then we flip the direction
+                if (column === this.search.order) {
+                    this.search.direction = this.search.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.search.direction = 'asc';
+                }
+
+                this.search.order = column;
+
+                this.updateQuery({ direction: this.search.direction, order: this.search.order });
+            },
+
+            tabClasses(tab) {
+                return tab === this.search.view ? 'bg-white text-gray-700' : 'bg-orange-700 hover:bg-orange-600';
             },
 
             toggleDisplay() {
