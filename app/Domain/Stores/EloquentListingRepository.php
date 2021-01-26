@@ -25,6 +25,7 @@ class EloquentListingRepository extends EloquentRepository implements ListingRep
             ->select('listings.id', 'listings.available', 'listings.price', 'listings.path', 'printings.sku', 'stores.currency', 'stores.name', 'stores.domain')
             ->join('printings', 'printings.id', 'listings.printing_id')
             ->join('stores', 'stores.id', 'listings.store_id')
+            ->where('stores.active', true)
             ->where('listings.card_id', $cardId)
             ->where('available', '>', '0')
             ->get();
