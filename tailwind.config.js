@@ -9,6 +9,7 @@ module.exports = {
                 'secondary-hover': 'var(--button-secondary-hover-background-color)',
                 'disabled': 'var(--button-disabled-background-color)',
                 'disabled-hover': 'var(--button-disabled-hover-background-color)',
+                'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
                 'nearly-black': 'rgba(0, 0, 0, 0.75)',
             },
