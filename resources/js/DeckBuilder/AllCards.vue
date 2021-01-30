@@ -133,7 +133,7 @@
 
                 cards = cards.concat(collection.weapons());
                 cards = cards.concat(collection.equipment());
-                cards = cards.concat(collection.other());
+                cards = cards.concat(collection.other().all());
 
                 return cards.hydrate();
             },
@@ -147,7 +147,7 @@
             },
 
             other() {
-                return new Cards(this.all.other());
+                return this.all.other();
             }
         },
 

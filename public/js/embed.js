@@ -36720,6 +36720,9 @@ __webpack_require__.r(__webpack_exports__);
     user: function user(state) {
       return state.session.user;
     },
+    premium: function premium(state) {
+      return state.session.user && state.session.user.subscription;
+    },
     wantsBorders: function wantsBorders(state) {
       return !state.session.user || state.session.user.view == 'bordered';
     }

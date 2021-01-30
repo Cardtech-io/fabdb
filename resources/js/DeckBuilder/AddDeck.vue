@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="addDeck()" class="block text-right">
-        <input type="submit" class="py-3 px-4 appearance-none rounded-lg p-2 button-primary" value="Create deck">
+        <input type="submit" class="py-2 px-4 appearance-none rounded-lg p-2 button-primary text-base" value="Create deck">
     </form>
 </template>
 

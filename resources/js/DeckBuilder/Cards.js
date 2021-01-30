@@ -117,7 +117,7 @@ export default class Cards {
         });
 
         // Sort by pitch
-        return _.sortBy(cards, card => { return card.stats.resource });
+        return new Cards(_.sortBy(cards, card => { return card.stats.resource }));
     }
 
     sort() {

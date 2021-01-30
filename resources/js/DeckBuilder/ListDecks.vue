@@ -26,8 +26,8 @@
                 <ol v-if="decks">
                     <li class="bg-semi-black rounded-lg mb-2 hover:bg-black" v-for="(deck, key) in decks">
                         <div class="flex">
-                            <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
-                            <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>
+                            <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
+                            <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="block link p-4 pr-0" title="Test deck">Test</router-link>
                             <a href="" class="block p-4" @click.prevent="copyDeck(deck)" title="Copy deck" :class="{ 'text-gray-500': copyDisabled, 'link': !copyDisabled }">Copy</a>
                             <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
                         </div>

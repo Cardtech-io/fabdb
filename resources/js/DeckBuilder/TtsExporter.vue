@@ -21,7 +21,7 @@
             <p class="text-base" v-else>Please wait while we generate the files...</p>
         </a>
 
-        <router-link :to="'/decks/export/' + deck.slug" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4">
+        <router-link :to="{name: 'decks.export', params: {deck: deck.slug}}" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4">
             <div class="float-left mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                     <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"/>

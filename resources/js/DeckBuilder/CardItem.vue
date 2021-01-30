@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex items-center mb-1px">
+    <div class="w-full flex items-center mb-1px rounded-lg overflow-hidden">
         <card-buttons :card="card" :total="total" class="w-1/5"></card-buttons>
         <div class="w-3/5 pl-4 p-2 ml-1px bg-gray-300 cursor-default">
             <div class="whitespace-no-wrap overflow-hidden">

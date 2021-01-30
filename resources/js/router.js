@@ -22,7 +22,9 @@ import Collection from './Collection/Collection';
 import ListDecks from './DeckBuilder/ListDecks';
 import LifeCounter from './LifeCounter/Main';
 import DeckBuilder from './DeckBuilder/DeckBuilder';
-import TestDeck from './DeckBuilder/TestDeck';
+import DeckTester from './DeckTester/Main';
+import PrepareDeck from "./DeckTester/Prepare";
+import TestDeck from "./DeckTester/Test";
 import ExportDeck from './DeckBuilder/ExportDeck';
 import ViewDeck from './Decks/ViewDeck';
 import Support from './Support';
@@ -60,10 +62,13 @@ const router = new VueRouter({
         { path: '/tools/life-counter', component: LifeCounter, name: 'tools.life-counter', meta: { title: 'Flesh & Blood Life Counter' } },
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
-        { path: "/decks/build", component: ListDecks, name: 'decks.mine' },
-        { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
-        { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
-        { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
+        { path: "/decks/mine", component: ListDecks, name: 'decks.mine' },
+        { path: "/decks/:deck/build", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
+        { path: "/decks/:deck/test", component: DeckTester, meta: { auth: true }, children: [
+            { path: '', component: PrepareDeck, name: 'decks.test.prepare' },
+            { path: 'play', component: TestDeck, name: 'decks.test.test' }
+        ]},
+        { path: "/decks/:deck/export", component: ExportDeck, name: 'decks.export', meta: { title: 'Deck builder &gt; Export', auth: true } },
         { path: "/decks/:deck", component: ViewDeck, name: 'decks.view', meta: { title: 'View deck' } },
 
         { path: "/articles", component: Articles, name: 'articles' },

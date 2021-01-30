@@ -59,7 +59,7 @@
                     ]},
                     { text: 'Decks', children: [
                         { link: '/decks/browse', text: 'Browse' },
-                        { link: '/decks/build', text: 'Deck Builder' }
+                        { link: '/decks/mine', text: 'Deck Builder' }
                     ]},
                     { link: '/support', text: 'Support' },
                     { link: '/resources/api', text: 'API' },

@@ -58,6 +58,10 @@ export default {
             return state.session.user;
         },
 
+        premium: state => {
+            return state.session.user && state.session.user.subscription;
+        },
+
         wantsBorders: state => {
             return !state.session.user || state.session.user.view == 'bordered';
         }
