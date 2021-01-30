@@ -142,6 +142,8 @@ export default class Cards {
                 return i;
             }
         }
+
+        return false;
     }
 
     hydrate() {
@@ -157,7 +159,9 @@ export default class Cards {
     }
 
     total() {
-        return this.cards.length;
+        return this.cards.reduce((carry, card) => {
+            return carry + card.total;
+        }, 0);
     }
 
     add(card) {
@@ -166,7 +170,10 @@ export default class Cards {
         if (deckCard) {
             deckCard.total += 1;
         } else {
+            // clone the card before setting total
+            card = JSON.parse(JSON.stringify(card));
             card.total = 1;
+
             this.cards.push(card);
         }
     }
@@ -190,7 +197,7 @@ export default class Cards {
         } else {
             let key = this.findKey(card);
 
-            if (key) {
+            if (key !== false) {
                 this.cards.splice(key, 1);
             }
         }

@@ -66,7 +66,7 @@ const router = new VueRouter({
         { path: "/decks/:deck/build", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
         { path: "/decks/:deck/test", component: DeckTester, meta: { auth: true }, children: [
             { path: '', component: PrepareDeck, name: 'decks.test.prepare' },
-            { path: 'play', component: TestDeck, name: 'decks.test.test' }
+            { path: 'play', component: TestDeck, name: 'decks.test.play' }
         ]},
         { path: "/decks/:deck/export", component: ExportDeck, name: 'decks.export', meta: { title: 'Deck builder &gt; Export', auth: true } },
         { path: "/decks/:deck", component: ViewDeck, name: 'decks.view', meta: { title: 'View deck' } },

@@ -1,8 +1,13 @@
 class Tester {
     constructor(deck) {
-        this.cards = deck.cards.other();
-        this.sideboard = deck.sideboard;
+        this.deck = deck.cards.other();
+        this.sideboard = deck.sideboard.other();
         this.hero = deck.hero;
+    }
+
+    hydrate() {
+        this.deck = this.deck.hydrate();
+        this.sideboard = this.sideboard.hydrate();
     }
 }
 

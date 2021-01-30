@@ -1,18 +1,11 @@
 <template>
     <div>
         <header-title title="Test Deck"></header-title>
-
-        <div class="bg-red-900 text-white font-serif uppercase">
-            <div class="container sm:mx-auto p-4 flex">
-                <div class="flex-1">
-                    <crumbs :crumbs="crumbs"></crumbs>
-                </div>
-            </div>
-        </div>
+        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
             <div v-if="premium" class="container px-4 py-8 sm:mx-auto">
-                <router-view :tester="tester"></router-view>
+                <router-view :tester="tester" :slug="deck.slug"></router-view>
             </div>
 
             <div v-else>
@@ -34,14 +27,14 @@
 <script>
     import {mapGetters} from 'vuex';
 
-    import Crumbs from "../Components/Crumbs";
+    import Breadcrumbs from "../Components/Breadcrumbs";
     import Decks from "../Decks/DeckRepository";
     import HeaderTitle from "../Components/HeaderTitle";
     import LazyLoader from "../Components/LazyLoader";
     import Tester from "./Tester";
 
     export default {
-        components: {Crumbs, HeaderTitle},
+        components: {Breadcrumbs, HeaderTitle},
 
         data() {
             return {

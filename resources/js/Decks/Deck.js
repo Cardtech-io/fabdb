@@ -21,6 +21,10 @@ class Deck extends Model {
     get sideboard() {
         return new Cards(this.fields.sideboard);
     }
+
+    get slug() {
+        return this.fields.slug;
+    }
 }
 
 export default Deck;
