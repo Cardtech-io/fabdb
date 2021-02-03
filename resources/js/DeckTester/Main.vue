@@ -4,7 +4,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div v-if="premium" class="container px-4 py-8 sm:mx-auto">
+            <div v-if="premium" class="container py-8 sm:mx-auto">
                 <router-view :tester="tester" :slug="deck.slug"></router-view>
             </div>
 

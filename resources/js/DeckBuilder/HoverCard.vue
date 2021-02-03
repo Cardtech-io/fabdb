@@ -85,5 +85,11 @@
         created() {
             this.$eventHub.$on('hover-card', this.toggle);
         },
+
+        watch: {
+            $route() {
+                this.visible = false;
+            }
+        }
     };
 </script>
