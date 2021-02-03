@@ -5,6 +5,14 @@ trait Identifiable
 {
     protected function matchesIdentifier(string $keywords)
     {
-        return count(explode(' ', $keywords)) == 1 && (is_numeric($keywords) || preg_match('/^(U-)?([a-z]{3})?[0-9]{3}$/i', $keywords));
+        $keywords = explode(' ', $keywords);
+
+        foreach ($keywords as $keyword) {
+            if (is_numeric($keyword) || preg_match('/^(U-)?([a-z]{3})?[0-9]{3}$/i', $keyword) || is_numeric(strpos($keyword, '-'))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
