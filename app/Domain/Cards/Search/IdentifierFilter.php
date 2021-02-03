@@ -27,7 +27,7 @@ class IdentifierFilter implements SearchFilter
 
     private function identifiers($keywords)
     {
-        return array_filter(explode(' ', $keywords), function($keyword) {
+        return array_filter(preg_split('/[\s,]+/', $keywords), function($keyword) {
             return is_numeric($keyword) || is_numeric(strpos($keyword, '-')) || preg_match('/^(U-)?([a-z]{3})?[0-9]{3}$/i', $keyword);
         });
     }
