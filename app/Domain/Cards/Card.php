@@ -88,7 +88,7 @@ class Card extends Model
         $card = static::whereIdentifier($identifier->raw())->first();
 
         if ($card) {
-            if (!$card->image) {
+            if (!$card->image && $image) {
                 $card->image = $image;
             }
 
