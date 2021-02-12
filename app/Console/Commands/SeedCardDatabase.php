@@ -101,7 +101,7 @@ class SeedCardDatabase extends Command
             $stats[$name] = $card[$column];
         }
     }
-    
+
     private function identifier(array $row)
     {
         return Identifier::generate($row['Name'], $this->compileStats($row));

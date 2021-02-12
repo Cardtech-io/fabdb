@@ -92,7 +92,16 @@ class Card extends Model
                 $card->image = $image;
             }
 
-            $card->fill(compact('name', 'keywords', 'stats'));
+            $card->name = $name;
+
+            if ($keywords) {
+                $card->keywords = $keywords;
+            }
+
+            if ($stats) {
+                $card->keywords = $stats;
+            }
+
             $card->save();
         } else {
             $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
