@@ -565,25 +565,3 @@ ARC,217,Whisper of the Oracle,C,"**Opt 2** (Look at the top 3 cards of your deck
 
 **Go again**",,,"generic,action",,,3,0,3,,,"standard,rainbow"
 ARC,218,Cracked Bauble,T,"*(Cracked Bauble exists to support Booster Draft and Sealed Deck formats. A player may add any number of Cracked Baubles to their deck. Typically, a player would only do this if they did not have enough legally playable cards to make a 30 card minimum deck.)*",,,"generic,resource",,,2,,,,,standard
-LGS,9,Teklo Plasma Pistol,P,,,,,,,,,,,ARC003,cold
-LGS,10,Death Dealer,P,,,,,,,,,,,ARC040,cold
-LGS,11,Nebula Blade,P,,,,,,,,,,,ARC077,cold
-LGS,12,Crucible of Aetherweave,P,,,,,,,,,,,ARC115,cold
-LGS,13,Over Loop,P,,,,,,,,,,,ARC020,extended
-LGS,14,Sic ‘Em Shot,P,,,,,,,,,,,ARC072,extended
-LGS,15,Reduce to Runechant,P,,,,,,,,,,,ARC088,extended
-LGS,16,Voltic Bolt,P,,,,,,,,,,,ARC147,extended
-HER,13,Dash,P,,,,,,,,,,,ARC002,rainbow
-HER,17,Dash,P,,,,,,,,,,,ARC001,rainbow
-HER,14,Azalea,P,,,,,,,,,,,ARC039,rainbow
-HER,18,"Azalea, Ace in the Hole",P,,,,,,,,,,,ARC038,rainbow
-HER,15,Viserai,P,,,,,,,,,,,ARC077,rainbow
-HER,19,Viserai,P,,,,,,,,,,,ARC076,rainbow
-HER,16,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC114,rainbow
-HER,20,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC113,rainbow
-FAB,7,Arcanite Skullcap,P,,,,,,,,,,,ARC150,gold
-FAB,10,Grasp of the Arknight,P,,,,,,,,,,,ARC078,gold
-HER,9,Dash,P,,,,,,,,,,,ARC001,cold
-HER,10,"Azlea, Ace in the Hole",P,,,,,,,,,,,ARC038,cold
-HER,11,"Viserai, Rune Blood",P,,,,,,,,,,,ARC076,cold
-HER,12,"Kano, Dracai of Aether",P,,,,,,,,,,,ARC113,cold

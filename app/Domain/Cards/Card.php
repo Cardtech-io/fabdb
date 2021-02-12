@@ -88,18 +88,18 @@ class Card extends Model
         $card = static::whereIdentifier($identifier->raw())->first();
 
         if ($card) {
+            $card->name = $name;
+
             if (!$card->image && $image) {
                 $card->image = $image;
             }
 
-            $card->name = $name;
-
-            if ($keywords) {
+            if (count($keywords)) {
                 $card->keywords = $keywords;
             }
 
             if ($stats) {
-                $card->keywords = $stats;
+                $card->stats = $stats;
             }
 
             $card->save();
