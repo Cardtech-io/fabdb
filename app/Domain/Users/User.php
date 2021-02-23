@@ -158,6 +158,6 @@ class User extends Model implements Authenticatable
 
     public function patron(): bool
     {
-        return in_array($this->subscription, ['supporter', 'majestic', 'legendary']);
+        return in_array($this->subscription, ['supporter', 'majestic', 'legendary', 'fabled']);
     }
 }
