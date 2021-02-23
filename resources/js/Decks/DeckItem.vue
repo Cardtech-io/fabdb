@@ -36,7 +36,7 @@
 
         methods: {
             themeClasses() {
-                return this.theme === 'light' ? 'bg-gray-100 hover:bg-white' : 'bg-semi-black hover:bg-black';
+                return this.theme === 'light' ? 'bg-bar hover:bg-bar-hover' : 'bg-semi-black hover:bg-black';
             }
         }
     };

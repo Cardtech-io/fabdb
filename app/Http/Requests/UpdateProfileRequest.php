@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http\Requests;
 
+use FabDB\Http\Validators\Theme;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,6 +16,7 @@ class UpdateProfileRequest extends FormRequest
             'width' => ['required', 'in:narrow,wide'],
             'oldPassword' => ['password'],
             'newPassword' => ['confirmed', 'min:8', 'regex:/[\!\?><,.]+/i'],
+            'theme' => [new Theme]
         ];
     }
 }

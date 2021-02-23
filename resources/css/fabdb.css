@@ -20,6 +20,19 @@ body {
     --nav-hover-background-color: theme('colors.black');
 }
 
+.theme-battle {
+    --theme-background: theme('bg.gray.800') url('/img/background-battle.jpg') no-repeat top left;
+    --button-primary-background-color: theme("colors.blue.600");
+    --button-primary-hover-background-color: theme("colors.blue.400");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.blue.900");
+    --button-secondary-hover-background-color: theme("colors.blue.700");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.blue.500");
+    --crumbs-background-color: theme('colors.blue.900');
+    --nav-hover-text-color: theme('colors.blue.400');
+}
+
 .theme-skies {
     --theme-background: theme('bg.gray.200') url('/img/background-crucible.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.red.700");

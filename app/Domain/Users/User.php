@@ -155,4 +155,9 @@ class User extends Model implements Authenticatable
 
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function patron(): bool
+    {
+        return in_array($this->subscription, ['supporter', 'majestic', 'legendary']);
+    }
 }
