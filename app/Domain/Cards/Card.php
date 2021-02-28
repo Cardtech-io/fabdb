@@ -88,11 +88,20 @@ class Card extends Model
         $card = static::whereIdentifier($identifier->raw())->first();
 
         if ($card) {
-            if (!$card->image) {
+            $card->name = $name;
+
+            if (!$card->image && $image) {
                 $card->image = $image;
             }
 
-            $card->fill(compact('name', 'keywords', 'stats'));
+            if (count($keywords)) {
+                $card->keywords = $keywords;
+            }
+
+            if ($stats) {
+                $card->stats = $stats;
+            }
+
             $card->save();
         } else {
             $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'keywords', 'stats', 'searchText'));

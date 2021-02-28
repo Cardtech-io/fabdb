@@ -506,27 +506,3 @@ WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Se
 WTR,225,Quicken,T,"*(Auras stay in the arena until they are destroyed.)*
 
 When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,standard
-LGS,1,Romping Club,P,,,,,,,,,,,WTR003,cold
-LGS,2,Anothos,P,,,,,,,,,,,WTR040,cold
-LGS,3,Harmonized Kodachi,P,,,,,,,,,,,WTR078,cold
-LGS,4,Dawnblade,P,,,,,,,,,,,WTR115,cold
-LGS,5,Wrecker Romp,P,,,,,,,,,,,WTR031,extended
-LGS,6,Blessing of Deliverance,P,,,,,,,,,,,WTR054,extended
-LGS,7,Whelming Gustwave,P,,,,,,,,,,,WTR110,extended
-LGS,8,Ironsong Response,P,,,,,,,,,,,WTR132,extended
-FAB,1,Fyendal's Spring Tunic,P,,,,,,,,,,,WTR150,gold
-HER,1,Rhinar,P,,,,,,,,,,,WTR001,cold
-HER,2,"Bravo, Showstopper",P,,,,,,,,,,,WTR038,cold
-HER,3,Katsu,P,,,,,,,,,,,WTR076,cold
-HER,4,Dorinthea,P,,,,,,,,,,,WTR113,cold
-HER,5,Rhinar,P,,,,,,,,,,,WTR002,rainbow
-HER,6,"Bravo, Showstopper",P,,,,,,,,,,,WTR039,rainbow
-HER,7,Katsu,P,,,,,,,,,,,WTR077,rainbow
-HER,8,Dorinthea,P,,,,,,,,,,,WTR114,rainbow
-LSS,2,Go Bananas,P,"Name an action card. Open and reveal a booster pack of Flesh and Blood and put all cards with the chosen name into your hand. If the booster does not contain a card with the chosen name, you may repeat this process.",,,"generic,instant",,,2,0,,,,rainbow
-FAB,3,Scabskin Leathers,P,,,,,,,,,,,WTR004,gold
-FAB,4,Mask of Momentum,P,,,,,,,,,,,WTR079,gold
-FAB,6,Braveforge Bracers,P,,,,,,,,,,,WTR116,gold
-FAB,12,Energy Potion,P,,,,,,,,,,,WTR170,cold
-FAB,13,Potion of Strength,P,,,,,,,,,,,WTR171,cold
-FAB,14,Timesnap Potion,P,,,,,,,,,,,WTR172,cold

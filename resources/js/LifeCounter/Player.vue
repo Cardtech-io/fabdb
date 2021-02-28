@@ -8,7 +8,7 @@
             <button class="text-white px-8 text-4xl" @click="heal()">+</button>
         </div>
 
-        <div class="flex justify-center px-4 pr-2 py-2">
+        <div class="flex justify-center px-4 pr-2 py-1">
             <resource :resource="0" :player="player"></resource>
             <resource :resource="1" :player="player"></resource>
             <resource :resource="2" :player="player"></resource>

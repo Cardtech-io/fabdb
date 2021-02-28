@@ -1,5 +1,6 @@
 <?php
 use FabDB\Http\Middleware\LogRequests;
+use FabDB\Http\Middleware\Cors;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ Route::fallback(function() {
     return redirect(config('app.url').'/resources/api');
 });
 
-Route::group(['middleware' => LogRequests::class], function() {
+Route::middleware('api')->group(function() {
     Route::get('cards', 'CardController@list');
     Route::get('cards/first', 'CardController@first');
     Route::get('cards/pack', 'CardController@generatePack');

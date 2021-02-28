@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http;
 
+use FabDB\Http\Middleware\LogRequests;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -18,6 +19,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \FabDB\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Fruitcake\Cors\HandleCors::class,
     ];
 
     /**
@@ -39,6 +41,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
+            LogRequests::class,
             'bindings',
         ],
     ];

@@ -106,7 +106,7 @@ Route::middleware(['web'])->group(function() {
 
     Route::get('decks/embed/{deck}', function() {
         return response()
-            ->header('Access-control-origin', '*')
+            ->header('Access-Control-Allow-Origin', '*')
             ->view('layout');
     })->name('decks.embed');
 

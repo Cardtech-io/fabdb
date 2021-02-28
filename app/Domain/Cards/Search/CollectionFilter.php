@@ -53,15 +53,15 @@ class CollectionFilter implements SearchFilter
 
         // The original join is in the printings filter
         $query->leftJoin('owned_cards', function($join) {
-            $join->on('owned_cards.printing_id', 'printings.id');
+            $join->on('owned_cards.card_id', 'printings.card_id');
             $join->where('owned_cards.user_id', $this->user->id);
         });
 
         if (isset($input['view'])) {
             switch ($input['view']) {
                 case 'need':
-                    $query->addSelect(DB::raw('SUM(owned_cards.total) AS total_owned'));
-                    $query->having('total_owned', '<', $this->user->need);
+                    $query->addSelect(DB::raw('owned_cards.id AS owned_card_id, SUM(owned_cards.total) AS total_owned'));
+                    $query->havingRaw("owned_card_id IS NULL OR total_owned < {$this->user->need}");
                     break;
                 case 'have':
                     $query->whereNotNull('owned_cards.id');

@@ -14,10 +14,26 @@
     export default {
         components: {DeckItem},
 
+        props: ['user'],
+
         data() {
             return {
                 decks: {}
             }
+        },
+
+        metaInfo() {
+            let title = this.user.name + '\'s decks for Flesh & Blood TCG';
+
+            return {
+                title: title,
+                meta: [
+                    { vmid: 'description', name: 'description', content: title },
+                    { vmid: 'og:type', property: 'og:type', content: 'article' },
+                    { vmid: 'og:title', property: 'og:title', content: title },
+                    { vmid: 'og:description', property: 'og:description', content: title }
+                ]
+            };
         },
 
         extends: LazyLoader((to, callback) => {
