@@ -49,7 +49,12 @@
         }),
 
         metaInfo() {
-
+            return {
+                title: 'Flesh and Blood TCG Starter Decks',
+                meta: [
+                    { vmid: 'description', name: 'description', content: 'View and purchase Flesh & Blood TCG starter decks, from cards on TCG Player.' }
+                ]
+            };
         }
     };
 </script>

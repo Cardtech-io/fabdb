@@ -1,5 +1,7 @@
 {
-    "/js/app.js": "/js/app.js",
+    "/js/app.min.js": "/js/app.min.js",
     "/css/fabdb.css": "/css/fabdb.css",
-    "/js/embed.js": "/js/embed.js"
+    "/js/app.min.js.map": "/js/app.min.js.map",
+    "/js/embed.min.js": "/js/embed.min.js",
+    "/js/embed.min.js.map": "/js/embed.min.js.map"
 }
