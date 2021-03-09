@@ -1,7 +1,7 @@
 <template>
     <div>
         <header-title title="Starter decks"></header-title>
-        <div class="container mx-auto">
+        <div class="container mx-auto mt-8 sm:mt-0">
             <div class="px-4">
                 <p class="text-gray-400 bg-semi-black p-4 rounded-lg leading-8">
                     <span class="block text-5xl font-serif uppercase float-left relative leading-3" style="top: 15px">L</span>ooking for the Official starter decks? Want to import them into TTS, or simply want to create your own
@@ -10,7 +10,7 @@
                 </p>
             </div>
             <div class="flex flex-wrap mt-8 mx-2" v-if="decks.length">
-                <div v-for="deck in decks" :key="decks.slug" class="w-1/4">
+                <div v-for="deck in decks" :key="decks.slug" class="w-full sm:w-1/2 md:w-1/4">
                     <starter-deck :deck="deck"></starter-deck>
                 </div>
             </div>
@@ -46,6 +46,10 @@
                     this.decks = Models.hydrateMany(response.data, Deck);
                 })
             });
-        })
+        }),
+
+        metaInfo() {
+
+        }
     };
 </script>

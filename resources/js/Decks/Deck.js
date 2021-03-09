@@ -14,7 +14,6 @@ class Deck {
     }
 
     get hero() {
-        console.log(this.cards.hero());
         return this.cards.hero();
     }
 
