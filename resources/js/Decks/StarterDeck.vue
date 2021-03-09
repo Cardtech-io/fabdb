@@ -26,9 +26,10 @@
             buyLink(deck) {
                 let cards = deck.cards.cards.map(card => {
                     let name = card.total+' '+card.name;
+                    let color = this.colourToText(card.stats.resource);
 
-                    if (card.stats.resource) {
-                        name +=' ('+this.colourToText(card.stats.resource)+')';
+                    if (card.stats.resource && card.identifier.indexOf(color) !== -1) {
+                        name +=' ('+color+')';
                     }
 
                     return encodeURI(name);
