@@ -34,7 +34,9 @@
                     return encodeURI(name);
                 }).join('||');
 
-                return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=&utm_source=FABDB&c='+cards;
+                let code = 'FABDB';
+
+                return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium='+code+'&utm_source=FABDB&c='+cards;
             }
         }
     };
