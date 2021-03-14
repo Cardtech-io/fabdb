@@ -25,10 +25,6 @@ export default {
         return url+'&rect='+rect;
     },
 
-    maxCards(deck) {
-        return deck.format === 'blitz' ? 52 : 80;
-    },
-
     resourceColour: function (resource) {
         const colours = {1: 'red-600', 2: 'yellow-400', 3: 'blue-400'};
         const colour = colours[resource];

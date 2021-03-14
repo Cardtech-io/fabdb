@@ -14,7 +14,7 @@
                     <div class="flex">
                         <div class="flex items-center p-4" :class="topAreaClasses">
                             <div class="flex-auto hidden sm:block">
-                                <h2 class="font-serif uppercase text-xl" :class="{ 'text-red-500': totalCards > maxCards(deck) }">{{ totalCards }} / {{ maxCards(deck) }} <span class="text-base">cards</span></h2>
+                                <h2 class="font-serif uppercase text-xl" :class="{ 'text-red-500': totalCards > maxCards }">{{ totalCards }} / {{ maxCards }} <span class="text-base">cards</span></h2>
                             </div>
 
                             <grouping-selector v-if="mode !== 'details'" class="hidden xl:block"></grouping-selector>
@@ -126,6 +126,10 @@
 
             mainAreaClasses() {
                 return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
+            },
+
+            maxCards() {
+                return this.deck.format === 'blitz' ? 52 : 80;
             },
 
             sidebarClasses() {

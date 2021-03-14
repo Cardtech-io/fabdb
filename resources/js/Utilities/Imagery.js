@@ -8,6 +8,10 @@ export default {
             return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
         },
 
+        squareThumbUrl(path, width) {
+            return window.location.protocol + '//' + window.settings.imageDomain + path + '?rect=90,95,360,365&crop=edges&w=' + width + '&w='+width+'&h=' + width + '&fit=crop&auto=compress';
+        },
+
         heroBackground(hero) {
             let name = hero.split(' ')[0].replace(',', '').toLowerCase();
 
@@ -25,7 +29,11 @@ export default {
         },
 
         cardImageFromSku(sku, width) {
-            return this.imageUrl('/cards/printings/'+sku+'.png', width);
+            return this.imageUrl(this.cardImagePathFromSku(sku), width);
+        },
+
+        cardImagePathFromSku(sku) {
+            return '/cards/printings/'+sku+'.png';
         }
     }
 };

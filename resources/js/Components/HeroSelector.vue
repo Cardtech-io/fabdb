@@ -1,7 +1,7 @@
 <template>
     <ol class="clearfix my-8">
         <li v-for="hero in heroes" class="float-left w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-8">
-            <button class="block cursor-pointer mx-auto" @click.prevent="$emit('hero-selected', hero)">
+            <button class="block cursor-pointer mx-auto" @click.prevent="selectHero(hero)">
                 <hero-avatar :hero="hero" :name="hero.name" :width="150"></hero-avatar>
                 <div class="flex -mt-5">
                     <div class="w-1/2 flex justify-end mr-2">
@@ -38,6 +38,11 @@
         },
 
         methods: {
+            selectHero(hero) {
+                this.$emit('hero-selected', hero);
+                this.$eventHub.$emit('hero-selected', hero, this.type(hero));
+            },
+
             type(hero) {
                 return hero.keywords[2] === 'young' ? 'Blitz' : 'Constructed'
             }

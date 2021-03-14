@@ -1,7 +1,14 @@
 <template>
     <tbody>
         <tr class="odd:bg-gray-200">
-            <td class="border border-gray-300 font-bold py-1 text-lg" colspan="7"><router-link :to="'/collection/' + card.identifier" class="block py-1 px-2 w-full">{{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></router-link></td>
+            <td class="border border-gray-300 font-bold text-lg" colspan="7">
+                <div class="w-full flex">
+                    <img :src="squareThumbUrl(cardImagePathFromSku(card.printings[0].sku.sku), 43)">
+                    <div class="py-1 ml-4">
+                        <router-link :to="'/collection/' + card.identifier" class="block py-1 px-2 w-full">{{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></router-link>
+                    </div>
+                </div>
+            </td>
         </tr>
         <tr class="odd:bg-gray-100 hover:bg-white" v-for="printing in card.printings">
             <td class="border border-gray-300 px-2 sm:pl-8 text-right"><sku-finish :sku="printing.sku"></sku-finish></td>
@@ -25,6 +32,7 @@
     import CardCount from '../Collection/CardCount.vue';
     import Icon from "../Components/Icon";
     import RaritySymbol from "./RaritySymbol";
+    import Imagery from "../Utilities/Imagery";
 
     export default {
         components: {
@@ -33,7 +41,7 @@
             RaritySymbol,
         },
 
-        mixins: [Cardable],
+        mixins: [Cardable, Imagery],
 
         props: {
             card: Object,

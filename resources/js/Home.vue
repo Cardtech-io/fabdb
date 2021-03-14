@@ -5,6 +5,17 @@
                 <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" class="mx-auto">
             </router-link>
         </div>
+        <div class="my-4 bg-semi-black text-white sm:mx-auto p-2 px-4 rounded-lg flex items-center text-base">
+            <icon :size="10" class="mr-4 text-orange-500">
+                <path d="M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"/>
+            </icon>
+            <div>
+                FaB DB would like to welcome <a href="https://rathetimes.com" target="_blank" class="link">The Rathe Times</a> to the
+                Cardtech network.<br>
+                Looking for articles on strategy, deck building, finance or other topics?
+                <a href="https://rathetimes.com" target="_blank" class="link">The Rathe Times</a> has you covered.
+            </div>
+        </div>
         <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
             <p class="my-4">
                 FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link">Flesh and Blood TCG</a> community project, with various features such as
@@ -36,15 +47,12 @@
 
 <script>
     import Advertisement from "./Components/Advertisement";
-    import LazyLoader from './Components/LazyLoader';
-    import FeaturedArticle from './Content/FeaturedArticle.vue';
-    import FeaturedCard from './Content/FeaturedCard.vue';
-    import FeaturedDeck from './Content/FeaturedDeck.vue';
+    import Icon from "./Components/Icon";
     import Strings from './Utilities/Strings';
 
     export default {
         mixins: [Strings],
-        components: {Advertisement},
+        components: {Advertisement, Icon},
 
         data() {
             return {
