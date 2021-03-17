@@ -167,6 +167,10 @@ export default class Cards {
         }, 0);
     }
 
+    count() {
+        return this.cards.length;
+    }
+
     add(card) {
         const deckCard = this.find(card);
 

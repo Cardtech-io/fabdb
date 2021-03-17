@@ -31,14 +31,14 @@
                         <div v-if="loadout.total()" class="mt-4 md:m-0">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'loadout' })" :class="{ 'mb-4': !sections.loadout }">
                                 <chevron :open="sections.loadout" class="mr-2"></chevron>
-                                Loadout ({{loadout.total()}})
+                                Loadout ({{loadout.count()}})
                             </h2>
                             <grouped-cards :cards="loadout" group-id="loadout" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.loadout"></grouped-cards>
                         </div>
                         <div v-if="other.total()">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg ml-4" @click="toggleSection({ section: 'other' })" :class="{ 'mb-4': !sections.other }">
                                 <chevron :open="sections.other" class="mr-2"></chevron>
-                                Other ({{ other.total() }})
+                                Other ({{ other.count() }})
                             </h2>
                             <grouped-cards :cards="other" group-id="other" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.other"></grouped-cards>
                         </div>
