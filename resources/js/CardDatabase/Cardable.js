@@ -39,7 +39,7 @@ export default {
                 let color = this.colourToText(card.stats.resource);
                 let cycleRarities = ['C', 'R'];
 
-                if (card.stats.resource && card.identifier.indexOf(color) !== -1 && cycleRarities.indexOf(card.rarity) !== -1 && name.indexOf('Potion') === -1) {
+                if (card.stats.resource && card.identifier.indexOf(color) !== -1 && cycleRarities.indexOf(card.rarity) !== -1 && card.keywords.indexOf('item') === -1) {
                     name +=' ('+color+')';
                 }
 
