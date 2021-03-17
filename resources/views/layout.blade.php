@@ -70,7 +70,7 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
             window.version = '{{ fab_version()  }}';
             window.settings = {!! json_encode($settings) !!};
-            window.lang = {!! json_encode($lang) !!}
+            window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
         <script src="{{ fab_asset($jsFile) }}"></script>

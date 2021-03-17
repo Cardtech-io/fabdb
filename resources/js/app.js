@@ -48,6 +48,7 @@ Vue.use(VueMasonryPlugin);
 
 Vue.prototype.$settings = window.settings;
 Vue.prototype.$eventHub = new Vue;
+Vue.prototype.lang = JSON.parse(atob(window.lang));
 
 App.router = router;
 App.store = store;

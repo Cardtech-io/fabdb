@@ -14,7 +14,7 @@ export default {
             if (this.card.keywords.includes('weapon')) {
                 return this.card.keywords.includes('2h') ? 1 : 2;
             }
-            
+
             if (this.card.text.toLowerCase().includes('legendary')) {
                 return 1;
             }
@@ -31,6 +31,24 @@ export default {
     },
 
     methods: {
-        ...Carding
+        ...Carding,
+
+        buyLink(deck) {
+            let cards = deck.cards.cards.map(card => {
+                let name = card.total+' '+card.name;
+                let color = this.colourToText(card.stats.resource);
+                let cycleRarities = ['C', 'R'];
+
+                if (card.stats.resource && card.identifier.indexOf(color) !== -1 && cycleRarities.indexOf(card.rarity) !== -1 && name.indexOf('Potion') === -1) {
+                    name +=' ('+color+')';
+                }
+
+                return encodeURI(name);
+            }).join('||');
+
+            let code = 'FABDB';
+
+            return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium='+code+'&utm_source=FABDB&c='+cards;
+        }
     }
 };

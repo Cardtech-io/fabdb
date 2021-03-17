@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Returns the path to the versioned asset if it exists. This replaces the mix asset function as it's utterly useless
@@ -51,7 +52,13 @@ function compile_settings(): array
  */
 function compile_lang(): array
 {
-    return  [
-        'api' => trans('api')
-    ];
+    $except = ['pagination', 'app', 'passwords', 'validation'];
+    $locale = app('translator')->getLocale();
+    $disk = Storage::disk('lang');
+
+    return collect($disk->files($locale))->mapWithKeys(function($file) use ($disk, $except) {
+        $key = pathinfo($file)['filename'];
+
+        return in_array($key, $except) ? [] : [$key => require($disk->path($file))];
+    })->toArray();
 }

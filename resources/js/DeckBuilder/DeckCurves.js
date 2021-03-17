@@ -3,11 +3,20 @@ import _ from 'lodash';
 
 export default {
     extends: Bar,
-    props: ['cards', 'stat'],
+    props: {
+        cards: {
+            required: true,
+            type: Object
+        },
+        stat: {
+            required: true,
+            type: String
+        }
+    },
 
     methods: {
         update(cards) {
-            let values = _(cards)
+            let values = _(cards.all())
                 .groupBy(card => card.stats[this.stat] || 0)
                 .mapValues(cards => cards.length)
                 .value();

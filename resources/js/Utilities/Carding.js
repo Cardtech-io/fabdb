@@ -1,5 +1,5 @@
 export default {
-    cardUrl: function (identifier, width, withBorder) {
+    cardUrl(identifier, width, withBorder) {
         const set = this.setFromIdentifier(identifier);
         const id = this.id(identifier);
 

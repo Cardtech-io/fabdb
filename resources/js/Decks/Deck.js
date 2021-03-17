@@ -17,6 +17,18 @@ class Deck {
         return this.cards.hero();
     }
 
+    get weapons() {
+        return this.cards.weapons();
+    }
+
+    get equipment() {
+        return this.cards.equipment();
+    }
+
+    get other() {
+        return this.cards.other();
+    }
+
     get format() {
         return this.fields.format;
     }

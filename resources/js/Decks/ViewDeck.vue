@@ -1,39 +1,48 @@
 <template>
     <div>
-        <div v-if="deck && hero">
-            <header-title :title="deck.name + ' (' + hero.name + ')'"></header-title>
+        <div v-if="deck && deck.hero">
+            <header-title :title="deck.name + ' (' + deck.hero.name + ')'"></header-title>
             <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
             <div class="bg-white">
                 <div class="container sm:mx-auto px-4 flex">
                     <div class="flex-1 font-serif uppercase py-4 md:px-0">
-                        {{ totalCards }} Cards in deck &nbsp;
+                        {{ deck.cards.total() }} Cards in deck &nbsp;
                         (
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ totalColoured.blue }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ totalColoured.yellow }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ totalColoured.red }}
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ deck.cards.colouredCount('blue') }} &nbsp;
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ deck.cards.colouredCount('yellow') }} &nbsp;
+                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ deck.cards.colouredCount('red') }}
                         )
                     </div>
                     <div class="text-right mt-2">
-                        <votes :size="6" :total="deck.totalVotes" :voted="deck.myVote" voteable="deck" :foreign="deck.slug"></votes>
+                        <votes :size="6" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"></votes>
                     </div>
                 </div>
             </div>
 
             <div class="bg-gray-200">
-                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero.name)+'); background-repeat: no-repeat'"></div>
+                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(deck.hero.name)+'); background-repeat: no-repeat'"></div>
 
                 <div class="container sm:mx-auto px-4">
                     <div class="md:flex -mt-12 sm:mt-0">
-                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(hero.name)+'); background-repeat: no-repeat'"></div>
+                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(deck.hero.name)+'); background-repeat: no-repeat'"></div>
 
                         <div class="w-full md:w-3/4 md:py-8">
                             <ul class="flex border-b border-gray-400 mb-4">
                                 <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'composition'" :class="tabClasses('composition')">Composition</button></li>
                                 <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'rulings'" :class="tabClasses('rulings')">Rulings</button></li>
-                                <li class="text-right flex-1">
-                                    <button @click="copyDeck" class="w-full sm:w-auto button-primary rounded px-3 py-2 text-base">
-                                        <icon :size="4" class="inline-block">
+                                <li class="ml-auto">
+                                    <a :href="buyLink(deck)" class="flex items-center w-full sm:w-auto button-primary rounded px-3 py-2 text-base" target="_blank">
+                                        <icon :size="4">
+                                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                                        </icon>
+                                        <span class="ml-1">Buy <span class="hidden sm:inline">deck</span></span>
+                                    </a>
+                                </li>
+                                <li class="ml-2">
+                                    <button @click="copyDeck" class="sm:flex items-center w-full hidden sm:w-auto button-primary rounded px-3 py-2 text-base">
+                                        <icon :size="4">
                                             <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
                                         </icon>
                                         <span class="ml-1">Copy <span class="hidden sm:inline">deck</span></span>
@@ -43,19 +52,19 @@
 
                             <div class="lg:flex" v-if="tab == 'composition'">
                                 <div class="w-full md:w-2/7">
-                                    <div v-if="weapons" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons</h3>
+                                    <div v-if="deck.weapons.total()" class="mb-8">
+                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons ({{deck.weapons.total()}})</h3>
                                         <ol>
-                                            <li v-for="card in weapons" class="p-2 pl-4">
+                                            <li v-for="card in deck.weapons" class="p-2 pl-4">
                                                 <deck-card :card="card" :collapse="true"></deck-card>
                                             </li>
                                         </ol>
                                     </div>
 
-                                    <div v-if="equipment.length" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment</h3>
+                                    <div v-if="deck.equipment.total()" class="mb-8">
+                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment ({{deck.equipment.total()}})</h3>
                                         <ol>
-                                            <li v-for="card in equipment" class="p-2 pl-4">
+                                            <li v-for="card in deck.equipment" class="p-2 pl-4">
                                                 <deck-card :card="card" :collapse="true"></deck-card>
                                             </li>
                                         </ol>
@@ -63,10 +72,10 @@
                                 </div>
 
                                 <div class="w-full md:w-3/7">
-                                    <div v-if="other.length">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other</h3>
+                                    <div v-if="deck.other.total()">
+                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other ({{deck.other.total()}})</h3>
                                         <ol>
-                                            <li v-for="card in other" class="p-2 pl-4">
+                                            <li v-for="card in deck.other" class="p-2 pl-4">
                                                 <deck-card :card="card"></deck-card>
                                             </li>
                                         </ol>
@@ -77,13 +86,13 @@
                                     <h3 class="py-2 px-4 font-serif uppercase text-2xl mb-4">Deck stats</h3>
 
                                     <ol class="mb-8">
-                                        <li class="block p-1 pl-4 w-full">Attack actions: {{ totalAttackActions }}</li>
-                                        <li class="block p-1 pl-4 w-full">Attack reactions: {{ totalAttackReactions }}</li>
-                                        <li class="block p-1 pl-4 w-full">Defense reactions: {{ totalDefenseReactions }}</li>
+                                        <li class="block p-1 pl-4 w-full">Attack actions: {{ deck.other.attackActions().total() }}</li>
+                                        <li class="block p-1 pl-4 w-full">Attack reactions: {{ deck.other.attackReactions().total() }}</li>
+                                        <li class="block p-1 pl-4 w-full">Defense reactions: {{ deck.other.defenseReactions().total() }}</li>
                                     </ol>
 
-                                    <deck-curves :cards="other" stat="cost" style="height: 200px" class="mb-4"></deck-curves>
-                                    <deck-curves :cards="other" stat="resource" style="height: 200px"></deck-curves>
+                                    <deck-curves :cards="deck.other" stat="cost" style="height: 200px" class="mb-4"></deck-curves>
+                                    <deck-curves :cards="deck.other" stat="resource" style="height: 200px"></deck-curves>
                                 </div>
                             </div>
 
@@ -132,9 +141,11 @@
     import Rulings from "../CardDatabase/Rulings";
     import Viewable from '../DeckBuilder/Viewable';
     import Votes from '../Voting/Votes.vue';
+    import Models from "../Utilities/Models";
+    import Deck from "./Deck";
 
     export default {
-        mixins: [Cardable, Imagery, Viewable],
+        mixins: [Cardable, Imagery],
 
         components: {
             Breadcrumbs,
@@ -231,7 +242,7 @@
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
-                    this.deck = response.data;
+                    this.deck = Models.hydrate(response.data, Deck);
                 })
             });
         })

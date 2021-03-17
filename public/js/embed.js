@@ -35701,7 +35701,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return available;
     }
   },
-  methods: _objectSpread({}, _Utilities_Carding__WEBPACK_IMPORTED_MODULE_0__["default"])
+  methods: _objectSpread({}, _Utilities_Carding__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    buyLink: function buyLink(deck) {
+      var _this = this;
+
+      var cards = deck.cards.cards.map(function (card) {
+        var name = card.total + ' ' + card.name;
+
+        var color = _this.colourToText(card.stats.resource);
+
+        var cycleRarities = ['C', 'R'];
+
+        if (card.stats.resource && card.identifier.indexOf(color) !== -1 && cycleRarities.indexOf(card.rarity) !== -1 && name.indexOf('Potion') === -1) {
+          name += ' (' + color + ')';
+        }
+
+        return encodeURI(name);
+      }).join('||');
+      var code = 'FABDB';
+      return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=FABDB&c=' + cards;
+    }
+  })
 });
 
 /***/ }),
