@@ -3,8 +3,9 @@
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
-                <div v-for="(card, i) in grouped" class="rounded-card overflow-hidden w-full" :style="styles(i)">
+                <div v-for="(card, i) in grouped" class="relative rounded-card overflow-hidden w-full" :style="styles(i)">
                     <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full"></card-image>
+                    <banned v-if="card.banned"></banned>
                 </div>
             </div>
         </div>
@@ -15,6 +16,7 @@
 <script>
     import { mapGetters, mapState } from 'vuex';
 
+    import Banned from '../CardDatabase/Banned';
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
     import Redrawable from './Redrawable';
@@ -23,7 +25,7 @@
     export default {
         props: ['action', 'cards', 'groupId', 'width'],
         mixins: [Cardable, Redrawable, Viewable],
-        components: {CardImage},
+        components: {Banned, CardImage},
 
         computed: {
             ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'sections', 'zoom']),

@@ -29,6 +29,7 @@ class Card extends Model
 
     protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
+    protected $appends = ['banned'];
 
     public function ad()
     {
@@ -70,6 +71,11 @@ class Card extends Model
                 $join->on('stores.id', '=', 'listings.store_id');
                 $join->whereNull('stores.deleted_at');
             });
+    }
+
+    public function getBannedAttribute()
+    {
+        return in_array($this->identifier, config('game.cards.banned'));
     }
 
     public function rulings()

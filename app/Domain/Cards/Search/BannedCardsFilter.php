@@ -12,6 +12,6 @@ class BannedCardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->whereNotIn('identifier', config('cards.banned'));
+//        $query->whereNotIn('cards.identifier', config('game.cards.banned'));
     }
 }

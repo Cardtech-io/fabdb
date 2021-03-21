@@ -7,7 +7,10 @@
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8">
                 <div class="clearfix">
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
-                        <card-image :card="card"></card-image>
+                        <div class="relative">
+                            <card-image :card="card"></card-image>
+                            <banned v-if="card.banned"></banned>
+                        </div>
                         <div class="flex mt-2">
                             <card-nav :to="card.prev" text="Previous" class="mr-1"></card-nav>
                             <card-nav :to="card.next" text="Next" class="ml-1 text-right"></card-nav>
@@ -76,6 +79,7 @@
     import axios from 'axios';
 
     import Advertisement from "../Components/Advertisement";
+    import Banned from './Banned';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
@@ -94,6 +98,7 @@
 
         components: {
             Advertisement,
+            Banned,
             Breadcrumbs,
             CardImage,
             CardPrice,

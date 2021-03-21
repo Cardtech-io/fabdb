@@ -118,6 +118,14 @@ return [
         'P' => 'Promo'
     ],
 
+    'cards' => [
+        'banned' => [
+            'drone-of-brutality-red',
+            'drone-of-brutality-yellow',
+            'drone-of-brutality-blue',
+        ],
+    ],
+
     // Images when borderless get cropped to these dimensions
     'img_crop' => [25, 25, 496, 712],
 ];
