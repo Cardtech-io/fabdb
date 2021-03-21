@@ -1,7 +1,6 @@
 <template>
     <div>
         <header-title title="Profile Update"></header-title>
-
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
@@ -113,7 +112,7 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
-                    <router-link :to="{ name: 'user.profile.decks', params: { user: user.slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>
+                    <router-link :to="{ name: 'user.profile.decks', params: { user: slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>
 
                     <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
 
@@ -251,6 +250,10 @@
                     this.setUserParam({ param: 'avatar', value: avatar });
                 }
             },
+
+            slug() {
+                return ['legendary', 'fabled'].indexOf(this.user.subscription) !== -1 && this.user.vanitySlug ? this.user.vanitySlug : this.user.slug;
+            }
         },
 
         data() {

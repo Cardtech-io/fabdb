@@ -40,7 +40,7 @@
             },
 
             search() {
-                axios.get('/collection/lists?user='+this.$route.params.user+'&view='+this.$route.meta.view+'&page='+this.page).then(response => {
+                axios.get('/collection/lists?user='+this.user.slug+'&view='+this.$route.meta.view+'&page='+this.page).then(response => {
                     this.cards = response.data;
                 });
             },
@@ -49,6 +49,10 @@
                 this.page = page;
                 this.search();
             }
+        },
+
+        mounted() {
+            this.search();
         },
 
         metaInfo() {
@@ -63,14 +67,6 @@
                     { vmid: 'og:description', property: 'og:description', content: title }
                 ]
             };
-        },
-
-        extends: LazyLoader((to, callback) => {
-            axios.get('/collection/lists?user=' + to.params.user + '&view='+to.meta.view).then(response => {
-                callback(function () {
-                    this.cards = response.data;
-                });
-            })
-        })
+        }
     };
 </script>

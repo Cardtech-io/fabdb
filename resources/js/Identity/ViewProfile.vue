@@ -7,9 +7,9 @@
             <div>
                 <h1 class="font-serif text-4xl uppercase mb-2">{{ user.name }}</h1>
                 <div class="text-base flex bg-semi-black rounded-lg overflow-hidden sm:bg-transparent">
-                    <profile-nav-item :to="{ name: 'user.profile.decks', params: { user: this.$route.params.user }}">Decks</profile-nav-item>
-                    <profile-nav-item :to="{ name: 'user.profile.wants', params: { user: this.$route.params.user }}">Want list</profile-nav-item>
-                    <profile-nav-item :to="{ name: 'user.profile.trades', params: { user: this.$route.params.user }}">Trade list</profile-nav-item>
+                    <profile-nav-item :to="{ name: 'user.profile.decks', params: { user: $route.params.user }}">Decks</profile-nav-item>
+                    <profile-nav-item :to="{ name: 'user.profile.wants', params: { user: $route.params.user }}">Want list</profile-nav-item>
+                    <profile-nav-item :to="{ name: 'user.profile.trades', params: { user: $route.params.user }}">Trade list</profile-nav-item>
                 </div>
             </div>
         </div>

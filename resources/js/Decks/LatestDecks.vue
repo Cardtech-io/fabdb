@@ -36,13 +36,11 @@
             };
         },
 
-        extends: LazyLoader((to, callback) => {
-            axios.get('/decks/latest?user='+to.params.user).then(response => {
-                callback(function() {
-                    this.decks = response.data;
-                });
+        mounted() {
+            axios.get('/decks/latest?user='+this.user.slug).then(response => {
+                this.decks = response.data;
             });
-        })
+        }
     }
 </script>
 
