@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class SyntaxFilter implements SearchFilter
@@ -52,7 +53,7 @@ class SyntaxFilter implements SearchFilter
             case 'a':
             case 'attack':
             case 'power':
-                $query->where("stats->attack", $operator[0], $value[0]);
+                $query->where("stats->attack", $operator[0], DB::raw($value[0]));
                 break;
             // class
             case 'c':

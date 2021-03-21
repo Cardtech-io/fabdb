@@ -303,6 +303,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $filters = [
             new PrintingFilter,
             new KeywordFilter,
+            new SyntaxFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
             new VariantsFilter,
@@ -311,7 +312,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new StatFilter,
             new OrderFilter,
             new UseCollectionFilter($user, $deck)
         ];

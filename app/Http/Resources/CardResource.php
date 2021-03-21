@@ -17,6 +17,10 @@ class CardResource extends JsonResource
             $response['sku'] = new Sku($this->resource->sku);
         }
 
+        if (empty($response['stats'])) {
+            $response['stats'] = null;
+        }
+
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
