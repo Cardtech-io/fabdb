@@ -128,6 +128,15 @@ class User extends Model implements Authenticatable
         $this->raise(new NameWasUpdated($this->id, $name));
     }
 
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = $name;
+
+        if ($this->isDirty('name')) {
+            $this->attributes['vanity_slug'] = Str::slug($name);
+        }
+    }
+
     public function getAvatarAttribute()
     {
         return Arr::get($this->attributes, 'avatar') ?: 'bauble';

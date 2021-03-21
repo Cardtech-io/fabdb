@@ -32,6 +32,10 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
             ->with($relations)
             ->select('id', 'slug', 'name', 'avatar')
             ->whereSlug($slug)
+            ->orWhere(function($query) use ($slug) {
+                $query->whereVanitySlug($slug);
+                $query->whereIn('subscription', ['legendary', 'fabled']);
+            })
             ->first();
     }
 }
