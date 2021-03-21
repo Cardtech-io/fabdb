@@ -29,7 +29,6 @@ class Card extends Model
 
     protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
     protected $hidden = ['id'];
-    protected $appends = ['banned'];
 
     public function ad()
     {

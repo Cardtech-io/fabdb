@@ -9,14 +9,12 @@ class CardResource extends JsonResource
 {
     public function toArray($request)
     {
+        $this->resource->setAppends(['banned']);
+
         $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'banned', 'next', 'prev']);
 
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
-        }
-
-        if (empty($response['stats'])) {
-            $response['stats'] = null;
         }
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
