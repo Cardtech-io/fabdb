@@ -60,6 +60,10 @@ class SyntaxFilter implements SearchFilter
             case 'class':
                 $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value[0]') IS NOT NULL");
                 break;
+            case 'd':
+            case 'defense':
+                $query->where("stats->defense", $operator[0], $value[0]);
+                break;
             // Card type
             case 't':
             case 'type':
