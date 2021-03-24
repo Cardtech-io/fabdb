@@ -92,6 +92,12 @@
                     this.lastSwipe = event.changedTouches[0];
                 }
             }
+        },
+
+        mounted() {
+            this.$eventHub.$on('life-counter.reset', () => {
+                this.life = Number(this.player.maxLife);
+            });
         }
     };
 </script>

@@ -78,11 +78,7 @@
             },
 
             reset() {
-                for (let i = 0; i < this.players.length; i++) {
-                    this.players[i].life = this.players[i].maxLife;
-                    this.players[i].resource = 0;
-                }
-
+                this.$eventHub.$emit('life-counter.reset');
                 this.timer = moment();
             },
 
