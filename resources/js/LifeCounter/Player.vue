@@ -1,10 +1,10 @@
 <template>
     <div class="flex-grow relative flex flex-col w-full " v-touch:moving="swipe">
-        <hero-avatar :hero="player.hero" :name="player.hero.name" :width="80" class="absolute top-0 left-0 m-4 z-25"></hero-avatar>
 
         <div class="relative flex mx-auto z-100 mt-4">
+            <hero-avatar :hero="player.hero" :name="player.hero.name" :width="80" class="absolute m-4 z-25" style="left: -40px; top: -15px"></hero-avatar>
             <button class="text-white px-8 text-4xl" @click="hurt()">-</button>
-            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass">{{ this.player.life }}</h2>
+            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass">{{ life }}</h2>
             <button class="text-white px-8 text-4xl" @click="heal()">+</button>
         </div>
 
@@ -34,17 +34,18 @@
 
         data() {
             return {
+                life: Number(this.player.life),
                 lastSwipe: null
             };
         },
 
         computed: {
             lifeClass() {
-                if (this.player.life > this.player.maxLife) {
+                if (this.life > this.player.maxLife) {
                     return 'text-green-400';
                 }
 
-                if (this.player.life === 0) {
+                if (this.life === 0) {
                     return 'text-red-500';
                 }
 
@@ -54,12 +55,12 @@
 
         methods: {
             heal() {
-                this.player.life += 1;
+                this.life += 1;
             },
 
             hurt() {
-                if (this.player.life > 0) {
-                    this.player.life -= 1;
+                if (this.life > 0) {
+                    this.life -= 1;
                 } else {
                     this.$emit('player-destroyed');
                 }
