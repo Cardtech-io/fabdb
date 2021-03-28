@@ -1,8 +1,8 @@
 <template>
     <div v-if="cards.meta && cards.meta.total">
         <div class="-mx-2 md:-mx-4 flex flex-wrap">
-            <div v-for="card in cards.data" class="w-1/3 sm:w-1/4 md:w-1/6 px-2 md:px-4 text-center pb-4">
-                <card-image :sku="card.sku.sku" :card="card"></card-image>
+            <div v-for="card in cards.data" class="w-1/3 sm:w-1/4 lg:w-1/6 px-2 md:px-4 text-center pb-4">
+                <card-image :card="card"></card-image>
                 <sku-finish :sku="card.sku"></sku-finish>
             </div>
         </div>

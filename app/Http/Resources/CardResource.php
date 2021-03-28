@@ -7,6 +7,8 @@ use Illuminate\Support\Arr;
 
 class CardResource extends JsonResource
 {
+    use HasImage;
+
     public function toArray($request)
     {
         $this->resource->setAppends(['banned']);
@@ -27,13 +29,6 @@ class CardResource extends JsonResource
         $this->polymorphicTotal($response, 'sideboard');
 
         return $response;
-    }
-
-    protected function image($card)
-    {
-        $domain = config('services.imgix.domain');
-
-        return "https://$domain/{$card->image}?w=300&fit=clip&auto=compress";
     }
 
     private function polymorphicTotal(array &$response, string $table)
