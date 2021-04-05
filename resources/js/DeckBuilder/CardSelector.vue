@@ -46,7 +46,6 @@
 </template>
 
 <script>
-    import CardSearch from '../CardDatabase/CardSearch.vue';
     import CardItem from './CardItem.vue';
     import Paginator from '../Components/Paginator.vue';
     import SearchTips from '../CardDatabase/SearchTips.vue';
@@ -57,7 +56,6 @@
 
         components: {
             CardItem,
-            CardSearch,
             Paginator,
             SearchTips
         },

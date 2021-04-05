@@ -21,16 +21,11 @@
         <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 rounded-xl">
             <search-help></search-help>
         </modal>
-
-        <modal name="collection-clarification" :adaptive="true" :click-to-close="false" height="auto" classes="bg-black sm:rounded-xl">
-            <collection-clarification></collection-clarification>
-        </modal>
     </div>
 </template>
 
 <script>
     import {mapActions, mapGetters} from 'vuex';
-    import CollectionClarification from "./Collection/CollectionClarification";
     import AppFooter from "./Components/Layout/Footer";
     import CompleteProfile from './Identity/CompleteProfile.vue';
     import HoverCard from "./DeckBuilder/HoverCard";
@@ -41,7 +36,6 @@
 
     export default {
         components: {
-            CollectionClarification,
             CompleteProfile,
             AppFooter,
             HoverCard,

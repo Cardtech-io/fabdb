@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 import Home from './Home';
+import AdvancedCardSearch from "./CardDatabase/AdvancedCardSearch";
 import Api from './Resources/Api';
 import Articles from './Content/Articles';
 import ArticleView from './Content/ViewArticle';
@@ -44,6 +45,7 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
 
         { path: "/cards/browse", component: BrowseCards, name: 'cards.browse', meta: { title: 'Browse cards' } },
+        { path: "/cards/advanced", component: AdvancedCardSearch, name: 'cards.advanced', meta: { title: 'Advanced card search' } },
         { path: "/cards/fabled", component: FabledCards, name: 'cards.fabled', meta: { title: 'The fabled cards of Flesh & Blood' } },
         { path: "/cards/prices", component: PriceList, name: 'cards.prices', meta: { title: 'Card price list' } },
         { path: "/cards/:identifier", component: ViewCard, name: 'cards.view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse' } } },
@@ -56,6 +58,7 @@ const router = new VueRouter({
         { path: "/packs/generate", component: BoosterGenerator, name: 'generator', meta: { title: 'Booster generator', auth: true } },
 
         { path: "/collection", component: Collection, name: 'collection', meta: { title: 'My collection', auth: true } },
+        { path: "/collection/advanced", component: AdvancedCardSearch, name: 'collection.advanced', meta: { title: 'Advanced collection search', auth: true } },
         { path: "/collection/:identifier", component: ViewCard, name: 'collection-view', meta: { title: 'View card', parent: { name: 'My collection', path: '/collection' } } },
 
         { path: '/tools/life-counter', component: LifeCounter, name: 'tools.life-counter', meta: { title: 'Flesh & Blood Life Counter' } },

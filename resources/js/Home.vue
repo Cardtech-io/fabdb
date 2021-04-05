@@ -1,12 +1,12 @@
 <template>
-    <div class="sm:max-w-3/4 px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
+    <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
         <div class="mt-12 mb-6">
             <router-link to="/">
                 <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" class="mx-auto">
             </router-link>
         </div>
-        <div class="my-4 bg-semi-black text-white sm:mx-auto p-2 px-4 rounded-lg flex items-center text-base">
-            <icon :size="10" class="mr-4 text-orange-500">
+        <div class="my-4 bg-semi-black text-gray-400 sm:mx-auto p-2 px-4 rounded-lg flex items-center">
+            <icon :size="6" class="mr-4 text-orange-500">
                 <path d="M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"/>
             </icon>
             <div v-html="lang.home.rathe_times"></div>
