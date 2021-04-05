@@ -23,7 +23,12 @@ class TypeFilter implements SearchFilter
                         $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
                     });
                 } else {
-                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$types[$i]}') IS NOT NULL");
+                    $splitType = explode(' ', $types[$i]);
+                    $query->orWhere(function($query) use ($splitType) {
+                        foreach ($splitType as $part) {
+                            $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$part}') IS NOT NULL");
+                        }
+                    });
                 }
             }
         });
