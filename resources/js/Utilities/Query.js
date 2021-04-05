@@ -1,5 +1,27 @@
+import _ from 'underscore';
+
 export default {
     methods: {
+        buildQuery(params) {
+            return _.mapObject(this.combineParams(params), param => {
+                if (Array.isArray(param)) {
+                    return param.join(',');
+                }
+
+                return param;
+            });
+        },
+
+        fromQuery(params) {
+            return _.mapObject(params, (param, key) => {
+                if (['class', 'cardType', 'rarity'].indexOf(key) !== -1) {
+                    return param.split(',');
+                }
+
+                return param;
+            });
+        },
+
         updateQuery(params) {
             let query = this.combineParams(params);
 

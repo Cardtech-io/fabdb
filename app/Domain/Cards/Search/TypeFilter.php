@@ -13,15 +13,19 @@ class TypeFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        if ($input['cardType'] == 'non-attack action') {
-            $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') = 'action'");
-            $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
-        } else {
-            $type = explode(' ', $input['cardType']);
+        $types = explode(',', $input['cardType']);
 
-            for ($i = 0; $i < count($type); $i++) {
-                $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$type[$i]}') IS NOT NULL");
+        $query->where(function($query) use ($types) {
+            for ($i = 0; $i < count($types); $i++) {
+                if ($types[$i] === 'non-attack action') {
+                    $query->orWhere(function($query) {
+                        $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') = 'action'");
+                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
+                    });
+                } else {
+                    $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '{$types[$i]}') IS NOT NULL");
+                }
             }
-        }
+        });
     }
 }

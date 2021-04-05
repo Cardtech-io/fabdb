@@ -1,51 +1,58 @@
 <template>
     <div>
-        <header-title title="My Collection"></header-title>
+        <header-title title="Advanced search"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
-            <div class="container mx-auto">
-
+            <div class="container mx-auto px-4">
                 <form @submit.prevent="newSearch" class="block">
-                    <div class="flex w-full px-4 md:px-0">
-                        <div class="w-2/4 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
-                            <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-2 sm:px-4" placeholder="Keywords..." :class="active('keywords')">
-                            <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
-                                <icon :size="6">
-                                    <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
-                                </icon>
-                            </button>
-                        </div>
-
-                        <div class="w-1/4 px-1">
-                            <select v-model="params.class" multiple="multiple" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('class')">
-                                <option value="">Class</option>
-                                <option :value="v" v-for="(k, v) in this.$settings.game.classes">{{k}}</option>
-                            </select>
-                        </div>
-
-                        <div class="w-1/4">
-                            <input type="submit" value="Search" class="appearance-none block w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none">
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Keyword search</div>
+                        <div class="md:w-4/5">
+                            <div class="flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
+                                <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-2 sm:px-4" :class="active('keywords')">
+                                <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
+                                    <icon :size="6">
+                                        <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
+                                    </icon>
+                                </button>
+                            </div>
+                            <div class="mt-2 text-gray-500 font-italic text-base">Click the icon on the right for search syntax.</div>
                         </div>
                     </div>
 
-                    <div class="w-full flex flex-wrap pt-1 px-4 md:px-0">
-                        <div class="w-3/5 md:w-1/5 pr-1">
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Class</div>
+                        <div class="md:w-4/5">
+                            <select v-model="params.class" size="6" multiple="multiple" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('class')">
+                                <option :value="klass" v-for="(name, klass) in $settings.game.classes">{{ name }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Set</div>
+                        <div class="md:w-4/5">
                             <select v-model="params.set" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('set')">
                                 <option :value="set.id" v-for="set in sets">{{ set.name }}</option>
                             </select>
                         </div>
+                    </div>
 
-                        <div class="w-2/5 md:w-1/5 md:pr-1">
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Pitch</div>
+                        <div class="md:w-4/5">
                             <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('pitch')">
-                                <option value="">Pitch</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
                         </div>
+                    </div>
 
-                        <div class="w-1/3 md:w-1/5 mt-1 md:mt-0 md:pl-1">
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Card cost</div>
+                        <div class="md:w-4/5">
                             <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cost')">
                                 <option value="">Cost</option>
                                 <option value="0">0</option>
@@ -55,10 +62,12 @@
                                 <option value="4">4+</option>
                             </select>
                         </div>
+                    </div>
 
-                        <div class="w-1/3 md:w-1/5 mt-1 md:mt-0 px-1">
-                            <select v-model="params.cardType" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cardType')">
-                                <option value="">Card type</option>
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Card type(s)</div>
+                        <div class="md:w-4/5">
+                            <select v-model="params.cardType" multiple="multiple" size="6" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cardType')">
                                 <option value="non-attack action">'Non-attack' action</option>
                                 <option value="attack action">Attack action</option>
                                 <option value="attack reaction">Attack reaction</option>
@@ -70,13 +79,20 @@
                                 <option value="weapon">Weapon</option>
                             </select>
                         </div>
+                    </div>
 
-                        <div class="w-1/3 md:w-1/5 mt-1 md:mt-0">
-                            <select v-model="params.rarity" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('rarity')">
-                                <option value="">Rarity</option>
+                    <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Rarity</div>
+                        <div class="md:w-4/5">
+                            <select v-model="params.rarity" multiple="multiple" size="6" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('rarity')">
                                 <option :value="key" v-for="(rarity, key) in $settings.game.rarities">{{ rarity }}</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="mb-8 text-center flex md:block">
+                        <input type="submit" value="Search" class="w-1/2 md:w-auto button-primary py-2 px-4 rounded-l-lg md:rounded-r-lg mx-auto">
+                        <input type="button" value="Reset" class="w-1/2 md:w-auto button-secondary py-2 px-4 rounded-r-lg md:rounded-l-lg mx-auto" @click="reset()">
                     </div>
                 </form>
             </div>
@@ -94,24 +110,28 @@ export default {
     mixins: [Query],
 
     data() {
-        let params = {
+        let base = {
             cost: '',
-            cardType: '',
+            cardType: [],
             keywords: '',
             pitch: '',
             set: 'all',
-            class: '',
-            rarity: '',
-            ...this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')
+            class: [],
+            rarity: []
         };
+
+        let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
+
+        let previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
 
         return {
             crumbs: [
-                { text: 'Collection', link: '/collection' },
+                { text: previous[0], link: '/'+previous[1] },
                 { text: 'Advanced search' }
             ],
             openTray: false,
             params: params,
+            base: base,
             sets: this.filterSets()
         };
     },
@@ -119,7 +139,7 @@ export default {
     methods: {
         active(field) {
             if (this.query(field)) {
-                return 'shadow-activeNumber'
+                return 'shadow-active'
             }
         },
 
@@ -139,19 +159,16 @@ export default {
             return this.$route.query;
         },
 
-        search() {
-            let params = this.combineParams({ 'use-case': this.useCase, ...this.$route.query });
-
-            axios.get('/cards/', { params }).then(response => {
-                this.$emit('search-completed', response.data);
-            }).catch(error => {});
+        reset() {
+            this.params = this.base;
         },
+
+        newSearch() {
+            let params = new URLSearchParams(this.buildQuery(this.params));
+            let path = this.$route.path.replace('/advanced', '');
+
+            this.$router.push(path+'?'+params.toString());
+        }
     }
 };
 </script>
-
-<style>
-    select > option:first-child {
-        @apply text-gray-400;
-    }
-</style>

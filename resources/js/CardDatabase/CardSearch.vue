@@ -124,16 +124,6 @@
             '$route.query': function() {
                 this.search();
             }
-        },
-
-        // created: function() {
-        //     this.debouncedFilterCards = _.debounce(this.search, 750);
-        // }
+        }
     };
 </script>
-
-<style>
-    select > option:first-child {
-        @apply text-gray-500;
-    }
-</style>

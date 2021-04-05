@@ -45,7 +45,7 @@ const router = new VueRouter({
         { path: "/", component: Home, name: 'home', meta: { title: 'Home' } },
 
         { path: "/cards/browse", component: BrowseCards, name: 'cards.browse', meta: { title: 'Browse cards' } },
-        { path: "/cards/advanced", component: AdvancedCardSearch, name: 'cards.advanced', meta: { title: 'Advanced card search' } },
+        { path: "/cards/browse/advanced", component: AdvancedCardSearch, name: 'cards.advanced', meta: { title: 'Advanced card search' } },
         { path: "/cards/fabled", component: FabledCards, name: 'cards.fabled', meta: { title: 'The fabled cards of Flesh & Blood' } },
         { path: "/cards/prices", component: PriceList, name: 'cards.prices', meta: { title: 'Card price list' } },
         { path: "/cards/:identifier", component: ViewCard, name: 'cards.view', meta: { title: 'View card', parent: { name: 'Browse', path: '/cards/browse' } } },

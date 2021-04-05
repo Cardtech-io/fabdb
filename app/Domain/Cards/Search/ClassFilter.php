@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 
 class ClassFilter implements SearchFilter
 {
@@ -12,7 +13,7 @@ class ClassFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $classes = [$input['class']];
+        $classes = Arr::flatten([explode(',', $input['class'])]);
 
         if ($input['use-case'] == 'build') {
             array_unshift($classes, 'generic');

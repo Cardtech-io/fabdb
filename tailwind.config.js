@@ -58,7 +58,8 @@ module.exports = {
 
             margin: {
                 '1px': '1px',
-                '1/4': '25%'
+                '1/4': '25%',
+                '1/5': '20%',
             },
 
             maxWidth: {
