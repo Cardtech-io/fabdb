@@ -59,12 +59,12 @@
 
         metaInfo() {
             return {
-                title: 'Flesh & Blood - Crucible of War Spoilers',
+                title: 'Flesh & Blood - Monarch Spoilers',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' },
+                    { vmid: 'description', name: 'description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Monarch.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
-                    { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Crucible of War Spoilers' },
-                    { vmid: 'og:description', property: 'og:description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' }
+                    { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Monarch Spoilers' },
+                    { vmid: 'og:description', property: 'og:description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Monarch.' }
                 ]
             };
         },
