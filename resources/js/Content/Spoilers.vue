@@ -1,6 +1,6 @@
 <template>
     <div class="container px-4 sm:mx-auto sm:px-0 text-white">
-        <header-title title="Crucible of War Spoilers" class="text-center"></header-title>
+        <header-title title="Monarch Spoilers" class="text-center"></header-title>
 
         <div v-for="article in upcoming" class="bg-semi-black rounded-xl mx-4 p-4 mt-8 sm:mt-0 text-center font-serif text-4xl" v-if="upcoming">
             <countdown :end-time="localTime(article.publishAt)">

@@ -80,6 +80,12 @@ return [
             'released' => '2020-08-28',
             'browseable' => true,
         ],
+        'mon' => [
+            'id' => 'mon',
+            'name' => 'Monarch',
+            'released' => '2021-05-07',
+            'browseable' => true,
+        ],
         'wtr' => [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
