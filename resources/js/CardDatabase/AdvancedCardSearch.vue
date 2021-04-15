@@ -31,6 +31,16 @@
                     </div>
 
                     <div class="md:flex mb-4">
+                        <div class="md:w-1/5 py-2">Talent</div>
+                        <div class="md:w-4/5">
+                            <select v-model="params.talent" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('talent')">
+                                <option value=""></option>
+                                <option :value="talent" v-for="(name, talent) in $settings.game.talents">{{ name }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="md:flex mb-4">
                         <div class="md:w-1/5 py-2">Set</div>
                         <div class="md:w-4/5">
                             <select v-model="params.set" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('set')">
@@ -43,6 +53,7 @@
                         <div class="md:w-1/5 py-2">Pitch</div>
                         <div class="md:w-4/5">
                             <select v-model="params.pitch" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('pitch')">
+                                <option value=""></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -54,7 +65,7 @@
                         <div class="md:w-1/5 py-2">Card cost</div>
                         <div class="md:w-4/5">
                             <select v-model="params.cost" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('cost')">
-                                <option value="">Cost</option>
+                                <option value=""></option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

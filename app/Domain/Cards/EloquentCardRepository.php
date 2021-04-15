@@ -16,6 +16,7 @@ use FabDB\Domain\Cards\Search\RulingsFilter;
 use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\SyntaxFilter;
+use FabDB\Domain\Cards\Search\TalentFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
 use FabDB\Domain\Cards\Search\UseCollectionFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
@@ -64,6 +65,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
+            new TalentFilter,
             new TypeFilter,
             new CostFilter,
             new PitchFilter,

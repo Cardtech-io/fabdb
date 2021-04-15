@@ -113,6 +113,11 @@ return [
         'wizard' => 'Wizard',
     ],
 
+    'talents' => [
+        'light' => 'Light',
+        'shadow' => 'Shadow',
+    ],
+
     'rarities' => [
         'C' => 'Common',
         'R' => 'Rare',
