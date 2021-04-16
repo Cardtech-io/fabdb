@@ -4,7 +4,7 @@
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
-                    <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full" :class="{'shadow-error': !card.totalOwned || card.totalOwned < i+1 && deck.limitToCollection === 2}"></card-image>
+                    <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full" :class="{'shadow-error': (!card.totalOwned || card.totalOwned < i+1) && deck.limitToCollection === 2}"></card-image>
                     <banned v-if="card.banned"></banned>
                 </div>
             </div>
