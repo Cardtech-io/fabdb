@@ -27,7 +27,8 @@ class UseCollectionFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return $this->deck->useCollection;
+        // Only apply if a hard limit was set for the deck
+        return $this->deck->limitToCollection === 1;
     }
 
     public function applyTo(Builder $query, array $input)
