@@ -117,9 +117,6 @@ class DeckController extends Controller
 
     public function view(Deck $deck)
     {
-        $deck->load('cards', 'cards.rulings');
-        $deck->load('sideboard');
-
         return new DeckResource($deck);
     }
 
@@ -129,7 +126,7 @@ class DeckController extends Controller
             $request->deck->id,
             $request->get('name', $request->deck->name),
             $request->get('format', $request->deck->format),
-            (bool) $request->get('useCollection', $request->deck->useCollection),
+            (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),
             (int) $request->get('cardBack', $request->deck->cardBack)
         ));

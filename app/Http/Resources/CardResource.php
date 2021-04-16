@@ -19,24 +19,30 @@ class CardResource extends JsonResource
             $response['sku'] = new Sku($this->resource->sku);
         }
 
+        if (object_get($this->resource, 'totalOwned')) {
+            $response['totalOwned'] = (int) $this->resource->totalOwned;
+        }
+
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');
         $response['image'] = $this->image($this->resource);
 
-        $this->polymorphicTotal($response, 'deck_cards');
-        $this->polymorphicTotal($response, 'sideboard');
+        $this->polymorphicTotal($response, 'deck_cards', ['total']);
+        $this->polymorphicTotal($response, 'sideboard', ['total']);
 
         return $response;
     }
 
-    private function polymorphicTotal(array &$response, string $table)
+    private function polymorphicTotal(array &$response, string $table, array $fields)
     {
         if ($this->resource->pivot && $this->resource->pivot->getTable() == $table) {
-            $response['total'] = $this->whenPivotLoaded($table, function () {
-                return $this->pivot->total;
-            });
+            foreach ($fields as $field) {
+                $response[$field] = $this->whenPivotLoaded($table, function() use ($field) {
+                    return $this->pivot->$field;
+                });
+            }
         }
     }
 }

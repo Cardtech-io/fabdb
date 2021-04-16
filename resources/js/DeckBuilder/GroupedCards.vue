@@ -3,8 +3,8 @@
         <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
-                <div v-for="(card, i) in grouped" class="relative rounded-card overflow-hidden w-full" :style="styles(i)">
-                    <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full"></card-image>
+                <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
+                    <card-image :card="card" :width="350" :clickHandler="action || false" class="w-full" :class="{'shadow-error': card.totalOwned < i && deck.limitToCollection === 2}"></card-image>
                     <banned v-if="card.banned"></banned>
                 </div>
             </div>
@@ -28,7 +28,7 @@
         components: {Banned, CardImage},
 
         computed: {
-            ...mapState('deck', ['fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
+            ...mapState('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
             ...mapGetters('session', ['user']),
 
             cardClasses: function() {
@@ -45,11 +45,11 @@
             },
 
             groupedCards: function() {
-                if (this.grouping == 'name') {
+                if (this.grouping === 'name') {
                     return this.cards.group('name');
                 }
 
-                let stat = this.grouping == 'cost' ? 'cost' : 'resource';
+                let stat = this.grouping === 'cost' ? 'cost' : 'resource';
 
                 return this.cards.filter(card => {
                     return card.stats[stat] !== ''}
@@ -59,11 +59,11 @@
             },
 
             offset: function() {
-                return this.user.view == 'borderless' ? 10 : 12;
+                return this.user.view === 'borderless' ? 10 : 12;
             },
 
             pad: function() {
-                return this.user.view == 'borderless' ? 17 : 18;
+                return this.user.view === 'borderless' ? 17 : 18;
             },
 
             rounded: function() {

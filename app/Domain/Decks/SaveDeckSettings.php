@@ -34,16 +34,16 @@ class SaveDeckSettings
     /**
      * @var bool
      */
-    private $useCollection;
+    private $limitToCollection;
 
-    public function __construct(int $deckId, string $name, string $format, bool $useCollection, string $visibility, int $cardBack)
+    public function __construct(int $deckId, string $name, string $format, int $limitToCollection, string $visibility, int $cardBack)
     {
         $this->deckId = $deckId;
         $this->name = $name;
         $this->format = $format;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
-        $this->useCollection = $useCollection;
+        $this->limitToCollection = $limitToCollection;
     }
 
     public function handle(DeckRepository $decks)
@@ -51,7 +51,7 @@ class SaveDeckSettings
         /** @var Deck $deck */
         $deck = $decks->find($this->deckId);
 
-        $deck->saveSettings($this->name, $this->format, $this->useCollection, $this->visibility, $this->cardBack);
+        $deck->saveSettings($this->name, $this->format, $this->limitToCollection, $this->visibility, $this->cardBack);
 
         $decks->save($deck);
 
