@@ -1,6 +1,6 @@
 <?php
-use FabDB\Http\Middleware\LogRequests;
 use FabDB\Http\Middleware\Cors;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

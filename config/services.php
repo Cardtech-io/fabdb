@@ -41,6 +41,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'shopify' => [
+        'domain' => env('SHOPIFY_CALLBACK_DOMAIN'),
+        'key' => env('SHOPIFY_API_KEY'),
+        'secret' => env('SHOPIFY_API_SECRET'),
+        'scopes' => 'read_orders,read_products,read_product_listings'
+    ],
+
     'imgix'=> [
         'domain'=> env('IMGIX_DOMAIN')
     ]

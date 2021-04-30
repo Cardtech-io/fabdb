@@ -36,6 +36,11 @@ class ApiCredentials
         return $this->credentials['password'];
     }
 
+    public function scopes(): string
+    {
+        return $this->credentials['scopes'];
+    }
+
     public function collection()
     {
         return Arr::get($this->credentials, 'collection');

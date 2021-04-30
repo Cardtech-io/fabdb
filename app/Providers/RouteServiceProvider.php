@@ -7,6 +7,7 @@ use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Events\EventRepository;
+use FabDB\Http\Middleware\Shopify;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
         $this->mapWebRoutes();
+        $this->mapShopifyRoutes();
 
         //
     }
@@ -92,5 +94,13 @@ class RouteServiceProvider extends ServiceProvider
         Route::domain($this->app['config']->get('api.domain'))
              ->namespace($this->namespace.'\Api')
              ->group(base_path('routes/api.php'));
+    }
+
+    private function mapShopifyRoutes()
+    {
+        Route::domain($this->app['config']->get('services.shopify.domain'))
+            ->namespace($this->namespace.'\Shopify')
+            ->middleware(Shopify::class)
+            ->group(base_path('routes/shopify.php'));
     }
 }
