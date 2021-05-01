@@ -150,6 +150,11 @@ class Card extends Model
         return in_array('weapon', $this->keywords);
     }
 
+    public function isTalented()
+    {
+        return in_array($this->keywords[0], array_keys(config('game.talents')));
+    }
+
     public function is1hWeapon()
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);

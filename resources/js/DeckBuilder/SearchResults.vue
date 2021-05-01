@@ -113,17 +113,10 @@
             search(page) {
                 this.page = page;
 
-                let klass = this.hero.keywords[0];
-
-                // The class may actually be the second keyword
-                if (this.$settings.game.classes[this.hero.keywords[1]]) {
-                    klass = this.hero.keywords[1];
-                }
-
                 let params = {
                     deck: this.deck.slug,
                     cardType: this.cardType,
-                    class: this.hero ? klass : '',
+                    hero: this.hero ? this.hero.identifier : '',
                     keywords: this.keywords,
                     page: page
                 };

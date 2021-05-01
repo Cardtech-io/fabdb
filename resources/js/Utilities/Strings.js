@@ -55,6 +55,8 @@ export default {
                         effect = 'resource';
                     }
 
+                    effect = effect.toLowerCase();
+
                     if (modifier) {
                         string = modifier + amount + '<img src="/img/' + effect + '.png" class="inline-block h-5 align-middle">';
                     } else if (amount) {

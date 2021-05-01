@@ -16,14 +16,14 @@ class MatchesKeywords implements Rule
     public $deck;
 
     /**
-     * @var string
+     * @var array
      */
-    private $mainKeyword;
+    private $mainKeywords;
 
     public function __construct(Deck $deck)
     {
         $this->deck = $deck;
-        $this->mainKeyword = $deck->mainKeyword();
+        $this->mainKeywords = $deck->mainKeywords();
     }
 
     /**
@@ -37,7 +37,7 @@ class MatchesKeywords implements Rule
     {
         $card = $this->getCard($value);
 
-        return $card->isHero() || count(array_intersect($card->keywords, [$this->mainKeyword, 'generic'])) >= 1 || $this->shapeshifting($card);
+        return $card->isHero() || count(array_intersect($card->keywords, $this->mainKeywords)) >= 1 || $this->shapeShifting($card);
     }
 
     /**
@@ -47,10 +47,10 @@ class MatchesKeywords implements Rule
      */
     public function message()
     {
-        return 'Card must contain keywords \''.$this->mainKeyword.'\' or \'generic\'.';
+        return 'Card must contain keywords \''.implode(', ', array_slice($this->mainKeywords, 1)).'\' or \'generic\'.';
     }
 
-    private function shapeshifting(Card $card)
+    private function shapeShifting(Card $card)
     {
         $hero = $this->deck->hero();
 

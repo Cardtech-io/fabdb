@@ -80,16 +80,21 @@ class Deck extends Model
         return $this->sideboard->where($column, $identifier)->first();
     }
 
-    public function mainKeyword()
+    public function mainKeywords()
     {
         $hero = $this->hero();
-        $classes = config('game.classes');
+        $keywords = ['generic'];
 
         if ($hero) {
-            return !isset($classes[$hero->keywords[0]]) ? $hero->keywords[1] : $hero->keywords[0];
+            // Be sure to include main class keyword if talented
+            if ($hero->isTalented()) {
+                $keywords[] = $hero->keywords[1];
+            }
+
+            $keywords[] = $hero->keywords[0];
         }
 
-        return null;
+        return $keywords;
     }
 
     public function hasWeapon()
