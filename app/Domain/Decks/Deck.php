@@ -83,8 +83,13 @@ class Deck extends Model
     public function mainKeyword()
     {
         $hero = $this->hero();
+        $classes = config('game.classes');
 
-        return $hero ? $hero->keywords[0] : null;
+        if ($hero) {
+            return !isset($classes[$hero->keywords[0]]) ? $hero->keywords[1] : $hero->keywords[0];
+        }
+
+        return null;
     }
 
     public function hasWeapon()
