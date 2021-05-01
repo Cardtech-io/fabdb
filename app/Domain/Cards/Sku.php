@@ -92,6 +92,23 @@ class Sku implements JsonSerializable
         return $matches;
     }
 
+    public static function fromLSS(string $sku)
+    {
+        try {
+            return new self($sku);
+        } catch (\InvalidArgumentException $e) {
+            // Something wrong with the sku, try to fix
+            $parts = chunk_split($sku, 3);
+
+            if (strlen($parts[1]) == 2) {
+                // Probably missing a 0
+                $parts[1] = '0'.$parts[1];
+            }
+
+            return new self(implode('', $parts));
+        }
+    }
+
     /**
      * Strips the unlimited and finish from the sku, resulting in a "pure" sku card identifier.
      *

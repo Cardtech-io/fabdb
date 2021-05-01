@@ -104,6 +104,7 @@ return [
         'generic' => 'Generic',
         'brute' => 'Brute',
         'guardian' => 'Guardian',
+        'illusionist' => 'Illusionist',
         'mechanologist' => 'Mechanologist',
         'merchant' => 'Merchant',
         'ninja' => 'Ninja',

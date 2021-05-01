@@ -21,21 +21,6 @@ class Identifier implements \JsonSerializable
         return new self(Str::slug($name));
     }
 
-    public static function generate(string $name, array $stats)
-    {
-        $name = static::stripColour($name);
-
-        if (Arr::has($stats, 'resource') && is_numeric($stats['resource']) && $stats['resource'] > 0) {
-            if ($name === 'Seismic Surge') {
-                dd($stats);
-            }
-            $name .= '-' . self::resourceName((int)$stats['resource']);
-        }
-
-
-        return new self(Str::slug($name));
-    }
-
     public static function fromString(string $identifier)
     {
         return new self($identifier);
@@ -57,15 +42,6 @@ class Identifier implements \JsonSerializable
     private static function coloured(string $name)
     {
         return Str::contains($name, ['(', ')']);
-    }
-
-    private static function stripColour(string $name)
-    {
-        if (!static::coloured($name)) {
-            return $name;
-        }
-
-        return preg_replace('/\s+\([a-z]+\)$/i', '', $name);
     }
 
     public function __toString(): string

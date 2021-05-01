@@ -19,9 +19,9 @@ export default {
         },
 
         heroProfile(hero, width) {
-            let imageName = hero.name.split(/[\s,]/)[0].toLowerCase();
+            let imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
-            if (hero.keywords[2] == 'young') {
+            if (hero.keywords.indexOf('young') !== -1) {
                 imageName += '-blitz';
             }
 

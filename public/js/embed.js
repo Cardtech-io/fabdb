@@ -36884,9 +36884,9 @@ __webpack_require__.r(__webpack_exports__);
       return this.imageUrl('/decks/backgrounds/' + name + '.jpg', 1700);
     },
     heroProfile: function heroProfile(hero, width) {
-      var imageName = hero.name.split(/[\s,]/)[0].toLowerCase();
+      var imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
-      if (hero.keywords[2] == 'young') {
+      if (hero.keywords.indexOf('young') !== -1) {
         imageName += '-blitz';
       }
 
