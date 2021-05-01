@@ -12,7 +12,7 @@ class HeroFilter implements SearchFilter
     /**
      * @var CardRepository
      */
-    private CardRepository $cards;
+    private $cards;
 
     public function __construct(CardRepository $cards)
     {
@@ -29,7 +29,7 @@ class HeroFilter implements SearchFilter
         $hero = $this->cards->findByIdentifier($input['hero']);
         $keywords = $hero->isTalented() ? array_slice($hero->keywords,0, 2) : [$hero->keywords[0]];
         $keywords[] = 'generic';
-        
+
         $query->where(function($query) use ($keywords) {
             foreach ($keywords as $keyword) {
                 $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '$keyword') IS NOT NULL");
