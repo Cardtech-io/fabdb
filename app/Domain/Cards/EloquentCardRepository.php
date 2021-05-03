@@ -26,6 +26,7 @@ use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -356,5 +357,19 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ]);
 
         return $query->firstOrFail();
+    }
+
+    public function forPacks(Set $set): Collection
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.sku', 'like', $set->raw().'%')
+            ->whereNotIn('cards.identifier', config('game.cards.banned'))
+            ->select([
+                'cards.image',
+                'cards.name',
+                'cards.rarity',
+                'cards.keywords'
+            ]);
     }
 }

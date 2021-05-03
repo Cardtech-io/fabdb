@@ -20,7 +20,6 @@ Route::fallback(function() {
 Route::middleware('api')->group(function() {
     Route::get('cards', 'CardController@list');
     Route::get('cards/first', 'CardController@first');
-    Route::get('cards/pack', 'CardController@generatePack');
     Route::get('cards/{cardIdentifier}', 'CardController@view');
 
     Route::get('decks/{deck}', 'DeckController@view');
