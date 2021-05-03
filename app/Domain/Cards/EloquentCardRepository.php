@@ -97,6 +97,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
             'cards.keywords',
             'cards.stats',
+            'cards.talent',
+            'cards.class',
             'cards.text',
             'cards.flavour',
             'cards.comments',

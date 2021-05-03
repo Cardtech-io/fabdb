@@ -152,7 +152,7 @@ class Card extends Model
 
     public function isTalented()
     {
-        return in_array($this->keywords[0], array_keys(config('game.talents')));
+        return $this->talent !== null;
     }
 
     public function is1hWeapon()
