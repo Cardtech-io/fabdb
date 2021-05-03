@@ -28,32 +28,18 @@ class HeroFilter implements SearchFilter
     {
         $hero = $this->cards->findByIdentifier($input['hero']);
 
-        // if hero talented, we want all cards that:
-        // 1. match the hero's class or
-        // 2. Have a generic class or
-        // 3. Have no class or the hero's class but have a talent that matches the hero's talent.
-
-        // If the hero is not talented
-        // 1. match the hero's class or
-        // 2. Have a generic class and
-        // 3. talent is null
         $query->where(function($query) use ($hero) {
             if ($hero->isTalented()) {
-                $query->whereIn('class', [$hero->class, 'generic', null]);
-
-                $query->where(function($query) use ($hero) {
-                    $query->where('talent', $hero->talent);
-                    $query->orWhereNull('talent');
-                });
+                $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') OR (cards.class IS NULL AND (cards.talent = '{$hero->talent}' OR cards.talent IS NULL))");
             }
             else {
-                $query->whereIn('class', [$hero->class, 'generic']);
+                $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') AND cards.talent IS NULL");
                 $query->whereNull('cards.talent');
             }
         });
 
         if ($hero->class === 'shapeshifter') {
-            $query->orWhere('search_text', 'LIKE', '%specialization%');
+            $query->orWhere('cards.search_text', 'LIKE', '%specialization%');
         }
     }
 }
