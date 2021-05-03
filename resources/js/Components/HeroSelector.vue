@@ -44,7 +44,7 @@
             },
 
             type(hero) {
-                return hero.keywords[2] === 'young' ? 'Blitz' : 'Constructed'
+                return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed'
             }
         },
 
