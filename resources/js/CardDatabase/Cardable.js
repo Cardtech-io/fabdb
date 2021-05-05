@@ -15,7 +15,7 @@ export default {
                 return this.card.keywords.includes('2h') ? 1 : 2;
             }
 
-            if (this.card.text.toLowerCase().includes('legendary')) {
+            if (this.card.text && this.card.text.toLowerCase().includes('legendary')) {
                 return 1;
             }
 
