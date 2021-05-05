@@ -165,6 +165,11 @@ class Card extends Model
         return in_array('equipment', $this->keywords);
     }
 
+    public function isGeneric(): bool
+    {
+        return in_array('generic', $this->keywords);
+    }
+
     public function oneHanded(): bool
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);

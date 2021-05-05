@@ -12,7 +12,7 @@ class GeneratePack extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:generate-pack';
+    protected $signature = 'fabdb:generate-pack --set';
 
     /**
      * The console command description.
@@ -29,8 +29,17 @@ class GeneratePack extends Command
      */
     public function handle(Packs $packs)
     {
-        $pack = $packs->generate(new Set('wtr'));
+        $pack = $packs->generate(new Set($this->choice('Which set would you like to generate a booster from?', $this->sets())));
 
         dd($pack->toArray());
+    }
+
+    public function sets(): array
+    {
+        return array_map(function($set) {
+            return $set['id'];
+        }, array_filter(config('game.sets'), function($set) {
+            return isset($set['draftable']);
+        }));
     }
 }
