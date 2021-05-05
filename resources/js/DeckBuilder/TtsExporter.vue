@@ -27,7 +27,7 @@
                     <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"/>
                 </svg>
             </div>
-            <h2 class="font-serif uppercase text-xl">Tournament Pack</h2>
+            <h2 class="font-serif uppercase text-xl">Tournament Booster</h2>
             <p class="text-base">For tournaments and leagues. All-in-one ZIP file.</p>
         </router-link>
     </div>

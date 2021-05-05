@@ -76,6 +76,6 @@ class CardController extends Controller
 
     public function forPacks(Request $request)
     {
-        return $this->cards->forPacks(new Set($request->get('set')));
+        return CardResource::collection($this->cards->forPacks(new Set($request->get('set'))));
     }
 }

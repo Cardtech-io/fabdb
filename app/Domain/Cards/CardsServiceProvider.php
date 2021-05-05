@@ -1,6 +1,8 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Boosters\EloquentPackRepository;
+use FabDB\Domain\Cards\Boosters\PackRepository;
 use FabDB\Providers\AppServiceProvider;
 use Illuminate\Pagination\LengthAwarePaginator;
 

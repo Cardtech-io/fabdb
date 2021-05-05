@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Boosters\PackRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class Packs

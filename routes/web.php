@@ -31,6 +31,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/heroes', 'CardController@heroes');
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
+        Route::get('cards/for-packs', 'CardController@forPacks');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 

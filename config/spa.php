@@ -27,6 +27,8 @@ return [
         'events',
         'login',
         'packs/generate',
+        'practise/([^/]+)',
+        'practise',
         'profile',
         'premium',
         'resources/api',

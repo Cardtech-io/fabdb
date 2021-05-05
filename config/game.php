@@ -61,6 +61,7 @@ return [
             'name' => 'Arcane Rising',
             'released' => '2020-03-27',
             'browseable' => true,
+            'draftable' => true
         ],
         'u-arc' => [
             'id' => 'u-arc',
@@ -85,12 +86,14 @@ return [
             'name' => 'Monarch',
             'released' => '2021-05-07',
             'browseable' => true,
+            'draftable' => true
         ],
         'wtr' => [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
             'released' => '2019-10-11',
             'browseable' => true,
+            'draftable' => true
         ],
         'u-wtr' => [
             'id' => 'u-wtr',

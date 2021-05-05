@@ -71,9 +71,9 @@ WTR,19,Barraging Beatdown,R,"Your next Brute attack this turn gains ""If this at
 WTR,20,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,1,1,3,7,,"standard,rainbow"
 WTR,21,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,2,1,3,6,,"standard,rainbow"
 WTR,22,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,3,1,3,5,,"standard,rainbow"
-WTR,23,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
-WTR,24,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
-WTR,25,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
+WTR,23,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
+WTR,24,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
+WTR,25,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
 WTR,26,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,1,3,3,7,,"standard,rainbow"
 WTR,27,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,2,3,3,6,,"standard,rainbow"
 WTR,28,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,3,3,3,5,,"standard,rainbow"
@@ -269,7 +269,7 @@ WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack
 WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",,4,,,,,,standard
 WTR,115,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 WTR,116,Braveforge Bracers,L,"**Once per Turn Action** - [resource]: Your next weapon attack this turn gains +1[attack]. Activate this ability only if a weapon you control has hit this turn. **Go again**
@@ -385,7 +385,7 @@ WTR,160,Tome of Fyendal,M,"Draw 2 cards.
 
 If Tome of Fyendal is played from arsenal, gain 1[life] for each card in your hand.",Even the simplest recollection of the Old Ones holds immense power...,,"generic,action",,,2,1,2,,,"standard,rainbow"
 WTR,161,Last Ditch Effort,S,"When you play Last Ditch Effort, if you have no cards in your deck, it gains +4[attack] and **go again**.","For creatures that feed on fear, the moment of death is a veritable feast.",,"generic,action,attack",,,3,3,3,4,,"standard,rainbow"
-WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die. 
+WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die.
 On;
 
 * 1, 2 - Lose 2[life]. **Go again**

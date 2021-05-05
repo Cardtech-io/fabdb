@@ -44,26 +44,28 @@
             items: function() {
                 let items = [
                     { link: '/', text: 'Home' },
-                    { text: 'Articles', children: [
-                            { link: '/articles', text: 'Latest news' },
-                            { link: '/articles/spoilers', text: 'Spoilers!' },
-                    ]},
 
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/cards/prices', text: 'Price list' },
                         { link: '/cards/fabled', text: 'Fabled cards' },
-                        { link: '/collection', text: 'My Collection' },
-                        { link: '/tools/life-counter', text: 'Life counter' },
-                        { link: '/packs/generate', text: 'Booster generator' }
                     ]},
+
                     { text: 'Decks', children: [
                         { link: '/decks/browse', text: 'Browse' },
-                        { link: '/decks/starters', text: 'Starter decks' },
-                        { link: '/decks/build', text: 'Deck builder' }
+                        { link: '/decks/starters', text: 'Starter decks' }
                     ]},
+
+                    { text: 'Tools', children: [
+                        { link: '/collection', text: 'Collection manager' },
+                        { link: '/decks/build', text: 'Deck builder' },
+                        { link: '/tools/life-counter', text: 'Life counter' },
+                        { link: '/packs/generate', text: 'Booster generator' },
+                        { link: '/practise', text: 'Practise mode' },
+                        { link: '/resources/api', text: 'API' },
+                    ]},
+
                     { link: '/support', text: 'Support' },
-                    { link: '/resources/api', text: 'API' },
                 ];
 
                 if (this.user) {

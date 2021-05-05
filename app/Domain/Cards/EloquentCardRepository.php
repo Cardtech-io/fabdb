@@ -366,10 +366,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where('printings.sku', 'like', $set->raw().'%')
             ->whereNotIn('cards.identifier', config('game.cards.banned'))
             ->select([
-                'cards.image',
+                'cards.identifier',
+                'printings.image',
                 'cards.name',
                 'cards.rarity',
                 'cards.keywords'
-            ]);
+            ])
+            ->groupBy('cards.id')
+            ->get();
     }
 }
