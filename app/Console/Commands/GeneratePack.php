@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Console\Commands;
 
+use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\Packs;
 use FabDB\Domain\Cards\Set;
 use Illuminate\Console\Command;
@@ -29,7 +30,17 @@ class GeneratePack extends Command
      */
     public function handle(Packs $packs)
     {
-        $pack = $packs->generate(new Set($this->choice('Which set would you like to generate a booster from?', $this->sets())));
+        $set = new Set($this->choice('Which set would you like to generate a booster from?', $this->sets()));
+
+        $start = microtime(true);
+        $pack = $packs->generate($set);
+
+        $total = microtime(true) - $start;
+        $this->info('Generation completed in '.$total.' seconds');
+
+        $pack = $pack->map(function(Card $card) {
+            return '['.(string) $card->rarity.'] '.$card->name;
+        });
 
         dd($pack->toArray());
     }
