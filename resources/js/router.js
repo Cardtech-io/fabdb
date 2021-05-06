@@ -36,10 +36,8 @@ import Logout from './Auth/Logout';
 import ViewProfile from "./Identity/ViewProfile";
 import LatestDecks from "./Decks/LatestDecks";
 import WantTradeList from "./Collection/WantTradeList";
-import Practise from "./Practise/Start";
-import SelectMode from "./Practise/SelectMode";
-import SelectSet from "./Practise/SelectSet";
-import DraftSet from "./Practise/DraftSet";
+import Practise from "./Practise/Index";
+import Draft from "./Practise/Draft";
 
 Vue.use(VueRouter);
 
@@ -84,10 +82,8 @@ const router = new VueRouter({
         { path: "/articles/authors/:author", component: ArticleSearch, name: 'articles.author' },
         { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
 
-        { path: "/practise", component: Practise, children: [
-            { path: '', component: SelectSet, name: 'practise.select-set' },
-            { path: ':set', component: DraftSet, name: 'practise.draft-set' },
-        ]},
+        { path: "/practise", component: Practise, name: 'practise', meta: { auth: true } },
+        { path: '/practise/setup', component: Draft, name: 'practise.setup', meta: { auth: true } },
 
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },

@@ -59,9 +59,9 @@
                     { text: 'Tools', children: [
                         { link: '/collection', text: 'Collection manager' },
                         { link: '/decks/build', text: 'Deck builder' },
+                        { link: '/practise', text: 'Sealed practise' },
                         { link: '/tools/life-counter', text: 'Life counter' },
                         { link: '/packs/generate', text: 'Booster generator' },
-                        { link: '/practise', text: 'Sealed practise' },
                         { link: '/resources/api', text: 'API' },
                     ]},
 

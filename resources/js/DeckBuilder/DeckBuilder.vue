@@ -112,13 +112,13 @@
             ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'view', 'zoom']),
             ...mapState('cardSearch', ['params']),
 
-            containers: function() {
+            containers() {
                 if (!this.fullScreen) {
                     return 'container lg:mx-auto';
                 }
             },
 
-            fullScreenClasses: function() {
+            fullScreenClasses() {
                 if (this.fullScreen) {
                     return 'fixed top-0 bottom-0 left-0 right-0 z-75';
                 }

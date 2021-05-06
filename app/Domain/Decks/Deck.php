@@ -179,4 +179,11 @@ class Deck extends Model
 
         return $deck;
     }
+
+    public function cardBackImage()
+    {
+        $domain = config('services.imgix.domain');
+
+        return "https://$domain/cards/backs/card-back-{$this->cardBack}.png";
+    }
 }
