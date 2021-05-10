@@ -29,6 +29,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         'arc_unlimited_singles',
         'cru_first_singles',
         'mon_first_singles',
+        'mon_blitz_singles',
         'promo_singles'
     ];
     /**
@@ -173,17 +174,9 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
     public function conditionalSheets(): array
     {
-        return [
-            'ira_singles' => $this,
-            'wtr_alpha_singles' => $this,
-            'wtr_hero_singles' => $this,
-            'wtr_unlimited_singles' => $this,
-            'arc_first_singles' => $this,
-            'arc_unlimited_singles' => $this,
-            'cru_first_singles' => $this,
-            'mon_first_singles' => $this,
-            'promo_singles' => $this,
-        ];
+        return array_map(function() {
+            return $this;
+        }, array_flip(self::AVAILABLE_SHEETS));
     }
 
     private function log(string $message)

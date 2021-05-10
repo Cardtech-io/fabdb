@@ -2,16 +2,40 @@
 
 return [
     'sets' => [
+        'bol' => [
+            'id' => 'bol',
+            'name' => 'Boltyn Hero Deck',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
         'bvo' => [
             'id' => 'bvo',
             'name' => 'Bravo Hero Deck',
             'released' => '2019-10-11',
             'browseable' => false,
         ],
+        'chn' => [
+            'id' => 'chn',
+            'name' => 'Chane Hero Deck',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
         'ksu' => [
             'id' => 'ksu',
             'name' => 'Katsu Hero Deck',
             'released' => '2019-10-11',
+            'browseable' => false,
+        ],
+        'lev' => [
+            'id' => 'lev',
+            'name' => 'Levia Hero Deck',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
+        'psm' => [
+            'id' => 'psm',
+            'name' => 'Prism Hero Deck',
+            'released' => '2021-05-07',
             'browseable' => false,
         ],
         'rnr' => [
