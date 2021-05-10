@@ -36165,9 +36165,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Deck */ "./resources/js/Store/Deck.js");
-/* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Messages */ "./resources/js/Store/Messages.js");
-/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Search */ "./resources/js/Store/Search.js");
-/* harmony import */ var _Session__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Session */ "./resources/js/Store/Session.js");
+/* harmony import */ var _Draft__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Draft */ "./resources/js/Store/Draft.js");
+/* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Messages */ "./resources/js/Store/Messages.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Search */ "./resources/js/Store/Search.js");
+/* harmony import */ var _Session__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Session */ "./resources/js/Store/Session.js");
+
 
 
 
@@ -36178,11 +36180,12 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    cardSearch: _Search__WEBPACK_IMPORTED_MODULE_4__["default"],
-    deckSearch: _Search__WEBPACK_IMPORTED_MODULE_4__["default"],
+    cardSearch: _Search__WEBPACK_IMPORTED_MODULE_5__["default"],
+    deckSearch: _Search__WEBPACK_IMPORTED_MODULE_5__["default"],
     deck: _Deck__WEBPACK_IMPORTED_MODULE_2__["default"],
-    messages: _Messages__WEBPACK_IMPORTED_MODULE_3__["default"],
-    session: _Session__WEBPACK_IMPORTED_MODULE_5__["default"]
+    draft: _Draft__WEBPACK_IMPORTED_MODULE_3__["default"],
+    messages: _Messages__WEBPACK_IMPORTED_MODULE_4__["default"],
+    session: _Session__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 }));
 
@@ -36490,6 +36493,72 @@ function controlMaxZoom(state) {
       var n = _ref30.n;
       context.commit('zoom', {
         n: n
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/Store/Draft.js":
+/*!*************************************!*\
+  !*** ./resources/js/Store/Draft.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: {
+    format: 'sealed',
+    fullScreen: false,
+    grouping: 'pack',
+    packs: [],
+    set: null
+  },
+  mutations: {
+    generatePacks: function generatePacks(state) {
+      var numPacks = state.format === 'sealed' ? 6 : 9;
+
+      for (var i = 0; i < numPacks; i++) {
+        state.packs.push({});
+      }
+    },
+    resetPacks: function resetPacks(state) {
+      state.packs = [];
+    },
+    selectSet: function selectSet(state, _ref) {
+      var set = _ref.set;
+      state.set = set;
+    },
+    setFormat: function setFormat(state, _ref2) {
+      var format = _ref2.format;
+      state.format = format;
+    },
+    setPractise: function setPractise(state, _ref3) {
+      var practise = _ref3.practise;
+    }
+  },
+  actions: {
+    selectSet: function selectSet(_ref4, _ref5) {
+      var commit = _ref4.commit;
+      var set = _ref5.set;
+      commit('selectSet', {
+        set: set
+      });
+      commit('generatePacks');
+    },
+    reset: function reset(_ref6, _ref7) {
+      var commit = _ref6.commit;
+      var format = _ref7.format;
+      commit('resetPacks');
+      commit('setFormat', {
+        format: format
+      });
+      commit('selectSet', {
+        set: null
       });
     }
   }
