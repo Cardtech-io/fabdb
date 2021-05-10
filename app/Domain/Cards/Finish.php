@@ -20,6 +20,7 @@ class Finish
      */
     private static $validFinishes = [
         ''   => 'regular',
+        'ap' => 'artist proof',
         'cf' => 'cold',
         'ea' => 'extended',
         'gf' => 'gold',

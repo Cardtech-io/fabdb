@@ -63,6 +63,11 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         foreach ($rows as $row) {
             if (!Arr::get($row, 'uid')) continue;
 
+            if (strpos($row['uid'], 'XXX') === 0) {
+                $this->log("Tricky card, ignoring [{$row['uid']}]");
+                continue;
+            }
+            
             $stats = $this->stats($row);
 
             $this->identifier = Identifier::fromName($row['card_name']);
