@@ -14,6 +14,7 @@ class OscResource extends JsonResource
 
         $this->hero($response);
 
+        $response['cardBack'] = $this->resource->cardBackImage();
         $response['weapons'] = $this->cards($this->resource->cards->weapons());
         $response['equipment'] = $this->cards($this->resource->cards->equipment());
         $response['maindeck'] = $this->cards($this->resource->cards->other());
