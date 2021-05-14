@@ -3,7 +3,7 @@ namespace FabDB\Domain\Practise;
 
 use Webmozart\Assert\Assert;
 
-class Format
+class Format implements \JsonSerializable
 {
     private string $format;
 
@@ -17,5 +17,10 @@ class Format
     public function raw(): string
     {
         return $this->format;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->raw();
     }
 }

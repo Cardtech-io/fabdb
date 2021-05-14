@@ -1,10 +1,14 @@
 <?php
 namespace FabDB\Domain\Practise;
 
+use FabDB\Domain\Cards\Set;
+
 class GeneratePack
 {
-    public function __construct(int $practiseId = null)
-    {
+    private int $practiseId;
 
+    public function __construct(int $practiseId, Set $set)
+    {
+        $this->practiseId = $practiseId;
     }
 }

@@ -36516,6 +36516,7 @@ __webpack_require__.r(__webpack_exports__);
     fullScreen: false,
     grouping: 'pack',
     packs: [],
+    practise: null,
     set: null
   },
   mutations: {
@@ -36539,6 +36540,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     setPractise: function setPractise(state, _ref3) {
       var practise = _ref3.practise;
+      state.practise = practise;
     }
   },
   actions: {
@@ -36548,11 +36550,21 @@ __webpack_require__.r(__webpack_exports__);
       commit('selectSet', {
         set: set
       });
+    },
+    setPractise: function setPractise(_ref6, _ref7) {
+      var commit = _ref6.commit;
+      var practise = _ref7.practise;
+      commit('setPractise', {
+        practise: practise
+      });
+      commit('selectSet', {
+        set: practise.set
+      });
       commit('generatePacks');
     },
-    reset: function reset(_ref6, _ref7) {
-      var commit = _ref6.commit;
-      var format = _ref7.format;
+    reset: function reset(_ref8, _ref9) {
+      var commit = _ref8.commit;
+      var format = _ref9.format;
       commit('resetPacks');
       commit('setFormat', {
         format: format

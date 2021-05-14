@@ -6,6 +6,7 @@ export default {
         fullScreen: false,
         grouping: 'pack',
         packs: [],
+        practise: null,
         set: null,
     },
 
@@ -31,13 +32,18 @@ export default {
         },
 
         setPractise(state, {practise}) {
-
+            state.practise = practise;
         }
     },
 
     actions: {
         selectSet({commit}, {set}) {
             commit('selectSet', {set});
+        },
+
+        setPractise({commit}, {practise}) {
+            commit('setPractise', {practise});
+            commit('selectSet', {set: practise.set});
             commit('generatePacks');
         },
 

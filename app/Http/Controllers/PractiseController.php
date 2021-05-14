@@ -4,7 +4,9 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\Packs;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Practise\Format;
+use FabDB\Domain\Practise\GeneratePack;
 use FabDB\Domain\Practise\PractiseRepository;
+use FabDB\Domain\Practise\SavePack;
 use FabDB\Domain\Practise\SetupObserver;
 use FabDB\Domain\Practise\SetupPractise;
 use FabDB\Http\Requests\OpenPackRequest;
@@ -27,10 +29,12 @@ class PractiseController extends Controller
 
     public function openPack(OpenPackRequest $request, Packs $packs, PractiseRepository $practises)
     {
-        $practise = $practises->bySlug($request->get('slug'));
+        $practise = $practises->bySlug($request->get('practise'));
 
-        $this->dispatchNow(new GeneratePack($practise->id));
+        $cards = $packs->generate($practise->set);
 
-        return CardResource::collection($packs->generate(new Set($request->get('set'))));
+        $this->dispatchNow(new SavePack($practise->id, $cards->pluck('id')->toArray()));
+
+        return CardResource::collection($cards);
     }
 }
