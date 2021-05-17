@@ -20,13 +20,8 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap py-8 justify-center" :class="containers">
-                            <div v-for="pack in packs">
-                                <div class="inline-block booster hover:bg-white p-4 rounded-lg">
-                                    <div v-if="pack.cards"></div>
-                                    <button class="block link-alternate" @click="openPack(practise.id)" v-else>
-                                        <img :src="imageUrl('/boosters/'+kebabCase(practise.set.name)+'.png', 180)" alt="Open pack" title="Open pack">
-                                    </button>
-                                </div>
+                            <div v-for="pack in packs" class="w-1/6">
+                                <pack :pack="pack"></pack>
                             </div>
                         </div>
                     </div>
@@ -40,9 +35,11 @@
     import {mapActions, mapState} from 'vuex';
     import axios from 'axios';
     import Imagery from "../Utilities/Imagery";
+    import Pack from "./Pack";
     import Strings from "../Utilities/Strings";
 
     export default {
+        components: {Pack},
         mixins: [Imagery, Strings],
 
         data() {
@@ -90,10 +87,6 @@
         methods: {
             ...mapActions('draft', ['selectSet', 'reset', 'setPractise']),
 
-            openPack() {
-                axios.post('practise/open-pack', {practise: this.practise.slug})
-            },
-
             setup(set) {
                 axios.post('practise', {format: this.$route.query.format, set}).then(response => {
                     this.setPractise({practise: response.data});
@@ -107,13 +100,3 @@
     };
 </script>
 
-<style scoped>
-    .booster {
-        transition: background-color 0.2s, transform 0.2s;
-        transform: scale(1);
-    }
-    .booster:hover {
-        transition: background-color 0.2s, transform 0.2s;
-        transform: scale(1.05);
-    }
-</style>

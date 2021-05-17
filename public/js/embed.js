@@ -36524,7 +36524,7 @@ __webpack_require__.r(__webpack_exports__);
       var numPacks = state.format === 'sealed' ? 6 : 9;
 
       for (var i = 0; i < numPacks; i++) {
-        state.packs.push({});
+        state.packs.push([]);
       }
     },
     resetPacks: function resetPacks(state) {

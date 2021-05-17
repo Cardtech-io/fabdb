@@ -45,7 +45,7 @@ return [
             'browseable' => false,
         ],
         'oxo' => [
-            'id' => 'oxo',
+            'id' => 'oxo'  ,
             'name' => 'Slingshot Underground',
             'released' => '2018-12-01',
             'browseable' => false,

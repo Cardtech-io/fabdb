@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use FabDB\Domain\Cards\Boosters\Box;
 use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Practise\Format;
@@ -27,11 +28,11 @@ class PractiseController extends Controller
         return $observer->practise();
     }
 
-    public function openPack(OpenPackRequest $request, Packs $packs, PractiseRepository $practises)
+    public function openPack(OpenPackRequest $request, Box $box, PractiseRepository $practises)
     {
         $practise = $practises->bySlug($request->get('practise'));
 
-        $cards = $packs->generate($practise->set);
+        $cards = $box->crackPack($practise->set);
 
         $this->dispatchNow(new SavePack($practise->id, $cards->pluck('id')->toArray()));
 

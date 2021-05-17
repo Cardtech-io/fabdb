@@ -15,7 +15,7 @@ export default {
             let numPacks = state.format === 'sealed' ? 6 : 9;
 
             for (let i = 0; i < numPacks; i++) {
-                state.packs.push({});
+                state.packs.push([]);
             }
         },
 

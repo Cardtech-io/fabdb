@@ -5,6 +5,7 @@ use FabDB\Library\JobLogger;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\File;
@@ -39,6 +40,10 @@ abstract class AppServiceProvider extends ServiceProvider
         $this->logQueries();
 
         JsonResource::withoutWrapping();
+
+        LengthAwarePaginator::currentPathResolver(function() {
+            return '/';
+        });
     }
 
     private function bindImplementations()

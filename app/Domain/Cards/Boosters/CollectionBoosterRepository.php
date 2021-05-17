@@ -28,23 +28,24 @@ class CollectionBoosterRepository implements BoosterRepository
     {
         return $this->filter(function(Card $card) use ($class) {
             $truthy = $class === 'generic' ? $card->isGeneric() : !$card->isGeneric();
-            return $truthy && $card->rarity->matches(new Rarity('C'));
+
+            return $truthy && $card->rarity->matches(new Rarity('C')) && !$card->isEquipment();
         })->random($num);
     }
 
     public function getRandomEquipmentCommon(): Card
     {
         return $this->filter(function(Card $card) {
-            return $card->rarity->matches(new Rarity('C')) && $card->isEquipment();
+            return !$card->rarity->matches(new Rarity('L')) && $card->isEquipment();
         })->random();
     }
 
-    public function getRandom(Rarity $rarity = null, array $exclude = []): Card
+    public function getRandom(Rarity $rarity, array $exclude = []): Card
     {
         $rarity = $rarity ?? $this->randomRarity();
 
         return $this->filter(function(Card $card) use ($rarity, $exclude) {
-            return $exclude ? $card->rarity->matches($rarity) && !in_array($card->id, $exclude) : $card->rarity->matches($rarity);
+            return !empty($exclude) ? $card->rarity->matches($rarity) && !in_array($card->id, $exclude) : $card->rarity->matches($rarity);
         })->random();
     }
 
@@ -63,23 +64,6 @@ class CollectionBoosterRepository implements BoosterRepository
     private function filter(\Closure $callback)
     {
         return $this->pool->filter($callback);
-    }
-
-    private function randomRarity(): Rarity
-    {
-        $weighting = [
-            'R' => [0, 75],
-            'S' => [76, 92],
-            'M' => [93, 100]
-        ];
-
-        $roll = rand(0, 100);
-
-        foreach ($weighting as $rarity => $chance) {
-            if ($roll >= $chance[0] && $roll <= $chance[1]) {
-                return $rarity;
-            }
-        }
     }
 
     public function getTokens(int $num): Collection

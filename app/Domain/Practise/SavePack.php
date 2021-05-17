@@ -18,9 +18,9 @@ class SavePack
 
     public function handle(PackRepository $packs)
     {
-        $pack = Pack::forPractise($this->practiseId, $this->cardIds);
-
+        $pack = Pack::forPractise($this->practiseId);
         $packs->save($pack);
+        $pack->saveCards($this->cardIds);
 
         $this->dispatch($pack->releaseEvents());
     }

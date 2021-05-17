@@ -19,7 +19,7 @@ class Box
     {
         foreach ($this->generators as $generator) {
             if ($generator->isFor($set)) {
-                return $generator->generate();
+                return $generator->generate($set);
             }
         }
 

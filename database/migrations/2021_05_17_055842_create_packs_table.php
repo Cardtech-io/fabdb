@@ -16,9 +16,16 @@ class CreatePacksTable extends Migration
         Schema::create('packs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('practise_id');
-            $table->json('cards');
             $table->timestamp('created_at');
             $table->foreign('practise_id')->references('id')->on('practises')->cascadeOnDelete();
+        });
+
+        Schema::create('card_pack', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('pack_id');
+            $table->unsignedBigInteger('card_id');
+            $table->foreign('pack_id')->references('id')->on('packs')->cascadeOnDelete();
+            $table->foreign('card_id')->references('id')->on('cards')->cascadeOnDelete();
         });
     }
 
@@ -29,6 +36,7 @@ class CreatePacksTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('card_pack');
         Schema::dropIfExists('packs');
     }
 }

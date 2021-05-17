@@ -31,7 +31,7 @@ interface BoosterRepository
      * @param array $exclude
      * @return Card
      */
-    public function getRandom(Rarity $rarity = null, array $exclude = []): Card;
+    public function getRandom(Rarity $rarity, array $exclude = []): Card;
 
     /**
      * Returns a random card as a foil.
