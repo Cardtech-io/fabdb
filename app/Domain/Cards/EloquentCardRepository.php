@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Boosters\BoosterRepository;
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CostFilter;

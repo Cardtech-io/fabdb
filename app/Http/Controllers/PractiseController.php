@@ -1,7 +1,7 @@
 <?php
 namespace FabDB\Http\Controllers;
 
-use FabDB\Domain\Cards\Packs;
+use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Practise\Format;
 use FabDB\Domain\Practise\GeneratePack;

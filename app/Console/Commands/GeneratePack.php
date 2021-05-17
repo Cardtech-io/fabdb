@@ -2,7 +2,7 @@
 namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\Card;
-use FabDB\Domain\Cards\Packs;
+use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\Set;
 use Illuminate\Console\Command;
 

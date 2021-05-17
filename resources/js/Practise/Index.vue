@@ -13,7 +13,7 @@
                 </p>
                 <div class="my-4 text-center">
                     <router-link :to="{ name: 'practise.setup', query: {format: 'sealed'} }" class="inline-block mx-auto button-primary px-4 py-3 rounded-lg">Sealed deck run</router-link>
-                    <router-link :to="{ name: 'practise.setup', query: {format: 'team-sealed'} }" class="inline-block mx-auto button-primary px-4 py-3 rounded-lg">Team sealed run</router-link>
+                    <router-link :to="{ name: 'practise.setup', query: {format: 'team-sealed'} }" class="inline-block mx-auto button-secondary px-4 py-3 rounded-lg">Team sealed run</router-link>
                 </div>
                 <p class="p-4 italic">
                     Sealed practise is available to Majestic and Legendary supporters only.

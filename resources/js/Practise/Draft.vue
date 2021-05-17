@@ -19,7 +19,7 @@
                                 lakjsdf
                             </div>
                         </div>
-                        <div class="flex flex-wrap my-8 justify-center" :class="containers">
+                        <div class="flex flex-wrap py-8 justify-center" :class="containers">
                             <div v-for="pack in packs">
                                 <div class="inline-block booster hover:bg-white p-4 rounded-lg">
                                     <div v-if="pack.cards"></div>
