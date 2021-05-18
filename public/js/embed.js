@@ -36562,13 +36562,12 @@ __webpack_require__.r(__webpack_exports__);
       });
       commit('generatePacks');
     },
-    reset: function reset(_ref8, _ref9) {
+    reset: function reset(_ref8) {
       var commit = _ref8.commit;
-      var format = _ref9.format;
-      commit('resetPacks');
-      commit('setFormat', {
-        format: format
+      commit('setPractise', {
+        practise: null
       });
+      commit('resetPacks');
       commit('selectSet', {
         set: null
       });

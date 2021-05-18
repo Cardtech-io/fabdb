@@ -5,25 +5,14 @@
 
         <div :class="fullScreenClasses">
             <div class="bg-gray-200">
-                <div>
-                    <div class="w-auto flex justify-center items-start py-8" v-if="!practise" :class="containers">
-                        <div v-for="set in sets" class="booster mx-4 hover:bg-white p-4 rounded-lg">
-                            <button class="block link-alternate" @click="setup(set.id)">
-                                <img :src="imageUrl('/boosters/'+kebabCase(set.name)+'.png', 180)" :alt="set.name" :title="set.name">
-                            </button>
-                        </div>
+                <div class="bg-white">
+                    <div class="flex items-center p-4 w-full" :class="containers">
+                        lakjsdf
                     </div>
-                    <div v-else>
-                        <div class="bg-white">
-                            <div class="flex items-center p-4 w-full" :class="containers">
-                                lakjsdf
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap py-8 justify-center" :class="containers">
-                            <div v-for="pack in packs" class="w-1/6">
-                                <pack :pack="pack"></pack>
-                            </div>
-                        </div>
+                </div>
+                <div class="flex flex-wrap py-8 justify-center" :class="containers">
+                    <div v-for="pack in packs" class="w-1/6">
+                        <pack :pack="pack"></pack>
                     </div>
                 </div>
             </div>
@@ -37,23 +26,22 @@
     import Imagery from "../Utilities/Imagery";
     import Pack from "./Pack";
     import Strings from "../Utilities/Strings";
+    import LazyLoader from "../Components/LazyLoader";
 
     export default {
         components: {Pack},
         mixins: [Imagery, Strings],
 
-        data() {
-            return {
-                crumbs: [
-                    { text: 'Home', link: '/' },
-                    { text: 'Limited practise', link: '/practise' },
-                    { text: this.$route.query.format === 'sealed' ? 'Sealed deck run' : 'Team sealed run' }
-                ],
-            }
-        },
-
         computed: {
             ...mapState('draft', ['fullScreen', 'packs', 'set', 'practise']),
+
+            crumbs() {
+                return [
+                    { text: 'Home', link: '/' },
+                    { text: 'Limited practise', link: '/practise' },
+                    { text: this.practise.format === 'sealed' ? 'Sealed deck run' : 'Team sealed run' }
+                ];
+            },
 
             containers() {
                 if (!this.fullScreen) {
@@ -67,36 +55,28 @@
                 }
             },
 
-            selectedSet() {
-                if (!this.set) return;
-
-                return this.sets.filter(set => {
-                    return set.id === this.set;
-                })[0];
+            packsRequired() {
+                return this.practise.format === 'sealed' ? 6 : 9;
             },
 
-            sets() {
-                return _.sortBy(_.filter(this.$settings.game.sets,set => {
-                    return set.draftable;
-                }), set => {
-                    return set.released;
-                }).reverse();
+            packs() {
+                let total = this.packsRequired - this.practise.packs.length;
+
+                return this.practise.packs.concat(Array.from({length: total}, i => []));
             }
         },
 
         methods: {
-            ...mapActions('draft', ['selectSet', 'reset', 'setPractise']),
-
-            setup(set) {
-                axios.post('practise', {format: this.$route.query.format, set}).then(response => {
-                    this.setPractise({practise: response.data});
-                });
-            }
+            ...mapActions('draft', ['selectSet', 'reset', 'setPractise'])
         },
 
-        mounted() {
-            this.reset({format: this.$route.query.format});
-        }
+        extends: LazyLoader((to, callback) => {
+            axios.get('/practise/' + to.params.practise).then(response => {
+                callback(function() {
+                    this.setPractise({practise: response.data });
+                });
+            });
+        })
     };
 </script>
 

@@ -167,7 +167,9 @@ class Card extends Model
 
     public function isGeneric(): bool
     {
-        return in_array('generic', $this->keywords);
+        $classes = array_keys(config('game.classes'));
+
+        return in_array('generic', $this->keywords) || !count(array_intersect($classes, $this->keywords));
     }
 
     public function oneHanded(): bool

@@ -22,4 +22,9 @@ class Practise extends Model
     {
         return new Practise(compact('userId', 'format', 'set'));
     }
+
+    public function packs()
+    {
+        return $this->hasMany(Pack::class);
+    }
 }

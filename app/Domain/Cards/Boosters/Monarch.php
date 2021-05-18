@@ -24,12 +24,12 @@ class Monarch implements PackGenerator
     {
         $this->box->useSet($set);
 
-        return $this->box->getRandomCommons('other', 7)
-            ->add($this->box->getRandom(new Rarity('R')))
-            ->add($this->box->getRandom($this->randomRarity(false)))
+        return $this->box->getRandomCommons('other', 6)
+            ->merge($this->box->getRandomCommons('generic', 5))
             ->add($this->box->getRandomFoil())
             ->add($this->box->getRandomEquipmentCommon())
-            ->merge($this->box->getRandomCommons('generic', 4))
+            ->add($this->box->getRandom(new Rarity('R')))
+            ->add($this->box->getRandom($this->randomRarity(false)))
             ->merge($this->tokens());
     }
 }

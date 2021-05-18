@@ -37,7 +37,8 @@ import ViewProfile from "./Identity/ViewProfile";
 import LatestDecks from "./Decks/LatestDecks";
 import WantTradeList from "./Collection/WantTradeList";
 import Practise from "./Practise/Index";
-import Draft from "./Practise/Draft";
+import PractiseSetup from "./Practise/Setup";
+import PractiseDraft from "./Practise/Draft";
 
 Vue.use(VueRouter);
 
@@ -83,7 +84,8 @@ const router = new VueRouter({
         { path: "/articles/:title/:article", component: ArticleView, name: 'articles.view' },
 
         { path: "/practise", component: Practise, name: 'practise', meta: { auth: true } },
-        { path: '/practise/setup', component: Draft, name: 'practise.setup', meta: { auth: true } },
+        { path: '/practise/setup', component: PractiseSetup, name: 'practise.setup', meta: { auth: true } },
+        { path: '/practise/:practise', component: PractiseDraft, name: 'practise.view', meta: { auth: true } },
 
         { path: "/login", component: Login, name: 'login' },
         { path: "/logout", component: Logout, name: 'logout', meta: { auth: true } },

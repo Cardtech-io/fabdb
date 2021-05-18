@@ -6,12 +6,14 @@ use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Practise\Format;
 use FabDB\Domain\Practise\GeneratePack;
+use FabDB\Domain\Practise\Practise;
 use FabDB\Domain\Practise\PractiseRepository;
 use FabDB\Domain\Practise\SavePack;
 use FabDB\Domain\Practise\SetupObserver;
 use FabDB\Domain\Practise\SetupPractise;
 use FabDB\Http\Requests\OpenPackRequest;
 use FabDB\Http\Resources\CardResource;
+use FabDB\Http\Resources\PractiseResource;
 use Illuminate\Http\Request;
 
 class PractiseController extends Controller
@@ -37,5 +39,10 @@ class PractiseController extends Controller
         $this->dispatchNow(new SavePack($practise->id, $cards->pluck('id')->toArray()));
 
         return CardResource::collection($cards);
+    }
+
+    public function view(Practise $practise, PractiseRepository $practises)
+    {
+        return new PractiseResource($practise);
     }
 }

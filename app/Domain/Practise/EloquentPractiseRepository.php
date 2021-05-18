@@ -10,4 +10,12 @@ class EloquentPractiseRepository extends EloquentRepository implements PractiseR
     {
         return new Practise;
     }
+
+    public function view(string $slug)
+    {
+        return $this->newQuery()
+            ->with('packs')
+            ->whereSlug($slug)
+            ->first();
+    }
 }

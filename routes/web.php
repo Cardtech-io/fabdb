@@ -55,6 +55,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/starters', 'DeckController@starters');
 
         Route::post('practise/open-pack', 'PractiseController@openPack');
+        Route::get('practise/{practise}', 'PractiseController@view');
         Route::post('practise', 'PractiseController@setup');
 
         Route::get('events/{event}', 'EventController@view');

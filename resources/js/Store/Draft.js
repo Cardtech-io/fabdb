@@ -47,9 +47,9 @@ export default {
             commit('generatePacks');
         },
 
-        reset({commit}, {format}) {
+        reset({commit}) {
+            commit('setPractise', {practise: null});
             commit('resetPacks');
-            commit('setFormat', {format});
             commit('selectSet', {set: null});
         }
     }
