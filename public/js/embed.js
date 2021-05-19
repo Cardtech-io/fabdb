@@ -36515,7 +36515,7 @@ __webpack_require__.r(__webpack_exports__);
     filters: [],
     format: 'sealed',
     fullScreen: false,
-    grouping: '',
+    grouping: 'name',
     practise: null,
     zoom: 2
   },

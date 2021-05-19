@@ -4,7 +4,7 @@
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
-                    <card-image :card="card" :width="350" class="w-full" :class="{'shadow-error': !card.totalOwned || card.totalOwned < i+1}"></card-image>
+                    <card-image :card="card" :width="350" class="w-full"></card-image>
                 </div>
             </div>
         </div>
@@ -12,12 +12,13 @@
 </template>
 
 <script>
+    import _ from 'underscore';
     import { mapGetters, mapState } from 'vuex';
 
     import Cardable from '../CardDatabase/Cardable';
     import CardImage from '../CardDatabase/CardImage.vue';
-    import Redrawable from './Redrawable';
-    import Viewable from './Viewable';
+    import Redrawable from "../DeckBuilder/Redrawable";
+    import Viewable from "../DeckBuilder/Viewable";
 
     export default {
         props: ['cards', 'groupId', 'width'],
@@ -25,41 +26,52 @@
         components: {CardImage},
 
         computed: {
-            ...mapState('draft', ['fullScreen', 'grouping', 'mode', 'zoom']),
+            ...mapState('draft', ['fullScreen', 'grouping', 'zoom']),
             ...mapGetters('session', ['user']),
 
-            cardClasses: function() {
+            cardClasses() {
                 return [
                     this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth,
                     'rounded-card'
                 ];
             },
 
-            cardWidth: function() {
+            cardWidth() {
                 let widths = [3, 4, 5, 6, 7, 8];
 
                 return widths[this.zoom];
             },
 
-            groupedCards: function() {
-                if (this.grouping === 'name') {
-                    return this.cards.group('name');
+            groupedCards() {
+                if (this.grouping === 'class') {
+                    let classes = this.$settings.game.classes;
+
+                    return this.cards.filter(card => {
+                        return _.intersection(card.keywords, Object.keys(classes)).length;
+                    }).group(card => {
+                        return Object.keys(classes).indexOf(card.keywords[0]) !== -1 ? card.keywords[0] : card.keywords[1];
+                    });
                 }
 
-                let stat = this.grouping === 'cost' ? 'cost' : 'resource';
+                if (this.grouping === 'talent') {
+                    let talents = this.$settings.game.talents;
 
-                return this.cards.filter(card => {
-                    return card.stats[stat] !== ''}
-                ).group(card => {
-                    return card.stats[stat];
-                });
+                    return this.cards.filter(card => {
+                        return Object.keys(talents).indexOf(card.keywords[0]) !== -1;
+                    }).group(card => {
+                        return card.keywords[0];
+                    });
+                }
+
+                // Default grouping
+                return this.cards.group('name');
             },
 
-            offset: function() {
+            offset() {
                 return this.user.view === 'borderless' ? 10 : 12;
             },
 
-            pad: function() {
+            pad() {
                 return this.user.view === 'borderless' ? 17 : 18;
             },
 
@@ -99,10 +111,6 @@
             },
 
             fullScreen() {
-                this.redraw(this.groupId);
-            },
-
-            mode() {
                 this.redraw(this.groupId);
             },
 

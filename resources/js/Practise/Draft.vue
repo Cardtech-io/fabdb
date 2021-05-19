@@ -11,8 +11,8 @@
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
                     <button type="button" class="button-primary text-sm xl:text-base ml-2 block px-4 py-3 rounded-lg"  @click="craftDeck">Craft deck</button>
-                    <filter-selector class="mx-2"></filter-selector>
-                    <grouping-selector v-if="mode !== 'details'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
+                    <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
+                    <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
                     <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto"></fullscreen>
                 </div>
             </div>
@@ -21,10 +21,8 @@
                     <div v-for="(pack, i) in practise.packs" class="w-1/6" v-if="mode === 'packs'">
                         <pack :pack="pack" :index="i" @pack-opened="increment"></pack>
                     </div>
-                    <div v-if="mode === 'cards'">
-                        <div v-masonry destroy-delay="2000" containerId="cards" class="pb-2 mx-2" transition-duration="0.3s">
-
-                        </div>
+                    <div v-if="mode === 'cards'" class="h-full w-full">
+                        <cards :packs="practise.packs"></cards>
                     </div>
                 </div>
             </div>
@@ -35,6 +33,7 @@
 <script>
     import {mapActions, mapMutations, mapState} from 'vuex';
     import axios from 'axios';
+    import Cards from "./Cards";
     import FilterSelector from "../Components/FilterSelector";
     import Fullscreen from "../Components/Fullscreen";
     import GroupingSelector from "../DeckBuilder/GroupingSelector";
@@ -44,7 +43,7 @@
     import LazyLoader from "../Components/LazyLoader";
 
     export default {
-        components: {FilterSelector, Fullscreen, GroupingSelector, Pack},
+        components: {Cards, FilterSelector, Fullscreen, GroupingSelector, Pack},
         mixins: [Imagery, Strings],
 
         data() {

@@ -126,7 +126,10 @@ export default class Cards {
     }
 
     sort() {
-        return new Cards(_.sort(this.cards));
+        return new Cards(_.sortBy(this.cards, card => {
+            let resource = card.stats ? card.stats.resource : '';
+            return card.name + resource;
+        }));
     }
 
     filter(handler) {

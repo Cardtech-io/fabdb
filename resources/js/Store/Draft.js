@@ -5,7 +5,7 @@ export default {
         filters: [],
         format: 'sealed',
         fullScreen: false,
-        grouping: '',
+        grouping: 'name',
         practise: null,
         zoom: 2,
     },

@@ -8,9 +8,21 @@
     import axios from "axios";
 
     export default {
+        props: {
+            name: {
+                type: String,
+                required: true
+            },
+
+            params: {
+                type: Object,
+                default: {}
+            }
+        },
+
         methods: {
-            addDeck: function() {
-                axios.post('/decks/', {name: 'New deck'}).then(response => {
+            addDeck() {
+                axios.post('/decks/', {name: 'New deck', ...this.params}).then(response => {
                     this.$router.push({name: 'decks.build', params: {deck: response.data.slug}});
                 });
             }
