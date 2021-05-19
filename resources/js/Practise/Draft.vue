@@ -10,7 +10,8 @@
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('packs')" :class="classes('packs')">Packs</button>
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
-                    <button type="button" class="button-primary text-sm xl:text-base ml-2 block px-4 py-3 rounded-lg"  @click="craftDeck">Craft deck</button>
+
+                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}"></add-deck>
                     <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
                     <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
                     <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto"></fullscreen>
@@ -33,6 +34,7 @@
 <script>
     import {mapActions, mapMutations, mapState} from 'vuex';
     import axios from 'axios';
+    import AddDeck from "../Decks/AddDeck";
     import Cards from "./Cards";
     import FilterSelector from "../Components/FilterSelector";
     import Fullscreen from "../Components/Fullscreen";
@@ -43,7 +45,7 @@
     import LazyLoader from "../Components/LazyLoader";
 
     export default {
-        components: {Cards, FilterSelector, Fullscreen, GroupingSelector, Pack},
+        components: {AddDeck, Cards, FilterSelector, Fullscreen, GroupingSelector, Pack},
         mixins: [Imagery, Strings],
 
         data() {

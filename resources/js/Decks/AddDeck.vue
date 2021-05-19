@@ -1,0 +1,38 @@
+<template>
+    <form @submit.prevent="addDeck()" class="block text-right">
+        <input type="submit" class="py-3 px-4 appearance-none rounded-lg p-2 button-primary" :value="label">
+    </form>
+</template>
+
+<script>
+    import axios from "axios";
+
+    export default {
+        props: {
+            label: {
+                type: String,
+                required: true
+            },
+
+            name: {
+                type: String,
+                required: true
+            },
+
+            params: {
+                type: Object,
+                default: function() {
+                    return {};
+                }
+            }
+        },
+
+        methods: {
+            addDeck() {
+                axios.post('/decks/', {name: this.name, ...this.params}).then(response => {
+                    this.$router.push({name: 'decks.build', params: {deck: response.data.slug}});
+                });
+            }
+        }
+    };
+</script>

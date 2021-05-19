@@ -21,6 +21,7 @@ use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TalentFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
 use FabDB\Domain\Cards\Search\UseCollectionFilter;
+use FabDB\Domain\Cards\Search\UseSealedPoolFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Market\PriceAverage;
@@ -320,7 +321,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new PitchFilter,
             new RarityFilter,
             new OrderFilter,
-            new UseCollectionFilter($user, $deck)
+            new UseCollectionFilter($user, $deck),
+            new UseSealedPoolFilter($deck)
         ];
 
         $this->applyFilters($query, $filters, $input);

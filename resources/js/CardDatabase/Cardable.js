@@ -3,6 +3,10 @@ import Carding from "../Utilities/Carding";
 export default {
     computed: {
         maxAvailable() {
+            if (!isNaN(this.card.available)) {
+                return this.card.available;
+            }
+
             if (this.card.keywords.includes('hero')) {
                 return 1;
             }

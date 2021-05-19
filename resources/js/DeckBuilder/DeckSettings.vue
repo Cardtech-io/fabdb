@@ -7,7 +7,7 @@
                     <input type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
                 </div>
 
-                <div class="w-full mb-4">
+                <div class="w-full mb-4" v-if="!deck.practiseId">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
                     <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="blitz">Blitz</option>

@@ -20,7 +20,7 @@
             <div v-if="user">
                 <div class="flex items-center pb-4">
                     <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
-                    <add-deck class="flex-initial"></add-deck>
+                    <add-deck class="flex-initial" name="New deck" label="New deck"></add-deck>
                 </div>
 
                 <ol v-if="decks">
@@ -45,7 +45,7 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import AddDeck from './AddDeck';
+    import AddDeck from '../Decks/AddDeck';
     import LazyLoader from "../Components/LazyLoader";
     import Paginator from "../Components/Paginator";
 

@@ -55,13 +55,14 @@ class Deck extends Model
             ->withTimestamps();
     }
 
-    public static function add(int $userId, string $name)
+    public static function add(int $userId, string $name, ?int $practiseId)
     {
         $deck = new Deck;
         $deck->user_id = $userId;
+        $deck->practise_id = $practiseId;
         $deck->name = $name;
 
-        $deck->raise(new DeckWasAdded($userId, $name));
+        $deck->raise(new DeckWasAdded($userId, $name, $practiseId));
 
         return $deck;
     }

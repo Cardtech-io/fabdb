@@ -22337,6 +22337,10 @@ video {
   width: 12.5%;
 }
 
+.w-1\/9 {
+  width: 11.111111%;
+}
+
 .w-1\/10 {
   width: 10%;
 }
@@ -46740,6 +46744,10 @@ button, button:focus {
     width: 12.5%;
   }
 
+  .sm\:w-1\/9 {
+    width: 11.111111%;
+  }
+
   .sm\:w-1\/10 {
     width: 10%;
   }
@@ -70728,6 +70736,10 @@ button, button:focus {
 
   .md\:w-1\/8 {
     width: 12.5%;
+  }
+
+  .md\:w-1\/9 {
+    width: 11.111111%;
   }
 
   .md\:w-1\/10 {
@@ -94720,6 +94732,10 @@ button, button:focus {
     width: 12.5%;
   }
 
+  .lg\:w-1\/9 {
+    width: 11.111111%;
+  }
+
   .lg\:w-1\/10 {
     width: 10%;
   }
@@ -118708,6 +118724,10 @@ button, button:focus {
 
   .xl\:w-1\/8 {
     width: 12.5%;
+  }
+
+  .xl\:w-1\/9 {
+    width: 11.111111%;
   }
 
   .xl\:w-1\/10 {

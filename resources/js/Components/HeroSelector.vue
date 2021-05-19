@@ -22,9 +22,8 @@
 
 <script>
     import axios from 'axios';
-    import { mapActions } from 'vuex';
+    import {mapState} from 'vuex';
     import HeroAvatar from "./HeroAvatar";
-    import ManagesDecks from "../DeckBuilder/ManagesDecks";
     import Strings from '../Utilities/Strings';
 
     export default {
@@ -33,7 +32,21 @@
 
         data() {
             return {
-                heroes: []
+                availableHeroes: []
+            }
+        },
+
+        computed: {
+            ...mapState('deck', ['deck']),
+
+            heroes() {
+                if (this.deck.practiseId) {
+                    return this.availableHeroes.filter(hero => {
+                        return hero.keywords.indexOf('young') !== -1;
+                    })
+                }
+
+                return this.availableHeroes;
             }
         },
 
@@ -50,7 +63,7 @@
 
         mounted() {
             axios.get('/cards/heroes').then(response => {
-                this.heroes = response.data;
+                this.availableHeroes = response.data;
             });
         }
     }

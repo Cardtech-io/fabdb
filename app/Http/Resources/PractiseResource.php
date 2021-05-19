@@ -8,7 +8,7 @@ class PractiseResource extends JsonResource
 {
     public function toArray($request)
     {
-        $resource = Arr::only($this->resource->toArray(), ['slug', 'set', 'format', 'created_at', 'packs']);
+        $resource = Arr::only($this->resource->toArray(), ['slug', 'set', 'format', 'createdAt', 'packs']);
 
         $resource['packs'] = PacksResource::collection($this->resource->packs);
 

@@ -8,20 +8,15 @@ class DeckWasAdded implements Loggable
 {
     use LogsParams;
 
-    /**
-     * @var int
-     */
-    private $userId;
+    private int $userId;
+    private string $name;
+    private ?int $practiseId;
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    public function __construct(int $userId, string $name)
+    public function __construct(int $userId, string $name, ?int $practiseId)
     {
         $this->userId = $userId;
         $this->name = $name;
+        $this->practiseId = $practiseId;
     }
 
     public function userId(): int
@@ -32,5 +27,10 @@ class DeckWasAdded implements Loggable
     public function name(): string
     {
         return $this->name;
+    }
+
+    public function practiseId(): ?int
+    {
+        return $this->practiseId;
     }
 }

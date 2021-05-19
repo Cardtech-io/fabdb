@@ -35671,6 +35671,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     maxAvailable: function maxAvailable() {
+      if (!isNaN(this.card.available)) {
+        return this.card.available;
+      }
+
       if (this.card.keywords.includes('hero')) {
         return 1;
       }
