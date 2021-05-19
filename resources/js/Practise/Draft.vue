@@ -4,15 +4,27 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div :class="fullScreenClasses">
-            <div class="bg-gray-200">
-                <div class="bg-white">
-                    <div class="flex items-center p-4 w-full" :class="containers">
-                        lakjsdf
+            <div class="bg-white">
+                <div class="flex p-4 w-full" :class="containers">
+                    <div class="flex rounded-lg overflow-hidden text-sm xl:text-base mr-2">
+                        <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('packs')" :class="classes('packs')">Packs</button>
+                        <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
+                    <button type="button" class="button-primary text-sm xl:text-base ml-2 block px-4 py-3 rounded-lg"  @click="craftDeck">Craft deck</button>
+                    <filter-selector class="mx-2"></filter-selector>
+                    <grouping-selector v-if="mode !== 'details'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
+                    <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto"></fullscreen>
                 </div>
-                <div class="flex flex-wrap py-8 justify-center" :class="containers">
-                    <div v-for="pack in packs" class="w-1/6">
-                        <pack :pack="pack"></pack>
+            </div>
+            <div class="bg-gray-200 h-full pt-4 pb-16 px-4">
+                <div class="flex flex-wrap justify-center h-full overflow-y-auto" :class="containers">
+                    <div v-for="(pack, i) in practise.packs" class="w-1/6" v-if="mode === 'packs'">
+                        <pack :pack="pack" :index="i" @pack-opened="increment"></pack>
+                    </div>
+                    <div v-if="mode === 'cards'">
+                        <div v-masonry destroy-delay="2000" containerId="cards" class="pb-2 mx-2" transition-duration="0.3s">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -21,19 +33,33 @@
 </template>
 
 <script>
-    import {mapActions, mapState} from 'vuex';
+    import {mapActions, mapMutations, mapState} from 'vuex';
     import axios from 'axios';
+    import FilterSelector from "../Components/FilterSelector";
+    import Fullscreen from "../Components/Fullscreen";
+    import GroupingSelector from "../DeckBuilder/GroupingSelector";
     import Imagery from "../Utilities/Imagery";
     import Pack from "./Pack";
     import Strings from "../Utilities/Strings";
     import LazyLoader from "../Components/LazyLoader";
 
     export default {
-        components: {Pack},
+        components: {FilterSelector, Fullscreen, GroupingSelector, Pack},
         mixins: [Imagery, Strings],
 
+        data() {
+            return {
+                mode: 'packs',
+                modes: {
+                    packs: 'Packs',
+                    cards: 'Cards'
+                },
+                opened: 0
+            }
+        },
+
         computed: {
-            ...mapState('draft', ['fullScreen', 'packs', 'set', 'practise']),
+            ...mapState('draft', ['fullScreen', 'grouping', 'practise']),
 
             crumbs() {
                 return [
@@ -53,27 +79,44 @@
                 if (this.fullScreen) {
                     return 'fixed top-0 bottom-0 left-0 right-0 z-75';
                 }
-            },
-
-            packsRequired() {
-                return this.practise.format === 'sealed' ? 6 : 9;
-            },
-
-            packs() {
-                let total = this.packsRequired - this.practise.packs.length;
-
-                return this.practise.packs.concat(Array.from({length: total}, i => []));
             }
         },
 
         methods: {
-            ...mapActions('draft', ['selectSet', 'reset', 'setPractise'])
+            ...mapActions('draft', ['selectSet', 'reset', 'setPractise']),
+            ...mapMutations('draft', ['setGrouping', 'toggleFullScreen']),
+
+            classes(view) {
+                return {
+                    'button-disabled': this.mode === view,
+                    'button-secondary': this.mode !== view
+                };
+            },
+
+            craftDeck() {
+
+            },
+
+            setMode(mode) {
+                this.mode = mode;
+            },
+
+            increment() {
+                this.opened++;
+            },
+
+            updateGrouping(grouping) {
+                this.setGrouping({grouping});
+            }
         },
 
         extends: LazyLoader((to, callback) => {
             axios.get('/practise/' + to.params.practise).then(response => {
                 callback(function() {
                     this.setPractise({practise: response.data });
+                    this.opened = this.practise.packs.filter(pack => {
+                        return pack.length;
+                    }).length;
                 });
             });
         })

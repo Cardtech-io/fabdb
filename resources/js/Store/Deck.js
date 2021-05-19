@@ -55,7 +55,7 @@ let zoomMatrix = [
 ];
 
 function controlMaxZoom(state) {
-    let ms = state.mode == 'all' ? 0 : 1;
+    let ms = state.mode === 'all' ? 0 : 1;
 
     // Moving to fullscreen, increase minimum
     if (state.fullScreen && state.zoom == zoomMatrix[1][1][ms]) {
@@ -107,7 +107,7 @@ export default {
         },
 
         requiresSideboard: (state, getters) => {
-            return state.deck.format != 'blitz';
+            return state.deck.format !== 'blitz';
         }
     },
 

@@ -25,11 +25,11 @@ class Monarch implements PackGenerator
         $this->box->useSet($set);
 
         return $this->box->getRandomCommons('other', 6)
-            ->merge($this->box->getRandomCommons('generic', 5))
+            ->concat($this->box->getRandomCommons('generic', 5))
             ->add($this->box->getRandomFoil())
             ->add($this->box->getRandomEquipmentCommon())
             ->add($this->box->getRandom(new Rarity('R')))
             ->add($this->box->getRandom($this->randomRarity(false)))
-            ->merge($this->tokens());
+            ->concat($this->tokens());
     }
 }

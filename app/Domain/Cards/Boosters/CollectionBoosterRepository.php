@@ -5,6 +5,7 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Rarity;
 use FabDB\Domain\Cards\Set;
+use FabDB\Domain\Cards\Sku;
 use Illuminate\Database\Eloquent\Collection;
 
 class CollectionBoosterRepository implements BoosterRepository
@@ -67,7 +68,11 @@ class CollectionBoosterRepository implements BoosterRepository
             };
         } else {
             $callback = function(Card $card) {
-                return $card->rarity->matches('C', 'R', 'M');
+                $sku = new Sku($this->pool->first()->sku);
+                $set = $sku->set();
+                $rarities = $set->is(new Set('wtr')) || $set->is(new Set('arc')) ? ['C', 'R', 'S', 'M'] : ['C', 'R', 'M'];
+
+                return $card->rarity->matches(...$rarities);
             };
         }
 

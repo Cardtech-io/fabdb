@@ -29,7 +29,7 @@ class WelcomeToRathe implements PackGenerator
             ->add($this->box->getRandom(new Rarity('R')))
             ->add($this->box->getRandom($this->randomRarity(true)))
             ->add($this->box->getRandomFoil())
-            ->merge($this->box->getRandomCommons('generic', 4))
-            ->merge($this->tokens());
+            ->concat($this->box->getRandomCommons('generic', 4))
+            ->concat($this->tokens());
     }
 }

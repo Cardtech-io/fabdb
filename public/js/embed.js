@@ -36259,7 +36259,7 @@ var zoomMatrix = [[[4, 3], [2, 1]], // fullscreen
 [[3, 2], [1, 0]]];
 
 function controlMaxZoom(state) {
-  var ms = state.mode == 'all' ? 0 : 1; // Moving to fullscreen, increase minimum
+  var ms = state.mode === 'all' ? 0 : 1; // Moving to fullscreen, increase minimum
 
   if (state.fullScreen && state.zoom == zoomMatrix[1][1][ms]) {
     state.zoom = zoomMatrix[0][1][ms];
@@ -36304,7 +36304,7 @@ function controlMaxZoom(state) {
       return zoomMatrix[getters.fsIndex][1][getters.msIndex];
     },
     requiresSideboard: function requiresSideboard(state, getters) {
-      return state.deck.format != 'blitz';
+      return state.deck.format !== 'blitz';
     }
   },
   mutations: {
@@ -36512,62 +36512,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   namespaced: true,
   state: {
+    filters: [],
     format: 'sealed',
     fullScreen: false,
-    grouping: 'pack',
-    packs: [],
+    grouping: '',
     practise: null,
-    set: null
+    zoom: 2
   },
   mutations: {
-    generatePacks: function generatePacks(state) {
-      var numPacks = state.format === 'sealed' ? 6 : 9;
-
-      for (var i = 0; i < numPacks; i++) {
-        state.packs.push([]);
-      }
+    crackPack: function crackPack(state, _ref) {
+      var cards = _ref.cards,
+          pack = _ref.pack;
+      state.practise.packs.splice(pack, 1, cards);
     },
-    resetPacks: function resetPacks(state) {
-      state.packs = [];
-    },
-    selectSet: function selectSet(state, _ref) {
-      var set = _ref.set;
+    selectSet: function selectSet(state, _ref2) {
+      var set = _ref2.set;
       state.set = set;
     },
-    setFormat: function setFormat(state, _ref2) {
-      var format = _ref2.format;
+    setFormat: function setFormat(state, _ref3) {
+      var format = _ref3.format;
       state.format = format;
     },
-    setPractise: function setPractise(state, _ref3) {
-      var practise = _ref3.practise;
+    setPractise: function setPractise(state, _ref4) {
+      var practise = _ref4.practise;
       state.practise = practise;
+    },
+    generatePacks: function generatePacks(state) {
+      var packsRequired = state.practise.format === 'sealed' ? 6 : 9;
+      var total = packsRequired - state.practise.packs.length;
+
+      for (var i = 0; i < total; i++) {
+        state.practise.packs.push([]);
+      }
+    },
+    setGrouping: function setGrouping(state, _ref5) {
+      var grouping = _ref5.grouping;
+      state.grouping = grouping;
+    },
+    toggleFullScreen: function toggleFullScreen(state) {
+      state.fullScreen = !state.fullScreen;
     }
   },
   actions: {
-    selectSet: function selectSet(_ref4, _ref5) {
-      var commit = _ref4.commit;
-      var set = _ref5.set;
+    crackPack: function crackPack(_ref6, _ref7) {
+      var commit = _ref6.commit;
+      var cards = _ref7.cards,
+          pack = _ref7.pack;
+      commit('crackPack', {
+        cards: cards,
+        pack: pack
+      });
+    },
+    selectSet: function selectSet(_ref8, _ref9) {
+      var commit = _ref8.commit;
+      var set = _ref9.set;
       commit('selectSet', {
         set: set
       });
     },
-    setPractise: function setPractise(_ref6, _ref7) {
-      var commit = _ref6.commit;
-      var practise = _ref7.practise;
+    setPractise: function setPractise(_ref10, _ref11) {
+      var commit = _ref10.commit;
+      var practise = _ref11.practise;
       commit('setPractise', {
         practise: practise
       });
-      commit('selectSet', {
-        set: practise.set
-      });
       commit('generatePacks');
     },
-    reset: function reset(_ref8) {
-      var commit = _ref8.commit;
+    reset: function reset(_ref12) {
+      var commit = _ref12.commit;
       commit('setPractise', {
         practise: null
       });
-      commit('resetPacks');
       commit('selectSet', {
         set: null
       });

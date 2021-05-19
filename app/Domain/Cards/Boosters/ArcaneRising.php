@@ -29,7 +29,7 @@ class ArcaneRising implements PackGenerator
             ->add($this->box->getRandom($this->randomRarity(true)))
             ->add($this->box->getRandomFoil())
             ->add($this->box->getRandomEquipmentCommon())
-            ->merge($this->box->getRandomCommons('generic', 4))
-            ->merge($this->tokens());
+            ->concat($this->box->getRandomCommons('generic', 4))
+            ->concat($this->tokens());
     }
 }

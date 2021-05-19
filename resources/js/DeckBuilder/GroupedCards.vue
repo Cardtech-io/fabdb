@@ -97,19 +97,19 @@
         },
 
         watch: {
-            cards: function() {
+            cards() {
                 this.redraw(this.groupId);
             },
 
-            fullScreen: function() {
+            fullScreen() {
                 this.redraw(this.groupId);
             },
 
-            mode: function() {
+            mode() {
                 this.redraw(this.groupId);
             },
 
-            zoom: function() {
+            zoom() {
                 this.redraw(this.groupId);
             },
 

@@ -17,14 +17,14 @@
                                 <h2 class="font-serif uppercase text-xl" :class="{ 'text-red-500': totalCards > maxCards }">{{ totalCards }} / {{ maxCards }} <span class="text-base">cards</span></h2>
                             </div>
 
-                            <grouping-selector v-if="mode !== 'details'" class="hidden xl:block"></grouping-selector>
+                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{name: 'Name', pitch: 'Pitch', cost: 'Cost'}"></grouping-selector>
                             <mode-selector class="w-full lg:w-auto"></mode-selector>
 
                             <div class="px-2 lg:px-1 flex">
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
                                 <view-button></view-button>
-                                <fullscreen-button></fullscreen-button>
+                                <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"></fullscreen-button>
                             </div>
                         </div>
                         <div v-if="mode == 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 bg-gray-200': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
@@ -61,9 +61,8 @@
     import CardSearch from "./CardSearch";
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName';
-    import FilterSelector from './FilterSelector.vue';
     import GroupingSelector from './GroupingSelector.vue';
-    import FullscreenButton from './Buttons/Fullscreen.vue';
+    import FullscreenButton from '../Components/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Icon from '../Components/Icon';
     import LazyLoader from '../Components/LazyLoader';
@@ -82,7 +81,6 @@
             CardImage,
             CardSearch,
             DeckName,
-            FilterSelector,
             GroupingSelector,
             FullscreenButton,
             Icon,
@@ -109,7 +107,7 @@
 
         computed: {
             ...mapGetters('deck', ['mainDeck']),
-            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'mode', 'sideboard', 'view', 'zoom']),
+            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'grouping', 'mode', 'sideboard', 'view', 'zoom']),
             ...mapState('cardSearch', ['params']),
 
             containers() {
@@ -153,7 +151,7 @@
 
         methods: {
             ...mapActions('messages', ['addMessage']),
-            ...mapActions('deck', ['setDeck', 'setMode', 'setZoom']),
+            ...mapActions('deck', ['setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']),
 
             scrollTop() {
                 this.$refs.searchResults.scrollTop = 0;
@@ -172,6 +170,10 @@
                 if (newMode >= 0 && newMode <= 2) {
                     this.setMode({mode: this.swipeModes[newMode]});
                 }
+            },
+
+            updateGrouping(grouping) {
+                this.setGrouping({grouping});
             },
 
             currentSwipeMode() {

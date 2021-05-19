@@ -2,25 +2,17 @@ export default {
     namespaced: true,
 
     state: {
+        filters: [],
         format: 'sealed',
         fullScreen: false,
-        grouping: 'pack',
-        packs: [],
+        grouping: '',
         practise: null,
-        set: null,
+        zoom: 2,
     },
 
     mutations: {
-        generatePacks(state) {
-            let numPacks = state.format === 'sealed' ? 6 : 9;
-
-            for (let i = 0; i < numPacks; i++) {
-                state.packs.push([]);
-            }
-        },
-
-        resetPacks(state) {
-            state.packs = [];
+        crackPack(state, {cards, pack}) {
+            state.practise.packs.splice(pack, 1, cards);
         },
 
         selectSet(state, {set}) {
@@ -33,23 +25,42 @@ export default {
 
         setPractise(state, {practise}) {
             state.practise = practise;
-        }
+        },
+
+        generatePacks(state) {
+            let packsRequired = state.practise.format === 'sealed' ? 6 : 9;
+            let total = packsRequired - state.practise.packs.length;
+
+            for (let i = 0; i < total; i++) {
+                state.practise.packs.push([]);
+            }
+        },
+
+        setGrouping(state, {grouping}) {
+            state.grouping = grouping;
+        },
+
+        toggleFullScreen(state) {
+            state.fullScreen = !state.fullScreen;
+        },
     },
 
     actions: {
+        crackPack({commit}, {cards, pack}) {
+            commit('crackPack', {cards, pack});
+        },
+
         selectSet({commit}, {set}) {
             commit('selectSet', {set});
         },
 
         setPractise({commit}, {practise}) {
             commit('setPractise', {practise});
-            commit('selectSet', {set: practise.set});
             commit('generatePacks');
         },
 
         reset({commit}) {
             commit('setPractise', {practise: null});
-            commit('resetPacks');
             commit('selectSet', {set: null});
         }
     }

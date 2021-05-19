@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div v-if="cards.length" class="relative p-4" :style="{'height': cards.length * 36 + 300 + 'px'}">
-            <div v-for="(card, i) in cards" class="absolute overflow-hidden cursor-pointer mx-auto sm:mx-0" @click="toggle(card)" :style="styles(i)">
+        <div v-if="pack.length" class="relative p-4" :style="{'height': pack.length * 36 + 300 + 'px'}">
+            <div v-for="(card, i) in pack" class="absolute overflow-hidden cursor-pointer mx-auto sm:mx-0" @click="toggle(card)" :style="styles(i)">
                 <card-image :card="card" :width="350" style="max-width: 350px"></card-image>
             </div>
         </div>
         <div class="inline-block booster hover:bg-white p-4 rounded-lg" v-else>
-            <button class="block link-alternate" @click="openPack(practise.id)">
+            <button class="block link-alternate" @click="openPack(index)">
                 <img :src="imageUrl('/boosters/'+kebabCase(practise.set.name)+'.png', 180)" alt="Open pack" title="Open pack">
             </button>
         </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex';
+    import {mapState, mapActions} from 'vuex';
     import axios from "axios";
     import CardImage from "../CardDatabase/CardImage";
     import Imagery from "../Utilities/Imagery";
@@ -25,16 +25,15 @@
         mixins: [Imagery, Strings],
 
         props: {
+            index: {
+                type: Number,
+                required: true
+            },
+
             pack: {
                 type: Array,
                 required: true
             }
-        },
-
-        data() {
-            return {
-                cards: this.pack
-            };
         },
 
         computed: {
@@ -42,9 +41,12 @@
         },
 
         methods: {
-            openPack() {
+            ...mapActions('draft', ['crackPack']),
+
+            openPack(index) {
                 axios.post('practise/open-pack', {practise: this.practise.slug}).then(response => {
-                    this.cards = response.data;
+                    this.crackPack({cards: response.data, pack: index});
+                    this.$emit('pack-opened');
                 });
             },
 
