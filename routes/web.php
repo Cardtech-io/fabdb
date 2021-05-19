@@ -56,6 +56,7 @@ Route::middleware(['web'])->group(function() {
 
         Route::post('practise/open-pack', 'PractiseController@openPack');
         Route::get('practise/{practise}', 'PractiseController@view');
+        Route::get('practise', 'PractiseController@index');
         Route::post('practise', 'PractiseController@setup');
 
         Route::get('events/{event}', 'EventController@view');

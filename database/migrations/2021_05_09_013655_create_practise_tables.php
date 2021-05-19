@@ -22,15 +22,6 @@ class CreatePractiseTables extends Migration
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
-
-        Schema::create('practise_cards', function(Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('practise_id')->index();
-            $table->tinyInteger('pack');
-            $table->unsignedBigInteger('card_id');
-            $table->timestamp('created_at');
-            $table->foreign('card_id')->references('id')->on('cards')->cascadeOnDelete();
-        });
     }
 
     /**
@@ -41,6 +32,5 @@ class CreatePractiseTables extends Migration
     public function down()
     {
         Schema::dropIfExists('practises');
-        Schema::dropIfExists('practise_cards');
     }
 }

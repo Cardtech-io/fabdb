@@ -18,6 +18,11 @@ use Illuminate\Http\Request;
 
 class PractiseController extends Controller
 {
+    public function index(Request $request, PractiseRepository $practises)
+    {
+        return $practises->forUser($request->user()->id);
+    }
+
     public function setup(Request $request)
     {
         $this->dispatchNow(new SetupPractise(

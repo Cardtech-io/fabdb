@@ -18,4 +18,12 @@ class EloquentPractiseRepository extends EloquentRepository implements PractiseR
             ->whereSlug($slug)
             ->first();
     }
+
+    public function forUser(int $userId)
+    {
+        return $this->newQuery()
+            ->whereUserId($userId)
+            ->orderBy('created_at', 'desc')
+            ->paginate();
+    }
 }

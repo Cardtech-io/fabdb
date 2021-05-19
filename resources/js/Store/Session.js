@@ -54,6 +54,18 @@ export default {
             return !state.session.user || !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
         },
 
+        subscribed: state => {
+            return state.session.user && state.session.user.subscription;
+        },
+
+        majestic: (state, getters) => {
+            return getters.subscribed && ['majestic', 'legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+        },
+
+        legendary: (state, getters) => {
+            return getters.subscribed && ['legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+        },
+
         user: state => {
             return state.session.user;
         },

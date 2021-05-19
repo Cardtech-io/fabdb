@@ -36836,6 +36836,15 @@ __webpack_require__.r(__webpack_exports__);
     marketable: function marketable(state) {
       return !state.session.user || !state.session.user.subscription || ['supporter', 'trial'].indexOf(state.session.user.subscription) !== -1;
     },
+    subscribed: function subscribed(state) {
+      return state.session.user && state.session.user.subscription;
+    },
+    majestic: function majestic(state, getters) {
+      return getters.subscribed && ['majestic', 'legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+    },
+    legendary: function legendary(state, getters) {
+      return getters.subscribed && ['legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+    },
     user: function user(state) {
       return state.session.user;
     },
