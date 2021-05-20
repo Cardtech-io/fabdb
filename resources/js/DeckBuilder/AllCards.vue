@@ -1,7 +1,7 @@
 <template>
     <div class="pb-24 text-base">
         <div v-if="!cards.hero()">
-            <hero-selector @hero-selected="addToDeck"></hero-selector>
+            <hero-selector @hero-selected="addToDeck" :deck="deck"></hero-selector>
         </div>
         <div v-else>
             <div v-if="view === 'gallery'">
@@ -112,7 +112,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
+            ...mapState('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
             ...mapGetters('session', ['user']),
 
             all() {

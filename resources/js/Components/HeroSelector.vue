@@ -1,6 +1,6 @@
 <template>
-    <ol class="clearfix my-8">
-        <li v-for="hero in heroes" class="float-left w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-8">
+    <ol class="flex flex-wrap my-8">
+        <li v-for="hero in heroes" class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 mb-8">
             <button class="block cursor-pointer mx-auto" @click.prevent="selectHero(hero)">
                 <hero-avatar :hero="hero" :name="hero.name" :width="150"></hero-avatar>
                 <div class="flex -mt-5">
@@ -27,6 +27,7 @@
     import Strings from '../Utilities/Strings';
 
     export default {
+        props: ['deck'],
         components: {HeroAvatar},
         mixins: [Strings],
 
@@ -37,10 +38,8 @@
         },
 
         computed: {
-            ...mapState('deck', ['deck']),
-
             heroes() {
-                if (this.deck.practise) {
+                if (this.deck && this.deck.practise) {
                     return this.availableHeroes.filter(hero => {
                         return hero.keywords.indexOf('young') !== -1 && hero.sku.set.id === this.deck.practise.set.id;
                     })
