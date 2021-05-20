@@ -5,6 +5,7 @@ use FabDB\Domain\Cards\Boosters\BoosterRepository;
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
+use FabDB\Domain\Cards\Search\GroupFilter;
 use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;

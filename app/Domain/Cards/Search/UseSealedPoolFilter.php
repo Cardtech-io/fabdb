@@ -22,7 +22,7 @@ class UseSealedPoolFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->addSelect(DB::raw('COUNT(card_pack.id) AS available'));
+        $query->addSelect(DB::raw('(SELECT COUNT(card_pack.id) FROM card_pack JOIN packs ON packs.id = card_pack.pack_id WHERE card_pack.card_id = cards.id AND packs.practise_id ='.$this->deck->practiseId.') AS available'));
 
         $query->join('card_pack', function($join) {
             $join->on('card_pack.card_id', '=', 'cards.id');
