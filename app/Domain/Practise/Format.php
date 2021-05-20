@@ -5,7 +5,7 @@ use Webmozart\Assert\Assert;
 
 class Format implements \JsonSerializable
 {
-    private string $format;
+    private $format;
 
     public function __construct(string $format)
     {
