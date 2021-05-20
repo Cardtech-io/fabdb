@@ -8,7 +8,7 @@ class Box
     /**
      * @var PackGenerator[]
      */
-    public array $generators;
+    public $generators;
 
     public function __construct(PackGenerator ...$generators)
     {
