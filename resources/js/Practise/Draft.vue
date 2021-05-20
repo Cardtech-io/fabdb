@@ -14,15 +14,15 @@
                     <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="majestic"></add-deck>
                     <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
                     <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
-                    <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto"></fullscreen>
+                    <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto" v-if="mode === 'cards' || fullScreen"></fullscreen>
                 </div>
             </div>
             <div class="bg-gray-200 h-full pt-4 pb-16 px-4">
-                <div class="flex flex-wrap justify-center h-full overflow-y-auto" :class="containers">
+                <div class="flex flex-wrap justify-center h-full" :class="containers">
                     <div v-for="(pack, i) in practise.packs" class="w-1/6" v-if="mode === 'packs'">
-                        <pack :pack="pack" :index="i" @pack-opened="increment"></pack>
+                        <pack :pack="pack" :index="i" @pack-opened="increment" class="w-full"></pack>
                     </div>
-                    <div v-if="mode === 'cards'" class="h-full w-full">
+                    <div v-if="mode === 'cards'" class="h-full w-full overflow-y-auto">
                         <cards :packs="practise.packs"></cards>
                     </div>
                 </div>
