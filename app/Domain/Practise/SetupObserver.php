@@ -6,7 +6,7 @@ class SetupObserver
     /**
      * @var Practise
      */
-    private Practise $practise;
+    private $practise;
 
     public function practiseSetup(Practise $practise)
     {
