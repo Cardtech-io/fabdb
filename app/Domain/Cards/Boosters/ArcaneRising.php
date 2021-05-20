@@ -8,7 +8,7 @@ class ArcaneRising implements PackGenerator
 {
     use GeneratesPacks;
 
-    private BoosterRepository $box;
+    private $box;
 
     public function __construct(BoosterRepository $box)
     {
