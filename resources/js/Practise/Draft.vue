@@ -11,7 +11,7 @@
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
 
-                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="majestic"></add-deck>
+                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="craftable"></add-deck>
                     <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
                     <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
                     <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto" v-if="mode === 'cards' || fullScreen"></fullscreen>
@@ -60,8 +60,12 @@
         },
 
         computed: {
-            ...mapState('draft', ['fullScreen', 'grouping', 'practise']),
-            ...mapGetters('session', ['majestic']),
+            ...mapState('draft', ['fullScreen', 'format', 'grouping', 'practise']),
+            ...mapGetters('session', ['majestic', 'user']),
+
+            craftable(){
+                return this.majestic && (this.format === 'team-sealed' || this.practise.userSlug === this.user.slug);
+            },
 
             crumbs() {
                 return [

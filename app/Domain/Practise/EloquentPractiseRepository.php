@@ -3,6 +3,8 @@ namespace FabDB\Domain\Practise;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\DB;
 
 class EloquentPractiseRepository extends EloquentRepository implements PractiseRepository
 {
@@ -14,8 +16,10 @@ class EloquentPractiseRepository extends EloquentRepository implements PractiseR
     public function view(string $slug)
     {
         return $this->newQuery()
+            ->selectRaw('practises.*, users.slug AS user_slug')
+            ->join('users', 'users.id', 'practises.user_id')
             ->with('packs')
-            ->whereSlug($slug)
+            ->where('practises.slug', $slug)
             ->first();
     }
 
