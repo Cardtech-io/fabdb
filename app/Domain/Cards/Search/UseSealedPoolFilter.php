@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class UseSealedPoolFilter implements SearchFilter
 {
-    private Deck $deck;
+    private $deck;
 
     public function __construct(Deck $deck)
     {
