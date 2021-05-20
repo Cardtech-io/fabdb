@@ -147,6 +147,11 @@ body {
     color: var(--button-disabled-text-color)
 }
 
+.button-disabled:hover {
+    background-color: var(--button-disabled-background-color);
+    color: var(--button-disabled-text-color)
+}
+
 .crumbs {
     background-color: var(--crumbs-background-color);
     color: var(--crumbs-text-color);

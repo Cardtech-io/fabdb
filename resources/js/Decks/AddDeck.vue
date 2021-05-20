@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="addDeck()" class="block text-right">
-        <input type="submit" class="py-3 px-4 appearance-none rounded-lg p-2 button-primary" :value="label">
+        <input type="submit" class="py-3 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer" :value="label" :class="{'button-disabled': !enabled}" :disabled="!enabled">
     </form>
 </template>
 
@@ -24,6 +24,11 @@
                 default: function() {
                     return {};
                 }
+            },
+
+            enabled: {
+                type: Boolean,
+                default: true
             }
         },
 

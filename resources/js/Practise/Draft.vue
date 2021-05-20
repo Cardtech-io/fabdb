@@ -11,7 +11,7 @@
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
 
-                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}"></add-deck>
+                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="majestic"></add-deck>
                     <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
                     <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
                     <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto"></fullscreen>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import {mapActions, mapMutations, mapState} from 'vuex';
+    import {mapActions, mapGetters, mapMutations, mapState} from 'vuex';
     import axios from 'axios';
     import AddDeck from "../Decks/AddDeck";
     import Cards from "./Cards";
@@ -61,6 +61,7 @@
 
         computed: {
             ...mapState('draft', ['fullScreen', 'grouping', 'practise']),
+            ...mapGetters('session', ['majestic']),
 
             crumbs() {
                 return [
