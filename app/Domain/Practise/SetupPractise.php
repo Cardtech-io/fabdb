@@ -6,10 +6,10 @@ use FabDB\Domain\Cards\Set;
 
 class SetupPractise
 {
-    private int $userId;
-    private Format $format;
-    private Set $set;
-    private SetupObserver $observer;
+    private $userId;
+    private $format;
+    private $set;
+    private $observer;
 
     public function __construct(SetupObserver $observer, int $userId, Format $format, Set $set)
     {
