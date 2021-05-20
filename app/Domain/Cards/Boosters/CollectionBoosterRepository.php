@@ -13,12 +13,12 @@ class CollectionBoosterRepository implements BoosterRepository
     /**
      * Pool of cards to generate the boosters from. This should contain all cards from a given set.
      */
-    private Collection $pool;
+    private $pool;
 
     /**
      * @var CardRepository
      */
-    private CardRepository $cards;
+    private $cards;
 
     public function __construct(CardRepository $cards)
     {
