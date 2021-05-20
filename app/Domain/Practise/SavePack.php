@@ -7,8 +7,8 @@ class SavePack
 {
     use Dispatchable;
 
-    private int $practiseId;
-    private array $cardIds;
+    private $practiseId;
+    private $cardIds;
 
     public function __construct(int $practiseId, array $cardIds)
     {
