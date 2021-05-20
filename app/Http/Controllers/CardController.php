@@ -13,7 +13,7 @@ class CardController extends Controller
     /**
      * @var CardRepository
      */
-    private CardRepository $cards;
+    private $cards;
 
     public function __construct(CardRepository $cards)
     {
