@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center rounded-lg" :class="{ 'bg-red-600': filtersEnabled }">
+    <div class="flex items-center rounded-lg" :class="{'bg-red-600': filtersEnabled}">
         <div class="relative font-serif">
             <button class="relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex" @click="isOpen = !isOpen" :class="{ 'border-gray-500': isOpen, 'bg-white': isOpen, 'bg-gray-200': !isOpen, 'z-75': isOpen }" style="width: 200px">
                 <span class="inline-block mr-1 flex-1">Filters</span>
@@ -52,22 +52,22 @@
         },
 
         computed: {
-            ...mapState('deck', ['filters']),
+            ...mapState('draft', ['filters']),
 
-            filtersEnabled: function() {
+            filtersEnabled() {
                 return this.filters.length;
             }
         },
 
         methods: {
-            ...mapActions('deck', ['clearFilters', 'toggleFilter']),
+            ...mapActions('draft', ['clearFilters', 'toggleFilter']),
 
-            hasFilter: function(filter) {
+            hasFilter(filter) {
                 return this.filters.indexOf(filter) > -1;
             },
 
-            select: function(filter) {
-                this.toggleFilter({ filter });
+            select(filter) {
+                this.toggleFilter({filter});
             }
         }
     };

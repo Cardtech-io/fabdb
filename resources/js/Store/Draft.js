@@ -11,6 +11,20 @@ export default {
     },
 
     mutations: {
+        clearFilters(state) {
+            state.filters = [];
+        },
+
+        toggleFilter(state, {filter}) {
+            let key = -1;
+
+            if ((key = state.filters.indexOf(filter)) > -1) {
+                state.filters.splice(key, 1);
+            } else {
+                state.filters.push(filter);
+            }
+        },
+
         crackPack(state, {cards, pack}) {
             state.practise.packs.splice(pack, 1, cards);
         },
@@ -62,6 +76,14 @@ export default {
         reset({commit}) {
             commit('setPractise', {practise: null});
             commit('selectSet', {set: null});
+        },
+
+        clearFilters({commit}) {
+            commit('clearFilters');
+        },
+
+        toggleFilter({commit}, {filter}) {
+            commit('toggleFilter', {filter});
         }
     }
 }

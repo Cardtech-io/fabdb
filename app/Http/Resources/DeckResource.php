@@ -15,6 +15,7 @@ class DeckResource extends JsonResource
             'updatedAt'
         ]);
 
+        $response['practise'] = $this->when($this->resource->practiseId, new PractiseResource($this->resource->practise));
         $response['cards'] = CardResource::collection($this->resource->cards);
         $response['sideboard'] = SideboardResource::collection($this->resource->sideboard);
 

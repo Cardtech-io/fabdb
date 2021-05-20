@@ -5,6 +5,7 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
     import Cards from "../DeckBuilder/Cards";
     import GroupedCards from "./GroupedCards";
 
@@ -13,8 +14,16 @@
         props: ['packs'],
 
         computed: {
+            ...mapState('draft', ['filters']),
+
             cards() {
-                return new Cards(this.packs.flat()).sort();
+                let cards = new Cards(this.packs.flat());
+
+                if (this.filters.length) {
+                    cards = cards.applyFilters(this.filters);
+                }
+
+                return cards.sort();
             }
         }
     }

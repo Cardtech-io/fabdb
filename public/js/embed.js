@@ -36524,21 +36524,34 @@ __webpack_require__.r(__webpack_exports__);
     zoom: 2
   },
   mutations: {
-    crackPack: function crackPack(state, _ref) {
-      var cards = _ref.cards,
-          pack = _ref.pack;
+    clearFilters: function clearFilters(state) {
+      state.filters = [];
+    },
+    toggleFilter: function toggleFilter(state, _ref) {
+      var filter = _ref.filter;
+      var key = -1;
+
+      if ((key = state.filters.indexOf(filter)) > -1) {
+        state.filters.splice(key, 1);
+      } else {
+        state.filters.push(filter);
+      }
+    },
+    crackPack: function crackPack(state, _ref2) {
+      var cards = _ref2.cards,
+          pack = _ref2.pack;
       state.practise.packs.splice(pack, 1, cards);
     },
-    selectSet: function selectSet(state, _ref2) {
-      var set = _ref2.set;
+    selectSet: function selectSet(state, _ref3) {
+      var set = _ref3.set;
       state.set = set;
     },
-    setFormat: function setFormat(state, _ref3) {
-      var format = _ref3.format;
+    setFormat: function setFormat(state, _ref4) {
+      var format = _ref4.format;
       state.format = format;
     },
-    setPractise: function setPractise(state, _ref4) {
-      var practise = _ref4.practise;
+    setPractise: function setPractise(state, _ref5) {
+      var practise = _ref5.practise;
       state.practise = practise;
     },
     generatePacks: function generatePacks(state) {
@@ -36549,8 +36562,8 @@ __webpack_require__.r(__webpack_exports__);
         state.practise.packs.push([]);
       }
     },
-    setGrouping: function setGrouping(state, _ref5) {
-      var grouping = _ref5.grouping;
+    setGrouping: function setGrouping(state, _ref6) {
+      var grouping = _ref6.grouping;
       state.grouping = grouping;
     },
     toggleFullScreen: function toggleFullScreen(state) {
@@ -36558,37 +36571,48 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    crackPack: function crackPack(_ref6, _ref7) {
-      var commit = _ref6.commit;
-      var cards = _ref7.cards,
-          pack = _ref7.pack;
+    crackPack: function crackPack(_ref7, _ref8) {
+      var commit = _ref7.commit;
+      var cards = _ref8.cards,
+          pack = _ref8.pack;
       commit('crackPack', {
         cards: cards,
         pack: pack
       });
     },
-    selectSet: function selectSet(_ref8, _ref9) {
-      var commit = _ref8.commit;
-      var set = _ref9.set;
+    selectSet: function selectSet(_ref9, _ref10) {
+      var commit = _ref9.commit;
+      var set = _ref10.set;
       commit('selectSet', {
         set: set
       });
     },
-    setPractise: function setPractise(_ref10, _ref11) {
-      var commit = _ref10.commit;
-      var practise = _ref11.practise;
+    setPractise: function setPractise(_ref11, _ref12) {
+      var commit = _ref11.commit;
+      var practise = _ref12.practise;
       commit('setPractise', {
         practise: practise
       });
       commit('generatePacks');
     },
-    reset: function reset(_ref12) {
-      var commit = _ref12.commit;
+    reset: function reset(_ref13) {
+      var commit = _ref13.commit;
       commit('setPractise', {
         practise: null
       });
       commit('selectSet', {
         set: null
+      });
+    },
+    clearFilters: function clearFilters(_ref14) {
+      var commit = _ref14.commit;
+      commit('clearFilters');
+    },
+    toggleFilter: function toggleFilter(_ref15, _ref16) {
+      var commit = _ref15.commit;
+      var filter = _ref16.filter;
+      commit('toggleFilter', {
+        filter: filter
       });
     }
   }

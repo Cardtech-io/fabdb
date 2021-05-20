@@ -40,9 +40,9 @@
             ...mapState('deck', ['deck']),
 
             heroes() {
-                if (this.deck.practiseId) {
+                if (this.deck.practise) {
                     return this.availableHeroes.filter(hero => {
-                        return hero.keywords.indexOf('young') !== -1;
+                        return hero.keywords.indexOf('young') !== -1 && hero.sku.set.id === this.deck.practise.set.id;
                     })
                 }
 

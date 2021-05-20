@@ -3,6 +3,7 @@ namespace FabDB\Domain\Decks;
 
 use Carbon\Carbon;
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Practise\Practise;
 use FabDB\Domain\Users\User;
 use FabDB\Domain\Voting\Vote;
 use FabDB\Domain\Voting\Voteable;
@@ -28,6 +29,11 @@ class Deck extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function practise()
+    {
+        return $this->belongsTo(Practise::class);
     }
 
     public function votes()
