@@ -13,7 +13,7 @@ class CardController extends Controller
     /**
      * @var CardRepository
      */
-    private $cards;
+    protected $cards;
 
     public function __construct(CardRepository $cards)
     {
@@ -30,7 +30,7 @@ class CardController extends Controller
         return CardResource::collection($cards);
     }
 
-    public function heroes(CardRepository $cards)
+    public function heroes()
     {
         return CardResource::collection($this->cards->uniqueHeroes());
     }
