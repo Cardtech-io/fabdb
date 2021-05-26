@@ -25062,7 +25062,7 @@ body {
   color: var(--nav-text-color);
 }
 
-.common, .token {
+.common, .rarity > .token {
   background: #919191;
 }
 

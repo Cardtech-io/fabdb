@@ -19,7 +19,7 @@ class TypeFilter implements SearchFilter
             for ($i = 0; $i < count($types); $i++) {
                 if ($types[$i] === 'non-attack action') {
                     $query->orWhere(function($query) {
-                        $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') = 'action'");
+                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'action') IS NOT NULL");
                         $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
                     });
                 } else {

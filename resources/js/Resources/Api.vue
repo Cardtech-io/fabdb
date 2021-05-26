@@ -79,7 +79,7 @@
                         <h4 class="font-bold text-lg">Card search</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="json" class="text-base">
 
 <pre>
 {
@@ -146,6 +146,13 @@
                                     <td class="p-2 border border-gray-400">Search for a card that matches the specified rarity.</td>
                                     <td class="p-2 border border-gray-400">
                                         String. Valid values are: C, R, S, T, L, F, P
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-400">set</td>
+                                    <td class="p-2 border border-gray-400">Search for cards from a given set.</td>
+                                    <td class="p-2 border border-gray-400">
+                                        String. Valid values are: WTR, ARC, CRU, MON
                                     </td>
                                 </tr>
                             </tbody>

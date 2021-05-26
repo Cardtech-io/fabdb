@@ -11,8 +11,12 @@
                             <card-image :card="cards.hero()" class="mb-4"></card-image>
                         </div>
                         <div class="w-1/2 md:w-auto float-left md:float-none">
-                            <deck-curves :cards="other" stat="cost" class="mb-4 h-140 sm:h-160"></deck-curves>
-                            <deck-curves :cards="other" stat="resource" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
+                                <deck-curves :cards="other" stat="cost" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            </div>
+                            <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
+                                <deck-curves :cards="other" stat="resource" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            </div>
                         </div>
                         <div class="hidden md:block">
                             <div class="mx-2 my-4">
