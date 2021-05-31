@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Packs
 {
-    private BoosterRepository $box;
+    private $box;
 
     public function __construct(BoosterRepository $packs)
     {
