@@ -1,7 +1,7 @@
 <template>
     <div class="flex overflow-hidden">
-        <button class="py-2 ml-1px w-1/2" :class="{ 'bg-gray-300 hover:bg-gray-200': total > 0, 'text-gray-400': total === 0 }" @click="removeCardFromDeck" :disabled="total === 0">-</button>
-        <button class="py-2 ml-1px w-1/2" :class="{ 'bg-gray-300 hover:bg-gray-200': total < maxAvailable, 'text-gray-400': total >= maxAvailable }" @click="addCardToDeck" :disabled="total >= maxAvailable">+</button>
+        <button class="py-2 ml-1px w-1/2 bg-gray-300" :class="{ 'hover:bg-white': total > 0, 'text-gray-400': total === 0 }" @click="removeCardFromDeck" :disabled="total === 0">-</button>
+        <button class="py-2 ml-1px w-1/2 bg-gray-300" :class="{ 'hover:bg-white': total < maxAvailable, 'text-gray-400': total >= maxAvailable }" @click="addCardToDeck" :disabled="total >= maxAvailable">+</button>
     </div>
 </template>
 

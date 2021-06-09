@@ -158,7 +158,7 @@ class TTSExporter
         $this->deck->load('cards.printings');
 
         $images = $this->deck->cards->map(function(Card $card) {
-            return $this->cardImageFromSku($card->image);
+            return $this->cardImageFromCard($card);
         })->toArray();
 
         // Now we push the "hidden" card back:
