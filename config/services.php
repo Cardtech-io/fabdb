@@ -31,6 +31,10 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'hotjar' => [
+        'id' => env('HOTJAR_ID')
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
