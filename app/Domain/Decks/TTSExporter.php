@@ -158,7 +158,7 @@ class TTSExporter
         $this->deck->load('cards.printings');
 
         $images = $this->deck->cards->map(function(Card $card) {
-            return $this->cardImagePath($card->image);
+            return $this->cardImageFromSku($card->image);
         })->toArray();
 
         // Now we push the "hidden" card back:
@@ -167,13 +167,18 @@ class TTSExporter
         return $images;
     }
 
-    private function cardImagePath(Sku $sku): string
+    private function cardImageFromSku(Sku $sku): string
     {
         list($set, $id) = str_split(strtolower($sku->stripped()), 3);
 
         $id = preg_replace('/^0{1,2}/', '', $id);
 
         return Storage::disk('do')->path("$set/$id.png");
+    }
+
+    private function cardImageFromCard(Card $card)
+    {
+        return Storage::disk('do')->path("{$card->image}.png");
     }
 
     /**
