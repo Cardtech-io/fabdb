@@ -51,8 +51,12 @@ export default {
                     let effect = matches[4];
                     let string = '';
 
-                    if (effect === 'Power') {
+                    if (effect === 'Pitch') {
                         effect = 'resource';
+                    }
+
+                    if (effect === 'Power') {
+                        effect = 'attack';
                     }
 
                     effect = effect.toLowerCase();
