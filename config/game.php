@@ -112,6 +112,13 @@ return [
             'browseable' => true,
             'draftable' => true
         ],
+        'u-mon' => [
+            'id' => 'mon',
+            'name' => 'Monarch (Unlimited)',
+            'released' => '2021-05-28',
+            'browseable' => false,
+            'draftable' => true
+        ],
         'wtr' => [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
