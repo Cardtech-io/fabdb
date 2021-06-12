@@ -113,7 +113,7 @@ return [
             'draftable' => true
         ],
         'u-mon' => [
-            'id' => 'mon',
+            'id' => 'u-mon',
             'name' => 'Monarch (Unlimited)',
             'released' => '2021-05-28',
             'browseable' => false,
