@@ -30,6 +30,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         'cru_first_singles',
         'mon_first_singles',
         'mon_blitz_singles',
+        'mon_unlimited_singles',
         'promo_singles'
     ];
     /**
@@ -67,7 +68,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
                 $this->log("Tricky card, ignoring [{$row['uid']}]");
                 continue;
             }
-            
+
             $stats = $this->stats($row);
 
             $this->identifier = Identifier::fromName($row['card_name']);
