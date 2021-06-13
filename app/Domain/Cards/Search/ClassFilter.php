@@ -13,13 +13,33 @@ class ClassFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $classes = Arr::flatten([explode(',', $input['class'])]);
-
-        if ($input['use-case'] == 'build') {
-            array_unshift($classes, 'generic');
+        if ($input['class'] === 'none') {
+            $this->noClass($query);
+        } else {
+            $this->matchesClassOrSpecialization($input['class'], $query);
         }
+    }
 
-        $query->where(function($query) use ($classes) {
+    /**
+     * Query for cards that have no class assigned to them (even generic!)
+     */
+    private function noClass(Builder $query)
+    {
+        $classes = implode("','", array_keys(config('game.classes')));
+
+        $query->whereRaw("JSON_EXTRACT(keywords, '$[0]') NOT IN ('$classes')");
+        $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') NOT IN ('$classes')");
+    }
+
+    /**
+     * @param string $class
+     * @param Builder $query
+     */
+    private function matchesClassOrSpecialization(string $class, Builder $query)
+    {
+        $classes = Arr::flatten([explode(',', $class)]);
+
+        $query->where(function ($query) use ($classes) {
             foreach ($classes as $class) {
                 $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '$class') IS NOT NULL");
             }
