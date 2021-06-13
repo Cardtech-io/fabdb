@@ -144,6 +144,7 @@ return [
         'ninja' => 'Ninja',
         'ranger' => 'Ranger',
         'runeblade' => 'Runeblade',
+        'shapeshifter' => 'Shapeshifter',
         'warrior' => 'Warrior',
         'wizard' => 'Wizard',
     ],
