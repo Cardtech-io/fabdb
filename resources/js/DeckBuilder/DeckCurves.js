@@ -11,16 +11,19 @@ export default {
         stat: {
             required: true,
             type: String
+        },
+        strategy: {
+            required: true,
+            type: String,
+            validator(value) {
+                return ['total', 'length'].indexOf(value) !== -1;
+            }
         }
     },
 
     methods: {
         update(cards) {
-            let values = _(cards.all())
-                .groupBy(card => card.stats[this.stat] || 0)
-                .mapValues(cards => cards.length)
-                .value();
-
+            let values = this.values(cards);
             let label = this.stat === 'resource' ? 'Pitch' : 'Cost';
             let color = this.stat === 'cost' ? '237, 137, 54' : '66, 153, 225';
 
@@ -55,6 +58,19 @@ export default {
                     }]
                 }
             });
+        },
+
+        values(cards) {
+            return _(cards.all())
+                .groupBy(card => card.stats[this.stat] || 0)
+                .mapValues(cards => {
+                    if (this.strategy === 'total') {
+                        return cards.reduce((carry, card) => carry + card.total, 0)
+                    } else {
+                        return cards.length;
+                    }
+                })
+                .value();
         }
     },
 

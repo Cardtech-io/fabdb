@@ -113,7 +113,10 @@ export default class Cards {
 
     colouredCount(colour) {
         const resources = {blue: 3, yellow: 2, red: 1};
-        return this.filter(card => { return card.stats.resource && card.stats.resource === resources[colour]}).total();
+
+        return this.filter(card => {
+            return card.stats.resource && card.stats.resource == resources[colour]
+        }).total();
     }
 
     other() {
