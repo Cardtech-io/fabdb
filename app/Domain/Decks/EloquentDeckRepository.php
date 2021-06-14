@@ -161,8 +161,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->withVotes();
 
         $query->with(['cards' => function($include) {
-            $include->whereRaw('JSON_SEARCH(cards.keywords, \'one\', \'hero\') IS NOT NULL');
-            $include->orWhereRaw('JSON_SEARCH(cards.keywords, \'one\', \'weapon\') IS NOT NULL');
+            $include->whereIn('type', ['hero', 'weapon']);
         }]);
 
         $query->with('user');
