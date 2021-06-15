@@ -1,5 +1,5 @@
 <template>
-    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
+    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click.prevent="clicked" :class="classes">
 </template>
 
 <script>
