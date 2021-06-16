@@ -12,10 +12,10 @@
                         </div>
                         <div class="w-1/2 md:w-auto float-left md:float-none">
                             <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
-                                <deck-curves :cards="other" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                                <deck-curves :cards="other.withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                             </div>
                             <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
-                                <deck-curves :cards="other" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                                <deck-curves :cards="other.withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                             </div>
                         </div>
                         <div class="hidden md:block">
@@ -60,8 +60,8 @@
                 <div class="hidden lg:block md:mr-8 max-w-250">
                     <card-image :card="cards.hero()" class="mb-4"></card-image>
                     <div>
-                        <deck-curves :cards="other" strategy="length" stat="cost" class="h-160 mb-4"></deck-curves>
-                        <deck-curves :cards="other" strategy="length" stat="resource"class="h-160"></deck-curves>
+                        <deck-curves :cards="other.withCost()" strategy="length" stat="cost" class="h-160 mb-4"></deck-curves>
+                        <deck-curves :cards="other.withResource()" strategy="length" stat="resource"class="h-160"></deck-curves>
                     </div>
                 </div>
                 <div class="sm:flex-1 sm:mr-4">

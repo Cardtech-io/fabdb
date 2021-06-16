@@ -91,8 +91,8 @@
                                         <li class="block p-1 pl-4 w-full">Defense reactions: {{ deck.other.defenseReactions().total() }}</li>
                                     </ol>
 
-                                    <deck-curves :cards="deck.other" stat="cost" strategy="total" style="height: 200px" class="mb-4"></deck-curves>
-                                    <deck-curves :cards="deck.other" stat="resource" strategy="total" style="height: 200px"></deck-curves>
+                                    <deck-curves :cards="deck.other.withCost()" stat="cost" strategy="total" style="height: 200px" class="mb-4"></deck-curves>
+                                    <deck-curves :cards="deck.other.withResource()" stat="resource" strategy="total" style="height: 200px"></deck-curves>
                                 </div>
                             </div>
 

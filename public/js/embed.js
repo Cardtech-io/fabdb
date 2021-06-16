@@ -21916,7 +21916,12 @@ var render = function() {
     staticClass: "w-full rounded-card",
     class: _vm.classes,
     attrs: { src: _vm.image, alt: _vm.card.name, title: _vm.card.name },
-    on: { click: _vm.clicked }
+    on: {
+      click: function($event) {
+        $event.preventDefault()
+        return _vm.clicked($event)
+      }
+    }
   })
 }
 var staticRenderFns = []

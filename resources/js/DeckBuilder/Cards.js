@@ -128,6 +128,14 @@ export default class Cards {
         return new Cards(_.sortBy(cards, card => { return card.stats.resource }));
     }
 
+    withCost() {
+        return this.other().filter(card => !isNaN(card.stats.cost));
+    }
+
+    withResource() {
+        return this.other().filter(card => !isNaN(card.stats.resource));
+    }
+
     sort() {
         return new Cards(_.sortBy(this.cards, card => {
             let resource = card.stats ? card.stats.resource : '';
