@@ -20,7 +20,7 @@ interface DeckRepository extends Repository
 
     public function setCardTotal(int $deckId, int $cardId, int $total);
 
-    public function search(array $params);
+    public function search(array $params, bool $forPaginator);
 
     public function copy(string $deckSlug, int $userId): Deck;
 

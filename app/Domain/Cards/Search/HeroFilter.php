@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 /**

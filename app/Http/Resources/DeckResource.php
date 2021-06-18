@@ -18,6 +18,7 @@ class DeckResource extends JsonResource
         $response['practise'] = $this->when($this->resource->practiseId, new PractiseResource($this->resource->practise));
         $response['cards'] = CardResource::collection($this->resource->cards);
         $response['sideboard'] = SideboardResource::collection($this->resource->sideboard);
+        $response['mine'] = $this->resource->userId === object_get(auth()->user(), 'id');
 
         return $response;
     }

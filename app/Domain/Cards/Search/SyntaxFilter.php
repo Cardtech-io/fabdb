@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;

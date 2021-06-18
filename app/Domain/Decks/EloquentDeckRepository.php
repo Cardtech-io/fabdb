@@ -1,11 +1,15 @@
 <?php
 namespace FabDB\Domain\Decks;
 
-use FabDB\Domain\Cards\Card;
-use FabDB\Domain\Market\PriceAverage;
+use FabDB\Domain\Decks\Filters\VotesFilter;
+use FabDB\Domain\Decks\Search\CardsFilter;
+use FabDB\Domain\Decks\Search\DeckCardCountFilter;
+use FabDB\Domain\Decks\Search\PriceCalculationFilter;
+use FabDB\Domain\Decks\Search\UserFilter;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -136,17 +140,9 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }, 3);
     }
 
-    public function search(array $params)
+    public function search(array $params, bool $forPaginator)
     {
         $query = $this->newQuery();
-
-        $priceCalc = DB::raw("(
-            SELECT
-                SUM(deck_cards.total * card_means.mean_{$params['currency']})
-                FROM deck_cards
-                JOIN card_means ON card_means.card_id = deck_cards.card_id
-                WHERE deck_cards.deck_id = decks.id
-            ) AS total_price");
 
         $query->select([
             'decks.id',
@@ -154,29 +150,33 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.name',
             'decks.label',
             'decks.slug',
-            'decks.format',
-            $priceCalc,
-            DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
+            'decks.format'
         ]);
 
-        $query->withVotes();
+        // When querying for the paginator, we don't want to overload the query as it queries the entire database
+        if (!$forPaginator) {
+            $filters = [
+                new PriceCalculationFilter,
+                new DeckCardCountFilter,
+                new VotesFilter,
+                new CardsFilter,
+                new UserFilter,
+            ];
 
-        $query->with(['cards' => function($include) {
-            $include->whereIn('type', ['hero', 'weapon']);
-        }]);
+            $this->applyFilters($query, $filters, $params);
+        }
 
-        $query->with('user');
-
-        $query->join('users', 'users.id', 'decks.user_id');
         $query->join(DB::raw('deck_cards dc1'), 'dc1.deck_id', '=', 'decks.id');
         $query->join(DB::raw('cards c1'), function($join) use ($params) {
             $join->on('c1.id', '=', 'dc1.card_id');
-            $join->whereRaw("JSON_SEARCH(c1.keywords, 'one', 'hero')");
+            $join->whereType('hero');
 
             if (!empty($params['hero'])) {
                 $join->where('c1.name', $params['hero']);
             }
         });
+
+        $query->join('users', 'users.id', 'decks.user_id');
 
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
@@ -203,6 +203,13 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $query->where('decks.visibility', 'public');
+
+        if (!$forPaginator) {
+            $perPage = Arr::get($params, 'per_page', 24);
+
+            $query->offset((Arr::get($params, 'page', 1) - 1) * $perPage);
+            $query->limit($perPage);
+        }
 
         return $query;
     }

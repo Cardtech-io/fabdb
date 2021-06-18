@@ -1,7 +1,6 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-use FabDB\Domain\Cards\Boosters\BoosterRepository;
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
@@ -16,7 +15,6 @@ use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
-use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TalentFilter;
@@ -267,15 +265,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $this->applyFilters($query, $filters, $params);
 
         return $query->first();
-    }
-
-    private function applyFilters($query, array $filters, $input)
-    {
-        foreach ($filters as $filter) {
-            if ($filter->applies($input)) {
-                $filter->applyTo($query, $input);
-            }
-        }
     }
 
     public function uniqueHeroes()

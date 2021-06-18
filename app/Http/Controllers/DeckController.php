@@ -23,6 +23,7 @@ use FabDB\Http\Requests\SaveDeckSettingsRequest;
 use FabDB\Http\Requests\SetDeckCardTotalRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class DeckController extends Controller
@@ -39,9 +40,10 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        return $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]))
-            ->paginate($request->get('per_page', 24))
-            ->appends($request->except('page'));
+        $items = $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]), false)->get();
+        $total = $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]), true)->count();
+
+        return (new LengthAwarePaginator($items, $total, $request->get('per_page', 24), $request->get('page', 1)))->appends($request->except('page'));
     }
 
     public function starters()

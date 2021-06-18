@@ -68,7 +68,7 @@ const router = new VueRouter({
 
         { path: "/decks/browse", component: BrowseDecks, name: 'decks.browse' },
         { path: "/decks/build", component: ListDecks, name: 'decks.mine' },
-        { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck', auth: true } },
+        { path: "/decks/build/:deck", component: DeckBuilder, name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck' } },
         { path: "/decks/test/:deck", component: TestDeck, meta: { auth: true } },
         { path: "/decks/export/:deck", component: ExportDeck, meta: { title: 'Deck builder &gt; Export', auth: true } },
         { path: "/decks/starters", component: StarterDecks, meta: { title: 'Flesh &amp; Blood Starter Decks' } },

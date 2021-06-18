@@ -194,6 +194,14 @@
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/' + to.params.deck).then(response => {
                 callback(function() {
+                    // This little piece of code ensures players going to deck build links go to the actual
+                    // public deck link, rather than the build page, as lots of players tend to just copy and paste
+                    // the build link.
+                    if (!response.data.mine) {
+                        this.$router.push({name: 'decks.view', params: {deck: response.data.slug}});
+                        return;
+                    }
+
                     this.setMode({ mode: 'all' });
                     this.setDeck({ deck: response.data });
                 });

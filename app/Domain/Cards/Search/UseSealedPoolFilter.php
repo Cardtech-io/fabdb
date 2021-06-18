@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use FabDB\Domain\Decks\Deck;
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
