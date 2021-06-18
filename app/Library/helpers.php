@@ -12,13 +12,15 @@ use Illuminate\Support\Facades\Storage;
 function fab_asset(string $asset): string
 {
     $version = fab_version();
-    $versionedAsset = "/js/$asset-$version.js";
+    $pathInfo = pathinfo($asset);
+
+    $versionedAsset = $pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
 
     if (File::exists(public_path($versionedAsset))) {
         return $versionedAsset;
     }
 
-    return "/js/$asset.js";
+    return $asset;
 }
 
 /**

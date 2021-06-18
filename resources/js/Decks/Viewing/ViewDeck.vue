@@ -128,7 +128,6 @@
 
     import Breadcrumbs from '../../Components/Breadcrumbs.vue';
     import Cardable from '../../CardDatabase/Cardable';
-    import DeckCard from "../DeckCard";
     import DeckCurves from "../../DeckBuilder/DeckCurves";
     import DeckLabel from "./Label";
     import Discussion from "../../Discussion/Discussion";
@@ -151,7 +150,6 @@
         components: {
             Breadcrumbs,
             Cards,
-            DeckCard,
             DeckCurves,
             DeckLabel,
             Discussion,

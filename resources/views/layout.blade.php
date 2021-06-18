@@ -7,7 +7,7 @@ $user = auth()->user();
 $settings = compile_settings();
 $lang = compile_lang();
 $theme = $user ? object_get($user, 'theme', 'default') : 'default';
-$jsFile = $view === 'embed' ? 'embed' : 'app';
+$jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -18,8 +18,8 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
+
+        <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
         <style type="text/css">
             @if ($user && $user->width == 'wide')
                 .container {
@@ -27,7 +27,6 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
                 }
             @endif
         </style>
-        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -66,6 +65,9 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200&display=swap" rel="stylesheet">¡
+        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
         <script src="{{ fab_asset($jsFile) }}"></script>
+
     </body>
 </html>
