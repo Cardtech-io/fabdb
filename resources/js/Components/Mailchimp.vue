@@ -30,7 +30,3 @@
         name: "Mailchimp"
     }
 </script>
-
-<style scoped>
-
-</style>

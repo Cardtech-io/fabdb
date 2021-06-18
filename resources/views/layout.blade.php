@@ -20,13 +20,13 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
 
 
         <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
+        @if ($user && $user->width == 'wide')
         <style type="text/css">
-            @if ($user && $user->width == 'wide')
-                .container {
-                    max-width: 1800px !important;
-                }
-            @endif
+            .container {
+                max-width: 1800px !important;
+            }
         </style>
+        @endif
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">

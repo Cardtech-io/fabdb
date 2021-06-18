@@ -59,7 +59,6 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import Article from './Article';
     import ArticleItem from "./ArticleItem";
     import Avatar from "../Identity/Avatar";

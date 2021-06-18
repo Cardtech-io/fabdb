@@ -31,7 +31,6 @@
 
 <script>
     import axios from 'axios';
-    import moment from 'moment';
 
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from "../Utilities/Imagery";

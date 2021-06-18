@@ -44,7 +44,6 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import { mapGetters } from 'vuex';
 
     import Article from './Article';

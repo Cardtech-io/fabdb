@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
                 <div class="relative overflow-visible logo ml-4 sm:ml-0 py-1">
                     <router-link to="/">
-                        <img src="/img/fabdb-logo.png" width="90">
+                        <img src="/img/fabdb-logo.png" width="90" height="38">
                     </router-link>
                 </div>
                 <button type="button" class="block text-white sm:hidden mr-4" @click="toggle">
@@ -72,7 +72,6 @@
                     items.push({
                         text: 'Account',
                         children: [
-                            { link: '/articles/mine', text: 'My articles' },
                             { link: '/events/mine', text: 'My events' },
                             { link: '/profile', text: 'Profile' },
                             { link: '/logout', text: 'Logout' },

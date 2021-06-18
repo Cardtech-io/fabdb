@@ -71,7 +71,6 @@
     }
 </script>
 
-
 <style scoped>
     .booster {
         transition: background-color 0.2s, transform 0.2s;

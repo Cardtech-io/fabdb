@@ -92,7 +92,6 @@
 
 <script>
     import axios from 'axios';
-    import moment from 'moment';
     import { mapActions, mapGetters } from 'vuex';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';

@@ -1,8 +1,10 @@
 module.exports = {
-    purge: [
-        './resources/js/**/*.vue',
-        './resources/views/**/*.blade.php'
-    ],
+    purge: {
+        content: [
+            './resources/js/**/*.vue',
+            './resources/views/**/*.blade.php'
+        ]
+    },
     theme: {
         extend: {
             backgroundColor: {

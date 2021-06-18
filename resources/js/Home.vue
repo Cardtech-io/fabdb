@@ -2,7 +2,7 @@
     <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
         <div class="mt-12 mb-6">
             <router-link to="/">
-                <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" class="mx-auto">
+                <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" height="113" class="mx-auto">
             </router-link>
         </div>
         <div class="my-4 bg-semi-black text-gray-400 sm:mx-auto p-2 px-4 rounded-lg flex items-center">

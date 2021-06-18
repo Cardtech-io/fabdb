@@ -23,7 +23,6 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import Avatar from "../Identity/Avatar";
     import Badge from '../Identity/Badge.vue';
     import Votes from '../Voting/Votes.vue';
