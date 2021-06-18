@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
 
+let WantTradeList = () => import(/* webpackChunkName: "user.profile.wants" */ './Collection/WantTradeList');
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -52,8 +54,8 @@ const router = new VueRouter({
 
         { path: '/user/:user', component: () => import(/* webpackChunkName: "user.profile.view" */ './Identity/ViewProfile'), children: [
             { path: '', component: () => import(/* webpackChunkName: "user.profile.decks" */ './Decks/LatestDecks'), name: 'user.profile.decks' },
-            { path: 'wants', component: () => import(/* webpackChunkName: "user.profile.wants" */ './Collection/WantTradeList'), name: 'user.profile.wants', meta: { view: 'want' } },
-            { path: 'trades', component: () => import(/* webpackChunkName: "user.profile.wants" */ './Collection/WantTradeList'), name: 'user.profile.trades', meta: { view: 'trade' } },
+            { path: 'wants', component: WantTradeList, name: 'user.profile.wants', meta: { view: 'want' } },
+            { path: 'trades', component: WantTradeList, name: 'user.profile.trades', meta: { view: 'trade' } },
         ]},
 
         { path: "/resources/api", component: () => import(/* webpackChunkName: "resources.api" */ './Resources/Api'), name: 'resources.api', meta: { title: 'API Documentation' } },

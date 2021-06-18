@@ -76171,6 +76171,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var WantTradeList = function WantTradeList() {
+  return __webpack_require__.e(/*! import() | user.profile.wants */ "user.profile.wants").then(__webpack_require__.bind(null, /*! ./Collection/WantTradeList */ "./resources/js/Collection/WantTradeList.vue"));
+};
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
@@ -76485,18 +76490,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       name: 'user.profile.decks'
     }, {
       path: 'wants',
-      component: function component() {
-        return __webpack_require__.e(/*! import() | user.profile.wants */ "user.profile.wants").then(__webpack_require__.bind(null, /*! ./Collection/WantTradeList */ "./resources/js/Collection/WantTradeList.vue"));
-      },
+      component: WantTradeList,
       name: 'user.profile.wants',
       meta: {
         view: 'want'
       }
     }, {
       path: 'trades',
-      component: function component() {
-        return __webpack_require__.e(/*! import() | user.profile.wants */ "user.profile.wants").then(__webpack_require__.bind(null, /*! ./Collection/WantTradeList */ "./resources/js/Collection/WantTradeList.vue"));
-      },
+      component: WantTradeList,
       name: 'user.profile.trades',
       meta: {
         view: 'trade'

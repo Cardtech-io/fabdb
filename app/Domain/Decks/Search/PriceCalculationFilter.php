@@ -3,13 +3,14 @@ namespace FabDB\Domain\Decks\Search;
 
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class PriceCalculationFilter implements SearchFilter
 {
     public function applies(array $input)
     {
-        return true;
+        return Arr::has($input, 'currency');
     }
 
     public function applyTo(Builder $query, array $input)

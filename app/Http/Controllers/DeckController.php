@@ -20,7 +20,6 @@ use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
-use FabDB\Http\Requests\SetDeckCardTotalRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -40,10 +39,9 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        $items = $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]), false)->get();
-        $total = $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]), true)->count();
-
-        return (new LengthAwarePaginator($items, $total, $request->get('per_page', 24), $request->get('page', 1)))->appends($request->except('page'));
+        return $this->decks->search(
+            array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')])
+        );
     }
 
     public function starters()
@@ -54,12 +52,11 @@ class DeckController extends Controller
     public function latest(Request $request)
     {
         $params = array_merge($request->all(), [
-            'currency' => object_get($request->user(), 'currency', 'USD'),
+            'per_page' => 10,
             'order' => 'newest'
         ]);
 
-        return $this->decks->search($params)
-            ->paginate(10);
+        return $this->decks->search($params);
     }
 
     public function addDeck(Request $request)

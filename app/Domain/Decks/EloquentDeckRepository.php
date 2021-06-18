@@ -140,7 +140,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }, 3);
     }
 
-    public function search(array $params, bool $forPaginator)
+    /**
+     * Used for executing two queries - one for a paginator, one without.
+     *
+     * @param array $params
+     * @param bool $forPaginator
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function searchPart(array $params, bool $forPaginator)
     {
         $query = $this->newQuery();
 
@@ -212,6 +219,18 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         return $query;
+    }
+
+    public function search(array $params)
+    {
+        $items = $this->searchPart($params, false)->get();
+        $total = $this->searchPart($params, true)->count();
+
+        $perPage = Arr::get($params, 'per_page', 24);
+        $page = Arr::get($params, 'page', 1);
+
+        return (new \Illuminate\Pagination\LengthAwarePaginator($items, $total, $perPage, $page))
+            ->appends(Arr::except($params, ['page']));
     }
 
     public function setCardTotal(int $deckId, int $cardId, int $total)
