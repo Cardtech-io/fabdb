@@ -26,11 +26,11 @@ export default {
     },
 
     resourceColour: function (resource) {
-        const colours = {1: 'red-600', 2: 'yellow-400', 3: 'blue-400'};
+        const colours = {1: 'bg-red-600', 2: 'bg-yellow-400', 3: 'bg-blue-400'};
         const colour = colours[resource];
 
         if (colour) {
-            return 'bg-' + colour;
+            return colour;
         }
     },
 
