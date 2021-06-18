@@ -152,6 +152,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.id',
             'decks.user_id',
             'decks.name',
+            'decks.label',
             'decks.slug',
             'decks.format',
             $priceCalc,
@@ -179,6 +180,10 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
+        }
+
+        if (!empty($params['label'])) {
+            $query->where('decks.label', $params['label']);
         }
 
         if (!empty($params['user'])) {

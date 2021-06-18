@@ -26,7 +26,7 @@ import DeckBuilder from './DeckBuilder/DeckBuilder';
 import TestDeck from './DeckBuilder/TestDeck';
 import ExportDeck from './DeckBuilder/ExportDeck';
 import StarterDecks from "./Decks/Starters";
-import ViewDeck from './Decks/ViewDeck';
+import ViewDeck from './Decks/Viewing/ViewDeck';
 import Support from './Support';
 import Profile from './Identity/Profile';
 import Privacy from './Privacy';

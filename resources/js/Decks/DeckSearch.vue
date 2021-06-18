@@ -1,14 +1,14 @@
 <template>
-    <form class="px-4 md:px-0 block flex" @submit.prevent="newSearch">
-        <div class="sm:w-2/5 pr-4">
+    <form class="px-4 md:px-0 block flex w-full" @submit.prevent="newSearch">
+        <div class="sm:w-2/6 pr-2">
             <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
                 <option :value="hero.name" v-for="hero in heroes">{{ hero.name }}</option>
             </select>
         </div>
 
-        <div class="sm:w-1/5 pr-4">
-            <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
+        <div class="sm:w-1/6 pr-2">
+            <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('format')">
                 <option value="">Format</option>
                 <option value="blitz">Blitz</option>
                 <option value="constructed">Constructed</option>
@@ -16,7 +16,14 @@
             </select>
         </div>
 
-        <div class="sm:w-1/5 pr-4">
+        <div class="sm:w-1/6 pr-2">
+            <select v-model="label" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('label')">
+                <option value="">Label</option>
+                <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
+            </select>
+        </div>
+
+        <div class="sm:w-1/6 pr-2">
             <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
                 <option value="">Order</option>
                 <option value="newest">Newest</option>
@@ -24,8 +31,8 @@
             </select>
         </div>
 
-        <div class="w-1/5">
-            <submit text="Search"></submit>
+        <div class="sm:w-1/6">
+            <submit text="Search" class="w-full"></submit>
         </div>
     </form>
 </template>
@@ -68,6 +75,16 @@
                 }
             },
 
+            label: {
+                get() {
+                    return this.params.label || '';
+                },
+
+                set(value) {
+                    this.updateParam({ key: 'label', value: value });
+                }
+            },
+
             order: {
                 get() {
                     return this.params.order || 'newest';
@@ -92,6 +109,7 @@
                 const params = {
                     hero: this.hero,
                     order: this.order,
+                    label: this.label,
                     format: this.format,
                     page: this.params.page
                 };

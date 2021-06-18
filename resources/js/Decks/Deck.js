@@ -9,6 +9,10 @@ class Deck {
         return this.fields.name;
     }
 
+    get label() {
+        return this.fields.label || '';
+    }
+
     get notes() {
         return this.fields.notes;
     }

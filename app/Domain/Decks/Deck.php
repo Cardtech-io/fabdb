@@ -154,19 +154,27 @@ class Deck extends Model
         return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
     }
 
-    public function saveSettings(string $name, string $notes, string $format, int $limitToCollection, string $visibility, int $cardBack)
-    {
+    public function saveSettings(
+        string $name,
+        string $label,
+        string $notes,
+        string $format,
+        int $limitToCollection,
+        string $visibility,
+        int $cardBack
+    ) {
         // We don't want timestamps updated as this shouldn't trigger a re-render of all the images when
         // downloading the deck sheet for tabletop simulator.
         $this->timestamps = false;
         $this->name = $name;
         $this->notes = $notes;
+        $this->label = $label;
         $this->format = $format;
         $this->limitToCollection = $limitToCollection;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
 
-        $this->raise(new DeckSettingsSaved($this->id, $name, $format, $visibility, $cardBack));
+        $this->raise(new DeckSettingsSaved($this->id, $name, $label, $format, $visibility, $cardBack));
     }
 
     public function copy(int $userId)

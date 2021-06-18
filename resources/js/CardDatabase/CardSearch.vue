@@ -17,7 +17,7 @@
             </div>
 
             <div class="w-full text-center mt-2">
-                <router-link :to="advancedSearchLink" class="inline-block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 px-4 mx-auto">Advanced</router-link>
+                <router-link :to="advancedSearchLink" class="inline-block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 pb-1 px-4 mx-auto">Advanced</router-link>
             </div>
         </form>
     </div>

@@ -36736,6 +36736,7 @@ __webpack_require__.r(__webpack_exports__);
     params: {
       currency: 'USD',
       format: null,
+      label: '',
       hero: null,
       order: 'newest',
       keywords: '',

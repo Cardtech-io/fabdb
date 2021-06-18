@@ -8,12 +8,10 @@
                 </div>
 
                 <div class="w-full mb-4">
-                    <label class="block font-serif uppercase tracking-wide mb-1">Type</label>
-                    <select type="text" v-model="deck.type" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                        <option value="casual">Casual</option>
-                        <option value="competitive">Competitive</option>
-                        <option value="janky">Janky/fun</option>
-                        <option value="meme">Meme</option>
+                    <label class="block font-serif uppercase tracking-wide mb-1">Label</label>
+                    <select type="text" v-model="deck.label" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">None</option>
+                        <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
                     </select>
                 </div>
 
@@ -118,6 +116,7 @@
 
                 let params = {
                     name: this.deck.name,
+                    label: this.deck.label,
                     notes: this.deck.notes,
                     type: this.deck.type,
                     format: this.deck.format,
