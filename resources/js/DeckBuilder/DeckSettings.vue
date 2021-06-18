@@ -9,7 +9,7 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Type</label>
-                    <select type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select type="text" v-model="deck.type" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="casual">Casual</option>
                         <option value="competitive">Competitive</option>
                         <option value="janky">Janky/fun</option>
@@ -119,6 +119,7 @@
                 let params = {
                     name: this.deck.name,
                     notes: this.deck.notes,
+                    type: this.deck.type,
                     format: this.deck.format,
                     limitToCollection: this.deck.limitToCollection,
                     visibility: this.deck.visibility,
