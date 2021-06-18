@@ -14,8 +14,8 @@ function fab_asset(string $asset): string
     $version = fab_version();
     $pathInfo = pathinfo($asset);
 
-    $versionedAsset = $pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
-
+    $versionedAsset = $pathInfo['dirname'].'/'.$pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
+    
     if (File::exists(public_path($versionedAsset))) {
         return $versionedAsset;
     }
