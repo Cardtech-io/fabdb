@@ -125,6 +125,7 @@ class DeckController extends Controller
         $this->dispatchNow(new SaveDeckSettings(
             $request->deck->id,
             $request->get('name', $request->deck->name),
+            $request->get('notes', $request->deck->notes),
             $request->get('format', $request->deck->format),
             (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),

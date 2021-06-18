@@ -154,12 +154,13 @@ class Deck extends Model
         return empty($this->decksheet) || $this->decksheetCreatedAt->lt($this->updatedAt);
     }
 
-    public function saveSettings(string $name, string $format, int $limitToCollection, string $visibility, int $cardBack)
+    public function saveSettings(string $name, string $notes, string $format, int $limitToCollection, string $visibility, int $cardBack)
     {
         // We don't want timestamps updated as this shouldn't trigger a re-render of all the images when
         // downloading the deck sheet for tabletop simulator.
         $this->timestamps = false;
         $this->name = $name;
+        $this->notes = $notes;
         $this->format = $format;
         $this->limitToCollection = $limitToCollection;
         $this->visibility = $visibility;
@@ -179,6 +180,7 @@ class Deck extends Model
         $deck = new Deck;
         $deck->parentId = $this->id;
         $deck->name = $name;
+        $deck->notes = $this->notes;
         $deck->userId = $userId;
         $deck->format = $this->format;
 

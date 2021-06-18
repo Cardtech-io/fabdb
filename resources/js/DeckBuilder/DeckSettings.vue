@@ -7,6 +7,21 @@
                     <input type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
                 </div>
 
+                <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Type</label>
+                    <select type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="casual">Casual</option>
+                        <option value="competitive">Competitive</option>
+                        <option value="janky">Janky/fun</option>
+                        <option value="meme">Meme</option>
+                    </select>
+                </div>
+
+                <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Notes</label>
+                    <markdown-editor :configs="{toolbar: ['heading', 'bold', 'italic', 'quote', '|', 'unordered-list', 'ordered-list']}" v-model="deck.notes" ref="markdownEditor"></markdown-editor>
+                </div>
+
                 <div class="w-full mb-4" v-if="!deck.practiseId">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
                     <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
@@ -56,10 +71,11 @@
             </form>
         </div>
 
-        <div class="mt-8 md:w-1/2 md:mt-0 text-lg">
-            <p class="my-4">With the various deck settings you can change two values:</p>
+        <div class="mt-8 md:w-1/2 md:mt-0 text-base">
+            <p class="my-4">With the various deck settings you can change several values:</p>
 
             <ul class="list-disc ml-8">
+                <li>Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups.</li>
                 <li>Deck format: Whether your deck is for blitz/UPF or constructed play.</li>
                 <li>Limit to collection: Select soft if you just want missing cards highlighted. Select the hard limit if you do not want missing cards to show up in search at all. The former is better for purchase planning, the latter is better for tournament preparaation.</li>
                 <li>Deck visibility: This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link.</li>
@@ -69,12 +85,18 @@
     </div>
 </template>
 
+<style>
+    @import '~simplemde/dist/simplemde.min.css';
+</style>
+
 <script>
     import axios from 'axios';
-    import { mapActions, mapGetters } from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
+    import MarkdownEditor from 'vue-simplemde';
 
     export default {
         props: ['deck'],
+        components: {MarkdownEditor},
 
         data() {
             return {
@@ -96,6 +118,7 @@
 
                 let params = {
                     name: this.deck.name,
+                    notes: this.deck.notes,
                     format: this.deck.format,
                     limitToCollection: this.deck.limitToCollection,
                     visibility: this.deck.visibility,

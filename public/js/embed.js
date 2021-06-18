@@ -1947,9 +1947,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   methods: {
-    clicked: function clicked() {
+    clicked: function clicked(event) {
       if (this.handlerProvided()) {
         this.clickHandler(this.card);
+        event.preventDefault();
       }
     },
     handlerProvided: function handlerProvided() {
@@ -21916,12 +21917,7 @@ var render = function() {
     staticClass: "w-full rounded-card",
     class: _vm.classes,
     attrs: { src: _vm.image, alt: _vm.card.name, title: _vm.card.name },
-    on: {
-      click: function($event) {
-        $event.preventDefault()
-        return _vm.clicked($event)
-      }
-    }
+    on: { click: _vm.clicked }
   })
 }
 var staticRenderFns = []
@@ -37020,14 +37016,20 @@ __webpack_require__.r(__webpack_exports__);
       var name = hero.split(' ')[0].replace(',', '').toLowerCase();
       return this.imageUrl('/decks/backgrounds/' + name + '.jpg', 1700);
     },
-    heroProfile: function heroProfile(hero, width) {
+    heroProfile: function heroProfile(hero, width, rounded) {
       var imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
       if (hero.keywords.indexOf('young') !== -1) {
         imageName += '-blitz';
       }
 
-      return this.imageUrl('/heroes/' + imageName + '.jpg', width);
+      var path = '/heroes/' + imageName + '.png';
+
+      if (rounded) {
+        path += '?mask=corners&w=' + width + '&h=' + width + '&corner-radius=100&fm=png';
+      }
+
+      return this.imageUrl(path, width);
     },
     cardImageFromSku: function cardImageFromSku(sku, width) {
       return this.imageUrl(this.cardImagePathFromSku(sku), width);

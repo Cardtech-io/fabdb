@@ -18,7 +18,7 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
         <style type="text/css">
             @if ($user && $user->width == 'wide')

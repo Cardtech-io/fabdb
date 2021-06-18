@@ -1,5 +1,5 @@
 <template>
-    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click.prevent="clicked" :class="classes">
+    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
 </template>
 
 <script>
@@ -38,13 +38,14 @@
         },
 
         methods: {
-            clicked: function() {
+            clicked(event) {
                 if (this.handlerProvided()) {
                     this.clickHandler(this.card);
+                    event.preventDefault();
                 }
             },
 
-            handlerProvided: function() {
+            handlerProvided() {
                 return !!this.clickHandler;
             }
         }

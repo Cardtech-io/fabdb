@@ -1,10 +1,12 @@
 <template>
-    <div class="flex-grow relative flex flex-col w-full " v-touch:moving="swipe">
-
-        <div class="relative flex mx-auto z-100 mt-4">
-            <hero-avatar :hero="player.hero" :name="player.hero.name" :width="80" class="absolute m-4 z-25" style="left: -40px; top: -15px"></hero-avatar>
+    <div class="flex-grow flex flex-col w-full " v-touch:moving="swipe">
+        <div class="flex mx-auto z-100 my-1" :style="{
+            backgroundImage: 'url('+heroProfile(player.hero, 160, true)+')',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center 20px'
+        }">
             <button class="text-white px-8 text-4xl" @click="hurt()">-</button>
-            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass">{{ life }}</h2>
+            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass" style="text-shadow: 2px 2px 3px #000000">{{ life }}</h2>
             <button class="text-white px-8 text-4xl" @click="heal()">+</button>
         </div>
 
@@ -19,6 +21,7 @@
 
 <script>
     import HeroAvatar from "../Components/HeroAvatar";
+    import Imagery from "../Utilities/Imagery";
     import Resource from "../Decks/Resource";
 
     export default {
@@ -30,6 +33,7 @@
             players: Number
         },
 
+        mixins: [Imagery],
         components: {HeroAvatar, Resource},
 
         data() {

@@ -255,14 +255,6 @@ footer.footer .link:hover {
     color: var(--link-color);
 }
 
-@font-face {
-    font-family: 'Capitolium';
-    src: url('/fonts/Capitolium-RegularRomanOsf.woff2') format('woff2'),
-    url('/fonts/Capitolium-RegularRomanOsf.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .input, .input:focus {
     @apply appearance-none;
     @apply block;

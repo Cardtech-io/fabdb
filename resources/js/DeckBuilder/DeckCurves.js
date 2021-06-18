@@ -68,6 +68,11 @@ export default {
                 maintainAspectRatio: false,
                 fill: false,
                 scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                    }],
                     yAxes: [{
                         ticks: {
                             stepSize: 10,

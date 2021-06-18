@@ -18,14 +18,20 @@ export default {
             return this.imageUrl('/decks/backgrounds/'+name+'.jpg', 1700);
         },
 
-        heroProfile(hero, width) {
+        heroProfile(hero, width, rounded) {
             let imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
             if (hero.keywords.indexOf('young') !== -1) {
                 imageName += '-blitz';
             }
 
-            return this.imageUrl('/heroes/' + imageName + '.jpg', width);
+            let path = '/heroes/' + imageName + '.png';
+
+            if (rounded) {
+                path += '?mask=corners&w='+width+'&h='+width+'&corner-radius=100&fm=png';
+            }
+
+            return this.imageUrl(path, width);
         },
 
         cardImageFromSku(sku, width) {

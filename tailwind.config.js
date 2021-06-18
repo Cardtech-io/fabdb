@@ -114,7 +114,7 @@ module.exports = {
 
         fontFamily: {
             'sans': ['Raleway', 'Helvetica', 'Helvetica\\ Neue', 'Arial', 'sans-serif'],
-            'serif': ['Capitolium', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+            'serif': ['Lora', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
         },
 
         zIndex: {

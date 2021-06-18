@@ -9,6 +9,10 @@ class Deck {
         return this.fields.name;
     }
 
+    get notes() {
+        return this.fields.notes;
+    }
+
     get cards() {
         return new Cards(this.fields.cards);
     }

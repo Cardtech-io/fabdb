@@ -8,11 +8,13 @@
                 <div class="container sm:mx-auto px-4 flex">
                     <div class="flex-1 font-serif uppercase py-4 md:px-0">
                         {{ deck.cards.total() }} Cards in deck &nbsp;
-                        (
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ deck.cards.colouredCount('blue') }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ deck.cards.colouredCount('yellow') }} &nbsp;
-                        <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ deck.cards.colouredCount('red') }}
-                        )
+                        <span class="hidden md:inline">
+                            (
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(3)"></span> {{ deck.cards.colouredCount('blue') }} &nbsp;
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(2)"></span> {{ deck.cards.colouredCount('yellow') }} &nbsp;
+                            <span class="inline-block rounded-lg h-2 w-2" :class="resourceColour(1)"></span> {{ deck.cards.colouredCount('red') }}
+                            )
+                        </span>
                     </div>
                     <div class="text-right mt-2">
                         <votes :size="6" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"></votes>
@@ -21,17 +23,32 @@
             </div>
 
             <div class="bg-gray-200">
-                <div class="sm:hidden" :style="'height: 200px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(deck.hero.name)+'); background-repeat: no-repeat'"></div>
-
                 <div class="container sm:mx-auto px-4">
-                    <div class="md:flex -mt-12 sm:mt-0">
-                        <div class="hidden sm:block pt-4 md:pt-0 w-full md:w-1/4 md:mr-8" :style="'max-height: 1000px; background-size: cover; background-image: linear-gradient(180deg, rgba(245, 246, 252, 0), 70%, rgba(237, 242, 247, 1)), url('+heroBackground(deck.hero.name)+'); background-repeat: no-repeat'"></div>
+                    <div class="md:flex md:pt-0">
+                        <div class="py-4 md:pr-4 md:w-1/4">
+                            <card-image :card="deck.hero"></card-image>
 
-                        <div class="w-full md:w-3/4 md:py-8">
-                            <ul class="flex border-b border-gray-400 mb-4">
+                            <div class="mt-4 rounded-lg bg-gray-100 overflow-hidden">
+                                <h3 class="font-serif uppercase text-2xl mb-2 bg-white p-2 px-4">Deck stats</h3>
+
+                                <div class="px-4">
+                                    <ol class="mb-8">
+                                        <li class="block py-1 w-full">Attack actions: {{ deck.other.attackActions().total() }}</li>
+                                        <li class="block py-1 w-full">Attack reactions: {{ deck.other.attackReactions().total() }}</li>
+                                        <li class="block py-1 w-full">Defense reactions: {{ deck.other.defenseReactions().total() }}</li>
+                                    </ol>
+
+                                    <deck-curves :cards="deck.other.withCost()" stat="cost" strategy="total" style="height: 200px" class="mb-4"></deck-curves>
+                                    <deck-curves :cards="deck.other.withResource()" stat="resource" strategy="total" style="height: 200px"></deck-curves>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-3/4 md:py-4">
+                            <ul class="flex border-b border-gray-400">
                                 <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'composition'" :class="tabClasses('composition')">Composition</button></li>
                                 <li class="mr-2"><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'rulings'" :class="tabClasses('rulings')">Rulings</button></li>
-                                <li class="ml-auto">
+                                <li class="mt-1 ml-4">
                                     <a :href="buyLink(deck)" class="flex items-center w-full sm:w-auto button-primary rounded px-3 py-2 text-base" target="_blank">
                                         <icon :size="4">
                                             <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
@@ -40,7 +57,7 @@
                                         <span class="ml-1">Buy <span class="hidden sm:inline">deck</span></span>
                                     </a>
                                 </li>
-                                <li class="ml-2">
+                                <li class="ml-2 mt-1">
                                     <button @click="copyDeck" class="sm:flex items-center w-full hidden sm:w-auto button-primary rounded px-3 py-2 text-base">
                                         <icon :size="4">
                                             <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
@@ -50,61 +67,86 @@
                                 </li>
                             </ul>
 
-                            <div class="lg:flex" v-if="tab == 'composition'">
-                                <div class="w-full md:w-2/7">
-                                    <div v-if="deck.weapons.total()" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons ({{deck.weapons.total()}})</h3>
-                                        <ol>
-                                            <li v-for="card in deck.weapons" class="p-2 pl-4">
-                                                <deck-card :card="card" :collapse="true"></deck-card>
-                                            </li>
-                                        </ol>
+                            <div class="bg-gray-200 py-4" v-if="tab == 'composition'">
+                                <div v-if="deck.notes" class="md:flex">
+                                    <div class="w-full md:w-2/3 pl-4 pr-8">
+                                        <div class="mb-8" v-html="minimalMarkdown(deck.notes)"></div>
+                                        <div class="border-t border-gray-400 mt-4">
+                                            <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>
+                                        </div>
                                     </div>
+                                    <div class="w-full md:w-1/3">
+                                        <div v-if="deck.weapons.total()" class="mb-8">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons ({{deck.weapons.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.weapons" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card" :collapse="true"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
 
-                                    <div v-if="deck.equipment.total()" class="mb-8">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment ({{deck.equipment.total()}})</h3>
-                                        <ol>
-                                            <li v-for="card in deck.equipment" class="p-2 pl-4">
-                                                <deck-card :card="card" :collapse="true"></deck-card>
-                                            </li>
-                                        </ol>
+                                        <div v-if="deck.equipment.total()" class="mb-8">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment ({{deck.equipment.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.equipment" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card" :collapse="true"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
+
+                                        <div v-if="deck.other.total()">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other ({{deck.other.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.other" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
                                     </div>
                                 </div>
+                                <div v-else class="md:flex">
+                                    <div class="w-full md:w-1/3">
+                                        <div v-if="deck.weapons.total()" class="mb-8">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Weapons ({{deck.weapons.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.weapons" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card" :collapse="true"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
 
-                                <div class="w-full md:w-3/7">
-                                    <div v-if="deck.other.total()">
-                                        <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other ({{deck.other.total()}})</h3>
-                                        <ol>
-                                            <li v-for="card in deck.other" class="p-2 pl-4">
-                                                <deck-card :card="card"></deck-card>
-                                            </li>
-                                        </ol>
+                                        <div v-if="deck.equipment.total()" class="mb-8">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Equipment ({{deck.equipment.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.equipment" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card" :collapse="true"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="w-full md:w-2/7">
-                                    <h3 class="py-2 px-4 font-serif uppercase text-2xl mb-4">Deck stats</h3>
-
-                                    <ol class="mb-8">
-                                        <li class="block p-1 pl-4 w-full">Attack actions: {{ deck.other.attackActions().total() }}</li>
-                                        <li class="block p-1 pl-4 w-full">Attack reactions: {{ deck.other.attackReactions().total() }}</li>
-                                        <li class="block p-1 pl-4 w-full">Defense reactions: {{ deck.other.defenseReactions().total() }}</li>
-                                    </ol>
-
-                                    <deck-curves :cards="deck.other.withCost()" stat="cost" strategy="total" style="height: 200px" class="mb-4"></deck-curves>
-                                    <deck-curves :cards="deck.other.withResource()" stat="resource" strategy="total" style="height: 200px"></deck-curves>
+                                    <div class="w-full md:w-1/3">
+                                        <div v-if="deck.other.total()">
+                                            <h3 class="py-2 px-4 font-serif uppercase text-2xl">Other ({{deck.other.total()}})</h3>
+                                            <ol>
+                                                <li v-for="card in deck.other" class="p-2 pl-4 odd:bg-gray-100">
+                                                    <deck-card :card="card"></deck-card>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="md:pl-4" v-if="tab == 'rulings'">
+                            <div class="md:pl-4 bg-gray-200 py-2" v-if="tab == 'rulings'">
                                 <rulings :rulings="rulings"></rulings>
                             </div>
                         </div>
                     </div>
 
-                    <hr class="text-gray-500 mt-4">
-
-                    <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>
+                    <div class="border-t border-gray-400 mt-4" v-if="!deck.notes">
+                        <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,9 +185,10 @@
     import Votes from '../Voting/Votes.vue';
     import Models from "../Utilities/Models";
     import Deck from "./Deck";
+    import Strings from "../Utilities/Strings";
 
     export default {
-        mixins: [Cardable, Imagery],
+        mixins: [Cardable, Imagery, Strings],
 
         components: {
             Breadcrumbs,
@@ -176,7 +219,7 @@
             },
 
             rulings() {
-                let rulings = _.flatten(this.deck.cards.map(card => {
+                let rulings = _.flatten(this.deck.cards.all().map(card => {
                     return _.flatten(card.rulings.map(ruling => { return ruling.description; }));
                 }));
 
