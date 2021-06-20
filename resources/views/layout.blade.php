@@ -17,6 +17,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="theme-color" content="#4285f4">
 
 
         <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
@@ -32,14 +33,13 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 
-        @if (env('ANALYTICS_ID'))
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('ANALYTICS_ID') }}"></script>
+        @if ($analyticsId = config('services.google.analytics.id'))
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{$analyticsId}}"></script>
             <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '{{ env('ANALYTICS_ID') }}');
+                gtag('config', '{{$analyticsId}}');
             </script>
         @endif
 
@@ -68,6 +68,5 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200&display=swap" rel="stylesheet">¡
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
         <script src="{{ fab_asset($jsFile) }}"></script>
-
     </body>
 </html>
