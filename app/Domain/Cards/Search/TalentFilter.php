@@ -14,6 +14,11 @@ class TalentFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$input['talent']}') IS NOT NULL");
+        if ($input['talent'] === 'none') {
+            return $query->whereNull('cards.talent');
+
+        }
+
+        $query->where('cards.talent', $input['talent']);
     }
 }

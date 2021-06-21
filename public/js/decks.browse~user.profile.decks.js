@@ -69,6 +69,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -182,12 +188,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "md:float-left md:px-2 w-full lg:w-1/2 my-2" },
+    {
+      staticClass:
+        "md:float-left md:px-2 w-full lg:w-1/2 my-2 odd:bg-gray-100 rounded-full overflow-hidden"
+    },
     [
       _c(
         "router-link",
         {
-          staticClass: "block flex items-center rounded-full overflow-hidden",
+          staticClass: "block flex items-center",
           class: _vm.themeClasses(),
           attrs: { to: { name: "decks.view", params: { deck: _vm.deck.slug } } }
         },
@@ -197,6 +206,12 @@ var render = function() {
             { staticClass: "flex-none" },
             [
               _c("hero-avatar", {
+                staticClass: "block sm:hidden",
+                attrs: { hero: _vm.hero, name: _vm.deck.name, width: 80 }
+              }),
+              _vm._v(" "),
+              _c("hero-avatar", {
+                staticClass: "hidden sm:block",
                 attrs: { hero: _vm.hero, name: _vm.deck.name }
               })
             ],
@@ -208,42 +223,60 @@ var render = function() {
               "h2",
               {
                 staticClass:
-                  "font-serif uppercase text-2xl overflow-hidden mb-1",
+                  "font-serif uppercase text-lg md:text-2xl overflow-hidden md:mb-1",
                 staticStyle: { "max-height": "30px" }
               },
               [_vm._v(_vm._s(_vm.deck.name))]
             ),
             _vm._v(" "),
-            _vm.deck.totalPrice
-              ? _c("div", { staticClass: "font-italic text-blue-600 mb-1" }, [
-                  _vm._v("$" + _vm._s(_vm.deck.totalPrice))
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "span",
-              { staticClass: "inline-block flex" },
-              [
-                _c("deck-label", {
-                  staticClass: "mr-2 text-xs px-2 py-1 rounded-full",
-                  attrs: { label: _vm.deck.label }
-                }),
-                _vm._v(" "),
-                _vm.deck.user.name
-                  ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
-                  : _c("span", [_vm._v("Anonymous")])
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex-none mx-10 font-serif text-center" }, [
-            _c("div", { staticClass: "text-4xl" }, [
-              _vm._v(_vm._s(_vm.deck.totalCards))
+            _c("div", [
+              _vm.deck.totalPrice
+                ? _c(
+                    "span",
+                    { staticClass: "font-italic text-blue-600 mb-1" },
+                    [_vm._v("$" + _vm._s(_vm.deck.totalPrice))]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("span", { staticClass: "md:hidden italic" }, [
+                _vm._v("(" + _vm._s(_vm.deck.totalCards) + " cards)")
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "text-gray-500 ml-1" }, [_vm._v("cards")])
-          ])
+            _c("span", { staticClass: "inline-block flex" }, [
+              _c(
+                "div",
+                [
+                  _c("deck-label", {
+                    staticClass: "mr-2 text-xs px-2 sm:py-1 rounded-full",
+                    attrs: { label: _vm.deck.label }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.deck.user.name
+                ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
+                : _c("span", [_vm._v("Anonymous")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex-none mx-10 font-serif text-center hidden md:block"
+            },
+            [
+              _c("div", { staticClass: "text-4xl" }, [
+                _vm._v(_vm._s(_vm.deck.totalCards))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-gray-500 ml-1" }, [
+                _vm._v("cards")
+              ])
+            ]
+          )
         ]
       )
     ],

@@ -133,6 +133,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -410,6 +411,10 @@ var render = function() {
                     },
                     [
                       _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "none" } }, [
+                        _vm._v("None")
+                      ]),
                       _vm._v(" "),
                       _vm._l(_vm.$settings.game.talents, function(
                         name,

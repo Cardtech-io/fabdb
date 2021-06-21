@@ -36,6 +36,7 @@
                         <div class="md:w-4/5">
                             <select v-model="params.talent" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('talent')">
                                 <option value=""></option>
+                                <option value="none">None</option>
                                 <option :value="talent" v-for="(name, talent) in $settings.game.talents">{{ name }}</option>
                             </select>
                         </div>
