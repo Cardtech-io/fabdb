@@ -155,6 +155,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.id',
             'decks.user_id',
             'decks.name',
+            'decks.notes',
             'decks.label',
             'decks.slug',
             'decks.format'
