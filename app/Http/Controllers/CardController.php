@@ -41,6 +41,7 @@ class CardController extends Controller
             $this->cards->findByIdentifier('heart-of-fyendal-blue'),
             $this->cards->findByIdentifier('eye-of-ophidia-blue'),
             $this->cards->findByIdentifier('arknight-shard-blue'),
+            $this->cards->findByIdentifier('great-library-of-solana'),
         ]));
     }
 
