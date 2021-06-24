@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer p-8 bg-semi-black" v-if="show">
+    <footer class="footer p-8 bg-nearly-black" v-if="show">
         <div class="container sm:mx-auto sm:text-center text-sm text-gray-400">
             <router-link :to="{name: 'support'}" class="link">Support</router-link> |
             <a href="https://www.facebook.com/fleshandblooddb" class="link" target="_blank">Facebook</a> |
