@@ -263,7 +263,7 @@ var render = function() {
                           }
                         ],
                         staticClass:
-                          "flex-1 bg-transparent outline-none py-2 px-2 sm:px-4",
+                          "flex-1 bg-transparent border-none ring-none outline-none py-2 px-2 sm:px-4",
                         class: _vm.active("keywords"),
                         attrs: { type: "text" },
                         domProps: { value: _vm.params.keywords },

@@ -565,7 +565,7 @@ var render = function() {
         _c("div", { staticClass: "container sm:mx-auto px-4" }, [
           _vm.results && _vm.results.data
             ? _c("div", [
-                _c("div", { staticClass: "clearfix" }, [
+                _c("div", { staticClass: "flow-root" }, [
                   _c("div", { staticClass: "py-4 flex" }, [
                     _c("div", { staticClass: "w-1/4" }),
                     _vm._v(" "),

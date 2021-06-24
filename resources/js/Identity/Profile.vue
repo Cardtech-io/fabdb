@@ -76,6 +76,7 @@
                                 <option value="default">Default</option>
                                 <option value="aria">Aria</option>
                                 <option value="demonastery">Demonastery</option>
+                                <option value="library">Library</option>
                                 <option value="skies">Skies</option>
                                 <option value="savage-lands">Savage Lands</option>
                                 <option value="the-pits">The Pits</option>
@@ -112,7 +113,7 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
-                    <router-link :to="{ name: 'user.profile.decks', params: { user: slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>
+                    <router-link :to="{ name: 'user.profile.decks', params: { user: slug } }" class="inline-block button-secondary mb-4 rounded-full p-4">View your public profile</router-link>
 
                     <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
 

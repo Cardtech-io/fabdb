@@ -5,7 +5,7 @@
             <navigation class="navigation"></navigation>
 
             <!-- Content -->
-            <div class="clearfix flex-grow">
+            <div class="flow-root flex-grow">
                 <router-view :key="$route.fullPath"></router-view>
             </div>
 

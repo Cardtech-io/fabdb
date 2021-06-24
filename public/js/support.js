@@ -52,6 +52,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   metaInfo: function metaInfo() {
     return {
@@ -92,52 +99,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "py-8 px-4 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pr-8 lg:py-20 sm:ml-4"
-          },
-          [
-            _c(
-              "h2",
-              { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
-              [_vm._v("Support Fab DB")]
-            ),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n            Flesh and Blood DB is run currently funded only through community support and outreach. If you're liking\n            what you're seeing, love using our tools and utilities.etc. please donate!.\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "h2",
-              { staticClass: "font-serif text-4xl lg:text-4xl uppercase mt-8" },
-              [_vm._v("Stores")]
-            ),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n            You can't have a great TCG without great stores. FaB DB aims to support stores by providing\n            opportunities for stores to showcase their wares. Our immediate offering is syncing your single\n            card listings with our card database, showcasing your store's products right here on FaB DB. In future,\n            advertising and other opportunities will also be available.\n            Why not "
-              ),
-              _c(
-                "a",
-                {
-                  staticClass: "link",
-                  attrs: {
-                    href: "https://facebook.com/fleshandblooddb",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("get in touch")]
-              ),
-              _vm._v("?\n        ")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mx-4 my-8 lg:float-left lg:w-2/3 bg-semi-black rounded-lg p-8 lg:my-20 4"
+              "mx-4 my-8 lg:float-left lg:w-2/3 bg-nearly-black rounded-xl p-8 4"
           },
           [
             _c(
@@ -147,31 +109,6 @@ var staticRenderFns = [
               },
               [_vm._v("Why support us?")]
             ),
-            _vm._v(" "),
-            _c("p", { staticClass: "my-4" }, [
-              _vm._v("To support fabdb.net, go to our\n            "),
-              _c(
-                "a",
-                {
-                  staticClass: "link",
-                  attrs: {
-                    href: "https://www.patreon.com/fabdb",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("patreon\n                page")]
-              ),
-              _vm._v(" and sign up there or donate via our\n            "),
-              _c(
-                "a",
-                {
-                  staticClass: "link",
-                  attrs: { href: "https://www.paypal.me/fleshandblooddb" }
-                },
-                [_vm._v("paypal page")]
-              ),
-              _vm._v(" :)")
-            ]),
             _vm._v(" "),
             _c("p", { staticClass: "my-4" }, [
               _vm._v(
@@ -193,6 +130,103 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticClass: "my-4" }, [
               _vm._v("Together, we can get it there! :)")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "my-4" }, [
+              _vm._v("To support fabdb.net, go to our\n            "),
+              _c(
+                "a",
+                {
+                  staticClass: "link",
+                  attrs: {
+                    href: "https://www.patreon.com/fabdb",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("Patreon\n                page")]
+              ),
+              _vm._v(" and sign up there or donate via our\n            "),
+              _c(
+                "a",
+                {
+                  staticClass: "link",
+                  attrs: { href: "https://www.paypal.me/fleshandblooddb" }
+                },
+                [_vm._v("PayPal page")]
+              ),
+              _vm._v(
+                "! Please allow up to 24\n                hours to upgrade your account, as it's currently a manual process."
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass:
+                  "mt-8 block mx-auto w-1/3 text-center button-primary rounded-lg px-4 py-3",
+                attrs: {
+                  href: "https://www.patreon.com/fabdb",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("Support us")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "py-8 px-4 pb-0 lg:float-left lg:p-0 lg:w-1/3 lg:pl-8 lg:py-20 sm:ml-4"
+          },
+          [
+            _c("div", { staticClass: "bg-nearly-black rounded-xl p-8" }, [
+              _c("h2", { staticClass: "font-serif text-2xl uppercase" }, [
+                _vm._v("Support Fab DB")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                Flesh and Blood DB is run currently funded only through community support and outreach. If you're liking\n                what you're seeing, love using our tools and utilities.etc. please "
+                ),
+                _c(
+                  "a",
+                  {
+                    staticClass: "link",
+                    attrs: {
+                      href: "https://www.patreon.com/fabdb",
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("donate")]
+                ),
+                _vm._v("!\n            ")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-nearly-black rounded-xl p-8 mt-4" }, [
+              _c("h2", { staticClass: "font-serif text-2xl uppercase" }, [
+                _vm._v("Stores")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                You can't have a great TCG without great stores. FaB DB aims to support stores by providing\n                opportunities for stores to showcase their wares. Our immediate offering is syncing your single\n                card listings with our card database, showcasing your store's products right here on FaB DB. In future,\n                advertising and other opportunities will also be available.\n                Why not "
+                ),
+                _c(
+                  "a",
+                  {
+                    staticClass: "link",
+                    attrs: {
+                      href: "https://facebook.com/fleshandblooddb",
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("get in touch")]
+                ),
+                _vm._v("?\n            ")
+              ])
             ])
           ]
         )

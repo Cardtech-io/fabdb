@@ -15,7 +15,7 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data">
-                    <div class="clearfix">
+                    <div class="flow-root">
                         <div class="py-4 flex">
                             <div class="w-1/4"></div>
                             <div class="w-1/2">

@@ -153,6 +153,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -393,52 +396,54 @@ var render = function() {
     "div",
     { staticClass: "container px-4 sm:mx-auto text-white md:flex" },
     [
-      _c(
-        "div",
-        { staticClass: "py-8 md:my-20 md:w-1/2 sm:pr-8" },
-        [
-          _c(
-            "h1",
-            { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
-            [_vm._v("Deck Builder")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "mt-4" }, [
-            _vm._v(
-              "\n            The first and only Flesh & Blood Deck Builder is here. You can build your decks\n            for constructed or blitz formats, and then export them to PDF for tournament registration, or\n            integration with Tabletop Simulator.\n        "
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "mt-45" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "link", attrs: { to: "/support" } },
-                [_vm._v("Supporters")]
-              ),
+      _c("div", { staticClass: "md:my-20 md:w-1/2 md:pr-8" }, [
+        _c(
+          "div",
+          { staticClass: "my-8 md:my-0 p-8 bg-nearly-black rounded-xl" },
+          [
+            _c(
+              "h1",
+              { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
+              [_vm._v("Deck Builder")]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "mt-4" }, [
               _vm._v(
-                " gain access to\n            premium deck builder features, the deck tester and more.\n        "
+                "\n                The first and only Flesh & Blood Deck Builder is here. You can build your decks\n                for constructed or blitz formats, and then export them to PDF for tournament registration, or\n                integration with Tabletop Simulator.\n            "
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm.user && !_vm.user.subscription
-            ? _c(
-                "router-link",
-                {
-                  staticClass:
-                    "appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8",
-                  attrs: { to: "/support" }
-                },
-                [_vm._v("Upgrade to premium")]
-              )
-            : _vm._e()
-        ],
-        1
-      ),
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "mt-4" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "link", attrs: { to: "/support" } },
+                  [_vm._v("Supporters")]
+                ),
+                _vm._v(
+                  " gain access to\n                premium deck builder features, the deck tester, exclusive FaB DB backgrounds, limited playmat\n                sales and a whole lot more!\n            "
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.user && !_vm.user.subscription
+              ? _c(
+                  "router-link",
+                  {
+                    staticClass:
+                      "appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8",
+                    attrs: { to: "/support" }
+                  },
+                  [_vm._v("Upgrade to premium")]
+                )
+              : _vm._e()
+          ],
+          1
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "md:my-20 md:flex-grow md:w-1/2" }, [
         _vm.user
@@ -474,7 +479,7 @@ var render = function() {
                           "li",
                           {
                             staticClass:
-                              "bg-semi-black rounded-lg mb-2 hover:bg-black"
+                              "bg-semi-black rounded-lg mb-1 hover:bg-black"
                           },
                           [
                             _c(

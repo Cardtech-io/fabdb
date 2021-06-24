@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.test":"decks.test","decks.browse~user.profile.decks":"decks.browse~user.profile.decks","decks.browse":"decks.browse","user.profile.decks":"user.profile.decks","decks.export":"decks.export","decks.mine":"decks.mine","decks.starters":"decks.starters","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"ec17eadc00f8f3d63970","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"8513c875f839d5b7e26a","cards.browse":"c1c3aa67e799fb5dbfe0","collection":"b83c372dc6fa798b6657","decks.test":"a69f6d2f5200bae9536a","decks.browse~user.profile.decks":"63d8679f18dd185ca313","decks.browse":"fa73ee08e8039758dafb","user.profile.decks":"a41b94ecb0b8667635c5","decks.export":"afe5eb9668d7accc2420","decks.mine":"46a7ada3d7c01af1b026","decks.starters":"b96b444455676f675b7a","generator":"cb3915819a87602febed","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"af5f70b46bac396f9d19","support":"150c5101707a3baa5e88","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"633c35368ac39df762e9","articles.view":"546ff060abfc71a0b9c8","cards.fabled~cards.view":"c2e4a694259952f050a3","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"9d3884db549dd781420a","decks.build~practise.view":"e0742717440aba090b1d","practise.view":"a99361afef927c79c4be","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"c0db178821ad99f355e7","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"2cba934680e9af10aa6c","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.view":"f75df4cb72972d8cd312","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"44bb59cc524109bb6017","vendors~decks.build~events.edit":"fcef0fb6f48ce86fe196","decks.build":"dcf60d5fee539b9028c1","home":"bc07e2473e3308f12629","vendors~events.edit":"635586bf06b693efceac","events.edit":"54dcd26804fb04724c73","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.test":"decks.test","decks.browse~user.profile.decks":"decks.browse~user.profile.decks","decks.browse":"decks.browse","user.profile.decks":"user.profile.decks","decks.export":"decks.export","decks.mine":"decks.mine","decks.starters":"decks.starters","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"902e8c3ea8cb962202af","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"8513c875f839d5b7e26a","cards.browse":"221d3972041c706b69a4","collection":"b83c372dc6fa798b6657","decks.test":"96baaa5b7d1ce70c43aa","decks.browse~user.profile.decks":"63d8679f18dd185ca313","decks.browse":"cae6b424b955d9d3071b","user.profile.decks":"a41b94ecb0b8667635c5","decks.export":"afe5eb9668d7accc2420","decks.mine":"0ee4fee470f9cc6796fc","decks.starters":"b96b444455676f675b7a","generator":"a69bd50e4d5a773f078d","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"c81596f60d1e72924709","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"633c35368ac39df762e9","articles.view":"21d559b04a524bae2333","cards.fabled~cards.view":"c2e4a694259952f050a3","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"b9eef7cb7d20b766ab43","decks.build~practise.view":"e0742717440aba090b1d","practise.view":"eed08a42a457d6e85957","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"2cba934680e9af10aa6c","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.view":"f75df4cb72972d8cd312","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"ede695b58329c0903ce1","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"4e230c754253fadeb318","home":"db98696ac1ecf5b48575","vendors~events.edit":"e9564a790a6ab950ddaa","events.edit":"54dcd26804fb04724c73","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -224,6 +224,7 @@ module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/li
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
 var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
+var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
 var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
 var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ "./node_modules/axios/lib/core/buildFullPath.js");
 var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
@@ -244,7 +245,7 @@ module.exports = function xhrAdapter(config) {
     // HTTP basic authentication
     if (config.auth) {
       var username = config.auth.username || '';
-      var password = config.auth.password || '';
+      var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
       requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
     }
 
@@ -325,8 +326,6 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
-
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
         cookies.read(config.xsrfCookieName) :
@@ -392,7 +391,7 @@ module.exports = function xhrAdapter(config) {
       });
     }
 
-    if (requestData === undefined) {
+    if (!requestData) {
       requestData = null;
     }
 
@@ -460,6 +459,9 @@ axios.all = function all(promises) {
   return Promise.all(promises);
 };
 axios.spread = __webpack_require__(/*! ./helpers/spread */ "./node_modules/axios/lib/helpers/spread.js");
+
+// Expose isAxiosError
+axios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ "./node_modules/axios/lib/helpers/isAxiosError.js");
 
 module.exports = axios;
 
@@ -669,9 +671,10 @@ Axios.prototype.getUri = function getUri(config) {
 utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, config) {
-    return this.request(utils.merge(config || {}, {
+    return this.request(mergeConfig(config || {}, {
       method: method,
-      url: url
+      url: url,
+      data: (config || {}).data
     }));
   };
 });
@@ -679,7 +682,7 @@ utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData
 utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, data, config) {
-    return this.request(utils.merge(config || {}, {
+    return this.request(mergeConfig(config || {}, {
       method: method,
       url: url,
       data: data
@@ -939,7 +942,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   error.response = response;
   error.isAxiosError = true;
 
-  error.toJSON = function() {
+  error.toJSON = function toJSON() {
     return {
       // Standard
       message: this.message,
@@ -988,59 +991,73 @@ module.exports = function mergeConfig(config1, config2) {
   config2 = config2 || {};
   var config = {};
 
-  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
-  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
+  var valueFromConfig2Keys = ['url', 'method', 'data'];
+  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy', 'params'];
   var defaultToConfig2Keys = [
-    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
-    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
-    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
-    'httpsAgent', 'cancelToken', 'socketPath'
+    'baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer',
+    'timeout', 'timeoutMessage', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'decompress',
+    'maxContentLength', 'maxBodyLength', 'maxRedirects', 'transport', 'httpAgent',
+    'httpsAgent', 'cancelToken', 'socketPath', 'responseEncoding'
   ];
+  var directMergeKeys = ['validateStatus'];
+
+  function getMergedValue(target, source) {
+    if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
+      return utils.merge(target, source);
+    } else if (utils.isPlainObject(source)) {
+      return utils.merge({}, source);
+    } else if (utils.isArray(source)) {
+      return source.slice();
+    }
+    return source;
+  }
+
+  function mergeDeepProperties(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(config1[prop], config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
+    }
+  }
 
   utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(undefined, config2[prop]);
     }
   });
 
-  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
-    if (utils.isObject(config2[prop])) {
-      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
-    } else if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (utils.isObject(config1[prop])) {
-      config[prop] = utils.deepMerge(config1[prop]);
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
+  utils.forEach(mergeDeepPropertiesKeys, mergeDeepProperties);
 
   utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
+    if (!utils.isUndefined(config2[prop])) {
+      config[prop] = getMergedValue(undefined, config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
+    }
+  });
+
+  utils.forEach(directMergeKeys, function merge(prop) {
+    if (prop in config2) {
+      config[prop] = getMergedValue(config1[prop], config2[prop]);
+    } else if (prop in config1) {
+      config[prop] = getMergedValue(undefined, config1[prop]);
     }
   });
 
   var axiosKeys = valueFromConfig2Keys
     .concat(mergeDeepPropertiesKeys)
-    .concat(defaultToConfig2Keys);
+    .concat(defaultToConfig2Keys)
+    .concat(directMergeKeys);
 
   var otherKeys = Object
-    .keys(config2)
+    .keys(config1)
+    .concat(Object.keys(config2))
     .filter(function filterAxiosKeys(key) {
       return axiosKeys.indexOf(key) === -1;
     });
 
-  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
+  utils.forEach(otherKeys, mergeDeepProperties);
 
   return config;
 };
@@ -1069,7 +1086,7 @@ var createError = __webpack_require__(/*! ./createError */ "./node_modules/axios
  */
 module.exports = function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus;
-  if (!validateStatus || validateStatus(response.status)) {
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
     resolve(response);
   } else {
     reject(createError(
@@ -1201,6 +1218,7 @@ var defaults = {
   xsrfHeaderName: 'X-XSRF-TOKEN',
 
   maxContentLength: -1,
+  maxBodyLength: -1,
 
   validateStatus: function validateStatus(status) {
     return status >= 200 && status < 300;
@@ -1264,7 +1282,6 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
 
 function encode(val) {
   return encodeURIComponent(val).
-    replace(/%40/gi, '@').
     replace(/%3A/gi, ':').
     replace(/%24/g, '$').
     replace(/%2C/gi, ',').
@@ -1445,6 +1462,29 @@ module.exports = function isAbsoluteURL(url) {
   // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
   // by any combination of letters, digits, plus, period, or hyphen.
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the payload is an error thrown by Axios
+ *
+ * @param {*} payload The value to test
+ * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+ */
+module.exports = function isAxiosError(payload) {
+  return (typeof payload === 'object') && (payload.isAxiosError === true);
 };
 
 
@@ -1774,6 +1814,21 @@ function isObject(val) {
 }
 
 /**
+ * Determine if a value is a plain Object
+ *
+ * @param {Object} val The value to test
+ * @return {boolean} True if value is a plain Object, otherwise false
+ */
+function isPlainObject(val) {
+  if (toString.call(val) !== '[object Object]') {
+    return false;
+  }
+
+  var prototype = Object.getPrototypeOf(val);
+  return prototype === null || prototype === Object.prototype;
+}
+
+/**
  * Determine if a value is a Date
  *
  * @param {Object} val The value to test
@@ -1929,34 +1984,12 @@ function forEach(obj, fn) {
 function merge(/* obj1, obj2, obj3, ... */) {
   var result = {};
   function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
+    if (isPlainObject(result[key]) && isPlainObject(val)) {
       result[key] = merge(result[key], val);
-    } else {
-      result[key] = val;
-    }
-  }
-
-  for (var i = 0, l = arguments.length; i < l; i++) {
-    forEach(arguments[i], assignValue);
-  }
-  return result;
-}
-
-/**
- * Function equal to merge with the difference being that no reference
- * to original objects is kept.
- *
- * @see merge
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function deepMerge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = deepMerge(result[key], val);
-    } else if (typeof val === 'object') {
-      result[key] = deepMerge({}, val);
+    } else if (isPlainObject(val)) {
+      result[key] = merge({}, val);
+    } else if (isArray(val)) {
+      result[key] = val.slice();
     } else {
       result[key] = val;
     }
@@ -1987,6 +2020,19 @@ function extend(a, b, thisArg) {
   return a;
 }
 
+/**
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ *
+ * @param {string} content with BOM
+ * @return {string} content value without BOM
+ */
+function stripBOM(content) {
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  return content;
+}
+
 module.exports = {
   isArray: isArray,
   isArrayBuffer: isArrayBuffer,
@@ -1996,6 +2042,7 @@ module.exports = {
   isString: isString,
   isNumber: isNumber,
   isObject: isObject,
+  isPlainObject: isPlainObject,
   isUndefined: isUndefined,
   isDate: isDate,
   isFile: isFile,
@@ -2006,9 +2053,9 @@ module.exports = {
   isStandardBrowserEnv: isStandardBrowserEnv,
   forEach: forEach,
   merge: merge,
-  deepMerge: deepMerge,
   extend: extend,
-  trim: trim
+  trim: trim,
+  stripBOM: stripBOM
 };
 
 
@@ -3219,7 +3266,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, ".vdatetime-fade-enter-active,\n.vdatetime-fade-leave-active {\n  -webkit-transition: opacity .4s;\n  transition: opacity .4s;\n}\n\n.vdatetime-fade-enter,\n.vdatetime-fade-leave-to {\n  opacity: 0;\n}\n\n.vdatetime-overlay {\n  z-index: 999;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, .5);\n  -webkit-transition: opacity .5s;\n  transition: opacity .5s;\n}\n\n.vdatetime-popup {\n  box-sizing: border-box;\n  z-index: 1000;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  width: 340px;\n  max-width: calc(100% - 30px);\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);\n  color: #444;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  line-height: 1.18;\n  background: #fff;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)\n}\n\n.vdatetime-popup * {\n  box-sizing: border-box\n}\n\n.vdatetime-popup__header {\n  padding: 18px 30px;\n  background: #3f51b5;\n  color: #fff;\n  font-size: 32px;\n}\n\n.vdatetime-popup__title {\n  margin-bottom: 8px;\n  font-size: 21px;\n  font-weight: 300;\n}\n\n.vdatetime-popup__year {\n  font-weight: 300;\n  font-size: 14px;\n  opacity: 0.7;\n  cursor: pointer;\n  -webkit-transition: opacity .3s;\n  transition: opacity .3s\n}\n\n.vdatetime-popup__year:hover {\n  opacity: 1\n}\n\n.vdatetime-popup__date {\n  line-height: 1;\n  cursor: pointer;\n}\n\n.vdatetime-popup__actions {\n  padding: 0 20px 10px 30px;\n  text-align: right;\n}\n\n.vdatetime-popup__actions__button {\n  display: inline-block;\n  border: none;\n  padding: 10px 20px;\n  background: transparent;\n  font-size: 16px;\n  color: #3f51b5;\n  cursor: pointer;\n  -webkit-transition: color .3s;\n  transition: color .3s\n}\n\n.vdatetime-popup__actions__button:hover {\n  color: #444\n}\n\n.vdatetime-calendar__navigation--previous:hover svg path, .vdatetime-calendar__navigation--next:hover svg path {\n  stroke: #888;\n}\n\n.vdatetime-calendar__navigation,\n.vdatetime-calendar__navigation * {\n  box-sizing: border-box;\n}\n\n.vdatetime-calendar__navigation {\n  position: relative;\n  margin: 15px 0;\n  padding: 0 30px;\n  width: 100%;\n}\n\n.vdatetime-calendar__navigation--previous,\n.vdatetime-calendar__navigation--next {\n  position: absolute;\n  top: 0;\n  padding: 0 5px;\n  width: 18px;\n  cursor: pointer\n}\n\n.vdatetime-calendar__navigation--previous svg, .vdatetime-calendar__navigation--next svg {\n  width: 8px;\n  height: 13px;\n}\n\n.vdatetime-calendar__navigation--previous svg path, .vdatetime-calendar__navigation--next svg path {\n  -webkit-transition: stroke .3s;\n  transition: stroke .3s;\n}\n\n.vdatetime-calendar__navigation--previous {\n  left: 25px;\n}\n\n.vdatetime-calendar__navigation--next {\n  right: 25px;\n  -webkit-transform: scaleX(-1);\n  transform: scaleX(-1);\n}\n\n.vdatetime-calendar__current--month {\n  text-align: center;\n  text-transform: capitalize;\n}\n\n.vdatetime-calendar__month {\n  padding: 0 20px;\n  -webkit-transition: height .2s;\n  transition: height .2s;\n}\n\n.vdatetime-calendar__month__weekday,\n.vdatetime-calendar__month__day {\n  display: inline-block;\n  width: 14.28571%;\n  line-height: 36px;\n  text-align: center;\n  font-size: 15px;\n  font-weight: 300;\n  cursor: pointer\n}\n\n.vdatetime-calendar__month__weekday > span, .vdatetime-calendar__month__day > span {\n  display: block;\n  width: 100%;\n  position: relative;\n  height: 0;\n  padding: 0 0 100%;\n  overflow: hidden;\n}\n\n.vdatetime-calendar__month__weekday > span > span, .vdatetime-calendar__month__day > span > span {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border: 0;\n  border-radius: 50%;\n  -webkit-transition: background-color .3s, color .3s;\n  transition: background-color .3s, color .3s;\n}\n\n.vdatetime-calendar__month__weekday {\n  font-weight: bold;\n}\n\n.vdatetime-calendar__month__day:hover > span > span {\n  background: #eee;\n}\n\n.vdatetime-calendar__month__day--selected {\n}\n\n.vdatetime-calendar__month__day--selected > span > span,\n  .vdatetime-calendar__month__day--selected:hover > span > span {\n  color: #fff;\n  background: #3f51b5;\n}\n\n.vdatetime-calendar__month__day--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-calendar__month__day--disabled:hover > span > span {\n  color: inherit;\n  background: transparent;\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-time-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-time-picker__list {\n  float: left;\n  width: 50%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-time-picker__with-suffix .vdatetime-time-picker__list {\n  width: 33.3%;\n}\n\n.vdatetime-time-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  -webkit-transition: font-size .3s;\n  transition: font-size .3s;\n}\n\n.vdatetime-time-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default;\n  font-size: 20px !important;\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-year-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-year-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-year-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  -webkit-transition: font-size .3s;\n  transition: font-size .3s;\n}\n\n.vdatetime-year-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-year-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-month-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-month-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-month-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  -webkit-transition: font-size .3s;\n  transition: font-size .3s;\n}\n\n.vdatetime-month-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-month-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n", ""]);
+exports.push([module.i, ".vdatetime-fade-enter-active,\n.vdatetime-fade-leave-active {\n  transition: opacity .4s;\n}\n\n.vdatetime-fade-enter,\n.vdatetime-fade-leave-to {\n  opacity: 0;\n}\n\n.vdatetime-overlay {\n  z-index: 999;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, .5);\n  transition: opacity .5s;\n}\n\n.vdatetime-popup {\n  box-sizing: border-box;\n  z-index: 1000;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 340px;\n  max-width: calc(100% - 30px);\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);\n  color: #444;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  line-height: 1.18;\n  background: #fff;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)\n}\n\n.vdatetime-popup * {\n  box-sizing: border-box\n}\n\n.vdatetime-popup__header {\n  padding: 18px 30px;\n  background: #3f51b5;\n  color: #fff;\n  font-size: 32px;\n}\n\n.vdatetime-popup__title {\n  margin-bottom: 8px;\n  font-size: 21px;\n  font-weight: 300;\n}\n\n.vdatetime-popup__year {\n  font-weight: 300;\n  font-size: 14px;\n  opacity: 0.7;\n  cursor: pointer;\n  transition: opacity .3s\n}\n\n.vdatetime-popup__year:hover {\n  opacity: 1\n}\n\n.vdatetime-popup__date {\n  line-height: 1;\n  cursor: pointer;\n}\n\n.vdatetime-popup__actions {\n  padding: 0 20px 10px 30px;\n  text-align: right;\n}\n\n.vdatetime-popup__actions__button {\n  display: inline-block;\n  border: none;\n  padding: 10px 20px;\n  background: transparent;\n  font-size: 16px;\n  color: #3f51b5;\n  cursor: pointer;\n  transition: color .3s\n}\n\n.vdatetime-popup__actions__button:hover {\n  color: #444\n}\n\n.vdatetime-calendar__navigation--previous:hover svg path, .vdatetime-calendar__navigation--next:hover svg path {\n  stroke: #888;\n}\n\n.vdatetime-calendar__navigation,\n.vdatetime-calendar__navigation * {\n  box-sizing: border-box;\n}\n\n.vdatetime-calendar__navigation {\n  position: relative;\n  margin: 15px 0;\n  padding: 0 30px;\n  width: 100%;\n}\n\n.vdatetime-calendar__navigation--previous,\n.vdatetime-calendar__navigation--next {\n  position: absolute;\n  top: 0;\n  padding: 0 5px;\n  width: 18px;\n  cursor: pointer\n}\n\n.vdatetime-calendar__navigation--previous svg, .vdatetime-calendar__navigation--next svg {\n  width: 8px;\n  height: 13px;\n}\n\n.vdatetime-calendar__navigation--previous svg path, .vdatetime-calendar__navigation--next svg path {\n  transition: stroke .3s;\n}\n\n.vdatetime-calendar__navigation--previous {\n  left: 25px;\n}\n\n.vdatetime-calendar__navigation--next {\n  right: 25px;\n  transform: scaleX(-1);\n}\n\n.vdatetime-calendar__current--month {\n  text-align: center;\n  text-transform: capitalize;\n}\n\n.vdatetime-calendar__month {\n  padding: 0 20px;\n  transition: height .2s;\n}\n\n.vdatetime-calendar__month__weekday,\n.vdatetime-calendar__month__day {\n  display: inline-block;\n  width: 14.28571%;\n  line-height: 36px;\n  text-align: center;\n  font-size: 15px;\n  font-weight: 300;\n  cursor: pointer\n}\n\n.vdatetime-calendar__month__weekday > span, .vdatetime-calendar__month__day > span {\n  display: block;\n  width: 100%;\n  position: relative;\n  height: 0;\n  padding: 0 0 100%;\n  overflow: hidden;\n}\n\n.vdatetime-calendar__month__weekday > span > span, .vdatetime-calendar__month__day > span > span {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border: 0;\n  border-radius: 50%;\n  transition: background-color .3s, color .3s;\n}\n\n.vdatetime-calendar__month__weekday {\n  font-weight: bold;\n}\n\n.vdatetime-calendar__month__day:hover > span > span {\n  background: #eee;\n}\n\n.vdatetime-calendar__month__day--selected {\n}\n\n.vdatetime-calendar__month__day--selected > span > span,\n  .vdatetime-calendar__month__day--selected:hover > span > span {\n  color: #fff;\n  background: #3f51b5;\n}\n\n.vdatetime-calendar__month__day--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-calendar__month__day--disabled:hover > span > span {\n  color: inherit;\n  background: transparent;\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-time-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-time-picker__list {\n  float: left;\n  width: 50%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-time-picker__with-suffix .vdatetime-time-picker__list {\n  width: 33.3%;\n}\n\n.vdatetime-time-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-time-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default;\n  font-size: 20px !important;\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-year-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-year-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-year-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-year-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-year-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-month-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-month-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-month-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-month-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-month-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n", ""]);
 
 // exports
 
@@ -52763,7 +52810,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "clearfix flex-grow" },
+            { staticClass: "flow-root flex-grow" },
             [_c("router-view", { key: _vm.$route.fullPath })],
             1
           ),

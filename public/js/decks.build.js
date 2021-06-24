@@ -2726,7 +2726,8 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "md:mr-4 md:w-auto md:max-w-250 clearfix"
+                          staticClass:
+                            "md:mr-4 md:w-auto md:max-w-250 flow-root"
                         },
                         [
                           _c(
@@ -3697,65 +3698,58 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "bg-gray-200 h-full relative",
-            staticStyle: { background: "url('/img/grey-grid.png')" }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "clearfix flex h-full", class: _vm.containers },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "h-full overflow-y-auto",
-                    class: _vm.mainAreaClasses
-                  },
-                  [
-                    _vm.mode == "all" || _vm.mode == "search"
-                      ? _c("all-cards", { attrs: { collection: _vm.cards } })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.mode == "details" ? _c("deck-details") : _vm._e(),
-                    _vm._v(" "),
-                    _vm.mode == "sideboard"
-                      ? _c("main-deck", { attrs: { collection: _vm.cards } })
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.mode == "search" || _vm.mode == "sideboard"
-                  ? _c(
-                      "div",
-                      {
-                        ref: "searchResults",
-                        staticClass:
-                          "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
-                      },
-                      [
-                        _vm.mode == "search"
-                          ? _c("search-results", {
-                              on: { "search-completed": _vm.scrollTop }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.mode == "sideboard"
-                          ? _c("sideboard", {
-                              attrs: { collection: _vm.sideboard }
-                            })
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ]
-            )
-          ]
-        )
+        _c("div", { staticClass: "bg-gray-200 h-full relative" }, [
+          _c(
+            "div",
+            { staticClass: "flow-root flex h-full", class: _vm.containers },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "h-full overflow-y-auto",
+                  class: _vm.mainAreaClasses
+                },
+                [
+                  _vm.mode == "all" || _vm.mode == "search"
+                    ? _c("all-cards", { attrs: { collection: _vm.cards } })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.mode == "details" ? _c("deck-details") : _vm._e(),
+                  _vm._v(" "),
+                  _vm.mode == "sideboard"
+                    ? _c("main-deck", { attrs: { collection: _vm.cards } })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.mode == "search" || _vm.mode == "sideboard"
+                ? _c(
+                    "div",
+                    {
+                      ref: "searchResults",
+                      staticClass:
+                        "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                    },
+                    [
+                      _vm.mode == "search"
+                        ? _c("search-results", {
+                            on: { "search-completed": _vm.scrollTop }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.mode == "sideboard"
+                        ? _c("sideboard", {
+                            attrs: { collection: _vm.sideboard }
+                          })
+                        : _vm._e()
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ]
+          )
+        ])
       ])
     ],
     1
@@ -3796,7 +3790,7 @@ var render = function() {
         "ul",
         {
           staticClass:
-            "block border-b border-gray-400 font-serif uppercase clearfix"
+            "block border-b border-gray-400 font-serif uppercase flow-root"
         },
         [
           _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
@@ -4012,7 +4006,7 @@ var render = function() {
                     "a",
                     {
                       staticClass:
-                        "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+                        "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
                       attrs: { href: "" },
                       on: {
                         click: function($event) {
@@ -5105,11 +5099,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mb-40 clearfix" },
+    { staticClass: "mb-40 flow-root" },
     [
       _c("card-search", { staticClass: "md:hidden flex" }),
       _vm._v(" "),
-      _c("div", { staticClass: "clearfix" }, [
+      _c("div", { staticClass: "flow-root" }, [
         _c("div", { staticClass: "text-base pr-0 bg-gray-100" }, [
           _c("div", { staticClass: "w-full flex -mt-1px" }, [
             _c(
@@ -5413,7 +5407,7 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
           attrs: { href: "" },
           on: {
             click: function($event) {
@@ -5458,7 +5452,7 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
+            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
           attrs: { href: "" },
           on: {
             click: function($event) {
@@ -5500,7 +5494,7 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
+            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
           attrs: { to: "/decks/export/" + _vm.deck.slug }
         },
         [

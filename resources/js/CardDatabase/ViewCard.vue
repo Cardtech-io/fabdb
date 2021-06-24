@@ -5,7 +5,7 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8">
-                <div class="clearfix">
+                <div class="flow-root">
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <div class="relative">
                             <card-image :card="card"></card-image>
@@ -24,11 +24,11 @@
                         <advertisement :width="340" :height="340" :zone="107318" class="mt-4"></advertisement>
 
                         <ul class="pt-4 text-base">
-                            <li class="clearfix bg-white">
+                            <li class="flow-root bg-white">
                                 <div class="float-left w-1/3 p-2 px-4">Rarity</div>
                                 <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
                             </li>
-                            <li class="clearfix">
+                            <li class="flow-root">
                                 <div class="float-left w-1/3 p-2 px-4">Keywords</div>
                                 <div class="float-left w-2/3 p-2 px-4">
                                     <span v-for="(keyword, index) in card.keywords">
@@ -36,7 +36,7 @@
                                     </span>
                                 </div>
                             </li>
-                            <li v-for="(value, stat) in card.stats" class="clearfix even:bg-white" v-if="value">
+                            <li v-for="(value, stat) in card.stats" class="flow-root even:bg-white" v-if="value">
                                 <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
                                 <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
                             </li>

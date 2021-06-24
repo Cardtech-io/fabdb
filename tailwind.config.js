@@ -1,4 +1,6 @@
 module.exports = {
+    darkMode: 'media',
+
     purge: {
         content: [
             './resources/js/**/*.vue',
@@ -19,6 +21,31 @@ module.exports = {
                 'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
                 'nearly-black': 'rgba(0, 0, 0, 0.75)',
+            },
+
+            colors: {
+                'orange': {
+                    '100': '#FFFAF0',
+                    '200': '#FEEBC8',
+                    '300': '#FBD38D',
+                    '400': '#F6AD55',
+                    '500': '#ED8936',
+                    '600': '#DD6B20',
+                    '700': '#C05621',
+                    '800': '#9C4221',
+                    '900': '#7B341E',
+                },
+                'teal': {
+                    '100': '#7B341E',
+                    '200': '#B2F5EA',
+                    '300': '#81E6D9',
+                    '400': '#4FD1C5',
+                    '500': '#38B2AC',
+                    '600': '#319795',
+                    '700': '#2C7A7B',
+                    '800': '#285E61',
+                    '900': '#234E52'
+                }
             },
 
             fontSize: {
@@ -94,7 +121,7 @@ module.exports = {
         borderRadius: {
             'none': '0',
             'sm': '.125rem',
-            default: '.35rem',
+            DEFAULT: '.35rem',
             'card': '5.5% / 4.5%',
             'lg': '.5rem',
             'full': '9999px',
@@ -151,6 +178,8 @@ module.exports = {
     },
 
     plugins: [
-        require('@tailwindcss/custom-forms'),
+        require('@tailwindcss/forms')({
+            strategy: 'class'
+        })
     ]
 };

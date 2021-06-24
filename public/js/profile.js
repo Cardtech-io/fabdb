@@ -259,6 +259,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1034,6 +1035,10 @@ var render = function() {
                           _vm._v("Demonastery")
                         ]),
                         _vm._v(" "),
+                        _c("option", { attrs: { value: "library" } }, [
+                          _vm._v("Library")
+                        ]),
+                        _vm._v(" "),
                         _c("option", { attrs: { value: "skies" } }, [
                           _vm._v("Skies")
                         ]),
@@ -1182,7 +1187,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass:
-                      "inline-block button-primary mb-4 rounded-full p-4",
+                      "inline-block button-secondary mb-4 rounded-full p-4",
                     attrs: {
                       to: {
                         name: "user.profile.decks",

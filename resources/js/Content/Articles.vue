@@ -33,8 +33,8 @@
                 <div class="w-full md:w-3/4">
                     <h1 class="mb-4 font-serif uppercase text-4xl text-white" v-if="articles.current_page == 1">What's new</h1>
 
-                    <ol class="clearfix text-lg">
-                        <li v-for="article in remainder" class="clearfix bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
+                    <ol class="flow-root text-lg">
+                        <li v-for="article in remainder" class="flow-root bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
                             <article-item :article="article"></article-item>
                         </li>
                     </ol>

@@ -564,7 +564,7 @@ var render = function() {
           "div",
           { staticClass: "container sm:mx-auto pt-0 pb-8 md:py-8" },
           [
-            _c("div", { staticClass: "clearfix" }, [
+            _c("div", { staticClass: "flow-root" }, [
               _c(
                 "div",
                 { staticClass: "md:w-1/4 md:float-left p-4 md:py-0" },
@@ -639,7 +639,7 @@ var render = function() {
                     "ul",
                     { staticClass: "pt-4 text-base" },
                     [
-                      _c("li", { staticClass: "clearfix bg-white" }, [
+                      _c("li", { staticClass: "flow-root bg-white" }, [
                         _c(
                           "div",
                           { staticClass: "float-left w-1/3 p-2 px-4" },
@@ -670,7 +670,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("li", { staticClass: "clearfix" }, [
+                      _c("li", { staticClass: "flow-root" }, [
                         _c(
                           "div",
                           { staticClass: "float-left w-1/3 p-2 px-4" },
@@ -709,7 +709,7 @@ var render = function() {
                         return value
                           ? _c(
                               "li",
-                              { staticClass: "clearfix even:bg-white" },
+                              { staticClass: "flow-root even:bg-white" },
                               [
                                 _c(
                                   "div",

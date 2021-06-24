@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="mt-8 md:mt-0 md:w-1/2">
-                    <div class="clearfix mb-8" v-if="event.description">
+                    <div class="flow-root mb-8" v-if="event.description">
                         <div class="float-left mr-6 mb-2">
                             <event-type-icon :type="event.type" size="24"></event-type-icon>
                         </div>

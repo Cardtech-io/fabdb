@@ -273,34 +273,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "my-4 bg-semi-black text-gray-400 sm:mx-auto p-2 px-4 rounded-lg flex items-center"
-        },
-        [
-          _c(
-            "icon",
-            { staticClass: "mr-4 text-orange-500", attrs: { size: 6 } },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", {
-            domProps: { innerHTML: _vm._s(_vm.lang.home.rathe_times) }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center"
+            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black rounded-xl text-center text-gray-100"
         },
         [
           _c(
@@ -388,6 +361,33 @@ var render = function() {
             1
           )
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "my-4 bg-nearly-black text-gray-300 sm:mx-auto p-2 px-4 rounded-lg flex items-center"
+        },
+        [
+          _c(
+            "icon",
+            { staticClass: "mr-4 text-orange-500", attrs: { size: 6 } },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", {
+            domProps: { innerHTML: _vm._s(_vm.lang.home.rathe_times) }
+          })
+        ],
+        1
       ),
       _vm._v(" "),
       _c(

@@ -11,7 +11,7 @@
         { "type": "vcs", "url": "https://github.com/keliix06/Laravel-Prerender" }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "aws/aws-sdk-php": "^3.117",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",

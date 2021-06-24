@@ -25,12 +25,12 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data">
-                    <div class="clearfix">
-                        <div class="clearfix py-4">
+                    <div class="flow-root">
+                        <div class="flow-root py-4">
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
 
-                        <ul class="clearfix -mx-2">
+                        <ul class="flow-root -mx-2">
                             <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
                         </ul>
 

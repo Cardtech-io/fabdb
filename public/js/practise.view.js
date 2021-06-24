@@ -581,7 +581,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".booster[data-v-0d018b22] {\n  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;\n  transition: background-color 0.2s, -webkit-transform 0.2s;\n  transition: background-color 0.2s, transform 0.2s;\n  transition: background-color 0.2s, transform 0.2s, -webkit-transform 0.2s;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n.booster[data-v-0d018b22]:hover {\n  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;\n  transition: background-color 0.2s, -webkit-transform 0.2s;\n  transition: background-color 0.2s, transform 0.2s;\n  transition: background-color 0.2s, transform 0.2s, -webkit-transform 0.2s;\n  -webkit-transform: scale(1.05);\n          transform: scale(1.05);\n}\n", ""]);
+exports.push([module.i, ".booster[data-v-0d018b22] {\n  transition: background-color 0.2s, transform 0.2s;\n  transform: scale(1);\n}\n.booster[data-v-0d018b22]:hover {\n  transition: background-color 0.2s, transform 0.2s;\n  transform: scale(1.05);\n}\n", ""]);
 
 // exports
 

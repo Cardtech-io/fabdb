@@ -6,7 +6,7 @@
         <div v-else>
             <div v-if="view === 'gallery'">
                 <div v-if="user.subscription" class="md:flex m-4">
-                    <div class="md:mr-4 md:w-auto md:max-w-250 clearfix">
+                    <div class="md:mr-4 md:w-auto md:max-w-250 flow-root">
                         <div class="w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none">
                             <card-image :card="cards.hero()" class="mb-4"></card-image>
                         </div>

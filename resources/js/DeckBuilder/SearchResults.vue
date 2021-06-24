@@ -1,7 +1,7 @@
 <template>
-    <div class="mb-40 clearfix">
+    <div class="mb-40 flow-root">
         <card-search class="md:hidden flex"></card-search>
-        <div class="clearfix">
+        <div class="flow-root">
             <div class="text-base pr-0 bg-gray-100">
                 <div class="w-full flex -mt-1px">
                     <button class="flex-1 border border-gray-200 p-1" @click="cardType = ''" :class="cardType === '' ? 'bg-gray-600 text-white' : 'hover:bg-white'">

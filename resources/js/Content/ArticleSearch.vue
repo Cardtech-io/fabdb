@@ -2,8 +2,8 @@
     <div class="container sm:mx-auto py-8 px-4">
         <h1 class="mb-4 font-serif uppercase text-4xl text-white">{{ title }}</h1>
 
-        <ol class="clearfix text-lg">
-            <li v-for="article in articles.data" class="clearfix bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
+        <ol class="flow-root text-lg">
+            <li v-for="article in articles.data" class="flow-root bg-semi-black p-4 w-full mb-8 rounded-xl hover:bg-nearly-black">
                 <article-item :article="article"></article-item>
             </li>
         </ol>

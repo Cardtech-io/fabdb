@@ -305,7 +305,7 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200" }, [
         _c(
           "div",
-          { staticClass: "article container sm:mx-auto py-8 clearfix p-4" },
+          { staticClass: "article container sm:mx-auto py-8 flow-root p-4" },
           [
             _c(
               "div",
@@ -369,7 +369,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _vm.article.author.blurb
-              ? _c("div", { staticClass: "pt-4 my-8 clearfix" }, [
+              ? _c("div", { staticClass: "pt-4 my-8 flow-root" }, [
                   _c(
                     "div",
                     {

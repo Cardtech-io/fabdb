@@ -21,7 +21,7 @@ body {
 }
 
 .theme-battle {
-    --theme-background: theme('bg.gray.800') url('/img/background-battle.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.800') url('/img/background-battle.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.blue.600");
     --button-primary-hover-background-color: theme("colors.blue.400");
     --button-primary-text-color: theme("colors.white");
@@ -33,8 +33,21 @@ body {
     --nav-hover-text-color: theme('colors.blue.400');
 }
 
+.theme-library {
+    --theme-background: theme('backgroundColor.gray.800') url('/img/background-library.jpg') no-repeat top left;
+    --button-primary-background-color: theme("colors.yellow.600");
+    --button-primary-hover-background-color: theme("colors.yellow.500");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.gray.600");
+    --button-secondary-hover-background-color: theme("colors.gray.500");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.blue.300");
+    --crumbs-background-color: theme('colors.yellow.700');
+    --nav-hover-text-color: theme('colors.yellow.400');
+}
+
 .theme-skies {
-    --theme-background: theme('bg.gray.200') url('/img/background-crucible.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('/img/background-crucible.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.red.700");
     --button-primary-hover-background-color: theme("colors.red.500");
     --button-primary-text-color: theme("colors.white");
@@ -47,7 +60,7 @@ body {
 }
 
 .theme-default {
-    --theme-background: theme('bg.gray.200') url('/img/background-monarch.jpg') no-repeat top center;
+    --theme-background: theme('backgroundColor.gray.200') url('/img/background-monarch.jpg') no-repeat top center;
     --button-primary-background-color: theme("colors.blue.700");
     --button-primary-hover-background-color: theme("colors.blue.500");
     --button-primary-text-color: theme("colors.white");
@@ -60,7 +73,7 @@ body {
 }
 
 .theme-aria {
-    --theme-background: theme('bg.gray.200') url('/img/background-aria.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('/img/background-aria.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.green.700");
     --button-primary-hover-background-color: theme("colors.green.500");
     --button-primary-text-color: theme("colors.white");
@@ -73,7 +86,7 @@ body {
 }
 
 .theme-demonastery {
-    --theme-background: theme('bg.gray.200') url('/img/background-demonastery.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('/img/background-demonastery.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.indigo.700");
     --button-primary-hover-background-color: theme("colors.indigo.500");
     --button-primary-text-color: theme("colors.white");
@@ -86,7 +99,7 @@ body {
 }
 
 .theme-savage-lands {
-    --theme-background: theme('bg.black') url('/img/background-savage-lands.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.black') url('/img/background-savage-lands.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.gray.600");
     --button-primary-text-color: theme("colors.white");
@@ -99,7 +112,7 @@ body {
 }
 
 .theme-the-pits {
-    --theme-background: theme('bg.black') url('/img/background-the-pits.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.black') url('/img/background-the-pits.jpg') no-repeat top left;
     --button-primary-background-color: theme("colors.orange.700");
     --button-primary-hover-background-color: theme("colors.orange.500");
     --button-primary-text-color: theme("colors.white");

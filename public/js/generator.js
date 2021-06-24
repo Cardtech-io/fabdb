@@ -137,7 +137,7 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto px-4 py-8 sm:clearfix" },
+          { staticClass: "container sm:mx-auto px-4 py-8 sm:flow-root" },
           [
             _c("div", { staticClass: "sm:w-1/2 sm:pl-8 sm:float-right" }, [
               _c("p", [

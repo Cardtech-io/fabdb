@@ -1,6 +1,6 @@
 <template>
     <div class="mt-4">
-        <a href="" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copy">
+        <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copy">
             <div class="float-left mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                     <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
@@ -10,7 +10,7 @@
             <p class="text-base">Looking to share your deck build as text? Click here.</p>
         </a>
 
-        <a href="" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4" @click.prevent="exportToTTS">
+        <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4" @click.prevent="exportToTTS">
             <div class="float-left mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                     <path d="M4 4l12 6-12 6z"/>
@@ -21,7 +21,7 @@
             <p class="text-base" v-else>Please wait while we generate the files...</p>
         </a>
 
-        <router-link :to="'/decks/export/' + deck.slug" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4">
+        <router-link :to="'/decks/export/' + deck.slug" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4">
             <div class="float-left mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                     <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"/>

@@ -730,7 +730,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "mt-8 md:mt-0 md:w-1/2" }, [
             _vm.event.description
-              ? _c("div", { staticClass: "clearfix mb-8" }, [
+              ? _c("div", { staticClass: "flow-root mb-8" }, [
                   _c(
                     "div",
                     { staticClass: "float-left mr-6 mb-2" },

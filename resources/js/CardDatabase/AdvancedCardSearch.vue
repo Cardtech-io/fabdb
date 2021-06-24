@@ -10,7 +10,7 @@
                         <div class="md:w-1/5 py-2">Keyword search</div>
                         <div class="md:w-4/5">
                             <div class="flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg">
-                                <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-2 sm:px-4" :class="active('keywords')">
+                                <input type="text" v-model="params.keywords" class="flex-1 bg-transparent border-none ring-none outline-none py-2 px-2 sm:px-4" :class="active('keywords')">
                                 <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
                                     <icon :size="6">
                                         <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>

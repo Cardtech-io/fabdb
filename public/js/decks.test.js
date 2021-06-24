@@ -518,7 +518,7 @@ var render = function() {
                   _vm.drawn.length
                     ? _c(
                         "ol",
-                        { staticClass: "clearfix -mx-2 sm:-mx-4" },
+                        { staticClass: "flow-root -mx-2 sm:-mx-4" },
                         _vm._l(_vm.drawn, function(card) {
                           return _c(
                             "li",

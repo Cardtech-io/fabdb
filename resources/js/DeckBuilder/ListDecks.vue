@@ -1,19 +1,22 @@
 <template>
     <div class="container px-4 sm:mx-auto text-white md:flex">
-        <div class="py-8 md:my-20 md:w-1/2 sm:pr-8">
-            <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
-            <p class="mt-4">
-                The first and only Flesh &amp; Blood Deck Builder is here. You can build your decks
-                for constructed or blitz formats, and then export them to PDF for tournament registration, or
-                integration with Tabletop Simulator.
-            </p>
+        <div class="md:my-20 md:w-1/2 md:pr-8">
+            <div class="my-8 md:my-0 p-8 bg-nearly-black rounded-xl">
+                <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
+                <p class="mt-4">
+                    The first and only Flesh &amp; Blood Deck Builder is here. You can build your decks
+                    for constructed or blitz formats, and then export them to PDF for tournament registration, or
+                    integration with Tabletop Simulator.
+                </p>
 
-            <p class="mt-45">
-                <router-link to="/support" class="link">Supporters</router-link> gain access to
-                premium deck builder features, the deck tester and more.
-            </p>
+                <p class="mt-4">
+                    <router-link to="/support" class="link">Supporters</router-link> gain access to
+                    premium deck builder features, the deck tester, exclusive FaB DB backgrounds, limited playmat
+                    sales and a whole lot more!
+                </p>
 
-            <router-link to="/support" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
+                <router-link to="/support" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
+            </div>
         </div>
 
         <div class="md:my-20 md:flex-grow md:w-1/2">
@@ -24,7 +27,7 @@
                 </div>
 
                 <ol v-if="decks">
-                    <li class="bg-semi-black rounded-lg mb-2 hover:bg-black" v-for="(deck, key) in decks">
+                    <li class="bg-semi-black rounded-lg mb-1 hover:bg-black" v-for="(deck, key) in decks">
                         <div class="flex">
                             <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
                             <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>

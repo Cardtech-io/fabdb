@@ -5,7 +5,7 @@
         </div>
 
         <div class="w-full lg:w-3/4">
-            <ul class="block border-b border-gray-400 font-serif uppercase clearfix">
+            <ul class="block border-b border-gray-400 font-serif uppercase flow-root">
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'settings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'settings'">Settings</a></li>
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'metrics' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'metrics'">Metrics</a></li>
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'rulings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'rulings'">Rulings</a></li>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="pt-8" v-if="tab == 'export'">
-                    <a href="" class="block clearfix p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copyShareURL">
+                    <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copyShareURL">
                         <div class="float-left mr-4">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                                 <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>

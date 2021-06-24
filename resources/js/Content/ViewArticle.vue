@@ -4,7 +4,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="article container sm:mx-auto py-8 clearfix p-4">
+            <div class="article container sm:mx-auto py-8 flow-root p-4">
                 <div>
                     <h1 class="text-4xl uppercase font-serif">{{ article.title }}</h1>
                     <div v-if="article.tags" class="mb-4">
@@ -16,7 +16,7 @@
                     <markdown :content="parseMarkdown(article.content)"></markdown>
                 </div>
 
-                <div class="pt-4 my-8 clearfix" v-if="article.author.blurb">
+                <div class="pt-4 my-8 flow-root" v-if="article.author.blurb">
                     <div class="float-left rounded-r-full bg-gray-200 mr-4 mb-4">
                         <router-link :to="{name: 'articles.author', params: {author: article.author.slug}}"><avatar :user="article.author" :width="150"/></router-link>
                     </div>

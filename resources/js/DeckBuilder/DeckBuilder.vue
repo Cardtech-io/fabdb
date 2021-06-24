@@ -34,8 +34,8 @@
                 </div>
             </div>
 
-            <div class="bg-gray-200 h-full relative" style="background: url('/img/grey-grid.png');">
-                <div class="clearfix flex h-full" :class="containers">
+            <div class="bg-gray-200 h-full relative">
+                <div class="flow-root flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
                         <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
                         <deck-details v-if="mode == 'details'"></deck-details>

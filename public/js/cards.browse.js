@@ -244,10 +244,10 @@ var render = function() {
           [
             _vm.results && _vm.results.data
               ? _c("div", [
-                  _c("div", { staticClass: "clearfix" }, [
+                  _c("div", { staticClass: "flow-root" }, [
                     _c(
                       "div",
-                      { staticClass: "clearfix py-4" },
+                      { staticClass: "flow-root py-4" },
                       [
                         _c("paginator", {
                           attrs: { results: _vm.results },
@@ -259,7 +259,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "ul",
-                      { staticClass: "clearfix -mx-2" },
+                      { staticClass: "flow-root -mx-2" },
                       _vm._l(_vm.results.data, function(card) {
                         return _c("card-item", {
                           key: card.identifier,

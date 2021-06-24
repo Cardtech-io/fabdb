@@ -3,7 +3,7 @@
         <header-title title="Browse decks"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-white py-4 border-b-4 border-gray-300">
+        <div class="bg-white dark:bg-gray-700 py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
                 <deck-search @search-completed="refreshResults"></deck-search>
             </div>
@@ -12,8 +12,8 @@
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data" class="pb-8">
-                    <div class="clearfix py-4">
-                        <ul class="clearfix sm:-mx-4">
+                    <div class="flow-root py-4">
+                        <ul class="flow-root sm:-mx-4">
                             <div v-if="results.data.length">
                                 <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"></deck-item>
                             </div>
@@ -22,7 +22,7 @@
                             </div>
                         </ul>
 
-                        <div class="clearfix py-4" v-if="results.data.length">
+                        <div class="flow-root py-4" v-if="results.data.length">
                             <paginator :results="results" @page-selected="updatePage"></paginator>
                         </div>
                     </div>

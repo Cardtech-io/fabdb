@@ -5,7 +5,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto px-4 py-8 sm:clearfix">
+            <div class="container sm:mx-auto px-4 py-8 sm:flow-root">
                 <div class="sm:w-1/2 sm:pl-8 sm:float-right">
                     <p>This tool is just for a little bit of fun. Generate a pack, check your cards, see if you can find
                     a Heart of Fyendal! I've tried to make this as close and accurate as possible to a real booster pack
