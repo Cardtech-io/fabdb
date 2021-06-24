@@ -103,7 +103,7 @@ body {
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.gray.600");
     --button-primary-text-color: theme("colors.white");
-    --button-secondary-background-color: theme("colors.blue.700");
+    --button-secondary-background-color: theme("colors.blue.800");
     --button-secondary-hover-background-color: theme("colors.blue.500");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.400");
