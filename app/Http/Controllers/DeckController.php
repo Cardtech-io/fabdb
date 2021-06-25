@@ -125,7 +125,7 @@ class DeckController extends Controller
             $request->deck->id,
             $request->get('name', $request->deck->name),
             $request->get('label', $request->deck->label),
-            $request->get('notes', $request->deck->notes),
+            $request->get('notes', object_get($request, 'deck.notes', '')),
             $request->get('format', $request->deck->format),
             (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),
