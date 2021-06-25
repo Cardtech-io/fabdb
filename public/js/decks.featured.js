@@ -384,7 +384,7 @@ var render = function() {
         { staticClass: "sm:flex sm:items-start" },
         [
           _c("card-image", {
-            staticClass: "w-full sm:w-auto sm:m-0",
+            staticClass: "w-full sm:w-250 sm:m-0",
             attrs: { card: _vm.deck.hero }
           }),
           _vm._v(" "),

@@ -1,6 +1,6 @@
 <template>
     <section class="sm:flex sm:items-start" v-if="deck">
-        <card-image :card="deck.hero" class="w-full sm:w-auto sm:m-0"></card-image>
+        <card-image :card="deck.hero" class="w-full sm:w-250 sm:m-0"></card-image>
         <div class="p-4">
             <div class="flex items-center">
                 <h1 class="block font-serif text-lg uppercase text-gray-300 mb-2">Deck of the week</h1>
