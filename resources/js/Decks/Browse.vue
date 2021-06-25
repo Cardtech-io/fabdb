@@ -44,6 +44,8 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
     import LazyLoader from '../Components/LazyLoader';
+    import Models from "../Utilities/Models";
+    import Deck from "./Deck";
 
     export default {
         components: {
@@ -83,8 +85,9 @@
         methods: {
             ...mapActions('deckSearch', ['updateParam']),
 
-            refreshResults: function(results) {
+            refreshResults(results) {
                 this.results = results;
+                this.results.data = Models.hydrateMany(results.data, Deck);
             },
 
             updatePage(page) {

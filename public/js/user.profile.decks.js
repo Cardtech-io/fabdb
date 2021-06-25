@@ -13,6 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DeckItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckItem */ "./resources/js/Decks/DeckItem.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Deck */ "./resources/js/Decks/Deck.js");
 //
 //
 //
@@ -21,6 +23,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 
 
 
@@ -61,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/latest?user=' + this.user.slug).then(function (response) {
-      _this.decks = response.data;
+      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_3__["default"].hydrateMany(response.data.data, _Deck__WEBPACK_IMPORTED_MODULE_4__["default"]);
     });
   }
 });
@@ -87,7 +91,7 @@ var render = function() {
     _vm.decks
       ? _c(
           "div",
-          _vm._l(_vm.decks.data, function(deck) {
+          _vm._l(_vm.decks, function(deck) {
             return _c("deck-item", {
               key: deck.slug,
               attrs: { deck: deck, theme: "dark" }

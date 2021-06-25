@@ -2,8 +2,8 @@
     <div class="md:float-left md:px-2 w-full lg:w-1/2 my-2 odd:bg-gray-100 rounded-full overflow-hidden">
         <router-link :to="{ name: 'decks.view', params: { deck: deck.slug } }" class="block flex items-center" :class="themeClasses()">
             <div class="relative flex-none">
-                <hero-avatar :hero="hero" :name="deck.name" class="block sm:hidden" :width="80"></hero-avatar>
-                <hero-avatar :hero="hero" :name="deck.name" class="hidden sm:block"></hero-avatar>
+                <hero-avatar :hero="deck.hero" :name="deck.name" class="block sm:hidden" :width="80"></hero-avatar>
+                <hero-avatar :hero="deck.hero" :name="deck.name" class="hidden sm:block"></hero-avatar>
                 <div class="absolute bottom-0 left-0 ml-2 mb-2" v-if="deck.notes">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-white" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -20,8 +20,7 @@
                     <div>
                         <deck-label :label="deck.label" class="mr-2 text-xs px-2 sm:py-1 rounded-full"></deck-label>
                     </div>
-                    <span v-if="deck.user.name">by {{ deck.user.name }}</span>
-                    <span v-else>Anonymous</span>
+                    <span>by {{deck.authorName}}</span>
                 </span>
             </div>
             <div class="flex-none mx-10 font-serif text-center hidden md:block">
@@ -44,7 +43,7 @@
         components: {HeroAvatar, DeckLabel},
 
         computed: {
-            cards: function() {
+            cards() {
                 return this.deck.cards;
             }
         },

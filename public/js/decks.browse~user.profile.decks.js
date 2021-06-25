@@ -79,7 +79,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -212,12 +211,12 @@ var render = function() {
             [
               _c("hero-avatar", {
                 staticClass: "block sm:hidden",
-                attrs: { hero: _vm.hero, name: _vm.deck.name, width: 80 }
+                attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
               }),
               _vm._v(" "),
               _c("hero-avatar", {
                 staticClass: "hidden sm:block",
-                attrs: { hero: _vm.hero, name: _vm.deck.name }
+                attrs: { hero: _vm.deck.hero, name: _vm.deck.name }
               }),
               _vm._v(" "),
               _vm.deck.notes
@@ -291,9 +290,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _vm.deck.user.name
-                ? _c("span", [_vm._v("by " + _vm._s(_vm.deck.user.name))])
-                : _c("span", [_vm._v("Anonymous")])
+              _c("span", [_vm._v("by " + _vm._s(_vm.deck.authorName))])
             ])
           ]),
           _vm._v(" "),

@@ -24,6 +24,7 @@ return [
         'decks/starters',
         'decks/test',
         'decks/([^/]+)',
+        'decks',
         'events',
         'login',
         'packs/generate',

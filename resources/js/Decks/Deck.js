@@ -9,6 +9,14 @@ class Deck {
         return this.fields.name;
     }
 
+    get authorName() {
+        return this.fields.user.name || 'Anonymous';
+    }
+
+    get user() {
+        return this.fields.user;
+    }
+
     get label() {
         return this.fields.label || '';
     }
@@ -39,6 +47,10 @@ class Deck {
 
     get format() {
         return this.fields.format;
+    }
+
+    get totalCards() {
+        return this.fields.totalCards || 0;
     }
 
     get slug() {

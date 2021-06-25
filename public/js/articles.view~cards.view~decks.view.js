@@ -1638,34 +1638,6 @@ var converter = new showdown__WEBPACK_IMPORTED_MODULE_0___default.a.Converter({
 
 /***/ }),
 
-/***/ "./resources/js/Utilities/Models.js":
-/*!******************************************!*\
-  !*** ./resources/js/Utilities/Models.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  hydrateMany: function hydrateMany(records, klass) {
-    var _this = this;
-
-    return records.map(function (record) {
-      return _this.hydrate(record, klass);
-    });
-  },
-  hydrate: function hydrate(record, klass) {
-    return new klass(record);
-  },
-  hydratePaginated: function hydratePaginated(data, klass) {
-    data.data = this.hydrateMany(data.data, klass);
-    return data;
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/Utilities/Strings.js":
 /*!*******************************************!*\
   !*** ./resources/js/Utilities/Strings.js ***!

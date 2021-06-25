@@ -276,4 +276,19 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             ->whereRaw('user_id = 0')
             ->get();
     }
+
+    public function featured(int $howMany): ?Deck
+    {
+        return $this->newQuery()
+            ->with('user')
+            ->withHero()
+            ->withCardCount()
+            ->select('decks.id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
+            ->join('features', function($join) {
+                $join->on('features.featureable_id', 'decks.id');
+                $join->where('features.featureable_type', Deck::class);
+            })
+            ->orderBy('features.publish_at', 'DESC')
+            ->first();
+    }
 }

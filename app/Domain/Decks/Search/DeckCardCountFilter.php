@@ -14,8 +14,6 @@ class DeckCardCountFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->addSelect(
-            DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
-        );
+        $query->withCardCount();
     }
 }

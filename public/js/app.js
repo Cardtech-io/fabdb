@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.test":"decks.test","decks.browse~user.profile.decks":"decks.browse~user.profile.decks","decks.browse":"decks.browse","user.profile.decks":"user.profile.decks","decks.export":"decks.export","decks.mine":"decks.mine","decks.starters":"decks.starters","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"902e8c3ea8cb962202af","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"8513c875f839d5b7e26a","cards.browse":"221d3972041c706b69a4","collection":"b83c372dc6fa798b6657","decks.test":"96baaa5b7d1ce70c43aa","decks.browse~user.profile.decks":"63d8679f18dd185ca313","decks.browse":"cae6b424b955d9d3071b","user.profile.decks":"a41b94ecb0b8667635c5","decks.export":"afe5eb9668d7accc2420","decks.mine":"0ee4fee470f9cc6796fc","decks.starters":"b96b444455676f675b7a","generator":"a69bd50e4d5a773f078d","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"c81596f60d1e72924709","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"633c35368ac39df762e9","articles.view":"21d559b04a524bae2333","cards.fabled~cards.view":"c2e4a694259952f050a3","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"b9eef7cb7d20b766ab43","decks.build~practise.view":"e0742717440aba090b1d","practise.view":"eed08a42a457d6e85957","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"2cba934680e9af10aa6c","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.view":"f75df4cb72972d8cd312","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"ede695b58329c0903ce1","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"7f716ecbcbd5fc7eaac4","home":"db98696ac1ecf5b48575","vendors~events.edit":"e9564a790a6ab950ddaa","events.edit":"54dcd26804fb04724c73","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.test":"decks.test","decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks":"decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks","decks.browse~user.profile.decks":"decks.browse~user.profile.decks","decks.browse":"decks.browse","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.mine":"decks.mine","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"902e8c3ea8cb962202af","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"8513c875f839d5b7e26a","cards.browse":"221d3972041c706b69a4","collection":"b83c372dc6fa798b6657","decks.test":"96baaa5b7d1ce70c43aa","decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks":"ce3740f02d12d6af6ea6","decks.browse~user.profile.decks":"784a8fefadf6fc4e1973","decks.browse":"329e3b43054c60077dd6","user.profile.decks":"8c331a3ad0f49456da7d","decks.featured":"d10a816f378c047c234c","decks.starters":"bf84ebf48b3a558dc438","decks.export":"afe5eb9668d7accc2420","decks.mine":"0ee4fee470f9cc6796fc","generator":"a69bd50e4d5a773f078d","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"c81596f60d1e72924709","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"54b72abeb7756bae4fd0","articles.view":"36ed1a8e3f2015125395","cards.fabled~cards.view":"c2e4a694259952f050a3","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"b9eef7cb7d20b766ab43","decks.build~practise.view":"e0742717440aba090b1d","practise.view":"eed08a42a457d6e85957","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"2cba934680e9af10aa6c","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.view":"eb4e1dadc1a60c34a7ae","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"92217b0bfa48ce83237d","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"7f716ecbcbd5fc7eaac4","home":"db98696ac1ecf5b48575","vendors~events.edit":"e9564a790a6ab950ddaa","events.edit":"54dcd26804fb04724c73","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2265,8 +2265,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
     image: function image() {
+      var width = this.width || 300;
+
       if (this.sku) {
-        return this.cardImageFromSku(this.sku, 300);
+        return this.cardImageFromSku(this.sku, width);
       }
 
       if (this.card.image) {
@@ -2867,6 +2869,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: 'Decks',
         children: [{
+          link: '/decks',
+          text: 'Featured'
+        }, {
           link: '/decks/browse',
           text: 'Browse'
         }, {
@@ -76062,15 +76067,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Breadcrumbs */ "./resources/js/Components/Breadcrumbs.vue");
 /* harmony import */ var _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CardDatabase/CardAd */ "./resources/js/CardDatabase/CardAd.vue");
 /* harmony import */ var _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CardDatabase/CardImage */ "./resources/js/CardDatabase/CardImage.vue");
-/* harmony import */ var _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/HeaderTitle */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
-/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
-/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
-/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/HeaderTitle */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
+/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
+/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
+/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
+/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -76094,9 +76101,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('breadcrumbs', _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_9__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card-ad', _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_10__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card-image', _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_11__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_13__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_14__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('header-title', _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('icon', _Components_Icon__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_14__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_15__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('header-title', _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_13__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_4___default.a, 'vac');
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_touch_events__WEBPACK_IMPORTED_MODULE_6___default.a, {
   disableClick: true,
@@ -76120,9 +76128,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_masonry__WEBPACK_IMPORTED_MOD
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$settings = window.settings;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$eventHub = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.lang = JSON.parse(atob(window.lang));
-_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_16__["default"];
-_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_15__["default"];
-Object(_axios_config__WEBPACK_IMPORTED_MODULE_17__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_16__["default"]);
+_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_17__["default"];
+_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_16__["default"];
+Object(_axios_config__WEBPACK_IMPORTED_MODULE_18__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_17__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"]).$mount('#app');
 
 /***/ }),
@@ -76376,9 +76384,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       title: 'Flesh & Blood Life Counter'
     }
   }, {
+    path: "/decks",
+    component: function component() {
+      return Promise.all(/*! import() | decks.featured */[__webpack_require__.e("decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks"), __webpack_require__.e("decks.featured")]).then(__webpack_require__.bind(null, /*! ./Decks/Featured/Featured */ "./resources/js/Decks/Featured/Featured.vue"));
+    },
+    name: 'decks.featured'
+  }, {
     path: "/decks/browse",
     component: function component() {
-      return Promise.all(/*! import() | decks.browse */[__webpack_require__.e("decks.browse~user.profile.decks"), __webpack_require__.e("decks.browse")]).then(__webpack_require__.bind(null, /*! ./Decks/Browse */ "./resources/js/Decks/Browse.vue"));
+      return Promise.all(/*! import() | decks.browse */[__webpack_require__.e("decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks"), __webpack_require__.e("decks.browse~user.profile.decks"), __webpack_require__.e("decks.browse")]).then(__webpack_require__.bind(null, /*! ./Decks/Browse */ "./resources/js/Decks/Browse.vue"));
     },
     name: 'decks.browse'
   }, {
@@ -76418,7 +76432,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/starters",
     component: function component() {
-      return __webpack_require__.e(/*! import() | decks.starters */ "decks.starters").then(__webpack_require__.bind(null, /*! ./Decks/Starters */ "./resources/js/Decks/Starters.vue"));
+      return Promise.all(/*! import() | decks.starters */[__webpack_require__.e("decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks"), __webpack_require__.e("decks.starters")]).then(__webpack_require__.bind(null, /*! ./Decks/Starters */ "./resources/js/Decks/Starters.vue"));
     },
     name: 'decks.starters',
     meta: {
@@ -76427,7 +76441,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/:deck",
     component: function component() {
-      return Promise.all(/*! import() | decks.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("decks.view")]).then(__webpack_require__.bind(null, /*! ./Decks/Viewing/ViewDeck */ "./resources/js/Decks/Viewing/ViewDeck.vue"));
+      return Promise.all(/*! import() | decks.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("decks.view")]).then(__webpack_require__.bind(null, /*! ./Decks/Viewing/ViewDeck */ "./resources/js/Decks/Viewing/ViewDeck.vue"));
     },
     name: 'decks.view',
     meta: {
@@ -76532,7 +76546,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     children: [{
       path: '',
       component: function component() {
-        return Promise.all(/*! import() | user.profile.decks */[__webpack_require__.e("decks.browse~user.profile.decks"), __webpack_require__.e("user.profile.decks")]).then(__webpack_require__.bind(null, /*! ./Decks/LatestDecks */ "./resources/js/Decks/LatestDecks.vue"));
+        return Promise.all(/*! import() | user.profile.decks */[__webpack_require__.e("decks.browse~decks.featured~decks.starters~decks.view~user.profile.decks"), __webpack_require__.e("decks.browse~user.profile.decks"), __webpack_require__.e("user.profile.decks")]).then(__webpack_require__.bind(null, /*! ./Decks/LatestDecks */ "./resources/js/Decks/LatestDecks.vue"));
       },
       name: 'user.profile.decks'
     }, {

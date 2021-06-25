@@ -1979,8 +1979,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
     image: function image() {
+      var width = this.width || 300;
+
       if (this.sku) {
-        return this.cardImageFromSku(this.sku, 300);
+        return this.cardImageFromSku(this.sku, width);
       }
 
       if (this.card.image) {

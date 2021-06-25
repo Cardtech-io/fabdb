@@ -52,6 +52,7 @@
                     ]},
 
                     { text: 'Decks', children: [
+                        { link: '/decks', text: 'Featured' },
                         { link: '/decks/browse', text: 'Browse' },
                         { link: '/decks/starters', text: 'Starter decks' }
                     ]},

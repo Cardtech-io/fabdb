@@ -25,4 +25,6 @@ interface DeckRepository extends Repository
     public function copy(string $deckSlug, int $userId): Deck;
 
     public function starters(): Collection;
+
+    public function featured(int $howMany): ?Deck;
 }

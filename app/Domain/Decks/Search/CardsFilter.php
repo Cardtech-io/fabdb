@@ -13,8 +13,6 @@ class CardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->with(['cards' => function($include) {
-            $include->whereIn('type', ['hero', 'weapon']);
-        }]);
+        $query->withHero();
     }
 }

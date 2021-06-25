@@ -3,6 +3,7 @@ namespace FabDB\Domain\Decks;
 
 use Carbon\Carbon;
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Content\Feature;
 use FabDB\Domain\Practise\Practise;
 use FabDB\Domain\Users\User;
 use FabDB\Domain\Voting\Vote;
@@ -10,6 +11,7 @@ use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class Deck extends Model
@@ -36,6 +38,11 @@ class Deck extends Model
         return $this->belongsTo(Practise::class);
     }
 
+    public function feature()
+    {
+        return $this->morphOne(Feature::class, 'featureable');
+    }
+
     public function votes()
     {
         return $this->morphMany(Vote::class, 'voteable');
@@ -59,6 +66,11 @@ class Deck extends Model
             ->orderBy('cards.name')
             ->withPivot('id', 'total')
             ->withTimestamps();
+    }
+
+    public function scopeFeatured($query)
+    {
+        $query->withHero();
     }
 
     public static function add(int $userId, string $name, ?int $practiseId)
@@ -117,6 +129,20 @@ class Deck extends Model
     public function hero()
     {
         return $this->cards->hero();
+    }
+
+    public function scopeWithHero($query)
+    {
+        $query->with(['cards' => function($include) {
+            $include->whereIn('type', ['hero']);
+        }]);
+    }
+
+    public function scopeWithCardCount($query)
+    {
+        $query->addSelect(
+            DB::raw('(SELECT SUM(deck_cards.total) FROM deck_cards WHERE deck_cards.deck_id = decks.id) - 1 AS total_cards')
+        );
     }
 
     public function weapon()

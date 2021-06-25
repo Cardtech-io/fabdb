@@ -30,6 +30,7 @@ const router = new VueRouter({
 
         { path: '/tools/life-counter', component: () => import(/* webpackChunkName: "tools.counter" */ './LifeCounter/Main'), name: 'tools.life-counter', meta: { title: 'Flesh & Blood Life Counter' } },
 
+        { path: "/decks", component: () => import(/* webpackChunkName: "decks.featured" */ './Decks/Featured/Featured'), name: 'decks.featured' },
         { path: "/decks/browse", component: () => import(/* webpackChunkName: "decks.browse" */ './Decks/Browse'), name: 'decks.browse' },
         { path: "/decks/build", component: () => import(/* webpackChunkName: "decks.mine" */ './DeckBuilder/ListDecks'), name: 'decks.mine' },
         { path: "/decks/build/:deck", component: () => import(/* webpackChunkName: "decks.build" */ './DeckBuilder/DeckBuilder'), name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck' } },

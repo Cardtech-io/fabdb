@@ -49,14 +49,19 @@ class DeckController extends Controller
         return DeckResource::collection($this->decks->starters());
     }
 
+    public function featured()
+    {
+        return new DeckResource($this->decks->featured(1));
+    }
+
     public function latest(Request $request)
     {
         $params = array_merge($request->all(), [
-            'per_page' => 10,
+            'per_page' => $request->get('per_page', 10),
             'order' => 'newest'
         ]);
 
-        return $this->decks->search($params);
+        return DeckResource::collection($this->decks->search($params));
     }
 
     public function addDeck(Request $request)
