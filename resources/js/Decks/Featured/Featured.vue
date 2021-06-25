@@ -15,7 +15,7 @@
                     <latest-decks title="Competitive" color="bg-gray-800" query="label=competitive"></latest-decks>
                 </div>
                 <div class="w-full lg:w-1/3 mb-4">
-                    <latest-decks title="Casual" color="bg-blue-300"></latest-decks>
+                    <latest-decks title="Casual" color="bg-blue-300" query="label=casual"></latest-decks>
                 </div>
                 <div class="w-full lg:w-1/3 lg:ml-4">
                     <latest-decks title="Meme" color="bg-pink-600" query="label=meme" ></latest-decks>

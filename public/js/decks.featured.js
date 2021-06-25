@@ -574,7 +574,11 @@ var render = function() {
           { staticClass: "w-full lg:w-1/3 mb-4" },
           [
             _c("latest-decks", {
-              attrs: { title: "Casual", color: "bg-blue-300" }
+              attrs: {
+                title: "Casual",
+                color: "bg-blue-300",
+                query: "label=casual"
+              }
             })
           ],
           1
