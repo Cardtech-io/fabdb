@@ -23,9 +23,7 @@ class CardResource extends JsonResource
             $response['totalOwned'] = (int) $this->resource->totalOwned;
         }
 
-        if (object_get($this->resource, 'totalSideboard')) {
-            $response['totalSideboard'] = (int) $this->resource->totalSideboard;
-        }
+        $response['totalSideboard'] = object_get($this, 'resource.totalSideboard', 0);
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));

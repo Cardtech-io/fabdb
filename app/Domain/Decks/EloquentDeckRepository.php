@@ -285,9 +285,9 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         return $this->newQuery()
             ->with('user')
+            ->select('decks.id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
             ->withHero()
             ->withCardCount()
-            ->select('decks.id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
             ->join('features', function($join) {
                 $join->on('features.featureable_id', 'decks.id');
                 $join->where('features.featureable_type', Deck::class);

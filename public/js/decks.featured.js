@@ -209,6 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -702,7 +703,15 @@ var render = function() {
                 }
               },
               [
-                _c("hero-avatar", { attrs: { hero: deck.hero, width: "90" } }),
+                _c("hero-avatar", {
+                  staticClass: "hidden sm:block",
+                  attrs: { hero: deck.hero, width: "90" }
+                }),
+                _vm._v(" "),
+                _c("hero-avatar", {
+                  staticClass: "sm:hidden",
+                  attrs: { hero: deck.hero, width: "80" }
+                }),
                 _vm._v(" "),
                 _c(
                   "div",
