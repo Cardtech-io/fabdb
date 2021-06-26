@@ -1,5 +1,5 @@
 <template>
-    <div class="m-4 sm:mx-0">
+    <div class="my-4 sm:mx-0">
         <div class="flex mb-4">
             <div class="mr-4">
                 <avatar :user="comment.author" :width="80" class="rounded-br-none"/>

@@ -488,7 +488,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "m-4 sm:mx-0" }, [
+  return _c("div", { staticClass: "my-4 sm:mx-0" }, [
     _c("div", { staticClass: "flex mb-4" }, [
       _c(
         "div",
@@ -578,11 +578,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "h2",
-    { staticClass: "font-serif uppercase text-lg mt-4 px-4 sm:px-0" },
-    [_vm._v(_vm._s(_vm.comments ? _vm.comments.length : 0) + " comments.")]
-  )
+  return _c("h2", { staticClass: "font-serif uppercase text-lg mt-4" }, [
+    _vm._v(_vm._s(_vm.comments ? _vm.comments.length : 0) + " comments.")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -655,7 +653,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mt-4 px-4 sm:px-0" }, [
+  return _c("div", { staticClass: "mt-4 sm:px-0" }, [
     _vm.user
       ? _c(
           "form",

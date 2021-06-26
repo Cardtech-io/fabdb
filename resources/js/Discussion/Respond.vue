@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-4 px-4 sm:px-0">
+    <div class="mt-4 sm:px-0">
         <form @submit.prevent="save" v-if="user">
             <div class="w-full" v-if="!user.name || nameRequiresSaving">
                 <input type="text" v-model="name" class="input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg" placeholder="Name" required>

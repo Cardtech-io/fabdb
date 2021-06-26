@@ -71,7 +71,7 @@
 
                             <div class="bg-gray-200 py-4" v-if="tab === 'composition'">
                                 <div v-if="deck.notes" class="md:flex">
-                                    <div class="w-full md:w-2/3 pl-4 pr-8">
+                                    <div class="w-full md:w-2/3 md:pl-4 md:pr-8">
                                         <div class="mb-8" v-html="minimalMarkdown(deck.notes.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''))"></div>
                                         <div class="border-t border-gray-400 mt-4">
                                             <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>

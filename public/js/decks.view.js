@@ -111,6 +111,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -134,6 +148,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleCard: function toggleCard(card) {
       this.$eventHub.$emit('hover-card', card);
+    },
+    total: function total() {
+      return this.card.total - this.card.totalSideboard;
     }
   }
 });
@@ -670,7 +687,10 @@ var render = function() {
   return _vm.useRouter
     ? _c(
         "router-link",
-        { staticClass: "block", attrs: { to: /cards/ + _vm.card.identifier } },
+        {
+          staticClass: "block flex items-center",
+          attrs: { to: /cards/ + _vm.card.identifier }
+        },
         [
           _vm.card.stats.resource || !_vm.collapse
             ? _c("colour", {
@@ -694,14 +714,49 @@ var render = function() {
             [_vm._v(_vm._s(_vm.card.name))]
           ),
           _vm._v(" "),
-          _c("span", [_vm._v("(" + _vm._s(_vm.card.total) + ")")])
+          _vm.total()
+            ? _c("span", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.total()) + ")")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.card.totalSideboard
+            ? _c(
+                "div",
+                {
+                  staticClass: "flex items-center ml-auto",
+                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
+                },
+                [
+                  _c("icon", { attrs: { size: 4 } }, [
+                    _c("path", {
+                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d:
+                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                        "clip-rule": "evenodd"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "ml-1" }, [
+                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )
     : _c(
         "a",
         {
-          staticClass: "block",
+          staticClass: "block flex items-center",
           attrs: { href: "/cards/" + _vm.card.identifier, target: "_blank" }
         },
         [
@@ -727,7 +782,42 @@ var render = function() {
             [_vm._v(_vm._s(_vm.card.name))]
           ),
           _vm._v(" "),
-          _c("span", [_vm._v("(" + _vm._s(_vm.card.total) + ")")])
+          _vm.total()
+            ? _c("span", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.total()) + ")")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.card.totalSideboard
+            ? _c(
+                "div",
+                {
+                  staticClass: "flex items-center ml-auto",
+                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
+                },
+                [
+                  _c("icon", { attrs: { size: 4 } }, [
+                    _c("path", {
+                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d:
+                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                        "clip-rule": "evenodd"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "ml-1" }, [
+                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )
@@ -1099,7 +1189,10 @@ var render = function() {
                             ? _c("div", { staticClass: "md:flex" }, [
                                 _c(
                                   "div",
-                                  { staticClass: "w-full md:w-2/3 pl-4 pr-8" },
+                                  {
+                                    staticClass:
+                                      "w-full md:w-2/3 md:pl-4 md:pr-8"
+                                  },
                                   [
                                     _c("div", {
                                       staticClass: "mb-8",

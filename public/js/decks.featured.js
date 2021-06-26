@@ -79,6 +79,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -379,128 +383,142 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.deck
-    ? _c(
-        "section",
-        { staticClass: "sm:flex sm:items-start" },
-        [
-          _c("card-image", {
-            staticClass: "w-full sm:w-250 sm:m-0",
-            attrs: { card: _vm.deck.hero }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "p-4" },
-            [
-              _c(
-                "div",
-                { staticClass: "flex items-center" },
-                [
-                  _c(
-                    "h1",
-                    {
-                      staticClass:
-                        "block font-serif text-lg uppercase text-gray-300 mb-2"
-                    },
-                    [_vm._v("Deck of the week")]
-                  ),
-                  _vm._v(" "),
-                  _c("deck-label", {
-                    staticClass: "text-xs px-2 py-1 -mt-1 ml-4 rounded-full",
-                    attrs: { label: _vm.deck.label }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "flex items-center font-serif text-4xl uppercase text-white"
-                },
-                [
-                  _c("h2", [_vm._v('"' + _vm._s(_vm.deck.name) + '"')]),
-                  _vm._v(" "),
-                  _c("format-icon", {
-                    staticClass: "inline-block relative ml-2",
-                    attrs: { format: _vm.deck.format, size: 8 }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "text-white" },
-                [
-                  _c("span", { staticClass: "text-gray-400" }, [_vm._v("by")]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "link",
-                      attrs: {
-                        to: {
-                          name: "user.profile.decks",
-                          params: { user: _vm.deck.user.slug }
-                        }
+    ? _c("section", { staticClass: "sm:flex sm:items-start" }, [
+        _c(
+          "div",
+          { staticClass: "block w-full sm:w-250 sm:m-0 flex-none" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "block w-full",
+                attrs: {
+                  to: { name: "decks.view", params: { deck: _vm.deck.slug } }
+                }
+              },
+              [
+                _c("card-image", {
+                  staticClass: "w-full",
+                  attrs: { card: _vm.deck.hero }
+                })
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "p-4" },
+          [
+            _c(
+              "div",
+              { staticClass: "flex items-center" },
+              [
+                _c(
+                  "h1",
+                  {
+                    staticClass:
+                      "block font-serif text-lg uppercase text-gray-300 mb-2"
+                  },
+                  [_vm._v("Deck of the week")]
+                ),
+                _vm._v(" "),
+                _c("deck-label", {
+                  staticClass: "text-xs px-2 py-1 -mt-1 ml-4 rounded-full",
+                  attrs: { label: _vm.deck.label }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex items-center font-serif text-4xl uppercase text-white"
+              },
+              [
+                _c("h2", [_vm._v('"' + _vm._s(_vm.deck.name) + '"')]),
+                _vm._v(" "),
+                _c("format-icon", {
+                  staticClass: "inline-block relative ml-2",
+                  attrs: { format: _vm.deck.format, size: 8 }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "text-white" },
+              [
+                _c("span", { staticClass: "text-gray-400" }, [_vm._v("by")]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "link",
+                    attrs: {
+                      to: {
+                        name: "user.profile.decks",
+                        params: { user: _vm.deck.user.slug }
                       }
-                    },
-                    [_vm._v(_vm._s(_vm.deck.authorName))]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("p", { staticClass: "mt-4 mb-6 text-white" }, [
-                _vm._v(_vm._s(_vm.featured.excerpt))
-              ]),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "inline-block button-secondary py-2 px-3 rounded-lg",
-                  attrs: {
-                    to: { name: "decks.view", params: { deck: _vm.deck.slug } }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "inline-block h-5 w-5 mr-1",
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.deck.authorName))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "mt-4 mb-6 text-white" }, [
+              _vm._v(_vm._s(_vm.featured.excerpt))
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass:
+                  "inline-block button-secondary py-2 px-3 rounded-lg",
+                attrs: {
+                  to: { name: "decks.view", params: { deck: _vm.deck.slug } }
+                }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "inline-block h-5 w-5 mr-1",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 20 20",
+                      fill: "currentColor"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: { d: "M10 12a2 2 0 100-4 2 2 0 000 4z" }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
                       attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20",
-                        fill: "currentColor"
+                        "fill-rule": "evenodd",
+                        d:
+                          "M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z",
+                        "clip-rule": "evenodd"
                       }
-                    },
-                    [
-                      _c("path", {
-                        attrs: { d: "M10 12a2 2 0 100-4 2 2 0 000 4z" }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d:
-                            "M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z",
-                          "clip-rule": "evenodd"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v("\n            View deck\n        ")
-                ]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
+                    })
+                  ]
+                ),
+                _vm._v("\n            View deck\n        ")
+              ]
+            )
+          ],
+          1
+        )
+      ])
     : _vm._e()
 }
 var staticRenderFns = []

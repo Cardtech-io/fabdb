@@ -1,6 +1,10 @@
 <template>
     <section class="sm:flex sm:items-start" v-if="deck">
-        <card-image :card="deck.hero" class="w-full sm:w-250 sm:m-0"></card-image>
+        <div class="block w-full sm:w-250 sm:m-0 flex-none">
+            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" class="block w-full">
+                <card-image :card="deck.hero" class="w-full"></card-image>
+            </router-link>
+        </div>
         <div class="p-4">
             <div class="flex items-center">
                 <h1 class="block font-serif text-lg uppercase text-gray-300 mb-2">Deck of the week</h1>
