@@ -59,11 +59,11 @@ export default {
         },
 
         majestic: (state, getters) => {
-            return getters.subscribed && ['majestic', 'legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+            return getters.subscribed && ['majestic', 'legendary', 'fabled', 'promo'].indexOf(state.session.user.subscription) !== -1;
         },
 
         legendary: (state, getters) => {
-            return getters.subscribed && ['legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+            return getters.subscribed && ['legendary', 'fabled', 'promo'].indexOf(state.session.user.subscription) !== -1;
         },
 
         user: state => {
