@@ -5,18 +5,12 @@
 <script>
     import { mapGetters } from 'vuex';
     import Cardable from './Cardable.js';
+    import DetermineWidth from "../Components/DetermineWidth";
     import Imagery from "../Utilities/Imagery";
 
     export default {
-        mixins: [Cardable, Imagery],
+        mixins: [Cardable, Imagery, DetermineWidth],
         props: ['card', 'clickHandler', 'width', 'sku'],
-
-        data() {
-            return {
-                requiredWidth: 0,
-                requiredHeight: 0,
-            }
-        },
 
         computed: {
             ...mapGetters('session', ['wantsBorders']),
@@ -25,15 +19,6 @@
                 return [
                     this.handlerProvided() ? 'cursor-pointer' : ''
                 ];
-            },
-
-            styles() {
-                console.log(this.requiredWidth, this.requiredHeight);
-
-                return {
-                    width: this.requiredWidth+'px',
-                    height: this.requiredHeight+'px',
-                }
             },
 
             image() {
@@ -66,14 +51,6 @@
             handlerProvided() {
                 return !!this.clickHandler;
             }
-        },
-
-        // This is for determining the size that the image needs to be to help address CLS issues :)
-        mounted() {
-            this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
-            let ratio = this.requiredWidth / 546;
-            this.requiredHeight = 762 * ratio;
-            console.log(this.requiredWidth, this.requiredHeight);
         }
     };
 </script>

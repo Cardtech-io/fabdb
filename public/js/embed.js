@@ -1957,7 +1957,8 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Cardable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cardable.js */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _Components_DetermineWidth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/DetermineWidth */ "./resources/js/Components/DetermineWidth.js");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1971,25 +1972,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_3__["default"], _Components_DetermineWidth__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: ['card', 'clickHandler', 'width', 'sku'],
-  data: function data() {
-    return {
-      requiredWidth: 0,
-      requiredHeight: 0
-    };
-  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['wantsBorders']), {
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
-    },
-    styles: function styles() {
-      console.log(this.requiredWidth, this.requiredHeight);
-      return {
-        width: this.requiredWidth + 'px',
-        height: this.requiredHeight + 'px'
-      };
     },
     image: function image() {
       var width = this.width || 300;
@@ -2018,13 +2007,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     handlerProvided: function handlerProvided() {
       return !!this.clickHandler;
     }
-  },
-  // This is for determining the size that the image needs to be to help address CLS issues :)
-  mounted: function mounted() {
-    this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
-    var ratio = this.requiredWidth / 546;
-    this.requiredHeight = 762 * ratio;
-    console.log(this.requiredWidth, this.requiredHeight);
   }
 });
 
@@ -61028,6 +61010,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=FABDB&c=' + cards;
     }
   })
+});
+
+/***/ }),
+
+/***/ "./resources/js/Components/DetermineWidth.js":
+/*!***************************************************!*\
+  !*** ./resources/js/Components/DetermineWidth.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      requiredWidth: 0,
+      requiredHeight: 0
+    };
+  },
+  computed: {
+    styles: function styles() {
+      return {
+        width: this.requiredWidth + 'px',
+        height: this.requiredHeight + 'px'
+      };
+    }
+  },
+  // This is for determining the size that the image needs to be to help address CLS issues :)
+  mounted: function mounted() {
+    this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
+    var ratio = this.requiredWidth / 546;
+    this.requiredHeight = 762 * ratio;
+  }
 });
 
 /***/ }),
