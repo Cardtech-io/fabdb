@@ -358,7 +358,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("img", {
     staticClass: "rounded-full",
-    attrs: { src: _vm.heroProfile(_vm.hero, this.width), alt: _vm.name }
+    attrs: {
+      src: _vm.heroProfile(_vm.hero, _vm.width),
+      alt: _vm.name,
+      width: _vm.width,
+      height: _vm.width
+    }
   })
 }
 var staticRenderFns = []

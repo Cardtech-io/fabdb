@@ -106,7 +106,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
         Route::get('decks', 'DeckController@search');
-        Route::get('decks/featured', 'DeckController@featured');
+        Route::get('decks/featured', 'DeckController@featuredw');
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
     });

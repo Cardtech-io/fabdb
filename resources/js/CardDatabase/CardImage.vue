@@ -1,5 +1,5 @@
 <template>
-    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
+    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes" ref="image" :width="requiredWidth" :height="requiredHeight">
 </template>
 
 <script>
@@ -11,13 +11,29 @@
         mixins: [Cardable, Imagery],
         props: ['card', 'clickHandler', 'width', 'sku'],
 
+        data() {
+            return {
+                requiredWidth: 0,
+                requiredHeight: 0,
+            }
+        },
+
         computed: {
             ...mapGetters('session', ['wantsBorders']),
 
-            classes: function() {
+            classes() {
                 return [
                     this.handlerProvided() ? 'cursor-pointer' : ''
                 ];
+            },
+
+            styles() {
+                console.log(this.requiredWidth, this.requiredHeight);
+
+                return {
+                    width: this.requiredWidth+'px',
+                    height: this.requiredHeight+'px',
+                }
             },
 
             image() {
@@ -50,6 +66,14 @@
             handlerProvided() {
                 return !!this.clickHandler;
             }
+        },
+
+        // This is for determining the size that the image needs to be to help address CLS issues :)
+        mounted() {
+            this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
+            let ratio = this.requiredWidth / 546;
+            this.requiredHeight = 762 * ratio;
+            console.log(this.requiredWidth, this.requiredHeight);
         }
     };
 </script>

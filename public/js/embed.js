@@ -1974,9 +1974,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"]],
   props: ['card', 'clickHandler', 'width', 'sku'],
+  data: function data() {
+    return {
+      requiredWidth: 0,
+      requiredHeight: 0
+    };
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['wantsBorders']), {
     classes: function classes() {
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
+    },
+    styles: function styles() {
+      console.log(this.requiredWidth, this.requiredHeight);
+      return {
+        width: this.requiredWidth + 'px',
+        height: this.requiredHeight + 'px'
+      };
     },
     image: function image() {
       var width = this.width || 300;
@@ -2005,6 +2018,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     handlerProvided: function handlerProvided() {
       return !!this.clickHandler;
     }
+  },
+  // This is for determining the size that the image needs to be to help address CLS issues :)
+  mounted: function mounted() {
+    this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
+    var ratio = this.requiredWidth / 546;
+    this.requiredHeight = 762 * ratio;
+    console.log(this.requiredWidth, this.requiredHeight);
   }
 });
 
@@ -47062,9 +47082,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("img", {
+    ref: "image",
     staticClass: "w-full rounded-card",
     class: _vm.classes,
-    attrs: { src: _vm.image, alt: _vm.card.name, title: _vm.card.name },
+    attrs: {
+      src: _vm.image,
+      alt: _vm.card.name,
+      title: _vm.card.name,
+      width: _vm.requiredWidth,
+      height: _vm.requiredHeight
+    },
     on: { click: _vm.clicked }
   })
 }
@@ -62140,10 +62167,10 @@ __webpack_require__.r(__webpack_exports__);
       return state.session.user && state.session.user.subscription;
     },
     majestic: function majestic(state, getters) {
-      return getters.subscribed && ['majestic', 'legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+      return getters.subscribed && ['majestic', 'legendary', 'fabled', 'promo'].indexOf(state.session.user.subscription) !== -1;
     },
     legendary: function legendary(state, getters) {
-      return getters.subscribed && ['legendary', 'fabled'].indexOf(state.session.user.subscription) !== -1;
+      return getters.subscribed && ['legendary', 'fabled', 'promo'].indexOf(state.session.user.subscription) !== -1;
     },
     user: function user(state) {
       return state.session.user;

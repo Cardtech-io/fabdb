@@ -1,5 +1,5 @@
 <template>
-    <img :src="heroProfile(hero, this.width)" :alt="name" class="rounded-full">
+    <img :src="heroProfile(hero, width)" :alt="name" class="rounded-full" :width="width" :height="width">
 </template>
 
 <script>
