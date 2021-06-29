@@ -28,14 +28,28 @@
 <script>
     import DeckOfTheWeek from "./DeckOfTheWeek";
     import LatestDecks from "./LatestDecks";
+    import Imagery from "../../Utilities/Imagery";
 
     export default {
+        mixins: [Imagery],
         components: {DeckOfTheWeek, LatestDecks},
 
-        data() {
-            return {
+        metaInfo() {
+            let title = 'Featured decks';
 
-            }
+            let meta = [
+                { vmid: 'og:type', property: 'og:type', content: 'website' },
+                { vmid: 'og:title', property: 'og:title', content: title },
+                { vmid: 'og:description', property: 'og:description', content: 'Featured decks on FaB DB.'  },
+                { vmid: 'og:image', property: 'og:image', content: this.imageUrl('/assets/deck-of-the-week.jpg', 1200) },
+                { vmid: 'og:image:width', property: 'og:image:width', content: '1200' },
+                { vmid: 'og:image:height', property: 'og:image:height', content: '630' }
+            ];
+
+            return {
+                title: title,
+                meta: meta
+            };
         },
     }
 </script>

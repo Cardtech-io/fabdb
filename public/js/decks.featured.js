@@ -125,6 +125,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckOfTheWeek__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckOfTheWeek */ "./resources/js/Decks/Featured/DeckOfTheWeek.vue");
 /* harmony import */ var _LatestDecks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LatestDecks */ "./resources/js/Decks/Featured/LatestDecks.vue");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 //
 //
 //
@@ -152,15 +153,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
     DeckOfTheWeek: _DeckOfTheWeek__WEBPACK_IMPORTED_MODULE_0__["default"],
     LatestDecks: _LatestDecks__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  data: function data() {
-    return {};
+  metaInfo: function metaInfo() {
+    var title = 'Featured decks';
+    var meta = [{
+      vmid: 'og:type',
+      property: 'og:type',
+      content: 'website'
+    }, {
+      vmid: 'og:title',
+      property: 'og:title',
+      content: title
+    }, {
+      vmid: 'og:description',
+      property: 'og:description',
+      content: 'Featured decks on FaB DB.'
+    }, {
+      vmid: 'og:image',
+      property: 'og:image',
+      content: this.imageUrl('/assets/deck-of-the-week.jpg', 1200)
+    }, {
+      vmid: 'og:image:width',
+      property: 'og:image:width',
+      content: '1200'
+    }, {
+      vmid: 'og:image:height',
+      property: 'og:image:height',
+      content: '630'
+    }];
+    return {
+      title: title,
+      meta: meta
+    };
   }
 });
 
