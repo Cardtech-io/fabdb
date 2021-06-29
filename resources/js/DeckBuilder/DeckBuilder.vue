@@ -27,8 +27,8 @@
                                 <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"></fullscreen-button>
                             </div>
                         </div>
-                        <div v-if="mode == 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 bg-gray-200': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
-                            <card-search class="flex bg-gray-200 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"></card-search>
+                        <div v-if="mode == 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
+                            <card-search class="flex bg-gray-800 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"></card-search>
                         </div>
                     </div>
                 </div>

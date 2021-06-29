@@ -315,6 +315,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -1846,7 +1850,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_2__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     background: function background() {
-      return 'bg-gray-300 hover:bg-gray-200';
+      return 'bg-white hover:bg-secondary hover:text-white';
     },
     cardCount: function cardCount() {
       var _this = this;
@@ -1860,7 +1864,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
     active: function active(count) {
       if (this.cardCount === count) {
-        return 'bg-gray-400 text-black';
+        return 'bg-gray-100 text-gray-400';
       }
 
       return this.background;
@@ -2818,29 +2822,44 @@ var render = function() {
                       attrs: { card: _vm.cards.hero() }
                     }),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      [
-                        _c("deck-curves", {
-                          staticClass: "h-160 mb-4",
-                          attrs: {
-                            cards: _vm.other.withCost(),
-                            strategy: "length",
-                            stat: "cost"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("deck-curves", {
-                          staticClass: "h-160",
-                          attrs: {
-                            cards: _vm.other.withResource(),
-                            strategy: "length",
-                            stat: "resource"
-                          }
-                        })
-                      ],
-                      1
-                    )
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2"
+                        },
+                        [
+                          _c("deck-curves", {
+                            staticClass: "mb-4 h-140 sm:h-160",
+                            attrs: {
+                              cards: _vm.other.withCost(),
+                              stat: "cost",
+                              strategy: "length"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                        },
+                        [
+                          _c("deck-curves", {
+                            staticClass: "mb-4 h-140 sm:h-160",
+                            attrs: {
+                              cards: _vm.other.withResource(),
+                              stat: "resource",
+                              strategy: "length"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
                   ],
                   1
                 ),
@@ -3088,10 +3107,10 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "py-2 ml-1px w-1/2 bg-gray-300",
+        staticClass: "py-2 ml-1px w-1/2 bg-white",
         class: {
-          "hover:bg-white": _vm.total > 0,
-          "text-gray-400": _vm.total === 0
+          "hover:bg-secondary hover:text-white": _vm.total > 0,
+          "bg-gray-100 text-gray-400": _vm.total === 0
         },
         attrs: { disabled: _vm.total === 0 },
         on: { click: _vm.removeCardFromDeck }
@@ -3102,10 +3121,10 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "py-2 ml-1px w-1/2 bg-gray-300",
+        staticClass: "py-2 ml-1px w-1/2 bg-white",
         class: {
-          "hover:bg-white": _vm.total < _vm.maxAvailable,
-          "text-gray-400": _vm.total >= _vm.maxAvailable
+          "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
+          "bg-gray-100 text-gray-400": _vm.total >= _vm.maxAvailable
         },
         attrs: { disabled: _vm.total >= _vm.maxAvailable },
         on: { click: _vm.addCardToDeck }
@@ -3138,7 +3157,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full flex items-center mb-1px" },
+    {
+      staticClass: "w-full flex items-center mb-1px rounded-lg overflow-hidden"
+    },
     [
       _c("card-buttons", {
         staticClass: "w-1/5",
@@ -3147,7 +3168,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "w-3/5 pl-4 p-2 ml-1px bg-gray-300 cursor-default" },
+        { staticClass: "w-3/5 pl-4 p-2 ml-1px bg-white cursor-default" },
         [
           _c(
             "div",
@@ -3182,7 +3203,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/5 text-center bg-gray-300 py-2 ml-1px" }, [
+      _c("div", { staticClass: "w-1/5 text-center bg-white py-2 ml-1px" }, [
         _vm._v("\n        " + _vm._s(_vm.total) + "\n    ")
       ])
     ],
@@ -3281,7 +3302,7 @@ var render = function() {
         }
       ],
       ref: "nameSearch",
-      staticClass: "flex-1 bg-transparent outline-none py-3 px-4",
+      staticClass: "flex-1 bg-transparent outline-none py-3 px-4 text-gray-200",
       attrs: { type: "text", placeholder: "Search" },
       domProps: { value: _vm.keywords },
       on: {
@@ -3486,13 +3507,13 @@ var render = function() {
                     {
                       staticClass: "flex items-center",
                       class: Object.assign({}, _vm.sidebarClasses, {
-                        "px-0 bg-gray-200": this.fullScreen,
+                        "px-0 pr-4": this.fullScreen,
                         "border-l border-gray-300": !this.fullScreen
                       })
                     },
                     [
                       _c("card-search", {
-                        staticClass: "flex bg-gray-200 rounded-lg w-full",
+                        staticClass: "flex bg-gray-800 rounded-lg w-full",
                         class: {
                           "focus:bg-white focus:border-gray-500": !_vm.fullScreen
                         }
@@ -4914,7 +4935,7 @@ var render = function() {
       _c("card-search", { staticClass: "md:hidden flex" }),
       _vm._v(" "),
       _c("div", { staticClass: "flow-root" }, [
-        _c("div", { staticClass: "text-base pr-0 bg-gray-100" }, [
+        _c("div", { staticClass: "text-base pr-0 bg-white" }, [
           _c("div", { staticClass: "w-full flex -mt-1px" }, [
             _c(
               "button",
@@ -4922,8 +4943,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === ""
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = ""
@@ -4939,8 +4960,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "weapon"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "weapon"
@@ -4956,8 +4977,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "equipment"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "equipment"
@@ -4973,8 +4994,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "instant"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "instant"
@@ -4990,8 +5011,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "item"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "item"
@@ -5009,8 +5030,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "non-attack action"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "non-attack action"
@@ -5030,8 +5051,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "attack action"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "attack action"
@@ -5051,8 +5072,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "attack reaction"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "attack reaction"
@@ -5072,8 +5093,8 @@ var render = function() {
                 staticClass: "flex-1 border border-gray-200 p-1",
                 class:
                   _vm.cardType === "defense reaction"
-                    ? "bg-gray-600 text-white"
-                    : "hover:bg-white",
+                    ? "bg-gray-800 text-white"
+                    : "hover:bg-secondary hover:text-white",
                 on: {
                   click: function($event) {
                     _vm.cardType = "defense reaction"

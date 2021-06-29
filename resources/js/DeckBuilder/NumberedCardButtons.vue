@@ -25,7 +25,7 @@
             ...mapGetters('session', ['user']),
 
             background() {
-                return 'bg-gray-300 hover:bg-gray-200';
+                return 'bg-white hover:bg-secondary hover:text-white';
             },
 
             cardCount() {
@@ -43,7 +43,7 @@
 
             active(count) {
                 if (this.cardCount === count) {
-                    return 'bg-gray-400 text-black';
+                    return 'bg-gray-100 text-gray-400';
                 }
 
                 return this.background;

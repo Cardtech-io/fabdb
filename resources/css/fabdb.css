@@ -15,7 +15,7 @@ body {
     --button-disabled-text-color: theme("colors.white");
     --crumbs-text-color: theme('colors.white');
     --link-hover-color: theme("colors.white");
-    --main-text-color: theme('colors.gray.700');
+    --main-text-color: theme('colors.gray.800');
     --nav-text-color: theme('colors.white');
     --nav-hover-background-color: theme('colors.black');
 }

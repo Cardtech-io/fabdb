@@ -2,35 +2,35 @@
     <div class="mb-40 flow-root">
         <card-search class="md:hidden flex"></card-search>
         <div class="flow-root">
-            <div class="text-base pr-0 bg-gray-100">
+            <div class="text-base pr-0 bg-white">
                 <div class="w-full flex -mt-1px">
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = ''" :class="cardType === '' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = ''" :class="cardType === '' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         All
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'weapon'" :class="cardType === 'weapon' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'weapon'" :class="cardType === 'weapon' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Weapons
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'equipment'" :class="cardType === 'equipment' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'equipment'" :class="cardType === 'equipment' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Equipment
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'instant'" :class="cardType === 'instant' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'instant'" :class="cardType === 'instant' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Instants
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'item'" :class="cardType === 'item' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'item'" :class="cardType === 'item' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Items
                     </button>
                 </div>
                 <div class="w-full flex">
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'non-attack action'" :class="cardType === 'non-attack action' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'non-attack action'" :class="cardType === 'non-attack action' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         'Non-attack'<br/>actions
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'attack action'" :class="cardType === 'attack action' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'attack action'" :class="cardType === 'attack action' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Attack<br/>actions
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'attack reaction'" :class="cardType === 'attack reaction' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'attack reaction'" :class="cardType === 'attack reaction' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Attack<br/>reactions
                     </button>
-                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'defense reaction'" :class="cardType === 'defense reaction' ? 'bg-gray-600 text-white' : 'hover:bg-white'">
+                    <button class="flex-1 border border-gray-200 p-1" @click="cardType = 'defense reaction'" :class="cardType === 'defense reaction' ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'">
                         Defense<br/>reactions
                     </button>
                 </div>
