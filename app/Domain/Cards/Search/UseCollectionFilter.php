@@ -40,6 +40,7 @@ class UseCollectionFilter implements SearchFilter
         $query->join('owned_cards', function($join) {
             $join->on('owned_cards.card_id', '=', 'cards.id');
             $join->where('owned_cards.user_id', $this->user->id);
+            $join->where('owned_cards.total', '>', '0');
         });
 
         $query->leftJoin('deck_cards', function($query) {
