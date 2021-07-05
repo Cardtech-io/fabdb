@@ -34,7 +34,8 @@ class UseCollectionFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->addSelect(DB::raw('SUM(owned_cards.total) AS owned_total'));
+        $query->addSelect(DB::raw('COUNT(owned_cards.total) AS owned_total'));
+        $query->addSelect(DB::raw('IFNULL(deck_cards.total, 0) AS deck_card_total'));
 
         $query->join('owned_cards', function($join) {
             $join->on('owned_cards.card_id', '=', 'cards.id');
@@ -46,6 +47,6 @@ class UseCollectionFilter implements SearchFilter
             $query->where('deck_cards.card_id', '=', 'cards.id');
         });
 
-        $query->where('deck_cards.total', '<', 'owned_total');
+        $query->havingRaw('deck_card_total <= owned_total');
     }
 }
