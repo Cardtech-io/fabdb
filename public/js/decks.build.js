@@ -408,6 +408,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    type: {
+      type: String,
+      required: true
+    },
+    selected: {
+      type: String,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Buttons/Chevron.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/Buttons/Chevron.vue?vue&type=script&lang=js& ***!
@@ -1902,10 +1934,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
 /* harmony import */ var _CardItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardItem */ "./resources/js/DeckBuilder/CardItem.vue");
 /* harmony import */ var _CardSearch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardSearch */ "./resources/js/DeckBuilder/CardSearch.vue");
-/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-/* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
-/* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Buttons_CardType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Buttons/CardType */ "./resources/js/DeckBuilder/Buttons/CardType.vue");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1963,24 +1996,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -1990,13 +2006,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_4__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
+  mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_5__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
   components: {
-    NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_6__["default"],
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardItem: _CardItem__WEBPACK_IMPORTED_MODULE_2__["default"],
     CardSearch: _CardSearch__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    CardType: _Buttons_CardType__WEBPACK_IMPORTED_MODULE_4__["default"],
+    NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_7__["default"],
+    Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     classes: function classes() {
@@ -2950,6 +2967,49 @@ var render = function() {
               ])
         ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      staticClass: "flex-1 border-r border-gray-200 py-2 px-1 md:px-2",
+      class:
+        _vm.selected === _vm.type
+          ? "bg-gray-800 text-white"
+          : "hover:bg-secondary hover:text-white",
+      attrs: { title: "All" }
+    },
+    [
+      _c(
+        "icon",
+        { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
+        [_vm._t("default")],
+        2
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4960,295 +5020,184 @@ var render = function() {
             },
             [
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === ""
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "All" },
-                  on: {
+                  attrs: { type: "", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = ""
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          fill: "currentColor",
-                          d:
-                            "M21 13H14.4L19.1 17.7L17.7 19.1L13 14.4V21H11V14.3L6.3 19L4.9 17.6L9.4 13H3V11H9.6L4.9 6.3L6.3 4.9L11 9.6V3H13V9.4L17.6 4.8L19 6.3L14.3 11H21V13Z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      fill: "currentColor",
+                      d:
+                        "M21 13H14.4L19.1 17.7L17.7 19.1L13 14.4V21H11V14.3L6.3 19L4.9 17.6L9.4 13H3V11H9.6L4.9 6.3L6.3 4.9L11 9.6V3H13V9.4L17.6 4.8L19 6.3L14.3 11H21V13Z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "weapon"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Weapons" },
-                  on: {
+                  attrs: { type: "weapon", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "weapon"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 5, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M12 2l10 6c0 4-2 6-6 7l-3-5-4-4 3-4M4.11 19.84l-1.99-1.51L9.19 9 11 10.81l-6.89 9.03z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12 2l10 6c0 4-2 6-6 7l-3-5-4-4 3-4M4.11 19.84l-1.99-1.51L9.19 9 11 10.81l-6.89 9.03z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "equipment"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Equipment" },
-                  on: {
+                  attrs: { type: "equipment", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "equipment"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 5, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M12 4a3.5 3.5 0 00-3.5 3.5h2A1.5 1.5 0 0112 6a1.5 1.5 0 011.5 1.5A1.5 1.5 0 0112 9c-.55 0-1 .45-1 1v1.75L2.4 18.2A1 1 0 003 20h18a1 1 0 00.6-1.8L13 11.75v-.9a3.5 3.5 0 002.5-3.35A3.5 3.5 0 0012 4m0 9.5l6 4.5H6z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12 4a3.5 3.5 0 00-3.5 3.5h2A1.5 1.5 0 0112 6a1.5 1.5 0 011.5 1.5A1.5 1.5 0 0112 9c-.55 0-1 .45-1 1v1.75L2.4 18.2A1 1 0 003 20h18a1 1 0 00.6-1.8L13 11.75v-.9a3.5 3.5 0 002.5-3.35A3.5 3.5 0 0012 4m0 9.5l6 4.5H6z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "instant"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Instants" },
-                  on: {
+                  attrs: { type: "instant", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "instant"
                     }
                   }
                 },
-                [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: { d: "M11 15H6l7-14v8h5l-7 14v-8z" }
-                      })
-                    ]
-                  )
-                ],
-                1
+                [_c("path", { attrs: { d: "M11 15H6l7-14v8h5l-7 14v-8z" } })]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "item"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Items" },
-                  on: {
+                  attrs: { type: "item", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "item"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          fill: "currentColor",
-                          d:
-                            "M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6M13,16L14.34,14.66L16.27,18H7.73L10.39,13.39L13,16M12.5,12A0.5,0.5 0 0,1 13,12.5A0.5,0.5 0 0,1 12.5,13A0.5,0.5 0 0,1 12,12.5A0.5,0.5 0 0,1 12.5,12Z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      fill: "currentColor",
+                      d:
+                        "M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6M13,16L14.34,14.66L16.27,18H7.73L10.39,13.39L13,16M12.5,12A0.5,0.5 0 0,1 13,12.5A0.5,0.5 0 0,1 12.5,13A0.5,0.5 0 0,1 12,12.5A0.5,0.5 0 0,1 12.5,12Z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "non-attack action"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Non-attack actions" },
-                  on: {
+                  attrs: { type: "non-attack action", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "non-attack action"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          fill: "currentColor",
-                          d:
-                            "M12,2.5L8.42,8.06L2,9.74L6.2,14.88L5.82,21.5L12,19.09L18.18,21.5L17.8,14.88L22,9.74L15.58,8.06L12,2.5M9.38,10.5C10,10.5 10.5,11 10.5,11.63A1.12,1.12 0 0,1 9.38,12.75C8.75,12.75 8.25,12.25 8.25,11.63C8.25,11 8.75,10.5 9.38,10.5M14.63,10.5C15.25,10.5 15.75,11 15.75,11.63A1.12,1.12 0 0,1 14.63,12.75C14,12.75 13.5,12.25 13.5,11.63C13.5,11 14,10.5 14.63,10.5M9,15H15C14.5,16.21 13.31,17 12,17C10.69,17 9.5,16.21 9,15Z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      fill: "currentColor",
+                      d:
+                        "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "attack action"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Attack actions" },
-                  on: {
+                  attrs: { type: "attack action", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "attack action"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          fill: "currentColor",
-                          d:
-                            "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      fill: "currentColor",
+                      d:
+                        "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "attack reaction"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Attack reactions" },
-                  on: {
+                  attrs: { type: "attack reaction", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "attack reaction"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M6.2 2.44l11.9 11.9 2.12-2.12 1.41 1.41-2.47 2.47 3.18 3.18c.39.39.39 1.02 0 1.41l-.71.71a.996.996 0 01-1.41 0L17 18.23l-2.44 2.47-1.41-1.41 2.12-2.12-11.9-11.9V2.44H6.2M15.89 10l4.74-4.74V2.44H17.8l-4.74 4.74L15.89 10m-4.95 5l-2.83-2.87-2.21 2.21-2.12-2.12-1.41 1.41 2.47 2.47-3.18 3.19a.996.996 0 000 1.41l.71.71c.39.39 1.02.39 1.41 0L7 18.23l2.44 2.47 1.41-1.41-2.12-2.12L10.94 15z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M6.2 2.44l11.9 11.9 2.12-2.12 1.41 1.41-2.47 2.47 3.18 3.18c.39.39.39 1.02 0 1.41l-.71.71a.996.996 0 01-1.41 0L17 18.23l-2.44 2.47-1.41-1.41 2.12-2.12-11.9-11.9V2.44H6.2M15.89 10l4.74-4.74V2.44H17.8l-4.74 4.74L15.89 10m-4.95 5l-2.83-2.87-2.21 2.21-2.12-2.12-1.41 1.41 2.47 2.47-3.18 3.19a.996.996 0 000 1.41l.71.71c.39.39 1.02.39 1.41 0L7 18.23l2.44 2.47 1.41-1.41-2.12-2.12L10.94 15z"
+                    }
+                  })
+                ]
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "card-type",
                 {
-                  staticClass: "flex-1 border-r border-gray-200 p-2",
-                  class:
-                    _vm.cardType === "defense reaction"
-                      ? "bg-gray-800 text-white"
-                      : "hover:bg-secondary hover:text-white",
-                  attrs: { title: "Defense reactions" },
-                  on: {
+                  attrs: { type: "defense reaction", selected: _vm.cardType },
+                  nativeOn: {
                     click: function($event) {
                       _vm.cardType = "defense reaction"
                     }
                   }
                 },
                 [
-                  _c(
-                    "icon",
-                    { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
-                    [
-                      _c("path", {
-                        attrs: {
-                          fill: "currentColor",
-                          d:
-                            "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z"
-                        }
-                      })
-                    ]
-                  )
-                ],
-                1
+                  _c("path", {
+                    attrs: {
+                      fill: "currentColor",
+                      d:
+                        "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z"
+                    }
+                  })
+                ]
               )
-            ]
+            ],
+            1
           )
         ]),
         _vm._v(" "),
@@ -5836,6 +5785,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllCards_vue_vue_type_template_id_e3402986___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllCards_vue_vue_type_template_id_e3402986___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/Buttons/CardType.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/DeckBuilder/Buttons/CardType.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardType.vue?vue&type=template&id=422b6053& */ "./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053&");
+/* harmony import */ var _CardType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardType.vue?vue&type=script&lang=js& */ "./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CardType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/DeckBuilder/Buttons/CardType.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardType.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardType_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardType.vue?vue&type=template&id=422b6053& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Buttons/CardType.vue?vue&type=template&id=422b6053&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardType_vue_vue_type_template_id_422b6053___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
