@@ -10,16 +10,18 @@
             <p class="text-base">Looking to share your deck build as text? Click here.</p>
         </a>
 
-        <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4" @click.prevent="exportToTTS">
+        <div class="flow-root p-4 bg-white rounded-lg mt-4">
             <div class="float-left mr-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
                     <path d="M4 4l12 6-12 6z"/>
                 </svg>
             </div>
             <h2 class="font-serif uppercase text-xl">Table Top Simulator</h2>
-            <p class="text-base" v-if="!exporting">Want to use your deck inside Table Top Simulator?</p>
-            <p class="text-base" v-else>Please wait while we generate the files...</p>
-        </a>
+            <p class="text-base">
+                Want to use your deck inside Table Top Simulator? Use the
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2191845555" target="_blank" class="link-alternate">OSC mod</a>
+                and import your deck directly :)</p>
+        </div>
 
         <router-link :to="'/decks/export/' + deck.slug" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4">
             <div class="float-left mr-4">

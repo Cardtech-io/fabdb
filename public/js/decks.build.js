@@ -2211,6 +2211,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -5370,47 +5372,27 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
-          attrs: { href: "" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.exportToTTS.apply(null, arguments)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "float-left mr-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current h-20",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 20 20"
-                }
-              },
-              [_c("path", { attrs: { d: "M4 4l12 6-12 6z" } })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-            _vm._v("Table Top Simulator")
-          ]),
-          _vm._v(" "),
-          !_vm.exporting
-            ? _c("p", { staticClass: "text-base" }, [
-                _vm._v("Want to use your deck inside Table Top Simulator?")
-              ])
-            : _c("p", { staticClass: "text-base" }, [
-                _vm._v("Please wait while we generate the files...")
-              ])
-        ]
-      ),
+      _c("div", { staticClass: "flow-root p-4 bg-white rounded-lg mt-4" }, [
+        _c("div", { staticClass: "float-left mr-4" }, [
+          _c(
+            "svg",
+            {
+              staticClass: "fill-current h-20",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 20 20"
+              }
+            },
+            [_c("path", { attrs: { d: "M4 4l12 6-12 6z" } })]
+          )
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+          _vm._v("Table Top Simulator")
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
       _vm._v(" "),
       _c(
         "router-link",
@@ -5454,7 +5436,31 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-base" }, [
+      _vm._v(
+        "\n            Want to use your deck inside Table Top Simulator? Use the\n            "
+      ),
+      _c(
+        "a",
+        {
+          staticClass: "link-alternate",
+          attrs: {
+            href:
+              "https://steamcommunity.com/sharedfiles/filedetails/?id=2191845555",
+            target: "_blank"
+          }
+        },
+        [_vm._v("OSC mod")]
+      ),
+      _vm._v("\n            and import your deck directly :)")
+    ])
+  }
+]
 render._withStripped = true
 
 
