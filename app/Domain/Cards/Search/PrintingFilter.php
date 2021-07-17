@@ -22,7 +22,7 @@ class PrintingFilter implements SearchFilter
                     $identifiers = $this->identifiers($input['keywords']);
 
                     foreach ($identifiers as $identifier) {
-                        $query->orWhere('printings.sku', 'LIKE', '%'.$identifier.'%');
+                        $query->orWhere('printings.sku', $identifier);
                     }
                 });
             }

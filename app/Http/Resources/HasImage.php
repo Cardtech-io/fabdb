@@ -25,7 +25,11 @@ trait HasImage
     {
         if (!$this->matchesIdentifier($keywords)) return false;
 
-        return Str::contains($sku, $this->identifiers($keywords));
+        foreach ($this->identifiers($keywords) as $identifier) {
+            if ($sku === $identifier) return true;
+        }
+
+        return false;
     }
 
     protected function printingImage(Sku $sku): string

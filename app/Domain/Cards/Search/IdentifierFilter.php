@@ -23,7 +23,7 @@ class IdentifierFilter implements SearchFilter
         $query->where(function($query) use ($identifiers) {
             foreach ($identifiers as $identifier) {
                 $query->orWhere('cards.identifier', $identifier);
-                $query->orWhere('printings.sku', 'LIKE', '%'.$identifier.'%');
+                $query->orWhere('printings.sku', 'LIKE', $identifier.'%');
             }
         });
     }
