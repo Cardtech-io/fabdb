@@ -32,7 +32,7 @@ trait HasImage
         return false;
     }
 
-    protected function printingImage(Sku $sku): string
+    protected function printingImage(string $sku): string
     {
         $domain = config('services.imgix.domain');
 

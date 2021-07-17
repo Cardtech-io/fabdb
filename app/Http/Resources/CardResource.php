@@ -19,7 +19,7 @@ class CardResource extends JsonResource
             $response['sku'] = new Sku($this->resource->sku);
         }
 
-        $response['image'] = $this->image($request, $response);
+        $response['image'] = $this->defaultImage($this->resource);
 
         if (object_get($this->resource, 'totalOwned')) {
             $response['totalOwned'] = (int) $this->resource->totalOwned;
@@ -47,16 +47,5 @@ class CardResource extends JsonResource
                 });
             }
         }
-    }
-
-    private function image($request, $response)
-    {
-        $sku = Arr::get($response, 'sku');
-
-        if ($sku && $this->usePrintingImage($request->get('keywords', ''), $sku)) {
-            return $this->printingImage($sku);
-        }
-
-        return $this->defaultImage($this->resource);
     }
 }

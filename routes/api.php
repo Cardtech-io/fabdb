@@ -13,10 +13,6 @@ use FabDB\Http\Middleware\Cors;
 |
 */
 
-Route::fallback(function() {
-    return redirect(config('app.url').'/resources/api');
-});
-
 Route::middleware('api')->group(function() {
     Route::get('cards', 'CardController@list');
     Route::get('cards/first', 'CardController@first');
@@ -24,4 +20,10 @@ Route::middleware('api')->group(function() {
 
     Route::get('decks/{deck}', 'DeckController@view');
     Route::get('decks/{deck}/osc', 'DeckController@osc');
+
+    Route::get('printings/{sku}', 'PrintingController@view');
+});
+
+Route::fallback(function() {
+    return redirect(config('app.url').'/resources/api');
 });
