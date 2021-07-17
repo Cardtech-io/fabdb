@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
     darkMode: 'media',
 
@@ -180,6 +182,14 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms')({
             strategy: 'class'
+        }),
+
+        plugin(({addUtilities}) => {
+            addUtilities({
+                '.backdrop-blur-2': {
+                    'backdrop-filter': 'blur(2px)'
+                }
+            });
         })
     ]
 };

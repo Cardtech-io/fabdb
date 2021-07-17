@@ -273,7 +273,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black rounded-xl text-center text-gray-100"
+            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100"
         },
         [
           _c(

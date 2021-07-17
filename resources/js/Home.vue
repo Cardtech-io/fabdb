@@ -5,7 +5,7 @@
                 <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" height="113" class="mx-auto">
             </router-link>
         </div>
-        <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black rounded-xl text-center text-gray-100">
+        <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100">
             <p class="my-4">
                 FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link">Flesh and Blood TCG</a> community project, with various features such as
                 <router-link :to="{ name: 'decks.mine' }" class="link">{{lang.terms.deck_builder}}</router-link>,

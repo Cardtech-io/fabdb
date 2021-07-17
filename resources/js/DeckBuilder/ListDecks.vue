@@ -1,7 +1,7 @@
 <template>
     <div class="container px-4 sm:mx-auto text-white md:flex">
         <div class="md:my-20 md:w-1/2 md:pr-8">
-            <div class="my-8 md:my-0 p-8 bg-nearly-black rounded-xl">
+            <div class="my-8 md:my-0 p-8 bg-nearly-black backdrop-blur-2 rounded-xl">
                 <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
                 <p class="mt-4">
                     The first and only Flesh &amp; Blood Deck Builder is here. You can build your decks
@@ -27,7 +27,7 @@
                 </div>
 
                 <ol v-if="decks">
-                    <li class="bg-semi-black rounded-lg mb-1 hover:bg-black" v-for="(deck, key) in decks">
+                    <li class="bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black" v-for="(deck, key) in decks">
                         <div class="flex">
                             <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
                             <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>

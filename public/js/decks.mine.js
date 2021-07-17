@@ -399,7 +399,10 @@ var render = function() {
       _c("div", { staticClass: "md:my-20 md:w-1/2 md:pr-8" }, [
         _c(
           "div",
-          { staticClass: "my-8 md:my-0 p-8 bg-nearly-black rounded-xl" },
+          {
+            staticClass:
+              "my-8 md:my-0 p-8 bg-nearly-black backdrop-blur-2 rounded-xl"
+          },
           [
             _c(
               "h1",
@@ -479,7 +482,7 @@ var render = function() {
                           "li",
                           {
                             staticClass:
-                              "bg-semi-black rounded-lg mb-1 hover:bg-black"
+                              "bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black"
                           },
                           [
                             _c(

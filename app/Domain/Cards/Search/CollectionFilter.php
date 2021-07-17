@@ -21,7 +21,7 @@ class CollectionFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return (bool) $this->user;
+        return Arr::get($input, 'use-case') === 'collection' && (bool) $this->user;
     }
 
     public function applyTo(Builder $query, array $input)
