@@ -54,7 +54,7 @@ class CollectionFilter implements SearchFilter
 
         // The original join is in the printings filter
         $query->leftJoin('owned_cards', function($join) {
-            $join->on('owned_cards.card_id', 'printings.card_id');
+            $join->on('owned_cards.printing_id', 'printings.id');
             $join->where('owned_cards.user_id', $this->user->id);
         });
 
