@@ -1,46 +1,31 @@
 <template>
-    <div class="container px-4 sm:mx-auto text-white md:flex">
-        <div class="md:my-20 md:w-1/2 md:pr-8">
-            <div class="my-8 md:my-0 p-8 bg-nearly-black backdrop-blur-2 rounded-xl">
-                <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
-                <p class="mt-4">
-                    The first and only Flesh &amp; Blood Deck Builder is here. You can build your decks
-                    for constructed or blitz formats, and then export them to PDF for tournament registration, or
-                    integration with Tabletop Simulator.
-                </p>
-
-                <p class="mt-4">
-                    <router-link to="/support" class="link">Supporters</router-link> gain access to
-                    premium deck builder features, the deck tester, exclusive FaB DB backgrounds, limited playmat
-                    sales and a whole lot more!
-                </p>
-
-                <router-link to="/support" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
+    <div>
+        <header-title title="Deck builder"></header-title>
+        <div class="container mx-auto px-4">
+            <div class="crumbs rounded-t-xl overflow-hidden flex items-center px-4">
+                <crumbs :crumbs="crumbs" class="py-4 font-serif uppercase"></crumbs>
+                <add-deck class="flex-initial ml-auto" name="New deck" label="New deck"></add-deck>
             </div>
         </div>
+        <div class="container px-4 sm:mx-auto">
+            <div class="px-4 bg-gray-200">
+                <div v-if="user">
+                    <ol v-if="decks">
+                        <li class="bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black" v-for="(deck, key) in decks">
+                            <div class="flex">
+                                <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
+                                <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>
+                                <a href="" class="block p-4" @click.prevent="copyDeck(deck)" title="Copy deck" :class="{ 'text-gray-500': copyDisabled, 'link': !copyDisabled }">Copy</a>
+                                <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
+                            </div>
+                        </li>
+                    </ol>
 
-        <div class="md:my-20 md:flex-grow md:w-1/2">
-            <div v-if="user">
-                <div class="flex items-center pb-4">
-                    <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
-                    <add-deck class="flex-initial" name="New deck" label="New deck"></add-deck>
+                    <paginator :results="response" @page-selected="search"></paginator>
                 </div>
-
-                <ol v-if="decks">
-                    <li class="bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black" v-for="(deck, key) in decks">
-                        <div class="flex">
-                            <router-link :to="'/decks/build/' + deck.slug" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
-                            <router-link :to="'/decks/test/' + deck.slug" class="block link p-4 pr-0" title="Test deck">Test</router-link>
-                            <a href="" class="block p-4" @click.prevent="copyDeck(deck)" title="Copy deck" :class="{ 'text-gray-500': copyDisabled, 'link': !copyDisabled }">Copy</a>
-                            <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
-                        </div>
-                    </li>
-                </ol>
-
-                <paginator :results="response" @page-selected="search"></paginator>
+                <p v-else>The deck builder is available to registered users only, so if you do not yet have an account, you
+                    must <router-link to="/login" class="link">register or login</router-link>.</p>
             </div>
-            <p v-else>The deck builder is available to registered users only, so if you do not yet have an account, you
-                must <router-link to="/login" class="link">register or login</router-link>.</p>
         </div>
     </div>
 </template>
@@ -49,11 +34,13 @@
     import { mapGetters } from 'vuex';
 
     import AddDeck from '../Decks/AddDeck';
+    import Collapser from "../Components/Collapser";
+    import Crumbs from "../Components/Crumbs";
     import LazyLoader from "../Components/LazyLoader";
     import Paginator from "../Components/Paginator";
 
     export default {
-        components: {AddDeck, Paginator},
+        components: {AddDeck, Collapser, Crumbs, Paginator},
 
         computed: {
             ...mapGetters('session', ['user'])
@@ -62,6 +49,10 @@
         data() {
             return {
                 copyDisabled: false,
+                crumbs: [
+                    { text: 'Home', link: { name: 'home' } },
+                    { text: 'Deck builder'},
+                ],
                 decks: null,
                 response: {},
                 page: 1,

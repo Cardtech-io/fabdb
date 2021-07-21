@@ -101,8 +101,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Decks_AddDeck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Decks/AddDeck */ "./resources/js/Decks/AddDeck.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Components_Paginator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Paginator */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _Components_Collapser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Collapser */ "./resources/js/Components/Collapser.vue");
+/* harmony import */ var _Components_Crumbs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Crumbs */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Components_Paginator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Paginator */ "./resources/js/Components/Paginator.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -141,21 +143,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -163,12 +152,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AddDeck: _Decks_AddDeck__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Paginator: _Components_Paginator__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Collapser: _Components_Collapser__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Crumbs: _Components_Crumbs__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Paginator: _Components_Paginator__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
   data: function data() {
     return {
       copyDisabled: false,
+      crumbs: [{
+        text: 'Home',
+        link: {
+          name: 'home'
+        }
+      }, {
+        text: 'Deck builder'
+      }],
       decks: null,
       response: {},
       page: 1
@@ -218,7 +217,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       description: 'Create and customise tournament-winning decks for Flesh & Blood TCG.'
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_2__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__["default"])(function (to, callback) {
     axios.get('/decks/mine').then(function (response) {
       callback(function () {
         this.response = response.data;
@@ -394,189 +393,142 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container px-4 sm:mx-auto text-white md:flex" },
     [
-      _c("div", { staticClass: "md:my-20 md:w-1/2 md:pr-8" }, [
+      _c("header-title", { attrs: { title: "Deck builder" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container mx-auto px-4" }, [
         _c(
           "div",
           {
             staticClass:
-              "my-8 md:my-0 p-8 bg-nearly-black backdrop-blur-2 rounded-xl"
+              "crumbs rounded-t-xl overflow-hidden flex items-center px-4"
           },
           [
-            _c(
-              "h1",
-              { staticClass: "font-serif text-4xl lg:text-4xl uppercase" },
-              [_vm._v("Deck Builder")]
-            ),
+            _c("crumbs", {
+              staticClass: "py-4 font-serif uppercase",
+              attrs: { crumbs: _vm.crumbs }
+            }),
             _vm._v(" "),
-            _c("p", { staticClass: "mt-4" }, [
-              _vm._v(
-                "\n                The first and only Flesh & Blood Deck Builder is here. You can build your decks\n                for constructed or blitz formats, and then export them to PDF for tournament registration, or\n                integration with Tabletop Simulator.\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "p",
-              { staticClass: "mt-4" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "link", attrs: { to: "/support" } },
-                  [_vm._v("Supporters")]
-                ),
-                _vm._v(
-                  " gain access to\n                premium deck builder features, the deck tester, exclusive FaB DB backgrounds, limited playmat\n                sales and a whole lot more!\n            "
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.user && !_vm.user.subscription
-              ? _c(
-                  "router-link",
-                  {
-                    staticClass:
-                      "appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8",
-                    attrs: { to: "/support" }
-                  },
-                  [_vm._v("Upgrade to premium")]
-                )
-              : _vm._e()
+            _c("add-deck", {
+              staticClass: "flex-initial ml-auto",
+              attrs: { name: "New deck", label: "New deck" }
+            })
           ],
           1
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "md:my-20 md:flex-grow md:w-1/2" }, [
-        _vm.user
-          ? _c(
-              "div",
-              [
-                _c(
-                  "div",
-                  { staticClass: "flex items-center pb-4" },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "font-serif text-white text-4xl uppercase flex-1"
-                      },
-                      [_vm._v("Decks")]
-                    ),
-                    _vm._v(" "),
-                    _c("add-deck", {
-                      staticClass: "flex-initial",
-                      attrs: { name: "New deck", label: "New deck" }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.decks
-                  ? _c(
-                      "ol",
-                      _vm._l(_vm.decks, function(deck, key) {
-                        return _c(
-                          "li",
-                          {
-                            staticClass:
-                              "bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black"
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "flex" },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "block link flex-1 p-4 pr-0",
-                                    attrs: { to: "/decks/build/" + deck.slug }
-                                  },
-                                  [_vm._v(_vm._s(deck.name))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "block link p-4 pr-0",
-                                    attrs: {
-                                      to: "/decks/test/" + deck.slug,
-                                      title: "Test deck"
-                                    }
-                                  },
-                                  [_vm._v("Test")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "block p-4",
-                                    class: {
-                                      "text-gray-500": _vm.copyDisabled,
-                                      link: !_vm.copyDisabled
+      _c("div", { staticClass: "container px-4 sm:mx-auto" }, [
+        _c("div", { staticClass: "px-4 bg-gray-200" }, [
+          _vm.user
+            ? _c(
+                "div",
+                [
+                  _vm.decks
+                    ? _c(
+                        "ol",
+                        _vm._l(_vm.decks, function(deck, key) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass:
+                                "bg-semi-black backdrop-blur-2 rounded-lg mb-1 hover:bg-black"
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "flex" },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "block link flex-1 p-4 pr-0",
+                                      attrs: { to: "/decks/build/" + deck.slug }
                                     },
-                                    attrs: { href: "", title: "Copy deck" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.copyDeck(deck)
+                                    [_vm._v(_vm._s(deck.name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "block link p-4 pr-0",
+                                      attrs: {
+                                        to: "/decks/test/" + deck.slug,
+                                        title: "Test deck"
                                       }
-                                    }
-                                  },
-                                  [_vm._v("Copy")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "block link p-4",
-                                    attrs: { href: "", title: "Delete deck" },
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.removeDeck(deck, key)
+                                    },
+                                    [_vm._v("Test")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "block p-4",
+                                      class: {
+                                        "text-gray-500": _vm.copyDisabled,
+                                        link: !_vm.copyDisabled
+                                      },
+                                      attrs: { href: "", title: "Copy deck" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.copyDeck(deck)
+                                        }
                                       }
-                                    }
-                                  },
-                                  [_vm._v("Delete")]
-                                )
-                              ],
-                              1
-                            )
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("paginator", {
-                  attrs: { results: _vm.response },
-                  on: { "page-selected": _vm.search }
-                })
-              ],
-              1
-            )
-          : _c(
-              "p",
-              [
-                _vm._v(
-                  "The deck builder is available to registered users only, so if you do not yet have an account, you\n            must "
-                ),
-                _c(
-                  "router-link",
-                  { staticClass: "link", attrs: { to: "/login" } },
-                  [_vm._v("register or login")]
-                ),
-                _vm._v(".")
-              ],
-              1
-            )
+                                    },
+                                    [_vm._v("Copy")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass: "block link p-4",
+                                      attrs: { href: "", title: "Delete deck" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.removeDeck(deck, key)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Delete")]
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("paginator", {
+                    attrs: { results: _vm.response },
+                    on: { "page-selected": _vm.search }
+                  })
+                ],
+                1
+              )
+            : _c(
+                "p",
+                [
+                  _vm._v(
+                    "The deck builder is available to registered users only, so if you do not yet have an account, you\n                must "
+                  ),
+                  _c(
+                    "router-link",
+                    { staticClass: "link", attrs: { to: "/login" } },
+                    [_vm._v("register or login")]
+                  ),
+                  _vm._v(".")
+                ],
+                1
+              )
+        ])
       ])
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -615,7 +567,7 @@ var render = function() {
     [
       _c("input", {
         staticClass:
-          "py-3 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
+          "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
         class: { "button-disabled": !_vm.enabled },
         attrs: { type: "submit", disabled: !_vm.enabled },
         domProps: { value: _vm.label }
