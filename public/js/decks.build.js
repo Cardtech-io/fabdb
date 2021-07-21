@@ -417,6 +417,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -425,7 +426,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     type: {
       type: String,
@@ -434,6 +437,11 @@ __webpack_require__.r(__webpack_exports__);
     selected: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    text: function text() {
+      return this.type === '' ? 'All' : this.ucfirst(this.type);
     }
   }
 });
@@ -547,16 +555,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     inactive: function inactive() {
       if (this.mode === 'details' || this.view === 'text') return true;
 
-      if (this.action == 'in') {
-        return this.zoom == this.minZoom;
+      if (this.action === 'in') {
+        return this.zoom <= this.minZoom;
       }
 
-      return this.zoom == this.maxZoom;
+      return this.zoom >= this.maxZoom;
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['zoomIn', 'zoomOut']), {
     setZoom: function setZoom() {
-      var action = this.action == 'in' ? 'zoomIn' : 'zoomOut';
+      var action = this.action === 'in' ? 'zoomIn' : 'zoomOut';
       this[action]();
     }
   })
@@ -3000,7 +3008,7 @@ var render = function() {
         _vm.selected === _vm.type
           ? "bg-gray-800 text-white"
           : "hover:bg-secondary hover:text-white",
-      attrs: { title: "All" }
+      attrs: { title: _vm.text() }
     },
     [
       _c(

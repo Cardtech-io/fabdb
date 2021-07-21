@@ -94,8 +94,6 @@ class ScrapeStores extends Command
         foreach ($this->getStores() as $store) {
             $this->info('Importing store listings for store '.$store->id);
 
-            $collection = $this->findCollection($store);
-
             $baseUri = "https://{$store->apiCredentials->token()}:{$store->apiCredentials->password()}@{$store->apiCredentials->endpoint()}.myshopify.com";
             $client = new Client(['base_uri' => $baseUri]);
 
@@ -253,29 +251,5 @@ class ScrapeStores extends Command
     private function storePrefix($store)
     {
         return "{$store->apiCredentials->token()}:{$store->apiCredentials->password()}@{$store->apiCredentials->endpoint()}";
-    }
-
-    private function findCollection($store)
-    {
-        $baseUri = "https://{$store->apiCredentials->endpoint()}.myshopify.com";
-        $client = new Client(['base_uri' => $baseUri]);
-        $query = '/admin/api/2021-01/graphql.json';
-        $payload = ['query' => '{
-          collections(first: 10) {
-            edges {
-              node {
-                id
-                title
-                description
-                handle
-                productsCount
-              }
-            }
-          }
-        }'];
-
-        $response = $client->request('post', $query, $payload);
-
-        dd($response);
     }
 }

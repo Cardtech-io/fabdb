@@ -61577,17 +61577,17 @@ function remove(card, cards, bin) {
 // of the zoom level based on whether or not fullscreen
 // is enabled, and whether or not the mode is set to all.
 
-var zoomMatrix = [[[4, 3], [2, 1]], // fullscreen
-[[3, 2], [1, 0]]];
+var zoomMatrix = [[[5, 4], [2, 1]], // fullscreen
+[[4, 3], [1, 0]]];
 
 function controlMaxZoom(state) {
   var ms = state.mode === 'all' ? 0 : 1; // Moving to fullscreen, increase minimum
 
-  if (state.fullScreen && state.zoom == zoomMatrix[1][1][ms]) {
+  if (state.fullScreen && state.zoom === zoomMatrix[1][1][ms]) {
     state.zoom = zoomMatrix[0][1][ms];
   }
 
-  if (!state.fullScreen && state.zoom == zoomMatrix[0][0][ms]) {
+  if (!state.fullScreen && state.zoom === zoomMatrix[0][0][ms]) {
     state.zoom = zoomMatrix[1][0][ms];
   }
 }
@@ -61617,7 +61617,7 @@ function controlMaxZoom(state) {
       return state.fullScreen ? 0 : 1;
     },
     msIndex: function msIndex(state) {
-      return state.mode == 'all' ? 0 : 1;
+      return state.mode === 'all' ? 0 : 1;
     },
     maxZoom: function maxZoom(state, getters) {
       return zoomMatrix[getters.fsIndex][0][getters.msIndex];
@@ -61686,6 +61686,7 @@ function controlMaxZoom(state) {
     setFullScreen: function setFullScreen(state, _ref7) {
       var fullScreen = _ref7.fullScreen;
       state.fullScreen = fullScreen;
+      controlMaxZoom(state);
     },
     setGrouping: function setGrouping(state, _ref8) {
       var grouping = _ref8.grouping;
@@ -61694,7 +61695,6 @@ function controlMaxZoom(state) {
     setMode: function setMode(state, _ref9) {
       var mode = _ref9.mode;
       state.mode = mode;
-      controlMaxZoom(state);
     },
     toggleSection: function toggleSection(state, _ref10) {
       var section = _ref10.section;
@@ -61703,9 +61703,9 @@ function controlMaxZoom(state) {
     zoom: function zoom(state, _ref11) {
       var n = _ref11.n;
       var fs = state.fullScreen ? 0 : 1;
-      var ms = state.mode == 'all' ? 0 : 1;
+      var ms = state.mode === 'all' ? 0 : 1;
 
-      if (n == -1 && state.zoom > zoomMatrix[fs][1][ms] || n == 1 && state.zoom < zoomMatrix[fs][0][ms]) {
+      if (n === -1 && state.zoom > zoomMatrix[fs][1][ms] || n === 1 && state.zoom < zoomMatrix[fs][0][ms]) {
         state.zoom += n;
       }
     }
