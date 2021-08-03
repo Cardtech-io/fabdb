@@ -62328,16 +62328,12 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return window.location.protocol + '//' + window.settings.imageDomain + path + '?rect=90,95,360,365&crop=edges&w=' + width + '&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
-    },
-    heroBackground: function heroBackground(hero) {
-      var name = hero.split(' ')[0].replace(',', '').toLowerCase();
-      return this.imageUrl('/decks/backgrounds/' + name + '.jpg', 1700);
+      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
       var imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
-      if (hero.keywords.indexOf('young') !== -1) {
+      if (hero.young()) {
         imageName += '-blitz';
       }
 

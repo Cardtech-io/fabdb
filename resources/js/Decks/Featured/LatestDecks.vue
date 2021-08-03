@@ -16,7 +16,8 @@
                 <div class="ml-2">
                     <h3 class="font-serif text-lg uppercase">{{deck.name}}</h3>
                     <p class="text-base">by {{deck.authorName}}</p>
-                    <deck-label :label="deck.label" class="mr-2 text-xs px-2 sm:py-1 rounded-full"></deck-label>
+                    <deck-label :label="deck.label" class="mr-1 text-xs px-2 sm:py-1 rounded-full"></deck-label>
+                    <format-label :format="deck.format" class="mr-2 text-xs px-2 sm:py-1 rounded-full"></format-label>
                 </div>
                 <div class="flex-none font-serif text-center ml-auto">
                     <div class="text-4xl">{{ deck.totalCards }}</div>
@@ -29,7 +30,8 @@
 
 <script>
     import axios from "axios";
-    import DeckLabel from "../Viewing/Label";
+    import DeckLabel from "../Viewing/DeckLabel";
+    import FormatLabel from "../Viewing/FormatLabel";
     import HeroAvatar from "../../Components/HeroAvatar";
     import Models from "../../Utilities/Models";
     import Deck from "../Deck";
@@ -50,7 +52,7 @@
             }
         },
 
-        components: {DeckLabel, HeroAvatar},
+        components: {DeckLabel, FormatLabel, HeroAvatar},
 
         data() {
             return {

@@ -107,13 +107,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    label: {
-      type: String,
-      required: true
-    },
     name: {
       type: String,
       required: true
@@ -830,13 +828,17 @@ var render = function() {
       }
     },
     [
-      _c("input", {
-        staticClass:
-          "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
-        class: { "button-disabled": !_vm.enabled },
-        attrs: { type: "submit", disabled: !_vm.enabled },
-        domProps: { value: _vm.label }
-      })
+      _c(
+        "button",
+        {
+          staticClass:
+            "py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer",
+          class: { "button-disabled": !_vm.enabled },
+          attrs: { type: "submit", disabled: !_vm.enabled }
+        },
+        [_vm._t("default")],
+        2
+      )
     ]
   )
 }

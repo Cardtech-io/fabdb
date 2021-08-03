@@ -3,7 +3,7 @@
         <tr class="odd:bg-gray-200">
             <td class="border border-gray-300 font-bold text-lg" colspan="7">
                 <div class="w-full flex">
-                    <img :src="squareThumbUrl(cardImagePathFromSku(card.printings[0].sku.sku), 43)">
+                    <img :src="squareThumbUrl(card.printings[0].image, 43)">
                     <div class="py-1 ml-4">
                         <router-link :to="'/collection/' + card.identifier" class="block py-1 px-2 w-full">{{ card.name }} <span v-if="hasResource(card)">({{ colourToText(card.stats.resource) }})</span></router-link>
                     </div>

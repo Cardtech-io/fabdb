@@ -220,6 +220,11 @@ return [
             'competitive' => 'Competitive',
             'janky' => 'Janky/fun',
             'meme' => 'Meme'
+        ],
+        'formats' => [
+            'blitz' => 'Blitz',
+            'constructed' => 'Constructed',
+            'open' => 'Open',
         ]
     ],
 

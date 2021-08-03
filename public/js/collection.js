@@ -520,10 +520,7 @@ var render = function() {
             _c("div", { staticClass: "w-full flex" }, [
               _c("img", {
                 attrs: {
-                  src: _vm.squareThumbUrl(
-                    _vm.cardImagePathFromSku(_vm.card.printings[0].sku.sku),
-                    43
-                  )
+                  src: _vm.squareThumbUrl(_vm.card.printings[0].image, 43)
                 }
               }),
               _vm._v(" "),

@@ -1,4 +1,6 @@
+import moment from 'moment';
 import Cards from "../DeckBuilder/Cards";
+import Card from "../CardDatabase/Card";
 
 class Deck {
     constructor(fields) {
@@ -7,6 +9,12 @@ class Deck {
 
     get name() {
         return this.fields.name;
+    }
+
+    get parent() {
+        if (this.fields.parent) {
+            return new Deck(this.fields.parent);
+        }
     }
 
     get authorName() {
@@ -30,7 +38,9 @@ class Deck {
     }
 
     get hero() {
-        return this.cards.hero();
+        if (this.cards.hero()) {
+            return new Card(this.cards.hero());
+        }
     }
 
     get weapons() {
@@ -55,6 +65,10 @@ class Deck {
 
     get slug() {
         return this.fields.slug;
+    }
+
+    get updatedAt() {
+        return moment(this.fields.updatedAt).utc().local().fromNow();
     }
 }
 

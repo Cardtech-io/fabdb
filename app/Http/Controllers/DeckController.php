@@ -40,7 +40,9 @@ class DeckController extends Controller
     public function search(Request $request)
     {
         return $this->decks->search(
-            array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')])
+            array_merge($request->all(), [
+                'currency' => object_get($request->user(), 'currency', 'USD')
+            ])
         );
     }
 
@@ -107,7 +109,7 @@ class DeckController extends Controller
 
     public function mine()
     {
-        return $this->decks->forUser(Auth::user()->id);
+        return DeckResource::collection($this->decks->forUser(Auth::user()->id));
     }
 
     public function copy(Request $request)

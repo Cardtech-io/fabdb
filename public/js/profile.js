@@ -1303,11 +1303,6 @@ function () {
   }
 
   _createClass(Card, [{
-    key: "name",
-    value: function name() {
-      return this.fields.name;
-    }
-  }, {
     key: "avatar",
     value: function avatar() {
       var name = this.name().split(',')[0].toLowerCase().split(' ')[0];
@@ -1321,7 +1316,22 @@ function () {
   }, {
     key: "young",
     value: function young() {
-      return this.fields.keywords.includes('young');
+      return this.fields.subType === 'young';
+    }
+  }, {
+    key: "name",
+    get: function get() {
+      return this.fields.name;
+    }
+  }, {
+    key: "image",
+    get: function get() {
+      return this.fields.image;
+    }
+  }, {
+    key: "class",
+    get: function get() {
+      return this.fields["class"];
     }
   }]);
 

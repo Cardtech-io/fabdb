@@ -1,5 +1,5 @@
 <template>
-    <img :src="heroProfile(hero, width)" :alt="name" class="rounded-full" :width="width" :height="width">
+    <img :src="heroProfile(hero, width)" :alt="name" class="rounded-full" :width="width" :height="width" v-if="hero">
 </template>
 
 <script>
@@ -10,7 +10,6 @@
         props: {
             hero: {
                 type: Object,
-                required: true
             },
 
             name: {

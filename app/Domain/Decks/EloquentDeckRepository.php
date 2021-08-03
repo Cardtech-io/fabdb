@@ -20,12 +20,37 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         return new Deck;
     }
 
-    public function forUser(int $userId): LengthAwarePaginator
+    public function forUser(int $userId, array $params = []): LengthAwarePaginator
     {
-        return $this->newQuery()
+        $query = $this->newQuery()
+            ->select('decks.id', 'decks.parent_id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'decks.updated_at')
+            ->with(['user', 'parent'])
+            ->withHero()
+            ->withCardCount()
             ->whereUserId($userId)
-            ->orderBy('updated_at', 'desc')
-            ->paginate(10);
+            ->orderBy('updated_at', 'desc');
+
+        $query->join(DB::raw('deck_cards dc1'), 'dc1.deck_id', '=', 'decks.id');
+        $query->join(DB::raw('cards c1'), function($join) use ($params) {
+            $join->on('c1.id', '=', 'dc1.card_id');
+            $join->whereType('hero');
+
+            if (!empty($params['hero'])) {
+                $join->where('c1.name', $params['hero']);
+            }
+        });
+
+        $query->join('users', 'users.id', 'decks.user_id');
+
+        if (!empty($params['format'])) {
+            $query->where('decks.format', $params['format']);
+        }
+
+        if (!empty($params['label'])) {
+            $query->where('decks.label', $params['label']);
+        }
+
+        return $query->paginate(10);
     }
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model

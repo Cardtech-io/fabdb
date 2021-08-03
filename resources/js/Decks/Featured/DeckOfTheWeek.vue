@@ -9,6 +9,7 @@
             <div class="flex items-center">
                 <h1 class="block font-serif text-lg uppercase text-gray-300 mb-2">Deck of the week</h1>
                 <deck-label :label="deck.label" class="text-xs px-2 py-1 -mt-1 ml-4 rounded-full"></deck-label>
+                <format-label :format="deck.format" class="text-xs px-2 py-1 -mt-1 ml-1 rounded-full"></format-label>
             </div>
 
             <div class="flex items-center font-serif text-4xl uppercase text-white">
@@ -37,11 +38,12 @@
     import axios from "axios";
     import Models from "../../Utilities/Models";
     import Deck from "../Deck";
-    import DeckLabel from "../Viewing/Label";
+    import DeckLabel from "../Viewing/DeckLabel";
+    import FormatLabel from "../Viewing/FormatLabel";
     import FormatIcon from "../Viewing/FormatIcon";
 
     export default {
-        components: {DeckLabel, FormatIcon},
+        components: {DeckLabel, FormatIcon, FormatLabel},
 
         data() {
             return {

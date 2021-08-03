@@ -3,8 +3,16 @@ class Card {
         this.fields = fields;
     }
 
-    name() {
+    get name() {
         return this.fields.name;
+    }
+
+    get image() {
+        return this.fields.image;
+    }
+
+    get class() {
+        return this.fields.class;
     }
 
     avatar() {
@@ -18,7 +26,7 @@ class Card {
     }
 
     young() {
-        return this.fields.keywords.includes('young');
+        return this.fields.subType === 'young';
     }
 }
 

@@ -1,6 +1,8 @@
 <template>
     <form @submit.prevent="addDeck()" class="block text-right">
-        <input type="submit" class="py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer" :value="label" :class="{'button-disabled': !enabled}" :disabled="!enabled">
+        <button type="submit" class="py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer" :class="{'button-disabled': !enabled}" :disabled="!enabled">
+            <slot></slot>
+        </button>
     </form>
 </template>
 
@@ -9,11 +11,6 @@
 
     export default {
         props: {
-            label: {
-                type: String,
-                required: true
-            },
-
             name: {
                 type: String,
                 required: true

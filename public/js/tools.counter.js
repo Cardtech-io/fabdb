@@ -19,8 +19,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     hero: {
-      type: Object,
-      required: true
+      type: Object
     },
     name: {
       type: String
@@ -446,15 +445,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("img", {
-    staticClass: "rounded-full",
-    attrs: {
-      src: _vm.heroProfile(_vm.hero, _vm.width),
-      alt: _vm.name,
-      width: _vm.width,
-      height: _vm.width
-    }
-  })
+  return _vm.hero
+    ? _c("img", {
+        staticClass: "rounded-full",
+        attrs: {
+          src: _vm.heroProfile(_vm.hero, _vm.width),
+          alt: _vm.name,
+          width: _vm.width,
+          height: _vm.width
+        }
+      })
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

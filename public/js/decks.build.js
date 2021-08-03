@@ -3612,61 +3612,54 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "bg-gray-200 h-full relative",
-            staticStyle: { background: "url('/img/grey-grid.png')" }
-          },
-          [
-            _c("div", { staticClass: "flex h-full", class: _vm.containers }, [
-              _c(
-                "div",
-                {
-                  staticClass: "h-full overflow-y-auto",
-                  class: _vm.mainAreaClasses
-                },
-                [
-                  _vm.mode == "all" || _vm.mode == "search"
-                    ? _c("all-cards", { attrs: { collection: _vm.cards } })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.mode == "details" ? _c("deck-details") : _vm._e(),
-                  _vm._v(" "),
-                  _vm.mode == "sideboard"
-                    ? _c("main-deck", { attrs: { collection: _vm.cards } })
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.mode == "search" || _vm.mode == "sideboard"
-                ? _c(
-                    "div",
-                    {
-                      ref: "searchResults",
-                      staticClass:
-                        "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
-                    },
-                    [
-                      _vm.mode == "search"
-                        ? _c("search-results", {
-                            on: { "search-completed": _vm.scrollTop }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.mode == "sideboard"
-                        ? _c("sideboard", {
-                            attrs: { collection: _vm.sideboard }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ])
-          ]
-        )
+        _c("div", { staticClass: "bg-gray-200 h-full relative" }, [
+          _c("div", { staticClass: "flex h-full", class: _vm.containers }, [
+            _c(
+              "div",
+              {
+                staticClass: "h-full overflow-y-auto",
+                class: _vm.mainAreaClasses
+              },
+              [
+                _vm.mode == "all" || _vm.mode == "search"
+                  ? _c("all-cards", { attrs: { collection: _vm.cards } })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mode == "details" ? _c("deck-details") : _vm._e(),
+                _vm._v(" "),
+                _vm.mode == "sideboard"
+                  ? _c("main-deck", { attrs: { collection: _vm.cards } })
+                  : _vm._e()
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.mode == "search" || _vm.mode == "sideboard"
+              ? _c(
+                  "div",
+                  {
+                    ref: "searchResults",
+                    staticClass:
+                      "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                  },
+                  [
+                    _vm.mode == "search"
+                      ? _c("search-results", {
+                          on: { "search-completed": _vm.scrollTop }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.mode == "sideboard"
+                      ? _c("sideboard", {
+                          attrs: { collection: _vm.sideboard }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
+        ])
       ])
     ],
     1

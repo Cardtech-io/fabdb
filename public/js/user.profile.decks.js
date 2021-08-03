@@ -109,6 +109,41 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./resources/js/Components/LazyLoader.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Components/LazyLoader.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (loadData) {
+  var loaderCallback = function loaderCallback() {};
+
+  var loadRoute = function loadRoute(to, from, next) {
+    loadData(to, function (callback) {
+      loaderCallback = callback;
+      next();
+    });
+  };
+
+  return {
+    beforeRouteEnter: loadRoute,
+    beforeRouteUpdate: loadRoute,
+    created: function created() {
+      loaderCallback.apply(this);
+    },
+    watch: {
+      '$route': function $route() {
+        loaderCallback.apply(this);
+      }
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/Decks/LatestDecks.vue":
 /*!********************************************!*\
   !*** ./resources/js/Decks/LatestDecks.vue ***!
