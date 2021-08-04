@@ -76,7 +76,7 @@
 
         mounted() {
             axios.get('/decks/latest?per_page=3&'+this.query).then(response => {
-                this.decks = Models.hydrateMany(response.data.data, Deck);
+                this.decks = Models.hydrateMany(response.data, Deck);
             });
         }
     };

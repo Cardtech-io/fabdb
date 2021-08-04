@@ -285,7 +285,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/latest?per_page=3&' + this.query).then(function (response) {
-      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_3__["default"].hydrateMany(response.data.data, _Deck__WEBPACK_IMPORTED_MODULE_4__["default"]);
+      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_3__["default"].hydrateMany(response.data, _Deck__WEBPACK_IMPORTED_MODULE_4__["default"]);
     });
   }
 });

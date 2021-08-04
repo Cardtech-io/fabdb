@@ -22,7 +22,7 @@ module.exports = {
                 'disabled-hover': 'var(--button-disabled-hover-background-color)',
                 'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
-                'nearly-black': 'rgba(0, 0, 0, 0.75)',
+                'nearly-black': 'rgba(0, 0, 0, 0.85)',
             },
 
             colors: {

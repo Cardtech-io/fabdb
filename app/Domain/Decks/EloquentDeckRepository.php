@@ -238,6 +238,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             ->appends(Arr::except($params, ['page']));
     }
 
+    public function latest(array $params)
+    {
+        return $this->searchPart($params, false)->get();
+    }
+
     public function setCardTotal(int $deckId, int $cardId, int $total)
     {
         DB::transaction(function() use ($deckId, $cardId, $total) {

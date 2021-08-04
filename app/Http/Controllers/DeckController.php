@@ -61,7 +61,7 @@ class DeckController extends Controller
             'order' => 'newest'
         ]);
 
-        return DeckResource::collection($this->decks->search($params));
+        return DeckResource::collection($this->decks->latest($params));
     }
 
     public function addDeck(Request $request)

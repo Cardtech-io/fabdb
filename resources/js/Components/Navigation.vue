@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-hardly-black backdrop-blur-2">
+    <div class="bg-hardly-black backdrop-blur-2 z-25">
         <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 z-25" v-if="show">
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
                 <div class="relative overflow-visible logo ml-4 sm:ml-0 py-1">
