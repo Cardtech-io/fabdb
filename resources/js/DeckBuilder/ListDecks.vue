@@ -48,7 +48,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd:bg-gray-100 hover:bg-white" v-for="deck in decks">
+                            <tr class="odd:bg-gray-100 hover:bg-white" v-for="(deck, key) in decks">
                                 <td class="border border-gray-300">
                                     <div class="flex items-center">
                                         <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero">
@@ -72,7 +72,7 @@
                                                 <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
                                             </icon>
                                         </button>
-                                        <button @click="removeDeck(deck)" class="hover:text-gray-400">
+                                        <button @click="removeDeck(deck, key)" class="hover:text-gray-400">
                                             <icon :size="5">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                             </icon>

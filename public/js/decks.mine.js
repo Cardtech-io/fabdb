@@ -611,7 +611,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.decks, function(deck) {
+                        _vm._l(_vm.decks, function(deck, key) {
                           return _c(
                             "tr",
                             { staticClass: "odd:bg-gray-100 hover:bg-white" },
@@ -785,7 +785,7 @@ var render = function() {
                                           staticClass: "hover:text-gray-400",
                                           on: {
                                             click: function($event) {
-                                              return _vm.removeDeck(deck)
+                                              return _vm.removeDeck(deck, key)
                                             }
                                           }
                                         },
