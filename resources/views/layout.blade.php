@@ -56,7 +56,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
             </script>
         @endif
     </head>
-    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full xl:text-lg">
+    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};

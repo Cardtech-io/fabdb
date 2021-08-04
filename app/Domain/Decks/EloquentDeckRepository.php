@@ -50,7 +50,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $query->where('decks.format', $params['format']);
         }
 
-        return $query->paginate(10);
+        return $query->paginate(15);
     }
 
     public function bySlugWithCards(string $slug, bool $includeCards = false): Model
