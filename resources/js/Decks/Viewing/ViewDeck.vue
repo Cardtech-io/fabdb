@@ -129,7 +129,7 @@
     import Breadcrumbs from '../../Components/Breadcrumbs.vue';
     import Cardable from '../../CardDatabase/Cardable';
     import DeckCurves from "../../DeckBuilder/DeckCurves";
-    import DeckLabel from "./Label";
+    import DeckLabel from "./DeckLabel";
     import Discussion from "../../Discussion/Discussion";
     import HeaderTitle from '../../Components/HeaderTitle.vue';
     import HeroAvatar from "../../Components/HeroAvatar";

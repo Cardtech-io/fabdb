@@ -440,7 +440,7 @@ function () {
     key: "hero",
     value: function hero() {
       return this.cards.filter(function (card) {
-        return card.keywords.includes('hero');
+        return card.type === 'hero';
       })[0];
     }
   }, {

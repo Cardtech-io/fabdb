@@ -9,19 +9,13 @@ export default {
         },
 
         squareThumbUrl(path, width) {
-            return window.location.protocol + '//' + window.settings.imageDomain + path + '?rect=90,95,360,365&crop=edges&w=' + width + '&w='+width+'&h=' + width + '&fit=crop&auto=compress';
-        },
-
-        heroBackground(hero) {
-            let name = hero.split(' ')[0].replace(',', '').toLowerCase();
-
-            return this.imageUrl('/decks/backgrounds/'+name+'.jpg', 1700);
+            return path+'&rect=90,95,360,365&crop=edges&w=' + width + '&w='+width+'&h=' + width + '&fit=crop&auto=compress';
         },
 
         heroProfile(hero, width, rounded) {
             let imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
 
-            if (hero.keywords.indexOf('young') !== -1) {
+            if (hero.young()) {
                 imageName += '-blitz';
             }
 

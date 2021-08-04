@@ -111,10 +111,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -172,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/Breadcrumbs.vue */ "./resources/js/Components/Breadcrumbs.vue");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _DeckBuilder_DeckCurves__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../DeckBuilder/DeckCurves */ "./resources/js/DeckBuilder/DeckCurves.js");
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Label */ "./resources/js/Decks/Viewing/Label.vue");
+/* harmony import */ var _DeckLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
 /* harmony import */ var _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Discussion/Discussion */ "./resources/js/Discussion/Discussion.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
@@ -341,7 +341,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Cards: _Cards__WEBPACK_IMPORTED_MODULE_19__["default"],
     DeckCurves: _DeckBuilder_DeckCurves__WEBPACK_IMPORTED_MODULE_5__["default"],
-    DeckLabel: _Label__WEBPACK_IMPORTED_MODULE_6__["default"],
+    DeckLabel: _DeckLabel__WEBPACK_IMPORTED_MODULE_6__["default"],
     Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_7__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_9__["default"],
@@ -677,10 +677,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f& ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1339,17 +1339,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue ***!
-  \**********************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Label.vue?vue&type=template&id=3454d52f& */ "./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&");
-/* harmony import */ var _Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&");
+/* harmony import */ var _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckLabel.vue?vue&type=template&id=e77cc5f4& */ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&");
+/* harmony import */ var _DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckLabel.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1359,9 +1359,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1371,38 +1371,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Decks/Viewing/Label.vue"
+component.options.__file = "resources/js/Decks/Viewing/DeckLabel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Label.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckLabel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4& ***!
+  \*********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Label.vue?vue&type=template&id=3454d52f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckLabel.vue?vue&type=template&id=e77cc5f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

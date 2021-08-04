@@ -19,8 +19,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     hero: {
-      type: Object,
-      required: true
+      type: Object
     },
     name: {
       type: String
@@ -43,9 +42,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
-/* harmony import */ var _Viewing_Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Viewing/Label */ "./resources/js/Decks/Viewing/Label.vue");
-/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
-/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Viewing/DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
+/* harmony import */ var _Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Viewing/FormatLabel */ "./resources/js/Decks/Viewing/FormatLabel.vue");
+/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
+/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Deck */ "./resources/js/Decks/Deck.js");
 //
 //
 //
@@ -79,16 +80,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['deck', 'theme'],
-  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  props: {
+    deck: {
+      required: true,
+      type: _Deck__WEBPACK_IMPORTED_MODULE_5__["default"]
+    },
+    route: {
+      type: String,
+      "default": 'decks.view'
+    },
+    theme: {
+      type: String
+    }
+  },
+  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__["default"]],
   components: {
-    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_2__["default"],
-    DeckLabel: _Viewing_Label__WEBPACK_IMPORTED_MODULE_1__["default"]
+    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__["default"],
+    DeckLabel: _Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__["default"],
+    FormatLabel: _Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {
     cards: function cards() {
@@ -97,17 +116,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     themeClasses: function themeClasses() {
-      return this.theme === 'light' ? 'bg-bar hover:bg-bar-hover' : 'bg-semi-black hover:bg-black';
+      return this.theme === 'light' ? 'bg-gray-100 hover:bg-white' : 'bg-semi-black hover:bg-black';
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -148,6 +167,47 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    format: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    formatColours: function formatColours() {
+      switch (this.format) {
+        case 'blitz':
+          return 'bg-orange-500 text-white';
+
+        case 'constructed':
+          return 'bg-blue-400 text-white';
+
+        case 'open':
+          return 'bg-gray-500 text-white';
+      }
+    },
+    name: function name() {
+      return this.$settings.game.decks.formats[this.format];
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/HeroAvatar.vue?vue&type=template&id=3c72f4fe&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/HeroAvatar.vue?vue&type=template&id=3c72f4fe& ***!
@@ -163,15 +223,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("img", {
-    staticClass: "rounded-full",
-    attrs: {
-      src: _vm.heroProfile(_vm.hero, _vm.width),
-      alt: _vm.name,
-      width: _vm.width,
-      height: _vm.width
-    }
-  })
+  return _vm.hero
+    ? _c("img", {
+        staticClass: "rounded-full",
+        attrs: {
+          src: _vm.heroProfile(_vm.hero, _vm.width),
+          alt: _vm.name,
+          width: _vm.width,
+          height: _vm.width
+        }
+      })
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -195,131 +257,135 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "md:float-left md:px-2 w-full lg:w-1/2 my-2 odd:bg-gray-100 rounded-full overflow-hidden"
-    },
-    [
-      _c(
-        "router-link",
-        {
-          staticClass: "block flex items-center",
-          class: _vm.themeClasses(),
-          attrs: { to: { name: "decks.view", params: { deck: _vm.deck.slug } } }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "relative flex-none" },
-            [
-              _c("hero-avatar", {
-                staticClass: "block sm:hidden",
-                attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
-              }),
-              _vm._v(" "),
-              _c("hero-avatar", {
-                staticClass: "hidden sm:block",
-                attrs: { hero: _vm.deck.hero, name: _vm.deck.name }
-              }),
-              _vm._v(" "),
-              _vm.deck.notes
-                ? _c(
-                    "div",
-                    { staticClass: "absolute bottom-0 left-0 ml-2 mb-2" },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-6 w-6 sm:h-8 sm:w-8 text-white",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              "stroke-width": "2",
-                              d:
-                                "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex-auto ml-4" }, [
+  return _c("div", { staticClass: "md:px-2 w-full lg:w-1/2 my-2 text-sm" }, [
+    _c(
+      "div",
+      { staticClass: "rounded-full overflow-hidden" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "block flex items-center",
+            class: _vm.themeClasses(),
+            attrs: { to: { name: _vm.route, params: { deck: _vm.deck.slug } } }
+          },
+          [
             _c(
-              "h2",
-              {
-                staticClass:
-                  "font-serif uppercase text-lg md:text-2xl overflow-hidden md:mb-1",
-                staticStyle: { "max-height": "30px" }
-              },
-              [_vm._v(_vm._s(_vm.deck.name))]
+              "div",
+              { staticClass: "relative flex-none" },
+              [
+                _c("hero-avatar", {
+                  staticClass: "block sm:hidden",
+                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
+                }),
+                _vm._v(" "),
+                _c("hero-avatar", {
+                  staticClass: "hidden sm:block",
+                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name }
+                }),
+                _vm._v(" "),
+                _vm.deck.notes
+                  ? _c(
+                      "div",
+                      { staticClass: "absolute bottom-0 left-0 ml-2 mb-2" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6 sm:h-8 sm:w-8 text-white",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                d:
+                                  "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("div", [
-              _vm.deck.totalPrice
-                ? _c(
-                    "span",
-                    { staticClass: "font-italic text-blue-600 mb-1" },
-                    [_vm._v("$" + _vm._s(_vm.deck.totalPrice))]
-                  )
-                : _vm._e(),
+            _c("div", { staticClass: "flex-auto ml-4" }, [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "font-serif uppercase text-lg md:text-2xl overflow-hidden md:mb-1",
+                  staticStyle: { "max-height": "30px" }
+                },
+                [_vm._v(_vm._s(_vm.deck.name))]
+              ),
               _vm._v(" "),
-              _c("span", { staticClass: "md:hidden italic" }, [
-                _vm._v("(" + _vm._s(_vm.deck.totalCards) + " cards)")
+              _c("div", [
+                _vm.deck.totalPrice
+                  ? _c(
+                      "span",
+                      { staticClass: "font-italic text-blue-600 mb-1" },
+                      [_vm._v("$" + _vm._s(_vm.deck.totalPrice))]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("span", { staticClass: "md:hidden italic" }, [
+                  _vm._v("(" + _vm._s(_vm.deck.totalCards) + " cards)")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "inline-block flex" }, [
+                _c(
+                  "div",
+                  [
+                    _c("deck-label", {
+                      staticClass: "mr-1 text-xs px-2 sm:py-1 rounded-full",
+                      attrs: { label: _vm.deck.label }
+                    }),
+                    _vm._v(" "),
+                    _c("format-label", {
+                      staticClass: "mr-2 text-xs rounded-full px-2 sm:py-1",
+                      attrs: { format: _vm.deck.format }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("by " + _vm._s(_vm.deck.authorName))])
               ])
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "inline-block flex" }, [
-              _c(
-                "div",
-                [
-                  _c("deck-label", {
-                    staticClass: "mr-2 text-xs px-2 sm:py-1 rounded-full",
-                    attrs: { label: _vm.deck.label }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("by " + _vm._s(_vm.deck.authorName))])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "flex-none mx-10 font-serif text-center hidden md:block"
-            },
-            [
-              _c("div", { staticClass: "text-4xl" }, [
-                _vm._v(_vm._s(_vm.deck.totalCards))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-gray-500 ml-1" }, [
-                _vm._v("cards")
-              ])
-            ]
-          )
-        ]
-      )
-    ],
-    1
-  )
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex-none mx-10 font-serif text-center hidden md:block"
+              },
+              [
+                _c("div", { staticClass: "text-4xl" }, [
+                  _vm._v(_vm._s(_vm.deck.totalCards))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-gray-500 ml-1" }, [
+                  _vm._v("cards")
+                ])
+              ]
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -328,10 +394,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f& ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -347,6 +413,36 @@ var render = function() {
     ? _c(
         "span",
         { staticClass: "font-serif uppercase", class: _vm.labelColours() },
+        [_vm._v(_vm._s(_vm.name()))]
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.format
+    ? _c(
+        "span",
+        { staticClass: "font-serif uppercase", class: _vm.formatColours() },
         [_vm._v(_vm._s(_vm.name()))]
       )
     : _vm._e()
@@ -424,41 +520,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroAvatar_vue_vue_type_template_id_3c72f4fe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/Components/LazyLoader.js":
-/*!***********************************************!*\
-  !*** ./resources/js/Components/LazyLoader.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (loadData) {
-  var loaderCallback = function loaderCallback() {};
-
-  var loadRoute = function loadRoute(to, from, next) {
-    loadData(to, function (callback) {
-      loaderCallback = callback;
-      next();
-    });
-  };
-
-  return {
-    beforeRouteEnter: loadRoute,
-    beforeRouteUpdate: loadRoute,
-    created: function created() {
-      loaderCallback.apply(this);
-    },
-    watch: {
-      '$route': function $route() {
-        loaderCallback.apply(this);
-      }
-    }
-  };
-});
 
 /***/ }),
 
@@ -750,17 +811,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue ***!
-  \**********************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Label.vue?vue&type=template&id=3454d52f& */ "./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&");
-/* harmony import */ var _Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&");
+/* harmony import */ var _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckLabel.vue?vue&type=template&id=e77cc5f4& */ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&");
+/* harmony import */ var _DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckLabel.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -770,9 +831,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -782,38 +843,107 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Decks/Viewing/Label.vue"
+component.options.__file = "resources/js/Decks/Viewing/DeckLabel.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Label.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckLabel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4& ***!
+  \*********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Label.vue?vue&type=template&id=3454d52f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Label.vue?vue&type=template&id=3454d52f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckLabel.vue?vue&type=template&id=e77cc5f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckLabel.vue?vue&type=template&id=e77cc5f4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Label_vue_vue_type_template_id_3454d52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/FormatLabel.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/Decks/Viewing/FormatLabel.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormatLabel.vue?vue&type=template&id=58befcb8& */ "./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8&");
+/* harmony import */ var _FormatLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormatLabel.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FormatLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Viewing/FormatLabel.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormatLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./FormatLabel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormatLabel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./FormatLabel.vue?vue&type=template&id=58befcb8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/FormatLabel.vue?vue&type=template&id=58befcb8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormatLabel_vue_vue_type_template_id_58befcb8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

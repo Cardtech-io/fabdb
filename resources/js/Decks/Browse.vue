@@ -14,7 +14,7 @@
                 <div v-if="results && results.data" class="pb-8">
                     <div class="flow-root py-4">
                         <ul class="flow-root sm:-mx-4">
-                            <div v-if="results.data.length">
+                            <div v-if="results.data.length" class="flex flex-wrap">
                                 <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"></deck-item>
                             </div>
                             <div class="text-center py-8" v-else>
@@ -43,7 +43,6 @@
     import DeckSearch from './DeckSearch.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
-    import LazyLoader from '../Components/LazyLoader';
     import Models from "../Utilities/Models";
     import Deck from "./Deck";
 

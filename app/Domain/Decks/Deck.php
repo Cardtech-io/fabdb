@@ -33,6 +33,11 @@ class Deck extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function parent()
+    {
+        return $this->belongsTo(Deck::class);
+    }
+
     public function practise()
     {
         return $this->belongsTo(Practise::class);

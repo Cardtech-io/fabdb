@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="bg-gray-200 h-full relative" style="background: url('/img/grey-grid.png');">
+            <div class="bg-gray-200 h-full relative">
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
                         <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>

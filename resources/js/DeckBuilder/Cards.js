@@ -53,7 +53,7 @@ export default class Cards {
 
     hero() {
         return this.cards.filter(card => {
-            return card.keywords.includes('hero');
+            return card.type === 'hero';
         })[0];
     }
 
