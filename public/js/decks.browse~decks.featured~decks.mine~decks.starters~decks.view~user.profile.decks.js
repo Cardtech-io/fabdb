@@ -55,6 +55,16 @@ function () {
     get: function get() {
       return this.fields["class"];
     }
+  }, {
+    key: "stats",
+    get: function get() {
+      return this.fields.stats;
+    }
+  }, {
+    key: "keywords",
+    get: function get() {
+      return this.fields.keywords;
+    }
   }]);
 
   return Card;

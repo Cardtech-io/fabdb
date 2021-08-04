@@ -107,9 +107,9 @@ class DeckController extends Controller
         $this->dispatchNow(new RemoveDeck($request->deck->slug));
     }
 
-    public function mine()
+    public function mine(Request $request)
     {
-        return DeckResource::collection($this->decks->forUser(Auth::user()->id));
+        return DeckResource::collection($this->decks->forUser(Auth::user()->id, $request->all()));
     }
 
     public function copy(Request $request)

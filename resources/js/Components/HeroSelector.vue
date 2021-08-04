@@ -25,6 +25,8 @@
     import {mapState} from 'vuex';
     import HeroAvatar from "./HeroAvatar";
     import Strings from '../Utilities/Strings';
+    import Models from "../Utilities/Models";
+    import Card from "../CardDatabase/Card";
 
     export default {
         props: ['deck'],
@@ -62,7 +64,7 @@
 
         mounted() {
             axios.get('/cards/heroes').then(response => {
-                this.availableHeroes = response.data;
+                this.availableHeroes = Models.hydrateMany(response.data, Card);
             });
         }
     }

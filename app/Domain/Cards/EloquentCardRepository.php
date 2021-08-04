@@ -270,7 +270,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function uniqueHeroes()
     {
         return $this->newQuery()
-            ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats')
+            ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
             ->join('printings', 'printings.card_id', 'cards.id')
             ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
             ->groupBy('cards.name')

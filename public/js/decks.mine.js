@@ -72,12 +72,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Crumbs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Crumbs */ "./resources/js/Components/Crumbs.vue");
 /* harmony import */ var _Decks_Deck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Decks/Deck */ "./resources/js/Decks/Deck.js");
 /* harmony import */ var _Decks_DeckItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Decks/DeckItem */ "./resources/js/Decks/DeckItem.vue");
-/* harmony import */ var _Decks_DeckSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Decks/DeckSearch */ "./resources/js/Decks/DeckSearch.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
-/* harmony import */ var _Components_Paginator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Components/Paginator */ "./resources/js/Components/Paginator.vue");
-/* harmony import */ var _Components_Sorter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/Sorter */ "./resources/js/Components/Sorter.vue");
-/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Decks/Viewing/DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
+/* harmony import */ var _Decks_DeckSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Decks/DeckSearch */ "./resources/js/Decks/DeckSearch.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _Components_Paginator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/Paginator */ "./resources/js/Components/Paginator.vue");
+/* harmony import */ var _Components_Sorter__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/Sorter */ "./resources/js/Components/Sorter.vue");
+/* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_14__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -154,6 +158,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
@@ -167,15 +197,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__["default"]],
+  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_13__["default"]],
   components: {
     AddDeck: _Decks_AddDeck__WEBPACK_IMPORTED_MODULE_1__["default"],
     Collapser: _Components_Collapser__WEBPACK_IMPORTED_MODULE_2__["default"],
     Crumbs: _Components_Crumbs__WEBPACK_IMPORTED_MODULE_3__["default"],
     DeckItem: _Decks_DeckItem__WEBPACK_IMPORTED_MODULE_5__["default"],
-    DeckSearch: _Decks_DeckSearch__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Paginator: _Components_Paginator__WEBPACK_IMPORTED_MODULE_9__["default"],
-    Sorter: _Components_Sorter__WEBPACK_IMPORTED_MODULE_10__["default"]
+    DeckLabel: _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_6__["default"],
+    DeckSearch: _Decks_DeckSearch__WEBPACK_IMPORTED_MODULE_7__["default"],
+    Paginator: _Components_Paginator__WEBPACK_IMPORTED_MODULE_10__["default"],
+    Sorter: _Components_Sorter__WEBPACK_IMPORTED_MODULE_11__["default"],
+    Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_12__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
   data: function data() {
@@ -191,7 +223,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }],
       decks: [],
       response: {},
-      page: 1
+      params: {
+        "class": '',
+        format: '',
+        page: 1
+      }
     };
   },
   methods: {
@@ -203,10 +239,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       setTimeout(function () {
         _this.copyDisabled = false;
       }, 3000);
-      axios.post('/decks/copy', {
+      axios__WEBPACK_IMPORTED_MODULE_14___default.a.post('/decks/copy', {
         deck: deck.slug
       }).then(function (response) {
-        _this.$emit('refresh');
+        _this.newSearch();
       });
     },
     removeDeck: function removeDeck(deck, key) {
@@ -215,16 +251,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var confirm = window.confirm('Are you sure you want to remove this deck? This action is not reversible.');
 
       if (confirm) {
-        axios["delete"]('/decks/' + deck.slug).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_14___default.a["delete"]('/decks/' + deck.slug).then(function (response) {
           _this2.decks.splice(key, 1);
         });
       }
     },
+    newSearch: function newSearch() {
+      var _this3 = this;
+
+      var params = this.params;
+      axios__WEBPACK_IMPORTED_MODULE_14___default.a.get('/decks/mine', {
+        params: params
+      }).then(function (response) {
+        _this3.refreshResults(response);
+      });
+    },
     refreshResults: function refreshResults(response) {
       this.response = response.data;
-      this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_8__["default"].hydrateMany(response.data.data, _Decks_Deck__WEBPACK_IMPORTED_MODULE_4__["default"]);
+      this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_9__["default"].hydrateMany(response.data.data, _Decks_Deck__WEBPACK_IMPORTED_MODULE_4__["default"]);
+    },
+    setPage: function setPage(page) {
+      this.params.page = page;
+      this.newSearch();
     }
   },
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_8__["default"])(function (to, callback) {
+    axios__WEBPACK_IMPORTED_MODULE_14___default.a.get('/decks/mine').then(function (response) {
+      callback(function () {
+        this.refreshResults(response);
+      });
+    });
+  }),
   metaInfo: function metaInfo() {
     return {
       title: 'Flesh & Blood Deck builder',
@@ -415,18 +472,131 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "container sm:px-4 sm:mx-auto" }, [
         _c(
-          "div",
-          { staticClass: "bg-white p-4" },
+          "form",
+          {
+            staticClass: "bg-white p-4 block sm:flex w-full",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.newSearch.apply(null, arguments)
+              }
+            }
+          },
           [
-            _c("deck-search", {
-              attrs: { mine: true },
-              on: { "search-completed": _vm.refreshResults }
-            })
-          ],
-          1
+            _c("div", { staticClass: "w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.params.class,
+                      expression: "params.class"
+                    }
+                  ],
+                  staticClass:
+                    "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.params,
+                        "class",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Select class")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.$settings.game.classes, function(c, k) {
+                    return _c("option", { domProps: { value: k } }, [
+                      _vm._v(_vm._s(c))
+                    ])
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.params.format,
+                      expression: "params.format"
+                    }
+                  ],
+                  staticClass:
+                    "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.params,
+                        "format",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "blitz" } }, [
+                    _vm._v("Blitz")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "constructed" } }, [
+                    _vm._v("Constructed")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "sm:w-1/3" },
+              [
+                _c("submit", {
+                  staticClass: "w-full",
+                  attrs: { text: "Search" }
+                })
+              ],
+              1
+            )
+          ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 sm:p-4" }, [
+        _c("div", { staticClass: "bg-gray-200 p-4 sm:p-0" }, [
           _vm.user
             ? _c(
                 "div",
@@ -483,6 +653,24 @@ var render = function() {
                                     1
                                   )
                                 ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                {
+                                  staticClass:
+                                    "border border-gray-300 p-2 px-4 hidden lg:table-cell"
+                                },
+                                [
+                                  deck.label
+                                    ? _c("deck-label", {
+                                        staticClass:
+                                          "text-xs rounded-full p-1 px-2",
+                                        attrs: { label: deck.label }
+                                      })
+                                    : _vm._e()
+                                ],
+                                1
                               ),
                               _vm._v(" "),
                               _c(
@@ -564,6 +752,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
+                                          staticClass: "hover:text-gray-400",
                                           on: {
                                             click: function($event) {
                                               return _vm.copyDeck(deck)
@@ -593,6 +782,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
+                                          staticClass: "hover:text-gray-400",
                                           on: {
                                             click: function($event) {
                                               return _vm.removeDeck(deck)
@@ -628,7 +818,7 @@ var render = function() {
                   _c("paginator", {
                     staticClass: "py-4",
                     attrs: { results: _vm.response },
-                    on: { "page-selected": _vm.refresh }
+                    on: { "page-selected": _vm.setPage }
                   })
                 ],
                 1
@@ -674,7 +864,16 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase hidden lg:table-cell"
+              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
+          },
+          [_vm._v("Label")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass:
+              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
           },
           [_vm._v("Parent")]
         ),
@@ -701,7 +900,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase hidden sm:table-cell"
+              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
           },
           [_vm._v("Last updated")]
         ),

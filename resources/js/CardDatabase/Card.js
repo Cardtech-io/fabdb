@@ -15,6 +15,14 @@ class Card {
         return this.fields.class;
     }
 
+    get stats() {
+        return this.fields.stats;
+    }
+
+    get keywords() {
+        return this.fields.keywords;
+    }
+
     avatar() {
         let name = this.name().split(',')[0].toLowerCase().split(' ')[0];
 

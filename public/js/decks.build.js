@@ -42,6 +42,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _HeroAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
 //
 //
 //
@@ -64,6 +66,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 
 
 
@@ -105,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/heroes').then(function (response) {
-      _this2.availableHeroes = response.data;
+      _this2.availableHeroes = _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__["default"].hydrateMany(response.data, _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_5__["default"]);
     });
   }
 });
@@ -5521,6 +5525,80 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/CardDatabase/Card.js":
+/*!*******************************************!*\
+  !*** ./resources/js/CardDatabase/Card.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Card =
+/*#__PURE__*/
+function () {
+  function Card(fields) {
+    _classCallCheck(this, Card);
+
+    this.fields = fields;
+  }
+
+  _createClass(Card, [{
+    key: "avatar",
+    value: function avatar() {
+      var name = this.name().split(',')[0].toLowerCase().split(' ')[0];
+
+      if (this.young()) {
+        return name + '-blitz';
+      }
+
+      return name;
+    }
+  }, {
+    key: "young",
+    value: function young() {
+      return this.fields.subType === 'young';
+    }
+  }, {
+    key: "name",
+    get: function get() {
+      return this.fields.name;
+    }
+  }, {
+    key: "image",
+    get: function get() {
+      return this.fields.image;
+    }
+  }, {
+    key: "class",
+    get: function get() {
+      return this.fields["class"];
+    }
+  }, {
+    key: "stats",
+    get: function get() {
+      return this.fields.stats;
+    }
+  }, {
+    key: "keywords",
+    get: function get() {
+      return this.fields.keywords;
+    }
+  }]);
+
+  return Card;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Card);
+
+/***/ }),
+
 /***/ "./resources/js/Components/Form/Button.vue":
 /*!*************************************************!*\
   !*** ./resources/js/Components/Form/Button.vue ***!
@@ -7444,6 +7522,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TtsExporter_vue_vue_type_template_id_6418b0c9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Models.js":
+/*!******************************************!*\
+  !*** ./resources/js/Utilities/Models.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  hydrateMany: function hydrateMany(records, klass) {
+    var _this = this;
+
+    return records.map(function (record) {
+      return _this.hydrate(record, klass);
+    });
+  },
+  hydrate: function hydrate(record, klass) {
+    return new klass(record);
+  },
+  hydratePaginated: function hydratePaginated(data, klass) {
+    data.data = this.hydrateMany(data.data, klass);
+    return data;
+  }
+});
 
 /***/ }),
 
