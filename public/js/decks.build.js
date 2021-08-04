@@ -5552,7 +5552,7 @@ function () {
   _createClass(Card, [{
     key: "avatar",
     value: function avatar() {
-      var name = this.name().split(',')[0].toLowerCase().split(' ')[0];
+      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
 
       if (this.young()) {
         return name + '-blitz';

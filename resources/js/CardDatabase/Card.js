@@ -24,7 +24,7 @@ class Card {
     }
 
     avatar() {
-        let name = this.name().split(',')[0].toLowerCase().split(' ')[0];
+        let name = this.name.split(',')[0].toLowerCase().split(' ')[0];
 
         if (this.young()) {
             return name + '-blitz';

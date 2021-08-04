@@ -18,7 +18,7 @@
                                 <label class="block font-serif uppercase tracking-wide mb-1">Avatar</label>
                                 <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto">
                                     <option value="bauble">Bauble</option>
-                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name() }}</option>
+                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name }}</option>
                                 </select>
                             </div>
                         </div>

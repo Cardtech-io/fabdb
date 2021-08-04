@@ -608,7 +608,7 @@ var render = function() {
                             return _c(
                               "option",
                               { domProps: { value: hero.avatar() } },
-                              [_vm._v(_vm._s(hero.name()))]
+                              [_vm._v(_vm._s(hero.name))]
                             )
                           })
                         ],
@@ -1305,7 +1305,7 @@ function () {
   _createClass(Card, [{
     key: "avatar",
     value: function avatar() {
-      var name = this.name().split(',')[0].toLowerCase().split(' ')[0];
+      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
 
       if (this.young()) {
         return name + '-blitz';
