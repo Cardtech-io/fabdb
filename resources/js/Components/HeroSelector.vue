@@ -43,7 +43,7 @@
             heroes() {
                 if (this.deck && this.deck.practise) {
                     return this.availableHeroes.filter(hero => {
-                        return hero.keywords.indexOf('young') !== -1 && hero.sku.set.id === this.deck.practise.set.id;
+                        return hero.young() && hero.sku.set.id === this.deck.practise.set.id;
                     })
                 }
 
@@ -53,8 +53,10 @@
 
         methods: {
             selectHero(hero) {
-                this.$emit('hero-selected', hero);
-                this.$eventHub.$emit('hero-selected', hero, this.type(hero));
+                let card = hero.fields;
+
+                this.$emit('hero-selected', card);
+                this.$eventHub.$emit('hero-selected', card, this.type(card));
             },
 
             type(hero) {

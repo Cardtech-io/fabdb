@@ -93,7 +93,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.deck && this.deck.practise) {
         return this.availableHeroes.filter(function (hero) {
-          return hero.keywords.indexOf('young') !== -1 && hero.sku.set.id === _this.deck.practise.set.id;
+          return hero.young() && hero.sku.set.id === _this.deck.practise.set.id;
         });
       }
 
@@ -102,8 +102,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     selectHero: function selectHero(hero) {
-      this.$emit('hero-selected', hero);
-      this.$eventHub.$emit('hero-selected', hero, this.type(hero));
+      var card = hero.fields;
+      this.$emit('hero-selected', card);
+      this.$eventHub.$emit('hero-selected', card, this.type(card));
     },
     type: function type(hero) {
       return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed';
