@@ -4,6 +4,8 @@ namespace FabDB\Domain\Cards;
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
+use FabDB\Domain\Cards\Search\GroupFilter;
+use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
@@ -13,17 +15,19 @@ use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
 use FabDB\Domain\Cards\Search\RulingsFilter;
-use FabDB\Domain\Cards\Search\SetFilter;
 use FabDB\Domain\Cards\Search\StatFilter;
 use FabDB\Domain\Cards\Search\SyntaxFilter;
+use FabDB\Domain\Cards\Search\TalentFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
 use FabDB\Domain\Cards\Search\UseCollectionFilter;
+use FabDB\Domain\Cards\Search\UseSealedPoolFilter;
 use FabDB\Domain\Cards\Search\VariantsFilter;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -64,6 +68,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
+            new TalentFilter,
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
@@ -94,6 +99,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
             'cards.keywords',
             'cards.stats',
+            'cards.talent',
+            'cards.class',
             'cards.text',
             'cards.flavour',
             'cards.comments',
@@ -260,19 +267,10 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $query->first();
     }
 
-    private function applyFilters($query, array $filters, $input)
-    {
-        foreach ($filters as $filter) {
-            if ($filter->applies($input)) {
-                $filter->applyTo($query, $input);
-            }
-        }
-    }
-
     public function uniqueHeroes()
     {
         return $this->newQuery()
-            ->select('cards.identifier', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats')
+            ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
             ->join('printings', 'printings.card_id', 'cards.id')
             ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
             ->groupBy('cards.name')
@@ -303,17 +301,18 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $filters = [
             new PrintingFilter,
             new KeywordFilter,
+            new SyntaxFilter,
             new IdentifierFilter,
             new BannedCardsFilter,
             new VariantsFilter,
-            new ClassFilter,
+            new HeroFilter($this),
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new StatFilter,
             new OrderFilter,
-            new UseCollectionFilter($user, $deck)
+            new UseCollectionFilter($user, $deck),
+            new UseSealedPoolFilter($deck)
         ];
 
         $this->applyFilters($query, $filters, $input);
@@ -351,5 +350,24 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ]);
 
         return $query->firstOrFail();
+    }
+
+    public function forPacks(Set $set): Collection
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.sku', 'like', $set->raw().'%')
+            ->whereNotIn('cards.identifier', config('game.cards.banned'))
+            ->select([
+                'cards.id',
+                'cards.identifier',
+                'printings.sku',
+                'cards.image',
+                'cards.name',
+                'cards.rarity',
+                'cards.keywords'
+            ])
+            ->groupBy('cards.id')
+            ->get();
     }
 }

@@ -3,11 +3,12 @@
         <header-title title="Browse cards"></header-title>
 
         <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto px-4 flex justify-center">
+            <div class="container sm:mx-auto px-4 flex">
                 <ul class="flex">
-                    <li class="float-left" v-for="set in sets" :class="isActive(set.id)">
-                        <a href="" class="block border-b-4 border-white p-2 sm:p-4 text-center" @click.prevent="switchSet(set.id)" :class="isActive(set.id)">
-                            {{ set.name }}
+                    <li class="mr-8 border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
+                        <a href="" class="block text-center py-4" @click.prevent="switchSet(set.id)">
+                            <span class="md:hidden">{{set.id}}</span>
+                            <span class="hidden md:inline">{{set.name}}</span>
                         </a>
                     </li>
                 </ul>
@@ -23,18 +24,27 @@
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto px-4">
-                <div v-if="results && results.data">
-                    <div class="clearfix">
-                        <div class="clearfix py-4">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
-                        </div>
+                <div v-if="firstLoad">
+                    <ul class="flow-root -mx-2 pt-16">
+                        <li class="float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6" v-for="n in 30">
+                            <card-loader></card-loader>
+                        </li>
+                    </ul>
+                </div>
+                <div v-else>
+                    <div v-if="results && results.data">
+                        <div class="flow-root">
+                            <div class="flow-root py-4">
+                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                            </div>
 
-                        <ul class="clearfix -mx-2">
-                            <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
-                        </ul>
+                            <ul class="flow-root -mx-2">
+                                <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
+                            </ul>
 
-                        <div class="py-4">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
+                            <div class="py-4">
+                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,8 +58,9 @@
 <script>
     import _ from 'lodash';
 
-    import CardSearch from './CardSearch.vue';
     import CardItem from './CardItem.vue';
+    import CardLoader from "./CardLoader";
+    import CardSearch from './CardSearch.vue';
     import Collapser from "../Components/Collapser";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
@@ -59,6 +70,7 @@
     export default {
         components: {
             CardItem,
+            CardLoader,
             CardSearch,
             Collapser,
             HeaderTitle,
@@ -76,6 +88,7 @@
 
         data() {
             return {
+                firstLoad: true,
                 page: Number(this.$route.query.page) || 1,
                 per_page: 20,
                 results: {},
@@ -86,8 +99,6 @@
         },
 
         metaInfo() {
-            let description = this.setDescription;
-
             return {
                 title: 'Flesh and Blood TCG Card List',
                 meta: [
@@ -106,6 +117,7 @@
 
             refreshResults(results) {
                 this.results = results;
+                this.firstLoad = false;
             },
 
             filterSets() {

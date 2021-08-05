@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use FabDB\Domain\Users\User;
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class CollectionFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return (bool) $this->user;
+        return Arr::get($input, 'use-case') === 'collection' && (bool) $this->user;
     }
 
     public function applyTo(Builder $query, array $input)
@@ -53,7 +54,7 @@ class CollectionFilter implements SearchFilter
 
         // The original join is in the printings filter
         $query->leftJoin('owned_cards', function($join) {
-            $join->on('owned_cards.card_id', 'printings.card_id');
+            $join->on('owned_cards.printing_id', 'printings.id');
             $join->where('owned_cards.user_id', $this->user->id);
         });
 

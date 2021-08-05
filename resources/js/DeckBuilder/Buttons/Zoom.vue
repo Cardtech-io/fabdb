@@ -18,14 +18,14 @@
             ...mapState('deck', ['fullScreen', 'mode', 'view', 'zoom']),
 
             // Returns true if the button is activeNumber
-            inactive: function() {
+            inactive() {
                 if (this.mode === 'details' || this.view === 'text') return true;
 
-                if (this.action == 'in') {
-                    return this.zoom == this.minZoom;
+                if (this.action === 'in') {
+                    return this.zoom <= this.minZoom;
                 }
 
-                return this.zoom == this.maxZoom;
+                return this.zoom >= this.maxZoom;
             }
         },
 
@@ -33,7 +33,7 @@
             ...mapActions('deck', ['zoomIn', 'zoomOut']),
 
             setZoom: function() {
-                let action = this.action == 'in' ? 'zoomIn' : 'zoomOut';
+                let action = this.action === 'in' ? 'zoomIn' : 'zoomOut';
 
                 this[action]();
             },

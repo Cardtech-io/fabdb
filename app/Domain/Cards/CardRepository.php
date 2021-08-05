@@ -71,4 +71,12 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function buildSearch(User $user, Deck $deck, array $input);
+
+    /**
+     * Return all cards, with limited information for front-end pack generation.
+     *
+     * @param Set $set
+     * @return Collection
+     */
+    public function forPacks(Set $set): Collection;
 }

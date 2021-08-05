@@ -34,7 +34,7 @@
                         <button @click="draw(4)" class="appearance-none inline-block w-1/2 rounded-r-lg py-3 px-4 button-primary disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
                     </div>
 
-                    <ol v-if="drawn.length" class="clearfix -mx-2 sm:-mx-4">
+                    <ol v-if="drawn.length" class="flow-root -mx-2 sm:-mx-4">
                         <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn" :class="pcWidth">
                             <drawn-card :card="card" @arsenaled="addToArsenal(card)"></drawn-card>
                         </li>

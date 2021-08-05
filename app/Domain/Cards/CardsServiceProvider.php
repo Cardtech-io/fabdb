@@ -1,21 +1,30 @@
 <?php
 namespace FabDB\Domain\Cards;
 
+use FabDB\Domain\Cards\Boosters\ArcaneRising;
+use FabDB\Domain\Cards\Boosters\Box;
+use FabDB\Domain\Cards\Boosters\CollectionBoosterRepository;
+use FabDB\Domain\Cards\Boosters\BoosterRepository;
+use FabDB\Domain\Cards\Boosters\Monarch;
+use FabDB\Domain\Cards\Boosters\WelcomeToRathe;
 use FabDB\Providers\AppServiceProvider;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 final class CardsServiceProvider extends AppServiceProvider
 {
     protected $interfaces = [
         CardRepository::class => EloquentCardRepository::class,
-        PackRepository::class => EloquentPackRepository::class,
+        BoosterRepository::class => CollectionBoosterRepository::class,
         PrintingRepository::class => EloquentPrintingRepository::class,
     ];
 
     public function boot()
     {
-        LengthAwarePaginator::currentPathResolver(function() {
-            return '/';
+        $this->app->bind(Box::class, function($app) {
+            return new Box(
+                $app->make(WelcomeToRathe::class),
+                $app->make(ArcaneRising::class),
+                $app->make(Monarch::class)
+            );
         });
     }
 }

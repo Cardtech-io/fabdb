@@ -134,7 +134,7 @@
             },
 
             tabClasses(tab) {
-                return tab === this.search.view ? 'bg-white text-gray-700' : 'bg-orange-700 hover:bg-orange-600';
+                return tab === this.search.view ? 'bg-white text-gray-700' : 'button-primary hover:button-secondary';
             },
 
             toggleDisplay() {

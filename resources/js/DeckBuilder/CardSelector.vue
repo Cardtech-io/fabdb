@@ -30,7 +30,7 @@
         <div class="bg-gray-200 py-8">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results.data">
-                    <ul class="clearfix sm:-mx-4">
+                    <ul class="flow-root sm:-mx-4">
                         <card-item :action="addCard" :card="card" v-for="card in results.data" :key="card.identifier"></card-item>
                     </ul>
                     <div class="py-4">
@@ -46,7 +46,6 @@
 </template>
 
 <script>
-    import CardSearch from '../CardDatabase/CardSearch.vue';
     import CardItem from './CardItem.vue';
     import Paginator from '../Components/Paginator.vue';
     import SearchTips from '../CardDatabase/SearchTips.vue';
@@ -57,7 +56,6 @@
 
         components: {
             CardItem,
-            CardSearch,
             Paginator,
             SearchTips
         },

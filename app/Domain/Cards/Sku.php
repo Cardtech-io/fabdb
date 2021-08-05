@@ -19,7 +19,7 @@ class Sku implements JsonSerializable
      * 4 - Card number
      * 5 - Finish (foiling.etc.)
      */
-    private const REGEX = '(U-)?((!!sets!!)([0-9]{3}))(-(rf|cf|gf|ea))?';
+    private const REGEX = '(U-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea))?';
 
     /**
      * @var string
@@ -90,6 +90,23 @@ class Sku implements JsonSerializable
         preg_match('/'.self::regex().'/i', $sku, $matches);
 
         return $matches;
+    }
+
+    public static function fromLSS(string $sku)
+    {
+        try {
+            return new self($sku);
+        } catch (\InvalidArgumentException $e) {
+            // Something wrong with the sku, try to fix
+            $parts = chunk_split($sku, 3);
+
+            if (strlen($parts[1]) == 2) {
+                // Probably missing a 0
+                $parts[1] = '0'.$parts[1];
+            }
+
+            return new self(implode('', $parts));
+        }
     }
 
     /**

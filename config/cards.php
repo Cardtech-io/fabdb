@@ -8,7 +8,9 @@ return [
     ],
 
     'banned' => [
-
+        'drone-of-brutality-red',
+        'drone-of-brutality-yellow',
+        'drone-of-brutality-blue',
     ],
 
     // The following are cards that should never be included towards card counts for decks.etc.

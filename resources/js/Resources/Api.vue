@@ -79,7 +79,7 @@
                         <h4 class="font-bold text-lg">Card search</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="json" class="text-base">
 
 <pre>
 {
@@ -148,6 +148,13 @@
                                         String. Valid values are: C, R, S, T, L, F, P
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="p-2 border border-gray-400">set</td>
+                                    <td class="p-2 border border-gray-400">Search for cards from a given set.</td>
+                                    <td class="p-2 border border-gray-400">
+                                        String. Valid values are: WTR, ARC, CRU, MON
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -170,41 +177,6 @@
 }
                             </pre>
                         </vue-code-highlight>
-
-                        <h4 class="font-bold text-lg">Generate pack</h4>
-                        <p class="my-4 font-mono border border-gray-300 p-4">GET /cards/pack</p>
-                        <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
-                            <pre>
-[
-    {
-        "identifier": "ARC070",
-        "name":"Searing Shot",
-        "image":"https:\/\/fabdb2.imgix.net\/cards\/arc\/70.png?w=300&fit=clip&auto=compress"
-    },
-    {
-        "identifier": "ARC027",
-        "name":"Zero to Sixty",
-        "image":"https:\/\/fabdb2.imgix.net\/cards\/arc\/27.png?w=300&fit=clip&auto=compress"
-    },
-    ...
-]
-                            </pre>
-                        </vue-code-highlight>
-                        <table class="my-4 w-full border-collapse border border-gray-500 text-base">
-                            <thead class="font-bold bg-gray-100">
-                                <th class="text-left p-2 border border-gray-400">Parameter</th>
-                                <th class="text-left p-2 border border-gray-400">Description</th>
-                                <th class="text-left p-2 border border-gray-400">Options</th>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="p-2 border border-gray-400">set</td>
-                                <td class="p-2 border border-gray-400">Specify the set to generate a pack for.</td>
-                                <td class="p-2 border border-gray-400">String. Valid values are: arc, wtr</td>
-                            </tr>
-                            </tbody>
-                        </table>
 
                         <a name="decks"></a>
                         <h4 class="font-bold text-lg">Decks</h4>

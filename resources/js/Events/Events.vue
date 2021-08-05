@@ -27,8 +27,7 @@
 </template>
 
 <script>
-    import moment from 'moment';
-    import { mapActions, mapGetters } from 'vuex';
+    import {mapGetters} from 'vuex';
 
     import Crumbs from '../Components/Crumbs.vue';
     import Button from '../Components/Form/Button.vue';

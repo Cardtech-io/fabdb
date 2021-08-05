@@ -1,8 +1,8 @@
 <template>
-    <div class="m-4 sm:mx-0">
+    <div class="my-4 sm:mx-0">
         <div class="flex mb-4">
             <div class="mr-4">
-                <avatar :user="comment.author" :width="100" class="rounded-br-none"/>
+                <avatar :user="comment.author" :width="80" class="rounded-br-none"/>
             </div>
             <div class="mr-4">
                 <votes :size="4" :total="comment.totalVotes" :voted="comment.myVote" voteable="comment" :foreign="comment.slug" layout="vertical"></votes>
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import Avatar from "../Identity/Avatar";
     import Badge from '../Identity/Badge.vue';
     import Votes from '../Voting/Votes.vue';

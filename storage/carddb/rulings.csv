@@ -8,7 +8,7 @@ The ability goes on the stack when the combat chain closes.",blade break,,https:
 Combo,"The last attack does not have to have hit.
 Only the name of the last attack matters, other variables such as the pitch cost does not matter.
 You may still play the attack even if combo isn’t active.",combo,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Crush,"Crush only checks the amount of damage dealt to the hero. Prevented damage does not 
+Crush,"Crush only checks the amount of damage dealt to the hero. Prevented damage does not
 Crush is not optional, if the card does 4 or more damage, the effect will apply.",crush,,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
 Dominate,"Cards with dominate cannot be defended with more than 1 card from the defending hero’s hand.
 You can still block with equipment and defense reactions played from arsenal in addition to up to 1 card from hand.
@@ -133,7 +133,7 @@ Bone Head Barrier,"You may not defend with Bone Head Barrier as it does not have
 You must prevent the incoming damage, you cannot save the prevention for a future attack once Bone Head Barrier resolves.
 Bone Head Barrier is an instant. You may play it anytime you have priority, including during an opponent’s turn, and during the reaction window of either player’s turn.",,WTR010,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
 Breakneck Battery,This checks the discarded card’s base power. Effects that modify a card's power are not applied to a card discarded from hand.,,WTR011-013,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
-Pack Hunt,"The player who owns the banished face down card is allowed to look at it.
+Booster Hunt,"The player who owns the banished face down card is allowed to look at it.
 The card banished from intimidate is returned to hand at the beginning of the end phase. This is before players draw up to hand size.",,WTR023-025,https://fabtcg.com/resources/rules-and-policy-center/release-notes/welcome-rathe/,
 Primeval Bellow,"You must have at least one other card in your hand to pay for the additional cost at the time you play Primeval Bellow.
 This card only affects Brute attacks (Brute attack action cards or Brute weapon attacks). Generic attack actions do not benefit this.
@@ -341,7 +341,8 @@ Moon Wish,"You may only use Moon Wish’s alternative cost if you have a card in
 If Moon Wish hits, you search your deck and may put a Sun Kiss into your hand. You still require an action point to play Sun Kiss.
 Searching your deck for Sun Kiss is not an optional effect, so even if you fail to find, or know that you have no Sun Kiss in your deck, you must still shuffle your deck.
 If there is an effect that increases the cost of Moon Wish, you must still pay it even if you use Moon Wish’s alternative cost.",,ARC185-189,,
-Plunder Run,"The first effect of Plunder Run checks on the next attack action card to hit, not the next attack action played.",,ARC170-172,,
+Plunder Run,"The first effect of Plunder Run checks on the next attack action card to hit, not the next attack action played.
+",,ARC170-172,,
 Pursuit of knowledge,"The blue symbol on Pursuit of Knowledge is your hero's intellect.
 You draw cards up to your intellect before end of turn effects end. In this case you will draw an additional card during the end phase from the intellect buff if Pursuit of Knowledge hit.",,ARC161,,
 Ravenous Rabble,"If there are no cards in deck, you can still play Ravenous Rabble and its [attack] will be 5.",,ARC191-193,,

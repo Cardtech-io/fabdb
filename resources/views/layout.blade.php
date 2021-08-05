@@ -7,7 +7,7 @@ $user = auth()->user();
 $settings = compile_settings();
 $lang = compile_lang();
 $theme = $user ? object_get($user, 'theme', 'default') : 'default';
-$jsFile = $view === 'embed' ? 'embed' : 'app';
+$jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -17,62 +17,56 @@ $jsFile = $view === 'embed' ? 'embed' : 'app';
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="theme-color" content="#4285f4">
 
-        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
+
+        <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
+        @if ($user && $user->width == 'wide')
         <style type="text/css">
-            @if ($user && $user->width == 'wide')
-                .container {
-                    max-width: 1800px !important;
-                }
-            @endif
+            .container {
+                max-width: 1800px !important;
+            }
         </style>
-        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
+        @endif
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 
-        @if (env('ANALYTICS_ID'))
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('ANALYTICS_ID') }}"></script>
+        @if ($analyticsId = config('services.google.analytics.id'))
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{$analyticsId}}"></script>
             <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '{{ env('ANALYTICS_ID') }}');
+                gtag('config', '{{$analyticsId}}');
             </script>
         @endif
 
-        @if (env('SENTRY_LARAVEL_DSN'))
-            <script
-                src="https://browser.sentry-cdn.com/5.29.2/bundle.min.js"
-                integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT"
-                crossorigin="anonymous"></script>
+        @if ($hotjarId = config('services.hotjar.id'))
             <script>
-                <?php $version = 'fab-db@'.fab_version(); ?>
-                Sentry.init({
-                    release: '{{ $version }}',
-                    dsn: '{{ env('SENTRY_LARAVEL_DSN') }}'
-                });
-
-                @if ($user)
-                    Sentry.configureScope(function(scope) {
-                        scope.setUser({id: "{{ $user->slug }}" });
-                    });
-                @endif
+                (function(h,o,t,j,a,r){
+                    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                    h._hjSettings={hjid:{{$hotjarId}},hjsv:6};
+                    a=o.getElementsByTagName('head')[0];
+                    r=o.createElement('script');r.async=1;
+                    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                    a.appendChild(r);
+                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
             </script>
         @endif
     </head>
-    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full xl:text-lg">
+    <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans h-full">
         <div id="app"></div>
         <script>
             window.session = {"user": <?php echo $user ? $user->toJson() : 'null'; ?>};
             window.version = '{{ fab_version()  }}';
             window.settings = {!! json_encode($settings) !!};
-            window.lang = {!! json_encode($lang) !!}
+            window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200&display=swap" rel="stylesheet">¡
+        <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
         <script src="{{ fab_asset($jsFile) }}"></script>
     </body>
 </html>

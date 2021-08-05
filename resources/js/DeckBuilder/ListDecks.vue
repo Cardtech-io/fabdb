@@ -1,43 +1,92 @@
 <template>
-    <div class="container px-4 sm:mx-auto text-white md:flex">
-        <div class="py-8 md:my-20 md:w-1/2 sm:pr-8">
-            <h1 class="font-serif text-4xl lg:text-4xl uppercase">Deck Builder</h1>
-            <p class="mt-4">
-                The first and only Flesh &amp; Blood Deck Builder is here. You can build your decks
-                for constructed or blitz formats, and then export them to PDF for tournament registration, or
-                integration with Tabletop Simulator.
-            </p>
-
-            <p class="mt-45">
-                <router-link to="/support" class="link">Supporters</router-link> gain access to
-                premium deck builder features, the deck tester and more.
-            </p>
-
-            <router-link to="/support" class="appearance-none block w-full mt-2 bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 text-center mt-8" v-if="user && !user.subscription">Upgrade to premium</router-link>
+    <div>
+        <header-title title="Deck builder"></header-title>
+        <div class="container mx-auto sm:px-4">
+            <div class="crumbs flex items-center px-4">
+                <crumbs :crumbs="crumbs" class="py-4 font-serif uppercase"></crumbs>
+                <add-deck class="flex-initial ml-auto" name="New deck">
+                    <span class="hidden sm:block">New deck</span>
+                    <span class="block sm:hidden">+</span>
+                </add-deck>
+            </div>
         </div>
-
-        <div class="md:my-20 md:flex-grow md:w-1/2">
-            <div v-if="user">
-                <div class="flex items-center pb-4">
-                    <h1 class="font-serif text-white text-4xl uppercase flex-1">Decks</h1>
-                    <add-deck class="flex-initial"></add-deck>
+        <div class="container sm:px-4 sm:mx-auto">
+            <form class="bg-white p-4 block sm:flex w-full" @submit.prevent="newSearch">
+                <div class="w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Select class</option>
+                        <option :value="k" v-for="(c, k) in $settings.game.classes">{{ c }}</option>
+                    </select>
                 </div>
 
-                <ol v-if="decks">
-                    <li class="bg-semi-black rounded-lg mb-2 hover:bg-black" v-for="(deck, key) in decks">
-                        <div class="flex">
-                            <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block link flex-1 p-4 pr-0">{{ deck.name }}</router-link>
-                            <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="block link p-4 pr-0" title="Test deck">Test</router-link>
-                            <a href="" class="block p-4" @click.prevent="copyDeck(deck)" title="Copy deck" :class="{ 'text-gray-500': copyDisabled, 'link': !copyDisabled }">Copy</a>
-                            <a href="" class="block link p-4" @click.prevent="removeDeck(deck, key)" title="Delete deck">Delete</a>
-                        </div>
-                    </li>
-                </ol>
+                <div class="w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1">
+                    <select v-model="params.format" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">Format</option>
+                        <option value="blitz">Blitz</option>
+                        <option value="constructed">Constructed</option>
+                        <option value="open">Open</option>
+                    </select>
+                </div>
 
-                <paginator :results="response" @page-selected="search"></paginator>
+                <div class="sm:w-1/3">
+                    <submit text="Search" class="w-full"></submit>
+                </div>
+            </form>
+
+            <div class="bg-gray-200 p-4 sm:p-0">
+                <div v-if="user">
+                    <table class="w-full table-auto border-collapse bg-white">
+                        <thead>
+                            <tr class="text-base">
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left">Deck</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Label</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Parent</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Class</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden md:table-cell">Cards</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Last updated</th>
+                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase"><span class="hidden lg:block">Actions</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd:bg-gray-100 hover:bg-white" v-for="(deck, key) in decks">
+                                <td class="border border-gray-300">
+                                    <div class="flex items-center">
+                                        <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero">
+                                        <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block px-4 py-2 link-alternate">{{deck.name}}</router-link>
+                                    </div>
+                                </td>
+                                <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
+                                    <deck-label :label="deck.label" v-if="deck.label" class="text-xs rounded-full p-1 px-2"/>
+                                </td>
+                                <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block link-alternate" v-if="deck.parent">{{deck.parent.name}}</router-link>
+                                </td>
+                                <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
+                                <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
+                                <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
+                                <td class="border border-gray-300 p-2 px-4">
+                                    <div class="flex justify-center items-center">
+                                        <button @click="copyDeck(deck)" class="hover:text-gray-400">
+                                            <icon :size="5">
+                                                <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
+                                                <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
+                                            </icon>
+                                        </button>
+                                        <button @click="removeDeck(deck, key)" class="hover:text-gray-400">
+                                            <icon :size="5">
+                                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                            </icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <paginator :results="response" @page-selected="setPage" class="py-4"></paginator>
+                </div>
+                <p v-else>The deck builder is available to registered users only, so if you do not yet have an account, you
+                    must <router-link to="/login" class="link">register or login</router-link>.</p>
             </div>
-            <p v-else>The deck builder is available to registered users only, so if you do not yet have an account, you
-                must <router-link to="/login" class="link">register or login</router-link>.</p>
         </div>
     </div>
 </template>
@@ -45,12 +94,24 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import AddDeck from './AddDeck';
+    import AddDeck from '../Decks/AddDeck';
+    import Collapser from "../Components/Collapser";
+    import Crumbs from "../Components/Crumbs";
+    import Deck from "../Decks/Deck";
+    import DeckItem from "../Decks/DeckItem";
+    import DeckLabel from "../Decks/Viewing/DeckLabel";
+    import DeckSearch from "../Decks/DeckSearch";
     import LazyLoader from "../Components/LazyLoader";
+    import Models from "../Utilities/Models";
     import Paginator from "../Components/Paginator";
+    import Sorter from "../Components/Sorter";
+    import Submit from "../Components/Form/Submit";
+    import Imagery from "../Utilities/Imagery";
+    import axios from "axios";
 
     export default {
-        components: {AddDeck, Paginator},
+        mixins: [Imagery],
+        components: {AddDeck, Collapser, Crumbs, DeckItem, DeckLabel, DeckSearch, Paginator, Sorter, Submit},
 
         computed: {
             ...mapGetters('session', ['user'])
@@ -59,9 +120,17 @@
         data() {
             return {
                 copyDisabled: false,
-                decks: null,
+                crumbs: [
+                    { text: 'Home', link: { name: 'home' } },
+                    { text: 'Deck builder'},
+                ],
+                decks: [],
                 response: {},
-                page: 1,
+                params: {
+                    class: '',
+                    format: '',
+                    page: 1
+                }
             };
         },
 
@@ -76,7 +145,7 @@
                 }, 3000);
 
                 axios.post('/decks/copy', { deck: deck.slug }).then(response => {
-                    this.search(1);
+                    this.newSearch();
                 });
             },
 
@@ -86,35 +155,42 @@
                 if (confirm) {
                     axios.delete('/decks/' + deck.slug).then(response => {
                         this.decks.splice(key, 1);
-                        this.search(this.page);
                     });
                 }
             },
 
-            search(page) {
-                this.page = page;
+            newSearch() {
+                let params = this.params;
 
-                axios.get('/decks/mine?page='+page).then(response => {
-                    this.response = response.data;
-                    this.decks = response.data.data;
+                axios.get('/decks/mine', {params}).then(response => {
+                    this.refreshResults(response);
                 });
-            }
-        },
+            },
 
-        metaInfo() {
-            return {
-                title: 'Flesh & Blood Deck builder',
-                description: 'Create and customise tournament-winning decks for Flesh & Blood TCG.'
+            refreshResults(response) {
+                this.response = response.data;
+                this.decks = Models.hydrateMany(response.data.data, Deck);
+            },
+
+            setPage(page) {
+                this.params.page = page;
+                this.newSearch();
             }
         },
 
         extends: LazyLoader((to, callback) => {
             axios.get('/decks/mine').then(response => {
                 callback(function() {
-                    this.response = response.data;
-                    this.decks = response.data.data;
-                });
+                    this.refreshResults(response);
+                })
             });
-        })
+        }),
+
+        metaInfo() {
+            return {
+                title: 'Flesh & Blood Deck builder',
+                description: 'Create and customise tournament-winning decks for Flesh & Blood TCG.'
+            }
+        }
     }
 </script>

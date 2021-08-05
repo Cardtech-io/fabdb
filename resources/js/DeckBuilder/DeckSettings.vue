@@ -8,6 +8,19 @@
                 </div>
 
                 <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Label</label>
+                    <select type="text" v-model="deck.label" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option value="">None</option>
+                        <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
+                    </select>
+                </div>
+
+                <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Notes</label>
+                    <markdown-editor :configs="{toolbar: ['heading', 'bold', 'italic', 'quote', '|', 'unordered-list', 'ordered-list']}" v-model="deck.notes" ref="markdownEditor"></markdown-editor>
+                </div>
+
+                <div class="w-full mb-4" v-if="!deck.practiseId">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
                     <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                         <option value="blitz">Blitz</option>
@@ -18,9 +31,10 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Limit cards to collection</label>
-                    <select v-model="deck.useCollection" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                        <option :value="false">No</option>
-                        <option :value="true">Yes</option>
+                    <select v-model="deck.limitToCollection" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                        <option :value="0">No</option>
+                        <option :value="1">Hard limit</option>
+                        <option :value="2">Soft limit</option>
                     </select>
                 </div>
 
@@ -55,26 +69,32 @@
             </form>
         </div>
 
-        <div class="mt-8 md:w-1/2 md:mt-0 text-lg">
-            <h2 class="text-xl font-serif uppercase mb-2">Deck settings</h2>
-
-            <p class="my-4">With the various deck settings you can change two values:</p>
+        <div class="mt-8 md:w-1/2 md:mt-0 text-base">
+            <p class="my-4">With the various deck settings you can change several values:</p>
 
             <ul class="list-disc ml-8">
-                <li>Change your deck's visibility. This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link.</li>
-                <li>The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only.</li>
+                <li>Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups.</li>
                 <li>Deck format: Whether your deck is for blitz/UPF or constructed play.</li>
+                <li>Limit to collection: Select soft if you just want missing cards highlighted. Select the hard limit if you do not want missing cards to show up in search at all. The former is better for purchase planning, the latter is better for tournament preparaation.</li>
+                <li>Deck visibility: This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link.</li>
+                <li>The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only.</li>
             </ul>
         </div>
     </div>
 </template>
 
+<style>
+    @import '~simplemde/dist/simplemde.min.css';
+</style>
+
 <script>
     import axios from 'axios';
-    import { mapActions, mapGetters } from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
+    import MarkdownEditor from 'vue-simplemde';
 
     export default {
         props: ['deck'],
+        components: {MarkdownEditor},
 
         data() {
             return {
@@ -96,8 +116,11 @@
 
                 let params = {
                     name: this.deck.name,
+                    label: this.deck.label,
+                    notes: this.deck.notes,
+                    type: this.deck.type,
                     format: this.deck.format,
-                    useCollection: this.deck.useCollection,
+                    limitToCollection: this.deck.limitToCollection,
                     visibility: this.deck.visibility,
                     cardBack: cardBack
                 };

@@ -53,62 +53,70 @@ export default class Cards {
 
     hero() {
         return this.cards.filter(card => {
-            return card.keywords.includes('hero');
+            return card.type === 'hero';
         })[0];
     }
 
     miscellaneous() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return card.keywords.includes('resource');
-        });
+        }));
     }
 
     attackActions() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return this.isAttack(card);
-        });
+        }));
     }
 
     nonAttackActions() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return this.isAction(card);
-        });
+        }));
     }
 
     attackReactions() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return this.isAttackReaction(card);
-        });
+        }));
     }
 
     defenseReactions() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return this.isDefenseReaction(card);
-        });
+        }));
     }
 
     weapons() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return card.keywords.includes('weapon');
-        });
+        }));
     }
 
     equipment() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return card.keywords.includes('equipment');
-        });
+        }));
     }
 
     items() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return card.keywords.includes('item');
-        });
+        }));
     }
 
     instants() {
-        return this.cards.filter(card => {
+        return new Cards(this.cards.filter(card => {
             return this.isInstant(card);
-        });
+        }));
+    }
+
+    colouredCount(colour) {
+        const resources = {blue: 3, yellow: 2, red: 1};
+
+        return this.filter(card => {
+            return card.stats.resource && card.stats.resource == resources[colour]
+        }).total();
     }
 
     other() {
@@ -120,8 +128,19 @@ export default class Cards {
         return new Cards(_.sortBy(cards, card => { return card.stats.resource }));
     }
 
+    withCost() {
+        return this.other().filter(card => !isNaN(card.stats.cost));
+    }
+
+    withResource() {
+        return this.other().filter(card => !isNaN(card.stats.resource));
+    }
+
     sort() {
-        return new Cards(_.sort(this.cards));
+        return new Cards(_.sortBy(this.cards, card => {
+            let resource = card.stats ? card.stats.resource : '';
+            return card.name + resource;
+        }));
     }
 
     filter(handler) {
@@ -130,7 +149,7 @@ export default class Cards {
 
     find(card) {
         return this.cards.filter(deckCard => {
-            return deckCard.identifier == card.identifier;
+            return deckCard.identifier === card.identifier;
         })[0];
     }
 
@@ -138,7 +157,7 @@ export default class Cards {
         for (let i in this.cards) {
             let match = this.cards[i];
 
-            if (match.identifier == card.identifier) {
+            if (match.identifier === card.identifier) {
                 return i;
             }
         }
@@ -164,6 +183,10 @@ export default class Cards {
         }, 0);
     }
 
+    count() {
+        return this.cards.length;
+    }
+
     add(card) {
         const deckCard = this.find(card);
 
@@ -186,6 +209,7 @@ export default class Cards {
     }
 
     concat(cards) {
+        cards = cards instanceof Cards ? cards.all() : cards;
         return new Cards(this.cards.concat(cards));
     }
 

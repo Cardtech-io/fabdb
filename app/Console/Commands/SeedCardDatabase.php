@@ -6,10 +6,8 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Cards\Rarity;
-use FabDB\Domain\Cards\Variant;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use League\Csv\Reader;
 

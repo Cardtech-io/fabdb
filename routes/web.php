@@ -31,6 +31,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/heroes', 'CardController@heroes');
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
+        Route::get('cards/for-packs', 'CardController@forPacks');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
 
@@ -51,6 +52,12 @@ Route::middleware(['web'])->group(function() {
 
         Route::get('users/{user}', 'UserController@view');
         Route::get('collection/lists', 'CollectionController@lists');
+        Route::get('decks/starters', 'DeckController@starters');
+
+        Route::post('practise/open-pack', 'PractiseController@openPack');
+        Route::get('practise/{practise}', 'PractiseController@view');
+        Route::get('practise', 'PractiseController@index');
+        Route::post('practise', 'PractiseController@setup');
 
         Route::get('events/{event}', 'EventController@view');
 
@@ -99,6 +106,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('comments/{type}/{foreign}', 'CommentController@list');
 
         Route::get('decks', 'DeckController@search');
+        Route::get('decks/featured', 'DeckController@featured');
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
     });

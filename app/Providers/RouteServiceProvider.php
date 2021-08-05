@@ -7,6 +7,7 @@ use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Events\EventRepository;
+use FabDB\Domain\Practise\PractiseRepository;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('event', function($slug) {
             return app(EventRepository::class)->view($slug, @Auth::user()->id);
+        });
+
+        Route::bind('practise', function($slug) {
+            return app(PractiseRepository::class)->view($slug);
         });
 
         Route::bind('printing', function($sku) {
@@ -90,7 +95,6 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::domain($this->app['config']->get('api.domain'))
-             ->middleware('api', 'throttle:60,1')
              ->namespace($this->namespace.'\Api')
              ->group(base_path('routes/api.php'));
     }

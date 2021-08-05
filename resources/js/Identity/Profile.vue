@@ -1,7 +1,6 @@
 <template>
     <div>
         <header-title title="Profile Update"></header-title>
-
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
@@ -19,7 +18,7 @@
                                 <label class="block font-serif uppercase tracking-wide mb-1">Avatar</label>
                                 <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto">
                                     <option value="bauble">Bauble</option>
-                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name() }}</option>
+                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name }}</option>
                                 </select>
                             </div>
                         </div>
@@ -77,9 +76,11 @@
                                 <option value="default">Default</option>
                                 <option value="aria">Aria</option>
                                 <option value="demonastery">Demonastery</option>
+                                <option value="library">Library</option>
                                 <option value="skies">Skies</option>
                                 <option value="savage-lands">Savage Lands</option>
                                 <option value="the-pits">The Pits</option>
+                                <option value="battle">Battle at the Peak (Patreon supporters only)</option>
                             </select>
                         </div>
 
@@ -112,7 +113,7 @@
                 </div>
 
                 <div class="mt-8 md:w-1/2 md:mt-0">
-                    <router-link :to="{ name: 'user.profile.decks', params: { user: user.slug } }" class="inline-block button-primary mb-4 rounded-full p-4">View your public profile</router-link>
+                    <router-link :to="{ name: 'user.profile.decks', params: { user: slug } }" class="inline-block button-secondary mb-4 rounded-full p-4">View your public profile</router-link>
 
                     <h2 class="text-xl font-serif uppercase mb-2">Your membership level</h2>
 
@@ -250,6 +251,10 @@
                     this.setUserParam({ param: 'avatar', value: avatar });
                 }
             },
+
+            slug() {
+                return ['legendary', 'fabled'].indexOf(this.user.subscription) !== -1 && this.user.vanitySlug ? this.user.vanitySlug : this.user.slug;
+            }
         },
 
         data() {

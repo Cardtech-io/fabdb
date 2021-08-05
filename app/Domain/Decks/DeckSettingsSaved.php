@@ -32,11 +32,16 @@ class DeckSettingsSaved implements Loggable
      * @var string
      */
     private $format;
+    /**
+     * @var string
+     */
+    private $label;
 
-    public function __construct(int $deckId, string $name, string $format, string $visibility, int $cardBack)
+    public function __construct(int $deckId, string $name, string $label, string $format, string $visibility, int $cardBack)
     {
         $this->deckId = $deckId;
         $this->name = $name;
+        $this->label = $label;
         $this->format = $format;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
@@ -65,5 +70,10 @@ class DeckSettingsSaved implements Loggable
     public function format(): string
     {
         return $this->format;
+    }
+
+    public function label(): string
+    {
+        return $this->label;
     }
 }

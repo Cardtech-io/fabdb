@@ -1,5 +1,5 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current" :class="'h-' + size">
+    <svg xmlns="http://www.w3.org/2000/svg" :viewBox="viewBox" class="fill-current" :class="'h-' + size">
         <slot></slot>
     </svg>
 </template>
@@ -10,6 +10,17 @@
             size: {
                 type: Number,
                 required: true
+            },
+
+            box: {
+                type: Number,
+                default: 20
+            }
+        },
+
+        computed: {
+            viewBox() {
+                return '0 0 '+this.box+' '+this.box;
             }
         }
     };

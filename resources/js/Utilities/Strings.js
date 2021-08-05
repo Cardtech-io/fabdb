@@ -51,9 +51,15 @@ export default {
                     let effect = matches[4];
                     let string = '';
 
-                    if (effect === 'Power') {
+                    if (effect === 'Pitch') {
                         effect = 'resource';
                     }
+
+                    if (effect === 'Power') {
+                        effect = 'attack';
+                    }
+
+                    effect = effect.toLowerCase();
 
                     if (modifier) {
                         string = modifier + amount + '<img src="/img/' + effect + '.png" class="inline-block h-5 align-middle">';

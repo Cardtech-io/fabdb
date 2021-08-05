@@ -72,6 +72,11 @@ class Card extends Model
             });
     }
 
+    public function getBannedAttribute()
+    {
+        return in_array($this->identifier, config('game.cards.banned'));
+    }
+
     public function rulings()
     {
         return $this->belongsToMany(Ruling::class);
@@ -82,20 +87,29 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $name, string $image, Rarity $rarity, string $text, $flavour, $comments, array $keywords, array $stats): Card
+    public static function register(Identifier $identifier, string $name, string $image, Rarity $rarity, $text, $flavour, $comments, array $keywords, array $stats): Card
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
         $card = static::whereIdentifier($identifier->raw())->first();
 
         if ($card) {
-            if (!$card->image) {
+            $card->name = $name;
+
+            if (!$card->image && $image) {
                 $card->image = $image;
             }
 
-            $card->fill(compact('name', 'keywords', 'stats'));
+            if (count($keywords)) {
+                $card->keywords = $keywords;
+            }
+
+            if ($stats) {
+                $card->stats = $stats;
+            }
+
             $card->save();
         } else {
-            $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'keywords', 'stats', 'searchText'));
+            $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'text', 'keywords', 'stats', 'searchText'));
         }
 
         return $card;
@@ -136,6 +150,11 @@ class Card extends Model
         return in_array('weapon', $this->keywords);
     }
 
+    public function isTalented()
+    {
+        return $this->talent !== null;
+    }
+
     public function is1hWeapon()
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);
@@ -144,6 +163,13 @@ class Card extends Model
     public function isEquipment(): bool
     {
         return in_array('equipment', $this->keywords);
+    }
+
+    public function isGeneric(): bool
+    {
+        $classes = array_keys(config('game.classes'));
+
+        return in_array('generic', $this->keywords) || !count(array_intersect($classes, $this->keywords));
     }
 
     public function oneHanded(): bool

@@ -10,6 +10,10 @@ class User {
     get name() {
         return this.fields.name || 'Anonymous';
     }
+
+    get slug() {
+        return this.fields.slug;
+    }
 }
 
 export default User;

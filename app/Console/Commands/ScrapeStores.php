@@ -230,6 +230,7 @@ class ScrapeStores extends Command
                 $store->id,
                 $printing->cardId,
                 $printing->id,
+                $parser->id(),
                 $parser->price(),
                 $link,
                 $parser->available()
@@ -245,5 +246,10 @@ class ScrapeStores extends Command
     private function possibleMatch(string $sku)
     {
         return preg_match(VariantParser::REGEX, $sku);
+    }
+
+    private function storePrefix($store)
+    {
+        return "{$store->apiCredentials->token()}:{$store->apiCredentials->password()}@{$store->apiCredentials->endpoint()}";
     }
 }

@@ -1,7 +1,9 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class SyntaxFilter implements SearchFilter
@@ -52,12 +54,16 @@ class SyntaxFilter implements SearchFilter
             case 'a':
             case 'attack':
             case 'power':
-                $query->where("stats->attack", $operator[0], $value[0]);
+                $query->where("stats->attack", $operator[0], DB::raw($value[0]));
                 break;
             // class
             case 'c':
             case 'class':
                 $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value[0]') IS NOT NULL");
+                break;
+            case 'd':
+            case 'defense':
+                $query->where("stats->defense", $operator[0], $value[0]);
                 break;
             // Card type
             case 't':

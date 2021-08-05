@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -14,6 +15,13 @@ class RarityFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->where('printings.rarity', Str::upper($input['rarity']));
+        $rarities = explode(',', $input['rarity']);
+
+        $query->where(function($query) use ($rarities) {
+            foreach ($rarities as $rarity) {
+                $query->orWhere('printings.rarity', Str::upper($rarity));
+            }
+        });
+
     }
 }

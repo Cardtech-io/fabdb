@@ -10,16 +10,17 @@ use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithConditionalSheets;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, WithMultipleSheets
+class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, WithMultipleSheets, WithCalculatedFormulas
 {
     use Importable;
     use WithConditionalSheets;
 
-    private $availableSheets = [
+    private const AVAILABLE_SHEETS = [
         'ira_singles',
         'wtr_alpha_singles',
         'wtr_hero_singles',
@@ -27,6 +28,9 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         'arc_first_singles',
         'arc_unlimited_singles',
         'cru_first_singles',
+        'mon_first_singles',
+        'mon_blitz_singles',
+        'mon_unlimited_singles',
         'promo_singles'
     ];
     /**
@@ -50,14 +54,24 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         $this->logger = $logger;
     }
 
+    public static function availableSheets()
+    {
+        return self::AVAILABLE_SHEETS;
+    }
+
     public function collection(Collection $rows)
     {
         foreach ($rows as $row) {
             if (!Arr::get($row, 'uid')) continue;
 
+            if (strpos($row['uid'], 'XXX') === 0) {
+                $this->log("Tricky card, ignoring [{$row['uid']}]");
+                continue;
+            }
+
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::generate($row['card_name'], $this->stats($row));
+            $this->identifier = Identifier::fromName($row['card_name']);
 
             $this->log("Registering card [{$row['uid']}]");
 
@@ -73,7 +87,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
                 $row['card_name'],
                 $this->imagePath($row),
                 Rarity::fromLss($row['rarity']),
-                '',
+                $row['card_effect'],
                 '',
                 '',
                 $this->keywords($row),
@@ -103,7 +117,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     private function keywords($row)
     {
         return $this->weaponParts($row, Arr::flatten([
-            Str::lower($row['class']),
+            explode(' ', Str::lower($row['class'])),
             explode(' ', Str::lower($row['card_type']))
         ]));
     }
@@ -161,21 +175,14 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
     public function batchSize(): int
     {
-        return 10;
+        return 50;
     }
 
     public function conditionalSheets(): array
     {
-        return [
-            'ira_singles' => $this,
-            'wtr_alpha_singles' => $this,
-            'wtr_hero_singles' => $this,
-            'wtr_unlimited_singles' => $this,
-            'arc_first_singles' => $this,
-            'arc_unlimited_singles' => $this,
-            'cru_first_singles' => $this,
-            'promo_singles' => $this
-        ];
+        return array_map(function() {
+            return $this;
+        }, array_flip(self::AVAILABLE_SHEETS));
     }
 
     private function log(string $message)
@@ -208,11 +215,11 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
     public function except(array $sheets)
     {
-        $this->onlySheets(...array_flip(Arr::except(array_flip($this->availableSheets), $sheets)));
+        $this->onlySheets(...array_flip(Arr::except(array_flip(self::AVAILABLE_SHEETS), $sheets)));
     }
 
     public function only(array $sheets)
     {
-        $this->onlySheets(...array_flip(Arr::only(array_flip($this->availableSheets), $sheets)));
+        $this->onlySheets(...array_flip(Arr::only(array_flip(self::AVAILABLE_SHEETS), $sheets)));
     }
 }

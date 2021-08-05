@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 interface DeckRepository extends Repository
 {
-    public function forUser(int $userId): LengthAwarePaginator;
+    public function forUser(int $userId, array $params = []): LengthAwarePaginator;
 
     public function bySlugWithCards(string $slug, bool $includeCards = false);
 
@@ -22,5 +22,11 @@ interface DeckRepository extends Repository
 
     public function search(array $params);
 
+    public function latest(array $params);
+
     public function copy(string $deckSlug, int $userId): Deck;
+
+    public function starters(): Collection;
+
+    public function featured(int $howMany): ?Deck;
 }

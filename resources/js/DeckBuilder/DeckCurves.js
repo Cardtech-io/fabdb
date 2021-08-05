@@ -3,26 +3,56 @@ import _ from 'lodash';
 
 export default {
     extends: Bar,
-    props: ['cards', 'stat'],
+    props: {
+        cards: {
+            required: true,
+            type: Object
+        },
+        stat: {
+            required: true,
+            type: String
+        },
+        strategy: {
+            required: true,
+            type: String,
+            validator(value) {
+                return ['total', 'length'].indexOf(value) !== -1;
+            }
+        }
+    },
 
     methods: {
-        update(cards) {
-            let values = _(cards)
-                .groupBy(card => card.stats[this.stat] || 0)
-                .mapValues(cards => cards.length)
-                .value();
+        colours(values) {
+            if (this.stat === 'resource') {
+                return ['239,68,68', '251,191,37', '96,165,250'];
+            }
 
+            // Construct a colour set for cost from blue -> red (red for most costly)
+            let colours = [];
+
+            for (let i = 0; i < values.length; i++) {
+                let green = 180 - (180 * (i / values.length));
+                let red = (i / values.length) * 255;
+
+                colours.push([red+', '+green+', 30']);
+            }
+
+            return colours;
+        },
+
+        update(cards) {
+            let values = this.values(cards);
             let label = this.stat === 'resource' ? 'Pitch' : 'Cost';
-            let color = this.stat === 'cost' ? '237, 137, 54' : '66, 153, 225';
+            let colours = this.colours(_.keys(values));
 
             let chartData = {
-                labels: _.keys(values),
+                labels: _.keys(values).map(label => this.stat === 'resource' ? 'Pitch '+label : 'Cost '+label),
 
                 datasets: [
                     {
                         label: label,
-                        backgroundColor: 'rgba(' + color + ', 0.5)',
-                        borderColor: 'rgba(' + color + ', 1)',
+                        backgroundColor: colours.map(colour => 'rgba(' + colour + ', 0.6)'),
+                        borderColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
                         borderWidth: 1,
                         data: _.values(values),
                     }
@@ -38,6 +68,11 @@ export default {
                 maintainAspectRatio: false,
                 fill: false,
                 scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                    }],
                     yAxes: [{
                         ticks: {
                             stepSize: 10,
@@ -46,6 +81,19 @@ export default {
                     }]
                 }
             });
+        },
+
+        values(cards) {
+            return _(cards.all())
+                .groupBy(card => card.stats[this.stat] || 0)
+                .mapValues(cards => {
+                    if (this.strategy === 'total') {
+                        return cards.reduce((carry, card) => carry + card.total, 0)
+                    } else {
+                        return cards.length;
+                    }
+                })
+                .value();
         }
     },
 

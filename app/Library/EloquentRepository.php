@@ -56,4 +56,13 @@ abstract class EloquentRepository implements Repository
 
         return $query->where($this->model()->getTable().'.slug', $slug);
     }
+
+    protected function applyFilters($query, array $filters, $input)
+    {
+        foreach ($filters as $filter) {
+            if ($filter->applies($input)) {
+                $filter->applyTo($query, $input);
+            }
+        }
+    }
 }

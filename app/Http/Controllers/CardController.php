@@ -2,7 +2,7 @@
 namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Cards\CardRepository;
-use FabDB\Domain\Cards\Packs;
+use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Http\Resources\CardResource;
@@ -10,9 +10,19 @@ use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
-    public function list(Request $request, CardRepository $cards)
+    /**
+     * @var CardRepository
+     */
+    protected $cards;
+
+    public function __construct(CardRepository $cards)
     {
-        $cards = $cards->search($request->user(), $request->all())
+        $this->cards = $cards;
+    }
+
+    public function list(Request $request)
+    {
+        $cards = $this->cards->search($request->user(), $request->all())
             ->paginate($request->get('per_page', 30))
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
@@ -20,36 +30,37 @@ class CardController extends Controller
         return CardResource::collection($cards);
     }
 
-    public function heroes(CardRepository $cards)
+    public function heroes()
     {
-        return CardResource::collection($cards->uniqueHeroes());
+        return CardResource::collection($this->cards->uniqueHeroes());
     }
 
-    public function fabled(CardRepository $cards)
+    public function fabled()
     {
         return CardResource::collection(collect([
-            $cards->findByIdentifier('heart-of-fyendal-blue'),
-            $cards->findByIdentifier('eye-of-ophidia-blue'),
-            $cards->findByIdentifier('arknight-shard-blue'),
+            $this->cards->findByIdentifier('heart-of-fyendal-blue'),
+            $this->cards->findByIdentifier('eye-of-ophidia-blue'),
+            $this->cards->findByIdentifier('arknight-shard-blue'),
+            $this->cards->findByIdentifier('great-library-of-solana'),
         ]));
     }
 
-    public function build(Request $request, DeckRepository $decks, CardRepository $cards)
+    public function build(Request $request, DeckRepository $decks)
     {
         $deck = $decks->bySlug($request->get('deck'));
 
-        return CardResource::collection($cards->buildSearch($request->user(), $deck, $request->all())
+        return CardResource::collection($this->cards->buildSearch($request->user(), $deck, $request->all())
             ->paginate($request->get('per_page', 24)));
     }
 
-    public function view(Request $request, CardRepository $cards)
+    public function view(Request $request)
     {
-        return new CardResource($cards->view($request->identifier, ['listings', 'listings.store', 'printings']));
+        return new CardResource($this->cards->view($request->identifier, ['listings', 'listings.store', 'printings']));
     }
 
-    public function ad(Request $request, CardRepository $cards)
+    public function ad(Request $request)
     {
-        return new CardResource($cards->ad($request->identifier, object_get($request->user(), 'currency', 'USD')));
+        return new CardResource($this->cards->ad($request->identifier, object_get($request->user(), 'currency', 'USD')));
     }
 
     public function generatePack(Request $request, Packs $packs)
@@ -57,10 +68,15 @@ class CardController extends Controller
         return CardResource::collection($packs->generate(new Set($request->get('set'))));
     }
 
-    public function prices(Request $request, CardRepository $cards)
+    public function prices(Request $request)
     {
-        return $cards->prices($request->all())
+        return $this->cards->prices($request->all())
             ->paginate($request->get('per_page', 50))
             ->appends($request->except('page'));
+    }
+
+    public function forPacks(Request $request)
+    {
+        return CardResource::collection($this->cards->forPacks(new Set($request->get('set'))));
     }
 }

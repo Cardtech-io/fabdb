@@ -1,5 +1,17 @@
 const mix = require('laravel-mix');
 
+mix.babelConfig({
+    plugins: ['@babel/plugin-syntax-dynamic-import'],
+});
+
+let ext = mix.inProduction() ? 'min.js': 'js';
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: 'js/[name].'+ext+'?id=[chunkhash]',
+    }
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

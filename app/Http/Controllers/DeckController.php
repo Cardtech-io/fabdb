@@ -20,9 +20,9 @@ use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
-use FabDB\Http\Requests\SetDeckCardTotalRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class DeckController extends Controller
@@ -39,25 +39,36 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        return $this->decks->search(array_merge($request->all(), ['currency' => object_get($request->user(), 'currency', 'USD')]))
-            ->paginate($request->get('per_page', 24))
-            ->appends($request->except('page'));
+        return $this->decks->search(
+            array_merge($request->all(), [
+                'currency' => object_get($request->user(), 'currency', 'USD')
+            ])
+        );
+    }
+
+    public function starters()
+    {
+        return DeckResource::collection($this->decks->starters());
+    }
+
+    public function featured()
+    {
+        return new DeckResource($this->decks->featured(1));
     }
 
     public function latest(Request $request)
     {
         $params = array_merge($request->all(), [
-            'currency' => object_get($request->user(), 'currency', 'USD'),
+            'per_page' => $request->get('per_page', 10),
             'order' => 'newest'
         ]);
 
-        return $this->decks->search($params)
-            ->paginate(10);
+        return DeckResource::collection($this->decks->latest($params));
     }
 
     public function addDeck(Request $request)
     {
-        $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name')));
+        $this->dispatchNow($command = new AddDeck($request->user()->id, $request->get('name'), $request->get('practise')));
 
         return $command->deck();
     }
@@ -96,9 +107,9 @@ class DeckController extends Controller
         $this->dispatchNow(new RemoveDeck($request->deck->slug));
     }
 
-    public function mine()
+    public function mine(Request $request)
     {
-        return $this->decks->forUser(Auth::user()->id);
+        return DeckResource::collection($this->decks->forUser(Auth::user()->id, $request->all()));
     }
 
     public function copy(Request $request)
@@ -112,9 +123,6 @@ class DeckController extends Controller
 
     public function view(Deck $deck)
     {
-        $deck->load('cards', 'cards.rulings');
-        $deck->load('sideboard');
-
         return new DeckResource($deck);
     }
 
@@ -123,8 +131,10 @@ class DeckController extends Controller
         $this->dispatchNow(new SaveDeckSettings(
             $request->deck->id,
             $request->get('name', $request->deck->name),
+            $request->get('label', $request->deck->label),
+            $request->get('notes', object_get($request, 'deck.notes', '')),
             $request->get('format', $request->deck->format),
-            (bool) $request->get('useCollection', $request->deck->useCollection),
+            (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),
             (int) $request->get('cardBack', $request->deck->cardBack)
         ));

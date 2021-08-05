@@ -6,6 +6,8 @@ use Illuminate\Support\Arr;
 
 class PrintingResource extends JsonResource
 {
+    use HasImage;
+
     public function toArray($request)
     {
         $response = Arr::only($this->resource->toArray(), ['id', 'sku', 'set', 'edition', 'total', 'trade', 'want']);
@@ -22,6 +24,13 @@ class PrintingResource extends JsonResource
             $response['want'] = (bool) $response['want'];
         }
 
+        $response['image'] = $this->printingImage($this->resource->sku->raw());
+
         return $response;
+    }
+
+    private function image()
+    {
+
     }
 }

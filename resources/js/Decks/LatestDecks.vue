@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="decks">
-            <deck-item v-for="deck in decks.data" :deck="deck" :key="deck.slug" theme="dark"></deck-item>
+            <deck-item v-for="deck in decks" :deck="deck" :key="deck.slug" theme="dark"></deck-item>
         </div>
     </div>
 </template>
@@ -10,6 +10,8 @@
     import axios from "axios";
     import DeckItem from "./DeckItem";
     import LazyLoader from "../Components/LazyLoader";
+    import Models from "../Utilities/Models";
+    import Deck from "./Deck";
 
     export default {
         components: {DeckItem},
@@ -36,16 +38,10 @@
             };
         },
 
-        extends: LazyLoader((to, callback) => {
-            axios.get('/decks/latest?user='+to.params.user).then(response => {
-                callback(function() {
-                    this.decks = response.data;
-                });
+        mounted() {
+            axios.get('/decks/latest?user='+this.user.slug).then(response => {
+                this.decks = Models.hydrateMany(response.data.data, Deck);
             });
-        })
+        }
     }
 </script>
-
-<style scoped>
-
-</style>

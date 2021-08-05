@@ -13,6 +13,7 @@ use FabDB\Domain\Collection\UpdateCardInCollection;
 use FabDB\Domain\Users\UserRepository;
 use FabDB\Http\Requests\UserListsRequest;
 use FabDB\Http\Resources\CardResource;
+use FabDB\Http\Resources\OwnedCardResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -77,6 +78,6 @@ class CollectionController extends Controller
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
-        return CardResource::collection($cards);
+        return OwnedCardResource::collection($cards);
     }
 }

@@ -71,9 +71,9 @@ WTR,19,Barraging Beatdown,R,"Your next Brute attack this turn gains ""If this at
 WTR,20,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,1,1,3,7,,"standard,rainbow"
 WTR,21,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,2,1,3,6,,"standard,rainbow"
 WTR,22,Savage Swing,C,"As an additional cost to play Savage Swing, discard a random card.","""I should have listened - no amount of money is worth coming to this retched place.""",,"brute,action,attack",,,3,1,3,5,,"standard,rainbow"
-WTR,23,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
-WTR,24,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
-WTR,25,Pack Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
+WTR,23,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,1,2,3,6,,"standard,rainbow"
+WTR,24,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,2,2,3,5,,"standard,rainbow"
+WTR,25,Booster Hunt,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.","Horrific beasts lurk within the shadows, their gaping maws dripping with blood.",,"brute,action,attack",,,3,2,3,4,,"standard,rainbow"
 WTR,26,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,1,3,3,7,,"standard,rainbow"
 WTR,27,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,2,3,3,6,,"standard,rainbow"
 WTR,28,Smash Instinct,C,"**Intimidate** *(Target hero banishes face down a random card from their hand. At the beginning of the end phase, return all cards banished this way to their owner's hand.",Following one's instinct may be ill advised.,,"brute,action,attack",,,3,3,3,5,,"standard,rainbow"
@@ -269,7 +269,7 @@ WTR,113,Dorinthea Ironsong,T,"**Once per Turn Effect** - When your weapon attack
 WTR,114,Dorinthea,T,"**Once per Turn Effect** - When your weapon attack hits, you may attack an additional time with that weapon this turn.",,,"warrior,hero,young",,4,,,,,,standard
 WTR,115,Dawnblade,T,"**Once per Turn Action - [resource]: Attack**
 
-If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade. 
+If Dawnblade hits, and it's the second time it has hit this turn, put a +1[attack] counter on Dawnblade.
 
 At the beginning of your end phase, if Dawnblade did not hit this turn, remove all +1[attack] counters from Dawnblade.",,,"warrior,weapon,sword,2h",,,,,,3,,standard
 WTR,116,Braveforge Bracers,L,"**Once per Turn Action** - [resource]: Your next weapon attack this turn gains +1[attack]. Activate this ability only if a weapon you control has hit this turn. **Go again**
@@ -385,7 +385,7 @@ WTR,160,Tome of Fyendal,M,"Draw 2 cards.
 
 If Tome of Fyendal is played from arsenal, gain 1[life] for each card in your hand.",Even the simplest recollection of the Old Ones holds immense power...,,"generic,action",,,2,1,2,,,"standard,rainbow"
 WTR,161,Last Ditch Effort,S,"When you play Last Ditch Effort, if you have no cards in your deck, it gains +4[attack] and **go again**.","For creatures that feed on fear, the moment of death is a veritable feast.",,"generic,action,attack",,,3,3,3,4,,"standard,rainbow"
-WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die. 
+WTR,162,Crazy Brew,S,"**Action** - Destroy Crazy Brew: Roll a 6 sided die.
 On;
 
 * 1, 2 - Lose 2[life]. **Go again**
@@ -506,27 +506,3 @@ WTR,224,Cracked Bauble,T,"*Cracked bauble exists to support Booster Draft and Se
 WTR,225,Quicken,T,"*(Auras stay in the arena until they are destroyed.)*
 
 When you play an attack action card or attack with a weapon, destroy Quicken then the attack gains **go again**.",,,"generic,token,aura",,,,,,,,standard
-LGS,1,Romping Club,P,,,,,,,,,,,WTR003,cold
-LGS,2,Anothos,P,,,,,,,,,,,WTR040,cold
-LGS,3,Harmonized Kodachi,P,,,,,,,,,,,WTR078,cold
-LGS,4,Dawnblade,P,,,,,,,,,,,WTR115,cold
-LGS,5,Wrecker Romp,P,,,,,,,,,,,WTR031,extended
-LGS,6,Blessing of Deliverance,P,,,,,,,,,,,WTR054,extended
-LGS,7,Whelming Gustwave,P,,,,,,,,,,,WTR110,extended
-LGS,8,Ironsong Response,P,,,,,,,,,,,WTR132,extended
-FAB,1,Fyendal's Spring Tunic,P,,,,,,,,,,,WTR150,gold
-HER,1,Rhinar,P,,,,,,,,,,,WTR001,cold
-HER,2,"Bravo, Showstopper",P,,,,,,,,,,,WTR038,cold
-HER,3,Katsu,P,,,,,,,,,,,WTR076,cold
-HER,4,Dorinthea,P,,,,,,,,,,,WTR113,cold
-HER,5,Rhinar,P,,,,,,,,,,,WTR002,rainbow
-HER,6,"Bravo, Showstopper",P,,,,,,,,,,,WTR039,rainbow
-HER,7,Katsu,P,,,,,,,,,,,WTR077,rainbow
-HER,8,Dorinthea,P,,,,,,,,,,,WTR114,rainbow
-LSS,2,Go Bananas,P,"Name an action card. Open and reveal a booster pack of Flesh and Blood and put all cards with the chosen name into your hand. If the booster does not contain a card with the chosen name, you may repeat this process.",,,"generic,instant",,,2,0,,,,rainbow
-FAB,3,Scabskin Leathers,P,,,,,,,,,,,WTR004,gold
-FAB,4,Mask of Momentum,P,,,,,,,,,,,WTR079,gold
-FAB,6,Braveforge Bracers,P,,,,,,,,,,,WTR116,gold
-FAB,12,Energy Potion,P,,,,,,,,,,,WTR170,cold
-FAB,13,Potion of Strength,P,,,,,,,,,,,WTR171,cold
-FAB,14,Timesnap Potion,P,,,,,,,,,,,WTR172,cold

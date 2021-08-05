@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-hardly-black">
+    <div class="bg-hardly-black backdrop-blur-2 z-25">
         <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 z-25" v-if="show">
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
                 <div class="relative overflow-visible logo ml-4 sm:ml-0 py-1">
                     <router-link to="/">
-                        <img src="/img/fabdb-logo.png" width="90">
+                        <img src="/img/fabdb-logo.png" width="90" height="38">
                     </router-link>
                 </div>
                 <button type="button" class="block text-white sm:hidden mr-4" @click="toggle">
@@ -44,32 +44,35 @@
             items: function() {
                 let items = [
                     { link: '/', text: 'Home' },
-                    { text: 'Articles', children: [
-                            { link: '/articles', text: 'Latest news' },
-                            { link: '/articles/spoilers', text: 'Spoilers!' },
-                    ]},
 
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
                         { link: '/cards/prices', text: 'Price list' },
                         { link: '/cards/fabled', text: 'Fabled cards' },
-                        { link: '/collection', text: 'My Collection' },
-                        { link: '/tools/life-counter', text: 'Life counter' },
-                        { link: '/packs/generate', text: 'Booster generator' }
                     ]},
+
                     { text: 'Decks', children: [
+                        { link: '/decks', text: 'Featured' },
                         { link: '/decks/browse', text: 'Browse' },
-                        { link: '/decks/mine', text: 'Deck Builder' }
+                        { link: '/decks/starters', text: 'Starter decks' }
                     ]},
-                    { link: '/support', text: 'Support' },
-                    { link: '/resources/api', text: 'API' },
+
+                    { text: 'Tools', children: [
+                        { link: '/collection', text: 'Collection manager' },
+                        { link: '/decks/build', text: 'Deck builder' },
+                        { link: '/practise', text: 'Limited practise' },
+                        { link: '/tools/life-counter', text: 'Life counter' },
+                        { link: '/packs/generate', text: 'Booster generator' },
+                        { link: '/resources/api', text: 'API' },
+                    ]},
+
+                    { link: '/support', text: 'Subscription' },
                 ];
 
                 if (this.user) {
                     items.push({
                         text: 'Account',
                         children: [
-                            { link: '/articles/mine', text: 'My articles' },
                             { link: '/events/mine', text: 'My events' },
                             { link: '/profile', text: 'Profile' },
                             { link: '/logout', text: 'Logout' },

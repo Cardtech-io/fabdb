@@ -1,18 +1,22 @@
 <template>
     <div class="pb-24 text-base">
         <div v-if="!cards.hero()">
-            <hero-selector @hero-selected="addToDeck"></hero-selector>
+            <hero-selector @hero-selected="addToDeck" :deck="deck"></hero-selector>
         </div>
         <div v-else>
             <div v-if="view === 'gallery'">
                 <div v-if="user.subscription" class="md:flex m-4">
-                    <div class="md:mr-4 md:w-auto md:max-w-250 clearfix">
+                    <div class="md:mr-4 md:w-auto md:max-w-250 flow-root">
                         <div class="w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none">
                             <card-image :card="cards.hero()" class="mb-4"></card-image>
                         </div>
                         <div class="w-1/2 md:w-auto float-left md:float-none">
-                            <deck-curves :cards="other.all()" stat="cost" class="mb-4 h-140 sm:h-160"></deck-curves>
-                            <deck-curves :cards="other.all()" stat="resource" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
+                                <deck-curves :cards="other.withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            </div>
+                            <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
+                                <deck-curves :cards="other.withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            </div>
                         </div>
                         <div class="hidden md:block">
                             <div class="mx-2 my-4">
@@ -31,14 +35,14 @@
                         <div v-if="loadout.total()" class="mt-4 md:m-0">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'loadout' })" :class="{ 'mb-4': !sections.loadout }">
                                 <chevron :open="sections.loadout" class="mr-2"></chevron>
-                                Loadout ({{ loadout.total() }})
+                                Loadout ({{loadout.count()}})
                             </h2>
                             <grouped-cards :cards="loadout" group-id="loadout" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.loadout"></grouped-cards>
                         </div>
                         <div v-if="other.total()">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg ml-4" @click="toggleSection({ section: 'other' })" :class="{ 'mb-4': !sections.other }">
                                 <chevron :open="sections.other" class="mr-2"></chevron>
-                                Other ({{ other.total() }})
+                                Other ({{ other.count() }})
                             </h2>
                             <grouped-cards :cards="other" group-id="other" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.other"></grouped-cards>
                         </div>
@@ -56,8 +60,12 @@
                 <div class="hidden lg:block md:mr-8 max-w-250">
                     <card-image :card="cards.hero()" class="mb-4"></card-image>
                     <div>
-                        <deck-curves :cards="other.all()" stat="cost" class="h-160 mb-4"></deck-curves>
-                        <deck-curves :cards="other.all()" stat="resource"class="h-160"></deck-curves>
+                        <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
+                            <deck-curves :cards="other.withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        </div>
+                        <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
+                            <deck-curves :cards="other.withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        </div>
                     </div>
                 </div>
                 <div class="sm:flex-1 sm:mr-4">
@@ -112,7 +120,7 @@
         },
 
         computed: {
-            ...mapState('deck', ['filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
+            ...mapState('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
             ...mapGetters('session', ['user']),
 
             all() {
@@ -143,7 +151,7 @@
             },
 
             loadout() {
-                return new Cards(this.all.weapons().concat(this.all.equipment()));
+                 return this.all.weapons().concat(this.all.equipment());
             },
 
             other() {

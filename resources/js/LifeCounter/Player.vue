@@ -1,14 +1,16 @@
 <template>
-    <div class="flex-grow relative flex flex-col w-full " v-touch:moving="swipe">
-        <hero-avatar :hero="player.hero" :name="player.hero.name" :width="80" class="absolute top-0 left-0 m-4 z-25"></hero-avatar>
-
-        <div class="relative flex mx-auto z-100 mt-4">
+    <div class="flex-grow flex flex-col w-full " v-touch:moving="swipe">
+        <div class="flex mx-auto z-100 my-1" :style="{
+            backgroundImage: 'url('+heroProfile(player.hero, 160, true)+')',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center 20px'
+        }">
             <button class="text-white px-8 text-4xl" @click="hurt()">-</button>
-            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass">{{ this.player.life }}</h2>
+            <h2 class="font-serif uppercase text-12xl text-center" :class="lifeClass" style="text-shadow: 2px 2px 3px #000000">{{ life }}</h2>
             <button class="text-white px-8 text-4xl" @click="heal()">+</button>
         </div>
 
-        <div class="flex justify-center px-4 pr-2 py-2">
+        <div class="flex justify-center px-4 pr-2 py-1">
             <resource :resource="0" :player="player"></resource>
             <resource :resource="1" :player="player"></resource>
             <resource :resource="2" :player="player"></resource>
@@ -19,6 +21,7 @@
 
 <script>
     import HeroAvatar from "../Components/HeroAvatar";
+    import Imagery from "../Utilities/Imagery";
     import Resource from "../Decks/Resource";
 
     export default {
@@ -30,21 +33,23 @@
             players: Number
         },
 
+        mixins: [Imagery],
         components: {HeroAvatar, Resource},
 
         data() {
             return {
+                life: Number(this.player.life),
                 lastSwipe: null
             };
         },
 
         computed: {
             lifeClass() {
-                if (this.player.life > this.player.maxLife) {
+                if (this.life > this.player.maxLife) {
                     return 'text-green-400';
                 }
 
-                if (this.player.life === 0) {
+                if (this.life === 0) {
                     return 'text-red-500';
                 }
 
@@ -54,12 +59,12 @@
 
         methods: {
             heal() {
-                this.player.life += 1;
+                this.life += 1;
             },
 
             hurt() {
-                if (this.player.life > 0) {
-                    this.player.life -= 1;
+                if (this.life > 0) {
+                    this.life -= 1;
                 } else {
                     this.$emit('player-destroyed');
                 }
@@ -91,6 +96,12 @@
                     this.lastSwipe = event.changedTouches[0];
                 }
             }
+        },
+
+        mounted() {
+            this.$eventHub.$on('life-counter.reset', () => {
+                this.life = Number(this.player.maxLife);
+            });
         }
     };
 </script>

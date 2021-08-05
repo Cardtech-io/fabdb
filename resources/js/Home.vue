@@ -1,15 +1,15 @@
 <template>
-    <div class="sm:max-w-3/4 px-4 sm:mx-auto sm:px-0 text-white flex flex-col">
+    <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
         <div class="mt-12 mb-6">
             <router-link to="/">
-                <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" class="mx-auto">
+                <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" height="113" class="mx-auto">
             </router-link>
         </div>
-        <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black mb-8 rounded-xl text-center">
+        <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100 z-0">
             <p class="my-4">
                 FaB DB is an unofficial <a href="https://fabtcg.com" target="_blank" class="link">Flesh and Blood TCG</a> community project, with various features such as
-                <router-link :to="{ name: 'decks.mine' }" class="link">deck builder</router-link>,
-                <router-link :to="{ name: 'collection' }" class="link">collection manager</router-link> and more.
+                <router-link :to="{ name: 'decks.mine' }" class="link">{{lang.terms.deck_builder}}</router-link>,
+                <router-link :to="{ name: 'collection' }" class="link">{{lang.terms.collection_manager}}</router-link> and more.
             </p>
 
             <div class="my-8">
@@ -21,6 +21,12 @@
                 services.<br>
                 To find out more, visit our <router-link :to="{ name: 'support' }" class="link">Support page</router-link>.
             </p>
+        </div>
+        <div class="my-4 bg-nearly-black text-gray-300 sm:mx-auto p-2 px-4 rounded-lg flex items-center">
+            <icon :size="6" class="mr-4 text-orange-500">
+                <path d="M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"/>
+            </icon>
+            <div v-html="lang.home.rathe_times"></div>
         </div>
 
         <div class="my-4">
@@ -36,15 +42,12 @@
 
 <script>
     import Advertisement from "./Components/Advertisement";
-    import LazyLoader from './Components/LazyLoader';
-    import FeaturedArticle from './Content/FeaturedArticle.vue';
-    import FeaturedCard from './Content/FeaturedCard.vue';
-    import FeaturedDeck from './Content/FeaturedDeck.vue';
+    import Icon from "./Components/Icon";
     import Strings from './Utilities/Strings';
 
     export default {
         mixins: [Strings],
-        components: {Advertisement},
+        components: {Advertisement, Icon},
 
         data() {
             return {

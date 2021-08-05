@@ -92,7 +92,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
     public function lists(string $view, int $userId)
     {
         return $this->newQuery()
-            ->select('cards.id', 'cards.identifier', 'cards.name', 'cards.rarity', 'printings.sku')
+            ->select('cards.id', 'cards.identifier', 'cards.name', 'cards.rarity', 'printings.sku', 'cards.image')
             ->join('printings', 'printings.id', 'owned_cards.printing_id')
             ->join('cards', 'cards.id', 'printings.card_id')
             ->whereNotNull('owned_cards.printing_id')

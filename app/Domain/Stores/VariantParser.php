@@ -25,6 +25,11 @@ class VariantParser
         $this->variant = $variant;
     }
 
+    public function id(): string
+    {
+        return $this->variant->id;
+    }
+
     /**
      * Returns the card variant - standard, promo, rainbow foil or cold foil.
      *

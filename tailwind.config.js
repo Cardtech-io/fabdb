@@ -1,4 +1,15 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
+    darkMode: 'media',
+
+    purge: {
+        content: [
+            './resources/js/**/*.vue',
+            './resources/js/**/*.js',
+            './resources/views/**/*.blade.php'
+        ]
+    },
     theme: {
         extend: {
             backgroundColor: {
@@ -11,7 +22,32 @@ module.exports = {
                 'disabled-hover': 'var(--button-disabled-hover-background-color)',
                 'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
-                'nearly-black': 'rgba(0, 0, 0, 0.75)',
+                'nearly-black': 'rgba(0, 0, 0, 0.85)',
+            },
+
+            colors: {
+                'orange': {
+                    '100': '#FFFAF0',
+                    '200': '#FEEBC8',
+                    '300': '#FBD38D',
+                    '400': '#F6AD55',
+                    '500': '#ED8936',
+                    '600': '#DD6B20',
+                    '700': '#C05621',
+                    '800': '#9C4221',
+                    '900': '#7B341E',
+                },
+                'teal': {
+                    '100': '#7B341E',
+                    '200': '#B2F5EA',
+                    '300': '#81E6D9',
+                    '400': '#4FD1C5',
+                    '500': '#38B2AC',
+                    '600': '#319795',
+                    '700': '#2C7A7B',
+                    '800': '#285E61',
+                    '900': '#234E52'
+                }
             },
 
             fontSize: {
@@ -58,7 +94,8 @@ module.exports = {
 
             margin: {
                 '1px': '1px',
-                '1/4': '25%'
+                '1/4': '25%',
+                '1/5': '20%',
             },
 
             maxWidth: {
@@ -72,6 +109,7 @@ module.exports = {
                 '2/7': '28.5714286%',
                 '3/7': '42.8571429%',
                 '1/8': '12.5%',
+                '1/9': '11.111111%',
                 '1/10': '10%',
                 '3/10': '30%',
                 '7/10': '70%',
@@ -85,8 +123,8 @@ module.exports = {
         borderRadius: {
             'none': '0',
             'sm': '.125rem',
-            default: '.35rem',
-            'card': '4% / 3%',
+            DEFAULT: '.35rem',
+            'card': '5.5% / 4.5%',
             'lg': '.5rem',
             'full': '9999px',
             'xl': '1rem',
@@ -101,6 +139,7 @@ module.exports = {
             inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
             active: 'inset 0 0 0 2px #68d391',
             highlight: '0 0 0 5px rgba(66,153,225,0.8)',
+            error: '0 0 0 5px rgba(220, 38, 38, 1)',
             outline: '0 0 0 5px rgba(66,153,225,0.5)',
             pitched: '0 0 0 5px #4299e1',
             played: '0 0 0 5px #48bb78',
@@ -111,7 +150,7 @@ module.exports = {
 
         fontFamily: {
             'sans': ['Raleway', 'Helvetica', 'Helvetica\\ Neue', 'Arial', 'sans-serif'],
-            'serif': ['Capitolium', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+            'serif': ['Lora', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
         },
 
         zIndex: {
@@ -141,6 +180,16 @@ module.exports = {
     },
 
     plugins: [
-        require('@tailwindcss/custom-forms'),
+        require('@tailwindcss/forms')({
+            strategy: 'class'
+        }),
+
+        plugin(({addUtilities}) => {
+            addUtilities({
+                '.backdrop-blur-2': {
+                    'backdrop-filter': 'blur(2px)'
+                }
+            });
+        })
     ]
 };

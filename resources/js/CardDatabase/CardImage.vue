@@ -1,28 +1,31 @@
 <template>
-    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes">
+    <img :src="image" :alt="card.name" :title="card.name" class="w-full rounded-card" @click="clicked" :class="classes" ref="image" :width="requiredWidth" :height="requiredHeight">
 </template>
 
 <script>
     import { mapGetters } from 'vuex';
     import Cardable from './Cardable.js';
+    import DetermineWidth from "../Components/DetermineWidth";
     import Imagery from "../Utilities/Imagery";
 
     export default {
-        mixins: [Cardable, Imagery],
+        mixins: [Cardable, Imagery, DetermineWidth],
         props: ['card', 'clickHandler', 'width', 'sku'],
 
         computed: {
             ...mapGetters('session', ['wantsBorders']),
 
-            classes: function() {
+            classes() {
                 return [
                     this.handlerProvided() ? 'cursor-pointer' : ''
                 ];
             },
 
             image() {
+                let width = this.width || 300;
+
                 if (this.sku) {
-                    return this.cardImageFromSku(this.sku, 300);
+                    return this.cardImageFromSku(this.sku, width);
                 }
 
                 if (this.card.image) {
@@ -38,13 +41,14 @@
         },
 
         methods: {
-            clicked: function() {
+            clicked(event) {
                 if (this.handlerProvided()) {
                     this.clickHandler(this.card);
+                    event.preventDefault();
                 }
             },
 
-            handlerProvided: function() {
+            handlerProvided() {
                 return !!this.clickHandler;
             }
         }

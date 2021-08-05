@@ -1,6 +1,6 @@
 <template>
     <div class="container px-4 sm:mx-auto sm:px-0 text-white">
-        <header-title title="Crucible of War Spoilers" class="text-center"></header-title>
+        <header-title title="Monarch Spoilers" class="text-center"></header-title>
 
         <div v-for="article in upcoming" class="bg-semi-black rounded-xl mx-4 p-4 mt-8 sm:mt-0 text-center font-serif text-4xl" v-if="upcoming">
             <countdown :end-time="localTime(article.publishAt)">
@@ -31,7 +31,6 @@
 
 <script>
     import axios from 'axios';
-    import moment from 'moment';
 
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from "../Utilities/Imagery";
@@ -59,12 +58,12 @@
 
         metaInfo() {
             return {
-                title: 'Flesh & Blood - Crucible of War Spoilers',
+                title: 'Flesh & Blood - Monarch Spoilers',
                 meta: [
-                    { vmid: 'description', name: 'description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' },
+                    { vmid: 'description', name: 'description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Monarch.' },
                     { vmid: 'og:type', property: 'og:type', content: 'article' },
-                    { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Crucible of War Spoilers' },
-                    { vmid: 'og:description', property: 'og:description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Crucible of War.' }
+                    { vmid: 'og:title', property: 'og:title', content: 'Flesh & Blood - Monarch Spoilers' },
+                    { vmid: 'og:description', property: 'og:description', content: 'Upcoming and recent spoilers for Flesh and Blood\'s next set, Monarch.' }
                 ]
             };
         },
