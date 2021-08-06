@@ -36,11 +36,10 @@ const router = new VueRouter({
         { path: "/decks/build/:deck", component: () => import(/* webpackChunkName: "decks.build" */ './DeckBuilder/DeckBuilder'), name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck' } },
 
         { path: "/decks/:deck/test", component: () => import(/* webpackChunkName: "decks.test" */ './DeckTester/Main'), meta: { auth: true }, children: [
-            { path: '', component: () => import(/* webpackChunkName: "decks.test.prepare" */ './DeckTester/Test'), name: 'decks.test.prepare' },
+            { path: '', component: () => import(/* webpackChunkName: "decks.test.prepare" */ './DeckTester/Test'), name: 'decks.test' },
             { path: 'play', component: () => import(/* webpackChunkName: "decks.test.play" */ './DeckTester/Test'), name: 'decks.test.play' }
         ]},
 
-        { path: "/decks/test/:deck", component: () => import(/* webpackChunkName: "decks.test" */ './DeckBuilder/TestDeck'), name: 'decks.test', meta: { auth: true } },
         { path: "/decks/export/:deck", component: () => import(/* webpackChunkName: "decks.export" */ './DeckBuilder/ExportDeck'), name: 'decks.export', meta: { title: 'Deck builder &gt; Export', auth: true } },
         { path: "/decks/starters", component: () => import(/* webpackChunkName: "decks.starters" */ './Decks/Starters'), name: 'decks.starters', meta: { title: 'Flesh &amp; Blood Starter Decks' } },
         { path: "/decks/:deck", component: () => import(/* webpackChunkName: "decks.view" */ './Decks/Viewing/ViewDeck'), name: 'decks.view', meta: { title: 'View deck' } },
