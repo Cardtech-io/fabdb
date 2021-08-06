@@ -2,9 +2,9 @@
     <div class="w-full flex items-center mb-1px rounded-lg overflow-hidden">
         <card-buttons :card="card" :total="total" class="w-1/5"></card-buttons>
         <div class="w-3/5 pl-4 p-2 ml-1px bg-white cursor-default">
-            <div class="whitespace-no-wrap overflow-hidden">
+            <div class="flex items-center">
                 <colour :resource="card.stats.resource" class="mr-2"></colour>
-                <span @mouseover="setHover(card)" @mouseleave="setHover(false)" @click="setHover(card)" class="cursor-help">{{ card.name }}</span>
+                <span @mouseover="setHover(card)" @mouseleave="setHover(false)" @click="setHover(card)" class="cursor-help whitespace-nowrap overflow-hidden">{{ card.name }}</span>
             </div>
         </div>
         <div class="w-1/5 text-center bg-white py-2 ml-1px">

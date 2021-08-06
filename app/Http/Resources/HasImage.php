@@ -13,7 +13,7 @@ trait HasImage
     {
         $domain = config('services.imgix.domain');
 
-        return "https://$domain/{$card->image}?w=300&fit=clip&auto=compress";
+        return "https://$domain/{$card->image}?w=350&fit=clip&auto=compress";
     }
 
     /**

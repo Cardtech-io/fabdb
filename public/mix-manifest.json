@@ -20,12 +20,12 @@
     "/js/decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks.js": "/js/decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks.js?id=ede3a9d022ff2eaf545c",
     "/js/decks.browse~decks.mine.js": "/js/decks.browse~decks.mine.js?id=fd04f6053ddb63b8b345",
     "/js/decks.browse~decks.mine~user.profile.decks.js": "/js/decks.browse~decks.mine~user.profile.decks.js?id=a1496eab2a7a36e672b9",
-    "/js/decks.build.js": "/js/decks.build.js?id=e0244e6347f07f601654",
+    "/js/decks.build.js": "/js/decks.build.js?id=7b448494294840c5d6dc",
     "/js/decks.build~decks.view.js": "/js/decks.build~decks.view.js?id=a9bd29017eced158fc9b",
     "/js/decks.build~practise.view.js": "/js/decks.build~practise.view.js?id=de1467e565387264fe88",
     "/js/decks.export.js": "/js/decks.export.js?id=afe5eb9668d7accc2420",
     "/js/decks.featured.js": "/js/decks.featured.js?id=5343a9897ad05c83bbdd",
-    "/js/decks.mine.js": "/js/decks.mine.js?id=99e2acb535ca21fcd0cb",
+    "/js/decks.mine.js": "/js/decks.mine.js?id=1a018fbd8fd6057932a2",
     "/js/decks.starters.js": "/js/decks.starters.js?id=bf84ebf48b3a558dc438",
     "/js/decks.test.js": "/js/decks.test.js?id=b3c38093c64ea72af854",
     "/js/decks.test.play.js": "/js/decks.test.play.js?id=5ad7144a6979bad3d0bb",
@@ -55,5 +55,9 @@
     "/js/vendors~decks.build~events.edit.js": "/js/vendors~decks.build~events.edit.js?id=6c9cc02f160bcc1aa8fe",
     "/js/vendors~decks.test.js": "/js/vendors~decks.test.js?id=063420b0f8092d1ee256",
     "/js/vendors~events.edit.js": "/js/vendors~events.edit.js?id=e9564a790a6ab950ddaa",
-    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33"
+    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33",
+    "/js/decks.test.prepare.js": "/js/decks.test.prepare.js?id=0c025f7c61098bd4dedb",
+    "/js/decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test~decks.test.prepare~deck~5e2647aa.js": "/js/decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test~decks.test.prepare~deck~5e2647aa.js?id=80131088e83b8018891b",
+    "/js/decks.browse~decks.featured~decks.mine~decks.view~user.profile.decks.js": "/js/decks.browse~decks.featured~decks.mine~decks.view~user.profile.decks.js?id=ffd9586725497d207a98",
+    "/js/decks.build~tools.counter.js": "/js/decks.build~tools.counter.js?id=9fb48e4cbfc4d2c7361b"
 }

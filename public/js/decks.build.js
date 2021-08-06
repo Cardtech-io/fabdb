@@ -3263,7 +3263,7 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "whitespace-no-wrap overflow-hidden" },
+            { staticClass: "flex items-center" },
             [
               _c("colour", {
                 staticClass: "mr-2",
@@ -3273,7 +3273,7 @@ var render = function() {
               _c(
                 "span",
                 {
-                  staticClass: "cursor-help",
+                  staticClass: "cursor-help whitespace-nowrap overflow-hidden",
                   on: {
                     mouseover: function($event) {
                       return _vm.setHover(_vm.card)

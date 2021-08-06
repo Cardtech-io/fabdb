@@ -65,7 +65,12 @@
                                 <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
                                 <td class="border border-gray-300 p-2 px-4">
-                                    <div class="flex justify-center items-center">
+                                    <div class="flex space-x-2 justify-center items-center">
+                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="hover:text-gray-400">
+                                            <icon :size="5">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                            </icon>
+                                        </router-link>
                                         <button @click="copyDeck(deck)" class="hover:text-gray-400">
                                             <icon :size="5">
                                                 <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />

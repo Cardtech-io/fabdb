@@ -62239,9 +62239,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   resourceColour: function resourceColour(resource) {
     var colours = {
-      1: 'red-600',
-      2: 'yellow-400',
-      3: 'blue-400'
+      1: 'bg-red-600',
+      2: 'bg-yellow-400',
+      3: 'bg-blue-400'
     };
     var colour = colours[resource];
 
