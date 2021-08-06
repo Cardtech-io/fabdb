@@ -11,50 +11,35 @@
         </div>
 
         <div class="bg-gray-200">
-            <div v-if="user.subscription">
-                <div class="container sm:mx-auto py-8 px-4 text-center">
-                    <ol class="flex -mx-2 sm:-mx-4 mb-4 items-stretch">
-                        <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
-                            <card-image :card="hero"></card-image>
-                        </li>
-                        <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24">
-                            <button @click="draw(1)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary">Draw 1</button>
-                            <button @click="draw(hero.stats.intellect)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-2">Draw {{ hero.stats['hand-size'] }}</button>
-                        </li>
-                        <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
-                            <div v-if="arsenal">
-                                <card-image :card="arsenal" :clickHandler="removeFromArsenal"></card-image>
-                            </div>
-                            <div class="bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24" v-else>Arsenal</div>
-                        </li>
-                    </ol>
+            <div class="container sm:mx-auto py-8 px-4 text-center">
+                <ol class="flex -mx-2 sm:-mx-4 mb-4 items-stretch">
+                    <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
+                        <card-image :card="hero"></card-image>
+                    </li>
+                    <li class="hidden sm:block sm:w-1/3 lg:w-1/2 text-center p-4 pt-24">
+                        <button @click="draw(1)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary">Draw 1</button>
+                        <button @click="draw(hero.stats.intellect)" class="inline-block appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-2">Draw {{ hero.stats['hand-size'] }}</button>
+                    </li>
+                    <li class="p-2 sm:p-4 w-1/2 sm:w-1/3 lg:w-1/4">
+                        <div v-if="arsenal">
+                            <card-image :card="arsenal" :clickHandler="removeFromArsenal"></card-image>
+                        </div>
+                        <div class="bg-gray-300 font-serif text-xl uppercase rounded-lg sm:rounded-xl h-full align-middle pt-24" v-else>Arsenal</div>
+                    </li>
+                </ol>
 
-                    <div class="mb-4 flex sm:hidden">
-                        <button @click="draw(1)" class="appearance-none inline-block w-1/2 rounded-l-lg py-3 px-4 button-primary disabled:opacity-50">Draw 1</button>
-                        <button @click="draw(4)" class="appearance-none inline-block w-1/2 rounded-r-lg py-3 px-4 button-primary disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
-                    </div>
-
-                    <ol v-if="drawn.length" class="flow-root -mx-2 sm:-mx-4">
-                        <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn" :class="pcWidth">
-                            <drawn-card :card="card" @arsenaled="addToArsenal(card)"></drawn-card>
-                        </li>
-                    </ol>
-                    <div v-else class="text-center">
-                        There are no cards in hand.
-                    </div>
+                <div class="mb-4 flex sm:hidden">
+                    <button @click="draw(1)" class="appearance-none inline-block w-1/2 rounded-l-lg py-3 px-4 button-primary disabled:opacity-50">Draw 1</button>
+                    <button @click="draw(4)" class="appearance-none inline-block w-1/2 rounded-r-lg py-3 px-4 button-primary disabled:opacity-50">Draw {{ hero.stats['hand-size'] }}</button>
                 </div>
-            </div>
 
-            <div v-else>
-                <div class="container px-4 py-8 sm:mx-auto">
-                    <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
-
-                    <p>
-                        Testing your deck's draw capabilities is a premium access feature. In order to use this feature,
-                        you must be a patreon supporter. Check out <router-link to="/support" class="link">our support page</router-link> or
-                        go directly to our <a href="https://www.patreon.com/fabdb" class="link">patreon page</a>. Memberships start as
-                        low as $3/month!
-                    </p>
+                <ol v-if="drawn.length" class="flow-root -mx-2 sm:-mx-4">
+                    <li class="float-left p-2 sm:p-4 w-1/2 sm:w-1/4" v-for="card in drawn" :class="pcWidth">
+                        <drawn-card :card="card" @arsenaled="addToArsenal(card)"></drawn-card>
+                    </li>
+                </ol>
+                <div v-else class="text-center">
+                    There are no cards in hand.
                 </div>
             </div>
         </div>
