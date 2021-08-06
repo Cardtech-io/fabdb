@@ -34,20 +34,16 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->leftJoin(DB::raw('cards c1'), function($join) use ($params) {
             $join->on('c1.id', '=', 'dc1.card_id');
             $join->whereType('hero');
-
-            if (!empty($params['hero'])) {
-                $join->where('c1.name', $params['hero']);
-            }
-
-            if (!empty($params['class'])) {
-                $join->where('c1.class', $params['class']);
-            }
         });
 
         $query->join('users', 'users.id', 'decks.user_id');
 
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
+        }
+
+        if (!empty($params['class'])) {
+            $query->where('c1.class', $params['class']);
         }
 
         $query->groupBy('decks.id');

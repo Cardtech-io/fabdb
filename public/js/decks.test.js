@@ -494,7 +494,7 @@ var render = function() {
     [
       _c("header-title", { attrs: { title: "Test Deck" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-red-900 text-white font-serif uppercase" }, [
+      _c("div", { staticClass: "bg-primary text-white font-serif uppercase" }, [
         _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
           _c(
             "div",

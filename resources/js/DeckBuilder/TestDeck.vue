@@ -2,7 +2,7 @@
     <div>
         <header-title title="Test Deck"></header-title>
 
-        <div class="bg-red-900 text-white font-serif uppercase">
+        <div class="bg-primary text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>

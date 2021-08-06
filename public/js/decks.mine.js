@@ -186,6 +186,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -606,13 +616,15 @@ var render = function() {
             ? _c(
                 "div",
                 [
+                  _vm._m(0),
+                  _vm._v(" "),
                   _c(
                     "table",
                     {
                       staticClass: "w-full table-auto border-collapse bg-white"
                     },
                     [
-                      _vm._m(0),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -882,6 +894,42 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-4" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-yellow-700 rounded-lg text-white px-4 py-2 text-center"
+        },
+        [
+          _vm._v(
+            "\n                        A new deck tester for our patrons is on its way! Not a patron?\n                        "
+          ),
+          _c(
+            "a",
+            {
+              staticClass: "underline hover:bg-yellow-500",
+              attrs: { href: "https://patreon.com/fabdb", target: "_blank" }
+            },
+            [_vm._v("Why not join up")]
+          ),
+          _vm._v(
+            "\n                        now and get in on the action once it's launched?"
+          ),
+          _c("br"),
+          _vm._v(
+            "\n                        For this next week only, the current deck tester is available to "
+          ),
+          _c("i", [_vm._v("all")]),
+          _vm._v(" FaB DB users.\n                    ")
+        ]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

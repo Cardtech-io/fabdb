@@ -1,6 +1,7 @@
 <template>
     <div>
-        <header-title title="Deck builder"></header-title>
+        <header-title title="Deck builder"/>
+
         <div class="container mx-auto sm:px-4">
             <div class="crumbs flex items-center px-4">
                 <crumbs :crumbs="crumbs" class="py-4 font-serif uppercase"></crumbs>
@@ -35,6 +36,15 @@
 
             <div class="bg-gray-200 p-4 sm:p-0">
                 <div v-if="user">
+                    <div class="p-4">
+                        <div class="bg-yellow-700 rounded-lg text-white px-4 py-2 text-center">
+                            A new deck tester for our patrons is on its way! Not a patron?
+                            <a href="https://patreon.com/fabdb" class="underline hover:bg-yellow-500" target="_blank">Why not join up</a>
+                            now and get in on the action once it's launched?<br>
+                            For this next week only, the current deck tester is available to <i>all</i> FaB DB users.
+                        </div>
+                    </div>
+
                     <table class="w-full table-auto border-collapse bg-white">
                         <thead>
                             <tr class="text-base">
