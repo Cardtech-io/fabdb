@@ -62,11 +62,11 @@ class Deck extends Model {
     }
 
     get totalCards() {
-        return this.cards.reduce((carry, card) => carry + card.total, 0);
+        return this.fields.totalCards || 0;
     }
 
     get totalSideboard() {
-        return this.sideboard.reduce((carry, card) => carry + card.total, 0);
+        return this.fields.totalSideboard || 0;
     }
 
     get totalMainDeck() {

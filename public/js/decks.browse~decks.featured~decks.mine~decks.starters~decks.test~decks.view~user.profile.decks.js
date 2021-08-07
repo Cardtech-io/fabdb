@@ -520,16 +520,12 @@ function (_Model) {
   }, {
     key: "totalCards",
     get: function get() {
-      return this.cards.reduce(function (carry, card) {
-        return carry + card.total;
-      }, 0);
+      return this.fields.totalCards || 0;
     }
   }, {
     key: "totalSideboard",
     get: function get() {
-      return this.sideboard.reduce(function (carry, card) {
-        return carry + card.total;
-      }, 0);
+      return this.fields.totalSideboard || 0;
     }
   }, {
     key: "totalMainDeck",
