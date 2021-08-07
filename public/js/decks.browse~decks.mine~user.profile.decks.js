@@ -284,7 +284,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("hero-avatar", {
                   staticClass: "hidden sm:block",
-                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name }
+                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
                 }),
                 _vm._v(" "),
                 _vm.deck.notes
@@ -346,18 +346,19 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "inline-block flex" }, [
+              _c("div", { staticClass: "inline-block flex" }, [
                 _c(
                   "div",
+                  { staticClass: "space-x-1 mr-2" },
                   [
-                    _c("deck-label", {
-                      staticClass: "mr-1 text-xs px-2 sm:py-1 rounded-full",
-                      attrs: { label: _vm.deck.label }
+                    _c("format-label", {
+                      staticClass: "text-xs rounded-full px-2 sm:py-1",
+                      attrs: { format: _vm.deck.format }
                     }),
                     _vm._v(" "),
-                    _c("format-label", {
-                      staticClass: "mr-2 text-xs rounded-full px-2 sm:py-1",
-                      attrs: { format: _vm.deck.format }
+                    _c("deck-label", {
+                      staticClass: "text-xs px-2 sm:py-1 rounded-full",
+                      attrs: { label: _vm.deck.label }
                     })
                   ],
                   1

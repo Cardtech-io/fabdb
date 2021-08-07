@@ -170,6 +170,7 @@ module.exports = {
 
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
+        borderColor: ['responsive', 'hover', 'focus'],
         borderRadius: ['responsive', 'first', 'last'],
         borderWidth: ['responsive', 'last', 'focus'],
         display: ['hover', 'group-hover', 'responsive'],

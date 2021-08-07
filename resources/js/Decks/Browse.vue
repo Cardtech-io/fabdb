@@ -3,7 +3,7 @@
         <header-title title="Browse decks"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-white dark:bg-gray-700 py-4 border-b-4 border-gray-300">
+        <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
                 <deck-search @search-completed="refreshResults"></deck-search>
             </div>

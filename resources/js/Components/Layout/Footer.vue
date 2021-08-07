@@ -4,7 +4,8 @@
             <router-link :to="{name: 'support'}" class="link">Support</router-link> |
             <a href="https://www.facebook.com/fleshandblooddb" class="link" target="_blank">Facebook</a> |
             <a href="https://discord.gg/fWDrjr3geM" class="link" target="_blank">Discord</a> |
-            <router-link :to="{name:'privacy'}" class="link">Privacy policy</router-link>
+            <router-link :to="{name:'privacy'}" class="link">Privacy policy</router-link> |
+            <a href="https://trello.com/b/7FBfowqo/fab-db" class="link" target="_blank">Roadmap</a>
             <p><a href="/" class="link">fabdb.net</a> is a free online resource for the Flesh &amp; Blood™ TCG by <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
             <p><a href="/" class="link">fabdb.net</a> is in no way affiliated with <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
             <p>All intellectual IP belongs to <a href="https://legendstory.com" class="link">Legend Story Studios®</a>, Flesh &amp; Blood™, and set names are trademarks of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>. Flesh and Blood™ characters, cards, logos, and art are property of <a href="https://legendstory.com" class="link">Legend Story Studios®</a>.</p>
