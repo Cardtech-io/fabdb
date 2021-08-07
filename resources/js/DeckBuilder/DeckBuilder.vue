@@ -14,7 +14,7 @@
                     <div class="flex">
                         <div class="flex items-center p-4" :class="topAreaClasses">
                             <div class="flex-auto hidden sm:block">
-                                <h2 class="font-serif uppercase text-xl" :class="{ 'text-red-500': totalCards > maxCards }">{{ totalCards }} / {{ maxCards }} <span class="text-base">cards</span></h2>
+                                <deck-totals/>
                             </div>
 
                             <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{name: 'Name', pitch: 'Pitch', cost: 'Cost'}"></grouping-selector>
@@ -61,6 +61,7 @@
     import CardSearch from "./CardSearch";
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName';
+    import DeckTotals from "./Metrics/DeckTotals";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -81,6 +82,7 @@
             CardImage,
             CardSearch,
             DeckName,
+            DeckTotals,
             GroupingSelector,
             FullscreenButton,
             Icon,
@@ -124,10 +126,6 @@
 
             mainAreaClasses() {
                 return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
-            },
-
-            maxCards() {
-                return this.deck.format === 'blitz' ? 52 : 80;
             },
 
             sidebarClasses() {

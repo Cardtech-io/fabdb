@@ -82,7 +82,15 @@
 
     export default {
         mixins: [ManagesDecks, Viewable],
-        components: { CardImage, DeckSettings, General, Rulings, Stat, Totals, TtsExporter },
+        components: {
+            CardImage,
+            DeckSettings,
+            General,
+            Rulings,
+            Stat,
+            Totals,
+            TtsExporter
+        },
 
         data() {
             return {

@@ -147,6 +147,10 @@ export default class Cards {
         return new Cards(this.cards.filter(handler));
     }
 
+    reduce(handler, carry) {
+        return this.cards.reduce(handler, carry);
+    }
+
     find(card) {
         return this.cards.filter(deckCard => {
             return deckCard.identifier === card.identifier;

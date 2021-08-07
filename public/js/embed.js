@@ -61625,7 +61625,7 @@ function controlMaxZoom(state) {
     minZoom: function minZoom(state, getters) {
       return zoomMatrix[getters.fsIndex][1][getters.msIndex];
     },
-    requiresSideboard: function requiresSideboard(state, getters) {
+    requiresSideboard: function requiresSideboard(state) {
       return state.deck.format !== 'blitz';
     }
   },

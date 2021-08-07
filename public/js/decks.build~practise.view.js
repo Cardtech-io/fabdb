@@ -567,6 +567,11 @@ function () {
       return new Cards(this.cards.filter(handler));
     }
   }, {
+    key: "reduce",
+    value: function reduce(handler, carry) {
+      return this.cards.reduce(handler, carry);
+    }
+  }, {
     key: "find",
     value: function find(card) {
       return this.cards.filter(function (deckCard) {

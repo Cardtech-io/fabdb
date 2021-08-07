@@ -38,15 +38,11 @@ class Deck extends Model {
     }
 
     get hero() {
-        return this.cards.hero();
+        return this.cards.hero() ? new Card(this.cards.hero()) : null;
     }
 
     get sideboard() {
         return new Cards(this.fields.sideboard);
-
-        if (this.cards.hero()) {
-            return new Card(this.cards.hero());
-        }
     }
 
     get weapons() {
@@ -66,7 +62,15 @@ class Deck extends Model {
     }
 
     get totalCards() {
-        return this.fields.totalCards || 0;
+        return this.cards.reduce((carry, card) => carry + card.total, 0);
+    }
+
+    get totalSideboard() {
+        return this.sideboard.reduce((carry, card) => carry + card.total, 0);
+    }
+
+    get totalMainDeck() {
+        return this.totalCards - this.totalSideboard;
     }
 
     get slug() {

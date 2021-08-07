@@ -1,6 +1,6 @@
 <template>
     <div class="flex rounded-lg overflow-hidden text-sm xl:text-base mr-2">
-        <button type="button" class="flex-grow block px-4 py-3" v-for="(text, view) in modes" @click="select(view)" :class="classes(view)">
+        <button type="button" class="flex-grow block px-4 py-3" v-for="(text, view) in modes" @click="select(view)" :class="classes(view)" v-if="view !== 'sideboard' || requiresSideboard">
             {{ text }}
         </button>
     </div>

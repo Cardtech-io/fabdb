@@ -4,12 +4,14 @@
 
 <script>
     import Imagery from "../Utilities/Imagery";
+    import Card from "../CardDatabase/Card";
 
     export default {
         mixins: [Imagery],
         props: {
             hero: {
-                type: Object,
+                type: Card,
+                required: true,
             },
 
             name: {

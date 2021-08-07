@@ -106,7 +106,7 @@ export default {
             return zoomMatrix[getters.fsIndex][1][getters.msIndex];
         },
 
-        requiresSideboard: (state, getters) => {
+        requiresSideboard: (state) => {
             return state.deck.format !== 'blitz';
         }
     },
