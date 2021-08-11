@@ -374,7 +374,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return cards.hydrate();
     },
     cards: function cards() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](this.collection);
+      return new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](this.collection).sort();
     },
     loadout: function loadout() {
       return this.all.weapons().concat(this.all.equipment());
@@ -595,6 +595,14 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1816,10 +1824,10 @@ __webpack_require__.r(__webpack_exports__);
   props: ['text', 'value', 'position'],
   methods: {
     bottom: function bottom() {
-      return this.position == 'bottom' || this.position == 'both';
+      return this.position === 'bottom' || this.position === 'both';
     },
     top: function top() {
-      return this.position == 'top' || this.position == 'both';
+      return this.position === 'top' || this.position === 'both';
     }
   }
 });
@@ -2772,7 +2780,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2"
+                                    "bg-white rounded-lg pl-2 pr-4 pt-4"
                                 },
                                 [
                                   _c("deck-curves", {
@@ -2791,7 +2799,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                                    "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
                                 },
                                 [
                                   _c("deck-curves", {
@@ -2966,7 +2974,7 @@ var render = function() {
                       { staticClass: "text-center my-20 mx-10" },
                       [
                         _vm._v(
-                          "\n                Gallery mode is only available to FaB DB patrons."
+                          "\n                Gallery mode is available only to FaB DB patrons."
                         ),
                         _c("br"),
                         _vm._v(" "),
@@ -3273,31 +3281,25 @@ var render = function() {
       on: { click: _vm.setZoom }
     },
     [
-      _c(
-        "svg",
-        {
-          staticClass: "fill-current h-6",
-          attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
-        },
-        [
-          _vm.action == "in"
-            ? _c("path", {
-                attrs: {
-                  "fill-rule": "evenodd",
-                  d:
-                    "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z"
-                }
-              })
-            : _c("path", {
-                attrs: {
-                  "fill-rule": "evenodd",
-                  d:
-                    "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z"
-                }
-              })
-        ]
-      )
-    ]
+      _c("icon", { attrs: { size: 6 } }, [
+        _vm.action == "in"
+          ? _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z"
+              }
+            })
+          : _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z"
+              }
+            })
+      ])
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -3322,35 +3324,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex overflow-hidden" }, [
-    _c(
-      "button",
-      {
-        staticClass: "py-2 ml-1px w-1/2 bg-white",
-        class: {
-          "hover:bg-secondary hover:text-white": _vm.total > 0,
-          "bg-gray-100 text-gray-400": _vm.total === 0
+  return _c(
+    "div",
+    { staticClass: "flex overflow-hidden items-stretch space-x-px" },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "py-2 w-1/2 bg-white",
+          class: {
+            "hover:bg-secondary hover:text-white": _vm.total > 0,
+            "bg-gray-100 text-gray-300": _vm.total === 0
+          },
+          attrs: { disabled: _vm.total === 0 },
+          on: { click: _vm.removeCardFromDeck }
         },
-        attrs: { disabled: _vm.total === 0 },
-        on: { click: _vm.removeCardFromDeck }
-      },
-      [_vm._v("-")]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "py-2 ml-1px w-1/2 bg-white",
-        class: {
-          "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
-          "bg-gray-100 text-gray-400": _vm.total >= _vm.maxAvailable
+        [
+          _c("icon", { staticClass: "mx-auto", attrs: { size: 4 } }, [
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z",
+                "clip-rule": "evenodd"
+              }
+            })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "py-2 w-1/2 bg-white",
+          class: {
+            "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
+            "bg-gray-100 text-gray-300": _vm.total >= _vm.maxAvailable
+          },
+          attrs: { disabled: _vm.total >= _vm.maxAvailable },
+          on: { click: _vm.addCardToDeck }
         },
-        attrs: { disabled: _vm.total >= _vm.maxAvailable },
-        on: { click: _vm.addCardToDeck }
-      },
-      [_vm._v("+")]
-    )
-  ])
+        [
+          _c("icon", { staticClass: "mx-auto", attrs: { size: 4 } }, [
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z",
+                "clip-rule": "evenodd"
+              }
+            })
+          ])
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3377,7 +3407,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-full flex items-center mb-1px rounded-lg overflow-hidden"
+      staticClass: "w-full flex items-stretch mb-1px rounded-lg overflow-hidden"
     },
     [
       _c("card-buttons", {
@@ -3521,7 +3551,7 @@ var render = function() {
         }
       ],
       ref: "nameSearch",
-      staticClass: "flex-1 bg-transparent outline-none py-3 px-4 text-gray-200",
+      staticClass: "flex-1 bg-transparent outline-none py-2 px-4 text-gray-200",
       attrs: { type: "text", placeholder: "Search" },
       domProps: { value: _vm.keywords },
       on: {
@@ -3740,20 +3770,20 @@ var render = function() {
                 class: _vm.mainAreaClasses
               },
               [
-                _vm.mode == "all" || _vm.mode == "search"
+                _vm.mode === "all" || _vm.mode === "search"
                   ? _c("all-cards", { attrs: { collection: _vm.cards } })
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.mode == "details" ? _c("deck-details") : _vm._e(),
+                _vm.mode === "details" ? _c("deck-details") : _vm._e(),
                 _vm._v(" "),
-                _vm.mode == "sideboard"
+                _vm.mode === "sideboard"
                   ? _c("main-deck", { attrs: { collection: _vm.cards } })
                   : _vm._e()
               ],
               1
             ),
             _vm._v(" "),
-            _vm.mode == "search" || _vm.mode == "sideboard"
+            _vm.mode === "search" || _vm.mode === "sideboard"
               ? _c(
                   "div",
                   {
@@ -3762,13 +3792,13 @@ var render = function() {
                       "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
                   },
                   [
-                    _vm.mode == "search"
+                    _vm.mode === "search"
                       ? _c("search-results", {
                           on: { "search-completed": _vm.scrollTop }
                         })
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm.mode == "sideboard"
+                    _vm.mode === "sideboard"
                       ? _c("sideboard", {
                           attrs: { collection: _vm.sideboard }
                         })
@@ -5093,11 +5123,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("li", { staticClass: "block w-full flex mb-1" }, [
+  return _c("li", { staticClass: "block w-full flex mb-px space-x-px" }, [
     _c(
       "div",
       {
-        staticClass: "w-3/4 bg-white p-2 mr-1",
+        staticClass: "w-3/4 bg-white p-2",
         class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.text))]
@@ -5144,9 +5174,7 @@ var render = function() {
           attrs: { value: _vm.totalCards, text: "Cards", position: "top" }
         }),
         _vm._v(" "),
-        _c("stat", {
-          attrs: { value: _vm.totalClass, text: "Class", position: "both" }
-        }),
+        _c("stat", { attrs: { value: _vm.totalClass, text: "Class" } }),
         _vm._v(" "),
         _c("stat", {
           attrs: {
@@ -5223,7 +5251,7 @@ var render = function() {
         ? _c(
             "button",
             {
-              staticClass: "flex-grow block px-4 py-3",
+              staticClass: "flex-grow block px-4 py-2",
               class: _vm.classes(view),
               attrs: { type: "button" },
               on: {
@@ -5263,12 +5291,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex overflow-hidden" },
+    { staticClass: "flex space-x-px overflow-hidden" },
     _vm._l(_vm.maxAvailable + 1, function(n, i) {
       return _c(
         "button",
         {
-          staticClass: "py-2 ml-1px",
+          staticClass: "py-1",
           class: _vm.classes(i),
           on: {
             click: function($event) {

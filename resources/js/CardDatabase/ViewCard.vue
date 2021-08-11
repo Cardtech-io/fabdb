@@ -36,19 +36,23 @@
                                     </span>
                                 </div>
                             </li>
-                            <li v-for="(value, stat) in card.stats" class="flow-root even:bg-white" v-if="value">
-                                <div class="float-left w-1/3 p-2 px-4">{{ sentenceCase(stat) }}</div>
-                                <div class="float-left w-2/3 p-2 px-4">{{ value }}</div>
-                            </li>
                         </ul>
                     </div>
 
                     <div class="md:w-3/4 md:float-right sm:px-4 md:flex">
                         <div class="md:w-1/2">
                             <div class="p-4 pt-0 sm:p-0">
-                                <div v-if="card.text" class="border bg-gray-300 border-gray-500 rounded-lg mb-8">
-                                    <div v-html="prettyText(card.text)" class="px-4"></div>
-                                    <div class="italic border-t border-gray-400 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                                <div v-if="card.text" class="bg-white text-black rounded-lg mb-1">
+                                    <div v-html="prettyText(card.text)" class="px-4 py-px"></div>
+                                    <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                                </div>
+                                <div class="inline-block flex rounded-lg overflow-hidden space-x-px mb-4">
+                                    <div v-for="(value, stat) in card.stats" class="flex justify-center items-center flex-grow bg-white space-x-2 py-2" v-if="value">
+                                        <div class="">
+                                            <img :src="statToImagePath(stat, value)" :alt="sentenceCase(stat)" class="h-6">
+                                        </div>
+                                        <div class="text-xl">{{ value }}</div>
+                                    </div>
                                 </div>
 
                                 <article>
@@ -140,7 +144,7 @@
                 return this.card.image === this.cardImageFromSku(printing.sku.sku, 300) ? 'bg-black' :  printing.sku.finish;
             },
 
-            keywords: function() {
+            keywords() {
                 var keywords = this.card.keywords;
 
                 for (var i in keywords) {
@@ -150,10 +154,17 @@
                 return this.card.keywords.join(', ');
             },
 
-            sentenceCase: function(string) {
+            sentenceCase(string) {
                 var sentence = string.replace("-", ' ');
 
                 return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
+            },
+
+            statToImagePath(stat, value) {
+                if (stat === 'cost') return '/img/resource.png';
+                if (stat === 'resource') return '/img/pitch-'+value+'.png';
+
+                return '/img/'+stat+'.png';
             }
         },
 

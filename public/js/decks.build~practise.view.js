@@ -166,7 +166,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
+          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500 flex",
         class: {
           "border-gray-500": _vm.isOpen,
           "bg-white": _vm.isOpen,
@@ -228,7 +228,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "w-full text-base text-left px-4 py-2 hover:bg-blue-400 hover:text-white uppercase",
+                  "w-full text-base text-left px-4 py-1 hover:bg-blue-400 hover:text-white uppercase",
                 on: {
                   click: function($event) {
                     return _vm.select(grouping)

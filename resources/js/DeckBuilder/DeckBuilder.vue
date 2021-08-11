@@ -37,13 +37,13 @@
             <div class="bg-gray-200 h-full relative">
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
-                        <all-cards v-if="mode == 'all' || mode == 'search'" :collection="cards"></all-cards>
-                        <deck-details v-if="mode == 'details'"></deck-details>
-                        <main-deck v-if="mode == 'sideboard'" :collection="cards"></main-deck>
+                        <all-cards v-if="mode === 'all' || mode === 'search'" :collection="cards"></all-cards>
+                        <deck-details v-if="mode === 'details'"></deck-details>
+                        <main-deck v-if="mode === 'sideboard'" :collection="cards"></main-deck>
                     </div>
-                    <div v-if="mode == 'search' || mode == 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
-                        <search-results v-if="mode == 'search'" @search-completed="scrollTop"></search-results>
-                        <sideboard v-if="mode == 'sideboard'" :collection="sideboard"></sideboard>
+                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
+                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"></search-results>
+                        <sideboard v-if="mode === 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
                 </div>
             </div>
