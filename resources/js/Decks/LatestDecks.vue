@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="decks">
+        <div v-if="decks" class="flex flex-wrap">
             <deck-item v-for="deck in decks" :deck="deck" :key="deck.slug" theme="dark"></deck-item>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
         mounted() {
             axios.get('/decks/latest?user='+this.user.slug).then(response => {
-                this.decks = Models.hydrateMany(response.data.data, Deck);
+                this.decks = Models.hydrateMany(response.data, Deck);
             });
         }
     }
