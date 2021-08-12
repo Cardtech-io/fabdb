@@ -171,7 +171,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "flex relative items-center w-1/3 sm:w-1/4" },
+          { staticClass: "flex relative items-center w-2/5 sm:w-1/3" },
           [
             _c(
               "select",
@@ -273,7 +273,7 @@ var render = function() {
                   ? _c(
                       "a",
                       {
-                        staticClass: "link",
+                        staticClass: "link-alternate",
                         attrs: {
                           href: _vm.listingUrl(listing),
                           target: "_blank"
