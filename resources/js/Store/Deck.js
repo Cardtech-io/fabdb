@@ -90,6 +90,10 @@ export default {
     },
 
     getters: {
+        cards: state => {
+            return state.cards;
+        },
+
         fsIndex: state => {
             return state.fullScreen ? 0 : 1;
         },

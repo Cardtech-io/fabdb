@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     selectHero: function selectHero(hero) {
       var card = hero.fields;
-      this.$emit('hero-selected', card);
+      this.$emit('hero-selected', card, this.type(card));
       this.$eventHub.$emit('hero-selected', card, this.type(card));
     },
     type: function type(hero) {

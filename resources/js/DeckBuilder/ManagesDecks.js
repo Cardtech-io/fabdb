@@ -1,6 +1,6 @@
 export default {
     methods: {
-        addRemote: function(card, handler) {
+        addRemote(card, handler) {
             return axios.post('/decks/' + this.$route.params.deck, { card: card.identifier })
                 .then(response => {
                     if (handler) {
@@ -8,13 +8,13 @@ export default {
                     }
                 })
                 .catch(error => {
-                    if (error.response && error.response.status == 422) {
+                    if (error.response && error.response.status === 422) {
                         this.addMessage({ status: 'error', message: error.response.data.errors.card[0] });
                     }
                 });
         },
 
-        addLocal: function(card) {
+        addLocal(card) {
             const deckCard = this.findCard(card);
 
             if (deckCard) {
@@ -25,12 +25,12 @@ export default {
             }
         },
 
-        copyShareURL: function() {
+        copyShareURL() {
             this.$copyText('https://fabdb.net/decks/' + this.deck.slug);
             this.addMessage({ status: 'success', message: 'URL copied to clipboard.' });
         },
 
-        removeLocal: function(card) {
+        removeLocal(card) {
             const deckCard = this.findCard(card);
 
             if (deckCard.total > 1) {
@@ -54,7 +54,7 @@ export default {
             }
         },
 
-        removeRemote: function(card, handler) {
+        removeRemote(card, handler) {
             return axios.delete('/decks/' + this.$route.params.deck + '/' + card.identifier).then(response => {
                 if (handler) {
                     handler(response);
@@ -80,7 +80,7 @@ export default {
             });
         },
 
-        findCard: function (card) {
+        findCard(card) {
             return this.cards.filter(function (deckCard) {
                 return deckCard.identifier === card.identifier;
             })[0];

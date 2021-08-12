@@ -27,7 +27,7 @@
                                 <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"></fullscreen-button>
                             </div>
                         </div>
-                        <div v-if="mode == 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
+                        <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
                             <card-search class="flex bg-gray-800 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"></card-search>
                         </div>
                     </div>
@@ -37,9 +37,15 @@
             <div class="bg-gray-200 h-full relative">
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
-                        <all-cards v-if="mode === 'all' || mode === 'search'" :collection="cards"></all-cards>
-                        <deck-details v-if="mode === 'details'"></deck-details>
-                        <main-deck v-if="mode === 'sideboard'" :collection="cards"></main-deck>
+                        <div v-if="!hero" class="h-full">
+                            <hero-selector @hero-selected="setHero" :deck="deck"></hero-selector>
+                        </div>
+                        <div v-else class="h-full">
+                            <all-cards v-if="mode === 'all'" :collection="cards"></all-cards>
+                            <edit-deck v-if="mode === 'search'" :collection="cards"></edit-deck>
+                            <deck-details v-if="mode === 'details'"></deck-details>
+                            <main-deck v-if="mode === 'sideboard'" :collection="cards"></main-deck>
+                        </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
                         <search-results v-if="mode === 'search'" @search-completed="scrollTop"></search-results>
@@ -62,9 +68,11 @@
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName';
     import DeckTotals from "./Metrics/DeckTotals";
+    import EditDeck from "./EditDeck";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import HeroSelector from "../Components/HeroSelector";
     import Icon from '../Components/Icon';
     import LazyLoader from '../Components/LazyLoader';
     import MainDeck from './MainDeck.vue';
@@ -74,6 +82,7 @@
     import Viewable from './Viewable';
     import ViewButton from "./Buttons/View";
     import ZoomButton from './Buttons/Zoom';
+    import ManagesDecks from "./ManagesDecks";
 
     export default {
         components: {
@@ -83,8 +92,10 @@
             CardSearch,
             DeckName,
             DeckTotals,
-            GroupingSelector,
+            EditDeck,
             FullscreenButton,
+            GroupingSelector,
+            HeroSelector,
             Icon,
             MainDeck,
             DeckDetails,
@@ -96,7 +107,7 @@
             ZoomButton
         },
 
-        mixins: [Cardable, ModeSelector, Viewable],
+        mixins: [Cardable, ManagesDecks, ModeSelector, Viewable],
 
         data() {
             return {
@@ -108,8 +119,8 @@
         },
 
         computed: {
-            ...mapGetters('deck', ['mainDeck']),
-            ...mapState('deck', ['cards', 'deck', 'fullScreen', 'grouping', 'mode', 'sideboard', 'view', 'zoom']),
+            ...mapGetters('deck', ['cards']),
+            ...mapState('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sideboard', 'view', 'zoom']),
             ...mapState('cardSearch', ['params']),
 
             containers() {
@@ -138,7 +149,7 @@
                 return this.mode === 'search' ? 'w-full lg:w-2/3' : 'w-full';
             },
 
-            crumbs: function() {
+            crumbs() {
                 return [
                     { text: 'Home', link: '/' },
                     { text: 'Decks', link: '/decks/build/' },
@@ -149,7 +160,15 @@
 
         methods: {
             ...mapActions('messages', ['addMessage']),
-            ...mapActions('deck', ['setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']),
+            ...mapActions('deck', ['addCard', 'setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']),
+
+            setHero(hero, type) {
+                this.addRemote(hero, response => {
+                    this.addCard({hero});
+                    this.setMode({mode: 'search'});
+                    this.deck.format = type.toLowerCase();
+                });
+            },
 
             scrollTop() {
                 this.$refs.searchResults.scrollTop = 0;
@@ -182,10 +201,6 @@
         created() {
             this.$eventHub.$on('card-selected', () => {
                 this.name = '';
-            });
-
-            this.$eventHub.$on('hero-selected', (hero, type) => {
-                this.deck.format = type.toLowerCase();
             });
         },
 
