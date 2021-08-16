@@ -73,16 +73,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     var base = {
-      cost: '',
-      cardType: [],
-      keywords: '',
-      pitch: '',
-      set: [],
-      "class": [],
-      rarity: []
+      keywords: ''
     };
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')));
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords')));
 
     return {
       params: params,

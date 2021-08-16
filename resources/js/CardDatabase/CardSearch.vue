@@ -52,16 +52,10 @@
 
         data() {
             let base = {
-                cost: '',
-                cardType: [],
-                keywords: '',
-                pitch: '',
-                set: [],
-                class: [],
-                rarity: []
+                keywords: ''
             };
 
-            let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
+            let params = {...base, ...this.fromQuery(this.onlyParams('keywords'))};
 
             return {
                 params: params,

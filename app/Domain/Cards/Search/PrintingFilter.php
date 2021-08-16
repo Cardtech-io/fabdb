@@ -19,7 +19,7 @@ class PrintingFilter implements SearchFilter
             $join->on('printings.card_id', 'cards.id');
 
             if (isset($input['set'])) {
-                $sets = explode(',', $input['set']);
+                $sets = is_array($input['set']) ? $input['set'] : explode(',', $input['set']);
 
                 $join->where(function ($query) use ($sets) {
                     foreach ($sets as $set) {
