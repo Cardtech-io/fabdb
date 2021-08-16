@@ -72,18 +72,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
-    var params = _objectSpread({
+    var base = {
       cost: '',
-      cardType: '',
+      cardType: [],
       keywords: '',
       pitch: '',
-      set: 'all',
-      "class": '',
-      rarity: ''
-    }, this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
+      set: [],
+      "class": [],
+      rarity: []
+    };
+
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')));
 
     return {
-      openTray: false,
       params: params,
       sets: this.filterSets()
     };
@@ -105,13 +106,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.updateQuery(this.params);
     },
     filterSets: function filterSets() {
-      var sets = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
-
-      sets.unshift({
-        id: 'all',
-        name: 'All sets'
-      });
-      return sets;
+      return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
     },
     query: function query(field) {
       if (field) {
@@ -616,7 +611,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fromQuery: function fromQuery(params) {
       return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity'].indexOf(key) !== -1) {
+        if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
           return param.split(',');
         }
 

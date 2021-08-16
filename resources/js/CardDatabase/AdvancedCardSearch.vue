@@ -135,13 +135,6 @@ export default {
 
         let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
 
-        // Make sure set is an array
-        for (let i in base) {
-            if (Array.isArray(base[i]) && !Array.isArray(params[i])) {
-                params[i] = params[i].split(',');
-            }
-        }
-
         let previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
 
         return {

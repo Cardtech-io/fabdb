@@ -153,14 +153,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       rarity: []
     };
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))); // Make sure set is an array
-
-
-    for (var i in base) {
-      if (Array.isArray(base[i]) && !Array.isArray(params[i])) {
-        params[i] = params[i].split(',');
-      }
-    }
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')));
 
     var previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
     return {
@@ -851,7 +844,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fromQuery: function fromQuery(params) {
       return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity'].indexOf(key) !== -1) {
+        if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
           return param.split(',');
         }
 

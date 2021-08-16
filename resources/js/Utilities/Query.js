@@ -14,7 +14,7 @@ export default {
 
         fromQuery(params) {
             return _.mapObject(params, (param, key) => {
-                if (['class', 'cardType', 'rarity'].indexOf(key) !== -1) {
+                if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
                     return param.split(',');
                 }
 

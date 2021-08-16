@@ -51,19 +51,19 @@
         mixins: [Query],
 
         data() {
-            let params = {
+            let base = {
                 cost: '',
-                cardType: '',
+                cardType: [],
                 keywords: '',
                 pitch: '',
-                set: 'all',
-                class: '',
-                rarity: '',
-                ...this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')
+                set: [],
+                class: [],
+                rarity: []
             };
 
+            let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
+
             return {
-                openTray: false,
                 params: params,
                 sets: this.filterSets()
             };
@@ -84,17 +84,13 @@
                 }
             },
 
-            newSearch: function() {
+            newSearch() {
                 this.params.page = 1;
                 this.updateQuery(this.params);
             },
 
             filterSets() {
-                let sets = _.sortBy(this.$settings.game.sets, 'name');
-
-                sets.unshift({ id: 'all', name: 'All sets'});
-
-                return sets;
+                return _.sortBy(this.$settings.game.sets, 'name');
             },
 
             query(field) {
