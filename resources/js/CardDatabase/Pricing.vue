@@ -5,7 +5,7 @@
                 Pricing
             </div>
 
-            <div class="flex relative items-center w-1/3 sm:w-1/4">
+            <div class="flex relative items-center w-2/5 sm:w-1/3">
                 <select v-model="currency" dir="rtl" class="w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm">
                     <option value="all">Currency - All</option>
                     <option v-bind:value="c" v-for="c in currencies">{{ c }}</option>
@@ -23,7 +23,7 @@
                     <price :amount="listing.price" :currency="useCurrency(listing)" :showCurrency="currency == 'all'"></price>
                 </div>
                 <div class="w-1/3 p-2 px-4 text-right">
-                    <a :href="listingUrl(listing)" class="link" target="_blank" v-if="listing.available">{{ listing.name }}</a>
+                    <a :href="listingUrl(listing)" class="link-alternate" target="_blank" v-if="listing.available">{{ listing.name }}</a>
                     <span class="text-gray-500" v-else>{{ listing.name }}</span>
                 </div>
             </li>
