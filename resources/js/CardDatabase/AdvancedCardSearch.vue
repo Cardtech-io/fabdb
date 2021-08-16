@@ -45,7 +45,7 @@
                     <div class="md:flex mb-4">
                         <div class="md:w-1/5 py-2">Set</div>
                         <div class="md:w-4/5">
-                            <select v-model="params.set" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('set')">
+                            <select v-model="params.set" multiple="multiple" class="input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg" :class="active('set')">
                                 <option :value="set.id" v-for="set in sets">{{ set.name }}</option>
                             </select>
                         </div>
@@ -128,12 +128,19 @@ export default {
             cardType: [],
             keywords: '',
             pitch: '',
-            set: 'all',
+            set: [],
             class: [],
             rarity: []
         };
 
         let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
+
+        // Make sure set is an array
+        for (let i in base) {
+            if (Array.isArray(base[i]) && !Array.isArray(params[i])) {
+                params[i] = params[i].split(',');
+            }
+        }
 
         let previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
 
@@ -157,11 +164,7 @@ export default {
         },
 
         filterSets() {
-            let sets = _.sortBy(this.$settings.game.sets, 'name');
-
-            sets.unshift({ id: 'all', name: 'All sets'});
-
-            return sets;
+            return _.sortBy(this.$settings.game.sets, 'name');
         },
 
         query(field) {

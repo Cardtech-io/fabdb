@@ -148,12 +148,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       cardType: [],
       keywords: '',
       pitch: '',
-      set: 'all',
+      set: [],
       "class": [],
       rarity: []
     };
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')));
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))); // Make sure set is an array
+
+
+    for (var i in base) {
+      if (Array.isArray(base[i]) && !Array.isArray(params[i])) {
+        params[i] = params[i].split(',');
+      }
+    }
 
     var previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
     return {
@@ -176,13 +183,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     filterSets: function filterSets() {
-      var sets = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
-
-      sets.unshift({
-        id: 'all',
-        name: 'All sets'
-      });
-      return sets;
+      return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
     },
     query: function query(field) {
       if (field) {
@@ -448,6 +449,7 @@ var render = function() {
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-2 md:px-4 rounded-lg",
                       class: _vm.active("set"),
+                      attrs: { multiple: "multiple" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
