@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    import Card from "../CardDatabase/Card";
     import HeroSelector from "../Components/HeroSelector";
     import moment from 'moment';
     import Player from "./Player";
@@ -67,7 +68,7 @@
                     life: hero.stats.life,
                     resource: 0,
                     first: !this.players.length,
-                    hero,
+                    hero: new Card(hero),
                 };
 
                 this.players.push(player);
