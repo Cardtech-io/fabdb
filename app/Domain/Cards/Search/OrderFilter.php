@@ -15,7 +15,7 @@ class OrderFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $order = $input['order'] ?? 'sku';
+        $order = $input['order'] ?? 'identifier';
         $direction = $input['direction'] ?? 'asc';
 
         if (Arr::get($input, 'use-case') === 'build') {

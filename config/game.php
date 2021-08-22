@@ -109,7 +109,7 @@ return [
             'id' => 'u-cru',
             'name' => 'Crucible of War (Unlimited)',
             'released' => '2021-07-30',
-            'browseable' => true,
+            'browseable' => false,
         ],
         'mon' => [
             'id' => 'mon',
