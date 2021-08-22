@@ -673,7 +673,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("hero-selector", {
-                staticClass: "text-gray-500 shadow-lg",
+                staticClass: "text-gray-300 shadow-lg",
                 on: { "hero-selected": _vm.newPlayer }
               })
             ],

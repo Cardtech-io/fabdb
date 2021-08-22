@@ -131,7 +131,7 @@ return [
             'name' => 'Welcome to Rathe (Unlimited)',
             'released' => '2020-11-06',
             'browseable' => false,
-        ],
+        ]
     ],
 
     'classes' => [

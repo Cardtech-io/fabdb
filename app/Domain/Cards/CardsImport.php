@@ -28,30 +28,23 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         'arc_first_singles',
         'arc_unlimited_singles',
         'cru_first_singles',
+        'cru_unlimited_singles',
         'mon_first_singles',
         'mon_blitz_singles',
         'mon_unlimited_singles',
         'promo_singles'
     ];
-    /**
-     * @var Identifier
-     */
-    private $identifier;
 
-    /**
-     * @var bool
-     */
-    private $withImages;
+    private Identifier $identifier;
+    private bool $withImages;
+    private Command $logger;
+    private bool $printsOnly;
 
-    /**
-     * @var Command
-     */
-    private $logger;
-
-    public function __construct(Command $logger, bool $withImages)
+    public function __construct(Command $logger, bool $withImages, bool $printsOnly = false)
     {
-        $this->withImages = $withImages;
         $this->logger = $logger;
+        $this->withImages = $withImages;
+        $this->printsOnly = $printsOnly;
     }
 
     public static function availableSheets()
@@ -73,26 +66,33 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $this->identifier = Identifier::fromName($row['card_name']);
 
-            $this->log("Registering card [{$row['uid']}]");
-
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
                 $this->copyImage($row);
             }
 
-            $this->log("Registering card [{$row['card_name']} using identifier [{$this->identifier->raw()}]");
+            if (!$this->printsOnly) {
+                $this->log("Registering card [{$row['card_name']} using identifier [{$this->identifier->raw()}]");
 
-            $card = Card::register(
-                $this->identifier,
-                $row['card_name'],
-                $this->imagePath($row),
-                Rarity::fromLss($row['rarity']),
-                $row['card_effect'],
-                '',
-                '',
-                $this->keywords($row),
-                $stats
-            );
+                $card = Card::register(
+                    $this->identifier,
+                    $row['card_name'],
+                    $this->imagePath($row),
+                    Rarity::fromLss($row['rarity']),
+                    $row['card_effect'],
+                    '',
+                    '',
+                    $this->keywords($row),
+                    $stats
+                );
+            } else {
+                $card = Card::whereIdentifier($this->identifier)->first();
+
+                if (!$card) {
+                    $this->log("Card not found for identifier [{$this->identifier->raw()}]");
+                    continue;
+                }
+            }
 
             $this->log("Registering print for sku [{$row['uid']}]");
 
