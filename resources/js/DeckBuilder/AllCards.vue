@@ -32,19 +32,12 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <div v-if="loadout.total()" class="mt-4 md:m-0">
-                            <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: 'loadout' })" :class="{ 'mb-4': !sections.loadout }">
-                                <chevron :open="sections.loadout" class="mr-2"></chevron>
-                                Loadout ({{loadout.count()}})
+                        <div v-for="section in availableSections" v-if="section.cards.count()">
+                            <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: section.title })" :class="{ 'mb-4': !sectionOpen(section.title) }">
+                                <chevron :open="sectionOpen(section.title)" class="mr-2"></chevron>
+                                {{ section.title }} ({{section.cards.count()}})
                             </h2>
-                            <grouped-cards :cards="loadout" group-id="loadout" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.loadout"></grouped-cards>
-                        </div>
-                        <div v-if="other.total()">
-                            <h2 class="block flex cursor-pointer font-serif uppercase text-lg ml-4" @click="toggleSection({ section: 'other' })" :class="{ 'mb-4': !sections.other }">
-                                <chevron :open="sections.other" class="mr-2"></chevron>
-                                Other ({{ other.count() }})
-                            </h2>
-                            <grouped-cards :cards="other" group-id="other" :action="mode === 'search' ? removeFromDeck : false" v-show="sections.other"></grouped-cards>
+                            <grouped-cards :cards="section.cards" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
                         </div>
                     </div>
                 </div>
@@ -102,10 +95,12 @@
     import ManagesDecks from './ManagesDecks';
     import Totals from "./Metrics/Totals";
     import Viewable from './Viewable';
+    import Redrawable from "./Redrawable";
+    import Strings from "../Utilities/Strings";
 
     export default {
         props: ['collection'],
-        mixins: [Cardable, ManagesDecks, Viewable],
+        mixins: [Cardable, ManagesDecks, Redrawable, Strings, Viewable],
 
         components: {
             CardImage,
@@ -122,19 +117,12 @@
         computed: {
             ...mapState('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']),
             ...mapGetters('session', ['user']),
+            ...mapGetters('deck', ['sectionOpen']),
 
             all() {
                 if (!this.collection.length) {
                     return new Cards([]);
                 }
-
-                let reducer = (carry, card) => {
-                    for (let i = 0; i < card.total; i++) {
-                        carry.push(card);
-                    }
-
-                    return carry;
-                };
 
                 let collection = new Cards(this.collection);
                 let cards = collection.hero() ? new Cards([collection.hero()]) : new Cards([]);
@@ -156,6 +144,42 @@
 
             other() {
                 return this.all.other();
+            },
+
+            availableSections() {
+                switch (this.grouping) {
+                    case 'default':
+                        return [
+                            {title: 'Loadout', cards: this.loadout},
+                            {title: 'Other', cards: this.other},
+                        ];
+                    case 'cost':
+                        var cards = this.all.group(card => card.stats.cost);
+
+                        return cards.cards.map(group => ({
+                            title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
+                            cards: new Cards(group)
+                        }));
+                    case 'pitch':
+                        var cards = this.all.group(card => card.stats.resource);
+
+                        return cards.cards.map(group => ({
+                            title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
+                            cards: new Cards(group)
+                        }));
+                    case 'type':
+                        return [
+                            {title: 'Hero', cards: new Cards([this.all.hero()])},
+                            {title: 'Weapons', cards: this.all.weapons()},
+                            {title: 'Equipment', cards: this.all.equipment()},
+                            {title: 'Attack actions', cards: this.all.attackActions()},
+                            {title: 'Attack reactions', cards: this.all.attackReactions()},
+                            {title: 'Defense reactions', cards: this.all.defenseReactions()},
+                            {title: 'Instants', cards: this.all.instants()},
+                            {title: 'Items', cards: this.all.items()},
+                            {title: 'Miscellaneous', cards: this.all.miscellaneous()},
+                        ];
+                }
             }
         },
 
@@ -170,11 +194,11 @@
                 });
             },
 
-            filter: function(cards) {
+            filter(cards) {
                 return cards.applyFilters(this.filters);
             },
 
-            removeFromDeck: function(card) {
+            removeFromDeck(card) {
                 this.removeRemote(card);
                 this.removeCard({ card });
             }

@@ -174,11 +174,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Player */ "./resources/js/LifeCounter/Player.vue");
-/* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Tracker */ "./resources/js/Components/Tracker.js");
+/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
+/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Player */ "./resources/js/LifeCounter/Player.vue");
+/* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Tracker */ "./resources/js/Components/Tracker.js");
 //
 //
 //
@@ -202,14 +203,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Player: _Player__WEBPACK_IMPORTED_MODULE_2__["default"]
+    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Player: _Player__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -232,8 +234,8 @@ __webpack_require__.r(__webpack_exports__);
       this.requirePlayers = true;
     },
     logEvent: function logEvent() {
-      if (this.timer && this.timer.diff(moment__WEBPACK_IMPORTED_MODULE_1___default()(), 'minutes') >= 5) {
-        _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__["default"].track('Game', 'Completed');
+      if (this.timer && this.timer.diff(moment__WEBPACK_IMPORTED_MODULE_2___default()(), 'minutes') >= 5) {
+        _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__["default"].track('Game', 'Completed');
         this.timer = null;
       }
     },
@@ -243,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
         life: hero.stats.life,
         resource: 0,
         first: !this.players.length,
-        hero: hero
+        hero: new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_0__["default"](hero)
       };
       this.players.push(player);
 
@@ -253,7 +255,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     reset: function reset() {
       this.$eventHub.$emit('life-counter.reset');
-      this.timer = moment__WEBPACK_IMPORTED_MODULE_1___default()();
+      this.timer = moment__WEBPACK_IMPORTED_MODULE_2___default()();
     },
     skip: function skip() {
       this.requirePlayers = false;
@@ -262,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     requirePlayers: function requirePlayers(require) {
       if (!require) {
-        this.timer = moment__WEBPACK_IMPORTED_MODULE_1___default()();
+        this.timer = moment__WEBPACK_IMPORTED_MODULE_2___default()();
       } else {
         this.timer = null;
       }
@@ -671,7 +673,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("hero-selector", {
-                staticClass: "text-gray-500 shadow-lg",
+                staticClass: "text-gray-300 shadow-lg",
                 on: { "hero-selected": _vm.newPlayer }
               })
             ],

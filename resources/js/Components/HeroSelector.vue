@@ -60,7 +60,7 @@
             },
 
             type(hero) {
-                return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed'
+                return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed';
             }
         },
 

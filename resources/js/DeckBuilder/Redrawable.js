@@ -1,7 +1,7 @@
 let methods = {
-    redraw: function(id) {
+    redraw(id) {
         setTimeout(() => {
-            this.$redrawVueMasonry();
+            this.$redrawVueMasonry(id);
         }, 10);
     }
 };

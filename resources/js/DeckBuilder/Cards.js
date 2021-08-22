@@ -207,7 +207,7 @@ export default class Cards {
 
     // Field could be a string, or a handler
     group(field) {
-        let handler = typeof field === 'string' ? (card) => { return card[field]; } : field;
+        let handler = typeof field === 'string' ? card => card[field] : field;
 
         return new Cards(Object.values(_.groupBy(this.cards, handler)));
     }

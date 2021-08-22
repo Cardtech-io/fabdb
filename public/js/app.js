@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks":"decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test.play":"decks.test.play","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test":"vendors~decks.test","decks.test":"decks.test","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"902e8c3ea8cb962202af","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"8513c875f839d5b7e26a","cards.browse":"d0ed1ccc37ddded1f650","collection":"4703fe63d4c775edfbec","decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks":"3f5b85eb1524a963f571","decks.browse~decks.mine~user.profile.decks":"8f1ea35b4c7d75ab03da","decks.browse~decks.mine":"fd04f6053ddb63b8b345","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"1d4925c4a0b143545f45","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"e4b22ba1a48f7b30f571","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test.play":"5ad7144a6979bad3d0bb","generator":"a69bd50e4d5a773f078d","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"6ddc71393abdd0b805b6","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"40903fe5aef93ce13c41","articles.view":"36ed1a8e3f2015125395","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"b9eef7cb7d20b766ab43","decks.build~practise.view":"b84ee117d360f94757d5","practise.view":"f07faff489be49cc68fe","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"18de72cee70004650613","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"ef369102ebb2ff3190c8","decks.view":"e1a3a28ab3c7386e083e","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"45c77f5820657513d627","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"c925def69ac4145fb202","home":"f17f332aba8c173638f4","vendors~events.edit":"e9564a790a6ab950ddaa","events.edit":"54dcd26804fb04724c73","vendors~decks.test":"063420b0f8092d1ee256","decks.test":"b19339a104c061bdb347","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection~decks.test":"cards.browse~collection~decks.test","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks":"decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test.play":"decks.test.play","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test":"vendors~decks.test","decks.test":"decks.test","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"0aff2b9412660f8ae311","cards.browse~collection~decks.test":"f85b31713f13fd7706ae","cards.browse~collection":"d27ec3ebab3a3823d74d","cards.browse":"16f5a208824f5e9369e8","collection":"3588f5c85f48305bb6cd","decks.browse~decks.featured~decks.mine~decks.starters~decks.test~decks.view~user.profile.decks":"3f5b85eb1524a963f571","decks.browse~decks.mine~user.profile.decks":"8f1ea35b4c7d75ab03da","decks.browse~decks.mine":"fd04f6053ddb63b8b345","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"3a3499f3659c11707b29","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"e4b22ba1a48f7b30f571","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test.play":"5ad7144a6979bad3d0bb","generator":"a69bd50e4d5a773f078d","practise":"9308b95eaed67896527d","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"6ddc71393abdd0b805b6","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b":"3c38bc43b454f32604be","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7":"97f703a666db08869dd7","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"40903fe5aef93ce13c41","articles.view":"36ed1a8e3f2015125395","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"b9eef7cb7d20b766ab43","decks.build~practise.view":"9c7582520d82df22823a","practise.view":"f07faff489be49cc68fe","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"d8a0dc70e31aa617cc78","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"ef369102ebb2ff3190c8","decks.view":"e1a3a28ab3c7386e083e","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"45c77f5820657513d627","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"87ded56d3f9f7ac2fbd5","home":"f17f332aba8c173638f4","vendors~events.edit":"e9564a790a6ab950ddaa","events.edit":"54dcd26804fb04724c73","vendors~decks.test":"063420b0f8092d1ee256","decks.test":"b19339a104c061bdb347","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"65ec0269ce9edac63779"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -75353,12 +75353,20 @@ function controlMaxZoom(state) {
     cards: [],
     filters: [],
     keywords: '',
-    grouping: 'name',
+    grouping: 'default',
     sections: {
-      hero: true,
-      equipment: true,
-      loadout: true,
-      other: true
+      'Attack actions': true,
+      'Attack reactions': true,
+      'Defense reactions': true,
+      'Equipment': true,
+      'Hero': true,
+      'Instants': true,
+      'Items': true,
+      'Loadout': true,
+      'Miscellaneous': true,
+      'Non-Attack actions': true,
+      'Other': true,
+      'Weapons': true
     },
     sideboard: [],
     fullScreen: false,
@@ -75384,6 +75392,11 @@ function controlMaxZoom(state) {
     },
     requiresSideboard: function requiresSideboard(state) {
       return state.deck.format !== 'blitz';
+    },
+    sectionOpen: function sectionOpen(state) {
+      return function (section) {
+        return state.sections[section] === undefined || state.sections[section];
+      };
     }
   },
   mutations: {
@@ -75454,8 +75467,9 @@ function controlMaxZoom(state) {
       state.mode = mode;
     },
     toggleSection: function toggleSection(state, _ref10) {
-      var section = _ref10.section;
-      state.sections[section] = !state.sections[section];
+      var section = _ref10.section,
+          status = _ref10.status;
+      state.sections[section] = status;
     },
     zoom: function zoom(state, _ref11) {
       var n = _ref11.n;
@@ -75486,58 +75500,58 @@ function controlMaxZoom(state) {
         collection: state.sideboard
       });
     },
-    toggleSection: function toggleSection(_ref16, _ref17) {
-      var commit = _ref16.commit,
-          state = _ref16.state;
-      var section = _ref17.section;
-      commit('toggleSection', {
-        section: section
+    toggleSection: function toggleSection(context, _ref16) {
+      var section = _ref16.section;
+      var value = context.getters.sectionOpen(section);
+      context.commit('toggleSection', {
+        section: section,
+        status: !value
       });
     },
-    toggleView: function toggleView(_ref18) {
-      var commit = _ref18.commit,
-          state = _ref18.state;
+    toggleView: function toggleView(_ref17) {
+      var commit = _ref17.commit,
+          state = _ref17.state;
       commit('toggleView');
     },
-    removeFromSideBoard: function removeFromSideBoard(_ref19, _ref20) {
-      var commit = _ref19.commit,
-          state = _ref19.state;
-      var card = _ref20.card;
+    removeFromSideBoard: function removeFromSideBoard(_ref18, _ref19) {
+      var commit = _ref18.commit,
+          state = _ref18.state;
+      var card = _ref19.card;
       commit('removeCard', {
         card: card,
         collection: state.sideboard
       });
     },
-    removeCard: function removeCard(_ref21, _ref22) {
-      var commit = _ref21.commit;
-      var card = _ref22.card;
+    removeCard: function removeCard(_ref20, _ref21) {
+      var commit = _ref20.commit;
+      var card = _ref21.card;
       commit('removeCardFromDeck', {
         card: card
       });
     },
-    setCardTotal: function setCardTotal(_ref23, _ref24) {
-      var commit = _ref23.commit;
-      var card = _ref24.card,
-          total = _ref24.total;
+    setCardTotal: function setCardTotal(_ref22, _ref23) {
+      var commit = _ref22.commit;
+      var card = _ref23.card,
+          total = _ref23.total;
       commit('setCardTotal', {
         card: card,
         total: total
       });
     },
-    setDeck: function setDeck(context, _ref25) {
-      var deck = _ref25.deck;
+    setDeck: function setDeck(context, _ref24) {
+      var deck = _ref24.deck;
       context.commit('setDeck', {
         deck: deck
       });
     },
-    setGrouping: function setGrouping(context, _ref26) {
-      var grouping = _ref26.grouping;
+    setGrouping: function setGrouping(context, _ref25) {
+      var grouping = _ref25.grouping;
       context.commit('setGrouping', {
         grouping: grouping
       });
     },
-    setMode: function setMode(context, _ref27) {
-      var mode = _ref27.mode;
+    setMode: function setMode(context, _ref26) {
+      var mode = _ref26.mode;
       context.commit('setMode', {
         mode: mode
       });
@@ -75545,15 +75559,15 @@ function controlMaxZoom(state) {
     clearFilters: function clearFilters(context) {
       context.commit('clearFilters');
     },
-    toggleFilter: function toggleFilter(context, _ref28) {
-      var filter = _ref28.filter;
+    toggleFilter: function toggleFilter(context, _ref27) {
+      var filter = _ref27.filter;
       context.commit('toggleFilter', {
         filter: filter
       });
     },
-    toggleFullScreen: function toggleFullScreen(_ref29) {
-      var commit = _ref29.commit,
-          state = _ref29.state;
+    toggleFullScreen: function toggleFullScreen(_ref28) {
+      var commit = _ref28.commit,
+          state = _ref28.state;
       commit('setFullScreen', {
         fullScreen: !state.fullScreen
       });
@@ -75568,8 +75582,8 @@ function controlMaxZoom(state) {
         n: 1
       });
     },
-    setZoom: function setZoom(context, _ref30) {
-      var n = _ref30.n;
+    setZoom: function setZoom(context, _ref29) {
+      var n = _ref29.n;
       context.commit('zoom', {
         n: n
       });

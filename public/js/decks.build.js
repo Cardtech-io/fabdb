@@ -230,6 +230,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
 /* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -317,13 +319,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -340,7 +337,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_11__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_13__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_11__["default"], _Redrawable__WEBPACK_IMPORTED_MODULE_14__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_15__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_13__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_3__["default"],
     CardItemSection: _CardItemSection__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -352,19 +349,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_10__["default"],
     Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_12__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen']), {
     all: function all() {
       if (!this.collection.length) {
         return new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([]);
       }
-
-      var reducer = function reducer(carry, card) {
-        for (var i = 0; i < card.total; i++) {
-          carry.push(card);
-        }
-
-        return carry;
-      };
 
       var collection = new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](this.collection);
       var cards = collection.hero() ? new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([collection.hero()]) : new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([]);
@@ -381,6 +370,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     other: function other() {
       return this.all.other();
+    },
+    availableSections: function availableSections() {
+      switch (this.grouping) {
+        case 'default':
+          return [{
+            title: 'Loadout',
+            cards: this.loadout
+          }, {
+            title: 'Other',
+            cards: this.other
+          }];
+
+        case 'cost':
+          var cards = this.all.group(function (card) {
+            return card.stats.cost;
+          });
+          return cards.cards.map(function (group) {
+            return {
+              title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
+              cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](group)
+            };
+          });
+
+        case 'pitch':
+          var cards = this.all.group(function (card) {
+            return card.stats.resource;
+          });
+          return cards.cards.map(function (group) {
+            return {
+              title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
+              cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](group)
+            };
+          });
+
+        case 'type':
+          return [{
+            title: 'Hero',
+            cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([this.all.hero()])
+          }, {
+            title: 'Weapons',
+            cards: this.all.weapons()
+          }, {
+            title: 'Equipment',
+            cards: this.all.equipment()
+          }, {
+            title: 'Attack actions',
+            cards: this.all.attackActions()
+          }, {
+            title: 'Attack reactions',
+            cards: this.all.attackReactions()
+          }, {
+            title: 'Defense reactions',
+            cards: this.all.defenseReactions()
+          }, {
+            title: 'Instants',
+            cards: this.all.instants()
+          }, {
+            title: 'Items',
+            cards: this.all.items()
+          }, {
+            title: 'Miscellaneous',
+            cards: this.all.miscellaneous()
+          }];
+      }
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']), {
@@ -1711,34 +1764,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     cardClasses: function cardClasses() {
-      return [this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth, 'rounded-card'];
+      return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth;
     },
     cardWidth: function cardWidth() {
       var widths = [3, 4, 5, 6, 7, 8];
       return widths[this.zoom];
     },
     groupedCards: function groupedCards() {
-      if (this.grouping === 'name') {
-        return this.cards.group('name');
-      }
-
-      var stat = this.grouping === 'cost' ? 'cost' : 'resource';
-      return this.cards.filter(function (card) {
-        return card.stats[stat] !== '';
-      }).group(function (card) {
-        return card.stats[stat];
-      });
+      return this.cards.group('name');
     },
     offset: function offset() {
       return this.user.view === 'borderless' ? 10 : 12;
     },
     pad: function pad() {
       return this.user.view === 'borderless' ? 17 : 18;
-    },
-    rounded: function rounded() {
-      var fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
-      var nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
-      return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
     }
   }),
   methods: {
@@ -1770,13 +1809,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.redraw(this.groupId);
     },
     zoom: function zoom() {
-      this.redraw(this.groupId);
-    },
-    sections: {
-      handler: function handler() {
-        this.redraw(this.groupId);
-      },
-      deep: true
+      this.redraw();
     }
   }
 });
@@ -3068,118 +3101,74 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("div", { staticClass: "flex-1" }, [
-                        _vm.loadout.total()
-                          ? _c(
-                              "div",
-                              { staticClass: "mt-4 md:m-0" },
-                              [
-                                _c(
-                                  "h2",
-                                  {
-                                    staticClass:
-                                      "block flex cursor-pointer font-serif uppercase text-lg mx-4",
-                                    class: { "mb-4": !_vm.sections.loadout },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.toggleSection({
-                                          section: "loadout"
-                                        })
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("chevron", {
-                                      staticClass: "mr-2",
-                                      attrs: { open: _vm.sections.loadout }
-                                    }),
-                                    _vm._v(
-                                      "\n                            Loadout (" +
-                                        _vm._s(_vm.loadout.count()) +
-                                        ")\n                        "
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("grouped-cards", {
-                                  directives: [
+                      _c(
+                        "div",
+                        { staticClass: "flex-1" },
+                        _vm._l(_vm.availableSections, function(section) {
+                          return section.cards.count()
+                            ? _c(
+                                "div",
+                                [
+                                  _c(
+                                    "h2",
                                     {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.sections.loadout,
-                                      expression: "sections.loadout"
-                                    }
-                                  ],
-                                  attrs: {
-                                    cards: _vm.loadout,
-                                    "group-id": "loadout",
-                                    action:
-                                      _vm.mode === "search"
-                                        ? _vm.removeFromDeck
-                                        : false
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.other.total()
-                          ? _c(
-                              "div",
-                              [
-                                _c(
-                                  "h2",
-                                  {
-                                    staticClass:
-                                      "block flex cursor-pointer font-serif uppercase text-lg ml-4",
-                                    class: { "mb-4": !_vm.sections.other },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.toggleSection({
-                                          section: "other"
-                                        })
+                                      staticClass:
+                                        "block flex cursor-pointer font-serif uppercase text-lg mx-4",
+                                      class: {
+                                        "mb-4": !_vm.sectionOpen(section.title)
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.toggleSection({
+                                            section: section.title
+                                          })
+                                        }
                                       }
+                                    },
+                                    [
+                                      _c("chevron", {
+                                        staticClass: "mr-2",
+                                        attrs: {
+                                          open: _vm.sectionOpen(section.title)
+                                        }
+                                      }),
+                                      _vm._v(
+                                        "\n                            " +
+                                          _vm._s(section.title) +
+                                          " (" +
+                                          _vm._s(section.cards.count()) +
+                                          ")\n                        "
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("grouped-cards", {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.sectionOpen(section.title),
+                                        expression: "sectionOpen(section.title)"
+                                      }
+                                    ],
+                                    key: _vm.kebabCase(section.title),
+                                    attrs: {
+                                      cards: section.cards,
+                                      "group-id": _vm.kebabCase(section.title),
+                                      action:
+                                        _vm.mode === "search"
+                                          ? _vm.removeFromDeck
+                                          : false
                                     }
-                                  },
-                                  [
-                                    _c("chevron", {
-                                      staticClass: "mr-2",
-                                      attrs: { open: _vm.sections.other }
-                                    }),
-                                    _vm._v(
-                                      "\n                            Other (" +
-                                        _vm._s(_vm.other.count()) +
-                                        ")\n                        "
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("grouped-cards", {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.sections.other,
-                                      expression: "sections.other"
-                                    }
-                                  ],
-                                  attrs: {
-                                    cards: _vm.other,
-                                    "group-id": "other",
-                                    action:
-                                      _vm.mode === "search"
-                                        ? _vm.removeFromDeck
-                                        : false
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      ])
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        }),
+                        0
+                      )
                     ])
                   : _c(
                       "div",
@@ -3900,9 +3889,10 @@ var render = function() {
                         attrs: {
                           grouping: _vm.grouping,
                           options: {
-                            name: "Name",
+                            default: "Default",
                             pitch: "Pitch",
-                            cost: "Cost"
+                            cost: "Cost",
+                            type: "Type"
                           }
                         },
                         on: { selected: _vm.updateGrouping }
@@ -5389,6 +5379,7 @@ var render = function() {
           "div",
           {
             directives: [{ name: "masonry-tile", rawName: "v-masonry-tile" }],
+            staticClass: "rounded-card",
             class: _vm.cardClasses
           },
           [

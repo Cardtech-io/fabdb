@@ -631,7 +631,10 @@ var render = function() {
                         _vm._l(_vm.decks, function(deck, key) {
                           return _c(
                             "tr",
-                            { staticClass: "odd:bg-gray-100 hover:bg-white" },
+                            {
+                              staticClass:
+                                "odd:bg-gray-100 group hover:bg-gray-600 hover:text-white"
+                            },
                             [
                               _c(
                                 "td",
@@ -655,8 +658,7 @@ var render = function() {
                                       _c(
                                         "router-link",
                                         {
-                                          staticClass:
-                                            "block px-4 py-2 link-alternate",
+                                          staticClass: "block px-4 py-2",
                                           attrs: {
                                             to: {
                                               name: "decks.build",
@@ -701,7 +703,7 @@ var render = function() {
                                     ? _c(
                                         "router-link",
                                         {
-                                          staticClass: "block link-alternate",
+                                          staticClass: "block",
                                           attrs: {
                                             to: {
                                               name: "decks.build",

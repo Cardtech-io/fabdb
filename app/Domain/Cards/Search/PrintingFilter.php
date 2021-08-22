@@ -18,8 +18,14 @@ class PrintingFilter implements SearchFilter
         $query->join('printings', function ($join) use ($input) {
             $join->on('printings.card_id', 'cards.id');
 
-            if (isset($input['set']) && $input['set'] != 'all') {
-                $join->where('printings.sku', 'LIKE', $input['set'].'%');
+            if (isset($input['set'])) {
+                $sets = is_array($input['set']) ? $input['set'] : explode(',', $input['set']);
+
+                $join->where(function ($query) use ($sets) {
+                    foreach ($sets as $set) {
+                        $query->orWhere('printings.sku', 'LIKE', $set.'%');
+                    }
+                });
             }
         });
     }

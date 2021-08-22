@@ -5,7 +5,7 @@
                 <h1 class="text-white font-serif uppercase text-2xl">Select Player {{ players.length + 1 }}</h1>
                 <button class="button-primary ml-auto py-3 px-4 rounded" v-if="players.length === 1" @click="skip()">Skip</button>
             </div>
-            <hero-selector @hero-selected="newPlayer" class="text-gray-500 shadow-lg"></hero-selector>
+            <hero-selector @hero-selected="newPlayer" class="text-gray-300 shadow-lg"></hero-selector>
         </div>
         <div v-else class="w-full flex flex-col h-full">
             <div class="h-full flex flex-col items-center">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    import Card from "../CardDatabase/Card";
     import HeroSelector from "../Components/HeroSelector";
     import moment from 'moment';
     import Player from "./Player";
@@ -67,7 +68,7 @@
                     life: hero.stats.life,
                     resource: 0,
                     first: !this.players.length,
-                    hero,
+                    hero: new Card(hero),
                 };
 
                 this.players.push(player);

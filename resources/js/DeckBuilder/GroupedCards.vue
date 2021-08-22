@@ -1,6 +1,6 @@
 <template>
     <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-2 mx-2" transition-duration="0.3s">
-        <div v-for="grouped in groupedCards" v-masonry-tile :class="cardClasses">
+        <div v-for="grouped in groupedCards" v-masonry-tile class="rounded-card" :class="cardClasses">
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
@@ -31,47 +31,27 @@
             ...mapState('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
             ...mapGetters('session', ['user']),
 
-            cardClasses: function() {
-                return [
-                    this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth,
-                    'rounded-card'
-                ];
+            cardClasses() {
+                return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth
             },
 
-            cardWidth: function() {
+            cardWidth() {
                 let widths = [3, 4, 5, 6, 7, 8];
 
                 return widths[this.zoom];
             },
 
-            groupedCards: function() {
-                if (this.grouping === 'name') {
-                    return this.cards.group('name');
-                }
-
-                let stat = this.grouping === 'cost' ? 'cost' : 'resource';
-
-                return this.cards.filter(card => {
-                    return card.stats[stat] !== ''}
-                ).group(card => {
-                    return card.stats[stat];
-                });
+            groupedCards() {
+                return this.cards.group('name');
             },
 
-            offset: function() {
+            offset() {
                 return this.user.view === 'borderless' ? 10 : 12;
             },
 
-            pad: function() {
+            pad() {
                 return this.user.view === 'borderless' ? 17 : 18;
-            },
-
-            rounded: function() {
-                let fsRounded = ['rounded-xl', 'rounded-lg', 'rounded-lg', 'rounded'];
-                let nsRounded = ['rounded-lg', 'rounded-lg', 'rounded', 'rounded'];
-
-                return this.fullScreen ? fsRounded[this.zoom] : nsRounded[this.zoom];
-            },
+            }
         },
 
         methods: {
@@ -110,14 +90,7 @@
             },
 
             zoom() {
-                this.redraw(this.groupId);
-            },
-
-            sections: {
-                handler() {
-                    this.redraw(this.groupId);
-                },
-                deep: true
+                this.redraw();
             }
         }
     };

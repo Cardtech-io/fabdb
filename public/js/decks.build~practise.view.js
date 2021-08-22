@@ -182,7 +182,7 @@ var render = function() {
       },
       [
         _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v(_vm._s(_vm.options[_vm.grouping] || "Grouping"))
+          _vm._v("Grouping")
         ]),
         _vm._v(" "),
         _c(
@@ -223,15 +223,18 @@ var render = function() {
             staticClass:
               "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
           },
-          _vm._l(_vm.options, function(text, grouping) {
+          _vm._l(_vm.options, function(text, option) {
             return _c(
               "button",
               {
-                staticClass:
-                  "w-full text-base text-left px-4 py-1 hover:bg-blue-400 hover:text-white uppercase",
+                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                class:
+                  option === _vm.grouping
+                    ? "bg-blue-400 text-white"
+                    : "hover:bg-blue-400 hover:text-white",
                 on: {
                   click: function($event) {
-                    return _vm.select(grouping)
+                    return _vm.select(option)
                   }
                 }
               },
@@ -763,7 +766,7 @@ var methods = {
     var _this = this;
 
     setTimeout(function () {
-      _this.$redrawVueMasonry();
+      _this.$redrawVueMasonry(id);
     }, 10);
   }
 };

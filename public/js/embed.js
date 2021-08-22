@@ -61599,12 +61599,20 @@ function controlMaxZoom(state) {
     cards: [],
     filters: [],
     keywords: '',
-    grouping: 'name',
+    grouping: 'default',
     sections: {
-      hero: true,
-      equipment: true,
-      loadout: true,
-      other: true
+      'Attack actions': true,
+      'Attack reactions': true,
+      'Defense reactions': true,
+      'Equipment': true,
+      'Hero': true,
+      'Instants': true,
+      'Items': true,
+      'Loadout': true,
+      'Miscellaneous': true,
+      'Non-Attack actions': true,
+      'Other': true,
+      'Weapons': true
     },
     sideboard: [],
     fullScreen: false,
@@ -61630,6 +61638,11 @@ function controlMaxZoom(state) {
     },
     requiresSideboard: function requiresSideboard(state) {
       return state.deck.format !== 'blitz';
+    },
+    sectionOpen: function sectionOpen(state) {
+      return function (section) {
+        return state.sections[section] === undefined || state.sections[section];
+      };
     }
   },
   mutations: {
@@ -61700,8 +61713,9 @@ function controlMaxZoom(state) {
       state.mode = mode;
     },
     toggleSection: function toggleSection(state, _ref10) {
-      var section = _ref10.section;
-      state.sections[section] = !state.sections[section];
+      var section = _ref10.section,
+          status = _ref10.status;
+      state.sections[section] = status;
     },
     zoom: function zoom(state, _ref11) {
       var n = _ref11.n;
@@ -61732,58 +61746,58 @@ function controlMaxZoom(state) {
         collection: state.sideboard
       });
     },
-    toggleSection: function toggleSection(_ref16, _ref17) {
-      var commit = _ref16.commit,
-          state = _ref16.state;
-      var section = _ref17.section;
-      commit('toggleSection', {
-        section: section
+    toggleSection: function toggleSection(context, _ref16) {
+      var section = _ref16.section;
+      var value = context.getters.sectionOpen(section);
+      context.commit('toggleSection', {
+        section: section,
+        status: !value
       });
     },
-    toggleView: function toggleView(_ref18) {
-      var commit = _ref18.commit,
-          state = _ref18.state;
+    toggleView: function toggleView(_ref17) {
+      var commit = _ref17.commit,
+          state = _ref17.state;
       commit('toggleView');
     },
-    removeFromSideBoard: function removeFromSideBoard(_ref19, _ref20) {
-      var commit = _ref19.commit,
-          state = _ref19.state;
-      var card = _ref20.card;
+    removeFromSideBoard: function removeFromSideBoard(_ref18, _ref19) {
+      var commit = _ref18.commit,
+          state = _ref18.state;
+      var card = _ref19.card;
       commit('removeCard', {
         card: card,
         collection: state.sideboard
       });
     },
-    removeCard: function removeCard(_ref21, _ref22) {
-      var commit = _ref21.commit;
-      var card = _ref22.card;
+    removeCard: function removeCard(_ref20, _ref21) {
+      var commit = _ref20.commit;
+      var card = _ref21.card;
       commit('removeCardFromDeck', {
         card: card
       });
     },
-    setCardTotal: function setCardTotal(_ref23, _ref24) {
-      var commit = _ref23.commit;
-      var card = _ref24.card,
-          total = _ref24.total;
+    setCardTotal: function setCardTotal(_ref22, _ref23) {
+      var commit = _ref22.commit;
+      var card = _ref23.card,
+          total = _ref23.total;
       commit('setCardTotal', {
         card: card,
         total: total
       });
     },
-    setDeck: function setDeck(context, _ref25) {
-      var deck = _ref25.deck;
+    setDeck: function setDeck(context, _ref24) {
+      var deck = _ref24.deck;
       context.commit('setDeck', {
         deck: deck
       });
     },
-    setGrouping: function setGrouping(context, _ref26) {
-      var grouping = _ref26.grouping;
+    setGrouping: function setGrouping(context, _ref25) {
+      var grouping = _ref25.grouping;
       context.commit('setGrouping', {
         grouping: grouping
       });
     },
-    setMode: function setMode(context, _ref27) {
-      var mode = _ref27.mode;
+    setMode: function setMode(context, _ref26) {
+      var mode = _ref26.mode;
       context.commit('setMode', {
         mode: mode
       });
@@ -61791,15 +61805,15 @@ function controlMaxZoom(state) {
     clearFilters: function clearFilters(context) {
       context.commit('clearFilters');
     },
-    toggleFilter: function toggleFilter(context, _ref28) {
-      var filter = _ref28.filter;
+    toggleFilter: function toggleFilter(context, _ref27) {
+      var filter = _ref27.filter;
       context.commit('toggleFilter', {
         filter: filter
       });
     },
-    toggleFullScreen: function toggleFullScreen(_ref29) {
-      var commit = _ref29.commit,
-          state = _ref29.state;
+    toggleFullScreen: function toggleFullScreen(_ref28) {
+      var commit = _ref28.commit,
+          state = _ref28.state;
       commit('setFullScreen', {
         fullScreen: !state.fullScreen
       });
@@ -61814,8 +61828,8 @@ function controlMaxZoom(state) {
         n: 1
       });
     },
-    setZoom: function setZoom(context, _ref30) {
-      var n = _ref30.n;
+    setZoom: function setZoom(context, _ref29) {
+      var n = _ref29.n;
       context.commit('zoom', {
         n: n
       });
