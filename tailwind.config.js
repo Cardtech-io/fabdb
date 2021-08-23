@@ -8,6 +8,21 @@ module.exports = {
             './resources/js/**/*.vue',
             './resources/js/**/*.js',
             './resources/views/**/*.blade.php'
+        ],
+        // Generated class names that we have to protect for production
+        safelist: [
+            'sm:w-1/3',
+            'sm:w-1/4',
+            'sm:w-1/5',
+            'sm:w-1/6',
+            'sm:w-1/7',
+            'sm:w-1/8',
+            'md:w-1/3',
+            'md:w-1/4',
+            'md:w-1/5',
+            'md:w-1/6',
+            'md:w-1/7',
+            'md:w-1/8',
         ]
     },
     theme: {
