@@ -225,14 +225,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_Chevron__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Buttons/Chevron */ "./resources/js/DeckBuilder/Buttons/Chevron.vue");
 /* harmony import */ var _DeckCurves__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeckCurves */ "./resources/js/DeckBuilder/DeckCurves.js");
 /* harmony import */ var _Metrics_General__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Metrics/General */ "./resources/js/DeckBuilder/Metrics/General.vue");
-/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
-/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
-/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-/* harmony import */ var _MasonryContainer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MasonryContainer */ "./resources/js/DeckBuilder/MasonryContainer.vue");
-/* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-/* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _Groupable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Groupable */ "./resources/js/DeckBuilder/Groupable.js");
+/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
+/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _MasonryContainer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./MasonryContainer */ "./resources/js/DeckBuilder/MasonryContainer.vue");
+/* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -331,9 +332,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_11__["default"], _Redrawable__WEBPACK_IMPORTED_MODULE_15__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_16__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_14__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Groupable__WEBPACK_IMPORTED_MODULE_9__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_12__["default"], _Redrawable__WEBPACK_IMPORTED_MODULE_16__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_15__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_3__["default"],
     CardItemSection: _CardItemSection__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -341,96 +343,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DeckCurves: _DeckCurves__WEBPACK_IMPORTED_MODULE_7__["default"],
     FormButton: _Components_Form_Button_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     General: _Metrics_General__WEBPACK_IMPORTED_MODULE_8__["default"],
-    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_10__["default"],
-    MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_12__["default"],
-    Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_13__["default"]
+    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_11__["default"],
+    MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_13__["default"],
+    Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen']), {
-    cards: function cards() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](this.collection).sort();
-    },
-    loadout: function loadout() {
-      return this.cards.weapons().concat(this.cards.equipment());
-    },
     other: function other() {
       return this.cards.other();
-    },
-    availableSections: function availableSections() {
-      switch (this.grouping) {
-        case 'default':
-          return this.view === 'gallery' ? [{
-            title: 'Loadout',
-            cards: this.loadout
-          }, {
-            title: 'Other',
-            cards: this.other
-          }] : [{
-            title: 'Hero',
-            cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([this.cards.hero()])
-          }, {
-            title: 'Weapons',
-            cards: this.cards.weapons()
-          }, {
-            title: 'Equipment',
-            cards: this.cards.equipment()
-          }, {
-            title: 'Other',
-            cards: this.other
-          }];
-
-        case 'cost':
-          var cards = this.cards.group(function (card) {
-            return card.stats.cost;
-          });
-          return cards.cards.map(function (group) {
-            return {
-              title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
-              cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](group)
-            };
-          });
-
-        case 'pitch':
-          var cards = this.cards.group(function (card) {
-            return card.stats.resource;
-          });
-          return cards.cards.map(function (group) {
-            return {
-              title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
-              cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"](group)
-            };
-          });
-
-        case 'type':
-          return [{
-            title: 'Hero',
-            cards: new _Cards__WEBPACK_IMPORTED_MODULE_5__["default"]([this.cards.hero()])
-          }, {
-            title: 'Weapons',
-            cards: this.cards.weapons()
-          }, {
-            title: 'Equipment',
-            cards: this.cards.equipment()
-          }, {
-            title: 'Attack actions',
-            cards: this.cards.attackActions()
-          }, {
-            title: 'Attack reactions',
-            cards: this.cards.attackReactions()
-          }, {
-            title: 'Defense reactions',
-            cards: this.cards.defenseReactions()
-          }, {
-            title: 'Instants',
-            cards: this.cards.instants()
-          }, {
-            title: 'Items',
-            cards: this.cards.items()
-          }, {
-            title: 'Miscellaneous',
-            cards: this.cards.miscellaneous()
-          }];
-      }
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']), {
@@ -778,12 +698,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['action', 'card'],
+  props: ['action', 'card', 'applySoftLimit'],
   components: {
     CardButtons: _CardButtons__WEBPACK_IMPORTED_MODULE_1__["default"],
     Colour: _Colour__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'mode']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'mode']), {
     total: function total() {
       var _this = this;
 
@@ -1580,13 +1500,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_Chevron__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Buttons/Chevron */ "./resources/js/DeckBuilder/Buttons/Chevron.vue");
 /* harmony import */ var _DeckCurves__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeckCurves */ "./resources/js/DeckBuilder/DeckCurves.js");
 /* harmony import */ var _Metrics_General__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Metrics/General */ "./resources/js/DeckBuilder/Metrics/General.vue");
-/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
-/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
-/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-/* harmony import */ var _MasonryContainer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./MasonryContainer */ "./resources/js/DeckBuilder/MasonryContainer.vue");
-/* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
-/* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Groupable__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Groupable */ "./resources/js/DeckBuilder/Groupable.js");
+/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
+/* harmony import */ var _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/HeroSelector */ "./resources/js/Components/HeroSelector.vue");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _MasonryContainer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./MasonryContainer */ "./resources/js/DeckBuilder/MasonryContainer.vue");
+/* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
+/* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1687,9 +1608,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_12__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_16__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Groupable__WEBPACK_IMPORTED_MODULE_10__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_13__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_17__["default"]],
   components: {
     CardContainer: _CardContainer__WEBPACK_IMPORTED_MODULE_3__["default"],
     CardImage: _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -1698,91 +1620,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DeckCurves: _DeckCurves__WEBPACK_IMPORTED_MODULE_8__["default"],
     FormButton: _Components_Form_Button_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     General: _Metrics_General__WEBPACK_IMPORTED_MODULE_9__["default"],
-    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_11__["default"],
-    MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_13__["default"],
-    NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_14__["default"],
-    Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_15__["default"]
+    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    HeroSelector: _Components_HeroSelector__WEBPACK_IMPORTED_MODULE_12__["default"],
+    MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_14__["default"],
+    NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_15__["default"],
+    Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_16__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'fullScreen', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen']), {
-    cards: function cards() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_6__["default"](this.collection).sort();
-    },
     other: function other() {
       return this.cards.other();
-    },
-    availableSections: function availableSections() {
-      switch (this.grouping) {
-        case 'default':
-          return this.view === 'gallery' ? [{
-            title: 'All cards',
-            cards: this.cards
-          }] : [{
-            title: 'Hero',
-            cards: new _Cards__WEBPACK_IMPORTED_MODULE_6__["default"]([this.cards.hero()])
-          }, {
-            title: 'Weapons',
-            cards: this.cards.weapons()
-          }, {
-            title: 'Equipment',
-            cards: this.cards.equipment()
-          }, {
-            title: 'Other',
-            cards: this.other
-          }];
-
-        case 'cost':
-          var cards = this.cards.group(function (card) {
-            return card.stats.cost;
-          });
-          return cards.cards.map(function (group) {
-            return {
-              title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
-              cards: new _Cards__WEBPACK_IMPORTED_MODULE_6__["default"](group)
-            };
-          });
-
-        case 'pitch':
-          var cards = this.cards.group(function (card) {
-            return card.stats.resource;
-          });
-          return cards.cards.map(function (group) {
-            return {
-              title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
-              cards: new _Cards__WEBPACK_IMPORTED_MODULE_6__["default"](group)
-            };
-          });
-
-        case 'type':
-          return [{
-            title: 'Hero',
-            cards: new _Cards__WEBPACK_IMPORTED_MODULE_6__["default"]([this.cards.hero()])
-          }, {
-            title: 'Weapons',
-            cards: this.cards.weapons()
-          }, {
-            title: 'Equipment',
-            cards: this.cards.equipment()
-          }, {
-            title: 'Attack actions',
-            cards: this.cards.attackActions()
-          }, {
-            title: 'Attack reactions',
-            cards: this.cards.attackReactions()
-          }, {
-            title: 'Defense reactions',
-            cards: this.cards.defenseReactions()
-          }, {
-            title: 'Instants',
-            cards: this.cards.instants()
-          }, {
-            title: 'Items',
-            cards: this.cards.items()
-          }, {
-            title: 'Miscellaneous',
-            cards: this.cards.miscellaneous()
-          }];
-      }
     }
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']), {
@@ -3170,7 +3016,7 @@ var render = function() {
                                   _c("deck-curves", {
                                     staticClass: "mb-4 h-140 sm:h-160",
                                     attrs: {
-                                      cards: _vm.other.withCost(),
+                                      cards: _vm.cards.other().withCost(),
                                       stat: "cost",
                                       strategy: "length"
                                     }
@@ -3189,7 +3035,7 @@ var render = function() {
                                   _c("deck-curves", {
                                     staticClass: "mb-4 h-140 sm:h-160",
                                     attrs: {
-                                      cards: _vm.other.withResource(),
+                                      cards: _vm.cards.other().withResource(),
                                       stat: "resource",
                                       strategy: "length"
                                     }
@@ -3356,7 +3202,7 @@ var render = function() {
                           _c("deck-curves", {
                             staticClass: "mb-4 h-140 sm:h-160",
                             attrs: {
-                              cards: _vm.other.withCost(),
+                              cards: _vm.cards.other().withCost(),
                               stat: "cost",
                               strategy: "length"
                             }
@@ -3375,7 +3221,7 @@ var render = function() {
                           _c("deck-curves", {
                             staticClass: "mb-4 h-140 sm:h-160",
                             attrs: {
-                              cards: _vm.other.withResource(),
+                              cards: _vm.cards.other().withResource(),
                               stat: "resource",
                               strategy: "length"
                             }
@@ -3738,7 +3584,14 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-full flex items-stretch mb-1px rounded-lg overflow-hidden"
+      staticClass:
+        "w-full flex items-stretch mb-1px rounded-lg overflow-hidden",
+      class: {
+        "opacity-50 text-black":
+          _vm.applySoftLimit &&
+          (!_vm.card.totalOwned || _vm.card.totalOwned < _vm.total) &&
+          _vm.deck.limitToCollection === 2
+      }
     },
     [
       _vm.mode !== "all"
@@ -3830,7 +3683,7 @@ var render = function() {
             _vm._l(_vm.cards, function(card) {
               return _c("card-item", {
                 key: card.identifier,
-                attrs: { card: card }
+                attrs: { card: card, "apply-soft-limit": true }
               })
             })
           ],
@@ -3847,7 +3700,9 @@ var render = function() {
               _vm._v(_vm._s(_vm.title))
             ]),
             _vm._v(" "),
-            _c("card-item", { attrs: { card: _vm.card } })
+            _c("card-item", {
+              attrs: { card: _vm.card, "apply-soft-limit": true }
+            })
           ],
           1
         )
@@ -5159,7 +5014,7 @@ var render = function() {
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
                               attrs: {
-                                cards: _vm.other.withCost(),
+                                cards: _vm.cards.other().withCost(),
                                 stat: "cost",
                                 strategy: "length"
                               }
@@ -5178,7 +5033,7 @@ var render = function() {
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
                               attrs: {
-                                cards: _vm.other.withResource(),
+                                cards: _vm.cards.other().withResource(),
                                 stat: "resource",
                                 strategy: "length"
                               }
@@ -5280,6 +5135,12 @@ var render = function() {
                                     { staticClass: "my-4 mx-2" },
                                     [
                                       _c("card-image", {
+                                        class: {
+                                          "shadow-error":
+                                            (!card.totalOwned ||
+                                              card.totalOwned < card.total) &&
+                                            _vm.deck.limitToCollection === 2
+                                        },
                                         attrs: {
                                           card: card,
                                           width: 300,
@@ -5347,7 +5208,7 @@ var render = function() {
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
                       attrs: {
-                        cards: _vm.other.withCost(),
+                        cards: _vm.cards.other().withCost(),
                         stat: "cost",
                         strategy: "length"
                       }
@@ -5365,7 +5226,7 @@ var render = function() {
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
                       attrs: {
-                        cards: _vm.other.withResource(),
+                        cards: _vm.cards.other().withResource(),
                         stat: "resource",
                         strategy: "length"
                       }
@@ -7891,6 +7752,106 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditDeck_vue_vue_type_template_id_13e52a4e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/Groupable.js":
+/*!***********************************************!*\
+  !*** ./resources/js/DeckBuilder/Groupable.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cards */ "./resources/js/DeckBuilder/Cards.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {
+    cards: function cards() {
+      return new _Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.collection).sort();
+    },
+    loadout: function loadout() {
+      return this.cards.weapons().concat(this.cards.equipment());
+    },
+    availableSections: function availableSections() {
+      switch (this.grouping) {
+        case 'default':
+          return this.view === 'gallery' ? [{
+            title: 'Loadout',
+            cards: this.loadout
+          }, {
+            title: 'Other',
+            cards: this.other
+          }] : [{
+            title: 'Hero',
+            cards: new _Cards__WEBPACK_IMPORTED_MODULE_0__["default"]([this.cards.hero()])
+          }, {
+            title: 'Weapons',
+            cards: this.cards.weapons()
+          }, {
+            title: 'Equipment',
+            cards: this.cards.equipment()
+          }, {
+            title: 'Other',
+            cards: this.cards.other()
+          }];
+
+        case 'cost':
+          var cards = this.cards.group(function (card) {
+            return card.stats.cost;
+          });
+          return cards.cards.map(function (group) {
+            return {
+              title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
+              cards: new _Cards__WEBPACK_IMPORTED_MODULE_0__["default"](group)
+            };
+          });
+
+        case 'pitch':
+          var cards = this.cards.group(function (card) {
+            return card.stats.resource;
+          });
+          return cards.cards.map(function (group) {
+            return {
+              title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
+              cards: new _Cards__WEBPACK_IMPORTED_MODULE_0__["default"](group)
+            };
+          });
+
+        case 'type':
+          return [{
+            title: 'Hero',
+            cards: new _Cards__WEBPACK_IMPORTED_MODULE_0__["default"]([this.cards.hero()])
+          }, {
+            title: 'Weapons',
+            cards: this.cards.weapons()
+          }, {
+            title: 'Equipment',
+            cards: this.cards.equipment()
+          }, {
+            title: 'Attack actions',
+            cards: this.cards.attackActions()
+          }, {
+            title: 'Attack reactions',
+            cards: this.cards.attackReactions()
+          }, {
+            title: 'Defense reactions',
+            cards: this.cards.defenseReactions()
+          }, {
+            title: 'Instants',
+            cards: this.cards.instants()
+          }, {
+            title: 'Items',
+            cards: this.cards.items()
+          }, {
+            title: 'Miscellaneous',
+            cards: this.cards.miscellaneous()
+          }];
+      }
+    }
+  }
+});
 
 /***/ }),
 

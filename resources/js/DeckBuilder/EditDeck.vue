@@ -8,10 +8,10 @@
                     </div>
                     <div class="w-1/2 md:w-auto float-left md:float-none">
                         <div class="bg-white rounded-lg pl-2 pr-4 pt-4">
-                            <deck-curves :cards="other.withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                         </div>
                         <div class="bg-white rounded-lg pl-2 pr-4 pt-4 mt-4">
-                            <deck-curves :cards="other.withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                         </div>
                     </div>
                     <div class="hidden md:block">
@@ -36,7 +36,7 @@
                         <div class="flow-root mt-4 md:m-0">
                             <card-container v-for="card in section.cards" :key="card.identifier" class="transition-all duration-300 float-left">
                                 <div class="my-4 mx-2">
-                                    <card-image :card="card" :width="300" :clickHandler="removeFromDeck"></card-image>
+                                    <card-image :card="card" :width="300" :clickHandler="removeFromDeck" :class="{'shadow-error': (!card.totalOwned || card.totalOwned < card.total) && deck.limitToCollection === 2}"></card-image>
                                     <numbered-card-buttons :card="card" class="w-full mx-auto rounded sm:rounded-lg mt-1"></numbered-card-buttons>
                                 </div>
                             </card-container>
@@ -57,10 +57,10 @@
                 <card-image :card="cards.hero()" class="mb-4"></card-image>
                 <div>
                     <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
-                        <deck-curves :cards="other.withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                     </div>
                     <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
-                        <deck-curves :cards="other.withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="length" class="mb-4 h-140 sm:h-160"></deck-curves>
                     </div>
                 </div>
             </div>
@@ -87,6 +87,7 @@
     import Chevron from "./Buttons/Chevron";
     import DeckCurves from "./DeckCurves";
     import General from "./Metrics/General";
+    import Groupable from "./Groupable";
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "../Components/HeroSelector";
     import ManagesDecks from './ManagesDecks';
@@ -97,7 +98,7 @@
 
     export default {
         props: ['collection'],
-        mixins: [Cardable, ManagesDecks, Viewable],
+        mixins: [Cardable, Groupable, ManagesDecks, Viewable],
 
         components: {
             CardContainer,
@@ -119,52 +120,8 @@
             ...mapGetters('session', ['user']),
             ...mapGetters('deck', ['sectionOpen']),
 
-            cards() {
-                return (new Cards(this.collection)).sort();
-            },
-
             other() {
                 return this.cards.other();
-            },
-
-            availableSections() {
-                switch (this.grouping) {
-                    case 'default':
-                        return this.view === 'gallery' ? [
-                            {title: 'All cards', cards: this.cards},
-                        ] : [
-                            {title: 'Hero', cards: new Cards([this.cards.hero()])},
-                            {title: 'Weapons', cards: this.cards.weapons()},
-                            {title: 'Equipment', cards: this.cards.equipment()},
-                            {title: 'Other', cards: this.other},
-                        ];
-                    case 'cost':
-                        var cards = this.cards.group(card => card.stats.cost);
-
-                        return cards.cards.map(group => ({
-                            title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
-                            cards: new Cards(group)
-                        }));
-                    case 'pitch':
-                        var cards = this.cards.group(card => card.stats.resource);
-
-                        return cards.cards.map(group => ({
-                            title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
-                            cards: new Cards(group)
-                        }));
-                    case 'type':
-                        return [
-                            {title: 'Hero', cards: new Cards([this.cards.hero()])},
-                            {title: 'Weapons', cards: this.cards.weapons()},
-                            {title: 'Equipment', cards: this.cards.equipment()},
-                            {title: 'Attack actions', cards: this.cards.attackActions()},
-                            {title: 'Attack reactions', cards: this.cards.attackReactions()},
-                            {title: 'Defense reactions', cards: this.cards.defenseReactions()},
-                            {title: 'Instants', cards: this.cards.instants()},
-                            {title: 'Items', cards: this.cards.items()},
-                            {title: 'Miscellaneous', cards: this.cards.miscellaneous()},
-                        ];
-                }
             }
         },
 
