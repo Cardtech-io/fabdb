@@ -62,7 +62,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
                 $user = auth()->user();
 
-                $query->join('printings', 'printings.card_id', '=', 'cards.id');
                 $query->leftJoin('sideboard', 'sideboard.deck_card_id', 'deck_cards.id');
 
                 $query->groupBy('cards.id');

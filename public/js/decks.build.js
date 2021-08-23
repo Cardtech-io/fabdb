@@ -1684,6 +1684,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -5333,18 +5334,21 @@ var render = function() {
                   },
                   [
                     _c("card-image", {
-                      staticClass: "w-full",
-                      class: {
-                        "shadow-error":
-                          (!card.totalOwned || card.totalOwned < i + 1) &&
-                          _vm.deck.limitToCollection === 2
-                      },
+                      staticClass: "z-0",
                       attrs: {
                         card: card,
                         width: 350,
                         clickHandler: _vm.action || false
                       }
                     }),
+                    _vm._v(" "),
+                    (!card.totalOwned || card.totalOwned < i + 1) &&
+                    _vm.deck.limitToCollection === 2
+                      ? _c("div", {
+                          staticClass:
+                            " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25"
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     card.banned ? _c("banned") : _vm._e()
                   ],

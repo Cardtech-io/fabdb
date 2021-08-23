@@ -154,7 +154,7 @@ module.exports = {
             inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
             active: 'inset 0 0 0 2px #68d391',
             highlight: '0 0 0 5px rgba(66,153,225,0.8)',
-            error: '0 0 0 5px rgba(220, 38, 38, 1)',
+            error: '0 0 0 3px rgba(220, 38, 38, 0.8)',
             outline: '0 0 0 5px rgba(66,153,225,0.5)',
             pitched: '0 0 0 5px #4299e1',
             played: '0 0 0 5px #48bb78',
