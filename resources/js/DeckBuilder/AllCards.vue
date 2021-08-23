@@ -35,9 +35,9 @@
                         <div v-for="section in availableSections" v-if="section.cards.count()">
                             <h2 class="block flex cursor-pointer font-serif uppercase text-lg mx-4" @click="toggleSection({ section: section.title })" :class="{ 'mb-4': !sectionOpen(section.title) }">
                                 <chevron :open="sectionOpen(section.title)" class="mr-2"></chevron>
-                                {{ section.title }} ({{section.cards.count()}})
+                                {{ section.title }} ({{section.cards.total()}})
                             </h2>
-                            <grouped-cards :cards="section.cards" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
+                            <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
                         </div>
                     </div>
                 </div>
@@ -61,18 +61,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="sm:flex-1 sm:mr-4">
-                    <card-item-section :card="cards.hero()" title="Hero"></card-item-section>
-                    <card-item-section :cards="cards.weapons()" title="Weapons"></card-item-section>
-                    <card-item-section :cards="cards.equipment()" title="Equipment"></card-item-section>
-                    <card-item-section :cards="cards.instants()" title="Instants"></card-item-section>
-                    <card-item-section :cards="cards.miscellaneous()" title="Miscellaneous"></card-item-section>
-                </div>
-                <div class="sm:flex-1">
-                    <card-item-section :cards="cards.attackActions()" title="Attack actions"></card-item-section>
-                    <card-item-section :cards="cards.attackReactions()" title="Attack reactions"></card-item-section>
-                    <card-item-section :cards="cards.nonAttackActions()" title="'Non-attack' actions"></card-item-section>
-                    <card-item-section :cards="cards.defenseReactions()" title="Defense reactions"></card-item-section>
+                <div class="sm:flex-grow sm:mr-4">
+                    <masonry-container container-id="text-sections" class="sm:flex sm:flex-wrap">
+                        <div v-for="section in availableSections" v-if="section.cards.count()" class="w-full sm:w-1/2 lg:w-1/3 sm:pr-8">
+                            <card-item-section :cards="section.cards" :title="section.title"></card-item-section>
+                        </div>
+                    </masonry-container>
                 </div>
             </div>
         </div>
@@ -93,6 +87,7 @@
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "../Components/HeroSelector";
     import ManagesDecks from './ManagesDecks';
+    import MasonryContainer from "./MasonryContainer";
     import Totals from "./Metrics/Totals";
     import Viewable from './Viewable';
     import Redrawable from "./Redrawable";
@@ -111,6 +106,7 @@
             General,
             GroupedCards,
             HeroSelector,
+            MasonryContainer,
             Totals
         },
 
@@ -119,49 +115,39 @@
             ...mapGetters('session', ['user']),
             ...mapGetters('deck', ['sectionOpen']),
 
-            all() {
-                if (!this.collection.length) {
-                    return new Cards([]);
-                }
-
-                let collection = new Cards(this.collection);
-                let cards = collection.hero() ? new Cards([collection.hero()]) : new Cards([]);
-
-                cards = cards.concat(collection.weapons());
-                cards = cards.concat(collection.equipment());
-                cards = cards.concat(collection.other().all());
-
-                return cards.hydrate();
-            },
-
             cards() {
                 return (new Cards(this.collection)).sort();
             },
 
             loadout() {
-                 return this.all.weapons().concat(this.all.equipment());
+                 return this.cards.weapons().concat(this.cards.equipment());
             },
 
             other() {
-                return this.all.other();
+                return this.cards.other();
             },
 
             availableSections() {
                 switch (this.grouping) {
                     case 'default':
-                        return [
+                        return this.view === 'gallery' ? [
                             {title: 'Loadout', cards: this.loadout},
+                            {title: 'Other', cards: this.other},
+                        ] : [
+                            {title: 'Hero', cards: new Cards([this.cards.hero()])},
+                            {title: 'Weapons', cards: this.cards.weapons()},
+                            {title: 'Equipment', cards: this.cards.equipment()},
                             {title: 'Other', cards: this.other},
                         ];
                     case 'cost':
-                        var cards = this.all.group(card => card.stats.cost);
+                        var cards = this.cards.group(card => card.stats.cost);
 
                         return cards.cards.map(group => ({
                             title: group[0].stats.cost === undefined ? 'No cost' : 'Cost ' + group[0].stats.cost,
                             cards: new Cards(group)
                         }));
                     case 'pitch':
-                        var cards = this.all.group(card => card.stats.resource);
+                        var cards = this.cards.group(card => card.stats.resource);
 
                         return cards.cards.map(group => ({
                             title: group[0].stats.resource === undefined ? 'No pitch' : 'Pitch ' + group[0].stats.resource,
@@ -169,15 +155,15 @@
                         }));
                     case 'type':
                         return [
-                            {title: 'Hero', cards: new Cards([this.all.hero()])},
-                            {title: 'Weapons', cards: this.all.weapons()},
-                            {title: 'Equipment', cards: this.all.equipment()},
-                            {title: 'Attack actions', cards: this.all.attackActions()},
-                            {title: 'Attack reactions', cards: this.all.attackReactions()},
-                            {title: 'Defense reactions', cards: this.all.defenseReactions()},
-                            {title: 'Instants', cards: this.all.instants()},
-                            {title: 'Items', cards: this.all.items()},
-                            {title: 'Miscellaneous', cards: this.all.miscellaneous()},
+                            {title: 'Hero', cards: new Cards([this.cards.hero()])},
+                            {title: 'Weapons', cards: this.cards.weapons()},
+                            {title: 'Equipment', cards: this.cards.equipment()},
+                            {title: 'Attack actions', cards: this.cards.attackActions()},
+                            {title: 'Attack reactions', cards: this.cards.attackReactions()},
+                            {title: 'Defense reactions', cards: this.cards.defenseReactions()},
+                            {title: 'Instants', cards: this.cards.instants()},
+                            {title: 'Items', cards: this.cards.items()},
+                            {title: 'Miscellaneous', cards: this.cards.miscellaneous()},
                         ];
                 }
             }

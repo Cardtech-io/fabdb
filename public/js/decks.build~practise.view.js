@@ -166,7 +166,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500 flex",
+          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
         class: {
           "border-gray-500": _vm.isOpen,
           "bg-white": _vm.isOpen,
@@ -188,7 +188,7 @@ var render = function() {
         _c(
           "svg",
           {
-            staticClass: "inline-block h-6 fill-current",
+            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [
@@ -206,7 +206,7 @@ var render = function() {
     _vm.isOpen
       ? _c("button", {
           staticClass:
-            "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default",
+            "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
           attrs: { type: "button" },
           on: {
             click: function($event) {

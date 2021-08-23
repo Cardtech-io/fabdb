@@ -77,6 +77,7 @@ export default {
         keywords: '',
         grouping: 'default',
         sections: {
+            'All cards': true,
             'Attack actions': true,
             'Attack reactions': true,
             'Defense reactions': true,

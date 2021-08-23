@@ -17,8 +17,8 @@
                                 <deck-totals/>
                             </div>
 
-                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"></grouping-selector>
-                            <mode-selector class="w-full lg:w-auto"></mode-selector>
+                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"></grouping-selector>
+                            <mode-selector class="w-full sm:w-auto"></mode-selector>
 
                             <div class="px-2 lg:px-1 flex">
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
@@ -125,7 +125,7 @@
 
             containers() {
                 if (!this.fullScreen) {
-                    return 'container lg:mx-auto';
+                    return 'container sm:mx-auto';
                 }
             },
 

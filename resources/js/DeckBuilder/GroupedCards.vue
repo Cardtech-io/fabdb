@@ -1,6 +1,6 @@
 <template>
-    <div v-masonry destroy-delay="2000" :containerId="groupId" class="pb-2 mx-2" transition-duration="0.3s">
-        <div v-for="grouped in groupedCards" v-masonry-tile class="rounded-card" :class="cardClasses">
+    <masonry-container class="pb-2 mx-2" :containerId="groupId">
+        <card-container v-for="grouped in groupedCards" v-masonry-tile class="rounded-card" :key="grouped[0].identifier">
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
@@ -8,9 +8,9 @@
                     <banned v-if="card.banned"></banned>
                 </div>
             </div>
-        </div>
-        <slot v-bind:classes="cardClasses"></slot>
-    </div>
+            <slot></slot>
+        </card-container>
+    </masonry-container>
 </template>
 
 <script>
@@ -18,14 +18,16 @@
 
     import Banned from '../CardDatabase/Banned';
     import Cardable from '../CardDatabase/Cardable';
+    import CardContainer from "./CardContainer";
     import CardImage from '../CardDatabase/CardImage.vue';
+    import MasonryContainer from "./MasonryContainer";
     import Redrawable from './Redrawable';
     import Viewable from './Viewable';
 
     export default {
         props: ['action', 'cards', 'groupId', 'width'],
         mixins: [Cardable, Redrawable, Viewable],
-        components: {Banned, CardImage},
+        components: {Banned, CardContainer, CardImage, MasonryContainer},
 
         computed: {
             ...mapState('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']),
@@ -79,18 +81,6 @@
         watch: {
             cards() {
                 this.redraw(this.groupId);
-            },
-
-            fullScreen() {
-                this.redraw(this.groupId);
-            },
-
-            mode() {
-                this.redraw(this.groupId);
-            },
-
-            zoom() {
-                this.redraw();
             }
         }
     };
