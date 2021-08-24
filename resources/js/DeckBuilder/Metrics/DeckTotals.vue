@@ -39,6 +39,7 @@
 
 <script>
     import {mapState} from 'vuex';
+    import Cards from "../Cards";
 
     export default {
         computed: {
@@ -49,11 +50,11 @@
             },
 
             totalCards() {
-                return this.cards.reduce((carry, card) => carry + card.total, 0);
+                return (new Cards(this.cards)).total();
             },
 
             totalSideboard() {
-                return this.sideboard.reduce((carry, card) => carry + card.total, 0);
+                return (new Cards(this.sideboard)).total();
             },
 
             totalMainDeck() {

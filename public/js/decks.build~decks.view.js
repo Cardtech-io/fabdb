@@ -491,6 +491,7 @@ __webpack_require__.r(__webpack_exports__);
         fill: false,
         scales: {
           xAxes: [{
+            barPercentage: 0.6,
             gridLines: {
               display: false
             }

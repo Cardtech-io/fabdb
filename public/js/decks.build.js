@@ -1919,6 +1919,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Cards */ "./resources/js/DeckBuilder/Cards.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1965,20 +1966,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'sideboard']), {
     maxCards: function maxCards() {
       return this.deck.format === 'blitz' ? 53 : 81;
     },
     totalCards: function totalCards() {
-      return this.cards.reduce(function (carry, card) {
-        return carry + card.total;
-      }, 0);
+      return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards).total();
     },
     totalSideboard: function totalSideboard() {
-      return this.sideboard.reduce(function (carry, card) {
-        return carry + card.total;
-      }, 0);
+      return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.sideboard).total();
     },
     totalMainDeck: function totalMainDeck() {
       return this.totalCards - this.totalSideboard;
@@ -3019,7 +3017,7 @@ var render = function() {
                                     attrs: {
                                       cards: _vm.cards.other().withCost(),
                                       stat: "cost",
-                                      strategy: "length"
+                                      strategy: "total"
                                     }
                                   })
                                 ],
@@ -3038,7 +3036,7 @@ var render = function() {
                                     attrs: {
                                       cards: _vm.cards.other().withResource(),
                                       stat: "resource",
-                                      strategy: "length"
+                                      strategy: "total"
                                     }
                                   })
                                 ],
@@ -3205,7 +3203,7 @@ var render = function() {
                             attrs: {
                               cards: _vm.cards.other().withCost(),
                               stat: "cost",
-                              strategy: "length"
+                              strategy: "total"
                             }
                           })
                         ],
@@ -3224,7 +3222,7 @@ var render = function() {
                             attrs: {
                               cards: _vm.cards.other().withResource(),
                               stat: "resource",
-                              strategy: "length"
+                              strategy: "total"
                             }
                           })
                         ],

@@ -69,6 +69,7 @@ export default {
                 fill: false,
                 scales: {
                     xAxes: [{
+                        barPercentage: 0.6,
                         gridLines: {
                             display: false
                         },
