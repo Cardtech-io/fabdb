@@ -44,6 +44,7 @@ export default {
                         {title: 'Attack actions', cards: this.cards.attackActions()},
                         {title: 'Attack reactions', cards: this.cards.attackReactions()},
                         {title: 'Defense reactions', cards: this.cards.defenseReactions()},
+                        {title: 'Non-attack actions', cards: this.cards.nonAttackActions()},
                         {title: 'Instants', cards: this.cards.instants()},
                         {title: 'Items', cards: this.cards.items()},
                         {title: 'Miscellaneous', cards: this.cards.miscellaneous()},

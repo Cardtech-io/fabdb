@@ -7841,6 +7841,9 @@ __webpack_require__.r(__webpack_exports__);
             title: 'Defense reactions',
             cards: this.cards.defenseReactions()
           }, {
+            title: 'Non-attack actions',
+            cards: this.cards.nonAttackActions()
+          }, {
             title: 'Instants',
             cards: this.cards.instants()
           }, {
