@@ -5341,7 +5341,8 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     (!card.totalOwned || card.totalOwned < i + 1) &&
-                    _vm.deck.limitToCollection === 2
+                    _vm.deck.limitToCollection === 2 &&
+                    _vm.mode !== "sideboard"
                       ? _c("div", {
                           staticClass:
                             " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25"
