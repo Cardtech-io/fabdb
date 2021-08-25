@@ -34,7 +34,7 @@ function remove(card, cards, bin) {
         for (let i in cards) {
             let match = cards[i];
 
-            if (match.identifier == card.identifier) {
+            if (match.identifier === card.identifier) {
                 key = i;
                 break;
             }

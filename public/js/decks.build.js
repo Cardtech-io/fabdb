@@ -310,11 +310,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -1005,19 +1000,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']), {
     setHero: function setHero(hero, type) {
-      var _this = this;
-
-      this.addRemote(hero, function (response) {
-        _this.addCard({
-          hero: hero
-        });
-
-        _this.setMode({
-          mode: 'search'
-        });
-
-        _this.deck.format = type.toLowerCase();
+      this.addCard({
+        card: hero
       });
+      this.setMode({
+        mode: 'search'
+      });
+      this.deck.format = type.toLowerCase();
+      this.addRemote(hero);
     },
     scrollTop: function scrollTop() {
       this.$refs.searchResults.scrollTop = 0;
@@ -1047,13 +1037,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.swipeModes.indexOf(this.mode);
     }
   }),
-  created: function created() {
-    var _this2 = this;
-
-    this.$eventHub.$on('card-selected', function () {
-      _this2.name = '';
-    });
-  },
   "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_15__["default"])(function (to, callback) {
     axios.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
@@ -2960,314 +2943,281 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pb-24 text-base" }, [
-    !_vm.cards.hero()
-      ? _c(
-          "div",
-          [
-            _c("hero-selector", {
-              attrs: { deck: _vm.deck },
-              on: { "hero-selected": _vm.addToDeck }
-            })
-          ],
-          1
-        )
-      : _c("div", [
-          _vm.view === "gallery"
-            ? _c("div", [
-                _vm.user.subscription
-                  ? _c("div", { staticClass: "md:flex m-4" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "md:mr-4 md:w-auto md:max-w-250 flow-root"
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none"
-                            },
-                            [
-                              _c("card-image", {
-                                staticClass: "mb-4",
-                                attrs: { card: _vm.cards.hero() }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "w-1/2 md:w-auto float-left md:float-none"
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "bg-white rounded-lg pl-2 pr-4 pt-4"
-                                },
-                                [
-                                  _c("deck-curves", {
-                                    staticClass: "mb-4 h-140 sm:h-160",
-                                    attrs: {
-                                      cards: _vm.cards.other().withCost(),
-                                      stat: "cost",
-                                      strategy: "total"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
-                                },
-                                [
-                                  _c("deck-curves", {
-                                    staticClass: "mb-4 h-140 sm:h-160",
-                                    attrs: {
-                                      cards: _vm.cards.other().withResource(),
-                                      stat: "resource",
-                                      strategy: "total"
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "hidden md:block" }, [
-                            _c(
-                              "div",
-                              { staticClass: "mx-2 my-4" },
-                              [
-                                _c(
-                                  "h3",
-                                  {
-                                    staticClass: "font-serif uppercase text-lg"
-                                  },
-                                  [_vm._v("Totals")]
-                                ),
-                                _vm._v(" "),
-                                _c("totals", { staticClass: "mt-2" })
-                              ],
-                              1
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "hidden md:block" }, [
-                            _c(
-                              "div",
-                              { staticClass: "mx-2" },
-                              [
-                                _c(
-                                  "h3",
-                                  {
-                                    staticClass: "font-serif uppercase text-lg"
-                                  },
-                                  [_vm._v("General")]
-                                ),
-                                _vm._v(" "),
-                                _c("general", { staticClass: "mt-2" })
-                              ],
-                              1
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "flex-1" },
-                        _vm._l(_vm.availableSections, function(section) {
-                          return section.cards.count()
-                            ? _c(
-                                "div",
-                                [
-                                  _c(
-                                    "h2",
-                                    {
-                                      staticClass:
-                                        "block flex cursor-pointer font-serif uppercase text-lg mx-4",
-                                      class: {
-                                        "mb-4": !_vm.sectionOpen(section.title)
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.toggleSection({
-                                            section: section.title
-                                          })
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("chevron", {
-                                        staticClass: "mr-2",
-                                        attrs: {
-                                          open: _vm.sectionOpen(section.title)
-                                        }
-                                      }),
-                                      _vm._v(
-                                        "\n                            " +
-                                          _vm._s(section.title) +
-                                          " (" +
-                                          _vm._s(section.cards.total()) +
-                                          ")\n                        "
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c("grouped-cards", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: _vm.sectionOpen(section.title),
-                                        expression: "sectionOpen(section.title)"
-                                      }
-                                    ],
-                                    key: _vm.kebabCase(section.title),
-                                    attrs: {
-                                      cards: section.cards.hydrate(),
-                                      "group-id": _vm.kebabCase(section.title),
-                                      action:
-                                        _vm.mode === "search"
-                                          ? _vm.removeFromDeck
-                                          : false
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            : _vm._e()
-                        }),
-                        0
-                      )
-                    ])
-                  : _c(
-                      "div",
-                      { staticClass: "text-center my-20 mx-10" },
-                      [
-                        _vm._v(
-                          "\n                Gallery mode is available only to FaB DB patrons."
-                        ),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "link-alternate",
-                            attrs: { to: "/support" }
-                          },
-                          [
-                            _vm._v(
-                              "Upgrade to access the gallery mode feature."
-                            )
-                          ]
-                        )
-                      ],
-                      1
-                    )
-              ])
-            : _c("div", { staticClass: "lg:flex m-4" }, [
+    _vm.view === "gallery"
+      ? _c("div", [
+          _vm.user.subscription
+            ? _c("div", { staticClass: "md:flex m-4" }, [
                 _c(
                   "div",
-                  { staticClass: "hidden lg:block md:mr-8 max-w-250" },
+                  { staticClass: "md:mr-4 md:w-auto md:max-w-250 flow-root" },
                   [
-                    _c("card-image", {
-                      staticClass: "mb-4",
-                      attrs: { card: _vm.cards.hero() }
-                    }),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none"
+                      },
+                      [
+                        _c("card-image", {
+                          staticClass: "mb-4",
+                          attrs: { card: _vm.cards.hero() }
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("div", [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "w-1/2 md:w-auto float-left md:float-none"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4" },
+                          [
+                            _c("deck-curves", {
+                              staticClass: "mb-4 h-140 sm:h-160",
+                              attrs: {
+                                cards: _vm.cards.other().withCost(),
+                                stat: "cost",
+                                strategy: "total"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
+                          },
+                          [
+                            _c("deck-curves", {
+                              staticClass: "mb-4 h-140 sm:h-160",
+                              attrs: {
+                                cards: _vm.cards.other().withResource(),
+                                stat: "resource",
+                                strategy: "total"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "hidden md:block" }, [
                       _c(
                         "div",
-                        {
-                          staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2"
-                        },
+                        { staticClass: "mx-2 my-4" },
                         [
-                          _c("deck-curves", {
-                            staticClass: "mb-4 h-140 sm:h-160",
-                            attrs: {
-                              cards: _vm.cards.other().withCost(),
-                              stat: "cost",
-                              strategy: "total"
-                            }
-                          })
+                          _c(
+                            "h3",
+                            { staticClass: "font-serif uppercase text-lg" },
+                            [_vm._v("Totals")]
+                          ),
+                          _vm._v(" "),
+                          _c("totals", { staticClass: "mt-2" })
                         ],
                         1
-                      ),
-                      _vm._v(" "),
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "hidden md:block" }, [
                       _c(
                         "div",
-                        {
-                          staticClass:
-                            "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
-                        },
+                        { staticClass: "mx-2" },
                         [
-                          _c("deck-curves", {
-                            staticClass: "mb-4 h-140 sm:h-160",
-                            attrs: {
-                              cards: _vm.cards.other().withResource(),
-                              stat: "resource",
-                              strategy: "total"
-                            }
-                          })
+                          _c(
+                            "h3",
+                            { staticClass: "font-serif uppercase text-lg" },
+                            [_vm._v("General")]
+                          ),
+                          _vm._v(" "),
+                          _c("general", { staticClass: "mt-2" })
                         ],
                         1
                       )
                     ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex-1" },
+                  _vm._l(_vm.availableSections, function(section) {
+                    return section.cards.count()
+                      ? _c(
+                          "div",
+                          [
+                            _c(
+                              "h2",
+                              {
+                                staticClass:
+                                  "block flex cursor-pointer font-serif uppercase text-lg mx-4",
+                                class: {
+                                  "mb-4": !_vm.sectionOpen(section.title)
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.toggleSection({
+                                      section: section.title
+                                    })
+                                  }
+                                }
+                              },
+                              [
+                                _c("chevron", {
+                                  staticClass: "mr-2",
+                                  attrs: {
+                                    open: _vm.sectionOpen(section.title)
+                                  }
+                                }),
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(section.title) +
+                                    " (" +
+                                    _vm._s(section.cards.total()) +
+                                    ")\n                    "
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("grouped-cards", {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.sectionOpen(section.title),
+                                  expression: "sectionOpen(section.title)"
+                                }
+                              ],
+                              key: _vm.kebabCase(section.title),
+                              attrs: {
+                                cards: section.cards.hydrate(),
+                                "group-id": _vm.kebabCase(section.title),
+                                action:
+                                  _vm.mode === "search"
+                                    ? _vm.removeFromDeck
+                                    : false
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  }),
+                  0
+                )
+              ])
+            : _c(
+                "div",
+                { staticClass: "text-center my-20 mx-10" },
+                [
+                  _vm._v(
+                    "\n            Gallery mode is available only to FaB DB patrons."
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "link-alternate",
+                      attrs: { to: "/support" }
+                    },
+                    [_vm._v("Upgrade to access the gallery mode feature.")]
+                  )
+                ],
+                1
+              )
+        ])
+      : _c("div", { staticClass: "lg:flex m-4" }, [
+          _c(
+            "div",
+            { staticClass: "hidden lg:block md:mr-8 max-w-250" },
+            [
+              _c("card-image", {
+                staticClass: "mb-4",
+                attrs: { card: _vm.cards.hero() }
+              }),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "div",
+                  { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2" },
+                  [
+                    _c("deck-curves", {
+                      staticClass: "mb-4 h-140 sm:h-160",
+                      attrs: {
+                        cards: _vm.cards.other().withCost(),
+                        stat: "cost",
+                        strategy: "total"
+                      }
+                    })
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "sm:flex-grow sm:mr-4" },
+                  {
+                    staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                  },
                   [
-                    _c(
-                      "masonry-container",
-                      {
-                        staticClass: "sm:flex sm:flex-wrap",
-                        attrs: { "container-id": "text-sections" }
-                      },
-                      _vm._l(_vm.availableSections, function(section) {
-                        return section.cards.count()
-                          ? _c(
-                              "div",
-                              {
-                                staticClass: "w-full sm:w-1/2 lg:w-1/3 sm:pr-8"
-                              },
-                              [
-                                _c("card-item-section", {
-                                  attrs: {
-                                    cards: section.cards,
-                                    title: section.title
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      }),
-                      0
-                    )
+                    _c("deck-curves", {
+                      staticClass: "mb-4 h-140 sm:h-160",
+                      attrs: {
+                        cards: _vm.cards.other().withResource(),
+                        stat: "resource",
+                        strategy: "total"
+                      }
+                    })
                   ],
                   1
                 )
               ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "sm:flex-grow sm:mr-4" },
+            [
+              _c(
+                "masonry-container",
+                {
+                  staticClass: "sm:flex sm:flex-wrap",
+                  attrs: { "container-id": "text-sections" }
+                },
+                _vm._l(_vm.availableSections, function(section) {
+                  return section.cards.count()
+                    ? _c(
+                        "div",
+                        { staticClass: "w-full sm:w-1/2 lg:w-1/3 sm:pr-8" },
+                        [
+                          _c("card-item-section", {
+                            attrs: {
+                              cards: section.cards,
+                              title: section.title
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                }),
+                0
+              )
+            ],
+            1
+          )
         ])
   ])
 }
@@ -8016,7 +7966,7 @@ __webpack_require__.r(__webpack_exports__);
       return axios.post('/decks/' + this.$route.params.deck, {
         card: card.identifier
       }).then(function (response) {
-        if (handler) {
+        if (typeof handler === 'function') {
           handler(response);
         }
       })["catch"](function (error) {

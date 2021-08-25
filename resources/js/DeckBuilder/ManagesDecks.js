@@ -3,7 +3,7 @@ export default {
         addRemote(card, handler) {
             return axios.post('/decks/' + this.$route.params.deck, { card: card.identifier })
                 .then(response => {
-                    if (handler) {
+                    if (typeof handler === 'function') {
                         handler(response);
                     }
                 })

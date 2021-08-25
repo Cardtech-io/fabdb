@@ -478,7 +478,8 @@ __webpack_require__.r(__webpack_exports__);
             return 'rgba(' + colour + ', 1)';
           }),
           borderWidth: 1,
-          data: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.values(values)
+          data: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.values(values),
+          barPercentage: 0.6
         }]
       };
       this.renderChart(chartData, {
@@ -491,7 +492,6 @@ __webpack_require__.r(__webpack_exports__);
         fill: false,
         scales: {
           xAxes: [{
-            barPercentage: 0.6,
             gridLines: {
               display: false
             }

@@ -163,11 +163,11 @@
             ...mapActions('deck', ['addCard', 'setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']),
 
             setHero(hero, type) {
-                this.addRemote(hero, response => {
-                    this.addCard({hero});
-                    this.setMode({mode: 'search'});
-                    this.deck.format = type.toLowerCase();
-                });
+                this.addCard({card: hero});
+                this.setMode({mode: 'search'});
+                this.deck.format = type.toLowerCase();
+
+                this.addRemote(hero);
             },
 
             scrollTop() {
@@ -196,12 +196,6 @@
             currentSwipeMode() {
                 return this.swipeModes.indexOf(this.mode);
             }
-        },
-
-        created() {
-            this.$eventHub.$on('card-selected', () => {
-                this.name = '';
-            });
         },
 
         extends: LazyLoader((to, callback) => {

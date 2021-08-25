@@ -61561,7 +61561,7 @@ function remove(card, cards, bin) {
     for (var i in cards) {
       var match = cards[i];
 
-      if (match.identifier == card.identifier) {
+      if (match.identifier === card.identifier) {
         key = i;
         break;
       }

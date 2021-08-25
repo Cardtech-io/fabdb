@@ -54,7 +54,8 @@
                     { text: 'Decks', children: [
                         { link: '/decks', text: 'Featured' },
                         { link: '/decks/browse', text: 'Browse' },
-                        { link: '/decks/starters', text: 'Starter decks' }
+                        { link: '/decks/starters', text: 'Starter decks' },
+                        { link: '/decks/build', text: 'My decks' },
                     ]},
 
                     { text: 'Tools', children: [
