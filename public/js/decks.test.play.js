@@ -285,7 +285,8 @@ var render = function() {
         return _c(
           "div",
           {
-            staticClass: "z-0 relative w-200 hover:z-25 cursor-pointer",
+            staticClass:
+              "z-0 relative w-200 hover:z-25 cursor-pointer hover:scale-150",
             style: _vm.transform(i)
           },
           [_c("card-image", { attrs: { card: card } })],

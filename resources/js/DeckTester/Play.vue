@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="w-full flex justify-center mt-8 -space-x-8">
-            <div v-for="(card, i) in hand" class="z-0 relative w-200 hover:z-25 cursor-pointer" :style="transform(i)">
+            <div v-for="(card, i) in hand" class="z-0 relative w-200 hover:z-25 cursor-pointer hover:scale-150" :style="transform(i)">
                 <card-image :card="card"></card-image>
             </div>
         </div>
