@@ -8,6 +8,21 @@ module.exports = {
             './resources/js/**/*.vue',
             './resources/js/**/*.js',
             './resources/views/**/*.blade.php'
+        ],
+        // Generated class names that we have to protect for production
+        safelist: [
+            'sm:w-1/3',
+            'sm:w-1/4',
+            'sm:w-1/5',
+            'sm:w-1/6',
+            'sm:w-1/7',
+            'sm:w-1/8',
+            'md:w-1/3',
+            'md:w-1/4',
+            'md:w-1/5',
+            'md:w-1/6',
+            'md:w-1/7',
+            'md:w-1/8',
         ]
     },
     theme: {
@@ -114,6 +129,7 @@ module.exports = {
                 '3/10': '30%',
                 '7/10': '70%',
                 '9/10': '90%',
+                '200': '200px',
                 '250': '250px',
                 '350': '350px',
                 '450': '450px',
@@ -139,7 +155,7 @@ module.exports = {
             inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
             active: 'inset 0 0 0 2px #68d391',
             highlight: '0 0 0 5px rgba(66,153,225,0.8)',
-            error: '0 0 0 5px rgba(220, 38, 38, 1)',
+            error: '0 0 0 3px rgba(220, 38, 38, 0.8)',
             outline: '0 0 0 5px rgba(66,153,225,0.5)',
             pitched: '0 0 0 5px #4299e1',
             played: '0 0 0 5px #48bb78',
@@ -170,13 +186,16 @@ module.exports = {
 
     variants: {
         backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
+        borderColor: ['responsive', 'hover', 'focus'],
         borderRadius: ['responsive', 'first', 'last'],
-        borderWidth: ['responsive', 'last'],
+        borderWidth: ['responsive', 'last', 'focus'],
+        display: ['hover', 'group-hover', 'responsive'],
         height: ['responsive'],
         margin: ['responsive', 'odd', 'even'],
-        opacity: ['disabled', 'hover'],
+        opacity: ['disabled', 'hover', 'group-hover'],
         padding: ['responsive', 'even'],
         textColor: ['responsive', 'hover', 'group-hover'],
+        zIndex: ['responsive', 'hover']
     },
 
     plugins: [

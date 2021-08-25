@@ -6,6 +6,8 @@ use Illuminate\Support\Arr;
 
 class DeckResource extends JsonResource
 {
+    use HasImage;
+
     public function toArray($request)
     {
         $response = Arr::except($this->resource->toArray(), [
@@ -15,6 +17,7 @@ class DeckResource extends JsonResource
             'pivot'
         ]);
 
+        $response['cardBackImage'] = $this->cardBackImage($this->resource->cardBack);
         $response['practise'] = $this->when($this->resource->practiseId, new PractiseResource($this->resource->practise));
         $response['cards'] = CardResource::collection($this->resource->cards);
         $response['parent'] = $this->whenLoaded('parent', new DeckResource($this->resource->parent));

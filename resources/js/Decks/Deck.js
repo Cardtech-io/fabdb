@@ -17,6 +17,10 @@ class Deck extends Model {
         }
     }
 
+    get cardBackImage() {
+        return this.fields.cardBackImage;
+    }
+
     get authorName() {
         return this.fields.user.name || 'Anonymous';
     }
@@ -38,15 +42,11 @@ class Deck extends Model {
     }
 
     get hero() {
-        return this.cards.hero();
+        return this.cards.hero() ? new Card(this.cards.hero()) : null;
     }
 
     get sideboard() {
         return new Cards(this.fields.sideboard);
-
-        if (this.cards.hero()) {
-            return new Card(this.cards.hero());
-        }
     }
 
     get weapons() {
@@ -67,6 +67,14 @@ class Deck extends Model {
 
     get totalCards() {
         return this.fields.totalCards || 0;
+    }
+
+    get totalSideboard() {
+        return this.fields.totalSideboard || 0;
+    }
+
+    get totalMainDeck() {
+        return this.totalCards - this.totalSideboard;
     }
 
     get slug() {

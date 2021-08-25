@@ -148,6 +148,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -176,18 +181,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
-    var params = _objectSpread({
-      cost: '',
-      cardType: '',
-      keywords: '',
-      pitch: '',
-      set: 'all',
-      "class": '',
-      rarity: ''
-    }, this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
+    var base = {
+      keywords: ''
+    };
+
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords')));
 
     return {
-      openTray: false,
       params: params,
       sets: this.filterSets()
     };
@@ -196,26 +196,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     advancedSearchLink: function advancedSearchLink() {
       var query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
       return this.$route.path + '/advanced?' + query.toString();
+    },
+    keywordClasses: function keywordClasses() {
+      var classes = '';
+
+      if (this.params.keywords) {
+        classes += ' px-2';
+      } else {
+        classes += ' px-2 sm:px-4';
+      }
+
+      return classes;
     }
   },
   methods: {
-    active: function active(field) {
-      if (this.query(field)) {
-        return 'shadow-activeNumber';
-      }
-    },
     newSearch: function newSearch() {
       this.params.page = 1;
       this.updateQuery(this.params);
     },
     filterSets: function filterSets() {
-      var sets = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
-
-      sets.unshift({
-        id: 'all',
-        name: 'All sets'
-      });
-      return sets;
+      return lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(this.$settings.game.sets, 'name');
     },
     query: function query(field) {
       if (field) {
@@ -615,7 +615,6 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "block",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -632,6 +631,36 @@ var render = function() {
                 "w-3/4 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2"
             },
             [
+              _vm.params.keywords
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "flex-initial ml-2 sm:ml-4 text-red-500",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.params.keywords = ""
+                          _vm.newSearch()
+                        }
+                      }
+                    },
+                    [
+                      _c("icon", { attrs: { size: 6 } }, [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ])
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
@@ -641,9 +670,8 @@ var render = function() {
                     expression: "params.keywords"
                   }
                 ],
-                staticClass:
-                  "flex-1 bg-transparent outline-none py-2 px-2 sm:px-4",
-                class: _vm.active("keywords"),
+                staticClass: "flex-1 bg-transparent outline-none py-2",
+                class: _vm.keywordClasses,
                 attrs: { type: "text", placeholder: "Keywords..." },
                 domProps: { value: _vm.params.keywords },
                 on: {
@@ -1193,7 +1221,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fromQuery: function fromQuery(params) {
       return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity'].indexOf(key) !== -1) {
+        if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
           return param.split(',');
         }
 

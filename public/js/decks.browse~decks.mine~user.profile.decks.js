@@ -10,16 +10,19 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
 //
 //
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     hero: {
-      type: Object
+      type: _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"],
+      required: true
     },
     name: {
       type: String
@@ -281,7 +284,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("hero-avatar", {
                   staticClass: "hidden sm:block",
-                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name }
+                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
                 }),
                 _vm._v(" "),
                 _vm.deck.notes
@@ -343,18 +346,19 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "inline-block flex" }, [
+              _c("div", { staticClass: "inline-block flex" }, [
                 _c(
                   "div",
+                  { staticClass: "space-x-1 mr-2" },
                   [
-                    _c("deck-label", {
-                      staticClass: "mr-1 text-xs px-2 sm:py-1 rounded-full",
-                      attrs: { label: _vm.deck.label }
+                    _c("format-label", {
+                      staticClass: "text-xs rounded-full px-2 sm:py-1",
+                      attrs: { format: _vm.deck.format }
                     }),
                     _vm._v(" "),
-                    _c("format-label", {
-                      staticClass: "mr-2 text-xs rounded-full px-2 sm:py-1",
-                      attrs: { format: _vm.deck.format }
+                    _c("deck-label", {
+                      staticClass: "text-xs px-2 sm:py-1 rounded-full",
+                      attrs: { label: _vm.deck.label }
                     })
                   ],
                   1
@@ -575,7 +579,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.cards.filter(function (card) {
-        return card.keywords.includes('hero');
+        return card.type === 'hero';
       })[0];
     },
     attacks: function attacks() {

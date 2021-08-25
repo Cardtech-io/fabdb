@@ -55,6 +55,7 @@ export default {
                         borderColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
                         borderWidth: 1,
                         data: _.values(values),
+                        barPercentage: 0.6,
                     }
                 ],
             };

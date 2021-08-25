@@ -38,4 +38,11 @@ trait HasImage
 
         return "https://$domain/cards/printings/{$sku}.png?w=300&fit=clip&auto=compress";
     }
+
+    protected function cardBackImage($cardBack)
+    {
+        $domain = config('services.imgix.domain');
+
+        return "https://$domain/cards/backs/card-back-{$cardBack}.png?w=300&fit=clip&auto=compress";
+    }
 }

@@ -36,8 +36,8 @@ const router = new VueRouter({
         { path: "/decks/build/:deck", component: () => import(/* webpackChunkName: "decks.build" */ './DeckBuilder/DeckBuilder'), name: 'decks.build', meta: { title: 'Deck builder &gt; Edit deck' } },
 
         { path: "/decks/:deck/test", component: () => import(/* webpackChunkName: "decks.test" */ './DeckTester/Main'), meta: { auth: true }, children: [
-            { path: '', component: () => import(/* webpackChunkName: "decks.test.prepare" */ './DeckTester/Test'), name: 'decks.test' },
-            { path: 'play', component: () => import(/* webpackChunkName: "decks.test.play" */ './DeckTester/Test'), name: 'decks.test.play' }
+            { path: '', component: () => import(/* webpackChunkName: "decks.test.prepare" */ './DeckTester/Prepare'), name: 'decks.test.prepare' },
+            { path: 'play', component: () => import(/* webpackChunkName: "decks.test.play" */ './DeckTester/Play'), name: 'decks.test.play' }
         ]},
 
         { path: "/decks/export/:deck", component: () => import(/* webpackChunkName: "decks.export" */ './DeckBuilder/ExportDeck'), name: 'decks.export', meta: { title: 'Deck builder &gt; Export', auth: true } },

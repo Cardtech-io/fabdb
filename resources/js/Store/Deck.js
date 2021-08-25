@@ -34,7 +34,7 @@ function remove(card, cards, bin) {
         for (let i in cards) {
             let match = cards[i];
 
-            if (match.identifier == card.identifier) {
+            if (match.identifier === card.identifier) {
                 key = i;
                 break;
             }
@@ -75,12 +75,21 @@ export default {
         cards: [],
         filters: [],
         keywords: '',
-        grouping: 'name',
+        grouping: 'default',
         sections: {
-            hero: true,
-            equipment: true,
-            loadout: true,
-            other: true,
+            'All cards': true,
+            'Attack actions': true,
+            'Attack reactions': true,
+            'Defense reactions': true,
+            'Equipment': true,
+            'Hero': true,
+            'Instants': true,
+            'Items': true,
+            'Loadout': true,
+            'Miscellaneous': true,
+            'Non-Attack actions': true,
+            'Other': true,
+            'Weapons': true,
         },
         sideboard: [],
         fullScreen: false,
@@ -90,6 +99,10 @@ export default {
     },
 
     getters: {
+        cards: state => {
+            return state.cards;
+        },
+
         fsIndex: state => {
             return state.fullScreen ? 0 : 1;
         },
@@ -106,9 +119,13 @@ export default {
             return zoomMatrix[getters.fsIndex][1][getters.msIndex];
         },
 
-        requiresSideboard: (state, getters) => {
+        requiresSideboard: (state) => {
             return state.deck.format !== 'blitz';
-        }
+        },
+
+        sectionOpen: (state) => (section) => {
+            return state.sections[section] === undefined || state.sections[section];
+        },
     },
 
     mutations: {
@@ -178,8 +195,8 @@ export default {
             state.mode = mode;
         },
 
-        toggleSection(state, { section }) {
-            state.sections[section] = !state.sections[section];
+        toggleSection(state, {section, status}) {
+            state.sections[section] = status;
         },
 
         zoom(state, { n }) {
@@ -201,8 +218,10 @@ export default {
             commit('addCard', { card, collection: state.sideboard });
         },
 
-        toggleSection({ commit, state }, { section }) {
-            commit('toggleSection', { section });
+        toggleSection(context, {section}) {
+            let value = context.getters.sectionOpen(section);
+
+            context.commit('toggleSection', {section, status: !value});
         },
 
         toggleView({ commit, state }) {

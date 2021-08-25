@@ -1,7 +1,15 @@
 <template>
-    <div class="flex overflow-hidden">
-        <button class="py-2 ml-1px w-1/2 bg-white" :class="{ 'hover:bg-secondary hover:text-white': total > 0, 'bg-gray-100 text-gray-400': total === 0 }" @click="removeCardFromDeck" :disabled="total === 0">-</button>
-        <button class="py-2 ml-1px w-1/2 bg-white" :class="{ 'hover:bg-secondary hover:text-white': total < maxAvailable, 'bg-gray-100 text-gray-400': total >= maxAvailable }" @click="addCardToDeck" :disabled="total >= maxAvailable">+</button>
+    <div class="flex overflow-hidden items-stretch space-x-px">
+        <button class="py-2 w-1/2 bg-white" :class="{ 'hover:bg-secondary hover:text-white': total > 0, 'bg-gray-100 text-gray-300': total === 0 }" @click="removeCardFromDeck" :disabled="total === 0">
+            <icon :size="4" class="mx-auto">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+            </icon>
+        </button>
+        <button class="py-2 w-1/2 bg-white" :class="{ 'hover:bg-secondary hover:text-white': total < maxAvailable, 'bg-gray-100 text-gray-300': total >= maxAvailable }" @click="addCardToDeck" :disabled="total >= maxAvailable">
+            <icon :size="4" class="mx-auto">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+            </icon>
+        </button>
     </div>
 </template>
 

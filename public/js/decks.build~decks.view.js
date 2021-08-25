@@ -42,16 +42,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
 //
 //
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"]],
   props: {
     hero: {
-      type: Object
+      type: _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"],
+      required: true
     },
     name: {
       type: String
@@ -475,7 +478,8 @@ __webpack_require__.r(__webpack_exports__);
             return 'rgba(' + colour + ', 1)';
           }),
           borderWidth: 1,
-          data: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.values(values)
+          data: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.values(values),
+          barPercentage: 0.6
         }]
       };
       this.renderChart(chartData, {

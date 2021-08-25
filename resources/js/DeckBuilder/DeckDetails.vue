@@ -5,7 +5,7 @@
         </div>
 
         <div class="w-full lg:w-3/4">
-            <ul class="block border-b border-gray-400 font-serif uppercase flow-root">
+            <ul class="block border-b border-gray-400 font-serif uppercase flow-root text-sm sm:text-base">
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'settings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'settings'">Settings</a></li>
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'metrics' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'metrics'">Metrics</a></li>
                 <li class="float-left mr-1 sm:mr-4"><a href="" class="inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg" :class="tab === 'rulings' ? 'relative -bottom-1px bg-gray-200': 'bg-gray-300 hover:bg-gray-100'" @click.prevent="tab = 'rulings'">Rulings</a></li>
@@ -82,7 +82,15 @@
 
     export default {
         mixins: [ManagesDecks, Viewable],
-        components: { CardImage, DeckSettings, General, Rulings, Stat, Totals, TtsExporter },
+        components: {
+            CardImage,
+            DeckSettings,
+            General,
+            Rulings,
+            Stat,
+            Totals,
+            TtsExporter
+        },
 
         data() {
             return {

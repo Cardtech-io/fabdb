@@ -105,6 +105,12 @@ return [
             'released' => '2020-08-28',
             'browseable' => true,
         ],
+        'u-cru' => [
+            'id' => 'u-cru',
+            'name' => 'Crucible of War (Unlimited)',
+            'released' => '2021-07-30',
+            'browseable' => false,
+        ],
         'mon' => [
             'id' => 'mon',
             'name' => 'Monarch',
@@ -131,7 +137,7 @@ return [
             'name' => 'Welcome to Rathe (Unlimited)',
             'released' => '2020-11-06',
             'browseable' => false,
-        ],
+        ]
     ],
 
     'classes' => [

@@ -44,7 +44,7 @@ export default {
             }
 
             return this.cards.filter(card => {
-                return card.keywords.includes('hero');
+                return card.type === 'hero';
             })[0];
         },
 

@@ -277,6 +277,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -558,152 +564,161 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm._l(_vm.card.printings, function(printing) {
-        return _c("tr", { staticClass: "odd:bg-gray-100 hover:bg-white" }, [
-          _c(
-            "td",
-            { staticClass: "border border-gray-300 px-2 sm:pl-8 text-right" },
-            [_c("sku-finish", { attrs: { sku: printing.sku } })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            { staticClass: "border border-gray-300 px-2 hidden sm:table-cell" },
-            [_vm._v(_vm._s(_vm.englishFinish(printing.sku.finish)))]
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            { staticClass: "border border-gray-300 px-2 hidden sm:table-cell" },
-            [_vm._v(_vm._s(printing.sku.set.name))]
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass:
-                "border border-gray-300 px-2 hidden text-center sm:table-cell rarity"
-            },
-            [_c("rarity-symbol", { attrs: { rarity: _vm.card.rarity } })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            { staticClass: "border border-gray-300 text-center" },
-            [_c("card-count", { attrs: { printing: printing } })],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass:
-                "border border-gray-300 text-center py-2 align-middle"
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: printing.trade,
-                    expression: "printing.trade"
-                  }
-                ],
+        return _c(
+          "tr",
+          { staticClass: "odd:bg-gray-100 hover:bg-gray-600 hover:text-white" },
+          [
+            _c(
+              "td",
+              { staticClass: "border border-gray-300 px-2 sm:pl-8 text-right" },
+              [_c("sku-finish", { attrs: { sku: printing.sku } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                staticClass: "border border-gray-300 px-2 hidden sm:table-cell"
+              },
+              [_vm._v(_vm._s(_vm.englishFinish(printing.sku.finish)))]
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                staticClass: "border border-gray-300 px-2 hidden sm:table-cell"
+              },
+              [_vm._v(_vm._s(printing.sku.set.name))]
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
                 staticClass:
-                  "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
-                attrs: { type: "checkbox" },
-                domProps: {
-                  checked: Array.isArray(printing.trade)
-                    ? _vm._i(printing.trade, null) > -1
-                    : printing.trade
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.toggle(printing, "trade")
+                  "border border-gray-300 px-2 hidden text-center sm:table-cell rarity"
+              },
+              [_c("rarity-symbol", { attrs: { rarity: _vm.card.rarity } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              { staticClass: "border border-gray-300 text-center" },
+              [_c("card-count", { attrs: { printing: printing } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
+                staticClass:
+                  "border border-gray-300 text-center py-2 align-middle"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: printing.trade,
+                      expression: "printing.trade"
+                    }
+                  ],
+                  staticClass:
+                    "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(printing.trade)
+                      ? _vm._i(printing.trade, null) > -1
+                      : printing.trade
                   },
-                  change: function($event) {
-                    var $$a = printing.trade,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = null,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 &&
-                          _vm.$set(printing, "trade", $$a.concat([$$v]))
+                  on: {
+                    click: function($event) {
+                      return _vm.toggle(printing, "trade")
+                    },
+                    change: function($event) {
+                      var $$a = printing.trade,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(printing, "trade", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              printing,
+                              "trade",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
                       } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            printing,
-                            "trade",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
+                        _vm.$set(printing, "trade", $$c)
                       }
-                    } else {
-                      _vm.$set(printing, "trade", $$c)
                     }
                   }
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            {
-              staticClass:
-                "border border-gray-300 text-center py-2 align-middle"
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: printing.want,
-                    expression: "printing.want"
-                  }
-                ],
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              {
                 staticClass:
-                  "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
-                attrs: { type: "checkbox" },
-                domProps: {
-                  checked: Array.isArray(printing.want)
-                    ? _vm._i(printing.want, null) > -1
-                    : printing.want
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.toggle(printing, "want")
+                  "border border-gray-300 text-center py-2 align-middle"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: printing.want,
+                      expression: "printing.want"
+                    }
+                  ],
+                  staticClass:
+                    "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
+                  attrs: { type: "checkbox" },
+                  domProps: {
+                    checked: Array.isArray(printing.want)
+                      ? _vm._i(printing.want, null) > -1
+                      : printing.want
                   },
-                  change: function($event) {
-                    var $$a = printing.want,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = null,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && _vm.$set(printing, "want", $$a.concat([$$v]))
+                  on: {
+                    click: function($event) {
+                      return _vm.toggle(printing, "want")
+                    },
+                    change: function($event) {
+                      var $$a = printing.want,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(printing, "want", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              printing,
+                              "want",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
                       } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            printing,
-                            "want",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
+                        _vm.$set(printing, "want", $$c)
                       }
-                    } else {
-                      _vm.$set(printing, "want", $$c)
                     }
                   }
-                }
-              })
-            ]
-          )
-        ])
+                })
+              ]
+            )
+          ]
+        )
       })
     ],
     2
@@ -896,7 +911,31 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("My want/trade list")]
+                  [
+                    _c("span", { staticClass: "hidden sm:inline" }, [
+                      _vm._v("My want/trade list")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "icon",
+                      { staticClass: "sm:hidden -mt-1", attrs: { size: 8 } },
+                      [
+                        _c("path", {
+                          attrs: { d: "M10 12a2 2 0 100-4 2 2 0 000 4z" }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ]
+                    )
+                  ],
+                  1
                 )
               ],
               1

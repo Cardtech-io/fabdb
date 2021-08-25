@@ -656,7 +656,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.cards.filter(function (card) {
-        return card.keywords.includes('hero');
+        return card.type === 'hero';
       })[0];
     },
     attacks: function attacks() {

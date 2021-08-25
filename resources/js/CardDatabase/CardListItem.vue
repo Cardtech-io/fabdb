@@ -10,7 +10,7 @@
                 </div>
             </td>
         </tr>
-        <tr class="odd:bg-gray-100 hover:bg-white" v-for="printing in card.printings">
+        <tr class="odd:bg-gray-100 hover:bg-gray-600 hover:text-white" v-for="printing in card.printings">
             <td class="border border-gray-300 px-2 sm:pl-8 text-right"><sku-finish :sku="printing.sku"></sku-finish></td>
             <td class="border border-gray-300 px-2 hidden sm:table-cell">{{ englishFinish(printing.sku.finish) }}</td>
             <td class="border border-gray-300 px-2 hidden sm:table-cell">{{ printing.sku.set.name }}</td>

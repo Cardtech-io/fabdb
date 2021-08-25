@@ -75,7 +75,7 @@ export default {
         },
 
         wantsBorders: state => {
-            return !state.session.user || state.session.user.view == 'bordered';
+            return !state.session.user || state.session.user.view === 'bordered';
         }
     }
 };

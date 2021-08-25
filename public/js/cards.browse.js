@@ -108,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
       per_page: 20,
       results: {},
       sets: this.filterSets(),
-      set: this.$route.query.set || 'all',
+      set: this.$route.query.set,
       view: 'gallery'
     };
   },
@@ -125,8 +125,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     isActive: function isActive(set) {
       return {
-        'border-white': this.set == set,
-        'border-crumbs': this.set != set
+        'border-white': this.set === set,
+        'border-crumbs': this.set !== set
       };
     },
     refreshResults: function refreshResults(results) {
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
       }), 'released');
 
       sets.unshift({
-        id: 'all',
+        id: '',
         name: 'All cards'
       });
       return sets;
@@ -262,7 +262,7 @@ var render = function() {
                 useCase: "browse",
                 page: _vm.page,
                 refreshable: true,
-                external: { set: _vm.set, per_page: _vm.per_page }
+                external: { per_page: _vm.per_page }
               },
               on: { "search-completed": _vm.refreshResults }
             })

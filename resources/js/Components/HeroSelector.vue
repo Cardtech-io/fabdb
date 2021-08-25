@@ -55,12 +55,12 @@
             selectHero(hero) {
                 let card = hero.fields;
 
-                this.$emit('hero-selected', card);
+                this.$emit('hero-selected', card, this.type(card));
                 this.$eventHub.$emit('hero-selected', card, this.type(card));
             },
 
             type(hero) {
-                return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed'
+                return hero.keywords.indexOf('young') !== -1 ? 'Blitz' : 'Constructed';
             }
         },
 

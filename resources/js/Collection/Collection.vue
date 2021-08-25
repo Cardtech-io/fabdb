@@ -10,7 +10,13 @@
                     <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('need')" :class="tabClasses('need')">Need</button>
                 </div>
                 <div class="ml-auto">
-                    <router-link :to="{name: 'user.profile.wants', params: {user: user.slug }}" class="font-serif uppercase hover:opacity-50">My want/trade list</router-link>
+                    <router-link :to="{name: 'user.profile.wants', params: {user: user.slug }}" class="font-serif uppercase hover:opacity-50">
+                        <span class="hidden sm:inline">My want/trade list</span>
+                        <icon :size="8" class="sm:hidden -mt-1">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                        </icon>
+                    </router-link>
                 </div>
             </div>
         </div>

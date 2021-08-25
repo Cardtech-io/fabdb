@@ -1,9 +1,14 @@
 <template>
     <div class="text-base">
-        <form @submit.prevent="newSearch" class="block">
+        <form @submit.prevent="newSearch">
             <div class="flex w-full px-4 md:px-0">
                 <div class="w-3/4 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2">
-                    <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2 px-2 sm:px-4" placeholder="Keywords..." :class="active('keywords')">
+                    <button type="button" class="flex-initial ml-2 sm:ml-4 text-red-500" @click.prevent="params.keywords = ''; newSearch()" v-if="params.keywords">
+                        <icon :size="6">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </icon>
+                    </button>
+                    <input type="text" v-model="params.keywords" class="flex-1 bg-transparent outline-none py-2" placeholder="Keywords..." :class="keywordClasses">
                     <button type="button" class="flex-initial mr-2 link-alternate" @click.prevent="$modal.show('search-help')">
                         <icon :size="6">
                             <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
@@ -51,20 +56,14 @@
         mixins: [Query],
 
         data() {
-            let params = {
-                cost: '',
-                cardType: '',
-                keywords: '',
-                pitch: '',
-                set: 'all',
-                class: '',
-                rarity: '',
-                ...this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')
+            let base = {
+                keywords: ''
             };
 
+            let params = {...base, ...this.fromQuery(this.onlyParams('keywords'))};
+
             return {
-                openTray: false,
-                params: params,
+                params,
                 sets: this.filterSets()
             };
         },
@@ -74,27 +73,29 @@
                 let query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
 
                 return this.$route.path + '/advanced?' + query.toString();
+            },
+
+            keywordClasses() {
+                let classes = '';
+
+                if (this.params.keywords) {
+                    classes += ' px-2';
+                } else {
+                    classes += ' px-2 sm:px-4';
+                }
+
+                return classes;
             }
         },
 
         methods: {
-            active(field) {
-                if (this.query(field)) {
-                    return 'shadow-activeNumber'
-                }
-            },
-
-            newSearch: function() {
+            newSearch() {
                 this.params.page = 1;
                 this.updateQuery(this.params);
             },
 
             filterSets() {
-                let sets = _.sortBy(this.$settings.game.sets, 'name');
-
-                sets.unshift({ id: 'all', name: 'All sets'});
-
-                return sets;
+                return _.sortBy(this.$settings.game.sets, 'name');
             },
 
             query(field) {

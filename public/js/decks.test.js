@@ -50,7 +50,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -136,11 +135,7 @@ var render = function() {
           ? _c(
               "div",
               { staticClass: "container py-8 sm:mx-auto" },
-              [
-                _c("router-view", {
-                  attrs: { tester: _vm.tester, slug: _vm.deck.slug }
-                })
-              ],
+              [_c("router-view", { attrs: { tester: _vm.tester } })],
               1
             )
           : _c("div", [
@@ -305,11 +300,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
 
 var Tester =
 /*#__PURE__*/
@@ -317,16 +315,24 @@ function () {
   function Tester(deck) {
     _classCallCheck(this, Tester);
 
-    this.deck = deck.cards.other();
+    this.deck = deck;
+    this.mainDeck = deck.cards.other();
     this.sideboard = deck.sideboard.other();
     this.hero = deck.hero;
+    this.slug = deck.slug;
   }
 
   _createClass(Tester, [{
+    key: "move",
+    value: function move(card, from, to) {
+      to.add(card);
+      from.remove(card);
+    }
+  }, {
     key: "hydrate",
     value: function hydrate() {
-      this.deck = this.deck.hydrate();
-      this.sideboard = this.sideboard.hydrate();
+      this.mainDeck = this.mainDeck.hydrate();
+      this.sideboardStack = this.sideboard.hydrate();
     }
   }]);
 

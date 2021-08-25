@@ -2,7 +2,7 @@
     <div>
         <ol class="mt-2">
             <stat :value="totalCards" text="Cards" position="top"></stat>
-            <stat :value="totalClass" text="Class" position="both"></stat>
+            <stat :value="totalClass" text="Class"></stat>
             <stat :value="totalGeneric" text="Generic" position="bottom"></stat>
         </ol>
 

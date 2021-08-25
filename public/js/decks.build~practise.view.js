@@ -166,7 +166,7 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
+          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
         class: {
           "border-gray-500": _vm.isOpen,
           "bg-white": _vm.isOpen,
@@ -182,13 +182,13 @@ var render = function() {
       },
       [
         _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v(_vm._s(_vm.options[_vm.grouping] || "Grouping"))
+          _vm._v("Grouping")
         ]),
         _vm._v(" "),
         _c(
           "svg",
           {
-            staticClass: "inline-block h-6 fill-current",
+            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [
@@ -206,7 +206,7 @@ var render = function() {
     _vm.isOpen
       ? _c("button", {
           staticClass:
-            "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default",
+            "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
           attrs: { type: "button" },
           on: {
             click: function($event) {
@@ -223,15 +223,18 @@ var render = function() {
             staticClass:
               "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
           },
-          _vm._l(_vm.options, function(text, grouping) {
+          _vm._l(_vm.options, function(text, option) {
             return _c(
               "button",
               {
-                staticClass:
-                  "w-full text-base text-left px-4 py-2 hover:bg-blue-400 hover:text-white uppercase",
+                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                class:
+                  option === _vm.grouping
+                    ? "bg-blue-400 text-white"
+                    : "hover:bg-blue-400 hover:text-white",
                 on: {
                   click: function($event) {
-                    return _vm.select(grouping)
+                    return _vm.select(option)
                   }
                 }
               },
@@ -567,6 +570,11 @@ function () {
       return new Cards(this.cards.filter(handler));
     }
   }, {
+    key: "reduce",
+    value: function reduce(handler, carry) {
+      return this.cards.reduce(handler, carry);
+    }
+  }, {
     key: "find",
     value: function find(card) {
       return this.cards.filter(function (deckCard) {
@@ -758,7 +766,7 @@ var methods = {
     var _this = this;
 
     setTimeout(function () {
-      _this.$redrawVueMasonry();
+      _this.$redrawVueMasonry(id);
     }, 10);
   }
 };
@@ -820,7 +828,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.cards.filter(function (card) {
-        return card.keywords.includes('hero');
+        return card.type === 'hero';
       })[0];
     },
     attacks: function attacks() {

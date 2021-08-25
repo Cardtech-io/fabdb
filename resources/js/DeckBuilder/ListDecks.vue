@@ -58,18 +58,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd:bg-gray-100 hover:bg-white" v-for="(deck, key) in decks">
+                            <tr class="odd:bg-gray-100 group hover:bg-gray-600 hover:text-white" v-for="(deck, key) in decks">
                                 <td class="border border-gray-300">
                                     <div class="flex items-center">
                                         <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero">
-                                        <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block px-4 py-2 link-alternate">{{deck.name}}</router-link>
+                                        <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block px-4 py-2">{{deck.name}}</router-link>
                                     </div>
                                 </td>
                                 <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
                                     <deck-label :label="deck.label" v-if="deck.label" class="text-xs rounded-full p-1 px-2"/>
                                 </td>
                                 <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
-                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block link-alternate" v-if="deck.parent">{{deck.parent.name}}</router-link>
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block" v-if="deck.parent">{{deck.parent.name}}</router-link>
                                 </td>
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
                                 <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>

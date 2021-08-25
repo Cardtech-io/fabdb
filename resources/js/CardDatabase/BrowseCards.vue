@@ -18,7 +18,7 @@
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ set: set, per_page: per_page }"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page }"></card-search>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                 per_page: 20,
                 results: {},
                 sets: this.filterSets(),
-                set: this.$route.query.set || 'all',
+                set: this.$route.query.set,
                 view: 'gallery'
             }
         },
@@ -110,8 +110,8 @@
         methods: {
             isActive(set) {
                 return {
-                    'border-white': this.set == set,
-                    'border-crumbs': this.set != set
+                    'border-white': this.set === set,
+                    'border-crumbs': this.set !== set
                 }
             },
 
@@ -125,7 +125,7 @@
                     return setting.browseable;
                 }), 'released');
 
-                sets.unshift({ id: 'all', name: 'All cards'});
+                sets.unshift({ id: '', name: 'All cards'});
 
                 return sets;
             },

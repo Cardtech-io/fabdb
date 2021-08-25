@@ -11,7 +11,7 @@ class SeedFromLSS extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed-from-lss {--with-images}';
+    protected $signature = 'fabdb:seed-from-lss {--with-images} {--prints-only}';
 
     /**
      * The console command description.
@@ -49,7 +49,7 @@ class SeedFromLSS extends Command
 
     private function import(\Closure $callback)
     {
-        $import = new CardsImport($this, $this->option('with-images'));
+        $import = new CardsImport($this, $this->option('with-images'), $this->option('prints-only'));
         $import->withOutput($this->output);
 
         $callback($import);

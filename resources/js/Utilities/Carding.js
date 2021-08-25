@@ -105,5 +105,5 @@ export default {
         let to = btoa(JSON.stringify(payload));
 
         return '/click?to='+to;
-    },
+    }
 };

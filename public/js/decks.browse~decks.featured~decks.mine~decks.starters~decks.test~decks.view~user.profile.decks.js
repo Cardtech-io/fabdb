@@ -287,6 +287,11 @@ function () {
       return new Cards(this.cards.filter(handler));
     }
   }, {
+    key: "reduce",
+    value: function reduce(handler, carry) {
+      return this.cards.reduce(handler, carry);
+    }
+  }, {
     key: "find",
     value: function find(card) {
       return this.cards.filter(function (deckCard) {
@@ -458,6 +463,11 @@ function (_Model) {
       }
     }
   }, {
+    key: "cardBackImage",
+    get: function get() {
+      return this.fields.cardBackImage;
+    }
+  }, {
     key: "authorName",
     get: function get() {
       return this.fields.user.name || 'Anonymous';
@@ -485,16 +495,12 @@ function (_Model) {
   }, {
     key: "hero",
     get: function get() {
-      return this.cards.hero();
+      return this.cards.hero() ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards.hero()) : null;
     }
   }, {
     key: "sideboard",
     get: function get() {
       return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.fields.sideboard);
-
-      if (this.cards.hero()) {
-        return new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards.hero());
-      }
     }
   }, {
     key: "weapons",
@@ -520,6 +526,16 @@ function (_Model) {
     key: "totalCards",
     get: function get() {
       return this.fields.totalCards || 0;
+    }
+  }, {
+    key: "totalSideboard",
+    get: function get() {
+      return this.fields.totalSideboard || 0;
+    }
+  }, {
+    key: "totalMainDeck",
+    get: function get() {
+      return this.totalCards - this.totalSideboard;
     }
   }, {
     key: "slug",

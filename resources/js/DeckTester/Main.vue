@@ -5,9 +5,8 @@
 
         <div class="bg-gray-200">
             <div v-if="premium" class="container py-8 sm:mx-auto">
-                <router-view :tester="tester" :slug="deck.slug"></router-view>
+                <router-view :tester="tester"></router-view>
             </div>
-
             <div v-else>
                 <div class="container px-4 py-8 sm:mx-auto">
                     <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
