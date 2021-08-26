@@ -1,38 +1,36 @@
 <template>
     <div>
-        <div class="flex justify-center">
-            <div class="flex flex-wrap">
-                <div class="w-200">
-                    <card-image :card="hero"></card-image>
-                </div>
-                <div class="w-1/2">
-                    // arsenal
-                </div>
+        <div class="flex justify-center items-stretch space-x-4">
+            <div class="w-200">
+                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Banished</div>
             </div>
-            <div class="flex flex-wrap">
-                <div class="w-1/2">
-                    <deck :deck="deck" :card-back="tester.deck.cardBackImage" @click.native="draw" class="cursor-pointer"></deck>
-                </div>
-                <div class="w-1/2">
-                    // discard
-                </div>
-                <div class="w-1/2">
-                    // banished
-                </div>
+            <div class="w-200">
+                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Arsenal</div>
             </div>
-        </div>
-        <div class="w-full flex justify-center mt-8 -space-x-8">
-            <div v-for="(card, i) in hand" class="z-0 relative w-200 hover:z-25 cursor-pointer hover:scale-150" :style="transform(i)">
-                <card-image :card="card"></card-image>
+            <div class="w-200">
+                <card-image :card="hero" class="h-full"/>
+            </div>
+            <div class="w-200">
+                <deck :deck="deck" :card-back="tester.deck.cardBackImage" class="cursor-pointer"/>
+            </div>
+            <div class="w-200">
+                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Pitch</div>
+            </div>
+            <div class="w-200">
+                <stack pile="discard" name="Discard"/>
             </div>
         </div>
+
+        <hand :hand="hand"/>
     </div>
 </template>
 
 <script>
-    import Deck from "./Deck";
-    import Tester from "./Tester";
     import _ from "underscore";
+    import Deck from "./Deck";
+    import Hand from "./Hand";
+    import Stack from "./Stack";
+    import Tester from "./Tester";
 
     export default {
         props: {
@@ -42,7 +40,7 @@
             },
         },
 
-        components: {Deck},
+        components: {Deck, Hand, Stack},
 
         data() {
             return {
@@ -55,35 +53,11 @@
         },
 
         methods: {
-            draw() {
-                let card = this.deck.pop();
-
-                this.hand.push(card);
-            },
-
             reset() {
                 this.deck = _.shuffle(this.tester.mainDeck.hydrate().cards)
                 this.banished = [];
                 this.discard = [];
             },
-
-            transform(i) {
-                let total = this.hand.length;
-
-                if (total === 1) return;
-
-                let division = 30 / total;
-                let min = -15;
-                let start = min + division / total;
-                let degree = start + (i * division);
-
-                let top = Math.abs(degree) * 2;
-
-                return {
-                    transform: 'rotate('+degree+'deg)',
-                    top: top+'px',
-                }
-            }
         },
 
         mounted() {

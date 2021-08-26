@@ -73,6 +73,10 @@ module.exports = {
                 '12': '12rem',
             },
 
+            minHeight: {
+                '96': '24rem',
+            },
+
             textColor: {
                 'common': '#919191',
                 'token': '#919191',
