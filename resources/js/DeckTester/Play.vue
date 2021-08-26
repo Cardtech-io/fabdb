@@ -27,11 +27,11 @@
 
         <hand :hand="hand"/>
 
-        <button class="block w-auto relative button-primary rounded-full px-4 py-2 font-serif uppercase -top-24 mx-auto" @click="endTurn">
+        <button class="block w-auto relative button-primary rounded-full px-4 py-2 font-serif uppercase text-lg -top-24 mx-auto" @click="endTurn">
             End turn
         </button>
 
-        <history></history>
+<!--        <history></history>-->
     </div>
 </template>
 

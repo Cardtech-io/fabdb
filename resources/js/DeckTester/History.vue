@@ -6,7 +6,7 @@
             </header>
             <div class="relative flex-grow py-2">
                 <div class="absolute bottom-0 w-full space-y-1 z-25">
-                    <div v-for="record in history" class="px-4">
+                    <div v-for="record in history" class="px-4 odd:bg-black">
                         {{record.message}}
                     </div>
                 </div>

@@ -27,7 +27,7 @@
     "/js/decks.mine.js": "/js/decks.mine.js?id=3a3499f3659c11707b29",
     "/js/decks.starters.js": "/js/decks.starters.js?id=bf84ebf48b3a558dc438",
     "/js/decks.test.js": "/js/decks.test.js?id=2526a1db04839baea00f",
-    "/js/decks.test.play.js": "/js/decks.test.play.js?id=24f5d3d1d999895619e6",
+    "/js/decks.test.play.js": "/js/decks.test.play.js?id=f7442d2ae718e380b7cc",
     "/js/decks.test.prepare.js": "/js/decks.test.prepare.js?id=64eff501b62b244b893b",
     "/js/decks.view.js": "/js/decks.view.js?id=e1a3a28ab3c7386e083e",
     "/js/events.edit.js": "/js/events.edit.js?id=54dcd26804fb04724c73",
@@ -48,14 +48,12 @@
     "/js/user.profile.decks.js": "/js/user.profile.decks.js?id=575c239ac6d1317e45f5",
     "/js/user.profile.view.js": "/js/user.profile.view.js?id=b1e608761170f85c3b14",
     "/js/user.profile.wants.js": "/js/user.profile.wants.js?id=5b2e7613f7c8f1091dc9",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~51117c9b.js?id=3c38bc43b454f32604be",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.view~~cb7662d7.js?id=97f703a666db08869dd7",
+    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~412c4592.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~412c4592.js?id=99a2f0d82d4fa6e415d2",
+    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~f1412a8b.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~f1412a8b.js?id=5c8a16241c86c8eb7bfe",
     "/js/vendors~cards.view~decks.build~decks.view.js": "/js/vendors~cards.view~decks.build~decks.view.js?id=918fa164283161953314",
     "/js/vendors~cards.view~home.js": "/js/vendors~cards.view~home.js?id=ebc3276d93fca15552bf",
     "/js/vendors~decks.build~events.edit.js": "/js/vendors~decks.build~events.edit.js?id=6c9cc02f160bcc1aa8fe",
     "/js/vendors~decks.test.js": "/js/vendors~decks.test.js?id=063420b0f8092d1ee256",
     "/js/vendors~events.edit.js": "/js/vendors~events.edit.js?id=e9564a790a6ab950ddaa",
-    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~412c4592.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~412c4592.js?id=99a2f0d82d4fa6e415d2",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~f1412a8b.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~f1412a8b.js?id=5c8a16241c86c8eb7bfe"
+    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33"
 }

@@ -153,6 +153,13 @@ __webpack_require__.r(__webpack_exports__);
         marginTop: top + 'px'
       };
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$eventHub.$on('end-turn', function () {
+      _this.focused = null;
+    });
   }
 });
 
@@ -579,7 +586,7 @@ var render = function() {
                 "div",
                 { staticClass: "absolute bottom-0 w-full space-y-1 z-25" },
                 _vm._l(_vm.history, function(record) {
-                  return _c("div", { staticClass: "px-4" }, [
+                  return _c("div", { staticClass: "px-4 odd:bg-black" }, [
                     _vm._v(
                       "\n                    " +
                         _vm._s(record.message) +
@@ -726,13 +733,11 @@ var render = function() {
         "button",
         {
           staticClass:
-            "block w-auto relative button-primary rounded-full px-4 py-2 font-serif uppercase -top-24 mx-auto",
+            "block w-auto relative button-primary rounded-full px-4 py-2 font-serif uppercase text-lg -top-24 mx-auto",
           on: { click: _vm.endTurn }
         },
-        [_vm._v("\n        End turn\n    ")]
-      ),
-      _vm._v(" "),
-      _c("history")
+        [_vm._v("\n            End turn\n        ")]
+      )
     ],
     1
   )

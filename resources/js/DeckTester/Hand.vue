@@ -62,6 +62,12 @@
                     marginTop: top+'px',
                 }
             }
+        },
+
+        mounted() {
+            this.$eventHub.$on('end-turn', () => {
+                this.focused = null;
+            });
         }
     }
 </script>
