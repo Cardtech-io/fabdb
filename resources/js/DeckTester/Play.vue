@@ -2,10 +2,10 @@
     <div>
         <div class="flex justify-center items-stretch space-x-4">
             <div class="w-200">
-                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Banished</div>
+                <stack pile="banished" name="Banished"/>
             </div>
             <div class="w-200">
-                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Arsenal</div>
+                <stack pile="arsenal" name="Arsenal"/>
             </div>
             <div class="w-200">
                 <card-image :card="hero" class="h-full"/>
@@ -14,7 +14,7 @@
                 <deck :deck="deck" :card-back="tester.deck.cardBackImage" class="cursor-pointer"/>
             </div>
             <div class="w-200">
-                <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center">Pitch</div>
+                <stack pile="pitch" name="Pitch"/>
             </div>
             <div class="w-200">
                 <stack pile="discard" name="Discard"/>
@@ -44,11 +44,13 @@
 
         data() {
             return {
+                arsenal: [],
+                banished: [],
                 deck: [],
                 discard: [],
                 hand: [],
-                banished: [],
-                hero: this.tester.hero
+                hero: this.tester.hero,
+                pitch: [],
             }
         },
 

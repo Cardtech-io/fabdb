@@ -179,11 +179,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      arsenal: [],
+      banished: [],
       deck: [],
       discard: [],
       hand: [],
-      banished: [],
-      hero: this.tester.hero
+      hero: this.tester.hero,
+      pitch: []
     };
   },
   methods: {
@@ -410,9 +412,19 @@ var render = function() {
         "div",
         { staticClass: "flex justify-center items-stretch space-x-4" },
         [
-          _vm._m(0),
+          _c(
+            "div",
+            { staticClass: "w-200" },
+            [_c("stack", { attrs: { pile: "banished", name: "Banished" } })],
+            1
+          ),
           _vm._v(" "),
-          _vm._m(1),
+          _c(
+            "div",
+            { staticClass: "w-200" },
+            [_c("stack", { attrs: { pile: "arsenal", name: "Arsenal" } })],
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -441,7 +453,12 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(2),
+          _c(
+            "div",
+            { staticClass: "w-200" },
+            [_c("stack", { attrs: { pile: "pitch", name: "Pitch" } })],
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -457,53 +474,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-200" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center"
-        },
-        [_vm._v("Banished")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-200" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center"
-        },
-        [_vm._v("Arsenal")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-200" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center"
-        },
-        [_vm._v("Pitch")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
