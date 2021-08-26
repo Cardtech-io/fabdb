@@ -200,7 +200,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -943,11 +942,11 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "bg-yellow-700 rounded-lg text-white px-4 py-2 text-center"
+            "bg-green-700 rounded-lg text-white px-4 py-2 text-center"
         },
         [
           _vm._v(
-            "\n                        A new deck tester for our patrons is on its way! Not a patron?\n                        "
+            "\n                        The new deck tester is now LIVE! Available to all for the until next week for free. After then,\n                        restricted to "
           ),
           _c(
             "a",
@@ -955,17 +954,11 @@ var staticRenderFns = [
               staticClass: "underline hover:bg-yellow-500",
               attrs: { href: "https://patreon.com/fabdb", target: "_blank" }
             },
-            [_vm._v("Why not join up")]
+            [_vm._v("supporters of FaB DB")]
           ),
           _vm._v(
-            "\n                        now and get in on the action once it's launched?"
-          ),
-          _c("br"),
-          _vm._v(
-            "\n                        For this next week only, the current deck tester is available to "
-          ),
-          _c("i", [_vm._v("all")]),
-          _vm._v(" FaB DB users.\n                    ")
+            ".\n                        Available on laptop/desktop only.\n                    "
+          )
         ]
       )
     ])
