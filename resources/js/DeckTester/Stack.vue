@@ -1,18 +1,28 @@
 <template>
-    <div class="w-full h-full relative" v-if="stack.length">
-        <img :src="card.image" alt="" v-for="(card, i) in top4" class="absolute rounded-card border border-gray-200 z-25" :style="position(i)">
-        <div class="absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3">
-            <div class="flex justify-center items-center inline-block bg-semi-black rounded-full relative h-16 w-16" style="left: 4px">
-                <span>
-                    {{stack.length}}
-                </span>
+    <div @drop="drop($event, pile)" @dragover.prevent @dragenter.prevent class="h-full">
+        <div class="w-full h-full relative" v-if="stack.length">
+            <img
+                 :src="card.image"
+                 v-for="(card, i) in top4"
+                 class="absolute rounded-card border border-gray-200 z-25"
+                 :style="position(i)"
+                 @dragstart="drag($event, pile, i)"
+            >
+            <div class="absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3">
+                <div class="flex justify-center items-center inline-block bg-semi-black rounded-full relative h-12 w-12" style="left: 4px">
+                    <span>
+                        {{stack.length}}
+                    </span>
+                </div>
             </div>
         </div>
+        <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center" v-else>{{name}}</div>
     </div>
-    <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center" v-else>{{name}}</div>
 </template>
 
 <script>
+    import Interactive from "./Interactive";
+
     export default {
         props: {
             pile: {
@@ -25,6 +35,8 @@
                 required: true,
             }
         },
+
+        mixins: [Interactive],
 
         computed: {
             top4() {

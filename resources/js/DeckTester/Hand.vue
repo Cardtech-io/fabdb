@@ -1,13 +1,24 @@
 <template>
-    <div class="relative w-full flex justify-center items-start -space-x-10 my-8 min-h-96">
-        <div v-for="(card, i) in hand" class="relative z-0 w-200 hover:z-25 cursor-pointer" :style="transform(i)" @mouseover="setFocused(i)" @mouseout="setFocused(null)" @click="sendToDiscard(i)">
-            <card-image :card="card"></card-image>
-            <div class="transition absolute top-0 bottom-0 w-full bg-gray-200 rounded-card" :class="classes(i)"></div>
+    <div class="w-full">
+        <div class="relative w-full flex justify-center items-start -space-x-10 my-8 min-h-96" @drop="drop($event, 'hand')" @dragover.prevent @dragenter.prevent>
+            <div v-for="(card, i) in hand"
+                 draggable
+                 class="relative z-0 w-200 hover:z-25 cursor-pointer"
+                 :style="transform(i)"
+                 @mouseover="setFocused(i)"
+                 @mouseout="setFocused(null)"
+                 @dragstart="drag($event, 'hand', i)"
+            >
+                <card-image :card="card"></card-image>
+                <div class="transition absolute top-0 bottom-0 w-full bg-gray-200 rounded-card" :class="classes(i)"></div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import Interactive from "./Interactive";
+
     export default {
         props: {
             hand: {
@@ -15,6 +26,8 @@
                 required: true
             }
         },
+
+        mixins: [Interactive],
 
         data: () => ({
             focused: null
@@ -30,12 +43,6 @@
                     'opacity-50': this.focused !== null && this.focused !== i,
                     'opacity-0': this.focused === null || this.focused === i,
                 };
-            },
-
-            sendToDiscard(i) {
-                let card = this.$parent.hand.splice(i, 1)[0];
-                this.$parent.discard.push(card);
-                this.setFocused(null);
             },
 
             transform(i) {
