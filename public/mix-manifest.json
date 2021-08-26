@@ -9,7 +9,8 @@
     "/js/auth.logout.js": "/js/auth.logout.js?id=098c2a244c9887a89606",
     "/js/cards.advanced.js": "/js/cards.advanced.js?id=0aff2b9412660f8ae311",
     "/js/cards.browse.js": "/js/cards.browse.js?id=16f5a208824f5e9369e8",
-    "/js/cards.browse~collection.js": "/js/cards.browse~collection.js?id=c6bea80db9353d58efe7",
+    "/js/cards.browse~collection.js": "/js/cards.browse~collection.js?id=ea3afbef305f956caf8a",
+    "/js/cards.browse~collection~decks.test.js": "/js/cards.browse~collection~decks.test.js?id=f85b31713f13fd7706ae",
     "/js/cards.fabled.js": "/js/cards.fabled.js?id=ef8d5f5502c103340d05",
     "/js/cards.fabled~cards.view.js": "/js/cards.fabled~cards.view.js?id=124e42b4b3c940cf9205",
     "/js/cards.prices.js": "/js/cards.prices.js?id=b9eef7cb7d20b766ab43",
@@ -24,9 +25,9 @@
     "/js/decks.build~practise.view.js": "/js/decks.build~practise.view.js?id=f1d6db4bb38f0e1211c9",
     "/js/decks.export.js": "/js/decks.export.js?id=5c9c64a716fb3fd54cd5",
     "/js/decks.featured.js": "/js/decks.featured.js?id=e4b22ba1a48f7b30f571",
-    "/js/decks.mine.js": "/js/decks.mine.js?id=3a3499f3659c11707b29",
+    "/js/decks.mine.js": "/js/decks.mine.js?id=548450e1a36e20dcc094",
     "/js/decks.starters.js": "/js/decks.starters.js?id=bf84ebf48b3a558dc438",
-    "/js/decks.test.js": "/js/decks.test.js?id=2526a1db04839baea00f",
+    "/js/decks.test.js": "/js/decks.test.js?id=de8a5331d50933ac8de9",
     "/js/decks.test.play.js": "/js/decks.test.play.js?id=f7442d2ae718e380b7cc",
     "/js/decks.test.prepare.js": "/js/decks.test.prepare.js?id=64eff501b62b244b893b",
     "/js/decks.view.js": "/js/decks.view.js?id=e1a3a28ab3c7386e083e",
@@ -55,5 +56,8 @@
     "/js/vendors~decks.build~events.edit.js": "/js/vendors~decks.build~events.edit.js?id=6c9cc02f160bcc1aa8fe",
     "/js/vendors~decks.test.js": "/js/vendors~decks.test.js?id=063420b0f8092d1ee256",
     "/js/vendors~events.edit.js": "/js/vendors~events.edit.js?id=e9564a790a6ab950ddaa",
-    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33"
+    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33",
+    "/js/decks.browse~decks.featured~decks.mine~decks.starters~decks.test.main~decks.view~user.profile.decks.js": "/js/decks.browse~decks.featured~decks.mine~decks.starters~decks.test.main~decks.view~user.profile.decks.js?id=f8a03e20fe8730a877ea",
+    "/js/decks.test.main.js": "/js/decks.test.main.js?id=ce4e5165ae3940923692",
+    "/js/vendors~decks.test.main.js": "/js/vendors~decks.test.main.js?id=a4d9474e52b70f1fdb53"
 }

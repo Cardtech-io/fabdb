@@ -196,6 +196,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -771,10 +776,43 @@ var render = function() {
                                       _c(
                                         "router-link",
                                         {
-                                          staticClass: "hover:text-gray-400",
+                                          staticClass:
+                                            "lg:hidden hover:text-gray-400",
                                           attrs: {
                                             to: {
                                               name: "decks.test",
+                                              params: { deck: deck.slug }
+                                            }
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.copyDeck(deck)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("icon", { attrs: { size: 5 } }, [
+                                            _c("path", {
+                                              attrs: {
+                                                "fill-rule": "evenodd",
+                                                d:
+                                                  "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+                                                "clip-rule": "evenodd"
+                                              }
+                                            })
+                                          ])
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "router-link",
+                                        {
+                                          staticClass:
+                                            "hidden lg:inline hover:text-gray-400",
+                                          attrs: {
+                                            to: {
+                                              name: "decks.test.prepare",
                                               params: { deck: deck.slug }
                                             }
                                           },
