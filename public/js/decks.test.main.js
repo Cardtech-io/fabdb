@@ -33,6 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Historian__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Historian */ "./resources/js/DeckTester/Historian.js");
+/* harmony import */ var _Interactive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Interactive */ "./resources/js/DeckTester/Interactive.js");
 //
 //
 //
@@ -48,6 +49,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     deck: {
@@ -59,12 +61,16 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     }
   },
+  mixins: [_Interactive__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
       capture: false
     };
   },
   computed: {
+    lastImage: function lastImage() {
+      return this.deck[this.deck.length - 1].image;
+    },
     total: function total() {
       var total = Math.ceil(this.deck.length / 20);
       return total > 4 ? 4 : total;
@@ -750,69 +756,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "w-full h-full relative",
-      on: {
-        click: function($event) {
-          $event.preventDefault()
-          return _vm.draw.apply(null, arguments)
-        },
-        keyup: function($event) {
-          $event.preventDefault()
-          return _vm.drawNumber.apply(null, arguments)
-        },
-        mouseenter: function($event) {
-          $event.preventDefault()
-          _vm.capture = true
-        },
-        mouseleave: function($event) {
-          $event.preventDefault()
-          _vm.capture = false
-        }
-      }
-    },
-    [
-      _c("img", { staticClass: "z-0 invisible", attrs: { src: _vm.cardBack } }),
-      _vm._v(" "),
-      _vm._l(_vm.total, function(n, i) {
-        return _c("img", {
-          staticClass: "absolute rounded-card border border-gray-200 z-25",
-          style: _vm.position(i),
-          attrs: { src: _vm.cardBack, alt: "" }
-        })
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
+  return _vm.deck.length
+    ? _c(
+        "button",
         {
-          staticClass:
-            "absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3"
+          staticClass: "w-full h-full relative",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.draw.apply(null, arguments)
+            },
+            keyup: function($event) {
+              $event.preventDefault()
+              return _vm.drawNumber.apply(null, arguments)
+            },
+            mouseenter: function($event) {
+              $event.preventDefault()
+              _vm.capture = true
+            },
+            mouseleave: function($event) {
+              $event.preventDefault()
+              _vm.capture = false
+            },
+            dragstart: function($event) {
+              return _vm.dragImage(
+                $event,
+                "deck",
+                _vm.deck.length - 1,
+                _vm.lastImage
+              )
+            }
+          }
         },
         [
+          _c("img", {
+            staticClass: "z-0 invisible",
+            attrs: { src: _vm.cardBack }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.total, function(n, i) {
+            return _c("img", {
+              staticClass: "absolute rounded-card border border-gray-200 z-25",
+              style: _vm.position(i),
+              attrs: { src: _vm.cardBack }
+            })
+          }),
+          _vm._v(" "),
           _c(
             "div",
             {
               staticClass:
-                "flex justify-center items-center inline-block bg-semi-black rounded-full relative h-16 w-16",
-              staticStyle: { left: "4px" }
+                "absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3"
             },
             [
-              _c("span", [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(_vm.deck.length) +
-                    "\n            "
-                )
-              ])
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "flex justify-center items-center inline-block bg-semi-black rounded-full relative h-16 w-16",
+                  staticStyle: { left: "4px" }
+                },
+                [
+                  _c("span", [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.deck.length) +
+                        "\n            "
+                    )
+                  ])
+                ]
+              )
             ]
           )
-        ]
+        ],
+        2
       )
-    ],
-    2
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1478,6 +1497,7 @@ var render = function() {
       staticClass: "h-full",
       on: {
         drop: function($event) {
+          $event.preventDefault()
           return _vm.drop($event, _vm.pile)
         },
         dragover: function($event) {
@@ -1495,12 +1515,13 @@ var render = function() {
             { staticClass: "w-full h-full relative" },
             [
               _vm._l(_vm.top4, function(card, i) {
-                return _c("img", {
+                return _c("card-image", {
+                  key: card.identifier,
                   staticClass:
                     "absolute rounded-card border border-gray-200 z-25",
                   style: _vm.position(i),
-                  attrs: { src: card.image },
-                  on: {
+                  attrs: { card: card },
+                  nativeOn: {
                     dragstart: function($event) {
                       return _vm.drag($event, _vm.pile, i)
                     }
@@ -1943,11 +1964,18 @@ __webpack_require__.r(__webpack_exports__);
       $event.dataTransfer.setData('from', from);
       $event.dataTransfer.setData('index', index);
     },
+    dragImage: function dragImage($event, from, index, src) {
+      var image = new Image();
+      image.setAttribute('src', src);
+      image.setAttribute('width', '200px');
+      $event.dataTransfer.setDragImage(image, 0, 0);
+      this.drag($event, from, index);
+    },
     drop: function drop($event, to) {
       var from = $event.dataTransfer.getData('from');
       var index = $event.dataTransfer.getData('index');
 
-      if (index === null) {
+      if (index === undefined) {
         index = this.$parent[from].length - 1;
       }
 

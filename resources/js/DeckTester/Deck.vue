@@ -1,7 +1,7 @@
 <template>
-    <button class="w-full h-full relative" @click.prevent="draw" @keyup.prevent="drawNumber" @mouseenter.prevent="capture = true" @mouseleave.prevent="capture = false">
-        <img :src="cardBack" class="z-0 invisible">
-        <img :src="cardBack" alt="" v-for="(n, i) in total" class="absolute rounded-card border border-gray-200 z-25" :style="position(i)">
+    <button class="w-full h-full relative" @click.prevent="draw" @keyup.prevent="drawNumber" @mouseenter.prevent="capture = true" @mouseleave.prevent="capture = false" v-if="deck.length" @dragstart="dragImage($event, 'deck', deck.length-1, lastImage)">
+        <img :src="cardBack" class="z-0 invisible"/>
+        <img :src="cardBack" v-for="(n, i) in total" class="absolute rounded-card border border-gray-200 z-25" :style="position(i)"/>
         <div class="absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3">
             <div class="flex justify-center items-center inline-block bg-semi-black rounded-full relative h-16 w-16" style="left: 4px">
                 <span>
@@ -14,6 +14,7 @@
 
 <script>
     import Historian from "./Historian";
+    import Interactive from "./Interactive";
 
     export default {
         props: {
@@ -28,11 +29,17 @@
             }
         },
 
+        mixins: [Interactive],
+
         data: () => ({
             capture: false
         }),
 
         computed: {
+            lastImage() {
+                return this.deck[this.deck.length-1].image;
+            },
+
             total() {
                 let total = Math.ceil(this.deck.length / 20);
 

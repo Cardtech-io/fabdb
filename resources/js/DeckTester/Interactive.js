@@ -12,11 +12,21 @@ export default {
             $event.dataTransfer.setData('index', index);
         },
 
+        dragImage($event, from, index, src) {
+            const image = new Image();
+            image.setAttribute('src', src);
+            image.setAttribute('width', '200px');
+
+            $event.dataTransfer.setDragImage(image, 0, 0);
+
+            this.drag($event, from, index);
+        },
+
         drop($event, to) {
             const from = $event.dataTransfer.getData('from');
             let index = $event.dataTransfer.getData('index');
 
-            if (index === null) {
+            if (index === undefined) {
                 index = this.$parent[from].length-1;
             }
 
