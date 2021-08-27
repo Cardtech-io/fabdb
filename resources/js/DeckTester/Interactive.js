@@ -14,8 +14,17 @@ export default {
 
         drop($event, to) {
             const from = $event.dataTransfer.getData('from');
-            const index = $event.dataTransfer.getData('index');
-            const card = index === null ? this.$parent[from].pop() : this.$parent[from].splice(index, 1)[0];
+            let index = $event.dataTransfer.getData('index');
+
+            if (index === null) {
+                index = this.$parent[from].length-1;
+            }
+
+            this.send(index, from, to);
+        },
+
+        send(index, from, to) {
+            let card = this.$parent[from].splice(index, 1)[0];
 
             this.$parent[to].push(card);
 
@@ -23,7 +32,6 @@ export default {
 
             switch (to) {
                 case 'pitch':
-                case 'discard':
                     message = this.ucfirst(to)+'ed "'+card.name+'".';
                     break;
                 case 'banished':
@@ -33,7 +41,8 @@ export default {
                     message = 'Moved "'+card.name+'" back to hand.';
                     break;
                 case 'arsenal':
-                    message = 'Moved "'+card.name+'" to arsenal.';
+                case 'graveyard':
+                    message = 'Moved "'+card.name+'" to '+to+'.';
                     break;
             }
 

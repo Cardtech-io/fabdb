@@ -669,6 +669,11 @@ function () {
       return this.cards;
     }
   }, {
+    key: "each",
+    value: function each(handler) {
+      this.cards.forEach(handler);
+    }
+  }, {
     key: Symbol.iterator,
     value: function value() {
       return this.cards.values();

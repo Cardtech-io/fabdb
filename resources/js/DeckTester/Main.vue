@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div v-if="deck">
         <header-title title="Test Deck"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
             <div v-if="true" class="container py-8 sm:mx-auto">
-                <router-view :tester="tester"></router-view>
+                <component :is="step" :tester="tester"></component>
             </div>
             <div v-else>
                 <div class="container px-4 py-8 sm:mx-auto">
@@ -29,15 +29,19 @@
     import Breadcrumbs from "../Components/Breadcrumbs";
     import Decks from "../Decks/DeckRepository";
     import HeaderTitle from "../Components/HeaderTitle";
-    import LazyLoader from "../Components/LazyLoader";
+    import Play from "./Play";
+    import Prepare from "./Prepare";
+    import Strings from "../Utilities/Strings";
     import Tester from "./Tester";
 
     export default {
-        components: {Breadcrumbs, HeaderTitle},
+        components: {Breadcrumbs, HeaderTitle, Play, Prepare},
+        mixins: [Strings],
 
         data() {
             return {
-                deck: null
+                deck: null,
+                step: 'prepare',
             }
         },
 
@@ -57,12 +61,24 @@
             }
         },
 
-        extends: LazyLoader(async (to, callback) => {
-            let deck = await Decks.find(to.params.deck);
+        methods: {
+            async load() {
+                let deck = await Decks.find(this.$route.params.deck);
 
-            callback(function() {
+                deck.cards.each(card => {
+                    let sideboarded = deck.sideboard.find(card);
+
+                    if (sideboarded) {
+                        card.total = card.total - sideboarded.total;
+                    }
+                });
+
                 this.deck = deck;
-            });
-        })
+            }
+        },
+
+        mounted() {
+            this.load();
+        }
     };
 </script>

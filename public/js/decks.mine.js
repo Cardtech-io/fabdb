@@ -769,7 +769,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "flex space-x-2 justify-center items-center"
+                                        "flex space-x-4 justify-center items-center"
                                     },
                                     [
                                       _c(
@@ -790,7 +790,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _c("icon", { attrs: { size: 5 } }, [
+                                          _c("icon", { attrs: { size: 6 } }, [
                                             _c("path", {
                                               attrs: {
                                                 "fill-rule": "evenodd",
@@ -822,7 +822,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _c("icon", { attrs: { size: 5 } }, [
+                                          _c("icon", { attrs: { size: 6 } }, [
                                             _c("path", {
                                               attrs: {
                                                 "fill-rule": "evenodd",
@@ -847,7 +847,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _c("icon", { attrs: { size: 5 } }, [
+                                          _c("icon", { attrs: { size: 6 } }, [
                                             _c("path", {
                                               attrs: {
                                                 d:
@@ -877,7 +877,7 @@ var render = function() {
                                           }
                                         },
                                         [
-                                          _c("icon", { attrs: { size: 5 } }, [
+                                          _c("icon", { attrs: { size: 6 } }, [
                                             _c("path", {
                                               attrs: {
                                                 "fill-rule": "evenodd",

@@ -74,25 +74,25 @@
                                 <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
                                 <td class="border border-gray-300 p-2 px-4">
-                                    <div class="flex space-x-2 justify-center items-center">
+                                    <div class="flex space-x-4 justify-center items-center">
                                         <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="lg:hidden hover:text-gray-400">
-                                            <icon :size="5">
+                                            <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
                                         <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="hidden lg:inline hover:text-gray-400">
-                                            <icon :size="5">
+                                            <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
                                         <button @click="copyDeck(deck)" class="hover:text-gray-400">
-                                            <icon :size="5">
+                                            <icon :size="6">
                                                 <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
                                                 <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
                                             </icon>
                                         </button>
                                         <button @click="removeDeck(deck, key)" class="hover:text-gray-400">
-                                            <icon :size="5">
+                                            <icon :size="6">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                             </icon>
                                         </button>

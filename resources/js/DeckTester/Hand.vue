@@ -8,9 +8,10 @@
                  @mouseover="setFocused(i)"
                  @mouseout="setFocused(null)"
                  @dragstart="drag($event, 'hand', i)"
+                 @click="send(card, 'hand', 'graveyard')"
             >
                 <card-image :card="card"></card-image>
-                <div class="transition absolute top-0 bottom-0 w-full bg-gray-200 rounded-card" :class="classes(i)"></div>
+                <div class="transition duration-500 absolute top-0 bottom-0 w-full bg-gray-200 rounded-card" :class="classes(i)"></div>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
 
             classes(i) {
                 return {
-                    'opacity-50': this.focused !== null && this.focused !== i,
+                    'opacity-30': this.focused !== null && this.focused !== i,
                     'opacity-0': this.focused === null || this.focused === i,
                 };
             },

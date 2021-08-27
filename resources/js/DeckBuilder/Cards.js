@@ -235,6 +235,10 @@ export default class Cards {
         return this.cards;
     }
 
+    each(handler) {
+        this.cards.forEach(handler);
+    }
+
     [Symbol.iterator]() {
         return this.cards.values();
     }

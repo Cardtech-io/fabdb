@@ -287,6 +287,11 @@ function () {
       return new Cards(this.cards.filter(handler));
     }
   }, {
+    key: "reduce",
+    value: function reduce(handler, carry) {
+      return this.cards.reduce(handler, carry);
+    }
+  }, {
     key: "find",
     value: function find(card) {
       return this.cards.filter(function (deckCard) {
@@ -303,6 +308,8 @@ function () {
           return i;
         }
       }
+
+      return false;
     }
   }, {
     key: "hydrate",
@@ -337,6 +344,8 @@ function () {
       if (deckCard) {
         deckCard.total += 1;
       } else {
+        // clone the card before setting total
+        card = JSON.parse(JSON.stringify(card));
         card.total = 1;
         this.cards.push(card);
       }
@@ -366,7 +375,7 @@ function () {
       } else {
         var key = this.findKey(card);
 
-        if (key) {
+        if (key !== false) {
           this.cards.splice(key, 1);
         }
       }
@@ -375,6 +384,11 @@ function () {
     key: "all",
     value: function all() {
       return this.cards;
+    }
+  }, {
+    key: "each",
+    value: function each(handler) {
+      this.cards.forEach(handler);
     }
   }, {
     key: Symbol.iterator,
@@ -400,15 +414,26 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DeckBuilder/Cards */ "./resources/js/DeckBuilder/Cards.js");
-/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
+/* harmony import */ var _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DeckBuilder/Cards */ "./resources/js/DeckBuilder/Cards.js");
+/* harmony import */ var _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Card */ "./resources/js/CardDatabase/Card.js");
+/* harmony import */ var _Utilities_Model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Model */ "./resources/js/Utilities/Model.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -416,14 +441,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var Deck =
 /*#__PURE__*/
-function () {
-  function Deck(fields) {
+function (_Model) {
+  _inherits(Deck, _Model);
+
+  function Deck() {
     _classCallCheck(this, Deck);
 
-    this.fields = fields;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Deck).apply(this, arguments));
   }
 
   _createClass(Deck, [{
+    key: "avatar",
+    get: function get() {
+      return this.fields.avatar;
+    }
+  }, {
     key: "name",
     get: function get() {
       return this.fields.name;
@@ -434,6 +466,11 @@ function () {
       if (this.fields.parent) {
         return new Deck(this.fields.parent);
       }
+    }
+  }, {
+    key: "cardBackImage",
+    get: function get() {
+      return this.fields.cardBackImage;
     }
   }, {
     key: "authorName",
@@ -458,14 +495,17 @@ function () {
   }, {
     key: "cards",
     get: function get() {
-      return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.fields.cards);
+      return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.fields.cards);
     }
   }, {
     key: "hero",
     get: function get() {
-      if (this.cards.hero()) {
-        return new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_2__["default"](this.cards.hero());
-      }
+      return this.cards.hero() ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards.hero()) : null;
+    }
+  }, {
+    key: "sideboard",
+    get: function get() {
+      return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.fields.sideboard);
     }
   }, {
     key: "weapons",
@@ -493,6 +533,16 @@ function () {
       return this.fields.totalCards || 0;
     }
   }, {
+    key: "totalSideboard",
+    get: function get() {
+      return this.fields.totalSideboard || 0;
+    }
+  }, {
+    key: "totalMainDeck",
+    get: function get() {
+      return this.totalCards - this.totalSideboard;
+    }
+  }, {
     key: "slug",
     get: function get() {
       return this.fields.slug;
@@ -500,14 +550,35 @@ function () {
   }, {
     key: "updatedAt",
     get: function get() {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.fields.updatedAt).utc().local().fromNow();
+      return moment(this.fields.updatedAt).utc().local().fromNow();
     }
   }]);
 
   return Deck;
-}();
+}(_Utilities_Model__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Deck);
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Model.js":
+/*!*****************************************!*\
+  !*** ./resources/js/Utilities/Model.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Model = function Model(fields) {
+  _classCallCheck(this, Model);
+
+  this.fields = fields;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Model);
 
 /***/ }),
 

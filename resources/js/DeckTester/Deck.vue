@@ -44,6 +44,8 @@
             draw() {
                 let card = this.deck.pop();
 
+                if (!card) return;
+
                 this.$parent.hand.push(card);
 
                 Historian.write('draw', 'Drew "'+card.name+'"');

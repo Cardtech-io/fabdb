@@ -21,12 +21,12 @@
 
         <div class="w-1/5 mx-4">
             <card-image :card="tester.hero"></card-image>
-            <router-link :to="{name: 'decks.test.play', params: {deck: tester.slug}}" class="flex w-full mt-4 py-3 px-4 rounded-lg button-primary items-center">
+            <button class="flex w-full mt-4 py-3 px-4 rounded-full button-primary items-center" @click="$parent.step = 'play'">
                 <span>Ready (Test!)</span>
                 <icon :size="5" class="ml-auto">
                     <path d="M10 7H2v6h8v5l8-8-8-8v5z"/>
                 </icon>
-            </router-link>
+            </button>
         </div>
     </div>
 </template>
@@ -39,6 +39,8 @@
     import Tester from "./Tester";
 
     export default {
+        name: 'deck.prepare',
+
         props: {
             tester: {
                 type: Tester,

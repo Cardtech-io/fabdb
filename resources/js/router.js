@@ -37,10 +37,7 @@ const router = new VueRouter({
 
         { path: "/decks/test/:deck", component: () => import(/* webpackChunkName: "decks.test" */ './DeckBuilder/TestDeck'), name: 'decks.test', meta: { auth: true } },
 
-        { path: "/decks/:deck/test", component: () => import(/* webpackChunkName: "decks.test.main" */ './DeckTester/Main'), meta: { auth: true }, children: [
-            { path: '', component: () => import(/* webpackChunkName: "decks.test.prepare" */ './DeckTester/Prepare'), name: 'decks.test.prepare' },
-            { path: 'play', component: () => import(/* webpackChunkName: "decks.test.play" */ './DeckTester/Play'), name: 'decks.test.play' }
-        ]},
+        { path: "/decks/:deck/test", component: () => import(/* webpackChunkName: "decks.test.main" */ './DeckTester/Main'), name: 'decks.test.prepare', meta: { auth: true }},
 
         { path: "/decks/export/:deck", component: () => import(/* webpackChunkName: "decks.export" */ './DeckBuilder/ExportDeck'), name: 'decks.export', meta: { title: 'Deck builder &gt; Export', auth: true } },
         { path: "/decks/starters", component: () => import(/* webpackChunkName: "decks.starters" */ './Decks/Starters'), name: 'decks.starters', meta: { title: 'Flesh &amp; Blood Starter Decks' } },

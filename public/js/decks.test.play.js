@@ -50,6 +50,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     draw: function draw() {
       var card = this.deck.pop();
+      if (!card) return;
       this.$parent.hand.push(card);
       _Historian__WEBPACK_IMPORTED_MODULE_0__["default"].write('draw', 'Drew "' + card.name + '"');
     },
@@ -275,6 +276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'deck.play',
   props: {
     tester: {
       type: _Tester__WEBPACK_IMPORTED_MODULE_6__["default"],
@@ -292,7 +294,7 @@ __webpack_require__.r(__webpack_exports__);
       arsenal: [],
       banished: [],
       deck: [],
-      discard: [],
+      graveyard: [],
       hand: [],
       hero: this.tester.hero,
       pitch: []
@@ -309,9 +311,13 @@ __webpack_require__.r(__webpack_exports__);
       this.$eventHub.$emit('end-turn');
     },
     reset: function reset() {
+      console.log(this.tester.mainDeck);
       this.deck = underscore__WEBPACK_IMPORTED_MODULE_0__["default"].shuffle(this.tester.mainDeck.hydrate().cards);
       this.banished = [];
-      this.discard = [];
+      this.graveyard = [];
+      this.pitch = [];
+      this.hand = [];
+      this.arsenal = [];
     }
   },
   mounted: function mounted() {
@@ -721,7 +727,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "w-200" },
-            [_c("stack", { attrs: { pile: "discard", name: "Discarded" } })],
+            [_c("stack", { attrs: { pile: "graveyard", name: "Graveyard" } })],
             1
           )
         ]
@@ -1106,7 +1112,6 @@ __webpack_require__.r(__webpack_exports__);
 
       switch (to) {
         case 'pitch':
-        case 'discard':
           message = this.ucfirst(to) + 'ed "' + card.name + '".';
           break;
 
@@ -1119,7 +1124,8 @@ __webpack_require__.r(__webpack_exports__);
           break;
 
         case 'arsenal':
-          message = 'Moved "' + card.name + '" to arsenal.';
+        case 'graveyard':
+          message = 'Moved "' + card.name + '" to ' + to + '.';
           break;
       }
 

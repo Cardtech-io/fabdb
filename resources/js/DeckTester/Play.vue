@@ -21,15 +21,29 @@
                 <stack pile="pitch" name="Pitched"/>
             </div>
             <div class="w-200">
-                <stack pile="discard" name="Discarded"/>
+                <stack pile="graveyard" name="Graveyard"/>
             </div>
         </div>
 
         <hand :hand="hand"/>
 
-        <button class="block w-auto relative button-primary rounded-full px-4 py-2 font-serif uppercase text-lg -top-24 mx-auto" @click="endTurn">
-            End turn
-        </button>
+        <div class="relative -top-24 flex justify-center space-x-4">
+            <button class="transition duration-200 transform bg-secondary hover:bg-red-500 rounded-full h-12 w-12 flex justify-center items-center text-white shadow-lg hover:scale-110" @click="$parent.step = 'prepare'">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                </svg>
+            </button>
+
+            <button class="transition duration-200 transform bg-primary hover:bg-black rounded-full px-8 justify-center items-center text-white shadow-lg hover:scale-110" @click="endTurn">
+                End turn
+            </button>
+
+            <button class="transition duration-200 transform bg-secondary hover:bg-red-500 rounded-full h-12 w-12 flex justify-center items-center text-white shadow-lg hover:scale-110" @click="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </button>
+        </div>
 
 <!--        <history></history>-->
     </div>
@@ -45,6 +59,8 @@
     import Tester from "./Tester";
 
     export default {
+        name: 'deck.play',
+
         props: {
             tester: {
                 type: Tester,
@@ -59,7 +75,7 @@
                 arsenal: [],
                 banished: [],
                 deck: [],
-                discard: [],
+                graveyard: [],
                 hand: [],
                 hero: this.tester.hero,
                 pitch: [],
@@ -78,9 +94,12 @@
             },
 
             reset() {
-                this.deck = _.shuffle(this.tester.mainDeck.hydrate().cards)
+                this.deck = _.shuffle(this.tester.mainDeck.hydrate().cards);
                 this.banished = [];
-                this.discard = [];
+                this.graveyard = [];
+                this.pitch = [];
+                this.hand = [];
+                this.arsenal = [];
             }
         },
 
