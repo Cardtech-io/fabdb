@@ -27,9 +27,9 @@
 
         <hand :hand="hand"/>
 
-        <div class="relative -top-24 flex justify-center space-x-4">
+        <div class="relative -top-20 flex justify-center space-x-4">
             <button class="transition duration-200 transform bg-secondary hover:bg-red-500 rounded-full h-12 w-12 flex justify-center items-center text-white shadow-lg hover:scale-110" @click="$parent.step = 'prepare'">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
                 </svg>
             </button>

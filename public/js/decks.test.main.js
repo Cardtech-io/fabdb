@@ -1241,7 +1241,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "relative -top-24 flex justify-center space-x-4" },
+        { staticClass: "relative -top-20 flex justify-center space-x-4" },
         [
           _c(
             "button",
@@ -1258,7 +1258,7 @@ var render = function() {
               _c(
                 "svg",
                 {
-                  staticClass: "h-6 w-6",
+                  staticClass: "h-7 w-7",
                   attrs: {
                     xmlns: "http://www.w3.org/2000/svg",
                     fill: "none",
