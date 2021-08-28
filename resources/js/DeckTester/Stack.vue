@@ -2,11 +2,14 @@
     <div @drop.prevent="drop($event, pile)" @dragover.prevent @dragenter.prevent class="h-full">
         <div class="w-full h-full relative" v-if="stack.length">
             <card-image :card="card"
+                draggable
                 v-for="(card, i) in top4"
-                :key="card.identifier"
+                :key="card.identifier+i"
                 class="absolute rounded-card border border-gray-200 z-25"
                 :style="position(i)"
-                @dragstart.native="drag($event, pile, i)"/>
+                @dragstart.native="drag($event, pile, i)"
+                @click.native="send(i, pile, 'hand')"
+            />
 
             <div class="absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3">
                 <div class="flex justify-center items-center inline-block bg-semi-black rounded-full relative h-12 w-12" style="left: 4px">

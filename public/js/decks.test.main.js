@@ -68,9 +68,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    lastImage: function lastImage() {
-      return this.deck[this.deck.length - 1].image;
-    },
     total: function total() {
       var total = Math.ceil(this.deck.length / 20);
       return total > 4 ? 4 : total;
@@ -200,6 +197,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -221,8 +221,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     classes: function classes(i) {
       return {
-        'opacity-30': this.focused !== null && this.focused !== i,
-        'opacity-0': this.focused === null || this.focused === i
+        'opacity-30 z-50': this.focused !== null && this.focused !== i,
+        'opacity-0 z-0': this.focused === null || this.focused === i
       };
     },
     transform: function transform(i) {
@@ -397,7 +397,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_Decks_DeckRepository__WEBPACK_IMPORTED_MODULE_3__["default"].find(this.$route.params.deck));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_Decks_DeckRepository__WEBPACK_IMPORTED_MODULE_3__["default"].findWithWidth(this.$route.params.deck, 200));
 
             case 2:
               deck = _context.sent;
@@ -692,6 +692,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -792,12 +795,7 @@ var render = function() {
               _vm.capture = false
             },
             dragstart: function($event) {
-              return _vm.dragImage(
-                $event,
-                "deck",
-                _vm.deck.length - 1,
-                _vm.lastImage
-              )
+              return _vm.drag($event, "deck", _vm.deck.length - 1)
             }
           }
         },
@@ -1001,28 +999,32 @@ var render = function() {
           {
             staticClass: "relative z-0 w-200 hover:z-25 cursor-pointer",
             style: _vm.transform(i),
-            attrs: { draggable: "" },
             on: {
               mouseover: function($event) {
                 return _vm.setFocused(i)
               },
               mouseout: function($event) {
                 return _vm.setFocused(null)
-              },
-              dragstart: function($event) {
-                return _vm.drag($event, "hand", i)
-              },
-              click: function($event) {
-                return _vm.send(card, "hand", "graveyard")
               }
             }
           },
           [
-            _c("card-image", { attrs: { card: card } }),
+            _c("card-image", {
+              staticClass: "relative z-25",
+              attrs: { card: card, draggable: "" },
+              nativeOn: {
+                dragstart: function($event) {
+                  return _vm.drag($event, "hand", i)
+                },
+                click: function($event) {
+                  return _vm.send(i, "hand", "graveyard")
+                }
+              }
+            }),
             _vm._v(" "),
             _c("div", {
               staticClass:
-                "transition duration-500 absolute top-0 bottom-0 w-full bg-gray-200 rounded-card",
+                "transition duration-300 absolute top-0 bottom-0 w-full bg-gray-200 rounded-card",
               class: _vm.classes(i)
             })
           ],
@@ -1530,14 +1532,17 @@ var render = function() {
             [
               _vm._l(_vm.top4, function(card, i) {
                 return _c("card-image", {
-                  key: card.identifier,
+                  key: card.identifier + i,
                   staticClass:
                     "absolute rounded-card border border-gray-200 z-25",
                   style: _vm.position(i),
-                  attrs: { card: card },
+                  attrs: { card: card, draggable: "" },
                   nativeOn: {
                     dragstart: function($event) {
                       return _vm.drag($event, _vm.pile, i)
+                    },
+                    click: function($event) {
+                      return _vm.send(i, _vm.pile, "hand")
                     }
                   }
                 })
@@ -1973,17 +1978,14 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_1__["default"]],
   methods: {
     drag: function drag($event, from, index) {
+      var card = this.$parent[from][index];
+      var image = new Image();
+      image.src = card.image;
       $event.dataTransfer.dropEffect = 'move';
       $event.dataTransfer.effectAllowed = 'move';
       $event.dataTransfer.setData('from', from);
       $event.dataTransfer.setData('index', index);
-    },
-    dragImage: function dragImage($event, from, index, src) {
-      var image = new Image();
-      image.setAttribute('src', src);
-      image.setAttribute('width', '200px');
-      $event.dataTransfer.setDragImage(image, 0, 0);
-      this.drag($event, from, index);
+      $event.dataTransfer.setDragImage(image, 100, 139);
     },
     drop: function drop($event, to) {
       var from = $event.dataTransfer.getData('from');
@@ -2370,6 +2372,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   find: function find(slug) {
     return axios.get('/decks/' + slug).then(function (response) {
+      return _Utilities_Models__WEBPACK_IMPORTED_MODULE_0__["default"].hydrate(response.data, _Deck__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    });
+  },
+  // Returns the deck with cards set to the required width
+  findWithWidth: function findWithWidth(slug, width) {
+    return axios.get('/decks/' + slug + '?width=' + width).then(function (response) {
       return _Utilities_Models__WEBPACK_IMPORTED_MODULE_0__["default"].hydrate(response.data, _Deck__WEBPACK_IMPORTED_MODULE_1__["default"]);
     });
   }

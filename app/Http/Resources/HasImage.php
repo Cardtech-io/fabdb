@@ -16,6 +16,14 @@ trait HasImage
         return "https://$domain/{$card->image}?w=350&fit=clip&auto=compress";
     }
 
+    protected function alteredImage($card, $request)
+    {
+        $domain = config('services.imgix.domain');
+        $width = $request->get('width', 350);
+
+        return "https://$domain/{$card->image}?w=$width&fit=clip&auto=compress";
+    }
+
     /**
      * Returns true if a printing image should be used over the default.
      *

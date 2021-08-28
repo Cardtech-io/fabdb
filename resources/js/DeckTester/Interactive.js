@@ -6,20 +6,16 @@ export default {
 
     methods: {
         drag($event, from, index) {
+            const card = this.$parent[from][index];
+
+            const image = new Image();
+            image.src = card.image;
+
             $event.dataTransfer.dropEffect = 'move'
             $event.dataTransfer.effectAllowed = 'move'
             $event.dataTransfer.setData('from', from);
             $event.dataTransfer.setData('index', index);
-        },
-
-        dragImage($event, from, index, src) {
-            const image = new Image();
-            image.setAttribute('src', src);
-            image.setAttribute('width', '200px');
-
-            $event.dataTransfer.setDragImage(image, 0, 0);
-
-            this.drag($event, from, index);
+            $event.dataTransfer.setDragImage(image, 100, 139);
         },
 
         drop($event, to) {

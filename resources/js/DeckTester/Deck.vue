@@ -1,5 +1,5 @@
 <template>
-    <button class="w-full h-full relative" @click.prevent="draw" @keyup.prevent="drawNumber" @mouseenter.prevent="capture = true" @mouseleave.prevent="capture = false" v-if="deck.length" @dragstart="dragImage($event, 'deck', deck.length-1, lastImage)">
+    <button class="w-full h-full relative" @click.prevent="draw" @keyup.prevent="drawNumber" @mouseenter.prevent="capture = true" @mouseleave.prevent="capture = false" v-if="deck.length" @dragstart="drag($event, 'deck', deck.length-1)">
         <img :src="cardBack" class="z-0 invisible"/>
         <img :src="cardBack" v-for="(n, i) in total" class="absolute rounded-card border border-gray-200 z-25" :style="position(i)"/>
         <div class="absolute z-50 w-full flex justify-center text-white text-center font-serif uppercase text-2xl top-2/3">
@@ -36,10 +36,6 @@
         }),
 
         computed: {
-            lastImage() {
-                return this.deck[this.deck.length-1].image;
-            },
-
             total() {
                 let total = Math.ceil(this.deck.length / 20);
 

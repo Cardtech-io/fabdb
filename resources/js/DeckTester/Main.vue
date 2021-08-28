@@ -63,7 +63,7 @@
 
         methods: {
             async load() {
-                let deck = await Decks.find(this.$route.params.deck);
+                let deck = await Decks.findWithWidth(this.$route.params.deck, 200);
 
                 deck.cards.each(card => {
                     let sideboarded = deck.sideboard.find(card);
