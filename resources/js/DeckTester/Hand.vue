@@ -11,6 +11,7 @@
                     :card="card"
                     draggable
                     @dragstart.native="drag($event, 'hand', i)"
+                    @dragend.native="setFocused(null)"
                     @click.native="send(i, 'hand', 'graveyard')"
                     class="relative z-25"
                 />

@@ -5,7 +5,7 @@
                 draggable
                 v-for="(card, i) in top4"
                 :key="card.identifier+i"
-                class="absolute rounded-card border border-gray-200 z-25"
+                class="absolute rounded-card border border-gray-200 z-20"
                 :style="position(i)"
                 @dragstart.native="drag($event, pile, i)"
                 @click.native="send(i, pile, 'hand')"

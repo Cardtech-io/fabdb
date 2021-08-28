@@ -1,6 +1,6 @@
 <template>
     <masonry-container class="pb-2 mx-2" :containerId="groupId">
-        <card-container v-for="grouped in groupedCards" v-masonry-tile class="rounded-card" :key="grouped[0].identifier">
+        <card-container v-for="grouped in groupedCards" v-masonry-tile class="rounded-card" :key="grouped[0].identifier" :width="width">
             <div class="relative my-4 mx-2">
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">

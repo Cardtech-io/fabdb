@@ -643,6 +643,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['width'],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['zoom']), {
     cardClasses: function cardClasses() {
       return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth;
@@ -5260,7 +5261,8 @@ var render = function() {
         {
           directives: [{ name: "masonry-tile", rawName: "v-masonry-tile" }],
           key: grouped[0].identifier,
-          staticClass: "rounded-card"
+          staticClass: "rounded-card",
+          attrs: { width: _vm.width }
         },
         [
           _c(

@@ -8,6 +8,8 @@
     import {mapState} from "vuex";
 
     export default {
+        props: ['width'],
+        
         computed: {
             ...mapState('deck', ['zoom']),
 

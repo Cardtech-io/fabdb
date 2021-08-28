@@ -11,17 +11,14 @@ trait HasImage
 
     protected function defaultImage($card)
     {
-        $domain = config('services.imgix.domain');
-
-        return "https://$domain/{$card->image}?w=350&fit=clip&auto=compress";
+        return $this->url("/{$card->image}?w=350&fit=clip&auto=compress");
     }
 
     protected function alteredImage($card, $request)
     {
-        $domain = config('services.imgix.domain');
         $width = $request->get('width', 350);
 
-        return "https://$domain/{$card->image}?w=$width&fit=clip&auto=compress";
+        return $this->url("/{$card->image}?w=$width&fit=clip&auto=compress");
     }
 
     /**
@@ -42,15 +39,16 @@ trait HasImage
 
     protected function printingImage(string $sku): string
     {
-        $domain = config('services.imgix.domain');
-
-        return "https://$domain/cards/printings/{$sku}.png?w=300&fit=clip&auto=compress";
+        return $this->url("/cards/printings/{$sku}.png?w=300&fit=clip&auto=compress");
     }
 
     protected function cardBackImage($cardBack)
     {
-        $domain = config('services.imgix.domain');
+        return $this->url("/cards/backs/card-back-{$cardBack}.png?w=300&fit=clip&auto=compress");
+    }
 
-        return "https://$domain/cards/backs/card-back-{$cardBack}.png?w=300&fit=clip&auto=compress";
+    protected function url($path)
+    {
+        return 'https://'.config('services.imgix.domain').$path;
     }
 }

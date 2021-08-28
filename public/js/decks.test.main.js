@@ -200,6 +200,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -1016,6 +1017,9 @@ var render = function() {
                 dragstart: function($event) {
                   return _vm.drag($event, "hand", i)
                 },
+                dragend: function($event) {
+                  return _vm.setFocused(null)
+                },
                 click: function($event) {
                   return _vm.send(i, "hand", "graveyard")
                 }
@@ -1534,7 +1538,7 @@ var render = function() {
                 return _c("card-image", {
                   key: card.identifier + i,
                   staticClass:
-                    "absolute rounded-card border border-gray-200 z-25",
+                    "absolute rounded-card border border-gray-200 z-20",
                   style: _vm.position(i),
                   attrs: { card: card, draggable: "" },
                   nativeOn: {
