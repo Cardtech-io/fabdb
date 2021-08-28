@@ -78,6 +78,7 @@
                 graveyard: [],
                 hand: [],
                 hero: this.tester.hero,
+                imageCache: [],
                 pitch: [],
             }
         },
@@ -93,6 +94,18 @@
                 this.$eventHub.$emit('end-turn');
             },
 
+            // Preload all images to ensure the best experience when dealing with the cards
+            preload() {
+                this.imageCache = [];
+
+                for (let i in this.deck) {
+                    let image = new Image(200);
+                    image.src = this.deck[i].image;
+
+                    this.imageCache.push(image);
+                }
+            },
+
             reset() {
                 this.deck = _.shuffle(this.tester.mainDeck.hydrate().cards);
                 this.banished = [];
@@ -105,6 +118,7 @@
 
         mounted() {
             this.reset();
+            this.preload();
         }
     }
 </script>

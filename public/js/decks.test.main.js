@@ -211,7 +211,8 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Interactive__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      focused: null
+      focused: null,
+      images: []
     };
   },
   methods: {
@@ -520,6 +521,7 @@ __webpack_require__.r(__webpack_exports__);
       graveyard: [],
       hand: [],
       hero: this.tester.hero,
+      imageCache: [],
       pitch: []
     };
   },
@@ -533,6 +535,16 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$eventHub.$emit('end-turn');
     },
+    // Preload all images to ensure the best experience when dealing with the cards
+    preload: function preload() {
+      this.imageCache = [];
+
+      for (var i in this.deck) {
+        var image = new Image(200);
+        image.src = this.deck[i].image;
+        this.imageCache.push(image);
+      }
+    },
     reset: function reset() {
       this.deck = underscore__WEBPACK_IMPORTED_MODULE_0__["default"].shuffle(this.tester.mainDeck.hydrate().cards);
       this.banished = [];
@@ -544,6 +556,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.reset();
+    this.preload();
   }
 });
 
@@ -971,6 +984,7 @@ var render = function() {
           "relative w-full flex justify-center items-start -space-x-10 my-8 min-h-96",
         on: {
           drop: function($event) {
+            $event.preventDefault()
             return _vm.drop($event, "hand")
           },
           dragover: function($event) {

@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div class="relative w-full flex justify-center items-start -space-x-10 my-8 min-h-96" @drop="drop($event, 'hand')" @dragover.prevent @dragenter.prevent>
+        <div class="relative w-full flex justify-center items-start -space-x-10 my-8 min-h-96" @drop.prevent="drop($event, 'hand')" @dragover.prevent @dragenter.prevent>
             <div v-for="(card, i) in hand"
                  draggable
                  class="relative z-0 w-200 hover:z-25 cursor-pointer"
@@ -31,7 +31,8 @@
         mixins: [Interactive],
 
         data: () => ({
-            focused: null
+            focused: null,
+            images: [],
         }),
 
         methods: {
