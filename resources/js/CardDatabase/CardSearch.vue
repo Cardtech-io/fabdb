@@ -57,6 +57,7 @@
 
         data() {
             let base = {
+                ...this.external,
                 keywords: ''
             };
 
@@ -107,9 +108,10 @@
             },
 
             search() {
-                let params = this.combineParams({ 'use-case': this.useCase, ...this.$route.query });
+                let params = this.combineParams({...this.params, 'use-case': this.useCase, ...this.$route.query });
+                let path = this.useCase === 'collection' ? 'collection' : 'cards';
 
-                axios.get('/cards/', { params }).then(response => {
+                axios.get('/'+path, { params }).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});
             },

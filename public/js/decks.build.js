@@ -1615,13 +1615,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.cards.other();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'removeFromSideBoard', 'toggleSection']), {
     filter: function filter(cards) {
       return cards.applyFilters(this.filters);
     },
     removeFromDeck: function removeFromDeck(card) {
       this.removeRemote(card);
       this.removeCard({
+        card: card
+      });
+      this.removeFromSideBoard({
         card: card
       });
     }

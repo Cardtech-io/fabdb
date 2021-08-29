@@ -33,12 +33,12 @@
         methods: {
             ...mapActions('deck', ['removeFromSideBoard']),
 
-            remove: function(card) {
+            remove(card) {
                 this.removeFromSideBoard({ card });
                 this.removeRemote(card);
             },
 
-            removeRemote: function(card) {
+            removeRemote(card) {
                 axios.delete('/decks/' + this.deck.slug + '/sideboard/' + card.identifier);
             }
         }

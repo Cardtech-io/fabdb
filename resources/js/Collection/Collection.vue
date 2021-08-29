@@ -34,25 +34,27 @@
                         <paginator :results="results" @page-selected="updatePage"></paginator>
                     </div>
 
-                    <table class="w-full table-auto border-collapse bg-white">
-                        <thead>
-                            <tr>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left" width="170">
-                                    <sorter field="name" text="Name \ Sku" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
-                                </th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Finish</th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase text-left hidden sm:table-cell">Set/Release</th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase hidden sm:table-cell">
-                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
-                                </th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase" width="150">Total</th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Trade</th>
-                                <th class="border border-gray-300 py-1 px-2 font-serif uppercase">Want</th>
-                            </tr>
-                        </thead>
+                    <div class="flex items-center bg-white space-x-4 p-1 border-b-2 border-gray-300">
+                        <div class="">
+                            <div style="width: 50px;"></div>
+                        </div>
+                        <div class="flex-grow py-1">
+                            <div class="flex space-x-2">
+                                <sorter field="name" text="Name" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                                <span>\</span>
+                                <sorter field="sku" text="Sku" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                            </div>
+                        </div>
+                        <div class="w-1/10">Set/Release</div>
+                        <div class="w-1/20">
+                            <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"></sorter>
+                        </div>
+                        <div class="w-1/10 text-center">Total</div>
+                        <div class="w-1/20 text-center">Trade</div>
+                        <div class="w-1/20 text-center">Want</div>
+                    </div>
 
-                        <card-list-item v-for="card in results.data" :card="card" :key="card.identifier" path="/cards"></card-list-item>
-                    </table>
+                    <printing v-for="printing in results.data" :printing="printing" :key="printing.sku.sku"/>
 
                     <div class="py-4">
                         <paginator :results="results" @page-selected="updatePage"></paginator>
@@ -65,20 +67,18 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import CardItem from '../CardDatabase/CardItem.vue';
-    import CardListItem from '../CardDatabase/CardListItem.vue';
     import CardSearch from '../CardDatabase/CardSearch.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Icon from "../Components/Icon";
     import Query from "../Utilities/Query";
     import Paginator from '../Components/Paginator.vue';
+    import Printing from "./Printing";
     import Sorter from "../Components/Sorter";
 
     export default {
         components: {
-            CardItem,
-            CardListItem,
+            Printing,
             CardSearch,
             Crumbs,
             Icon,

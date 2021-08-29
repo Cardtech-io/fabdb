@@ -174,8 +174,12 @@ body {
     color: var(--nav-text-color);
 }
 
-.common, .rarity > .token {
+.common {
     background: #919191;
+}
+
+.rarity > .token {
+    background: #000;
 }
 
 .promo {

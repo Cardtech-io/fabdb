@@ -4,7 +4,6 @@ namespace FabDB\Domain\Cards\Search;
 use FabDB\Domain\Users\User;
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class CollectionFilter implements SearchFilter
@@ -21,44 +20,23 @@ class CollectionFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return Arr::get($input, 'use-case') === 'collection' && (bool) $this->user;
+        return true;
     }
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->with(['printings' => function($query) use ($input) {
-            if (isset($input['set'])) {
-                $sets = explode(',', $input['set']);
+        $query->join('cards', 'cards.id', 'printings.card_id');
 
-                $query->where(function ($query) use ($sets) {
-                    foreach ($sets as $set) {
-                        $query->orWhere('printings.sku', 'LIKE', $set.'%');
-                    }
-                });
-            }
+        if (isset($input['set'])) {
+            $sets = explode(',', $input['set']);
 
-            if (isset($input['view']) && $input['view'] === 'have') {
-                $query->where('owned_cards.total', '>', 0);
-            }
-
-            $query->select(
-                'printings.id',
-                'printings.card_id',
-                'printings.sku',
-                'printings.set',
-                'owned_cards.total',
-                'owned_cards.trade',
-                'owned_cards.want'
-            );
-            $query->leftJoin('owned_cards', function($join) {
-                $join->on('owned_cards.printing_id', 'printings.id');
-                $join->where('owned_cards.user_id', $this->user->id);
+            $query->where(function ($query) use ($sets) {
+                foreach ($sets as $set) {
+                    $query->orWhere('printings.sku', 'LIKE', $set.'%');
+                }
             });
+        }
 
-            $query->orderBy('printings.sku');
-        }]);
-
-        // The original join is in the printings filter
         $query->leftJoin('owned_cards', function($join) {
             $join->on('owned_cards.printing_id', 'printings.id');
             $join->where('owned_cards.user_id', $this->user->id);

@@ -77,9 +77,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
-    var base = {
+    var base = _objectSpread({}, this.external, {
       keywords: ''
-    };
+    });
 
     var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords')));
 
@@ -123,10 +123,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     search: function search() {
       var _this = this;
 
-      var params = this.combineParams(_objectSpread({
+      var params = this.combineParams(_objectSpread({}, this.params, {
         'use-case': this.useCase
       }, this.$route.query));
-      axios.get('/cards/', {
+      var path = this.useCase === 'collection' ? 'collection' : 'cards';
+      axios.get('/' + path, {
         params: params
       }).then(function (response) {
         _this.$emit('search-completed', response.data);

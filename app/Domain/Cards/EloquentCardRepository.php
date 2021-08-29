@@ -73,7 +73,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new CollectionFilter($user),
             new OrderFilter
         ];
 

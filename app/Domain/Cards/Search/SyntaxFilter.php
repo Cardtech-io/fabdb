@@ -17,7 +17,9 @@ class SyntaxFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        foreach ($this->filter($input['keywords']) as $terms) {
+        $keywords = $this->filter($input['keywords']);
+
+        foreach ($keywords as $terms) {
             $this->apply($query, $terms);
         }
     }

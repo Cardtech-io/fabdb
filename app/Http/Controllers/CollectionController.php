@@ -14,6 +14,7 @@ use FabDB\Domain\Users\UserRepository;
 use FabDB\Http\Requests\UserListsRequest;
 use FabDB\Http\Resources\CardResource;
 use FabDB\Http\Resources\OwnedCardResource;
+use FabDB\Http\Resources\PrintingResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -79,5 +80,12 @@ class CollectionController extends Controller
             ->appends($request->except('page'));
 
         return OwnedCardResource::collection($cards);
+    }
+
+    public function search(Request $request, PrintingRepository $printings)
+    {
+        return PrintingResource::collection(
+            $printings->collection($request->user(), $request->all())->paginate($request->get('per_page', 15))
+        );
     }
 }

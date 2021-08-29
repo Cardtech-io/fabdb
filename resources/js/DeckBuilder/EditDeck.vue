@@ -126,7 +126,7 @@
         },
 
         methods: {
-            ...mapActions('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']),
+            ...mapActions('deck', ['addCard', 'setMode', 'removeCard', 'removeFromSideBoard', 'toggleSection']),
 
             filter(cards) {
                 return cards.applyFilters(this.filters);
@@ -135,6 +135,7 @@
             removeFromDeck(card) {
                 this.removeRemote(card);
                 this.removeCard({ card });
+                this.removeFromSideBoard({ card });
             }
         }
     };

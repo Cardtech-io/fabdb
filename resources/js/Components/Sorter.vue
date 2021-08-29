@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center">
+    <div class="flex items-center">
         <a href="" class="link-alternate flex-0" @click.prevent="handler">{{ text }}</a>
         <icon :size="5" v-if="order === field && direction === 'desc'" class="flex-0">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>

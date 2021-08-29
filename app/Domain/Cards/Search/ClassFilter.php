@@ -9,7 +9,7 @@ class ClassFilter implements SearchFilter
 {
     public function applies(array $input)
     {
-        return isset($input['class']);
+        return isset($input['class']) && !empty($input['class']);
     }
 
     public function applyTo(Builder $query, array $input)
