@@ -44,7 +44,7 @@ class User extends Model implements Authenticatable
         'token'
     ];
 
-    protected $appends = ['hasCollection', 'hasPassword'];
+    protected $appends = ['hasPassword'];
 
     public function ownedCards()
     {

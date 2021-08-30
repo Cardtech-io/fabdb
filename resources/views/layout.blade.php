@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 $view = Route::currentRouteName() === 'decks.embed' ? 'embed' : 'app';
-$user = auth()->user();
+$user = auth()->user()->append('hasCollection');
 $settings = compile_settings();
 $lang = compile_lang();
 $theme = $user ? object_get($user, 'theme', 'default') : 'default';
