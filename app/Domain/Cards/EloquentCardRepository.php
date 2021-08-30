@@ -37,7 +37,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     /**
      * @var Repository
      */
-    private Repository $cache;
+    private $cache;
 
     public function __construct(Repository $cache)
     {
