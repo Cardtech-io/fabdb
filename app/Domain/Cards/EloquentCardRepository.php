@@ -10,7 +10,6 @@ use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
-use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
@@ -27,6 +26,7 @@ use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Users\User;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Arr;
@@ -34,6 +34,16 @@ use Illuminate\Support\Facades\DB;
 
 class EloquentCardRepository extends EloquentRepository implements CardRepository
 {
+    /**
+     * @var Repository
+     */
+    private Repository $cache;
+
+    public function __construct(Repository $cache)
+    {
+        $this->cache = $cache;
+    }
+
     protected function model(): Model
     {
         return new Card;
@@ -268,13 +278,21 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function uniqueHeroes()
     {
-        return $this->newQuery()
-            ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
-            ->join('printings', 'printings.card_id', 'cards.id')
-            ->whereRaw("JSON_SEARCH(keywords, 'one', 'hero')")
-            ->groupBy('cards.name')
-            ->orderBy('cards.name')
-            ->get();
+        $heroes = $this->cache->get('cards.uniqueHeroes');
+
+        if (!$heroes) {
+            $heroes = $this->newQuery()
+                ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
+                ->join('printings', 'printings.card_id', 'cards.id')
+                ->whereType('hero')
+                ->groupBy('cards.name')
+                ->orderBy('cards.name')
+                ->get();
+
+            $this->cache->put('cards.uniqueHeroes', $heroes, 60*60*24);
+        };
+
+        return $heroes;
     }
 
     public function buildSearch(User $user, Deck $deck, array $input)
