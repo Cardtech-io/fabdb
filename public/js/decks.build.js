@@ -910,6 +910,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -3547,18 +3552,17 @@ var render = function() {
       }
     },
     [
-      _vm.mode !== "all"
-        ? _c("card-buttons", {
-            staticClass: "w-1/5",
-            attrs: { card: _vm.card, total: _vm.total }
-          })
-        : _vm._e(),
+      _c("card-buttons", {
+        staticClass: "w-1/5",
+        class: _vm.mode === "all" ? "block sm:hidden" : "block",
+        attrs: { card: _vm.card, total: _vm.total }
+      }),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass: "w-3/5 pl-4 p-2 ml-1px bg-white cursor-default",
-          class: _vm.mode !== "all" ? "w-3/5" : "w-4/5"
+          class: _vm.mode === "all" ? "w-3/5 sm:w-4/5" : "w-3/5"
         },
         [
           _c(
@@ -3932,9 +3936,23 @@ var render = function() {
                       { staticClass: "h-full" },
                       [
                         _vm.mode === "all"
-                          ? _c("all-cards", {
-                              attrs: { collection: _vm.cards }
-                            })
+                          ? _c("div", [
+                              _c(
+                                "div",
+                                [
+                                  _c("all-cards", {
+                                    staticClass: "hidden sm:block",
+                                    attrs: { collection: _vm.cards }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("edit-deck", {
+                                    staticClass: "sm:hidden",
+                                    attrs: { collection: _vm.cards }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
                           : _vm._e(),
                         _vm._v(" "),
                         _vm.mode === "search"

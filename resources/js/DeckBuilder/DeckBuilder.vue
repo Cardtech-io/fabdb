@@ -41,10 +41,15 @@
                             <hero-selector @hero-selected="setHero" :deck="deck"></hero-selector>
                         </div>
                         <div v-else class="h-full">
-                            <all-cards v-if="mode === 'all'" :collection="cards"></all-cards>
-                            <edit-deck v-if="mode === 'search'" :collection="cards"></edit-deck>
-                            <deck-details v-if="mode === 'details'"></deck-details>
-                            <main-deck v-if="mode === 'sideboard'" :collection="cards"></main-deck>
+                            <div v-if="mode === 'all'">
+                                <div>
+                                    <all-cards :collection="cards" class="hidden sm:block"/>
+                                    <edit-deck :collection="cards" class="sm:hidden"/>
+                                </div>
+                            </div>
+                            <edit-deck v-if="mode === 'search'" :collection="cards"/>
+                            <deck-details v-if="mode === 'details'"/>
+                            <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
