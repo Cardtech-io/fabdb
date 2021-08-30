@@ -10,7 +10,7 @@ class PrintingResource extends JsonResource
 
     public function toArray($request)
     {
-        $response = Arr::only($this->resource->toArray(), ['id', 'sku', 'name', 'set', 'edition', 'rarity', 'total', 'trade', 'want']);
+        $response = Arr::only($this->resource->toArray(), ['id', 'sku', 'set', 'edition', 'rarity', 'total', 'trade', 'want']);
 
         if (Arr::has($response, 'total')) {
             $response['total'] = (int) $response['total'];
@@ -24,6 +24,7 @@ class PrintingResource extends JsonResource
             $response['want'] = (bool) $response['want'];
         }
 
+        $response['card'] = new CardResource($this->whenLoaded('card'));
         $response['image'] = $this->printingImage($this->resource->sku->raw());
 
         return $response;

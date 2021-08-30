@@ -26,6 +26,12 @@ module.exports = {
         ]
     },
     theme: {
+        fontWeight: {
+            thin: 100,
+            normal: 200,
+            bold: 400,
+        },
+
         extend: {
             backgroundColor: {
                 'primary': 'var(--button-primary-background-color)',

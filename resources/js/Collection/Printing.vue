@@ -2,7 +2,10 @@
     <div class="flex odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center space-x-4 p-1">
         <img :src="cardImageFromSku(printing.sku.sku, 50)" class="rounded-card"/>
         <div class="flex-grow">
-            <div>{{printing.name}}</div>
+            <div class="flex items-center space-x-1">
+                <div class="font-bold">{{printing.card.name}}</div>
+                <colour :resource="printing.card.stats.resource" v-if="printing.card.stats.resource"/>
+            </div>
             <sku-finish :sku="printing.sku"></sku-finish>
             {{englishFinish(printing.sku.finish)}}
         </div>
@@ -25,10 +28,12 @@
     import Icon from "../Components/Icon";
     import RaritySymbol from "../CardDatabase/RaritySymbol";
     import Imagery from "../Utilities/Imagery";
+    import Colour from "../DeckBuilder/Colour";
 
     export default {
         components: {
             CardCount,
+            Colour,
             Icon,
             RaritySymbol,
         },

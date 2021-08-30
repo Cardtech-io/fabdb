@@ -50,22 +50,20 @@ export default {
         return strings[finish];
     },
 
-    resourceColourLight: function (resource) {
-        const colours = {1: 'red-100', 2: 'yellow-100', 3: 'blue-100'};
+    resourceColourLight(resource) {
+        const colours = {1: 'bg-red-100', 2: 'bg-yellow-100', 3: 'bg-blue-100'};
         const colour = colours[resource];
 
-        if (colour) {
-            return 'bg-' + colour;
-        }
+        if (colour) return colour;
     },
 
-    colourToText: function (resource) {
+    colourToText(resource) {
         const colours = {1: 'red', 2: 'yellow', 3: 'blue'};
 
         return colours[resource];
     },
 
-    id: function (identifier) {
+    id(identifier) {
         return this.identifierParts(identifier)[1].replace(/^0{1,2}/, '');
     },
 
@@ -77,7 +75,7 @@ export default {
         return string[0].toUpperCase() + string.slice(1);
     },
 
-    hasResource: function (card) {
+    hasResource(card) {
         return card.stats.hasOwnProperty('resource') && card.stats.resource > 0;
     },
 

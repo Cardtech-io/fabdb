@@ -4,7 +4,7 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div v-if="true" class="container py-8 sm:mx-auto">
+            <div v-if="premium" class="container py-8 sm:mx-auto">
                 <component :is="step" :tester="tester"></component>
             </div>
             <div v-else>

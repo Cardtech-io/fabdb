@@ -31,6 +31,7 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
     public function collection(User $user, array $input)
     {
         $query = $this->newQuery();
+        $query->with(['card']);
 
         $query->select([
             'printings.id',
@@ -42,9 +43,6 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             'owned_cards.total',
             'owned_cards.trade',
             'owned_cards.want',
-            'cards.id AS card_id',
-            'cards.identifier',
-            'cards.name',
         ]);
 
         $filters = [

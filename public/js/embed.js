@@ -62279,15 +62279,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   resourceColourLight: function resourceColourLight(resource) {
     var colours = {
-      1: 'red-100',
-      2: 'yellow-100',
-      3: 'blue-100'
+      1: 'bg-red-100',
+      2: 'bg-yellow-100',
+      3: 'bg-blue-100'
     };
     var colour = colours[resource];
-
-    if (colour) {
-      return 'bg-' + colour;
-    }
+    if (colour) return colour;
   },
   colourToText: function colourToText(resource) {
     var colours = {
