@@ -199,20 +199,6 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         return "cards/printings/{$row['uid']}.png";
     }
 
-    /**
-     * The cycle determines the release cycle from the SKU. For example, WTR has both first and unlimited editions,
-     * so WTR is a WTR cycle covering all those releases.
-     *
-     * @param string $uid
-     * @return mixed
-     */
-    private function cycle(string $uid)
-    {
-        preg_match('/([a-z]{3})([0-9]{3})/i', $uid, $matches);
-
-        return $matches[1];
-    }
-
     public function except(array $sheets)
     {
         $this->onlySheets(...array_flip(Arr::except(array_flip(self::AVAILABLE_SHEETS), $sheets)));

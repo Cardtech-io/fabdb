@@ -31,8 +31,6 @@ class SkuTest extends TestCase
         $sku2 = new Sku('ARC000-CF');
         $sku3 = new Sku('U-CRU053');
 
-        $this->assertFalse($sku1->firstEdition());
-        $this->assertTrue($sku2->firstEdition());
         $this->assertTrue($sku1->finish()->rainbow());
         $this->assertTrue($sku2->finish()->cold());
         $this->assertTrue($sku3->finish()->regular());

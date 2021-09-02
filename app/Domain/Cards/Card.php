@@ -155,6 +155,17 @@ class Card extends Model
         return $this->talent !== null;
     }
 
+    public function talents()
+    {
+        preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text, $matches);
+
+        if ($matches) {
+            array_shift($matches);
+        }
+
+        return array_filter(Arr::flatten([$this->talent, array_map(fn($match) => strtolower($match), $matches)]));
+    }
+
     public function is1hWeapon()
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);

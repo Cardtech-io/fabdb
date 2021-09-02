@@ -32,7 +32,9 @@ class HeroFilter implements SearchFilter
         $query->where(function($query) use ($hero) {
             $query->where(function($query) use ($hero) {
                 if ($hero->isTalented()) {
-                    $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') OR (cards.class IS NULL AND (cards.talent = '{$hero->talent}' OR cards.talent IS NULL))");
+                    $talents = "null,'".implode("','", $hero->talents())."'";
+
+                    $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') OR (cards.class IS NULL AND cards.talent IN ($talents))");
                 }
                 else {
                     $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') AND cards.talent IS NULL");

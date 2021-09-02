@@ -20,4 +20,13 @@ class CardTest extends TestCase
         $this->assertFalse($card4->isGeneric());
         $this->assertTrue($card5->isGeneric());
     }
+
+    function test_talents_returns_registered_talents_and_inferred()
+    {
+        $card1 = new Card(['text' => '**Essence of Ice and Lightning']);
+        $card1->talent = 'shadow';
+
+        $this->assertSame(['shadow', 'ice', 'lightning'], $card1->talents());
+
+    }
 }
