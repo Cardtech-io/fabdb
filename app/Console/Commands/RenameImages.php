@@ -39,15 +39,16 @@ class RenameImages extends Command
      */
     public function handle()
     {
-        $disk = Storage::disk('scraped');
+        $set = $this->ask('Which set would you like to rename the images for?');
 
-        $cards = $disk->files('cru/');
+        $disk = Storage::disk('scraped');
+        $cards = $disk->files("$set/");
 
         foreach ($cards as $name => $src) {
-            if (!preg_match_all('/cru\/cru-?([0-9]+)/i', $src, $matches)) continue;
+            if (!preg_match_all('/'.$set.'\/'.$set.'-?([0-9]+)/i', $src, $matches)) continue;
 
-            $cardId = $matches[1][0];
-            $dest = 'cru/'.$cardId.'.png';
+            $cardId = strtoupper($set).str_pad($matches[1][0], 3, 0, STR_PAD_LEFT);
+            $dest = "$set/$cardId.png";
 
             if ($disk->exists($dest) && $src) {
                 $disk->delete($dest);
