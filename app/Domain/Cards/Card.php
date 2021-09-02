@@ -142,7 +142,7 @@ class Card extends Model
 
     public function isHero(): bool
     {
-        return in_array('hero', $this->keywords);
+        return $this->type === 'hero';
     }
 
     public function isWeapon(): bool
@@ -152,7 +152,12 @@ class Card extends Model
 
     public function isTalented()
     {
-        return $this->talent !== null;
+        return $this->talent !== null || $this->hasEssence();
+    }
+
+    public function hasEssence()
+    {
+        return (bool) preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text);
     }
 
     public function talents()

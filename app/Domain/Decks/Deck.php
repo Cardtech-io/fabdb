@@ -11,6 +11,7 @@ use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
 use FabDB\Library\Sluggable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -112,13 +113,13 @@ class Deck extends Model
         if ($hero) {
             // Be sure to include main class keyword if talented
             if ($hero->isTalented()) {
-                $keywords[] = $hero->keywords[1];
+                $keywords[] = $hero->talents();
             }
 
-            $keywords[] = $hero->keywords[0];
+            $keywords[] = $hero->class;
         }
 
-        return $keywords;
+        return Arr::flatten($keywords);
     }
 
     public function hasWeapon()

@@ -6,9 +6,12 @@ use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Cards\Identifier;
 use FabDB\Domain\Decks\Deck;
 use Tests\TestCase;
+use Tests\TestsCards;
 
 class DeckTest extends TestCase
 {
+    use TestsCards;
+
     function test_deck_has_specific_card()
     {
         $card1 = new Card;
@@ -30,11 +33,8 @@ class DeckTest extends TestCase
 
     function test_deck_has_a_weapon()
     {
-        $card1 = new Card;
-        $card1->keywords = ['generic', 'weapon'];
-
-        $card2 = new Card;
-        $card2->keywords = ['action'];
+        $card1 = $this->card('generic weapon', ['keywords' => ['generic', 'weapon']]);
+        $card2 = $this->card('action', ['keywords' => ['action']]);
 
         $deck1 = new Deck;
         $deck1->setRelation('cards', new Cards([$card1]));
@@ -48,17 +48,31 @@ class DeckTest extends TestCase
 
     function test_hero_retrieval()
     {
-        $card1 = new Card;
-        $card1->keywords = ['generic', 'weapon'];
-
-        $card2 = new Card;
-        $card2->name = 'Dorinthea';
-        $card2->keywords = ['hero', 'warrior'];
+        $card1 = $this->card('generic weapon', ['keywords' => ['generic', 'weapon']]);
+        $card2 = $this->card('dorinthea', ['type' => 'hero', 'keywords' => ['hero', 'warrior']]);
 
         $deck = new Deck;
         $deck->setRelation('cards', new Cards([$card1, $card2]));
 
         $this->assertNotNull($deck->hero());
         $this->assertSame($card2->name, $deck->hero()->name);
+    }
+
+    function test_main_keywords()
+    {
+        $hero = $this->card('generic weapon', [
+            'class' => 'warrior',
+            'type' => 'hero',
+            'text' => '**Essence of Ice and Lightning',
+            'keywords' => ['warrior', 'hero', 'young'],
+        ]);
+
+        $deck = new Deck;
+        $deck->setRelation('cards', new Cards([$hero]));
+
+        $this->assertContains('generic', $deck->mainKeywords());
+        $this->assertContains('warrior', $deck->mainKeywords());
+        $this->assertContains('ice', $deck->mainKeywords());
+        $this->assertContains('lightning', $deck->mainKeywords());
     }
 }

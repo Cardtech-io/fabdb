@@ -16,12 +16,16 @@ trait TestsCards
         return $cards;
     }
 
-    protected function card(string $name, array $keywords = [])
+    protected function card(string $name, array $params = [])
     {
+        $params = array_merge(['keywords' => []], $params);
+
         $card = new Card;
-        $card->identifier = Identifier::fromName($name, []);
-        $card->name = $name;
-        $card->keywords = $keywords;
+        $card->identifier = Identifier::fromName($name);
+
+        foreach ($params as $field => $value) {
+            $card->$field = $value;
+        }
 
         return  $card;
     }

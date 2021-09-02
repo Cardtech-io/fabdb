@@ -21,11 +21,15 @@ class MatchesKeywordsTest extends TestCase
     function test_card_added_matches_required_keywords()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', new Cards([$this->card('hero', ['guardian', 'hero'])]));
+        $deck->setRelation('cards', new Cards([$this->card('hero', [
+            'class' => 'guardian',
+            'type' => 'hero',
+            'keywords' => ['guardian', 'hero']],
+        )]));
 
-        $card1 = $this->card('001', ['guardian', 'weapon', '1h']);
-        $card2 = $this->card('002', ['ninja', 'weapon', '1h']);
-        $card3 = $this->card('003', ['generic', 'weapon', '1h']);
+        $card1 = $this->card('001', ['keywords' => ['guardian', 'weapon', '1h']]);
+        $card2 = $this->card('002', ['keywords' => ['ninja', 'weapon', '1h']]);
+        $card3 = $this->card('003', ['keywords' => ['generic', 'weapon', '1h']]);
 
         $validator1 = new MatchesKeywords($deck, $card1);
         $validator2 = new MatchesKeywords($deck, $card2);
@@ -45,11 +49,27 @@ class MatchesKeywordsTest extends TestCase
         $deck = new Deck;
         $deck->setRelation('cards', new Cards);
 
-        $card = $this->card('hero', ['guardian', 'hero']);
-        $validator = new MatchesKeywords($deck, $card);
+        $card = $this->card('hero', ['type' => 'hero', 'keywords' => ['guardian', 'hero']]);
+        $validator = new MatchesKeywords($deck);
 
         $this->cards->shouldReceive('findByIdentifier')->with('WTR001')->andReturn($card);
 
         $this->assertTrue($validator->passes('card', 'WTR001'));
+    }
+
+    function test_keyword_matching_with_essence_cards()
+    {
+        $hero = $this->card('Lexi', ['type' => 'hero', 'class' => 'ranger', 'text' => '**Essence of Ice and Lightning']);
+
+        $deck = new Deck;
+        $deck->setRelation('cards', new Cards([$hero]));
+
+        $card = $this->card('weave lightning', ['keywords' => ['lightning', 'action']]);
+
+        $this->cards->shouldReceive('findByIdentifier')->with('000')->andReturn($card);
+
+        $validator = new MatchesKeywords($deck);
+
+        $this->assertTrue($validator->passes('card', '000'));
     }
 }

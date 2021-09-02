@@ -21,11 +21,8 @@ class HasHeroTest extends TestCase
 
     function test_passes_when_hero_is_present_and_card_added_is_not_a_hero()
     {
-        $hero = new Card;
-        $hero->keywords = ['hero'];
-
-        $card = new Card;
-        $card->keywords = ['weapon'];
+        $hero = $this->card('hero', ['type' => 'hero']);
+        $card = $this->card('hero', ['type' => 'weapon']);
 
         $deck = new Deck;
         $deck->setRelation('cards', new Cards([$hero]));
@@ -39,11 +36,8 @@ class HasHeroTest extends TestCase
 
     function test_passes_when_hero_is_not_present_and_card_added_that_is_a_hero()
     {
-        $weapon = new Card;
-        $weapon->keywords = ['weapon'];
-
-        $hero = new Card;
-        $hero->keywords = ['hero'];
+        $hero = $this->card('hero', ['type' => 'hero']);
+        $weapon = $this->card('hero', ['type' => 'weapon']);
 
         $deck = new Deck;
         $deck->setRelation('cards', new Cards([$weapon]));

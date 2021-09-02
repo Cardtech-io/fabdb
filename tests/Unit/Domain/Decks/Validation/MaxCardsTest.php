@@ -56,7 +56,7 @@ class MaxCardsTest extends TestCase
 
     function test_it_has_no_functional_limit_for_open_formats()
     {
-        $card = $this->card('WTR011', ['008']);
+        $card = $this->card('WTR011');
         $card->pivot = (object) ['total' => 3];
 
         $deck = new Deck;
@@ -69,7 +69,7 @@ class MaxCardsTest extends TestCase
     // The following test should SET the card's total
     function test_it_works_for_adding_more_than_one()
     {
-        $card = $this->card('rhinar');
+        $card = $this->card('rhinar', ['type' => 'hero']);
         $card->pivot = (object) ['total' => 2];
 
         $deck = new Deck;
