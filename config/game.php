@@ -162,7 +162,9 @@ return [
     ],
 
     'talents' => [
+        'ice' => 'Ice',
         'light' => 'Light',
+        'lightning' => 'Lightning',
         'shadow' => 'Shadow',
     ],
 
@@ -198,6 +200,7 @@ return [
         'item',
         'landmark',
         'legs',
+        'off-hand',
         'orb',
         'pistol',
         'reaction',
