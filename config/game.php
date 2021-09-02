@@ -20,6 +20,12 @@ return [
             'released' => '2021-05-07',
             'browseable' => false,
         ],
+        'ele' => [
+            'id' => 'ele',
+            'name' => 'Tales of Aria',
+            'released' => '2021-09-24',
+            'browseable' => true,
+        ],
         'ksu' => [
             'id' => 'ksu',
             'name' => 'Katsu Hero Deck',
