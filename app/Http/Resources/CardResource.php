@@ -28,6 +28,7 @@ class CardResource extends JsonResource
         $response['totalSideboard'] = object_get($this, 'resource.totalSideboard', 0);
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
+        $response['artist'] = new ArtistResource($this->whenLoaded('artist'));
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');

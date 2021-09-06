@@ -102,6 +102,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $select = [
             'cards.id',
+            'cards.artist_id',
             'cards.identifier',
             'cards.image',
             'cards.name',
@@ -118,6 +119,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ];
 
         $query = $this->newQuery()
+            ->with(['artist'])
             ->whereIdentifier($identifier)
             ->select($select);
 

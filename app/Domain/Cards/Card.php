@@ -38,6 +38,11 @@ class Card extends Model
             ->orderBy(DB::raw('RAND()'));
     }
 
+    public function artist()
+    {
+        return $this->belongsTo(Artist::class);
+    }
+
     public function ownedCards()
     {
         return $this->hasMany(OwnedCard::class);
