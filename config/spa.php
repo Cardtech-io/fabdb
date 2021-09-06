@@ -10,6 +10,7 @@ return [
         'articles/write',
         'articles/([^/]+)/edit',
         'articles/([^/]+)/[a-z0-9\-]+',
+        'artists/([^/]+)',
         'cards/draft',
         'cards/browse',
         'cards/fabled',

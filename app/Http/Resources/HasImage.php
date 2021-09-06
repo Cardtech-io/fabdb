@@ -9,16 +9,16 @@ trait HasImage
 {
     use Identifiable;
 
-    protected function defaultImage($card)
+    protected function defaultImage($image)
     {
-        return $this->url("/{$card->image}?w=350&fit=clip&auto=compress");
+        return $this->url("/{$image}?w=350&fit=clip&auto=compress");
     }
 
-    protected function alteredImage($card, $request)
+    protected function alteredImage($image, $request)
     {
         $width = $request->get('width', 350);
 
-        return $this->url("/{$card->image}?w=$width&fit=clip&auto=compress");
+        return $this->url("/{$image}?w=$width&fit=clip&auto=compress");
     }
 
     /**

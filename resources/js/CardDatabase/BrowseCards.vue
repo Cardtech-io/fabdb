@@ -39,7 +39,7 @@
                             </div>
 
                             <ul class="flow-root -mx-2">
-                                <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards"></card-item>
+                                <card-item v-for="card in results.data" :card="card" :key="card.identifier" :view="view" path="/cards" class="float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6"/>
                             </ul>
 
                             <div class="py-4">

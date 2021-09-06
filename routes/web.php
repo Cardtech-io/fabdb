@@ -26,6 +26,8 @@ Route::middleware(['web'])->group(function() {
         Route::get('articles/upcoming', 'ArticleController@upcoming');
         Route::get('articles/tags', 'ArticleController@tags');
 
+        Route::get('artists/{artist}', 'ArtistController@view');
+
         Route::get('cards', 'CardController@list');
         Route::get('cards/fabled', 'CardController@fabled');
         Route::get('cards/heroes', 'CardController@heroes');

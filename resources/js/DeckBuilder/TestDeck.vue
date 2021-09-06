@@ -50,7 +50,6 @@
     import { mapGetters } from 'vuex'
 
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardItem from '../CardDatabase/CardItem.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import DrawnCard from './DrawnCard.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
@@ -58,7 +57,7 @@
     import Viewable from './Viewable';
 
     export default {
-        components: { CardImage, CardItem, Crumbs, DrawnCard, HeaderTitle },
+        components: { CardImage, Crumbs, DrawnCard, HeaderTitle },
         mixins: [ Viewable ],
 
         computed: {

@@ -19,7 +19,7 @@ class OwnedCardResource extends JsonResource
         $response['sku'] = $this->when($this->resource->sku, function() {
             return new Sku($this->resource->sku);
         });
-        $response['image'] = $this->defaultImage($this->resource);
+        $response['image'] = $this->defaultImage($this->resource->image);
 
         return $response;
     }

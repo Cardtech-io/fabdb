@@ -24,13 +24,17 @@
                         <advertisement :width="340" :height="340" :zone="107318" class="mt-4"></advertisement>
 
                         <ul class="pt-4 text-base">
-                            <li class="flow-root bg-white">
-                                <div class="float-left w-1/3 p-2 px-4">Rarity</div>
-                                <div class="float-left w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
+                            <li class="flex odd:bg-white" v-if="card.artist">
+                                <div class="w-1/3 p-2 px-4">Artist</div>
+                                <div class="w-2/3 p-2 px-4"><router-link :to="{ name: 'artists.view', params: { artist: card.artist.slug } }" class="link-alternate">{{card.artist.name}}</router-link></div>
                             </li>
-                            <li class="flow-root">
-                                <div class="float-left w-1/3 p-2 px-4">Keywords</div>
-                                <div class="float-left w-2/3 p-2 px-4">
+                            <li class="flex odd:bg-white">
+                                <div class="w-1/3 p-2 px-4">Rarity</div>
+                                <div class="w-2/3 p-2 px-4"><router-link :to="{ name: 'cards.browse', query: { rarity: card.rarity.toLowerCase() } }" class="link-alternate">{{ rarity }}</router-link></div>
+                            </li>
+                            <li class="flex odd:bg-white">
+                                <div class="w-1/3 p-2 px-4">Keywords</div>
+                                <div class="w-2/3 p-2 px-4">
                                     <span v-for="(keyword, index) in card.keywords">
                                         <router-link :to="'/cards/browse?keywords=' + keyword" class="link-alternate">{{ keyword }}</router-link><span v-if="index < card.keywords.length - 1">, </span>
                                     </span>

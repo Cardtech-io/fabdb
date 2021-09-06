@@ -198,6 +198,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -656,14 +660,43 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("ul", { staticClass: "pt-4 text-base" }, [
-                    _c("li", { staticClass: "flow-root bg-white" }, [
-                      _c("div", { staticClass: "float-left w-1/3 p-2 px-4" }, [
+                    _vm.card.artist
+                      ? _c("li", { staticClass: "flex odd:bg-white" }, [
+                          _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                            _vm._v("Artist")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "w-2/3 p-2 px-4" },
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "link-alternate",
+                                  attrs: {
+                                    to: {
+                                      name: "artists.view",
+                                      params: { artist: _vm.card.artist.slug }
+                                    }
+                                  }
+                                },
+                                [_vm._v(_vm._s(_vm.card.artist.name))]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "flex odd:bg-white" }, [
+                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
                         _vm._v("Rarity")
                       ]),
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "float-left w-2/3 p-2 px-4" },
+                        { staticClass: "w-2/3 p-2 px-4" },
                         [
                           _c(
                             "router-link",
@@ -685,14 +718,14 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", { staticClass: "flow-root" }, [
-                      _c("div", { staticClass: "float-left w-1/3 p-2 px-4" }, [
+                    _c("li", { staticClass: "flex odd:bg-white" }, [
+                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
                         _vm._v("Keywords")
                       ]),
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "float-left w-2/3 p-2 px-4" },
+                        { staticClass: "w-2/3 p-2 px-4" },
                         _vm._l(_vm.card.keywords, function(keyword, index) {
                           return _c(
                             "span",

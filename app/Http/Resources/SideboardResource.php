@@ -12,7 +12,7 @@ class SideboardResource extends CardResource
             'pivot'
         ]);
 
-        $response['image'] = $this->defaultImage($this->resource);
+        $response['image'] = $this->defaultImage($this->resource->image);
 
         $response['total'] = $this->whenPivotLoaded('sideboard', function () {
             return $this->pivot->total;

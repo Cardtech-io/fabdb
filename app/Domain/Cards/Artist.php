@@ -8,6 +8,8 @@ class Artist extends Model
 {
     use Sluggable;
 
+
+
     public function cards()
     {
         return $this->hasMany(Card::class);

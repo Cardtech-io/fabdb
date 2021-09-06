@@ -317,6 +317,8 @@ var render = function() {
                             _vm._l(_vm.results.data, function(card) {
                               return _c("card-item", {
                                 key: card.identifier,
+                                staticClass:
+                                  "float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6",
                                 attrs: {
                                   card: card,
                                   view: _vm.view,

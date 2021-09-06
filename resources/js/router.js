@@ -11,6 +11,8 @@ const router = new VueRouter({
     routes: [
         { path: "/", component: () => import(/* webpackChunkName: "home" */ './Home'), name: 'home', meta: { title: 'Home' } },
 
+        { path: "/artists/:artist", component: () => import(/* webpackChunkName: "artists.view" */ './Artists/View'), name: 'artists.view', meta: { title: 'View artist' } },
+
         { path: "/cards/browse", component: () => import(/* webpackChunkName: "cards.browse" */ './CardDatabase/BrowseCards'), name: 'cards.browse', meta: { title: 'Browse cards' } },
         { path: "/cards/browse/advanced", component: () => import(/* webpackChunkName: "cards.advanced" */ './CardDatabase/AdvancedCardSearch'), name: 'cards.advanced', meta: { title: 'Advanced card search' } },
         { path: "/cards/fabled", component: () => import(/* webpackChunkName: "cards.fabled" */ './CardDatabase/Fabled'), name: 'cards.fabled', meta: { title: 'The fabled cards of Flesh & Blood' } },

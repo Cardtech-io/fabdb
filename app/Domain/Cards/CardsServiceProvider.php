@@ -12,6 +12,7 @@ use FabDB\Providers\AppServiceProvider;
 final class CardsServiceProvider extends AppServiceProvider
 {
     protected $interfaces = [
+        ArtistRepository::class => EloquentArtistRepository::class,
         CardRepository::class => EloquentCardRepository::class,
         BoosterRepository::class => CollectionBoosterRepository::class,
         PrintingRepository::class => EloquentPrintingRepository::class,

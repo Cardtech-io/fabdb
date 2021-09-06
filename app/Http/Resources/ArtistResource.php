@@ -10,6 +10,15 @@ class ArtistResource extends JsonResource
 
     public function toArray($request)
     {
-        return Arr::only($this->resource->toArray(), ['name', 'slug', 'blurb', 'image']);
+        $response = Arr::only($this->resource->toArray(), ['name', 'blurb', 'image']);
+
+        $response['slug'] = (string) $this->resource->slug;
+        $response['cards'] = CardResource::collection($this->whenLoaded('cards'));
+
+        if ($this->resource->image) {
+            $response['image'] = $this->defaultImage($this->resource->image);
+        }
+
+        return $response;
     }
 }

@@ -76,12 +76,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/CardImage.vue */ "./resources/js/CardDatabase/CardImage.vue");
-/* harmony import */ var _CardDatabase_CardItem_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/CardItem.vue */ "./resources/js/CardDatabase/CardItem.vue");
-/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
-/* harmony import */ var _DrawnCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DrawnCard.vue */ "./resources/js/DeckBuilder/DrawnCard.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Crumbs.vue */ "./resources/js/Components/Crumbs.vue");
+/* harmony import */ var _DrawnCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DrawnCard.vue */ "./resources/js/DeckBuilder/DrawnCard.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -143,16 +142,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CardItem: _CardDatabase_CardItem_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    DrawnCard: _DrawnCard_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Crumbs: _Components_Crumbs_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DrawnCard: _DrawnCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  mixins: [_Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
+  mixins: [_Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     cards: function cards() {
       return this.deck.cards;
@@ -256,7 +253,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       title: this.deck ? 'Deck builder - Test deck (' + this.deck.name + ')' : 'Deck builder - Test deck'
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_5__["default"])(function (to, callback) {
     axios.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
         response.data.cards.forEach(function (card) {
