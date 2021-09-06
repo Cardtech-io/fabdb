@@ -42,6 +42,24 @@
             }
         },
 
+        metaInfo() {
+            let title = 'The artwork of '+this.artist.name;
+            let description = 'View Flesh & Blood card artwork designed by '+this.artist.name+' for Flesh & Blood TCG.';
+
+            return {
+                title: title,
+                meta: [
+                    { vmid: 'description', name: 'description', content: description },
+                    { vmid: 'og:type', property: 'og:type', content: 'article' },
+                    { vmid: 'og:title', property: 'og:title', content: title },
+                    { vmid: 'og:description', property: 'og:description', content: description },
+                    { vmid: 'og:image', property: 'og:image', content: this.artist.image },
+                    { vmid: 'og:image:width', property: 'og:image:width', content: '300' },
+                    { vmid: 'og:image:height', property: 'og:image:height', content: '300' }
+                ]
+            };
+        },
+
         extends: LazyLoader((to, callback) => {
             axios.get('/artists/' + to.params.artist).then(response => {
                 callback(function() {
