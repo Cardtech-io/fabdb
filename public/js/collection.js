@@ -211,6 +211,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -746,52 +751,76 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200 pb-8 text-base" }, [
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
-            ? _c(
-                "div",
-                { staticClass: "sm:px-4" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "mx-auto py-4" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex items-center bg-white space-x-4 p-1 border-b-2 border-gray-300"
-                    },
-                    [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "flex-grow py-1" }, [
+            ? _c("div", { staticClass: "sm:px-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "mx-auto py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.results },
+                      on: { "page-selected": _vm.updatePage }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "w-full bg-white space-x-4 p-1 border-b-2 border-gray-300"
+                  },
+                  [
+                    _c("thead", [
+                      _c("tr", [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "py-1" }, [
+                          _c(
+                            "div",
+                            { staticClass: "flex space-x-2" },
+                            [
+                              _c("sorter", {
+                                attrs: {
+                                  field: "name",
+                                  text: "Name",
+                                  order: _vm.search.order,
+                                  direction: _vm.search.direction,
+                                  clicked: _vm.sort
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", [_vm._v("\\")]),
+                              _vm._v(" "),
+                              _c("sorter", {
+                                attrs: {
+                                  field: "sku",
+                                  text: "Sku",
+                                  order: _vm.search.order,
+                                  direction: _vm.search.direction,
+                                  clicked: _vm.sort
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
                         _c(
-                          "div",
-                          { staticClass: "flex space-x-2" },
+                          "td",
+                          { staticClass: "hidden md:table-cell w-1/10" },
+                          [_vm._v("Set/Release")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "hidden sm:table-cell w-1/20" },
                           [
                             _c("sorter", {
+                              staticClass: "justify-center",
                               attrs: {
-                                field: "name",
-                                text: "Name",
-                                order: _vm.search.order,
-                                direction: _vm.search.direction,
-                                clicked: _vm.sort
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", [_vm._v("\\")]),
-                            _vm._v(" "),
-                            _c("sorter", {
-                              attrs: {
-                                field: "sku",
-                                text: "Sku",
+                                field: "rarity",
+                                text: "Rarity",
                                 order: _vm.search.order,
                                 direction: _vm.search.direction,
                                 clicked: _vm.sort
@@ -799,66 +828,53 @@ var render = function() {
                             })
                           ],
                           1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "w-1/4 md:w-1/10 text-center" },
+                          [_vm._v("Total")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "w-1/10 md:w-1/20 text-center" },
+                          [_vm._v("Trade")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "w-1/10 md:w-1/20 text-center" },
+                          [_vm._v("Want")]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "w-1/10" }, [
-                        _vm._v("Set/Release")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-1/20" },
-                        [
-                          _c("sorter", {
-                            staticClass: "justify-center",
-                            attrs: {
-                              field: "rarity",
-                              text: "Rarity",
-                              order: _vm.search.order,
-                              direction: _vm.search.direction,
-                              clicked: _vm.sort
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "w-1/10 text-center" }, [
-                        _vm._v("Total")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "w-1/20 text-center" }, [
-                        _vm._v("Trade")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "w-1/20 text-center" }, [
-                        _vm._v("Want")
                       ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.results.data, function(printing) {
-                    return _c("printing", {
-                      key: printing.sku.sku,
-                      attrs: { printing: printing }
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.results.data, function(printing) {
+                        return _c("printing", {
+                          key: printing.sku.sku,
+                          attrs: { printing: printing }
+                        })
+                      }),
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "py-4" },
+                  [
+                    _c("paginator", {
+                      attrs: { results: _vm.results },
+                      on: { "page-selected": _vm.updatePage }
                     })
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "py-4" },
-                    [
-                      _c("paginator", {
-                        attrs: { results: _vm.results },
-                        on: { "page-selected": _vm.updatePage }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                2
-              )
+                  ],
+                  1
+                )
+              ])
             : _vm._e()
         ])
       ])
@@ -871,7 +887,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [_c("div", { staticStyle: { width: "50px" } })])
+    return _c("td", {}, [_c("div", { staticStyle: { width: "50px" } })])
   }
 ]
 render._withStripped = true
@@ -896,20 +912,22 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "tr",
     {
       staticClass:
-        "flex odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center space-x-4 p-1"
+        "odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center p-1"
     },
     [
-      _c("img", {
-        staticClass: "rounded-card",
-        attrs: { src: _vm.cardImageFromSku(_vm.printing.sku.sku, 50) }
-      }),
+      _c("td", { attrs: { width: "50" } }, [
+        _c("img", {
+          staticClass: "rounded-card",
+          attrs: { src: _vm.cardImageFromSku(_vm.printing.sku.sku, 50) }
+        })
+      ]),
       _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "flex-grow" },
+        "td",
+        { staticClass: "pl-2 sm:pl-4" },
         [
           _c(
             "div",
@@ -938,25 +956,25 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/10" }, [
+      _c("td", { staticClass: "hidden md:table-cell w-1/10" }, [
         _vm._v(_vm._s(_vm.printing.sku.set.name))
       ]),
       _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "w-1/20 text-center rarity" },
+        "td",
+        { staticClass: "hidden sm:table-cell w-1/20 text-center rarity" },
         [_c("rarity-symbol", { attrs: { rarity: _vm.printing.rarity } })],
         1
       ),
       _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "w-1/10" },
+        "td",
+        { staticClass: "w-1/4 md:w-1/10 flex-shrink-0" },
         [_c("card-count", { attrs: { printing: _vm.printing } })],
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/20 text-center" }, [
+      _c("td", { staticClass: "w-1/10 md:w-1/20 text-center" }, [
         _c("input", {
           directives: [
             {
@@ -1003,7 +1021,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/20 text-center" }, [
+      _c("td", { staticClass: "w-1/10 md:w-1/20 text-center" }, [
         _c("input", {
           directives: [
             {

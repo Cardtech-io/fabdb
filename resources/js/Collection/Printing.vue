@@ -1,24 +1,24 @@
 <template>
-    <div class="flex odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center space-x-4 p-1">
-        <img :src="cardImageFromSku(printing.sku.sku, 50)" class="rounded-card"/>
-        <div class="flex-grow">
+    <tr class="odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center p-1">
+        <td width="50"><img :src="cardImageFromSku(printing.sku.sku, 50)" class="rounded-card"/></td>
+        <td class="pl-2 sm:pl-4">
             <div class="flex items-center space-x-1">
                 <div class="font-bold">{{printing.card.name}}</div>
                 <colour :resource="printing.card.stats.resource" v-if="printing.card.stats.resource"/>
             </div>
             <sku-finish :sku="printing.sku"></sku-finish>
             {{englishFinish(printing.sku.finish)}}
-        </div>
-        <div class="w-1/10">{{printing.sku.set.name}}</div>
-        <div class="w-1/20 text-center rarity"><rarity-symbol :rarity="printing.rarity"></rarity-symbol></div>
-        <div class="w-1/10"><card-count :printing="printing"></card-count></div>
-        <div class="w-1/20 text-center">
+        </td>
+        <td class="hidden md:table-cell w-1/10">{{printing.sku.set.name}}</td>
+        <td class="hidden sm:table-cell w-1/20 text-center rarity"><rarity-symbol :rarity="printing.rarity"></rarity-symbol></td>
+        <td class="w-1/4 md:w-1/10 flex-shrink-0"><card-count :printing="printing"></card-count></td>
+        <td class="w-1/10 md:w-1/20 text-center">
             <input type="checkbox" class="form-checkbox h-5 w-5 text-green-500 focus:outline-none" v-model="printing.trade" @click="toggle(printing, 'trade')">
-        </div>
-        <div class="w-1/20 text-center">
+        </td>
+        <td class="w-1/10 md:w-1/20 text-center">
             <input type="checkbox" class="form-checkbox h-5 w-5 text-green-500 focus:outline-none" v-model="printing.want" @click="toggle(printing, 'want')">
-        </div>
-    </div>
+        </td>
+    </tr>
 </template>
 
 <script>

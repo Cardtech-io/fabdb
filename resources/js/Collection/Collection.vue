@@ -34,27 +34,32 @@
                         <paginator :results="results" @page-selected="updatePage"></paginator>
                     </div>
 
-                    <div class="flex items-center bg-white space-x-4 p-1 border-b-2 border-gray-300">
-                        <div class="">
-                            <div style="width: 50px;"></div>
-                        </div>
-                        <div class="flex-grow py-1">
-                            <div class="flex space-x-2">
-                                <sorter field="name" text="Name" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
-                                <span>\</span>
-                                <sorter field="sku" text="Sku" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
-                            </div>
-                        </div>
-                        <div class="w-1/10">Set/Release</div>
-                        <div class="w-1/20">
-                            <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"></sorter>
-                        </div>
-                        <div class="w-1/10 text-center">Total</div>
-                        <div class="w-1/20 text-center">Trade</div>
-                        <div class="w-1/20 text-center">Want</div>
-                    </div>
-
-                    <printing v-for="printing in results.data" :printing="printing" :key="printing.sku.sku"/>
+                    <table class="w-full bg-white space-x-4 p-1 border-b-2 border-gray-300">
+                        <thead>
+                            <tr>
+                                <td class="">
+                                    <div style="width: 50px;"></div>
+                                </td>
+                                <td class="py-1">
+                                    <div class="flex space-x-2">
+                                        <sorter field="name" text="Name" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                                        <span>\</span>
+                                        <sorter field="sku" text="Sku" :order="search.order" :direction="search.direction" :clicked="sort"></sorter>
+                                    </div>
+                                </td>
+                                <td class="hidden md:table-cell w-1/10">Set/Release</td>
+                                <td class="hidden sm:table-cell w-1/20">
+                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"></sorter>
+                                </td>
+                                <td class="w-1/4 md:w-1/10 text-center">Total</td>
+                                <td class="w-1/10 md:w-1/20 text-center">Trade</td>
+                                <td class="w-1/10 md:w-1/20 text-center">Want</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <printing v-for="printing in results.data" :printing="printing" :key="printing.sku.sku"/>
+                        </tbody>
+                    </table>
 
                     <div class="py-4">
                         <paginator :results="results" @page-selected="updatePage"></paginator>
