@@ -315,13 +315,13 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-gray-300 rounded-b-lg" },
+          { staticClass: "bg-gray-200 rounded-b-lg" },
           _vm._l(_vm.decks, function(deck) {
             return _c(
               "router-link",
               {
                 key: deck.slug,
-                staticClass: "flex items-center hover:bg-gray-200 px-4 py-2",
+                staticClass: "flex items-center hover:bg-white px-4 py-2",
                 attrs: {
                   to: { name: "decks.view", params: { deck: deck.slug } }
                 }

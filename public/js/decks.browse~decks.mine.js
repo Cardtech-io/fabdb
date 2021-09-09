@@ -147,7 +147,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -169,7 +168,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deckSearch', ['params']), {
     format: {
       get: function get() {
-        return this.params.format || '';
+        return this.params.format || 'constructed';
       },
       set: function set(value) {
         this.updateParam({
@@ -445,8 +444,6 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
-            _vm._v(" "),
             _c("option", { attrs: { value: "blitz" } }, [_vm._v("Blitz")]),
             _vm._v(" "),
             _c("option", { attrs: { value: "constructed" } }, [
