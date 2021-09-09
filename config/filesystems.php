@@ -48,6 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'patreon' => [
+            'driver' => 'local',
+            'root' => storage_path('patreon'),
+        ],
+
         'lang' => [
             'driver' => 'local',
             'root' => resource_path('lang'),
