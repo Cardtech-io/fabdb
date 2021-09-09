@@ -9,7 +9,6 @@
 
         <div class="sm:w-1/6 pr-1">
             <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('format')">
-                <option value="">Format</option>
                 <option value="blitz">Blitz</option>
                 <option value="constructed">Constructed</option>
                 <option value="open">Open</option>
@@ -64,7 +63,7 @@
 
             format: {
                 get() {
-                    return this.params.format || '';
+                    return this.params.format || 'constructed';
                 },
 
                 set(value) {
