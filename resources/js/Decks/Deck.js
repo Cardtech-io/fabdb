@@ -2,7 +2,7 @@ import Cards from "../DeckBuilder/Cards";
 import Card from "../CardDatabase/Card";
 import Model from "../Utilities/Model";
 
-class Deck extends Model {
+export default class Deck extends Model {
     get avatar() {
         return this.fields.avatar;
     }
@@ -85,5 +85,3 @@ class Deck extends Model {
         return moment(this.fields.updatedAt).utc().local().fromNow();
     }
 }
-
-export default Deck;

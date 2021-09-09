@@ -77,8 +77,9 @@
                                 <span class="ml-1">Buy <span class="hidden sm:inline">from TCGplayer</span></span>
                             </a>
 
+                            <latest-decks title="Recent" color="bg-black" :query="'card='+card.identifier" class="mb-4"></latest-decks>
+
                             <pricing :card="card" class="mb-8 mt-4 md:mt-0"></pricing>
-                            <card-price :card="card"></card-price>
                         </div>
                     </div>
                 </div>
@@ -102,12 +103,14 @@
     import CardPrice from "./Metrics/CardPrice";
     import CardNav from "./CardNav";
     import Discussion from "../Discussion/Discussion";
-    import LazyLoader from '../Components/LazyLoader';
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Imagery from "../Utilities/Imagery";
+    import LatestDecks from "../Decks/Featured/LatestDecks";
+    import LazyLoader from '../Components/LazyLoader';
     import Pricing from './Pricing.vue';
+    import RecentDecks from "./RecentDecks";
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
-    import Imagery from "../Utilities/Imagery";
 
     export default {
         mixins: [Cardable, Imagery, Strings],
@@ -121,7 +124,9 @@
             CardNav,
             Discussion,
             HeaderTitle,
+            LatestDecks,
             Pricing,
+            RecentDecks,
             Rulings,
         },
 

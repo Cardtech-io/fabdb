@@ -8,7 +8,7 @@ let ext = mix.inProduction() ? 'min.js': 'js';
 
 mix.webpackConfig({
     output: {
-        chunkFilename: 'js/[name].'+ext+'?id=[chunkhash]',
+        chunkFilename: 'js/[name].[chunkhash].'+ext,
     }
 });
 

@@ -9,8 +9,8 @@
                 </icon>
             </router-link>
         </header>
-        <div class="bg-gray-300 rounded-b-lg">
-            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-gray-200 px-4 py-2" :key="deck.slug">
+        <div class="bg-gray-200 rounded-b-lg">
+            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white px-4 py-2" :key="deck.slug">
                 <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"></hero-avatar>
                 <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"></hero-avatar>
                 <div class="ml-2">

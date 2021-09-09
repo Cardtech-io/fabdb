@@ -22,10 +22,14 @@ class MemberSync implements ToCollection, WithHeadingRow, WithBatchInserts
     {
         $this->logger = $logger;
     }
-    
+
     public function collection(Collection $rows)
     {
         $activeMembers = $rows->pluck('email');
+
+        $rows->each(function($row) {
+           User::whereEmail($row->email)->update(['patreon_id' => $row['user_id']]);
+        });
 
         User::whereNotIn('email', $activeMembers)
             ->whereNotIn('subscription', ['promo', 'fabled'])
