@@ -162,6 +162,7 @@ return [
     ],
 
     'talents' => [
+        'earth' => 'Earth',
         'elemental' => 'Elemental',
         'ice' => 'Ice',
         'light' => 'Light',

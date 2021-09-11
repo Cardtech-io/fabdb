@@ -29,6 +29,8 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         'arc_unlimited_singles',
         'cru_first_singles',
         'cru_unlimited_singles',
+        'ele_first_singles',
+        'ele_unlimited_singles',
         'mon_first_singles',
         'mon_blitz_singles',
         'mon_unlimited_singles',
