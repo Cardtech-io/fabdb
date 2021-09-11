@@ -5451,7 +5451,13 @@ var render = function() {
                       "font-serif uppercase text-xl border-b border-dotted border-gray-500",
                     class: { "text-red-500": _vm.totalCards > _vm.maxCards }
                   },
-                  [_vm._v(_vm._s(_vm.totalMainDeck - 1))]
+                  [
+                    _vm._v(
+                      _vm._s(
+                        _vm.totalMainDeck - 1 < 0 ? 0 : _vm.totalMainDeck - 1
+                      )
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(

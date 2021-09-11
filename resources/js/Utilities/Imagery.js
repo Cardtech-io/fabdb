@@ -9,23 +9,17 @@ export default {
         },
 
         squareThumbUrl(path, width) {
-            return path+'&rect=90,95,360,365&crop=edges&w=' + width + '&w='+width+'&h=' + width + '&fit=crop&auto=compress';
+            return path+'&rect=90,95,360,365&crop=edges&w='+width+'&h='+width+'&fit=crop&auto=compress';
         },
 
         heroProfile(hero, width, rounded) {
-            let imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
-
-            if (hero.young()) {
-                imageName += '-blitz';
-            }
-
-            let path = '/heroes/' + imageName + '.png';
+            let url = hero.image+'&rect=90,95,360,365';
 
             if (rounded) {
-                path += '?mask=corners&w='+width+'&h='+width+'&corner-radius=100&fm=png';
+                url += '&mask=corners&h='+width+'&corner-radius=100&fm=png';
             }
 
-            return this.imageUrl(path, width);
+            return url;
         },
 
         cardImageFromSku(sku, width) {

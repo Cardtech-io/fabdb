@@ -62349,22 +62349,16 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
+      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
-      var imageName = hero.name.split(/[,]/)[0].toLowerCase().replace(/\s+/g, '-');
-
-      if (hero.young()) {
-        imageName += '-blitz';
-      }
-
-      var path = '/heroes/' + imageName + '.png';
+      var url = hero.image + '&rect=90,95,360,365';
 
       if (rounded) {
-        path += '?mask=corners&w=' + width + '&h=' + width + '&corner-radius=100&fm=png';
+        url += '&mask=corners&h=' + width + '&corner-radius=100&fm=png';
       }
 
-      return this.imageUrl(path, width);
+      return url;
     },
     cardImageFromSku: function cardImageFromSku(sku, width) {
       return this.imageUrl(this.cardImagePathFromSku(sku), width);
