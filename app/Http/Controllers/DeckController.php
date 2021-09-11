@@ -39,11 +39,11 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        return $this->decks->search(
+        return DeckResource::collection($this->decks->search(
             array_merge($request->all(), [
                 'currency' => object_get($request->user(), 'currency', 'USD')
             ])
-        );
+        ));
     }
 
     public function starters()
