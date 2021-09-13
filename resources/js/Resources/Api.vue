@@ -8,6 +8,7 @@
                 <div class="w-1/4">
                     <ul class="mr-4">
                         <li class="mb-2"><h2 class="text-xl font-serif uppercase">Getting started</h2></li>
+                        <li class="mb-1"><a href="#authentication" class="block p-2 px-4 button-secondary">Authentication</a></li>
                         <li class="mb-1"><a href="#requests" class="block p-2 px-4 button-secondary">Requests</a></li>
                         <li class="mb-1"><a href="#formats" class="block p-2 px-4 button-secondary">Formats</a></li>
                         <li class="mb-1"><a href="#throttling" class="block p-2 px-4 button-secondary">Throttling</a></li>
@@ -31,13 +32,56 @@
                             have documented.
                         </p>
 
+                        <a name="authentication"></a>
+                        <h3 class="font-serif uppercase text-xl">Authentication</h3>
+                        <p class="my-4">
+                            In order to authenticate with the FaB DB API, you must have an API key. Your key consists of
+                            a public API token and an associated API secret. The token is provided alongside all requests
+                            you make to FaB DB's API. The secret, as its name suggests, is a secret token that you store
+                            on your server and is used to sign all requests. You can generate your API key, and its
+                            associated token and secret on this very page.
+                        </p>
+
+                        <api-token/>
+
+                        <p class="my-4">
+                            To authenticate, all requests must contain a header called "Authorization", ie:
+                        </p>
+
+                        <vue-code-highlight language="text" class="text-base">
+<pre>
+    Authorization: Bearer YOURTOKENHERE
+</pre>
+                        </vue-code-highlight>
+
+                        <p class="my-4">
+                            Each request must also be signed using your secret token. To do this, you must compile all your URL arguments
+                            into one query string, such as: keywords=action&set=wtr
+                        </p>
+                        <p class="my-4">
+                            Once that is done, you must hash the query string using the sha512 algorithm, using your
+                            secret token as a prefix, wo it would look like this: THISISYOURSECRETkeywords=action&set=wtr
+                            which will result in the following:
+                        </p>
+
+                        <vue-code-highlight language="text" class="text-base">
+<pre>
+    https://api.fabdb.net/cards?token=mytokenstringhere&keywords=action&set=wtr&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3
+</pre>
+                        </vue-code-highlight>
+
+                        <p class="my-4">
+                            On the FaB DB side, we then deconstruct this request, ensure that the hash matches the
+                            provided token and then either allow or deny the request.
+                        </p>
+                        <p class="my-4">
+                            <span class="italic">Note: your secret is securely stored and encrypted on the FaB DB servers.</span>
+                        </p>
+
                         <a name="requests"></a>
                         <h3 class="font-serif uppercase text-xl">Requests</h3>
                         <p class="my-4">
                             All requests made to the API must be made securely (https) to: {{ domain }}.
-                        </p>
-                        <p class="my-4">
-                            No authentication is required.
                         </p>
 
                         <a name="formats"></a>
@@ -223,13 +267,13 @@
 </template>
 
 <script>
-    import { component as VueCodeHighlight } from 'vue-code-highlight';
-
+    import {component as VueCodeHighlight} from 'vue-code-highlight';
+    import ApiToken from "../Auth/ApiToken";
     import Breadcrumbs from "../Components/Breadcrumbs";
     import HeaderTitle from "../Components/HeaderTitle";
 
     export default {
-        components: { Breadcrumbs, HeaderTitle, VueCodeHighlight },
+        components: {ApiToken, Breadcrumbs, HeaderTitle, VueCodeHighlight},
 
         computed: {
             domain() {

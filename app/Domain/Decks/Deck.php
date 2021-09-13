@@ -226,6 +226,10 @@ class Deck extends Model
 
         $deck->raise(new DeckWasCopied($this->id, $userId));
 
+        foreach ($this->sideboard as $sideboardCard) {
+
+        }
+
         return $deck;
     }
 

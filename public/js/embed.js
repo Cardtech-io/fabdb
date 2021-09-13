@@ -62150,21 +62150,29 @@ __webpack_require__.r(__webpack_exports__);
       var param = _ref3.param,
           value = _ref3.value;
       state.session.user[param] = value;
+    },
+    setApiToken: function setApiToken(state, _ref4) {
+      var token = _ref4.token;
+      state.session.user.apiToken = token;
+    },
+    setApiSecret: function setApiSecret(state, _ref5) {
+      var secret = _ref5.secret;
+      state.session.user.apiSecret = secret;
     }
   },
   actions: {
-    bootState: function bootState(_ref4) {
-      var state = _ref4.state;
+    bootState: function bootState(_ref6) {
+      var state = _ref6.state;
       state.collapsed = localStorage.getItem('collapsed') === 'true';
     },
-    toggleCollapse: function toggleCollapse(_ref5) {
-      var state = _ref5.state;
+    toggleCollapse: function toggleCollapse(_ref7) {
+      var state = _ref7.state;
       state.collapsed = !state.collapsed;
       localStorage.setItem('collapsed', state.collapsed.toString());
     },
-    setSession: function setSession(_ref6, _ref7) {
-      var commit = _ref6.commit;
-      var session = _ref7.session;
+    setSession: function setSession(_ref8, _ref9) {
+      var commit = _ref8.commit;
+      var session = _ref9.session;
       commit('setSession', {
         session: session
       }); // If the user is a subscriber, switch the default deck view to gallery
@@ -62175,20 +62183,31 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    setUser: function setUser(_ref8, _ref9) {
-      var commit = _ref8.commit;
-      var user = _ref9.user;
+    setUser: function setUser(_ref10, _ref11) {
+      var commit = _ref10.commit;
+      var user = _ref11.user;
       commit('setUser', {
         user: user
       });
     },
-    setUserParam: function setUserParam(_ref10, _ref11) {
-      var commit = _ref10.commit;
-      var param = _ref11.param,
-          value = _ref11.value;
+    setUserParam: function setUserParam(_ref12, _ref13) {
+      var commit = _ref12.commit;
+      var param = _ref13.param,
+          value = _ref13.value;
       commit('setUserParam', {
         param: param,
         value: value
+      });
+    },
+    setApiKey: function setApiKey(_ref14, _ref15) {
+      var commit = _ref14.commit;
+      var token = _ref15.token,
+          secret = _ref15.secret;
+      commit('setApiToken', {
+        token: token
+      });
+      commit('setApiSecret', {
+        secret: secret
       });
     }
   },

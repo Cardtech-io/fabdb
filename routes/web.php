@@ -49,6 +49,7 @@ Route::middleware(['web'])->group(function() {
         Route::post('auth/check-email', 'AuthController@checkEmail');
         Route::post('auth/validate', 'AuthController@validateCode');
         Route::post('auth/register', 'AuthController@register');
+        Route::post('auth/api-key', 'AuthController@generateApiKey');
         Route::post('auth/password', 'AuthController@validatePassword');
         Route::delete('auth/session', 'AuthController@logout');
 

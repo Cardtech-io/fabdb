@@ -3,8 +3,11 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Users\CheckEmail;
 use FabDB\Domain\Users\AuthObserver;
+use FabDB\Domain\Users\GenerateApiKey;
 use FabDB\Domain\Users\RegisterUser;
+use FabDB\Domain\Users\UserRepository;
 use FabDB\Domain\Users\ValidateAuthenticationCode;
+use FabDB\Http\Observers\KeyGeneratorObserver;
 use FabDB\Http\Requests\AuthenticationRequest;
 use FabDB\Http\Requests\RegistrationRequest;
 use Illuminate\Http\Request;
@@ -54,5 +57,10 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+    }
+
+    public function generateApiKey(Request $request, UserRepository $users)
+    {
+        return $users->generateApiKey($request->user()->id);
     }
 }

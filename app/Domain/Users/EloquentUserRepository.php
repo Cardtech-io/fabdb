@@ -3,6 +3,7 @@ namespace FabDB\Domain\Users;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Ramsey\Uuid\Uuid;
 
 class EloquentUserRepository extends EloquentRepository implements UserRepository
 {
@@ -36,6 +37,26 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
                 $query->whereVanitySlug($slug);
                 $query->whereIn('subscription', ['legendary', 'fabled']);
             })
+            ->first();
+    }
+
+    public function generateApiKey(int $userId): array
+    {
+        $user = $this->find($userId);
+
+        $token = hash('sha256', Uuid::uuid4());
+        $secret = hash('sha256', Uuid::uuid4());
+
+        $user->setApiKey($token, $secret);
+        $user->save();
+
+        return compact('token', 'secret');
+    }
+
+    public function findByApiToken(string $token)
+    {
+        return $this->newQuery()
+            ->whereApiToken($token)
             ->first();
     }
 }

@@ -13,15 +13,18 @@ use FabDB\Http\Middleware\Cors;
 |
 */
 
-Route::middleware('api')->group(function() {
+Route::middleware(['api', 'api.auth'])->group(function() {
     Route::get('cards', 'CardController@list');
     Route::get('cards/first', 'CardController@first');
     Route::get('cards/{cardIdentifier}', 'CardController@view');
 
     Route::get('decks/{deck}', 'DeckController@view');
-    Route::get('decks/{deck}/osc', 'DeckController@osc');
 
     Route::get('printings/{sku}', 'PrintingController@view');
+});
+
+Route::middleware('api')->group(function() {
+    Route::get('decks/{deck}/osc', 'DeckController@osc');
 });
 
 Route::fallback(function() {
