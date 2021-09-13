@@ -22,7 +22,8 @@
                         <p class="my-4">
                             The FaB DB API provides a public interface for access to card and deck information entered into
                             the system. This makes it possible for 3rd parties to create amazing applications utilising our rich
-                            APIs and data endpoints.
+                            APIs and data endpoints. The API is completely free-to-use but has a single requirement and that is:
+                            <span class="italic font-bold">the API cannot be used to create competing products/tools to FaB DB and its solutions.</span>
                         </p>
                         <p class="my-4">
                             Getting stated with consuming the FaB DB API is simple - simply utilise your favourite library

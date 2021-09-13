@@ -235,6 +235,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -349,13 +350,9 @@ var render = function() {
                   _vm._v("Getting started")
                 ]),
                 _vm._v(" "),
-                _c("p", { staticClass: "my-4" }, [
-                  _vm._v(
-                    "\n                            The FaB DB API provides a public interface for access to card and deck information entered into\n                            the system. This makes it possible for 3rd parties to create amazing applications utilising our rich\n                            APIs and data endpoints.\n                        "
-                  )
-                ]),
-                _vm._v(" "),
                 _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("a", { attrs: { name: "requests" } }),
                 _vm._v(" "),
@@ -389,7 +386,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("a", { attrs: { name: "throttling" } }),
                 _vm._v(" "),
@@ -453,7 +450,7 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(3),
+                _vm._m(4),
                 _vm._v(" "),
                 _c("h4", { staticClass: "font-bold text-lg" }, [
                   _vm._v("View card")
@@ -597,6 +594,21 @@ var staticRenderFns = [
             [_vm._v("Decks")]
           )
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "my-4" }, [
+      _vm._v(
+        "\n                            The FaB DB API provides a public interface for access to card and deck information entered into\n                            the system. This makes it possible for 3rd parties to create amazing applications utilising our rich\n                            APIs and data endpoints. The API is completely free-to-use but has a single requirement and that is:\n                            "
+      ),
+      _c("span", { staticClass: "italic font-bold" }, [
+        _vm._v(
+          "the API cannot be used to create competing products/tools to FaB DB and its solutions."
+        )
       ])
     ])
   },
