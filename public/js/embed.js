@@ -61891,8 +61891,13 @@ __webpack_require__.r(__webpack_exports__);
       state.practise = practise;
     },
     generatePacks: function generatePacks(state) {
-      var packsRequired = state.practise.format === 'sealed' ? 6 : 9;
-      var total = packsRequired - state.practise.packs.length;
+      var packsPerFormat = {
+        'draft': 3,
+        'sealed': 6,
+        'team-sealed': 9
+      };
+      var requiredPacks = packsPerFormat[state.practise.format];
+      var total = requiredPacks - state.practise.packs.length;
 
       for (var i = 0; i < total; i++) {
         state.practise.packs.push([]);

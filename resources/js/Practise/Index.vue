@@ -13,11 +13,12 @@
                         over and over with especially bad Limited drafts.
                     </p>
                     <div class="my-4 text-center">
+                        <router-link :to="{ name: 'practise.setup', query: {format: 'draft'} }" class="inline-block mx-auto button-primary px-4 py-3 rounded-lg" tag="button">Draft practise</router-link>
                         <router-link :to="{ name: 'practise.setup', query: {format: 'sealed'} }" class="inline-block mx-auto button-primary px-4 py-3 rounded-lg" :class="{'button-disabled': !majestic}" :disabled="!majestic" tag="button">Sealed practise (Solo)</router-link>
-                        <router-link :to="{ name: 'practise.setup', query: {format: 'team-sealed'} }" class="inline-block mx-auto button-secondary px-4 py-3 rounded-lg" :class="{'button-disabled': !legendary}" :disabled="!legendary" tag="button">Team sealed practise</router-link>
+                        <router-link :to="{ name: 'practise.setup', query: {format: 'team-sealed'} }" class="inline-block mx-auto button-secondary px-4 py-3 rounded-lg" :class="{'button-disabled': !legendary}" :disabled="!legendary" tag="button">Sealed practise (Team)</router-link>
                     </div>
                     <p class="p-4 italic">
-                        Sealed practise is available to Majestic and Legendary supporters only.
+                        Draft practise is open to all, whereas sealed practise is available to Majestic and Legendary supporters only.
                     </p>
                 </div>
                 <div class="w-1/2 pl-4" v-if="practises.length">

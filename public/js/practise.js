@@ -23,9 +23,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
+    var colours = {
+      'draft': 'bg-purple-500',
+      'sealed': 'bg-blue-500',
+      'team-sealed': 'bg-green-500'
+    };
+    var formats = {
+      'draft': 'Draft',
+      'sealed': 'Solo',
+      'team-sealed': 'Team'
+    };
     return {
-      colour: this.format === 'sealed' ? 'bg-blue-500' : 'bg-green-500',
-      text: this.format === 'sealed' ? 'Solo' : 'Team'
+      colour: colours[this.format],
+      text: formats[this.format]
     };
   }
 });
@@ -54,6 +64,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -202,6 +213,22 @@ var render = function() {
                   {
                     staticClass:
                       "inline-block mx-auto button-primary px-4 py-3 rounded-lg",
+                    attrs: {
+                      to: {
+                        name: "practise.setup",
+                        query: { format: "draft" }
+                      },
+                      tag: "button"
+                    }
+                  },
+                  [_vm._v("Draft practise")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass:
+                      "inline-block mx-auto button-primary px-4 py-3 rounded-lg",
                     class: { "button-disabled": !_vm.majestic },
                     attrs: {
                       to: {
@@ -230,7 +257,7 @@ var render = function() {
                       tag: "button"
                     }
                   },
-                  [_vm._v("Team sealed practise")]
+                  [_vm._v("Sealed practise (Team)")]
                 )
               ],
               1
@@ -238,7 +265,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "p-4 italic" }, [
               _vm._v(
-                "\n                    Sealed practise is available to Majestic and Legendary supporters only.\n                "
+                "\n                    Draft practise is open to all, whereas sealed practise is available to Majestic and Legendary supporters only.\n                "
               )
             ])
           ]),

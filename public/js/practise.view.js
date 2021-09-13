@@ -254,6 +254,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -318,7 +321,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         'button-secondary': this.mode !== view
       };
     },
-    craftDeck: function craftDeck() {},
     setMode: function setMode(mode) {
       this.mode = mode;
     },
@@ -904,7 +906,10 @@ var render = function() {
         _c("div", { staticClass: "bg-white" }, [
           _c(
             "div",
-            { staticClass: "flex p-4 w-full", class: _vm.containers },
+            {
+              staticClass: "flex p-4 w-full items-center",
+              class: _vm.containers
+            },
             [
               _c(
                 "div",
@@ -945,14 +950,17 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("add-deck", {
-                attrs: {
-                  label: "Craft deck",
-                  name: "Sealed practise",
-                  params: { practise: _vm.practise.slug },
-                  enabled: _vm.craftable
-                }
-              }),
+              _c(
+                "add-deck",
+                {
+                  attrs: {
+                    name: "Sealed practise",
+                    params: { practise: _vm.practise.slug },
+                    enabled: _vm.craftable
+                  }
+                },
+                [_vm._v("\n                    Craft deck\n                ")]
+              ),
               _vm._v(" "),
               _vm.mode === "cards"
                 ? _c("filter-selector", { staticClass: "mx-2" })

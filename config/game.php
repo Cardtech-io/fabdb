@@ -129,7 +129,7 @@ return [
             'name' => 'Monarch (Unlimited)',
             'released' => '2021-05-28',
             'browseable' => false,
-            'draftable' => true
+            'draftable' => false
         ],
         'wtr' => [
             'id' => 'wtr',
