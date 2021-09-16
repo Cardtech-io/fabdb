@@ -2,7 +2,7 @@
     <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
         <div class="my-12">
             <div class="mx-auto">
-                <video width="470" height="176" class="w-full sm:w-auto mx-auto" style="max-width: 470px" autoplay muted loop poster="/img/fabdb-logo.png">
+                <video width="470" height="176" class="w-full sm:w-auto mx-auto" style="max-width: 470px" autoplay muted loop poster="/img/fabdb-logo-3d.png">
                     <source src="/media/fabdb-logo-video.mp4" type="video/mp4">
                 </video>
             </div>

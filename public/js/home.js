@@ -265,7 +265,7 @@ var render = function() {
                 autoplay: "",
                 muted: "",
                 loop: "",
-                poster: "/img/fabdb-logo.png"
+                poster: "/img/fabdb-logo-3d.png"
               },
               domProps: { muted: true }
             },
