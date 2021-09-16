@@ -1,9 +1,11 @@
 <template>
     <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
-        <div class="mt-12 mb-6">
-            <router-link to="/">
-                <img src="/img/fabdb-logo.png" alt="FaB DB Logo" width="270" height="113" class="mx-auto">
-            </router-link>
+        <div class="my-12">
+            <div class="mx-auto">
+                <video width="470" height="176" class="w-full sm:w-auto mx-auto" style="max-width: 470px" autoplay muted loop poster="/img/fabdb-logo.png">
+                    <source src="/media/fabdb-logo-video.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
         <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100 z-0">
             <p class="my-4">

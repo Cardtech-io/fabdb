@@ -139,6 +139,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -250,24 +252,31 @@ var render = function() {
       staticClass: "container px-4 sm:px-0 sm:mx-auto text-white flex flex-col"
     },
     [
-      _c(
-        "div",
-        { staticClass: "mt-12 mb-6" },
-        [
-          _c("router-link", { attrs: { to: "/" } }, [
-            _c("img", {
-              staticClass: "mx-auto",
+      _c("div", { staticClass: "my-12" }, [
+        _c("div", { staticClass: "mx-auto" }, [
+          _c(
+            "video",
+            {
+              staticClass: "w-full sm:w-auto mx-auto",
+              staticStyle: { "max-width": "470px" },
               attrs: {
-                src: "/img/fabdb-logo.png",
-                alt: "FaB DB Logo",
-                width: "270",
-                height: "113"
-              }
-            })
-          ])
-        ],
-        1
-      ),
+                width: "470",
+                height: "176",
+                autoplay: "",
+                muted: "",
+                loop: "",
+                poster: "/img/fabdb-logo.png"
+              },
+              domProps: { muted: true }
+            },
+            [
+              _c("source", {
+                attrs: { src: "/media/fabdb-logo-video.mp4", type: "video/mp4" }
+              })
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
