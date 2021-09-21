@@ -1017,7 +1017,7 @@ var render = function() {
                             on: {
                               click: function($event) {
                                 _vm.copyToClipboard(
-                                  _vm.shareDeckText(_vm.deck),
+                                  _vm.shareDeckViaText(_vm.deck),
                                   "Deck build copied to clipboard."
                                 )
                               }
