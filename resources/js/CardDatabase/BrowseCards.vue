@@ -125,7 +125,7 @@
                     return setting.browseable;
                 }), 'released');
 
-                sets.unshift({ id: '', name: 'All cards'});
+                sets.unshift({ id: 'all', name: 'All cards'});
 
                 return sets;
             },

@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
       }), 'released');
 
       sets.unshift({
-        id: '',
+        id: 'all',
         name: 'All cards'
       });
       return sets;

@@ -272,6 +272,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -306,6 +310,13 @@ __webpack_require__.r(__webpack_exports__);
     Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_15__["default"]
   },
   computed: {
+    bannedFormats: function bannedFormats() {
+      if (this.card.banned.length > 1) {
+        return 'in both Blitz and Constructed formats';
+      }
+
+      return 'in ' + this.ucfirst(this.card.banned[0]) + ' format';
+    },
     crumbs: function crumbs() {
       return [{
         text: 'Home',
@@ -934,6 +945,23 @@ var render = function() {
                     { staticClass: "md:w-1/2" },
                     [
                       _c("div", { staticClass: "p-4 pt-0 sm:p-0" }, [
+                        _vm.card.banned
+                          ? _c(
+                              "section",
+                              {
+                                staticClass:
+                                  "bg-red-600 text-white text-center py-2 px-4 rounded-lg mb-4"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                This card is banned " +
+                                    _vm._s(_vm.bannedFormats) +
+                                    ".\n                            "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
                         _vm.card.text
                           ? _c(
                               "div",

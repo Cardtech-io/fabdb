@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
-                            <card-search class="flex bg-gray-800 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"></card-search>
+                            <card-search class="flex bg-gray-800 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"/>
                         </div>
                     </div>
                 </div>

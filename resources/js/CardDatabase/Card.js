@@ -23,6 +23,10 @@ class Card {
         return this.fields.keywords;
     }
 
+    get total() {
+        return this.fields.total;
+    }
+
     avatar() {
         let name = this.name.split(',')[0].toLowerCase().split(' ')[0];
 

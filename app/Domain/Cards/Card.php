@@ -79,7 +79,9 @@ class Card extends Model
 
     public function getBannedAttribute()
     {
-        return in_array($this->identifier, config('game.cards.banned'));
+        $config = config('game.cards.banned');
+
+        return Arr::get($config, $this->identifier->raw());
     }
 
     public function rulings()

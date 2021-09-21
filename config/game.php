@@ -225,9 +225,13 @@ return [
 
     'cards' => [
         'banned' => [
-            'drone-of-brutality-red',
-            'drone-of-brutality-yellow',
-            'drone-of-brutality-blue',
+            'drone-of-brutality-red' => ['blitz', 'constructed'],
+            'drone-of-brutality-yellow' => ['blitz', 'constructed'],
+            'drone-of-brutality-blue' => ['blitz', 'constructed'],
+            'duskblade' => ['constructed'],
+            'seeds-of-agony-red' => ['blitz', 'constructed'],
+            'seeds-of-agony-yellow' => ['blitz', 'constructed'],
+            'seeds-of-agony-blue' => ['blitz', 'constructed'],
         ],
     ],
 

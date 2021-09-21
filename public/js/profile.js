@@ -1343,6 +1343,11 @@ function () {
     get: function get() {
       return this.fields.keywords;
     }
+  }, {
+    key: "total",
+    get: function get() {
+      return this.fields.total;
+    }
   }]);
 
   return Card;

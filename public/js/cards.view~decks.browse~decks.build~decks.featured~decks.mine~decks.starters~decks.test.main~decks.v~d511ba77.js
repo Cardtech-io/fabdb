@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["cards.view~decks.browse~decks.featured~decks.mine~decks.starters~decks.test.main~decks.view~user.pro~6738661d"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"],{
 
 /***/ "./resources/js/CardDatabase/Card.js":
 /*!*******************************************!*\

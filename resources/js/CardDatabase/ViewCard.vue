@@ -8,8 +8,8 @@
                 <div class="flow-root">
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <div class="relative">
-                            <card-image :card="card"></card-image>
-                            <banned v-if="card.banned"></banned>
+                            <card-image :card="card"/>
+                            <banned v-if="card.banned"/>
                         </div>
                         <div class="flex mt-2">
                             <card-nav :to="card.prev" text="Previous" class="mr-1"></card-nav>
@@ -46,6 +46,10 @@
                     <div class="md:w-3/4 md:float-right sm:px-4 md:flex">
                         <div class="md:w-1/2">
                             <div class="p-4 pt-0 sm:p-0">
+                                <section v-if="card.banned" class="bg-red-600 text-white text-center py-2 px-4 rounded-lg mb-4">
+                                    This card is banned {{bannedFormats}}.
+                                </section>
+
                                 <div v-if="card.text" class="bg-white text-black rounded-lg mb-1">
                                     <div v-html="prettyText(card.text)" class="px-4 py-px"></div>
                                     <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
@@ -131,6 +135,14 @@
         },
 
         computed: {
+            bannedFormats() {
+                if (this.card.banned.length > 1) {
+                    return 'in both Blitz and Constructed formats';
+                }
+
+                return 'in '+this.ucfirst(this.card.banned[0])+' format';
+            },
+
             crumbs() {
                 return [
                     { text: 'Home', link: '/' },

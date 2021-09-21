@@ -340,6 +340,51 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Components/Shareable.js":
+/*!**********************************************!*\
+  !*** ./resources/js/Components/Shareable.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    copyToClipboard: function copyToClipboard(text, message) {
+      this.$copyText(text);
+      this.addMessage({
+        status: 'success',
+        message: message
+      });
+    },
+    shareDeckViaText: function shareDeckViaText(deck) {
+      var weapons = deck.cards.weapons().all().map(function (weapon) {
+        return weapon.name;
+      }).join(', ');
+      var equipment = deck.cards.equipment().all().map(function (item) {
+        return item.name;
+      }).join(', ');
+      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name) + this.shareLine('') + this.shareLine('Class: ' + this.ucfirst(deck.hero["class"])) + this.shareLine('Hero: ' + deck.hero.name) + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
+      var other = deck.other;
+
+      for (var i in other.all()) {
+        var card = other.all()[i];
+        text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
+      }
+
+      text = text + this.shareLine('');
+      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
+      this.copyToClipboard(text, 'Deck build copied to clipboard.');
+    },
+    shareLine: function shareLine(text) {
+      return text + "\n";
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/DeckBuilder/Colour.vue":
 /*!*********************************************!*\
   !*** ./resources/js/DeckBuilder/Colour.vue ***!
