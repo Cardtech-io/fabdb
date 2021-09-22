@@ -28,13 +28,13 @@ class HeroFilter implements SearchFilter
     public function applyTo(Builder $query, array $input)
     {
         $hero = $this->cards->findByIdentifier($input['hero']);
-
+        
         $query->where(function($query) use ($hero) {
             $query->where(function($query) use ($hero) {
                 if ($hero->isTalented()) {
-                    $talents = "null,'".implode("','", $hero->talents())."'";
+                    $talents = "'".implode("','", $hero->talents())."'";
 
-                    $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') OR (cards.class IS NULL AND cards.talent IN ($talents))");
+                    $query->whereRaw("(cards.class IN ('{$hero->class}', 'generic') OR cards.class IS NULL) AND (cards.talent IN ($talents) OR cards.talent IS NULL)");
                 }
                 else {
                     $query->whereRaw("cards.class IN ('{$hero->class}', 'generic') AND cards.talent IS NULL");

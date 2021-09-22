@@ -133,7 +133,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -150,10 +149,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pitch: '',
       set: [],
       "class": [],
-      rarity: []
+      rarity: [],
+      talent: []
     };
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity')));
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity', 'talent')));
 
     var previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
     return {
@@ -171,7 +171,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     active: function active(field) {
-      if (this.query(field)) {
+      if (this.params[field].length > 0) {
         return 'shadow-active';
       }
     },
@@ -351,7 +351,7 @@ var render = function() {
                     },
                     [
                       _c("option", { attrs: { value: "none" } }, [
-                        _vm._v("None")
+                        _vm._v("Not classed")
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.$settings.game.classes, function(name, klass) {
@@ -383,6 +383,7 @@ var render = function() {
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg",
                       class: _vm.active("talent"),
+                      attrs: { multiple: "multiple" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -404,10 +405,8 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "" } }),
-                      _vm._v(" "),
                       _c("option", { attrs: { value: "none" } }, [
-                        _vm._v("None")
+                        _vm._v("Not talented")
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.$settings.game.talents, function(
@@ -844,8 +843,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fromQuery: function fromQuery(params) {
       return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
-          return param.split(',');
+        if (['class', 'cardType', 'rarity', 'set', 'talent', ';'].indexOf(key) !== -1) {
+          return param.split(',').filter(function (value) {
+            return !!value;
+          });
         }
 
         return param;

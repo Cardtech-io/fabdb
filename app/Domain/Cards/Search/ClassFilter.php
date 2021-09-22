@@ -26,10 +26,7 @@ class ClassFilter implements SearchFilter
      */
     private function noClass(Builder $query)
     {
-        $classes = implode("','", array_keys(config('game.classes')));
-
-        $query->whereRaw("JSON_EXTRACT(keywords, '$[0]') NOT IN ('$classes')");
-        $query->whereRaw("JSON_EXTRACT(keywords, '$[1]') NOT IN ('$classes')");
+        $query->whereNull("class");
     }
 
     /**
@@ -42,7 +39,7 @@ class ClassFilter implements SearchFilter
 
         $query->where(function ($query) use ($classes) {
             foreach ($classes as $class) {
-                $query->orWhereRaw("JSON_SEARCH(keywords, 'one', '$class') IS NOT NULL");
+                $query->orWhere('class', $class);
             }
 
             if (in_array('shapeshifter', $classes)) {

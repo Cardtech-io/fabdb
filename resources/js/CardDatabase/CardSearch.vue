@@ -71,7 +71,7 @@
 
         computed: {
             advancedSearchLink() {
-                let query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
+                let query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity', 'talent'));
 
                 return this.$route.path + '/advanced?' + query.toString();
             },

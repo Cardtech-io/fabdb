@@ -311,6 +311,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $query->select([
             'cards.identifier',
             'cards.name',
+            'cards.class',
+            'cards.talent',
             'cards.image',
             'cards.keywords',
             'cards.stats',

@@ -90,7 +90,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: {
     advancedSearchLink: function advancedSearchLink() {
-      var query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'));
+      var query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity', 'talent'));
       return this.$route.path + '/advanced?' + query.toString();
     },
     keywordClasses: function keywordClasses() {
@@ -645,8 +645,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     fromQuery: function fromQuery(params) {
       return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
-          return param.split(',');
+        if (['class', 'cardType', 'rarity', 'set', 'talent', ';'].indexOf(key) !== -1) {
+          return param.split(',').filter(function (value) {
+            return !!value;
+          });
         }
 
         return param;

@@ -25,7 +25,7 @@
                         <div class="md:w-1/5 py-2">Class</div>
                         <div class="md:w-4/5">
                             <select v-model="params.class" size="6" multiple="multiple" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('class')">
-                                <option value="none">None</option>
+                                <option value="none">Not classed</option>
                                 <option :value="klass" v-for="(name, klass) in $settings.game.classes">{{ name }}</option>
                             </select>
                         </div>
@@ -34,9 +34,8 @@
                     <div class="md:flex mb-4">
                         <div class="md:w-1/5 py-2">Talent</div>
                         <div class="md:w-4/5">
-                            <select v-model="params.talent" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('talent')">
-                                <option value=""></option>
-                                <option value="none">None</option>
+                            <select v-model="params.talent" multiple="multiple" class="input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg" :class="active('talent')">
+                                <option value="none">Not talented</option>
                                 <option :value="talent" v-for="(name, talent) in $settings.game.talents">{{ name }}</option>
                             </select>
                         </div>
@@ -130,10 +129,11 @@ export default {
             pitch: '',
             set: [],
             class: [],
-            rarity: []
+            rarity: [],
+            talent: [],
         };
 
-        let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity'))};
+        let params = {...base, ...this.fromQuery(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity', 'talent'))};
 
         let previous = this.$route.path.indexOf('collection') !== -1 ? ['My collection', 'collection'] : ['Browse cards', 'cards/browse'];
 
@@ -151,7 +151,7 @@ export default {
 
     methods: {
         active(field) {
-            if (this.query(field)) {
+            if (this.params[field].length > 0) {
                 return 'shadow-active'
             }
         },
