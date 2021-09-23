@@ -39,9 +39,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      */
     private $cache;
 
-    public function __construct(Repository $cache)
+    /**
+     * @var Banned
+     */
+    private $banned;
+
+    public function __construct(Repository $cache, Banned $banned)
     {
         $this->cache = $cache;
+        $this->banned = $banned;
     }
 
     protected function model(): Model
@@ -380,7 +386,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         return $this->newQuery()
             ->join('printings', 'printings.card_id', 'cards.id')
             ->where('printings.sku', 'like', $set->raw().'%')
-            ->whereNotIn('cards.identifier', config('game.cards.banned'))
+            ->whereNotIn('cards.identifier', $this->banned->blitz())
             ->select([
                 'cards.id',
                 'cards.identifier',

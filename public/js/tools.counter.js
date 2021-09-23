@@ -96,6 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.deck && this.deck.practise) {
         return this.availableHeroes.filter(function (hero) {
+          console.log(hero);
           return hero.young() && hero.sku.set.id === _this.deck.practise.set.id;
         });
       }
@@ -919,6 +920,11 @@ function () {
     key: "class",
     get: function get() {
       return this.fields["class"];
+    }
+  }, {
+    key: "sku",
+    get: function get() {
+      return this.fields.sku;
     }
   }, {
     key: "stats",

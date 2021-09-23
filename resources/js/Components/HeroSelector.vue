@@ -43,6 +43,7 @@
             heroes() {
                 if (this.deck && this.deck.practise) {
                     return this.availableHeroes.filter(hero => {
+                        console.log(hero);
                         return hero.young() && hero.sku.set.id === this.deck.practise.set.id;
                     })
                 }

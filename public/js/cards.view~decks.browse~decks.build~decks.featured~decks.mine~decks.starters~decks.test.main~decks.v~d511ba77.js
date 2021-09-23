@@ -56,6 +56,11 @@ function () {
       return this.fields["class"];
     }
   }, {
+    key: "sku",
+    get: function get() {
+      return this.fields.sku;
+    }
+  }, {
     key: "stats",
     get: function get() {
       return this.fields.stats;

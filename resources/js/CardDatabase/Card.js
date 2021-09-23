@@ -15,6 +15,10 @@ class Card {
         return this.fields.class;
     }
 
+    get sku() {
+        return this.fields.sku;
+    }
+
     get stats() {
         return this.fields.stats;
     }

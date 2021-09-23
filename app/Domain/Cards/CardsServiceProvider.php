@@ -27,5 +27,9 @@ final class CardsServiceProvider extends AppServiceProvider
                 $app->make(Monarch::class)
             );
         });
+
+        $this->app->bind(Banned::class, function($app) {
+            return new Banned($app['config']->get('game.cards.banned'));
+        });
     }
 }
