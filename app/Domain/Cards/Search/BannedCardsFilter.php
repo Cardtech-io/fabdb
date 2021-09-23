@@ -10,9 +10,9 @@ class BannedCardsFilter implements SearchFilter
     /**
      * @var Deck
      */
-    private Deck $deck;
+    private $deck;
 
-    public function __construct(Deck $deck)
+    public function __construct(?Deck $deck = null)
     {
         $this->deck = $deck;
     }
@@ -29,7 +29,7 @@ class BannedCardsFilter implements SearchFilter
 
     private function banned()
     {
-        if ($this->deck->format === 'open') {
+        if (!$this->deck || $this->deck->format === 'open') {
             return [];
         }
 

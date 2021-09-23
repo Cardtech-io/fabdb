@@ -28,7 +28,7 @@ class HeroFilter implements SearchFilter
     public function applyTo(Builder $query, array $input)
     {
         $hero = $this->cards->findByIdentifier($input['hero']);
-        
+
         $query->where(function($query) use ($hero) {
             $query->where(function($query) use ($hero) {
                 if ($hero->isTalented()) {
