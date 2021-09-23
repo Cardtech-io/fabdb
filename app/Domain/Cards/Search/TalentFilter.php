@@ -17,13 +17,13 @@ class TalentFilter implements SearchFilter
     {
         $talents = Arr::flatten([explode(',', $input['talent'])]);
 
-        if (in_array('none', $talents)) {
-            return $query->whereNull('cards.talent');
-        }
-
         $query->where(function ($query) use ($talents) {
             foreach ($talents as $talent) {
-                $query->orWhere('talent', $talent);
+                if ($talent === 'none') {
+                    $query->whereNull('cards.talent');
+                } else {
+                    $query->orWhere('talent', $talent);
+                }
             }
         });
     }
