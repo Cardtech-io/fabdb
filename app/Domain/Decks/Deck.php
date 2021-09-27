@@ -207,6 +207,7 @@ class Deck extends Model
 
         $deck = new Deck;
         $deck->parentId = $this->id;
+        $deck->heroId = $this->heroId;
         $deck->name = $name;
         $deck->notes = $this->notes;
         $deck->userId = $userId;
