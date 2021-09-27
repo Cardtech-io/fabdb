@@ -12,6 +12,8 @@ class CollectionBoosterRepository implements BoosterRepository
 {
     /**
      * Pool of cards to generate the boosters from. This should contain all cards from a given set.
+     *
+     * @var BoosterCollection
      */
     private $pool;
 
@@ -52,6 +54,13 @@ class CollectionBoosterRepository implements BoosterRepository
         return $this->filter(function(Card $card) use ($rarity, $exclude) {
             return !empty($exclude) ? $card->rarity->matches($rarity->raw()) && !in_array($card->id, $exclude) : $card->rarity->matches($rarity);
         })->random();
+    }
+
+    public function getRandomTalentCommons($class, int $num)
+    {
+        return $this->filter(function(Card $card) use ($class) {
+            return $card->class === $class && $card->rarity->equals(new Rarity('C')) && !$card->isEquipment() && $card->talent !== null;
+        })->random($num);
     }
 
     public function getRandomFoil(): Card

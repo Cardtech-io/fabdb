@@ -391,10 +391,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.id',
                 'cards.identifier',
                 'printings.sku',
+                'cards.class',
                 'cards.image',
                 'cards.name',
                 'cards.rarity',
-                'cards.keywords'
+                'cards.keywords',
+                'cards.talent',
             ])
             ->groupBy('cards.id')
             ->get();

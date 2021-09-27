@@ -25,6 +25,7 @@ return [
             'name' => 'Tales of Aria',
             'released' => '2021-09-24',
             'browseable' => true,
+            'draftable' => true,
         ],
         'ksu' => [
             'id' => 'ksu',
