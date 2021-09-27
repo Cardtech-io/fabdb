@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use FabDB\Domain\Cards\Banned;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,12 +33,7 @@ class BannedCardsFilter implements SearchFilter
         if (!$this->deck || $this->deck->format === 'open') {
             return [];
         }
-
-        return array_keys(
-            array_filter(
-                config('game.cards.banned'),
-                fn($formats) => in_array($this->deck->format, $formats)
-            )
-        );
+        
+        return app(Banned::class)->{$this->deck->format}();
     }
 }
