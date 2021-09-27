@@ -39,7 +39,6 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             'printings.card_id',
             'printings.sku',
             'printings.set',
-            'printings.rarity',
             'owned_cards.total',
             'owned_cards.trade',
             'owned_cards.want',

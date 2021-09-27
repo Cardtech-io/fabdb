@@ -23,9 +23,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function forUser(int $userId, array $params = []): LengthAwarePaginator
     {
         $query = $this->newQuery()
-            ->select('decks.id', 'decks.parent_id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'decks.updated_at')
-            ->with(['user', 'parent'])
-            ->withHero()
+            ->select('decks.id', 'decks.hero_id', 'decks.parent_id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'decks.updated_at')
+            ->with(['hero', 'user', 'parent'])
             ->withCardCount()
             ->whereUserId($userId)
             ->orderBy('updated_at', 'desc');
@@ -319,9 +318,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function featured(int $howMany): ?Deck
     {
         return $this->newQuery()
-            ->with('user')
+            ->with(['hero', 'user'])
             ->select('decks.id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
-            ->withHero()
             ->withCardCount()
             ->join('features', function($join) {
                 $join->on('features.featureable_id', 'decks.id');

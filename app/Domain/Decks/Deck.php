@@ -29,6 +29,11 @@ class Deck extends Model
 
     protected $hidden = ['id', 'user_id'];
 
+    public function hero()
+    {
+        return $this->belongsTo(Card::class, 'hero_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -76,7 +81,7 @@ class Deck extends Model
 
     public function scopeFeatured($query)
     {
-        $query->withHero();
+        $query->with(['hero']);
     }
 
     public static function add(int $userId, string $name, ?int $practiseId)
@@ -107,7 +112,7 @@ class Deck extends Model
 
     public function mainKeywords()
     {
-        $hero = $this->hero();
+        $hero = $this->hero;
         $keywords = ['generic'];
 
         if ($hero) {
@@ -125,23 +130,6 @@ class Deck extends Model
     public function hasWeapon()
     {
         return $this->cards->hasWeapon();
-    }
-
-    public function getHeroAttribute()
-    {
-        return $this->cards->hero();
-    }
-
-    public function hero()
-    {
-        return $this->cards->hero();
-    }
-
-    public function scopeWithHero($query)
-    {
-        $query->with(['cards' => function($include) {
-            $include->whereIn('type', ['hero']);
-        }]);
     }
 
     public function scopeWithCardCount($query)

@@ -15,7 +15,7 @@ class HasHero implements Rule
 
     public function __construct(Deck $deck)
     {
-        $this->deckHero = $deck->hero();
+        $this->deckHero = $deck->hero;
     }
 
     /**

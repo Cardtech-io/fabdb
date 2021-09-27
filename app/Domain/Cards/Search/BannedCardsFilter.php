@@ -33,7 +33,7 @@ class BannedCardsFilter implements SearchFilter
         if (!$this->deck || $this->deck->format === 'open') {
             return [];
         }
-        
+
         return app(Banned::class)->{$this->deck->format}();
     }
 }
