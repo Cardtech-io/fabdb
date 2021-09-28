@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-title :title="card.name"></header-title>
+        <header-title :title="name"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
@@ -17,7 +17,7 @@
                         </div>
 
                         <h2 class="font-serif uppercase text-lg mb-1 mt-4">Printings</h2>
-                        <button @click="card.image = cardImageFromSku(printing.sku.sku, 300)" v-for="printing in card.printings" :class="printingClasses(printing)" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">
+                        <button @click="selectPrinting(printing)" v-for="printing in card.printings" :class="printingClasses(printing)" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">
                             {{ printing.sku.sku }}
                         </button>
 
@@ -50,8 +50,8 @@
                                     This card is banned {{bannedFormats}}.
                                 </section>
 
-                                <div v-if="card.text" class="bg-white text-black rounded-lg mb-1">
-                                    <div v-html="prettyText(card.text)" class="px-4 py-px"></div>
+                                <div v-if="text" class="bg-white text-black rounded-lg mb-1">
+                                    <div v-html="prettyText(text)" class="px-4 py-px"></div>
                                     <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
                                 </div>
                                 <div class="inline-block flex rounded-lg overflow-hidden space-x-px mb-4">
@@ -164,7 +164,11 @@
 
         data() {
             return {
-                card: null
+                card: null,
+                selected: '',
+                text: '',
+                flavour: '',
+                name: '',
             }
         },
 
@@ -174,7 +178,15 @@
             },
 
             printingClasses(printing) {
-                return this.card.image === this.cardImageFromSku(printing.sku.sku, 300) ? 'bg-black' :  printing.sku.finish;
+                return this.selected === printing.sku.sku ? 'bg-black' :  printing.sku.finish;
+            },
+
+            selectPrinting(printing) {
+                this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
+                this.selected = printing.sku.sku;
+                this.text = printing.text;
+                this.flavour = printing.flavour;
+                this.name = printing.name;
             },
 
             keywords() {
@@ -202,7 +214,7 @@
         },
 
         metaInfo() {
-            let title = this.card.name + ' - ' + this.card.printings[0].sku.sku;
+            let title = this.name + ' - ' + this.card.printings[0].sku.sku;
 
             return {
                 title: title,
@@ -222,6 +234,9 @@
             axios.get('/cards/' + to.params.identifier).then(response => {
                 callback(function() {
                     this.card = response.data;
+                    this.name = this.card.name;
+                    this.text = this.card.text;
+                    this.flavour = this.card.flavour;
                 })
             });
         })

@@ -13,13 +13,15 @@ class Sku implements JsonSerializable
      * When matching on this regex:
      *
      * 0 - Full match
-     * 1 - Unlimited flag
-     * 2 - Full Identifier
-     * 3 - Set
-     * 4 - Card number
-     * 5 - Finish (foiling.etc.)
+     * 1 - Unlimited/Language flag
+     * 2 - Unlimited
+     * 3 - Language
+     * 4 - Full Identifier
+     * 5 - Set
+     * 6 - Card number
+     * 7 - Finish (foiling.etc.)
      */
-    private const REGEX = '(U-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea|aa))?';
+    private const REGEX = '((U)([A-Z]+)?-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea|aa))?';
 
     /**
      * @var string
@@ -46,7 +48,15 @@ class Sku implements JsonSerializable
     {
         $matches = self::match($this->sku);
 
-        return Arr::get($matches, 2);
+        return Arr::get($matches, 6);
+    }
+
+    public function language()
+    {
+        $matches = self::match($this->sku);
+        $language = strtolower(Arr::get($matches, 3));
+
+        return !empty($language) ? $language : 'en';
     }
 
     public function raw(): string
@@ -63,7 +73,7 @@ class Sku implements JsonSerializable
     {
         $matches = self::match($this->sku);
 
-        return empty($matches[1]);
+        return empty($matches[2]);
     }
 
     public function unlimited(): bool
@@ -75,14 +85,14 @@ class Sku implements JsonSerializable
     {
         $matches = self::match($this->sku);
 
-        return Finish::fromString((string) Arr::get($matches, 6));
+        return Finish::fromString((string) Arr::get($matches, 8));
     }
 
     public function set(): Set
     {
         $matches = self::match($this->sku);
 
-        return Set::fromUid($this->sku);
+        return new Set($matches[5]);
     }
 
     public static function match(string $sku)

@@ -360,7 +360,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where('printings.sku', $identifier)->first();
     }
 
-    private function findBySku(string $identifier)
+    public function findBySku(string $identifier)
     {
         $query = $this->newQuery()
             ->join('printings', 'printings.card_id', 'cards.id')

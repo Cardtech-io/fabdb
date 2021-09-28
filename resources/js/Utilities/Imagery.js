@@ -23,6 +23,9 @@ export default {
         },
 
         cardImageFromSku(sku, width) {
+            // first we remove any language value from the sku (ie. UES)
+            sku = sku.replace(/^((u)[a-z]+(\-))(.+)?/i, '$2$3$4');
+
             return this.imageUrl(this.cardImagePathFromSku(sku), width);
         },
 

@@ -339,7 +339,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      card: null
+      card: null,
+      selected: '',
+      text: '',
+      flavour: '',
+      name: ''
     };
   },
   methods: {
@@ -347,7 +351,14 @@ __webpack_require__.r(__webpack_exports__);
       return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q=' + card.identifier + '&utm_campaign=affiliate&utm_medium=FABDB&utm_source=FABDB';
     },
     printingClasses: function printingClasses(printing) {
-      return this.card.image === this.cardImageFromSku(printing.sku.sku, 300) ? 'bg-black' : printing.sku.finish;
+      return this.selected === printing.sku.sku ? 'bg-black' : printing.sku.finish;
+    },
+    selectPrinting: function selectPrinting(printing) {
+      this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
+      this.selected = printing.sku.sku;
+      this.text = printing.text;
+      this.flavour = printing.flavour;
+      this.name = printing.name;
     },
     keywords: function keywords() {
       var keywords = this.card.keywords;
@@ -369,7 +380,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   metaInfo: function metaInfo() {
-    var title = this.card.name + ' - ' + this.card.printings[0].sku.sku;
+    var title = this.name + ' - ' + this.card.printings[0].sku.sku;
     return {
       title: title,
       meta: [{
@@ -407,6 +418,9 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/' + to.params.identifier).then(function (response) {
       callback(function () {
         this.card = response.data;
+        this.name = this.card.name;
+        this.text = this.card.text;
+        this.flavour = this.card.flavour;
       });
     });
   })
@@ -760,7 +774,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-title", { attrs: { title: _vm.card.name } }),
+      _c("header-title", { attrs: { title: _vm.name } }),
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
@@ -818,10 +832,7 @@ var render = function() {
                         attrs: { title: printing.sku.finish },
                         on: {
                           click: function($event) {
-                            _vm.card.image = _vm.cardImageFromSku(
-                              printing.sku.sku,
-                              300
-                            )
+                            return _vm.selectPrinting(printing)
                           }
                         }
                       },
@@ -962,7 +973,7 @@ var render = function() {
                             )
                           : _vm._e(),
                         _vm._v(" "),
-                        _vm.card.text
+                        _vm.text
                           ? _c(
                               "div",
                               {
@@ -973,9 +984,7 @@ var render = function() {
                                 _c("div", {
                                   staticClass: "px-4 py-px",
                                   domProps: {
-                                    innerHTML: _vm._s(
-                                      _vm.prettyText(_vm.card.text)
-                                    )
+                                    innerHTML: _vm._s(_vm.prettyText(_vm.text))
                                   }
                                 }),
                                 _vm._v(" "),

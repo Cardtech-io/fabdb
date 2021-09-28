@@ -62366,6 +62366,8 @@ __webpack_require__.r(__webpack_exports__);
       return url;
     },
     cardImageFromSku: function cardImageFromSku(sku, width) {
+      // first we remove any language value from the sku (ie. UES)
+      sku = sku.replace(/^((u)[a-z]+(\-))(.+)?/i, '$2$3$4');
       return this.imageUrl(this.cardImagePathFromSku(sku), width);
     },
     cardImagePathFromSku: function cardImagePathFromSku(sku) {

@@ -4,11 +4,9 @@ namespace FabDB\Domain\Cards;
 use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Stores\Listing;
-use FabDB\Domain\Stores\Store;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
 use FabDB\Library\Casts\CastsRarity;
-use FabDB\Library\Casts\CastsSet;
 use FabDB\Library\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +41,11 @@ class Card extends Model
         return $this->belongsTo(Artist::class);
     }
 
+    public function translations()
+    {
+        return $this->hasMany(Translation::class);
+    }
+
     public function ownedCards()
     {
         return $this->hasMany(OwnedCard::class);
@@ -50,7 +53,7 @@ class Card extends Model
 
     public function printings()
     {
-        return $this->hasMany(Printing::class, 'card_id', 'id');
+        return $this->hasMany(Printing::class);
     }
 
     public function variants()
