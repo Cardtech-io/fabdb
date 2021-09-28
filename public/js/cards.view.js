@@ -356,9 +356,12 @@ __webpack_require__.r(__webpack_exports__);
     selectPrinting: function selectPrinting(printing) {
       this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
       this.selected = printing.sku.sku;
-      this.text = printing.text;
-      this.flavour = printing.flavour;
-      this.name = printing.name;
+      this.switchContent(printing);
+    },
+    switchContent: function switchContent(record) {
+      this.text = record.text;
+      this.flavour = record.flavour;
+      this.name = record.name;
     },
     keywords: function keywords() {
       var keywords = this.card.keywords;
@@ -418,9 +421,7 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/' + to.params.identifier).then(function (response) {
       callback(function () {
         this.card = response.data;
-        this.name = this.card.name;
-        this.text = this.card.text;
-        this.flavour = this.card.flavour;
+        this.switchContent(this.card);
       });
     });
   })

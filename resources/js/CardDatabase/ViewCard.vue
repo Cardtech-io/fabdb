@@ -184,9 +184,13 @@
             selectPrinting(printing) {
                 this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
                 this.selected = printing.sku.sku;
-                this.text = printing.text;
-                this.flavour = printing.flavour;
-                this.name = printing.name;
+                this.switchContent(printing);
+            },
+
+            switchContent(record) {
+                this.text = record.text;
+                this.flavour = record.flavour;
+                this.name = record.name;
             },
 
             keywords() {
@@ -234,9 +238,7 @@
             axios.get('/cards/' + to.params.identifier).then(response => {
                 callback(function() {
                     this.card = response.data;
-                    this.name = this.card.name;
-                    this.text = this.card.text;
-                    this.flavour = this.card.flavour;
+                    this.switchContent(this.card);
                 })
             });
         })
