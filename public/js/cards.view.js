@@ -675,14 +675,13 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          "w-1/2 relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
         class: {
           "border-gray-500": _vm.isOpen,
           "bg-white": _vm.isOpen,
           "bg-gray-200": !_vm.isOpen,
           "z-75": _vm.isOpen
         },
-        staticStyle: { width: "150px" },
         on: {
           click: function($event) {
             _vm.isOpen = !_vm.isOpen
@@ -691,7 +690,7 @@ var render = function() {
       },
       [
         _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v("Language")
+          _vm._v("Language (" + _vm._s(_vm.languages[_vm.selected].name) + ")")
         ]),
         _vm._v(" "),
         _c(
@@ -730,7 +729,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-1/3 absolute left-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+              "w-full sm:w-1/2 absolute left-0 rounded-lg bg-white z-100 overflow-hidden mt-1 border border-gray-500"
           },
           _vm._l(_vm.languages, function(language, code) {
             return _c(
@@ -740,8 +739,8 @@ var render = function() {
                   "w-full flex items-center space-x-2 text-base text-left px-4 py-1 uppercase",
                 class:
                   code === _vm.selected
-                    ? "bg-blue-400 text-white"
-                    : "hover:bg-blue-400 hover:text-white",
+                    ? "bg-primary text-white"
+                    : "hover:bg-primary hover:text-white",
                 on: {
                   click: function($event) {
                     return _vm.select(code)
