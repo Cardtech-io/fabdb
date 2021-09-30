@@ -45,15 +45,20 @@
 
                     <div class="md:w-3/4 md:float-right sm:px-4 md:flex">
                         <div class="md:w-1/2">
-                            <div class="p-4 pt-0 sm:p-0">
+                            <div class="p-4 pt-0 sm:p-0 space-y-1">
                                 <section v-if="card.banned" class="bg-red-600 text-white text-center py-2 px-4 rounded-lg mb-4">
                                     This card is banned {{bannedFormats}}.
                                 </section>
 
-                                <div v-if="text" class="bg-white text-black rounded-lg mb-1">
+                                <section>
+                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage"/>
+                                </section>
+
+                                <div v-if="text" class="bg-white text-black rounded-lg">
                                     <div v-html="prettyText(text)" class="px-4 py-px"></div>
-                                    <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="card.flavour">{{ card.flavour }}</div>
+                                    <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="flavour">{{ flavour }}</div>
                                 </div>
+
                                 <div class="inline-block flex rounded-lg overflow-hidden space-x-px mb-4">
                                     <div v-for="(value, stat) in card.stats" class="flex justify-center items-center flex-grow bg-white space-x-2 py-2" v-if="value">
                                         <div class="">
@@ -109,6 +114,7 @@
     import Discussion from "../Discussion/Discussion";
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from "../Utilities/Imagery";
+    import LanguageSelector from "./LanguageSelector";
     import LatestDecks from "../Decks/Featured/LatestDecks";
     import LazyLoader from '../Components/LazyLoader';
     import Pricing from './Pricing.vue';
@@ -128,6 +134,7 @@
             CardNav,
             Discussion,
             HeaderTitle,
+            LanguageSelector,
             LatestDecks,
             Pricing,
             RecentDecks,
@@ -191,6 +198,15 @@
                 this.text = record.text;
                 this.flavour = record.flavour;
                 this.name = record.name;
+            },
+
+            switchLanguage(languageCode) {
+                // get first printing of that language
+                let printing = this.card.printings.filter(printing => printing.language === languageCode)[0];
+                console.log(printing);
+                if (printing) {
+                    this.selectPrinting(printing);
+                }
             },
 
             keywords() {

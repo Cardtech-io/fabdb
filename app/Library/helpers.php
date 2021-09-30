@@ -15,7 +15,7 @@ function fab_asset(string $asset): string
     $pathInfo = pathinfo($asset);
 
     $versionedAsset = $pathInfo['dirname'].'/'.$pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
-    
+
     if (File::exists(public_path($versionedAsset))) {
         return $versionedAsset;
     }
@@ -44,6 +44,7 @@ function compile_settings(): array
         'apiDomain' => config('api.domain'),
         'imageDomain' => config('services.imgix.domain'),
         'game' => config('game'),
+        'languages' => config('language')
     ];
 }
 

@@ -47,7 +47,7 @@ class ImportLanguagePrintings extends Command
         foreach ($prints as $print) {
             $card = $cards->findBySku($print['Card Number']);
 
-            $printing = Printing::register(
+            Printing::register(
                 $card->id,
                 Sku::fromLSS($print['uid']),
                 Set::fromUid($print['Card Number']),
@@ -55,7 +55,8 @@ class ImportLanguagePrintings extends Command
                 new Edition($print['Edition']),
                 $language,
                 $print['Card Name'],
-                $print['Card Effect']
+                $print['Card Effect'],
+                $print['Flavour Text']
             );
         }
 
