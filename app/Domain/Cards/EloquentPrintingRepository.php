@@ -32,6 +32,7 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
     {
         $query = $this->newQuery();
         $query->with(['card']);
+        $query->groupBy('printings.id');
 
         $query->select([
             'printings.id',

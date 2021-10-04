@@ -5054,8 +5054,8 @@ var render = function() {
                                       _c("card-image", {
                                         class: {
                                           "shadow-error":
-                                            (!card.totalOwned ||
-                                              card.totalOwned < card.total) &&
+                                            (!card.ownedTotal ||
+                                              card.ownedTotal < card.total) &&
                                             _vm.deck.limitToCollection === 2
                                         },
                                         attrs: {
@@ -5259,7 +5259,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    (!card.totalOwned || card.totalOwned < i + 1) &&
+                    (!card.ownedTotal || card.ownedTotal < i + 1) &&
                     _vm.deck.limitToCollection === 2 &&
                     _vm.mode !== "sideboard"
                       ? _c("div", {

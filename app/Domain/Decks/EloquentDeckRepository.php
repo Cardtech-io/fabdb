@@ -57,7 +57,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         if ($includeCards) {
             $query->with(['cards' => function($query) {
-                $query->select('cards.*', DB::raw('sideboard.total AS total_sideboard'));
+                $query->select('cards.*', DB::raw('sideboard.total AS sideboard_total'));
 
                 $user = auth()->user();
 
@@ -66,7 +66,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 $query->groupBy('cards.id');
 
                 if ($user) {
-                    $query->addSelect(DB::raw('SUM(owned_cards.total) AS total_owned'));
+                    $query->addSelect(DB::raw('SUM(owned_cards.total) AS owned_total'));
                     $query->leftJoin('owned_cards', function ($join) use ($user) {
                         $join->on('owned_cards.card_id', 'cards.id');
                         $join->where('owned_cards.user_id', $user->id);

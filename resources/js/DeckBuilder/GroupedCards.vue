@@ -5,7 +5,7 @@
                 <img :src="grouped[0].image" class="block w-full invisible" :style="margin(grouped.length)">
                 <div v-for="(card, i) in grouped" class="relative rounded-card w-full" :style="styles(i)">
                     <card-image :card="card" :width="350" :clickHandler="action || false" class="z-0"></card-image>
-                    <div class=" absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25" v-if="(!card.totalOwned || card.totalOwned < i+1) && deck.limitToCollection === 2 && mode !== 'sideboard'"></div>
+                    <div class=" absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25" v-if="(!card.ownedTotal || card.ownedTotal < i+1) && deck.limitToCollection === 2 && mode !== 'sideboard'"></div>
                     <banned v-if="card.banned"></banned>
                 </div>
             </div>
