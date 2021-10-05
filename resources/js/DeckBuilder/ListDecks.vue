@@ -36,14 +36,6 @@
 
             <div class="bg-gray-200 p-4 sm:p-0">
                 <div v-if="user">
-                    <div class="p-4">
-                        <div class="bg-green-700 rounded-lg text-white px-4 py-2 text-center">
-                            The new deck tester is now LIVE! Available to all for the until next week for free. After then,
-                            restricted to <a href="https://patreon.com/fabdb" class="underline hover:bg-yellow-500" target="_blank">supporters of FaB DB</a>.
-                            Available on laptop/desktop only.
-                        </div>
-                    </div>
-
                     <table class="w-full table-auto border-collapse bg-white">
                         <thead>
                             <tr class="text-base">

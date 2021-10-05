@@ -70,7 +70,7 @@ export default class Deck extends Model {
     }
 
     get totalSideboard() {
-        return this.fields.totalSideboard || 0;
+        return this.fields.sideboardTotal || 0;
     }
 
     get totalMainDeck() {

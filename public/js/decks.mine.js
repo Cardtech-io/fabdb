@@ -192,14 +192,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -620,15 +612,13 @@ var render = function() {
             ? _c(
                 "div",
                 [
-                  _vm._m(0),
-                  _vm._v(" "),
                   _c(
                     "table",
                     {
                       staticClass: "w-full table-auto border-collapse bg-white"
                     },
                     [
-                      _vm._m(1),
+                      _vm._m(0),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -933,36 +923,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "bg-green-700 rounded-lg text-white px-4 py-2 text-center"
-        },
-        [
-          _vm._v(
-            "\n                        The new deck tester is now LIVE! Available to all for the until next week for free. After then,\n                        restricted to "
-          ),
-          _c(
-            "a",
-            {
-              staticClass: "underline hover:bg-yellow-500",
-              attrs: { href: "https://patreon.com/fabdb", target: "_blank" }
-            },
-            [_vm._v("supporters of FaB DB")]
-          ),
-          _vm._v(
-            ".\n                        Available on laptop/desktop only.\n                    "
-          )
-        ]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

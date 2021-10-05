@@ -50,9 +50,16 @@
                                     This card is banned {{bannedFormats}}.
                                 </section>
 
-                                <section>
-                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage"/>
+                                <section class="flex">
+                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage" class="w-2/3 pr-4"/>
+                                    <button @click="$modal.show('suggestion')" class="bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm">
+                                        Suggest correction
+                                    </button>
                                 </section>
+
+                                <modal name="suggestion" :adaptive="true" :height="400">
+                                    <suggest-correction :card="card"/>
+                                </modal>
 
                                 <div v-if="text" class="bg-white text-black rounded-lg">
                                     <div v-html="prettyText(text)" class="px-4 py-px"></div>
@@ -121,6 +128,7 @@
     import RecentDecks from "./RecentDecks";
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
+    import SuggestCorrection from "./SuggestCorrection";
 
     export default {
         mixins: [Cardable, Imagery, Strings],
@@ -139,6 +147,7 @@
             Pricing,
             RecentDecks,
             Rulings,
+            SuggestCorrection
         },
 
         computed: {

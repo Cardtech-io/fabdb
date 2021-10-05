@@ -546,7 +546,7 @@ function (_Model) {
   }, {
     key: "totalSideboard",
     get: function get() {
-      return this.fields.totalSideboard || 0;
+      return this.fields.sideboardTotal || 0;
     }
   }, {
     key: "totalMainDeck",

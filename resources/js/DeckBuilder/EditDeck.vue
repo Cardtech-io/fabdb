@@ -36,7 +36,7 @@
                         <div class="flow-root mt-4 md:m-0">
                             <card-container v-for="card in section.cards" :key="card.identifier" class="transition-all duration-300 float-left">
                                 <div class="my-4 mx-2">
-                                    <card-image :card="card" :width="300" :clickHandler="removeFromDeck" :class="{'shadow-error': (!card.totalOwned || card.totalOwned < card.total) && deck.limitToCollection === 2}"></card-image>
+                                    <card-image :card="card" :width="300" :clickHandler="removeFromDeck" :class="{'shadow-error': (!card.ownedTotal || card.ownedTotal < card.total) && deck.limitToCollection === 2}"></card-image>
                                     <numbered-card-buttons :card="card" class="w-full mx-auto rounded sm:rounded-lg mt-1"></numbered-card-buttons>
                                 </div>
                             </card-container>

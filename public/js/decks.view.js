@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$eventHub.$emit('hover-card', card);
     },
     total: function total() {
-      return this.card.total - this.card.totalSideboard;
+      return this.card.total - this.card.sideboardTotal;
     }
   }
 });
@@ -540,12 +540,12 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.card.totalSideboard
+          _vm.card.sideboardTotal
             ? _c(
                 "div",
                 {
                   staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
+                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
                 },
                 [
                   _c("icon", { attrs: { size: 4 } }, [
@@ -564,7 +564,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
+                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
                   ])
                 ],
                 1
@@ -608,12 +608,12 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.card.totalSideboard
+          _vm.card.sideboardTotal
             ? _c(
                 "div",
                 {
                   staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
+                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
                 },
                 [
                   _c("icon", { attrs: { size: 4 } }, [
@@ -632,7 +632,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
+                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
                   ])
                 ],
                 1

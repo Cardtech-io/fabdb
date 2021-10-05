@@ -36,6 +36,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/for-packs', 'CardController@forPacks');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
+        Route::post('corrections', 'CorrectionsController@submit');
 
         Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
         Route::post('export/{deck}.pdf', 'ExportController@pdf')->name('export.pdf');
