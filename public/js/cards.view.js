@@ -250,6 +250,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -258,14 +286,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
-    card: {
+    identifier: {
+      required: true
+    },
+    printing: {
       required: true
     }
   },
+  data: function data() {
+    return {
+      name: this.printing.name,
+      text: this.printing.text,
+      comment: ''
+    };
+  },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
     submit: function submit() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('corrections', {
-        card: this.card
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('cards/' + this.identifier + '/corrections', {
+        printing: this.printing.sku.sku,
+        name: this.name,
+        text: this.text,
+        comment: this.comment
       });
       this.$modal.hide('suggestion');
       this.addMessage({
@@ -273,7 +314,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         message: 'Thank you!'
       });
     }
-  })
+  }),
+  mounted: function mounted() {
+    console.log(this.printing);
+  }
 });
 
 /***/ }),
@@ -485,7 +529,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       card: null,
-      selected: '',
+      selected: null,
       text: '',
       flavour: '',
       name: ''
@@ -496,11 +540,11 @@ __webpack_require__.r(__webpack_exports__);
       return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q=' + card.identifier + '&utm_campaign=affiliate&utm_medium=FABDB&utm_source=FABDB';
     },
     printingClasses: function printingClasses(printing) {
-      return this.selected === printing.sku.sku ? 'bg-black' : printing.sku.finish;
+      return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;
     },
     selectPrinting: function selectPrinting(printing) {
       this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
-      this.selected = printing.sku.sku;
+      this.selected = printing;
       this.switchContent(printing);
     },
     switchContent: function switchContent(record) {
@@ -513,7 +557,6 @@ __webpack_require__.r(__webpack_exports__);
       var printing = this.card.printings.filter(function (printing) {
         return printing.language === languageCode;
       })[0];
-      console.log(printing);
 
       if (printing) {
         this.selectPrinting(printing);
@@ -578,6 +621,7 @@ __webpack_require__.r(__webpack_exports__);
       callback(function () {
         this.card = response.data;
         this.switchContent(this.card);
+        this.selectPrinting(this.card.printings[0]);
       });
     });
   })
@@ -755,13 +799,8 @@ var render = function() {
       "button",
       {
         staticClass:
-          "w-full relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
-        class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
-          "z-75": _vm.isOpen
-        },
+          "w-full relative flex items-center text-left bg-white border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:border-gray-500",
+        class: { "border-gray-500 z-75": _vm.isOpen },
         on: {
           click: function($event) {
             _vm.isOpen = !_vm.isOpen
@@ -1049,113 +1088,177 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "space-y-4 m-4" }, [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block font-serif uppercase tracking-wide mb-1" },
-        [_vm._v("Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.card.name,
-            expression: "card.name"
-          }
-        ],
-        staticClass:
-          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
-        attrs: { type: "text" },
-        domProps: { value: _vm.card.name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.card, "name", $event.target.value)
-          }
+  return _c(
+    "form",
+    {
+      staticClass: "block space-y-4 m-4",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submit.apply(null, arguments)
         }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block font-serif uppercase tracking-wide mb-1" },
-        [_vm._v("Text")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.card.text,
-            expression: "card.text"
-          }
-        ],
-        staticClass:
-          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
-        domProps: { value: _vm.card.text },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      }
+    },
+    [
+      _c("div", [
+        _c(
+          "label",
+          { staticClass: "block font-serif uppercase tracking-wide mb-1" },
+          [_vm._v("Name")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.name,
+              expression: "name"
             }
-            _vm.$set(_vm.card, "text", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block font-serif uppercase tracking-wide mb-1" },
-        [_vm._v("Keywords")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.card.keywords,
-            expression: "card.keywords"
-          }
-        ],
-        staticClass:
-          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
-        attrs: { type: "text" },
-        domProps: { value: _vm.card.keywords },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          ],
+          staticClass:
+            "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
+          attrs: { type: "text", required: "" },
+          domProps: { value: _vm.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.name = $event.target.value
             }
-            _vm.$set(_vm.card, "keywords", $event.target.value)
           }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "pt-4" }, [
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "label",
+          { staticClass: "block font-serif uppercase tracking-wide mb-1" },
+          [_vm._v("Text")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.text,
+              expression: "text"
+            }
+          ],
+          staticClass:
+            "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
+          attrs: { rows: "6", required: "" },
+          domProps: { value: _vm.text },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.text = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "label",
+          { staticClass: "block font-serif uppercase tracking-wide mb-1" },
+          [_vm._v("Comment")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.comment,
+              expression: "comment"
+            }
+          ],
+          staticClass:
+            "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
+          attrs: {
+            rows: "6",
+            placeholder:
+              "Please provide some details as to why you recommend this correction be made.",
+            required: ""
+          },
+          domProps: { value: _vm.comment },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.comment = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("label", { staticClass: "flex mb-1 text-sm sm:text-base" }, [
+        _c("input", {
+          staticClass: "form-checkbox mt-1 rounded-lg text-green-500 w-6 h-6",
+          attrs: { type: "checkbox", required: "" }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "ml-4" }, [
+          _vm._v(
+            "\n                I acknowledge that Legend Story Studios may use this correction in whole or\n                in part to improve the quality and/or accuracy of the translations of the Flesh\n                and Blood Trading Card game. In submitting this comment I acknowledge that\n                in relation to my submission;\n\n                "
+          ),
+          _c("ol", { staticClass: "list-roman mt-4" }, [
+            _c("li", [
+              _vm._v(
+                "\n                        Legend Story Studios retains copyright and all other intellectual property\n                        rights in all language variations of the Flesh and Blood Trading Card game and\n                        related products\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "\n                        I have no claim to copyright or other intellectual property\n                        rights in relation to my comment and any resulting translation;"
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "\n                        I will not\n                        receive any remuneration or other payment; and (iv) I have no attribution\n                        rights.\n                    "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pt-4" }, [
       _c(
         "button",
         {
           staticClass:
-            "block w-full sm:w-auto mx-auto button-primary rounded px-4 py-3",
-          on: { click: _vm.submit }
+            "block w-full sm:w-auto mx-auto button-primary rounded px-4 py-3"
         },
         [_vm._v("Submit correction")]
       )
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 
 
@@ -1387,28 +1490,30 @@ var render = function() {
                             { staticClass: "flex" },
                             [
                               _c("language-selector", {
-                                staticClass: "w-2/3 pr-4",
+                                staticClass: "w-2/3 pr-1",
                                 attrs: { languages: _vm.$settings.languages },
                                 on: { "language-selected": _vm.switchLanguage }
                               }),
                               _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.$modal.show("suggestion")
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    Suggest correction\n                                "
+                              _vm.selected
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$modal.show("suggestion")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    Suggest correction\n                                "
+                                      )
+                                    ]
                                   )
-                                ]
-                              )
+                                : _vm._e()
                             ],
                             1
                           ),
@@ -1419,13 +1524,18 @@ var render = function() {
                               attrs: {
                                 name: "suggestion",
                                 adaptive: true,
-                                height: 400
+                                "min-height": 700
                               }
                             },
                             [
-                              _c("suggest-correction", {
-                                attrs: { card: _vm.card }
-                              })
+                              _vm.selected
+                                ? _c("suggest-correction", {
+                                    attrs: {
+                                      printing: _vm.selected,
+                                      identifier: _vm.card.identifier
+                                    }
+                                  })
+                                : _vm._e()
                             ],
                             1
                           ),

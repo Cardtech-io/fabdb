@@ -3,7 +3,9 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Boosters\Packs;
+use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Cards\Set;
+use FabDB\Domain\Cards\SuggestCorrection;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
@@ -78,5 +80,18 @@ class CardController extends Controller
     public function forPacks(Request $request)
     {
         return CardResource::collection($this->cards->forPacks(new Set($request->get('set'))));
+    }
+
+    public function suggestCorrection(Request $request, PrintingRepository $printings)
+    {
+        $printing = $printings->findBySku($request->get('printing'));
+
+        $this->dispatchNow(new SuggestCorrection(
+            $request->user()->id,
+            $printing->id,
+            $request->get('name'),
+            $request->get('text'),
+            $request->get('comment', ''),
+        ));
     }
 }

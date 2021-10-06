@@ -87,6 +87,14 @@ module.exports = {
                 '12': '12rem',
             },
 
+            listStyleType: {
+                none: 'none',
+                disc: 'disc',
+                decimal: 'decimal',
+                square: 'square',
+                roman: 'lower-roman',
+            },
+
             minHeight: {
                 '96': '24rem',
             },

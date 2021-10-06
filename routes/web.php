@@ -34,9 +34,10 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
         Route::get('cards/for-packs', 'CardController@forPacks');
+        Route::post('cards/{identifier}/corrections', 'CardController@suggestCorrection');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
-        Route::post('corrections', 'CorrectionsController@submit');
+
 
         Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
         Route::post('export/{deck}.pdf', 'ExportController@pdf')->name('export.pdf');

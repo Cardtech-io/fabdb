@@ -51,14 +51,14 @@
                                 </section>
 
                                 <section class="flex">
-                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage" class="w-2/3 pr-4"/>
-                                    <button @click="$modal.show('suggestion')" class="bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm">
+                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage" class="w-2/3 pr-1"/>
+                                    <button @click="$modal.show('suggestion')" class="bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm" v-if="selected">
                                         Suggest correction
                                     </button>
                                 </section>
 
-                                <modal name="suggestion" :adaptive="true" :height="400">
-                                    <suggest-correction :card="card"/>
+                                <modal name="suggestion" :adaptive="true" :min-height="700">
+                                    <suggest-correction :printing="selected" :identifier="card.identifier" v-if="selected"/>
                                 </modal>
 
                                 <div v-if="text" class="bg-white text-black rounded-lg">
@@ -181,7 +181,7 @@
         data() {
             return {
                 card: null,
-                selected: '',
+                selected: null,
                 text: '',
                 flavour: '',
                 name: '',
@@ -194,12 +194,12 @@
             },
 
             printingClasses(printing) {
-                return this.selected === printing.sku.sku ? 'bg-black' :  printing.sku.finish;
+                return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;
             },
 
             selectPrinting(printing) {
                 this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
-                this.selected = printing.sku.sku;
+                this.selected = printing;
                 this.switchContent(printing);
             },
 
@@ -212,7 +212,7 @@
             switchLanguage(languageCode) {
                 // get first printing of that language
                 let printing = this.card.printings.filter(printing => printing.language === languageCode)[0];
-                console.log(printing);
+
                 if (printing) {
                     this.selectPrinting(printing);
                 }
@@ -264,6 +264,7 @@
                 callback(function() {
                     this.card = response.data;
                     this.switchContent(this.card);
+                    this.selectPrinting(this.card.printings[0]);
                 })
             });
         })
