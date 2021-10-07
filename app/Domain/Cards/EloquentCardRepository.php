@@ -3,10 +3,12 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
+use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
 use FabDB\Domain\Cards\Search\GroupFilter;
 use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
+use FabDB\Domain\Cards\Search\IncludeOwnedCardsFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
@@ -83,6 +85,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new KeywordFilter,
             new SyntaxFilter,
             new IdentifierFilter,
+            new IncludeOwnedCardsFilter($user),
             new ClassFilter,
             new TalentFilter,
             new TypeFilter,

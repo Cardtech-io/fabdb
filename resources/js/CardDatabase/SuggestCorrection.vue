@@ -91,10 +91,6 @@
                 this.$modal.hide('suggestion');
                 this.addMessage({status: 'success', message: 'Thank you!'});
             }
-        },
-
-        mounted() {
-            console.log(this.printing);
         }
     };
 </script>

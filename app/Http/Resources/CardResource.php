@@ -25,7 +25,9 @@ class CardResource extends JsonResource
             $response['ownedTotal'] = (int) $this->resource->ownedTotal;
         }
 
-        $response['sideboardTotal'] = object_get($this, 'resource.sideboardTotal', 0);
+        if (isset($this->resource['sideboardTotal'])) {
+            $response['sideboardTotal'] = object_get($this, 'resource.sideboardTotal', 0);
+        }
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['artist'] = new ArtistResource($this->whenLoaded('artist'));

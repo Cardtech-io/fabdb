@@ -61,23 +61,36 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     languages: {
       required: true,
-      type: Object
+      type: Array
     }
   },
   data: function data() {
     return {
-      selected: 'en',
+      selected: null,
       isOpen: false
     };
   },
   methods: {
-    select: function select(code) {
-      if (code !== this.code) {
+    select: function select(language) {
+      if (!this.selected || language.code !== this.selected.code) {
         this.isOpen = false;
-        this.selected = code;
-        this.$emit('language-selected', code);
+        this.selected = language;
+        this.$emit('language-selected', language.code);
       }
     }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.selected = this.languages.filter(function (language) {
+      return language.code === 'en';
+    })[0];
+    this.$eventHub.$on('language-selected', function (code) {
+      _this.isOpen = false;
+      _this.selected = _this.languages.filter(function (language) {
+        return language.code === code;
+      })[0];
+    });
   }
 });
 
@@ -314,10 +327,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         message: 'Thank you!'
       });
     }
-  }),
-  mounted: function mounted() {
-    console.log(this.printing);
-  }
+  })
 });
 
 /***/ }),
@@ -506,6 +516,14 @@ __webpack_require__.r(__webpack_exports__);
 
       return 'in ' + this.ucfirst(this.card.banned[0]) + ' format';
     },
+    languages: function languages() {
+      var available = this.card.printings.map(function (printing) {
+        return printing.language;
+      });
+      return this.$settings.languages.filter(function (language) {
+        return available.indexOf(language.code) !== -1;
+      });
+    },
     crumbs: function crumbs() {
       return [{
         text: 'Home',
@@ -546,13 +564,14 @@ __webpack_require__.r(__webpack_exports__);
       this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
       this.selected = printing;
       this.switchContent(printing);
+      this.$eventHub.$emit('language-selected', printing.language);
     },
     switchContent: function switchContent(record) {
       this.text = record.text;
       this.flavour = record.flavour;
       this.name = record.name;
     },
-    switchLanguage: function switchLanguage(languageCode) {
+    findPrintingForLanguage: function findPrintingForLanguage(languageCode) {
       // get first printing of that language
       var printing = this.card.printings.filter(function (printing) {
         return printing.language === languageCode;
@@ -809,7 +828,10 @@ var render = function() {
       },
       [
         _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v("Language (" + _vm._s(_vm.languages[_vm.selected].name) + ")")
+          _vm._v("Language "),
+          _vm.selected
+            ? _c("span", [_vm._v("(" + _vm._s(_vm.selected.name) + ")")])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(
@@ -850,19 +872,19 @@ var render = function() {
             staticClass:
               "w-full absolute left-0 rounded-lg bg-white z-100 overflow-hidden mt-1 border border-gray-500"
           },
-          _vm._l(_vm.languages, function(language, code) {
+          _vm._l(_vm.languages, function(language) {
             return _c(
               "button",
               {
                 staticClass:
                   "w-full flex items-center space-x-2 text-base text-left px-4 py-1 uppercase",
                 class:
-                  code === _vm.selected
+                  language.code === _vm.selected.code
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white",
                 on: {
                   click: function($event) {
-                    return _vm.select(code)
+                    return _vm.select(language)
                   }
                 }
               },
@@ -1491,8 +1513,11 @@ var render = function() {
                             [
                               _c("language-selector", {
                                 staticClass: "w-2/3 pr-1",
-                                attrs: { languages: _vm.$settings.languages },
-                                on: { "language-selected": _vm.switchLanguage }
+                                attrs: { languages: _vm.languages },
+                                on: {
+                                  "language-selected":
+                                    _vm.findPrintingForLanguage
+                                }
                               }),
                               _vm._v(" "),
                               _vm.selected
@@ -1609,7 +1634,7 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c("article", [
-                            _c("p", { staticClass: "mb-4 italic" }, [
+                            _c("p", { staticClass: "my-4 italic" }, [
                               _c("strong", [
                                 _vm._v('"' + _vm._s(_vm.card.name) + '"')
                               ]),

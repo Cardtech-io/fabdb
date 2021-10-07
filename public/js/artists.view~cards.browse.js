@@ -254,7 +254,7 @@ var render = function() {
                                 staticClass:
                                   "font-serif uppercase text-gray-500 text-center"
                               },
-                              [_vm._v(_vm._s(_vm.card.printings[0].sku.number))]
+                              [_vm._v(_vm._s(_vm.card.printings[0].sku.sku))]
                             )
                           ]),
                           _vm._v(" "),
@@ -307,11 +307,7 @@ var render = function() {
                                     },
                                     [
                                       _c("div", { staticClass: "ml-2" }, [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.totalOwned(_vm.card.printings)
-                                          )
-                                        )
+                                        _vm._v(_vm._s(_vm.card.ownedTotal))
                                       ]),
                                       _vm._v(" "),
                                       _c(

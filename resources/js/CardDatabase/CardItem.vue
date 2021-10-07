@@ -13,7 +13,7 @@
                     <div class="p-2 text-gray-400 text-sm h-full" :class="{'cursor-pointer': !!path}" @click="go">
                         <header class="mb-8">
                             <div class="font-serif uppercase text-center text-sm overflow-hidden -mb-1 text-gray-300">{{ card.name }}</div>
-                            <div class="font-serif uppercase text-gray-500 text-center">{{ card.printings[0].sku.number }}</div>
+                            <div class="font-serif uppercase text-gray-500 text-center">{{ card.printings[0].sku.sku }}</div>
                         </header>
                         <footer class="bottom-0 flex items-center text-sm">
                             <div title="Printings available" class="flex pl-2 w-1/4">
@@ -22,7 +22,7 @@
                             </div>
                             <rarity-text :rarity="card.rarity" class="block bg-black w-1/2 text-xs text-center"></rarity-text>
                             <div title="Cards in collection" class="flex pr-2 w-1/4" v-if="user">
-                                <div class="ml-2">{{ totalOwned(card.printings)}}</div>
+                                <div class="ml-2">{{ card.ownedTotal }}</div>
                                 <icon :size="5" class="inline-block ml-2"><path d="M0 2C0 .9.9 0 2 0h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 002-2zM5 9l2-2 2 2 4-4 2 2-6 6-4-4z"/></icon>
                             </div>
                         </footer>

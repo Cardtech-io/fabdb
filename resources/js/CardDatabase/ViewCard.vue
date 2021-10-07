@@ -51,7 +51,7 @@
                                 </section>
 
                                 <section class="flex">
-                                    <language-selector :languages="$settings.languages" @language-selected="switchLanguage" class="w-2/3 pr-1"/>
+                                    <language-selector :languages="languages" @language-selected="findPrintingForLanguage" class="w-2/3 pr-1"/>
                                     <button @click="$modal.show('suggestion')" class="bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm" v-if="selected">
                                         Suggest correction
                                     </button>
@@ -76,7 +76,7 @@
                                 </div>
 
                                 <article>
-                                    <p class="mb-4 italic">
+                                    <p class="my-4 italic">
                                         <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.printings[0].sku.sku)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
                                     </p>
                                 </article>
@@ -159,6 +159,14 @@
                 return 'in '+this.ucfirst(this.card.banned[0])+' format';
             },
 
+            languages() {
+                let available = this.card.printings.map(printing => printing.language);
+
+                return this.$settings.languages.filter(language => {
+                    return available.indexOf(language.code) !== -1;
+                });
+            },
+
             crumbs() {
                 return [
                     { text: 'Home', link: '/' },
@@ -201,6 +209,7 @@
                 this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
                 this.selected = printing;
                 this.switchContent(printing);
+                this.$eventHub.$emit('language-selected', printing.language);
             },
 
             switchContent(record) {
@@ -209,7 +218,7 @@
                 this.name = record.name;
             },
 
-            switchLanguage(languageCode) {
+            findPrintingForLanguage(languageCode) {
                 // get first printing of that language
                 let printing = this.card.printings.filter(printing => printing.language === languageCode)[0];
 
