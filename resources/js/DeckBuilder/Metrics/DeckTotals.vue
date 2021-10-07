@@ -50,7 +50,13 @@
             },
 
             totalCards() {
-                return (new Cards(this.cards)).total();
+                let total = (new Cards(this.cards)).total();
+
+                if (this.deck.format === 'blitz') {
+                    total++;
+                }
+
+                return total;
             },
 
             totalSideboard() {

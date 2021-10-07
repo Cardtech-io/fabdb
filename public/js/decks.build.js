@@ -1956,7 +1956,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.deck.format === 'blitz' ? 53 : 81;
     },
     totalCards: function totalCards() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards).total();
+      var total = new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards).total();
+
+      if (this.deck.format === 'blitz') {
+        total++;
+      }
+
+      return total;
     },
     totalSideboard: function totalSideboard() {
       return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.sideboard).total();
