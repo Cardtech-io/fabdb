@@ -45,6 +45,11 @@ class ImportLanguagePrintings extends Command
 
         // Get the original card
         foreach ($prints as $print) {
+            if (!$print['uid']) {
+                $this->info('UID missing.');
+                continue;
+            }
+
             $card = $cards->findBySku($print['Card Number']);
 
             Printing::register(
