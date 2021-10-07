@@ -7,12 +7,12 @@
 
         <div>
             <label class="block font-serif uppercase tracking-wide mb-1">Text</label>
-            <textarea v-model="text" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" rows="6" required></textarea>
+            <textarea v-model="text" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" rows="3" required></textarea>
         </div>
 
         <div>
             <label class="block font-serif uppercase tracking-wide mb-1">Comment</label>
-            <textarea v-model="comment" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" rows="6" placeholder="Please provide some details as to why you recommend this correction be made." required></textarea>
+            <textarea v-model="comment" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" rows="3" placeholder="Please provide some details as to why you recommend this correction be made." required></textarea>
         </div>
 
         <div>

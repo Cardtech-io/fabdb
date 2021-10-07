@@ -57,7 +57,7 @@
                                     </button>
                                 </section>
 
-                                <modal name="suggestion" :adaptive="true" :min-height="700">
+                                <modal name="suggestion" :adaptive="true" :min-height="730">
                                     <suggest-correction :printing="selected" :identifier="card.identifier" v-if="selected"/>
                                 </modal>
 

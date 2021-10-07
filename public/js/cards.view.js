@@ -1149,7 +1149,7 @@ var render = function() {
           ],
           staticClass:
             "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
-          attrs: { rows: "6", required: "" },
+          attrs: { rows: "3", required: "" },
           domProps: { value: _vm.text },
           on: {
             input: function($event) {
@@ -1181,7 +1181,7 @@ var render = function() {
           staticClass:
             "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
           attrs: {
-            rows: "6",
+            rows: "3",
             placeholder:
               "Please provide some details as to why you recommend this correction be made.",
             required: ""
@@ -1524,7 +1524,7 @@ var render = function() {
                               attrs: {
                                 name: "suggestion",
                                 adaptive: true,
-                                "min-height": 700
+                                "min-height": 730
                               }
                             },
                             [
