@@ -1676,6 +1676,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var state = {
+  x: 0,
+  previous: null
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action', 'cards', 'groupId', 'width'],
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Redrawable__WEBPACK_IMPORTED_MODULE_6__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
@@ -1686,9 +1690,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
-    cardClasses: function cardClasses() {
-      return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth;
-    },
     cardWidth: function cardWidth() {
       var widths = [3, 4, 5, 6, 7, 8];
       return widths[this.zoom];
@@ -1719,6 +1720,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       styles.push('top: ' + i * this.offset + '%');
       styles.push('left: 0');
       return styles.join('; ');
+    },
+    // This is rather complex. It needs to figure out exactly how many iterations of the current card we're at,
+    // to better understand whether or not the overlay should be shown. Depending purely on i means that the
+    // calculation will be wrong.
+    showOverlay: function showOverlay(card) {
+      if (!state.previous || card.identifier !== state.previous) {
+        state.x = 0;
+      } else {
+        state.x++;
+      } // For some reason, this results in a render loop.
+
+
+      state.previous = card.identifier;
+      return this.deck.limitToCollection === 2 && this.mode !== 'sideboard' && (!card.ownedTotal || card.ownedTotal < state.x + 1);
     }
   },
   watch: {
@@ -2475,6 +2490,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['removeFromSideBoard']), {
     remove: function remove(card) {
+      console.log(card);
       this.removeFromSideBoard({
         card: card
       });
@@ -3549,7 +3565,7 @@ var render = function() {
       class: {
         "opacity-50 text-black":
           _vm.applySoftLimit &&
-          (!_vm.card.totalOwned || _vm.card.totalOwned < _vm.total) &&
+          (!_vm.card.ownedTotal || _vm.card.ownedTotal < _vm.total) &&
           _vm.deck.limitToCollection === 2
       }
     },
@@ -5228,12 +5244,12 @@ var render = function() {
   return _c(
     "masonry-container",
     { staticClass: "pb-2 mx-2", attrs: { containerId: _vm.groupId } },
-    _vm._l(_vm.groupedCards, function(grouped) {
+    _vm._l(_vm.groupedCards, function(group) {
       return _c(
         "card-container",
         {
           directives: [{ name: "masonry-tile", rawName: "v-masonry-tile" }],
-          key: grouped[0].identifier,
+          key: group[0].identifier,
           staticClass: "rounded-card",
           attrs: { width: _vm.width }
         },
@@ -5244,11 +5260,11 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "block w-full invisible",
-                style: _vm.margin(grouped.length),
-                attrs: { src: grouped[0].image }
+                style: _vm.margin(group.length),
+                attrs: { src: group[0].image }
               }),
               _vm._v(" "),
-              _vm._l(grouped, function(card, i) {
+              _vm._l(group, function(card, i) {
                 return _c(
                   "div",
                   {
@@ -5265,9 +5281,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    (!card.ownedTotal || card.ownedTotal < i + 1) &&
-                    _vm.deck.limitToCollection === 2 &&
-                    _vm.mode !== "sideboard"
+                    _vm.showOverlay(card)
                       ? _c("div", {
                           staticClass:
                             " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25"

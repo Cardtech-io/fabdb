@@ -21,7 +21,7 @@ class CardResource extends JsonResource
 
         $response['image'] = $this->alteredImage($this->resource->image, $request);
 
-        if (isset($this->resource['ownedTotal'])) {
+        if (isset($this->resource->ownedTotal)) {
             $response['ownedTotal'] = (int) $this->resource->ownedTotal;
         }
 

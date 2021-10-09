@@ -62,7 +62,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
                 $user = auth()->user();
 
-
                 $query->groupBy('cards.id');
 
                 if ($user) {

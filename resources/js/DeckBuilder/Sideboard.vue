@@ -34,6 +34,7 @@
             ...mapActions('deck', ['removeFromSideBoard']),
 
             remove(card) {
+                console.log(card);
                 this.removeFromSideBoard({ card });
                 this.removeRemote(card);
             },
