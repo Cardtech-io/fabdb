@@ -198,7 +198,7 @@
 
         methods: {
             buyLink(card) {
-                return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='+card.identifier+'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=FABDB';
+                return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='+card.identifier+'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
             },
 
             printingClasses(printing) {

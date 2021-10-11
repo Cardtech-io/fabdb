@@ -9,6 +9,7 @@ use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
+use FabDB\Domain\Cards\Search\SkuFilter;
 use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TalentFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
@@ -46,6 +47,7 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
         ]);
 
         $filters = [
+            new CollectionFilter($user),
             new KeywordFilter,
             new IdentifierFilter,
             new ClassFilter,
@@ -54,7 +56,6 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new CollectionFilter($user),
             new OrderFilter,
         ];
 
