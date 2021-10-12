@@ -23,7 +23,8 @@
         "laravel/vapor-cli": "^1.4",
         "laravel/vapor-core": "^2.2",
         "maatwebsite/excel": "^3.1",
-        "phpoffice/phpspreadsheet": "^1.15"
+        "phpoffice/phpspreadsheet": "^1.15",
+        "sentry/sentry-laravel": "^2.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
