@@ -555,7 +555,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     buyLink: function buyLink(card) {
-      return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q=' + card.identifier + '&utm_campaign=affiliate&utm_medium=FABDB&utm_source=FABDB';
+      return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q=' + card.identifier + '&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
     },
     printingClasses: function printingClasses(printing) {
       return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;

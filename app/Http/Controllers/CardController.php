@@ -42,7 +42,7 @@ class CardController extends Controller
         return CardResource::collection(collect([
             $this->cards->findByIdentifier('heart-of-fyendal-blue'),
             $this->cards->findByIdentifier('eye-of-ophidia-blue'),
-            $this->cards->findByIdentifier('arknight-shard-blue'),
+            $this->cards->findByIdentifier('arknight-shard'),
             $this->cards->findByIdentifier('great-library-of-solana'),
         ]));
     }

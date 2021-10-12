@@ -105,10 +105,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       firstLoad: true,
       page: Number(this.$route.query.page) || 1,
-      per_page: 20,
+      per_page: 30,
       results: {},
       sets: this.filterSets(),
-      set: this.$route.query.set,
+      set: this.$route.query.set || '',
       view: 'gallery'
     };
   },
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
       }), 'released');
 
       sets.unshift({
-        id: 'all',
+        id: '',
         name: 'All cards'
       });
       return sets;
@@ -209,12 +209,12 @@ var render = function() {
           [
             _c(
               "ul",
-              { staticClass: "flex" },
+              { staticClass: "flex space-x-4 md:space-x-8" },
               _vm._l(_vm.sets, function(set) {
                 return _c(
                   "li",
                   {
-                    staticClass: "mr-8 border-b-4 border-white",
+                    staticClass: "border-b-4 border-white",
                     class: _vm.isActive(set.id)
                   },
                   [
@@ -232,7 +232,7 @@ var render = function() {
                       },
                       [
                         _c("span", { staticClass: "md:hidden" }, [
-                          _vm._v(_vm._s(set.id))
+                          _vm._v(_vm._s(set.id ? set.id : "All"))
                         ]),
                         _vm._v(" "),
                         _c("span", { staticClass: "hidden md:inline" }, [

@@ -4,10 +4,10 @@
 
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto px-4 flex">
-                <ul class="flex">
-                    <li class="mr-8 border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
+                <ul class="flex space-x-4 md:space-x-8">
+                    <li class="border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
                         <a href="" class="block text-center py-4" @click.prevent="switchSet(set.id)">
-                            <span class="md:hidden">{{set.id}}</span>
+                            <span class="md:hidden">{{set.id ? set.id : 'All'}}</span>
                             <span class="hidden md:inline">{{set.name}}</span>
                         </a>
                     </li>
@@ -90,10 +90,10 @@
             return {
                 firstLoad: true,
                 page: Number(this.$route.query.page) || 1,
-                per_page: 20,
+                per_page: 30,
                 results: {},
                 sets: this.filterSets(),
-                set: this.$route.query.set,
+                set: this.$route.query.set || '',
                 view: 'gallery'
             }
         },
@@ -125,7 +125,7 @@
                     return setting.browseable;
                 }), 'released');
 
-                sets.unshift({ id: 'all', name: 'All cards'});
+                sets.unshift({ id: '', name: 'All cards'});
 
                 return sets;
             },
