@@ -15,8 +15,8 @@
                             </div>
 
                             <div class="flex-auto">
-                                <label class="block font-serif uppercase tracking-wide mb-1">Avatar</label>
-                                <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto">
+                                <label class="block font-serif uppercase tracking-wide mb-1">Avatar (Patrons only)</label>
+                                <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" :disabled="!subscribed">
                                     <option value="bauble">Bauble</option>
                                     <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name }}</option>
                                 </select>
@@ -160,7 +160,7 @@
         components: { Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },
 
         computed: {
-            ...mapGetters('session', ['user']),
+            ...mapGetters('session', ['user', 'subscribed']),
 
             email: {
                 get() {

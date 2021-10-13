@@ -278,7 +278,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user', 'subscribed']), {
     email: {
       get: function get() {
         return this.user.email;
@@ -567,7 +567,7 @@ var render = function() {
                           staticClass:
                             "block font-serif uppercase tracking-wide mb-1"
                         },
-                        [_vm._v("Avatar")]
+                        [_vm._v("Avatar (Patrons only)")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -583,6 +583,7 @@ var render = function() {
                           ],
                           staticClass:
                             "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
+                          attrs: { disabled: !_vm.subscribed },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
