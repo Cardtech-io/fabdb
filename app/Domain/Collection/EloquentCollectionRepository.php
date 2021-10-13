@@ -45,7 +45,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
 
             if ($total) {
                 $ownedCard = $query->first();
-                
+
                 if ($ownedCard) {
                     $ownedCard->remove($total);
                 }

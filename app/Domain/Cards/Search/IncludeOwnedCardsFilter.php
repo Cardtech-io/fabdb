@@ -25,11 +25,6 @@ class IncludeOwnedCardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->addSelect(DB::raw('SUM(owned_cards.total) AS owned_total'));
-
-        $query->leftJoin('owned_cards', function($join) {
-            $join->on('owned_cards.card_id', '=', 'cards.id');
-            $join->where('owned_cards.user_id', '=', $this->user->id);
-        });
+        $query->addSelect(DB::raw("(SELECT SUM(owned_cards.total) FROM owned_cards WHERE owned_cards.card_id = cards.id AND owned_cards.user_id = {$this->user->id}) AS owned_total"));
     }
 }
