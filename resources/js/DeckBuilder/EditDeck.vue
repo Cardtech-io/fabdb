@@ -66,7 +66,7 @@
             </div>
             <div class="sm:flex-grow">
                 <masonry-container containerId="text-sections" class="sm:flex sm:flex-wrap">
-                    <div v-for="section in availableSections" v-if="section.cards.count()" class="w-full sm:w-1/2 sm:pr-8" :class="{ 'lg:w-1/3': fullScreen }" v-masonry-tile>
+                    <div v-for="section in availableSections" v-if="section.cards.count()" class="w-full sm:w-1/2 sm:pr-8" v-masonry-tile>
                         <card-item-section :cards="section.cards" :title="section.title"></card-item-section>
                     </div>
                 </masonry-container>

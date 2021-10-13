@@ -13,16 +13,16 @@
                 <div :class="containers">
                     <div class="flex">
                         <div class="flex items-center p-4" :class="topAreaClasses">
-                            <div class="flex-auto hidden sm:block">
+                            <div class="flex-auto">
                                 <deck-totals/>
                             </div>
 
                             <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"></grouping-selector>
-                            <mode-selector class="w-full sm:w-auto"></mode-selector>
+                            <mode-selector class="w-auto"></mode-selector>
 
                             <div class="px-2 lg:px-1 flex">
-                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
-                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden lg:block"></zoom-button>
+                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"></zoom-button>
+                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"></zoom-button>
                                 <view-button></view-button>
                                 <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"></fullscreen-button>
                             </div>
@@ -52,7 +52,7 @@
                             <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
                         </div>
                     </div>
-                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
+                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
                         <search-results v-if="mode === 'search'" @search-completed="scrollTop"></search-results>
                         <sideboard v-if="mode === 'sideboard'" :collection="sideboard"></sideboard>
                     </div>
@@ -141,12 +141,12 @@
             },
 
             mainAreaClasses() {
-                return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
+                return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 md:w-2/3' : 'w-full';
             },
 
             sidebarClasses() {
                 return {
-                    'hidden lg:block lg:w-1/3 p-4': true
+                    'hidden md:block md:w-1/3 p-4': true
                 }
             },
 

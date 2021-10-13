@@ -983,11 +983,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     mainAreaClasses: function mainAreaClasses() {
-      return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
+      return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 md:w-2/3' : 'w-full';
     },
     sidebarClasses: function sidebarClasses() {
       return {
-        'hidden lg:block lg:w-1/3 p-4': true
+        'hidden md:block md:w-1/3 p-4': true
       };
     },
     topAreaClasses: function topAreaClasses() {
@@ -2141,6 +2141,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2175,7 +2197,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return {
         'button-disabled': this.mode === view,
         'button-secondary': this.mode !== view,
-        'hidden lg:flex': view === 'sideboard'
+        'hidden md:flex': view === 'sideboard'
       };
     },
     select: function select(mode) {
@@ -2454,8 +2476,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cards */ "./resources/js/DeckBuilder/Cards.js");
-/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Colour__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Colour */ "./resources/js/DeckBuilder/Colour.vue");
+/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2471,6 +2494,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2479,18 +2547,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
-    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Colour: _Colour__WEBPACK_IMPORTED_MODULE_4__["default"],
+    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['deck', 'fullScreen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['cards', 'deck', 'fullScreen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
     sideboard: function sideboard() {
       return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['removeFromSideBoard']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['addToSideboard', 'removeFromSideBoard']), {
+    add: function add(card) {
+      if (card.total - this.sideboardCardTotal(card) <= 0) return;
+      this.addToSideboard({
+        card: card
+      });
+      this.addRemote(card);
+    },
+    addRemote: function addRemote(card) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/' + this.deck.slug + '/sideboard', {
+        card: card.identifier
+      });
+    },
     remove: function remove(card) {
-      console.log(card);
       this.removeFromSideBoard({
         card: card
       });
@@ -2498,6 +2578,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeRemote: function removeRemote(card) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/decks/' + this.deck.slug + '/sideboard/' + card.identifier);
+    },
+    setHover: function setHover(card) {
+      this.$eventHub.$emit('hover-card', card);
+    },
+    sideboardCardTotal: function sideboardCardTotal(card) {
+      var sideboardCard = this.collection.filter(function (sideboardCard) {
+        return sideboardCard.identifier === card.identifier;
+      })[0];
+      return sideboardCard ? sideboardCard.total : 0;
     }
   })
 });
@@ -3846,7 +3935,7 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "flex-auto hidden sm:block" },
+                    { staticClass: "flex-auto" },
                     [_c("deck-totals")],
                     1
                   ),
@@ -3867,14 +3956,14 @@ var render = function() {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _c("mode-selector", { staticClass: "w-full sm:w-auto" }),
+                  _c("mode-selector", { staticClass: "w-auto" }),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "px-2 lg:px-1 flex" },
                     [
                       _c("zoom-button", {
-                        staticClass: "hidden lg:block",
+                        staticClass: "hidden md:block",
                         attrs: {
                           zoom: _vm.zoom,
                           action: "in",
@@ -3883,7 +3972,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("zoom-button", {
-                        staticClass: "hidden lg:block",
+                        staticClass: "hidden md:block",
                         attrs: {
                           zoom: _vm.zoom,
                           action: "out",
@@ -4001,7 +4090,7 @@ var render = function() {
                   {
                     ref: "searchResults",
                     staticClass:
-                      "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
                   },
                   [
                     _vm.mode === "search"
@@ -5198,8 +5287,7 @@ var render = function() {
                           directives: [
                             { name: "masonry-tile", rawName: "v-masonry-tile" }
                           ],
-                          staticClass: "w-full sm:w-1/2 sm:pr-8",
-                          class: { "lg:w-1/3": _vm.fullScreen }
+                          staticClass: "w-full sm:w-1/2 sm:pr-8"
                         },
                         [
                           _c("card-item-section", {
@@ -5764,37 +5852,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "flex rounded-lg overflow-hidden mr-2 text-sm" },
-    _vm._l(_vm.modes, function(mode, view) {
-      return view !== "sideboard" || _vm.requiresSideboard
-        ? _c(
-            "button",
-            {
-              staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
-              class: _vm.classes(view),
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.select(view)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm" },
+      _vm._l(_vm.modes, function(mode, view) {
+        return view !== "sideboard" || _vm.requiresSideboard
+          ? _c(
+              "button",
+              {
+                staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
+                class: _vm.classes(view),
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.select(view)
+                  }
                 }
+              },
+              [
+                _c("icon", {
+                  attrs: { size: 5 },
+                  domProps: { innerHTML: _vm._s(mode.icon) }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(mode.name))])
+              ],
+              1
+            )
+          : _vm._e()
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "block lg:hidden relative font-serif" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          class: {
+            "border-gray-500": _vm.isOpen,
+            "bg-white": _vm.isOpen,
+            "bg-gray-200": !_vm.isOpen,
+            "z-75": _vm.isOpen
+          },
+          staticStyle: { width: "150px" },
+          on: {
+            click: function($event) {
+              _vm.isOpen = !_vm.isOpen
+            }
+          }
+        },
+        [
+          _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
+            _vm._v(_vm._s(_vm.modes[_vm.mode].name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              staticClass: "inline-block h-5 w-5 fill-current ml-auto",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 20 20"
               }
             },
             [
-              _c("icon", {
-                attrs: { size: 5 },
-                domProps: { innerHTML: _vm._s(mode.icon) }
-              }),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(mode.name))])
-            ],
-            1
+              _c("path", {
+                attrs: {
+                  d:
+                    "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.isOpen
+        ? _c("button", {
+            staticClass:
+              "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.isOpen = false
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isOpen
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+            },
+            _vm._l(_vm.modes, function(mode, option) {
+              return _c(
+                "button",
+                {
+                  staticClass:
+                    "flex items-center space-x-2 w-full text-base text-left px-4 py-1 uppercase",
+                  class:
+                    option === mode
+                      ? "bg-blue-400 text-white"
+                      : "hover:bg-blue-400 hover:text-white",
+                  on: {
+                    click: function($event) {
+                      return _vm.select(option)
+                    }
+                  }
+                },
+                [
+                  _c("icon", {
+                    attrs: { size: 5 },
+                    domProps: { innerHTML: _vm._s(mode.icon) }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(_vm._s(mode.name))])
+                ],
+                1
+              )
+            }),
+            0
           )
         : _vm._e()
-    }),
-    0
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -6130,33 +6317,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "mb-40" },
-    [
-      _c("grouped-cards", {
-        attrs: {
-          cards: _vm.sideboard,
-          "group-id": "sideboard",
-          action: _vm.remove,
-          width: _vm.fullScreen ? "sm:w-1/3" : "sm:w-1/2"
-        }
-      }),
-      _vm._v(" "),
-      !_vm.sideboard.cards.length
-        ? _c("div", { staticClass: "text-center my-20 mx-10" }, [
-            _vm._v("\n        You have not yet added"),
-            _c("br"),
-            _vm._v("any cards"),
-            _c("br"),
-            _vm._v("to your sideboard.\n    ")
-          ])
-        : _vm._e()
-    ],
-    1
-  )
+  return _c("div", { staticClass: "mb-40" }, [
+    _c(
+      "div",
+      { staticClass: "hidden md:block" },
+      [
+        _c("grouped-cards", {
+          attrs: {
+            cards: _vm.sideboard,
+            "group-id": "sideboard",
+            action: _vm.remove,
+            width: _vm.fullScreen ? "md:w-1/3" : "md:w-1/2"
+          }
+        }),
+        _vm._v(" "),
+        !_vm.sideboard.cards.length
+          ? _c("div", { staticClass: "text-center my-20 mx-10" }, [
+              _vm._v("\n            You have not yet added"),
+              _c("br"),
+              _vm._v("any cards"),
+              _c("br"),
+              _vm._v("to your sideboard.\n        ")
+            ])
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "md:hidden" }, [
+      _c(
+        "table",
+        { staticClass: "w-full border-collapse border border-gray-200" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.cards, function(card) {
+              return _c("tr", [
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.add(card)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(card.total - _vm.sideboardCardTotal(card)) +
+                            "\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("icon", { attrs: { size: 5 } }, [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ])
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "div",
+                    { staticClass: "flex bg-white items-center p-2" },
+                    [
+                      _c("colour", {
+                        staticClass: "mr-2",
+                        attrs: { resource: card.stats.resource }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "cursor-help whitespace-nowrap overflow-hidden",
+                          on: {
+                            click: function($event) {
+                              return _vm.setHover(card)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(card.name))]
+                      )
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.remove(card)
+                        }
+                      }
+                    },
+                    [
+                      _c("icon", { attrs: { size: 5 } }, [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.sideboardCardTotal(card)) +
+                            "\n                            "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ])
+              ])
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "text-white" }, [
+        _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
+          _vm._v("Deck")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "p-2 bg-gray-800 text-left" }, [
+          _vm._v("Card")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
+          _vm._v("Sideboard")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
