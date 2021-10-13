@@ -3,7 +3,9 @@ namespace Tests;
 
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Domain\Cards\Cards;
 use FabDB\Domain\Cards\Identifier;
+use FabDB\Domain\Decks\Deck;
 use Mockery as m;
 
 trait TestsCards
@@ -28,5 +30,20 @@ trait TestsCards
         }
 
         return  $card;
+    }
+
+    protected function fillDeck(Deck $deck, int $howMany)
+    {
+        $cards = [];
+
+        for ($i = 0; $i < $howMany; $i++) {
+            $card = $this->card($i);
+
+            $card->pivot = (object) ['total' => 1];
+
+            $cards[] = $card;
+        }
+
+        $deck->setRelation('cards', new Cards($cards));
     }
 }

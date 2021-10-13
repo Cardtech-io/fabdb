@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Decks\Validation;
 
 use FabDB\Domain\Cards\Card;
+use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
 
@@ -33,6 +34,8 @@ class MaxTotalCards implements Rule
      */
     public function passes($attribute, $value)
     {
+        $this->card = app(CardRepository::class)->findByIdentifier($value);
+
         return $this->deck->cards->deckTotal() < $this->maxCards();
     }
 
@@ -52,9 +55,9 @@ class MaxTotalCards implements Rule
     private function maxCards()
     {
         switch (true) {
-            case $this->deck->format == 'blitz' && $this->card->isEquipment():
+            case $this->deck->format === 'blitz' && $this->card->isEquipment():
                 return 11;
-            case $this->deck->format == 'blitz' && !$this->card->isEquipment():
+            case $this->deck->format === 'blitz' && !$this->card->isEquipment():
                 return 41;
             default:
                 return 80;

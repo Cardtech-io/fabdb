@@ -64,6 +64,6 @@ class Cards extends Collection
     {
         return $this->filter(function(Card $card) {
             return !$card->isHero() && !$card->isToken();
-        })->sum('total');
+        })->sum('pivot.total');
     }
 }
