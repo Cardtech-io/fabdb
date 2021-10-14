@@ -11,7 +11,7 @@
         <!-- Mobile view -->
         <div class="block lg:hidden relative font-serif">
             <button class="relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500" @click="isOpen = !isOpen" :class="{ 'border-gray-500': isOpen, 'bg-white': isOpen, 'bg-gray-200': !isOpen, 'z-75': isOpen }" style="width: 150px">
-                <span class="inline-block mr-1 flex-1">{{modes[mode].name}}</span>
+                <span class="inline-block mr-1 flex-1">{{modes[mode].name   }}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="inline-block h-5 w-5 fill-current ml-auto">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                 </svg>

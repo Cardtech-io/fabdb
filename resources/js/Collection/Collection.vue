@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-200 pb-8 text-base">
+        <div class="bg-gray-200 pb-8 text-sm sm:text-base">
             <div class="container sm:mx-auto">
                 <div v-if="results && results.data" class="sm:px-4">
                     <div class="mx-auto py-4">

@@ -47,7 +47,6 @@
 
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
-                        { link: '/cards/prices', text: 'Price list' },
                         { link: '/cards/fabled', text: 'Fabled cards' },
                     ]},
 

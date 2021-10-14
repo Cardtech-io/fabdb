@@ -748,7 +748,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200 pb-8 text-base" }, [
+      _c("div", { staticClass: "bg-gray-200 pb-8 text-sm sm:text-base" }, [
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
             ? _c("div", { staticClass: "sm:px-4" }, [

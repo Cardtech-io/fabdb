@@ -22,7 +22,7 @@
                     <td class="w-2/3 px-2 py-1 border border-gray-500 font-serif" colspan="2"><span class="uppercase text-gray-600">GEM ID:</span> {{ $gemId }}</td>
                 </tr>
                 <tr>
-                    <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Hero:</span> {{ $deck->hero()->name}}</td>
+                    <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Hero:</span> {{ $deck->hero->name}}</td>
                     <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Date:</span> {{ date('jS F Y') }}</td>
                     <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Event:</span> {{ $event }}</td>
                 </tr>
