@@ -3,10 +3,6 @@ import Carding from "../Utilities/Carding";
 export default {
     computed: {
         maxAvailable() {
-            if (!isNaN(this.card.available)) {
-                return this.card.available;
-            }
-
             if (this.card.keywords.includes('hero')) {
                 return 1;
             }
@@ -26,7 +22,7 @@ export default {
             let limits = {blitz: 2, constructed: 3, open: 100};
             let available = limits[this.deck.format];
 
-            if (this.deck.limitToCollection === 2 && this.card.ownedTotal < available) {
+            if (this.deck.limitToCollection === 1 && this.card.ownedTotal < available) {
                 available = this.card.ownedTotal;
             }
 

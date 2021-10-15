@@ -77,6 +77,7 @@
                                 <option value="aria">Aria</option>
                                 <option value="demonastery">Demonastery</option>
                                 <option value="library">Library</option>
+                                <option value="monarch">Monarch</option>
                                 <option value="skies">Skies</option>
                                 <option value="savage-lands">Savage Lands</option>
                                 <option value="the-pits">The Pits</option>

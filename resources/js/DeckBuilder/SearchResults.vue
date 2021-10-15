@@ -36,11 +36,11 @@
 
             <div>
                 <div v-for="card in results.data">
-                    <div class="w-1/2 float-left mt-4 overflow-hidden px-2 sm:px-4" style="max-width: 350px" :class="classes" v-if="galleryView">
+                    <div v-if="galleryView" class="w-1/2 float-left mt-4 overflow-hidden px-2 sm:px-4" style="max-width: 350px" :class="classes">
                         <card-image :card="card" :width="300" :clickHandler="addToDeck"></card-image>
-                        <numbered-card-buttons :card="card" class="w-full mx-auto rounded sm:rounded-lg mt-1"></numbered-card-buttons>
+                        <numbered-card-buttons :card="card" class="w-full mx-auto rounded sm:rounded-lg mt-1"/>
                     </div>
-                    <card-item :card="card" v-else></card-item>
+                    <card-item v-else :card="card"/>
                 </div>
             </div>
         </div>

@@ -60,6 +60,19 @@ body {
 }
 
 .theme-default {
+    --theme-background: theme('backgroundColor.gray.200') url('/img/background-tales-of-aria.jpg') no-repeat top center;
+    --button-primary-background-color: theme("colors.black");
+    --button-primary-hover-background-color: theme("colors.green.800");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.blue.800");
+    --button-secondary-hover-background-color: theme("colors.blue.600");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.blue.400");
+    --crumbs-background-color: theme('colors.blue.800');
+    --nav-hover-text-color: theme('colors.blue.400');
+}
+
+.theme-monarch {
     --theme-background: theme('backgroundColor.gray.200') url('/img/background-monarch.jpg') no-repeat top center;
     --button-primary-background-color: theme("colors.blue.700");
     --button-primary-hover-background-color: theme("colors.blue.500");

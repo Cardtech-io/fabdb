@@ -260,6 +260,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1038,6 +1039,10 @@ var render = function() {
                         _vm._v(" "),
                         _c("option", { attrs: { value: "library" } }, [
                           _vm._v("Library")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "monarch" } }, [
+                          _vm._v("Monarch")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "skies" } }, [

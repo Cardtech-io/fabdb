@@ -43,7 +43,7 @@ class UseCollectionFilter implements SearchFilter
         });
 
         // hard limit
-        if ($this->deck->limitToCollection) {
+        if ($this->deck->limitToCollection === 1) {
             $query->havingRaw('deck_card_total <= owned_total');
         }
     }

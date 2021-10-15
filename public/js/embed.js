@@ -60955,10 +60955,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     maxAvailable: function maxAvailable() {
-      if (!isNaN(this.card.available)) {
-        return this.card.available;
-      }
-
       if (this.card.keywords.includes('hero')) {
         return 1;
       }
@@ -60982,7 +60978,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       var available = limits[this.deck.format];
 
-      if (this.deck.limitToCollection === 2 && this.card.ownedTotal < available) {
+      if (this.deck.limitToCollection === 1 && this.card.ownedTotal < available) {
         available = this.card.ownedTotal;
       }
 

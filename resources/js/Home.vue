@@ -33,10 +33,10 @@
 
         <div class="my-4">
             <mq-layout mq="sm">
-                <advertisement :width="340" :height="340" :zone="107317"></advertisement>
+                <advertisement :width="340" :height="340" :zone="107317"/>
             </mq-layout>
             <mq-layout mq="md+">
-                <advertisement :width="728" :height="90" :zone="107209" class="mx-auto"></advertisement>
+                <advertisement :width="728" :height="90" :zone="107209" class="mx-auto"/>
             </mq-layout>
         </div>
     </div>
