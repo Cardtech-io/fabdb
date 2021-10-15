@@ -49,7 +49,7 @@ class CollectionFilter implements SearchFilter
                     $query->havingRaw("owned_total < {$this->user->need}");
                     break;
                 case 'have':
-                    $query->whereNotNull('owned_cards.id');
+                    $query->where('owned_cards.total', '>', 0);
                     break;
             }
         }

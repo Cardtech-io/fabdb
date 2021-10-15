@@ -85,7 +85,7 @@ class CollectionController extends Controller
     public function search(Request $request, PrintingRepository $printings)
     {
         return PrintingResource::collection(
-            $printings->collection($request->user(), $request->all())->paginate($request->get('per_page', 15))
+            $printings->collection($request->user(), $request->all())->paginate($request->get('per_page', 25))
         );
     }
 }
