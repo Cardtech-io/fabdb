@@ -34,7 +34,7 @@ class UseCollectionFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->addSelect(DB::raw('COUNT(owned_cards.total) AS owned_total'));
+        $query->addSelect(DB::raw("(SELECT SUM(owned_cards.total) FROM owned_cards WHERE owned_cards.card_id = cards.id AND owned_cards.user_id = {$this->user->id}) AS owned_total"));
         $query->addSelect(DB::raw('IFNULL(deck_cards.total, 0) AS deck_card_total'));
 
         $query->leftJoin('deck_cards', function($query) {
@@ -42,24 +42,9 @@ class UseCollectionFilter implements SearchFilter
             $query->where('deck_cards.card_id', '=', 'cards.id');
         });
 
-        switch ($this->deck->limitToCollection) {
-            // hard limit
-            case 1:
-                $query->join('owned_cards', function ($join) {
-                    $join->on('owned_cards.card_id', '=', 'cards.id');
-                    $join->where('owned_cards.user_id', $this->user->id);
-                    $join->where('owned_cards.total', '>', '0');
-                });
-
-                $query->havingRaw('deck_card_total <= owned_total');
-                break;
-            // soft limit
-            case 2:
-                $query->leftJoin('owned_cards', function ($join) {
-                    $join->on('owned_cards.card_id', '=', 'cards.id');
-                    $join->where('owned_cards.user_id', $this->user->id);
-                });
-                break;
+        // hard limit
+        if ($this->deck->limitToCollection) {
+            $query->havingRaw('deck_card_total <= owned_total');
         }
     }
 }

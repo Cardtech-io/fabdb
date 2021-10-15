@@ -60982,7 +60982,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       var available = limits[this.deck.format];
 
-      if (this.deck.useCollection && this.card.ownedTotal < available) {
+      if (this.deck.limitToCollection === 2 && this.card.ownedTotal < available) {
         available = this.card.ownedTotal;
       }
 
