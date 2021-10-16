@@ -635,8 +635,16 @@ var render = function() {
                                 { staticClass: "border border-gray-300" },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "flex items-center" },
+                                    "router-link",
+                                    {
+                                      staticClass: "block flex items-center",
+                                      attrs: {
+                                        to: {
+                                          name: "decks.build",
+                                          params: { deck: deck.slug }
+                                        }
+                                      }
+                                    },
                                     [
                                       deck.hero
                                         ? _c("img", {
@@ -650,22 +658,17 @@ var render = function() {
                                         : _vm._e(),
                                       _vm._v(" "),
                                       _c(
-                                        "router-link",
+                                        "span",
                                         {
-                                          staticClass: "block px-4 py-2",
-                                          attrs: {
-                                            to: {
-                                              name: "decks.build",
-                                              params: { deck: deck.slug }
-                                            }
-                                          }
+                                          staticClass:
+                                            "block flex-grow px-4 py-2"
                                         },
                                         [_vm._v(_vm._s(deck.name))]
                                       )
-                                    ],
-                                    1
+                                    ]
                                   )
-                                ]
+                                ],
+                                1
                               ),
                               _vm._v(" "),
                               _c(
@@ -690,14 +693,14 @@ var render = function() {
                                 "td",
                                 {
                                   staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden lg:table-cell"
+                                    "border border-gray-300 hidden lg:table-cell"
                                 },
                                 [
                                   deck.parent
                                     ? _c(
                                         "router-link",
                                         {
-                                          staticClass: "block",
+                                          staticClass: "block w-full p-2 px-4",
                                           attrs: {
                                             to: {
                                               name: "decks.build",
@@ -1031,7 +1034,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer",
+            "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
           class: { "button-disabled": !_vm.enabled },
           attrs: { type: "submit", disabled: !_vm.enabled }
         },

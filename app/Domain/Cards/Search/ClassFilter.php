@@ -14,19 +14,7 @@ class ClassFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        if ($input['class'] === 'none') {
-            $this->noClass($query);
-        } else {
-            $this->matchesClassOrSpecialization($input['class'], $query);
-        }
-    }
-
-    /**
-     * Query for cards that have no class assigned to them (even generic!)
-     */
-    private function noClass(Builder $query)
-    {
-        $query->whereNull("class");
+        $this->matchesClassOrSpecialization($input['class'], $query);
     }
 
     /**
@@ -39,7 +27,11 @@ class ClassFilter implements SearchFilter
 
         $query->where(function ($query) use ($classes) {
             foreach ($classes as $class) {
-                $query->orWhere('class', $class);
+                if ($class === 'none') {
+                    $query->whereNull("class");
+                } else {
+                    $query->orWhere('class', $class);
+                }
             }
 
             if (in_array('shapeshifter', $classes)) {

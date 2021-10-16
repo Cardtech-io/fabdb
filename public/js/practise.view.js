@@ -834,7 +834,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer",
+            "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
           class: { "button-disabled": !_vm.enabled },
           attrs: { type: "submit", disabled: !_vm.enabled }
         },
