@@ -38,6 +38,7 @@ class User extends Model implements Authenticatable
 
     protected $hidden = [
         'id',
+        'email',
         'password',
         'created_at',
         'updated_at',
