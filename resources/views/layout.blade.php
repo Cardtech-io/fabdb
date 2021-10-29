@@ -7,6 +7,7 @@ $user = auth()->user();
 
 if ($user) {
     $user->append('hasCollection');
+    $user->makeVisible('email');
 }
 
 $settings = compile_settings();
