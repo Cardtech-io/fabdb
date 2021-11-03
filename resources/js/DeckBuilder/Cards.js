@@ -220,7 +220,7 @@ export default class Cards {
     remove(card) {
         const deckCard = this.find(card);
 
-        if (deckCard.total > 1) {
+        if (deckCard && deckCard.total > 1) {
             deckCard.total -= 1;
         } else {
             let key = this.findKey(card);

@@ -607,11 +607,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     removeCardFromDeck: function removeCardFromDeck() {
       var _this2 = this;
 
+      this.removeCard({
+        card: this.card
+      });
       this.removeRemote(this.card, function () {
-        _this2.removeCard({
-          card: _this2.card
-        });
-
         _this2.$eventHub.$emit('card-selected');
       });
     }

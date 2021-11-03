@@ -50,8 +50,9 @@
             },
 
             removeCardFromDeck() {
+                this.removeCard({ card: this.card });
+
                 this.removeRemote(this.card, () => {
-                    this.removeCard({ card: this.card });
                     this.$eventHub.$emit('card-selected');
                 })
             }

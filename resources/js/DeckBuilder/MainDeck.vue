@@ -47,11 +47,11 @@
                 this.addRemote(card);
             },
 
-            addRemote: function(card) {
+            addRemote(card) {
                 axios.post('/decks/' + this.deck.slug + '/sideboard', { card: card.identifier });
             },
 
-            updateMainDeck: function() {
+            updateMainDeck() {
                 let cards = new Cards(_.cloneDeep(this.collection));
 
                 this.sideboard.forEach(card => {

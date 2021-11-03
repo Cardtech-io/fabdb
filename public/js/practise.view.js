@@ -1572,7 +1572,7 @@ function () {
     value: function remove(card) {
       var deckCard = this.find(card);
 
-      if (deckCard.total > 1) {
+      if (deckCard && deckCard.total > 1) {
         deckCard.total -= 1;
       } else {
         var key = this.findKey(card);
