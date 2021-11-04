@@ -102,6 +102,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             ->join('printings', 'printings.id', 'owned_cards.printing_id')
             ->join('cards', 'cards.id', 'printings.card_id')
             ->whereNotNull('owned_cards.printing_id')
+            ->where('printings.language', 'en')
             ->where('owned_cards.user_id', $userId)
             ->where("owned_cards.$view", '>', 0)
             ->groupBy('owned_cards.printing_id');

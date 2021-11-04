@@ -25,6 +25,7 @@ class CollectionFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
+        $query->where('printings.language', 'en');
         $query->join('cards', 'cards.id', 'printings.card_id');
 
         if (isset($input['set'])) {

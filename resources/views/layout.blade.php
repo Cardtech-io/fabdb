@@ -71,8 +71,8 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
+        <script src="{{ mix($jsFile) }}"></script>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">¡
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
-        <script src="{{ mix($jsFile) }}"></script>
     </body>
 </html>
