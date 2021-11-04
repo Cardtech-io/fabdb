@@ -23,14 +23,11 @@ mix.webpackConfig({
  |
  */
 
+mix.js('resources/js/app.js', 'public/js/app.js');
+mix.js('resources/js/embed.js', 'public/js/embed.js');
+
 mix.postCss('resources/css/fabdb.css', 'public/css', [
     require('tailwindcss')
 ]);
 
-if (mix.inProduction()) {
-    mix.js('resources/js/app.js', 'public/js/app.min.js').sourceMaps();
-    mix.js('resources/js/embed.js', 'public/js/embed.min.js').sourceMaps();
-} else {
-    mix.js('resources/js/app.js', 'public/js/app.js');
-    mix.js('resources/js/embed.js', 'public/js/embed.js');
-}
+

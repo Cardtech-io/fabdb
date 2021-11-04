@@ -11,16 +11,11 @@ use Illuminate\Support\Facades\Storage;
  */
 function fab_asset(string $asset): string
 {
-    $version = fab_version();
     $pathInfo = pathinfo($asset);
 
-    $versionedAsset = $pathInfo['dirname'].'/'.$pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
+    return $pathInfo['dirname'].'/'.$pathInfo['filename'].'.min.'.$pathInfo['extension'];
 
-    if (File::exists(public_path($versionedAsset))) {
-        return $versionedAsset;
-    }
-
-    return $asset;
+    return !app()->environment('production') ? $asset : $pathInfo['dirname'].'/'.$pathInfo['filename'].'.min.'.$pathInfo['extension'];
 }
 
 /**
