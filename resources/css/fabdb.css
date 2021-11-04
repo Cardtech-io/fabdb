@@ -21,7 +21,7 @@ body {
 }
 
 .theme-battle {
-    --theme-background: theme('backgroundColor.gray.800') url('/img/background-battle.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.800') url('https://fabdb2.imgix.net/assets/backgrounds/background-battle.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.blue.600");
     --button-primary-hover-background-color: theme("colors.blue.400");
     --button-primary-text-color: theme("colors.white");
@@ -34,7 +34,7 @@ body {
 }
 
 .theme-library {
-    --theme-background: theme('backgroundColor.gray.800') url('/img/background-library.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.800') url('https://fabdb2.imgix.net/assets/backgrounds/background-library.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.yellow.600");
     --button-primary-hover-background-color: theme("colors.yellow.500");
     --button-primary-text-color: theme("colors.white");
@@ -47,7 +47,7 @@ body {
 }
 
 .theme-skies {
-    --theme-background: theme('backgroundColor.gray.200') url('/img/background-crucible.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-crucible.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.red.700");
     --button-primary-hover-background-color: theme("colors.red.500");
     --button-primary-text-color: theme("colors.white");
@@ -60,7 +60,7 @@ body {
 }
 
 .theme-default {
-    --theme-background: theme('backgroundColor.gray.200') url('/img/background-tales-of-aria.jpg') no-repeat top center;
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-tales-of-aria.jpg?auto=format') no-repeat top center;
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.green.800");
     --button-primary-text-color: theme("colors.white");
@@ -73,7 +73,7 @@ body {
 }
 
 .theme-monarch {
-    --theme-background: theme('backgroundColor.gray.200') url('/img/background-monarch.jpg') no-repeat top center;
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-monarch.jpg?auto=format') no-repeat top center;
     --button-primary-background-color: theme("colors.blue.700");
     --button-primary-hover-background-color: theme("colors.blue.500");
     --button-primary-text-color: theme("colors.white");
@@ -86,7 +86,7 @@ body {
 }
 
 .theme-aria {
-    --theme-background: theme('backgroundColor.gray.200') url('/img/background-aria.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-aria.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.green.700");
     --button-primary-hover-background-color: theme("colors.green.500");
     --button-primary-text-color: theme("colors.white");
@@ -99,7 +99,7 @@ body {
 }
 
 .theme-demonastery {
-    --theme-background: theme('backgroundColor.gray.200') url('/img/background-demonastery.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-demonastery.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.indigo.700");
     --button-primary-hover-background-color: theme("colors.indigo.500");
     --button-primary-text-color: theme("colors.white");
@@ -112,7 +112,7 @@ body {
 }
 
 .theme-savage-lands {
-    --theme-background: theme('backgroundColor.black') url('/img/background-savage-lands.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.black') url('https://fabdb2.imgix.net/assets/backgrounds/background-savage-lands.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.gray.600");
     --button-primary-text-color: theme("colors.white");
@@ -125,7 +125,7 @@ body {
 }
 
 .theme-the-pits {
-    --theme-background: theme('backgroundColor.black') url('/img/background-the-pits.jpg') no-repeat top left;
+    --theme-background: theme('backgroundColor.black') url('https://fabdb2.imgix.net/assets/backgrounds/background-the-pits.jpg?auto=format') no-repeat top left;
     --button-primary-background-color: theme("colors.orange.700");
     --button-primary-hover-background-color: theme("colors.orange.500");
     --button-primary-text-color: theme("colors.white");
