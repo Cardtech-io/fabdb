@@ -19,8 +19,11 @@ class Printing extends Model
 
     public $timestamps = false;
 
-    public static function register(int $cardId, Sku $sku, $set, Rarity $rarity, Edition $edition, string $language, string $name, string $text, string $flavour)
+    public static function register(int $cardId, Sku $sku, $set, Rarity $rarity, Edition $edition, string $language, string $name, $text, $flavour)
     {
+        $text = (string) $text;
+        $flavour = (string) $flavour;
+
         return static::updateOrCreate(['sku' => $sku], compact('cardId','set', 'rarity', 'edition', 'language', 'name', 'text', 'flavour'));
     }
 

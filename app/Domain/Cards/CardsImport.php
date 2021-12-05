@@ -103,7 +103,11 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
                 new Sku($row['uid']),
                 $row['set_name'],
                 Rarity::fromLss($row['rarity']),
-                new Edition($row['edition'])
+                new Edition($row['edition']),
+                'en',
+                $row['card_name'],
+                $row['card_effect'],
+                ''
             );
 
             $this->log("Registered print [$printing->id] for sku [{$row['uid']}]");
