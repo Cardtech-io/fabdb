@@ -18,6 +18,7 @@ Route::middleware('api')->group(function() {
     Route::get('cards/first', 'CardController@first');
     Route::get('cards/{cardIdentifier}', 'CardController@view');
 
+    Route::get('decks/teklo-sync', 'DeckController@tekloSync');
     Route::get('decks/{deck}', 'DeckController@view');
     Route::get('decks/{deck}/osc', 'DeckController@osc');
 

@@ -3,6 +3,7 @@ namespace FabDB\Http\Controllers\Api;
 
 use FabDB\Domain\Decks\Deck;
 use FabDB\Http\Resources\OscResource;
+use Illuminate\Http\Request;
 
 class DeckController extends \FabDB\Http\Controllers\DeckController
 {
@@ -12,5 +13,10 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
         $deck->load('sideboard', 'sideboard', 'sideboard.printings');
 
         return new OscResource($deck);
+    }
+
+    public function tekloSync(Request $request)
+    {
+        return Deck::with('cards', 'sideboard')->paginate(100);
     }
 }
