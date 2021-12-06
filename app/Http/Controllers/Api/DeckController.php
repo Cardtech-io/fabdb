@@ -29,6 +29,6 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
             $query->where('decks.updated_at', '>=', $request->get('from'));
         }
 
-        return $query->simplePaginate(500);
+        return $query->simplePaginate($request->get('per_page', 50));
     }
 }
