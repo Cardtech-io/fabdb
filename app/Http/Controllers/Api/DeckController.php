@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers\Api;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Http\Resources\OscResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DeckController extends \FabDB\Http\Controllers\DeckController
 {
@@ -17,6 +18,17 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
 
     public function tekloSync(Request $request)
     {
-        return Deck::with('cards', 'sideboard')->paginate(100);
+        $query = Deck::select('id', 'slug', 'name', 'format', 'label')
+            ->with(['cards' => function($query) {
+                $query->select(DB::raw('cards.id AS card_id'), 'name', 'image', 'class', 'talent', 'type', 'sub_type');
+            }, 'sideboard' => function($query) {
+                $query->select(DB::raw('cards.id AS card_id'));
+            }]);
+
+        if ($request->has('from')) {
+            $query->where('decks.updated_at', '>=', $request->get('from'));
+        }
+
+        return $query->simplePaginate(500);
     }
 }
