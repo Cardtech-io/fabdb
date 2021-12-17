@@ -96,6 +96,20 @@ class Deck extends Model
         return $deck;
     }
 
+    public static function importTournamentDeck($details, $format, $result)
+    {
+        $deck = self::add(0, $details->decklist, null);
+        $deck->label = 'tournament';
+        $deck->format = $format;
+        $deck->player = $details->player;
+        $deck->decklist = $details->decklist;
+        $deck->result = $result;
+        $deck->visibility = 'public';
+        $deck->createdAt = Carbon::createFromFormat('j M Y',  $details->date);
+
+        return $deck;
+    }
+
     public function card($identifier)
     {
         $column = is_numeric($identifier) ? 'id' : 'identifier';
@@ -212,6 +226,7 @@ class Deck extends Model
         $deck->notes = $this->notes;
         $deck->userId = $userId;
         $deck->format = $this->format;
+        $deck->visibility = 'private';
 
         $deck->raise(new DeckWasCopied($this->id, $userId));
 

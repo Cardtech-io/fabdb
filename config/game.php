@@ -27,6 +27,12 @@ return [
             'browseable' => true,
             'draftable' => true,
         ],
+        'u-ele' => [
+            'id' => 'u-ele',
+            'name' => 'Tales of Aria (Unlimited)',
+            'released' => '2021-09-24',
+            'browseable' => false,
+        ],
         'ksu' => [
             'id' => 'ksu',
             'name' => 'Katsu Hero Deck',

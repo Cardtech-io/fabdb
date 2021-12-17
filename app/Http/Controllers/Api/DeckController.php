@@ -18,7 +18,7 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
 
     public function tekloSync(Request $request)
     {
-        $query = Deck::select('id', 'slug', 'name', 'format', 'label')
+        $query = Deck::select('id', 'slug', 'name', 'format', 'label', 'created_at', 'updated_at')
             ->with(['cards' => function($query) {
                 $query->select(DB::raw('cards.id AS card_id'), 'name', 'image', 'class', 'talent', 'type', 'sub_type');
             }, 'sideboard' => function($query) {

@@ -79,4 +79,21 @@ interface CardRepository extends Repository
      * @return Collection
      */
     public function forPacks(Set $set): Collection;
+
+    /**
+     * Attempts to find a hero based on some fairly loose text usage from LSS.
+     *
+     * @param string $hero
+     * @param string $heroAge
+     * @return mixed
+     */
+    public function findHero($hero, string $heroAge);
+
+    /**
+     * Tried to find a card based on the identifier or via search text.
+     *
+     * @param string $identifier
+     * @return mixed
+     */
+    public function getIdByIdentifierOrText(string $identifier);
 }

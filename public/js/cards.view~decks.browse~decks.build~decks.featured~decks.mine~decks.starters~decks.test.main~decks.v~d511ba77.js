@@ -486,7 +486,11 @@ function (_Model) {
   }, {
     key: "authorName",
     get: function get() {
-      return this.fields.user.name || 'Anonymous';
+      if (this.fields.player) {
+        return this.fields.player;
+      }
+
+      return this.fields.user ? this.fields.user.name : 'Anonymous';
     }
   }, {
     key: "user",

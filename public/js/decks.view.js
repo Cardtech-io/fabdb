@@ -138,16 +138,23 @@ __webpack_require__.r(__webpack_exports__);
           return 'bg-yellow-500 text-black';
 
         case 'casual':
-          return 'bg-blue-300 text-black';
+          return 'bg-green-300 text-black';
 
         case 'competitive':
-          return 'bg-gray-800 text-white';
+          return 'bg-blue-800 text-white';
+
+        case 'tournament':
+          return 'bg-black text-white';
 
         case 'meme':
           return 'bg-pink-600 text-white';
       }
     },
     name: function name() {
+      if (this.label === 'tournament') {
+        return 'Tournament';
+      }
+
       return this.$settings.game.decks.labels[this.label];
     }
   }

@@ -19,8 +19,8 @@
                     </div>
                     <div class="inline-block flex">
                         <div class="space-x-1 mr-2">
-                            <format-label :format="deck.format" class="text-xs rounded-full px-2 sm:py-1"></format-label>
-                            <deck-label :label="deck.label" class="text-xs px-2 sm:py-1 rounded-full"></deck-label>
+                            <format-label :format="deck.format" class="text-xs rounded-full px-2 sm:py-1"/>
+                            <deck-label :label="deck.label" class="text-xs px-2 sm:py-1 rounded-full"/>
                         </div>
                         <span>by {{deck.authorName}}</span>
                     </div>

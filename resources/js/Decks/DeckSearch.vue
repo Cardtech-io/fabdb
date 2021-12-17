@@ -18,6 +18,7 @@
         <div class="sm:w-1/6 pr-1">
             <select v-model="label" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('label')">
                 <option value="">Label</option>
+                <option value="tournament">Tournament</option>
                 <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
             </select>
         </div>

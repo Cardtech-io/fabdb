@@ -216,7 +216,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             });
         }
 
-        $query->join('users', 'users.id', 'decks.user_id');
+        $query->leftJoin('users', 'users.id', 'decks.user_id');
 
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
@@ -325,6 +325,18 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 $join->where('features.featureable_type', Deck::class);
             })
             ->orderBy('features.publish_at', 'DESC')
+            ->first();
+    }
+
+    /**
+     * Search for a tournament deck that originated from LSS' website, based on the decklist string provided.
+     *
+     * @param string $decklist
+     */
+    public function getTournamentDeck(string $decklist)
+    {
+        return $this->newQuery()
+            ->whereDecklist($decklist)
             ->first();
     }
 }

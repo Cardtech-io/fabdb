@@ -29,4 +29,6 @@ interface DeckRepository extends Repository
     public function starters(): Collection;
 
     public function featured(int $howMany): ?Deck;
+
+    public function getTournamentDeck(string $deckList);
 }

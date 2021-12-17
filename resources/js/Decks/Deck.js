@@ -22,7 +22,11 @@ export default class Deck extends Model {
     }
 
     get authorName() {
-        return this.fields.user.name || 'Anonymous';
+        if (this.fields.player) {
+            return this.fields.player;
+        }
+
+        return this.fields.user ? this.fields.user.name : 'Anonymous';
     }
 
     get user() {

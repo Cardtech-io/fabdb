@@ -147,6 +147,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -488,6 +489,10 @@ var render = function() {
           },
           [
             _c("option", { attrs: { value: "" } }, [_vm._v("Label")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "tournament" } }, [
+              _vm._v("Tournament")
+            ]),
             _vm._v(" "),
             _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
               return _c("option", { domProps: { value: label } }, [
