@@ -252,7 +252,7 @@
         },
 
         metaInfo() {
-            let title = this.name + ' - ' + this.card.printings[0].sku.sku;
+            let title = this.name + ' - ' + this.card.printings[0].sku.sku + ' - FaB DB';
 
             return {
                 title: title,

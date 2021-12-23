@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
     LatestDecks: _LatestDecks__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   metaInfo: function metaInfo() {
-    var title = 'Featured decks';
+    var title = 'Flesh & Blood TCG deck lists' + ' - FaB DB';
     var meta = [{
       vmid: 'og:type',
       property: 'og:type',
@@ -146,7 +146,7 @@ __webpack_require__.r(__webpack_exports__);
     }, {
       vmid: 'og:description',
       property: 'og:description',
-      content: 'Featured decks on FaB DB.'
+      content: 'Featured decks and deck lists for Flesh & Blood TCG.'
     }, {
       vmid: 'og:image',
       property: 'og:image',

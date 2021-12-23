@@ -35,12 +35,12 @@
         components: {DeckOfTheWeek, LatestDecks},
 
         metaInfo() {
-            let title = 'Featured decks';
+            let title = 'Flesh & Blood TCG deck lists' + ' - FaB DB';
 
             let meta = [
                 { vmid: 'og:type', property: 'og:type', content: 'website' },
                 { vmid: 'og:title', property: 'og:title', content: title },
-                { vmid: 'og:description', property: 'og:description', content: 'Featured decks on FaB DB.'  },
+                { vmid: 'og:description', property: 'og:description', content: 'Featured decks and deck lists for Flesh & Blood TCG.'  },
                 { vmid: 'og:image', property: 'og:image', content: this.imageUrl('/assets/deck-of-the-week.jpg', 1200) },
                 { vmid: 'og:image:width', property: 'og:image:width', content: '1200' },
                 { vmid: 'og:image:height', property: 'og:image:height', content: '630' }

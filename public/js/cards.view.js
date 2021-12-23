@@ -601,7 +601,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   metaInfo: function metaInfo() {
-    var title = this.name + ' - ' + this.card.printings[0].sku.sku;
+    var title = this.name + ' - ' + this.card.printings[0].sku.sku + ' - FaB DB';
     return {
       title: title,
       meta: [{
