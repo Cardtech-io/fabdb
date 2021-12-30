@@ -28,7 +28,7 @@
                         </footer>
                     </div>
                 </div>
-            </transition> 
+            </transition>
         </div>
     </li>
 </template>

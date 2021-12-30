@@ -47,7 +47,7 @@ class CollectionFilter implements SearchFilter
             switch ($input['view']) {
                 case 'need':
                     $query->addSelect(DB::raw('owned_cards.id AS owned_card_id, SUM(owned_cards.total) AS owned_total'));
-                    $query->havingRaw("owned_total < {$this->user->need}");
+                    $query->havingRaw("owned_cards.id IS NULL || owned_total < {$this->user->need}");
                     break;
                 case 'have':
                     $query->where('owned_cards.total', '>', 0);
