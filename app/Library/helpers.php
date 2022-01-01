@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\Storage;
 function fab_asset(string $asset): string
 {
     $pathInfo = pathinfo($asset);
-    $version = fab_version();
+    $extension = $pathInfo['extension'];
 
-    return !app()->environment('production') ? $asset : "{$pathInfo['dirname']}/{$pathInfo['filename']}-$version.{$pathInfo['extension']}";
+    if (app()->environment('production')) {
+        $extension = "min.$extension";
+    }
+
+    return mix("{$pathInfo['dirname']}/{$pathInfo['filename']}.$extension");
 }
 
 /**

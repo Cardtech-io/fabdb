@@ -26,7 +26,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta name="theme-color" content="#4285f4">
 
 
-        <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
+        <link rel="stylesheet" href="{{ fab_asset('css/fabdb.css') }}">
         @if ($user && $user->width == 'wide')
         <style type="text/css">
             .container {
