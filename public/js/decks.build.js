@@ -406,11 +406,14 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     selected: {
-      type: String,
+      type: Array,
       required: true
     }
   },
   methods: {
+    isSelected: function isSelected(cardType) {
+      return this.selected.indexOf(cardType) !== -1;
+    },
     text: function text() {
       return this.type === '' ? 'All' : this.ucfirst(this.type);
     }
@@ -764,8 +767,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _CardDatabase_AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/AdvancedCardSearch */ "./resources/js/CardDatabase/AdvancedCardSearch.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -781,11 +789,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
-      keywords: '',
+      params: {
+        keywords: ''
+      },
       searchTimeout: null
     };
   },
@@ -800,13 +810,34 @@ __webpack_require__.r(__webpack_exports__);
 
       this.reset();
       this.searchTimeout = setTimeout(function () {
-        _this.$eventHub.$emit('search-requested', _this.keywords);
+        _this.$eventHub.$emit('search-requested', _this.params);
       }, 700);
     },
     finishSearch: function finishSearch() {
       this.reset();
-      this.$eventHub.$emit('search-requested', this.keywords);
+      this.$eventHub.$emit('search-requested', this.params);
+    },
+    showAdvancedSearch: function showAdvancedSearch() {
+      this.$modal.show(_CardDatabase_AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        query: this.params
+      }, {
+        adaptive: true,
+        classes: ['rounded-lg'],
+        scrollable: true,
+        height: 'auto',
+        maxHeight: 300
+      });
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.$eventHub.$on('search-completed', function (results, params) {
+      _this2.params = params;
+    });
+    this.$eventHub.$on('advanced-search', function (params) {
+      _this2.$eventHub.$emit('search-requested', params);
+    });
   }
 });
 
@@ -986,7 +1017,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     sidebarClasses: function sidebarClasses() {
       return {
-        'hidden md:block md:w-1/3 p-4': true
+        'hidden md:block md:w-1/3 p-4 pr-0': true
       };
     },
     topAreaClasses: function topAreaClasses() {
@@ -2394,10 +2425,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   data: function data() {
     return {
-      cardType: '',
-      keywords: '',
       results: {},
-      page: 1
+      page: 1,
+      params: {
+        cardType: [''],
+        keywords: ''
+      }
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
@@ -2418,43 +2451,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       this.page = page;
-      var params = {
+
+      var params = _objectSpread({}, this.params, {
         deck: this.deck.slug,
-        cardType: this.cardType,
         hero: this.hero ? this.hero.identifier : '',
-        keywords: this.keywords,
         page: page
-      };
+      });
+
       axios.get('/cards/build', {
         params: params
       }).then(function (response) {
         _this2.results = response.data;
 
         _this2.$emit('search-completed');
+
+        _this2.$eventHub.$emit('search-completed', _this2.results, params);
       })["catch"](function (error) {});
     },
-    updateCardType: function updateCardType(value) {
-      if (value === 'all') {
-        value = '';
+    selectCardType: function selectCardType(cardType) {
+      if (cardType === '') {
+        this.resetCardTypes();
+        return;
       }
 
-      this.cardType = value;
-      this.search();
+      this.toggleCardType(cardType); // If none are selected, reset back to default
+
+      if (this.params.cardType.length === 0) {
+        this.resetCardTypes();
+      }
+    },
+    resetCardTypes: function resetCardTypes() {
+      this.params.cardType = [''];
+    },
+    toggleCardType: function toggleCardType(cardType) {
+      var existing = this.params.cardType.indexOf(cardType);
+
+      if (existing !== -1) {
+        this.params.cardType.splice(existing, 1);
+      } else {
+        this.params.cardType.push(cardType); // Now we remove '*'
+
+        var all = this.params.cardType.indexOf('');
+
+        if (all !== -1) {
+          this.params.cardType.splice(all, 1);
+        }
+      }
     }
   }),
   mounted: function mounted() {
     var _this3 = this;
 
-    this.$eventHub.$on('search-requested', function (keywords) {
-      _this3.keywords = keywords;
+    this.$eventHub.$on('search-requested', function (params) {
+      _this3.params = _objectSpread({}, _this3.params, {}, params);
 
       _this3.search(1);
     });
     this.search(1);
   },
   watch: {
-    cardType: function cardType(value) {
-      this.search(1);
+    "params.cardType": {
+      handler: function handler() {
+        this.search(1);
+      },
+      deep: true
     }
   }
 });
@@ -3362,10 +3422,9 @@ var render = function() {
     "button",
     {
       staticClass: "flex-1 border-r border-gray-200 py-2 px-1 md:px-2",
-      class:
-        _vm.selected === _vm.type
-          ? "bg-gray-800 text-white"
-          : "hover:bg-secondary hover:text-white",
+      class: _vm.isSelected(_vm.type)
+        ? "bg-gray-800 text-white"
+        : "hover:bg-secondary hover:text-white",
       attrs: { title: _vm.text() }
     },
     [
@@ -3795,20 +3854,45 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "flex-initial ml-4 link",
+        on: {
+          click: function($event) {
+            return _vm.$modal.show("search-help")
+          }
+        }
+      },
+      [
+        _c("icon", { attrs: { size: 6 } }, [
+          _c("path", {
+            attrs: {
+              "fill-rule": "evenodd",
+              d:
+                "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
+              "clip-rule": "evenodd"
+            }
+          })
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
     _c("input", {
       directives: [
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.keywords,
-          expression: "keywords"
+          value: _vm.params.keywords,
+          expression: "params.keywords"
         }
       ],
       ref: "nameSearch",
       staticClass:
         "flex-1 bg-transparent outline-none py-2 px-4 lg:text-gray-200",
       attrs: { type: "text", placeholder: "Search" },
-      domProps: { value: _vm.keywords },
+      domProps: { value: _vm.params.keywords },
       on: {
         keyup: [
           _vm.delayedSearch,
@@ -3826,7 +3910,7 @@ var render = function() {
           if ($event.target.composing) {
             return
           }
-          _vm.keywords = $event.target.value
+          _vm.$set(_vm.params, "keywords", $event.target.value)
         }
       }
     }),
@@ -3834,12 +3918,8 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "flex-initial mr-4 link-alternate",
-        on: {
-          click: function($event) {
-            return _vm.$modal.show("search-help")
-          }
-        }
+        staticClass: "button-primary text-xs px-2",
+        on: { click: _vm.showAdvancedSearch }
       },
       [
         _c("icon", { attrs: { size: 6 } }, [
@@ -3847,7 +3927,7 @@ var render = function() {
             attrs: {
               "fill-rule": "evenodd",
               d:
-                "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
+                "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
               "clip-rule": "evenodd"
             }
           })
@@ -4006,7 +4086,8 @@ var render = function() {
                     },
                     [
                       _c("card-search", {
-                        staticClass: "flex bg-gray-800 rounded-lg w-full",
+                        staticClass:
+                          "flex bg-gray-800 rounded-lg w-full overflow-hidden",
                         class: {
                           "focus:bg-white focus:border-gray-500": !_vm.fullScreen
                         }
@@ -6065,10 +6146,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "", selected: _vm.cardType },
+                  attrs: { type: "", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = ""
+                      return _vm.selectCardType("")
                     }
                   }
                 },
@@ -6086,10 +6167,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "weapon", selected: _vm.cardType },
+                  attrs: { type: "weapon", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "weapon"
+                      return _vm.selectCardType("weapon")
                     }
                   }
                 },
@@ -6106,10 +6187,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "equipment", selected: _vm.cardType },
+                  attrs: { type: "equipment", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "equipment"
+                      return _vm.selectCardType("equipment")
                     }
                   }
                 },
@@ -6126,10 +6207,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "instant", selected: _vm.cardType },
+                  attrs: { type: "instant", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "instant"
+                      return _vm.selectCardType("instant")
                     }
                   }
                 },
@@ -6139,10 +6220,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "item", selected: _vm.cardType },
+                  attrs: { type: "item", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "item"
+                      return _vm.selectCardType("item")
                     }
                   }
                 },
@@ -6160,10 +6241,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "non-attack action", selected: _vm.cardType },
+                  attrs: {
+                    type: "non-attack action",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "non-attack action"
+                      return _vm.selectCardType("non-attack action")
                     }
                   }
                 },
@@ -6181,10 +6265,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "attack action", selected: _vm.cardType },
+                  attrs: {
+                    type: "attack action",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "attack action"
+                      return _vm.selectCardType("attack action")
                     }
                   }
                 },
@@ -6202,10 +6289,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "attack reaction", selected: _vm.cardType },
+                  attrs: {
+                    type: "attack reaction",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "attack reaction"
+                      return _vm.selectCardType("attack reaction")
                     }
                   }
                 },
@@ -6222,10 +6312,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "defense reaction", selected: _vm.cardType },
+                  attrs: {
+                    type: "defense reaction",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "defense reaction"
+                      return _vm.selectCardType("defense reaction")
                     }
                   }
                 },

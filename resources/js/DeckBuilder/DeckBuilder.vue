@@ -21,14 +21,14 @@
                             <mode-selector class="w-auto"></mode-selector>
 
                             <div class="px-2 lg:px-1 flex">
-                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"></zoom-button>
-                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"></zoom-button>
-                                <view-button></view-button>
-                                <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"></fullscreen-button>
+                                <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"/>
+                                <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"/>
+                                <view-button/>
+                                <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"/>
                             </div>
                         </div>
                         <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
-                            <card-search class="flex bg-gray-800 rounded-lg w-full" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"/>
+                            <card-search class="flex bg-gray-800 rounded-lg w-full overflow-hidden" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"/>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
                         <div v-if="!hero" class="h-full">
-                            <hero-selector @hero-selected="setHero" :deck="deck"></hero-selector>
+                            <hero-selector @hero-selected="setHero" :deck="deck"/>
                         </div>
                         <div v-else class="h-full">
                             <div v-if="mode === 'all'">
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
-                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"></search-results>
-                        <sideboard v-if="mode === 'sideboard'" :collection="sideboard"></sideboard>
+                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"/>
+                        <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
 
             sidebarClasses() {
                 return {
-                    'hidden md:block md:w-1/3 p-4': true
+                    'hidden md:block md:w-1/3 p-4 pr-0': true
                 }
             },
 

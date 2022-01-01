@@ -11,8 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
-/* harmony import */ var _Utilities_Query__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Query */ "./resources/js/Utilities/Query.js");
+/* harmony import */ var _AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedCardSearch */ "./resources/js/CardDatabase/AdvancedCardSearch.vue");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Utilities_Query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Query */ "./resources/js/Utilities/Query.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -49,6 +50,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 
@@ -73,15 +76,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     wait: Boolean
   },
   components: {
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
     var base = _objectSpread({}, this.external, {
       keywords: ''
     });
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.onlyParams('keywords')));
+    var params = _objectSpread({}, base, {}, this.fromQuery(this.exceptParams('per_page', 'page')));
 
     return {
       params: params,
@@ -89,10 +92,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: {
-    advancedSearchLink: function advancedSearchLink() {
-      var query = new URLSearchParams(this.onlyParams('keywords', 'cost', 'cardType', 'set', 'pitch', 'class', 'rarity', 'talent'));
-      return this.$route.path + '/advanced?' + query.toString();
-    },
     keywordClasses: function keywordClasses() {
       var classes = '';
 
@@ -132,10 +131,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         _this.$emit('search-completed', response.data);
       })["catch"](function (error) {});
+    },
+    showAdvancedSearch: function showAdvancedSearch() {
+      this.$modal.show(_AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        query: this.params
+      }, {
+        adaptive: true,
+        classes: ['rounded-lg'],
+        scrollable: true,
+        height: 'auto',
+        maxHeight: 300
+      });
     }
   },
   mounted: function mounted() {
+    var _this2 = this;
+
     if (this.wait) return;
+    this.$eventHub.$on('advanced-search', function (params) {
+      _this2.updateQuery(params);
+    });
     this.search();
   },
   watch: {
@@ -252,7 +267,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "text-base" }, [
+  return _c("div", { staticClass: "text-base pb-4" }, [
     _c(
       "form",
       {
@@ -269,14 +284,41 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-3/4 pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2"
+                "w-3/4 relative pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2"
             },
             [
+              _c(
+                "button",
+                {
+                  staticClass: "flex-initial ml-2 link-alternate",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.$modal.show("search-help")
+                    }
+                  }
+                },
+                [
+                  _c("icon", { attrs: { size: 6 } }, [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d:
+                          "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
+                        "clip-rule": "evenodd"
+                      }
+                    })
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
               _vm.params.keywords
                 ? _c(
                     "button",
                     {
-                      staticClass: "flex-initial ml-2 sm:ml-4 text-red-500",
+                      staticClass: "flex-initial ml-1 text-red-500",
                       attrs: { type: "button" },
                       on: {
                         click: function($event) {
@@ -328,22 +370,23 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "flex-initial mr-2 link-alternate",
+                  staticClass:
+                    "absolute right-0 mt-1.5 text-black hover:text-gray-600 mr-1",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.$modal.show("search-help")
+                      return _vm.showAdvancedSearch.apply(null, arguments)
                     }
                   }
                 },
                 [
-                  _c("icon", { attrs: { size: 6 } }, [
+                  _c("icon", { attrs: { size: 7 } }, [
                     _c("path", {
                       attrs: {
                         "fill-rule": "evenodd",
                         d:
-                          "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
+                          "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
                         "clip-rule": "evenodd"
                       }
                     })
@@ -355,24 +398,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm._m(0)
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "w-full text-center mt-2" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "inline-block rounded-t-lg bg-gray-300 hover:bg-gray-200 text-gray-500 uppercase font-serif text-sm pt-2 pb-1 px-4 mx-auto",
-                attrs: { to: _vm.advancedSearchLink }
-              },
-              [_vm._v("Advanced")]
-            )
-          ],
-          1
-        )
+        ])
       ]
     )
   ])
@@ -385,7 +411,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "w-1/4" }, [
       _c("input", {
         staticClass:
-          "appearance-none block w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none",
+          "w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none",
         attrs: { type: "submit", value: "Search" }
       })
     ])
@@ -614,78 +640,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/Utilities/Query.js":
-/*!*****************************************!*\
-  !*** ./resources/js/Utilities/Query.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    buildQuery: function buildQuery(params) {
-      return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(this.combineParams(params), function (param) {
-        if (Array.isArray(param)) {
-          return param.join(',');
-        }
-
-        return param;
-      });
-    },
-    fromQuery: function fromQuery(params) {
-      return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].mapObject(params, function (param, key) {
-        if (['class', 'cardType', 'rarity', 'set', 'talent', ';'].indexOf(key) !== -1) {
-          return param.split(',').filter(function (value) {
-            return !!value;
-          });
-        }
-
-        return param;
-      });
-    },
-    updateQuery: function updateQuery(params) {
-      var query = this.combineParams(params);
-      this.$router.push({
-        query: query
-      })["catch"](function (e) {});
-    },
-    combineParams: function combineParams(params) {
-      return _objectSpread({}, this.clone(this.$route.query), {}, params);
-    },
-    clone: function clone(query) {
-      return JSON.parse(JSON.stringify(query));
-    },
-    onlyParams: function onlyParams() {
-      var params = {};
-      var query = this.clone(this.$route.query);
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      for (var i in query) {
-        if (args.indexOf(i) !== -1) {
-          params[i] = query[i];
-        }
-      }
-
-      return params;
-    }
-  }
-});
 
 /***/ })
 

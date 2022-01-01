@@ -48,7 +48,10 @@ Vue.use(VueMq, {
     }
 });
 
-Vue.use(VModal, { injectModalsContainer: true });
+Vue.use(VModal, {
+    injectModalsContainer: true
+});
+
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);

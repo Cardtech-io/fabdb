@@ -340,6 +340,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new BannedCardsFilter($deck),
             new VariantsFilter,
             new HeroFilter($this),
+            new TalentFilter,
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
