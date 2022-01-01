@@ -26,7 +26,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta name="theme-color" content="#4285f4">
 
 
-        <link rel="stylesheet" href="{{ mix('css/fabdb.css') }}">
+        <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
         @if ($user && $user->width == 'wide')
         <style type="text/css">
             .container {
@@ -71,7 +71,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
-        <script src="{{ mix($jsFile) }}"></script>
+        <script src="{{ fab_asset($jsFile) }}"></script>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">¡
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
     </body>
