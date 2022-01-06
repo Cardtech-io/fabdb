@@ -158,6 +158,9 @@ __webpack_require__.r(__webpack_exports__);
         case 'competitive':
           return 'bg-blue-800 text-white';
 
+        case 'pauper':
+          return 'bg-red-700 text-white';
+
         case 'tournament':
           return 'bg-black text-white';
 

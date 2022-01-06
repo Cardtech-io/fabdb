@@ -246,6 +246,7 @@ return [
         'labels' => [
             'casual' => 'Casual',
             'competitive' => 'Competitive',
+            'pauper' => 'Pauper',
             'janky' => 'Janky/fun',
             'meme' => 'Meme'
         ],

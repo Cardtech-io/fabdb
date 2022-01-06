@@ -25,6 +25,5 @@ class RarityFilter implements SearchFilter
                 $query->orWhere('printings.rarity', Str::upper($rarity));
             }
         });
-
     }
 }

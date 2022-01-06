@@ -12,6 +12,7 @@ use FabDB\Domain\Cards\Search\IncludeOwnedCardsFilter;
 use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\NameFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
+use FabDB\Domain\Cards\Search\PauperFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\PrintingFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
@@ -345,6 +346,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
+            new PauperFilter($deck),
             new OrderFilter,
             new UseCollectionFilter($user, $deck),
             new UseSealedPoolFilter($deck)

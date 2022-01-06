@@ -490,7 +490,11 @@ function (_Model) {
         return this.fields.player;
       }
 
-      return this.fields.user ? this.fields.user.name : 'Anonymous';
+      if (this.fields.user && this.fields.user.name) {
+        return this.fields.user.name;
+      }
+
+      return 'Anonymous';
     }
   }, {
     key: "user",

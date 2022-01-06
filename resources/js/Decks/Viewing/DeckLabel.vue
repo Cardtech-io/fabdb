@@ -20,6 +20,8 @@
                         return 'bg-green-300 text-black';
                     case 'competitive':
                         return 'bg-blue-800 text-white';
+                    case 'pauper':
+                        return 'bg-red-700 text-white';
                     case 'tournament':
                         return 'bg-black text-white'
                     case 'meme':
@@ -31,7 +33,7 @@
                 if (this.label === 'tournament') {
                     return 'Tournament';
                 }
-                
+
                 return this.$settings.game.decks.labels[this.label];
             }
         }
