@@ -7,6 +7,7 @@ use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
 use FabDB\Library\Casts\CastsRarity;
+use FabDB\Library\Casts\CastsStats;
 use FabDB\Library\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
-        'stats' => 'array',
+        'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,
     ];
