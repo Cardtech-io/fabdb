@@ -192,6 +192,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 new DeckCardCountFilter,
                 new CardsFilter,
                 new UserFilter,
+                new VotesFilter,
             ];
 
             $this->applyFilters($query, $filters, $params);
