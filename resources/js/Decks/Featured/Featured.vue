@@ -2,7 +2,7 @@
     <div class="container mx-auto p-4 md:py-8">
         <div class="lg:flex">
             <div class="lg:w-2/3 bg-nearly-black rounded-lg sm:pr-4 mb-8">
-                <deck-of-the-week></deck-of-the-week>
+                <deck-of-the-week/>
             </div>
             <div class="lg:w-1/3 lg:ml-4 mb-8">
                 <latest-decks title="Latest decks" color="bg-yellow-500"></latest-decks>
@@ -18,7 +18,7 @@
                     <latest-decks title="Casual" color="bg-blue-300" query="label=casual"></latest-decks>
                 </div>
                 <div class="w-full lg:w-1/3 lg:ml-4">
-                    <latest-decks title="Meme" color="bg-pink-600" query="label=meme" ></latest-decks>
+                    <latest-decks title="Pauper" color="bg-red-700" query="label=pauper" ></latest-decks>
                 </div>
             </div>
         </div>

@@ -26,7 +26,7 @@ class Deck extends Model
         'use_collection' => 'boolean',
     ];
 
-    protected $hidden = ['id', 'user_id'];
+    protected $hidden = ['id', 'user_id', 'hero_id'];
 
     public function hero()
     {

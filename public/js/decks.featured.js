@@ -452,9 +452,9 @@ var render = function() {
           [
             _c("latest-decks", {
               attrs: {
-                title: "Meme",
-                color: "bg-pink-600",
-                query: "label=meme"
+                title: "Pauper",
+                color: "bg-red-700",
+                query: "label=pauper"
               }
             })
           ],

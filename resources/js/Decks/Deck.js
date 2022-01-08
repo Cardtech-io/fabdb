@@ -50,7 +50,7 @@ export default class Deck extends Model {
     }
 
     get hero() {
-        return this.cards.hero() ? new Card(this.cards.hero()) : null;
+        return this.fields.hero ? new Card(this.fields.hero) : null;
     }
 
     get sideboard() {

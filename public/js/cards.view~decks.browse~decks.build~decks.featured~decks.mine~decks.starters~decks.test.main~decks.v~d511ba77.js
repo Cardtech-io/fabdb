@@ -519,7 +519,7 @@ function (_Model) {
   }, {
     key: "hero",
     get: function get() {
-      return this.cards.hero() ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards.hero()) : null;
+      return this.fields.hero ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.fields.hero) : null;
     }
   }, {
     key: "sideboard",

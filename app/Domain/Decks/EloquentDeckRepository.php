@@ -178,6 +178,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query->select([
             'decks.id',
             'decks.user_id',
+            'decks.hero_id',
             'decks.name',
             'decks.notes',
             'decks.label',
@@ -188,9 +189,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         // When querying for the paginator, we don't want to overload the query as it queries the entire database
         if (!$forPaginator) {
             $filters = [
-//                new PriceCalculationFilter,
                 new DeckCardCountFilter,
-//                new VotesFilter,
                 new CardsFilter,
                 new UserFilter,
             ];
@@ -318,7 +317,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         return $this->newQuery()
             ->with(['hero', 'user'])
-            ->select('decks.id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
+            ->select('decks.id', 'decks.hero_id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'features.title', 'features.excerpt')
             ->withCardCount()
             ->join('features', function($join) {
                 $join->on('features.featureable_id', 'decks.id');
