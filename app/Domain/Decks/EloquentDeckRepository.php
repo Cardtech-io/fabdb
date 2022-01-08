@@ -71,7 +71,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                         $join->where('owned_cards.user_id', $user->id);
                     });
                 }
-            }, 'cards.printings', 'cards.rulings', 'sideboard']);
+            }, 'hero', 'cards.printings', 'cards.rulings', 'sideboard']);
         }
 
         return $query->firstOrFail();
