@@ -6,7 +6,6 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Content\Feature;
 use FabDB\Domain\Practise\Practise;
 use FabDB\Domain\Users\User;
-use FabDB\Domain\Voting\Vote;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
@@ -52,11 +51,6 @@ class Deck extends Model
     public function feature()
     {
         return $this->morphOne(Feature::class, 'featureable');
-    }
-
-    public function votes()
-    {
-        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function deckCards()

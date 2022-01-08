@@ -188,9 +188,9 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         // When querying for the paginator, we don't want to overload the query as it queries the entire database
         if (!$forPaginator) {
             $filters = [
-                new PriceCalculationFilter,
+//                new PriceCalculationFilter,
                 new DeckCardCountFilter,
-                new VotesFilter,
+//                new VotesFilter,
                 new CardsFilter,
                 new UserFilter,
             ];
