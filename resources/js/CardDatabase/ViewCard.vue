@@ -8,6 +8,7 @@
                 <div class="flow-root">
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <div class="relative">
+                            <alter-sleeve image="/img/rosetta.png"/>
                             <card-image :card="card"/>
                             <banned v-if="card.banned"/>
                         </div>
@@ -26,6 +27,7 @@
                         <ul class="pt-4 text-base">
                             <li class="flex odd:bg-white" v-if="card.artist">
                                 <div class="w-1/3 p-2 px-4">Artist</div>
+
                                 <div class="w-2/3 p-2 px-4"><router-link :to="{ name: 'artists.view', params: { artist: card.artist.slug } }" class="link-alternate">{{card.artist.name}}</router-link></div>
                             </li>
                             <li class="flex odd:bg-white">
@@ -112,6 +114,7 @@
     import axios from 'axios';
 
     import Advertisement from "../Components/Advertisement";
+    import AlterSleeve from "./AlterSleeve";
     import Banned from './Banned';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
@@ -135,6 +138,7 @@
 
         components: {
             Advertisement,
+            AlterSleeve,
             Banned,
             Breadcrumbs,
             CardImage,
