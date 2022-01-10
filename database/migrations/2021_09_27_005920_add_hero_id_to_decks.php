@@ -22,7 +22,7 @@ class AddHeroIdToDecks extends Migration
 
         DB::update("UPDATE decks SET hero_id = (
             SELECT cards.id FROM cards INNER JOIN deck_cards ON deck_cards.card_id = cards.id WHERE cards.type = 'hero' AND deck_cards.deck_id = decks.id LIMIT 1
-        )");
+        ) WHERE hero_id IS NULL");
     }
 
     /**
