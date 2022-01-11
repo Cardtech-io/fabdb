@@ -2,6 +2,7 @@
 namespace FabDB\Domain\Cards\Search;
 
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Domain\Decks\Deck;
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -15,14 +16,20 @@ class HeroFilter implements SearchFilter
      */
     private $cards;
 
-    public function __construct(CardRepository $cards)
+    /**
+     * @var Deck|null
+     */
+    private ?Deck $deck;
+
+    public function __construct(CardRepository $cards, ?Deck $deck = null)
     {
         $this->cards = $cards;
+        $this->deck = $deck;
     }
 
     public function applies(array $input)
     {
-        return isset($input['hero']);
+        return isset($input['hero']) && $this->deck->format !== 'open';
     }
 
     public function applyTo(Builder $query, array $input)

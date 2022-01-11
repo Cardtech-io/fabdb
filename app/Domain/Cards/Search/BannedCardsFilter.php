@@ -20,7 +20,7 @@ class BannedCardsFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['use-case']) && $input['use-case'] == 'build';
+        return isset($input['use-case']) && $input['use-case'] == 'build' && $this->deck->format !== 'open';
     }
 
     public function applyTo(Builder $query, array $input)

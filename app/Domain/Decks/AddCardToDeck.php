@@ -37,7 +37,7 @@ class AddCardToDeck implements Loggable
         // Now we update the deck's settings if the card was a hero
         if ($card->isHero()) {
             $deck->heroId = $card->id;
-            $deck->format = Arr::get($card->keywords, 2) == 'young' ? 'blitz' : 'constructed';
+            $deck->format = $card->subType === 'young' ? 'blitz' : 'constructed';
             $decks->save($deck);
         }
     }

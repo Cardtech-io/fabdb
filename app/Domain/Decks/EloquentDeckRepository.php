@@ -108,6 +108,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 $existing->total--;
                 $existing->save();
 
+                if ($existing->subType === 'young') {
+                    $deck->heroId = null;
+                    $this->save($deck);
+                }
+
                 $sideboard = $deck->sideboardCard($cardId);
 
                 if ($sideboard && $sideboard->total < $existing->total) {
@@ -115,9 +120,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 }
             } else {
                 $existing->delete();
+                $deck->touch();
             }
-
-            $deck->touch();
         }, 3);
     }
 

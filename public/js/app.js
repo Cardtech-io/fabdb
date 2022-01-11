@@ -74190,7 +74190,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var limits = {
         blitz: 2,
         constructed: 3,
-        open: 100
+        open: 7
       };
       var available = limits[this.deck.format];
 
