@@ -378,7 +378,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("img", {
     ref: "image",
-    staticClass: "w-full rounded-card",
+    staticClass: "w-full rounded-card animate-pulse",
     attrs: {
       src: "/img/card-loading.png",
       alt: "Loader image",

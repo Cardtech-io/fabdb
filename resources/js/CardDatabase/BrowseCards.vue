@@ -27,7 +27,7 @@
                 <div v-if="firstLoad">
                     <ul class="flow-root -mx-2 pt-16">
                         <li class="float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6" v-for="n in 30">
-                            <card-loader></card-loader>
+                            <card-loader/>
                         </li>
                     </ul>
                 </div>

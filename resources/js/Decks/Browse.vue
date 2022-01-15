@@ -5,7 +5,7 @@
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <deck-search @search-completed="refreshResults"></deck-search>
+                <deck-search @search-completed="refreshResults"/>
             </div>
         </div>
 
