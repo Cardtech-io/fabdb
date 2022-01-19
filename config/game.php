@@ -232,10 +232,16 @@ return [
 
     'cards' => [
         'banned' => [
+            'ball-lightning-red' => ['blitz', 'constructed'],
+            'ball-lightning-yellow' => ['blitz', 'constructed'],
+            'ball-lightning-blue' => ['blitz', 'constructed'],
             'drone-of-brutality-red' => ['blitz', 'constructed'],
             'drone-of-brutality-yellow' => ['blitz', 'constructed'],
             'drone-of-brutality-blue' => ['blitz', 'constructed'],
-            'duskblade' => ['constructed'],
+            'duskblade' => ['blitz', 'constructed'],
+            'plunder-run-red' => ['constructed'],
+            'plunder-run-yellow' => ['constructed'],
+            'plunder-run-blue' => ['constructed'],
             'seeds-of-agony-red' => ['blitz', 'constructed'],
             'seeds-of-agony-yellow' => ['blitz', 'constructed'],
             'seeds-of-agony-blue' => ['blitz', 'constructed'],
