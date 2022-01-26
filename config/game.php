@@ -36,7 +36,7 @@ return [
         'evr' => [
             'id' => 'evr',
             'name' => 'Everfest',
-            'released' => '2021-01-22',
+            'released' => '2022-01-22',
             'browseable' => true,
             'draftable' => false,
         ],
