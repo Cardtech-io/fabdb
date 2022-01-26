@@ -15,29 +15,8 @@ use Maatwebsite\Excel\Concerns\WithConditionalSheets;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, WithMultipleSheets, WithCalculatedFormulas
+class CardsImport
 {
-    use Importable;
-    use WithConditionalSheets;
-
-    private const AVAILABLE_SHEETS = [
-        'ira_singles',
-        'wtr_alpha_singles',
-        'wtr_hero_singles',
-        'wtr_unlimited_singles',
-        'arc_first_singles',
-        'arc_unlimited_singles',
-        'cru_first_singles',
-        'cru_unlimited_singles',
-        'ele_first_singles',
-        'ele_unlimited_singles',
-        'ele_blitz_singles',
-        'mon_first_singles',
-        'mon_blitz_singles',
-        'mon_unlimited_singles',
-        'promo_singles'
-    ];
-
     private Identifier $identifier;
     private bool $withImages;
     private Command $logger;
@@ -48,11 +27,6 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         $this->logger = $logger;
         $this->withImages = $withImages;
         $this->printsOnly = $printsOnly;
-    }
-
-    public static function availableSheets()
-    {
-        return self::AVAILABLE_SHEETS;
     }
 
     public function collection(Collection $rows)
@@ -67,7 +41,7 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
 
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::fromName($row['card_name']);
+            $this->identifier = Identifier::fromName($row['Card Name']);
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
@@ -75,14 +49,14 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
             }
 
             if (!$this->printsOnly) {
-                $this->log("Registering card [{$row['card_name']} using identifier [{$this->identifier->raw()}]");
+                $this->log("Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
 
                 $card = Card::register(
                     $this->identifier,
-                    $row['card_name'],
+                    $row['Card Name'],
                     $this->imagePath($row),
-                    Rarity::fromLss($row['rarity']),
-                    $row['card_effect'],
+                    Rarity::fromLss($row['Rarity']),
+                    $row['Card Effect'],
                     '',
                     '',
                     $this->keywords($row),
@@ -102,12 +76,12 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
             $printing = Printing::register(
                 $card->id,
                 new Sku($row['uid']),
-                $row['set_name'],
-                Rarity::fromLss($row['rarity']),
-                new Edition($row['edition']),
+                $row['Set Name'],
+                Rarity::fromLss($row['Rarity']),
+                new Edition($row['Edition']),
                 'en',
-                $row['card_name'],
-                $row['card_effect'],
+                $row['Card Name'],
+                $row['Card Effect'],
                 ''
             );
 
@@ -124,15 +98,15 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     private function keywords($row)
     {
         return $this->weaponParts($row, Arr::flatten([
-            explode(' ', Str::lower($row['class'])),
-            explode(' ', Str::lower($row['card_type']))
+            explode(' ', Str::lower($row['Class'])),
+            explode(' ', Str::lower($row['Card Type']))
         ]));
     }
 
     private function weaponParts($row, array $keywords)
     {
         // If the string contains brackets, it's a weapon - format as we require
-        $possibleWeapon = $row['card_sub_type'];
+        $possibleWeapon = $row['Card Sub-type'];
 
         if (Str::contains($possibleWeapon, ['(', ')'])) {
             $possibleWeapon = preg_replace('/[\(\)]/i', '', $possibleWeapon);
@@ -155,12 +129,12 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     private function stats($row)
     {
         return array_filter([
-            'intellect' => $row['intellect'],
-            'life' => $row['life'],
-            'resource' => $row['pitch_value'],
-            'cost' => $row['cost'],
-            'defense' => $row['defense_value'],
-            'attack' => $row['power'],
+            'intellect' => (int) $row['Intellect'],
+            'life' => (int) $row['Life'],
+            'resource' => (int) $row['Pitch Value'],
+            'cost' => (int) $row['Cost'],
+            'defense' => (int) $row['Defense Value'],
+            'attack' => (int) $row['Power'],
         ]);
     }
 
@@ -169,11 +143,11 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
         $path = $this->imagePath($row);
 
         if (!Storage::disk('do')->exists($path)) {
-            $this->log("Copying image for [{$row['uid']}] from [{$row['product_image']}] to [$path]");
+            $this->log("Copying image for [{$row['uid']}] from [{$row['Product Image']}] to [$path]");
             try {
-                Storage::disk('do')->put($path, file_get_contents($row['product_image']));
+                Storage::disk('do')->put($path, file_get_contents($row['Product Image']));
             } catch (ErrorException $e) {
-                $this->log("Error copying image for [{$row['uid']}] from [{$row['product_image']}]: Missing file.");
+                $this->log("Error copying image for [{$row['uid']}] from [{$row['Product Image']}]: Missing file.");
             }
         } else {
             $this->log("Image already exists for [{$row['uid']}] at [$path]");
@@ -204,15 +178,5 @@ class CardsImport implements ToCollection, WithHeadingRow, WithBatchInserts, Wit
     private function imagePath($row): string
     {
         return "cards/printings/{$row['uid']}.png";
-    }
-
-    public function except(array $sheets)
-    {
-        $this->onlySheets(...array_flip(Arr::except(array_flip(self::AVAILABLE_SHEETS), $sheets)));
-    }
-
-    public function only(array $sheets)
-    {
-        $this->onlySheets(...array_flip(Arr::only(array_flip(self::AVAILABLE_SHEETS), $sheets)));
     }
 }

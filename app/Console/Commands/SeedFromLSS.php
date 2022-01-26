@@ -3,6 +3,7 @@ namespace FabDB\Console\Commands;
 
 use FabDB\Domain\Cards\CardsImport;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class SeedFromLSS extends Command
 {
@@ -29,20 +30,12 @@ class SeedFromLSS extends Command
     {
         $this->output->title('Starting import');
 
-        $sheet = $this->askWithCompletion('Which sheet would you like to import?', ['all', ...CardsImport::availableSheets()]);
+        $file = $this->askWithCompletion('Which file would you like to import?', ['all', ...$this->availableFiles()]);
+        $prints = $this->getData($file);
 
-        if ($sheet !== 'all') {
-            $this->import(function($import) use ($sheet) {
-                $import->onlySheets($sheet);
-            });
-        } else {
-            $this->import(function($import) {
-                $import->except(['ira_singles', 'wtr_hero_singles', 'promo_singles']);
-            });
-            $this->import(function($import) {
-                $import->only(['ira_singles', 'wtr_hero_singles', 'promo_singles']);
-            });
-        }
+        $this->import(function($import) use ($prints) {
+            $import->collection($prints);
+        });
 
         $this->output->success('Import successful.');
     }
@@ -50,10 +43,19 @@ class SeedFromLSS extends Command
     private function import(\Closure $callback)
     {
         $import = new CardsImport($this, $this->option('with-images'), $this->option('prints-only'));
-        $import->withOutput($this->output);
 
         $callback($import);
+    }
 
-        $import->import('fabtcg_datasheet.xlsx', 'carddb');
+    private function availableFiles()
+    {
+        $files = Storage::disk('carddb')->files();
+
+        return array_filter($files, fn($file) => preg_match('/\.json/', $file));
+    }
+
+    private function getData(string $file)
+    {
+        return collect(json_decode(Storage::disk('carddb')->get($file), true));
     }
 }

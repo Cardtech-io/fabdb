@@ -12,6 +12,6 @@ class CastsStats implements CastsAttributes
 
     public function set($model, string $key, $value, array $attributes)
     {
-        $model[$key] = json_encode($value);
+        return json_encode($value);
     }
 }

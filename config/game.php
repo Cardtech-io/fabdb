@@ -33,6 +33,13 @@ return [
             'released' => '2021-09-24',
             'browseable' => false,
         ],
+        'evr' => [
+            'id' => 'evr',
+            'name' => 'Everfest',
+            'released' => '2021-01-22',
+            'browseable' => true,
+            'draftable' => false,
+        ],
         'ksu' => [
             'id' => 'ksu',
             'name' => 'Katsu Hero Deck',
