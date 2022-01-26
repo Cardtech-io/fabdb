@@ -26,9 +26,7 @@ class CardTest extends TestCase
         $card1 = new Card(['text' => '**Essence of Ice and Lightning (']);
         $card1->talent = 'shadow';
 
-        $card2 = new Card(['text' => 'Essence of Earth, Ice, and Lightning (You may have Earth, Ice, and Lightning cards in your deck.)
-
-At the start of your turn, you may reveal an Earth, an Ice, and a Shadow card from your hand. If you do, the next attack action card with cost 3 or greater you play this turn gains +2, dominate, and go again.']);
+        $card2 = new Card(['text' => 'Essence of Earth, Ice, and Lightning (You may have Earth, Ice, and Lightning cards in your deck.)']);
 
         $this->assertContains('shadow', $card1->talents());
         $this->assertContains('ice', $card1->talents());
