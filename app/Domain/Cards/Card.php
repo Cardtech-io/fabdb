@@ -175,17 +175,15 @@ class Card extends Model
     {
         $paragraphs = explode("\n", $this->text);
 
-        preg_match_all('/([a-z]+(?=(, |, and | and | \()))/i', $paragraphs[0], $matches);
+        $parts = preg_split('/[,.\s]/', strtolower($paragraphs[0]));
 
-        if ($matches) {
-            $matches = array_values(array_unique($matches[0]));
-        }
+        $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
 
         if ($this->talent) {
             array_unshift($matches, $this->talent);
         }
 
-        return array_filter(Arr::flatten([array_map(fn($match) => strtolower($match), $matches)]));
+        return array_unique($matches);
     }
 
     public function is1hWeapon()
