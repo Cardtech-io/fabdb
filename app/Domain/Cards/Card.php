@@ -168,18 +168,24 @@ class Card extends Model
 
     public function hasEssence()
     {
-        return (bool) preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text);
+        return (bool) preg_match('/essence of ([a-z]+)/i', $this->text);
     }
 
     public function talents()
     {
-        preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text, $matches);
+        $paragraphs = explode("\n", $this->text);
+
+        preg_match_all('/([a-z]+(?=(, |, and | and | \()))/i', $paragraphs[0], $matches);
 
         if ($matches) {
-            array_shift($matches);
+            $matches = array_values(array_unique($matches[0]));
         }
 
-        return array_filter(Arr::flatten([$this->talent, array_map(fn($match) => strtolower($match), $matches)]));
+        if ($this->talent) {
+            array_unshift($matches, $this->talent);
+        }
+
+        return array_filter(Arr::flatten([array_map(fn($match) => strtolower($match), $matches)]));
     }
 
     public function is1hWeapon()
