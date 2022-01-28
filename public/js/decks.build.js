@@ -783,8 +783,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3857,26 +3855,17 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "flex-initial ml-4 link",
+        staticClass:
+          "flex-initial bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase",
+        attrs: { type: "button" },
         on: {
           click: function($event) {
+            $event.preventDefault()
             return _vm.$modal.show("search-help")
           }
         }
       },
-      [
-        _c("icon", { attrs: { size: 6 } }, [
-          _c("path", {
-            attrs: {
-              "fill-rule": "evenodd",
-              d:
-                "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
-              "clip-rule": "evenodd"
-            }
-          })
-        ])
-      ],
-      1
+      [_vm._v("\n        SYNTAX HELP\n    ")]
     ),
     _vm._v(" "),
     _c("input", {
@@ -3891,7 +3880,7 @@ var render = function() {
       ref: "nameSearch",
       staticClass:
         "flex-1 bg-transparent outline-none py-2 px-4 lg:text-gray-200",
-      attrs: { type: "text", placeholder: "Search" },
+      attrs: { type: "text", placeholder: "Search..." },
       domProps: { value: _vm.params.keywords },
       on: {
         keyup: [

@@ -49,8 +49,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -284,13 +282,14 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-3/4 relative pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2"
+                "w-3/4 relative pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2 items-center"
             },
             [
               _c(
                 "button",
                 {
-                  staticClass: "flex-initial ml-2 link-alternate",
+                  staticClass:
+                    "flex-initial ml-2 bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
@@ -299,19 +298,7 @@ var render = function() {
                     }
                   }
                 },
-                [
-                  _c("icon", { attrs: { size: 6 } }, [
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ])
-                ],
-                1
+                [_vm._v("\n                    SYNTAX HELP\n                ")]
               ),
               _vm._v(" "),
               _vm.params.keywords
@@ -355,7 +342,7 @@ var render = function() {
                 ],
                 staticClass: "flex-1 bg-transparent outline-none py-2",
                 class: _vm.keywordClasses,
-                attrs: { type: "text", placeholder: "Keywords..." },
+                attrs: { type: "text", placeholder: "Search..." },
                 domProps: { value: _vm.params.keywords },
                 on: {
                   input: function($event) {
@@ -371,7 +358,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "absolute right-0 mt-1.5 text-black hover:text-gray-600 mr-1",
+                    "absolute right-0 text-black hover:text-gray-600 mr-1",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {

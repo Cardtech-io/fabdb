@@ -469,8 +469,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -1512,7 +1510,7 @@ var render = function() {
                             { staticClass: "flex" },
                             [
                               _c("language-selector", {
-                                staticClass: "w-2/3 pr-1",
+                                staticClass: "flex-grow pr-1",
                                 attrs: { languages: _vm.languages },
                                 on: {
                                   "language-selected":
@@ -1525,7 +1523,7 @@ var render = function() {
                                     "button",
                                     {
                                       staticClass:
-                                        "bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg w-1/3 text-sm",
+                                        "bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg text-sm",
                                       on: {
                                         click: function($event) {
                                           return _vm.$modal.show("suggestion")
@@ -1678,7 +1676,7 @@ var render = function() {
                         "a",
                         {
                           staticClass:
-                            "flex items-center w-1/2 button-secondary rounded p-2 mb-4",
+                            "flex w-1/2 items-center bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1 mb-4",
                           attrs: {
                             href: _vm.buyLink(_vm.card),
                             target: "_blank"
@@ -1715,11 +1713,6 @@ var render = function() {
                           color: "bg-black",
                           query: "card=" + _vm.card.identifier
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("pricing", {
-                        staticClass: "mb-8 mt-4 md:mt-0",
-                        attrs: { card: _vm.card }
                       })
                     ],
                     1
