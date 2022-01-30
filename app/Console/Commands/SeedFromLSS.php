@@ -12,7 +12,7 @@ class SeedFromLSS extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed-from-lss {--with-images} {--prints-only}';
+    protected $signature = 'fabdb:seed-from-lss {--with-images} {--prints-only} {--skip-existing}';
 
     /**
      * The console command description.
