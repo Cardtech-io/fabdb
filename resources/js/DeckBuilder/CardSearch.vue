@@ -66,7 +66,9 @@
 
         mounted() {
             this.$eventHub.$on('search-completed', (results, params) => {
-                this.params = params;
+                if (!this.searchTimeout) {
+                    this.params = params;
+                }
             });
 
             this.$eventHub.$on('advanced-search', params => {

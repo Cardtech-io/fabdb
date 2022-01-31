@@ -4,7 +4,7 @@
             <div class="flex w-full px-4 md:px-0">
                 <div class="w-3/4 relative pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2 items-center">
                     <button type="button" class="flex-initial ml-2 bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase" @click.prevent="$modal.show('search-help')">
-                        SYNTAX HELP
+                        <span class="hidden sm:inline">SYNTAX</span> HELP
                     </button>
                     <button type="button" class="flex-initial ml-1 text-red-500" @click.prevent="params.keywords = ''; newSearch()" v-if="params.keywords">
                         <icon :size="6">

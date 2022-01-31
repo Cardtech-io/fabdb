@@ -831,7 +831,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this2 = this;
 
     this.$eventHub.$on('search-completed', function (results, params) {
-      _this2.params = params;
+      if (!_this2.searchTimeout) {
+        _this2.params = params;
+      }
     });
     this.$eventHub.$on('advanced-search', function (params) {
       _this2.$eventHub.$emit('search-requested', params);

@@ -298,7 +298,12 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n                    SYNTAX HELP\n                ")]
+                [
+                  _c("span", { staticClass: "hidden sm:inline" }, [
+                    _vm._v("SYNTAX")
+                  ]),
+                  _vm._v(" HELP\n                ")
+                ]
               ),
               _vm._v(" "),
               _vm.params.keywords
