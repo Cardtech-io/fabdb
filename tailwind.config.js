@@ -23,6 +23,7 @@ module.exports = {
             'md:w-1/6',
             'md:w-1/7',
             'md:w-1/8',
+            'h-14'
         ]
     },
     theme: {

@@ -131,6 +131,7 @@
             if (this.wait) return;
 
             this.$eventHub.$on('advanced-search', params => {
+                params.page = 1;
                 this.updateQuery(params);
             });
 

@@ -147,6 +147,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     if (this.wait) return;
     this.$eventHub.$on('advanced-search', function (params) {
+      params.page = 1;
+
       _this2.updateQuery(params);
     });
     this.search();

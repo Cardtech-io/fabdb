@@ -16,12 +16,12 @@
                 <div class="sm:flex pt-8" v-if="tab == 'metrics'">
                     <div class="sm:w-1/3 sm:mr-4">
                         <h3 class="font-serif uppercase text-2xl">Totals</h3>
-                        <totals></totals>
+                        <totals/>
                     </div>
 
                     <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
                         <h3 class="font-serif uppercase text-2xl">General</h3>
-                        <general></general>
+                        <general/>
                     </div>
 
                     <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
@@ -41,15 +41,15 @@
                 </div>
 
                 <div class="sm:flex pt-8" v-if="tab == 'rulings'">
-                    <rulings :rulings="rulings"></rulings>
+                    <rulings :rulings="rulings"/>
                 </div>
 
                 <div v-if="tab == 'settings'">
-                    <deck-settings :deck="deck"></deck-settings>
+                    <deck-settings :deck="deck"/>
                 </div>
 
                 <div class="py-8" v-if="tab === 'export'">
-                    <tts-exporter :deck="deck"></tts-exporter>
+                    <tts-exporter :deck="deck"/>
                 </div>
             </div>
         </div>
