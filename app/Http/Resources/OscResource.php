@@ -34,7 +34,12 @@ class OscResource extends JsonResource
     private function cards(Collection $cards, bool $removeSideboard = true)
     {
         return $cards->map(function($card) use ($removeSideboard) {
-            $payload = ['id' => $this->id($card), 'name' => $card->name, 'count' => $card->pivot->total];
+            $payload = [
+                'id' => $this->id($card),
+                'image' => $card->image,
+                'name' => $card->name,
+                'count' => $card->pivot->total
+            ];
 
             if ($removeSideboard) {
                 $payload['count'] -= $this->sideboardTotal($card);
