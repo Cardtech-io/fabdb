@@ -6083,7 +6083,6 @@ var render = function() {
       return _c(
         "button",
         {
-          staticClass: "py-1",
           class: _vm.classes(i),
           on: {
             click: function($event) {

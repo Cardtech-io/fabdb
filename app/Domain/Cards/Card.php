@@ -176,7 +176,7 @@ class Card extends Model
         $paragraphs = explode("\n", $this->text);
         $parts = preg_split('/[^\w]/', strtolower($paragraphs[0]));
         $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
-        
+
         if ($this->talent) {
             array_unshift($matches, $this->talent);
         }

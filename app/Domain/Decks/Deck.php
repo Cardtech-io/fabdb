@@ -90,10 +90,11 @@ class Deck extends Model
         return $deck;
     }
 
-    public static function importTournamentDeck($details, $format, $result)
+    public static function importTournamentDeck($details, $heroId, $format, $result)
     {
         $deck = self::add(0, $details->decklist, null);
         $deck->label = 'tournament';
+        $deck->heroId = $heroId;
         $deck->format = $format;
         $deck->player = $details->player;
         $deck->decklist = $details->decklist;

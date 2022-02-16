@@ -58,7 +58,7 @@ class ImportTournamentDecks extends Command
             $format = str_contains(strtolower($deck->details->format), 'blitz') ? 'blitz' : 'constructed';
             $result= (int) preg_replace('/[a-z]++/', '', $deck->details->result);
 
-            $d = Deck::importTournamentDeck($deck->details, $format, $result);
+            $d = Deck::importTournamentDeck($deck->details, $hero->id, $format, $result);
 
             $decks->save($d);
             $decks->setCardTotal($d->id, $hero->id, 1);

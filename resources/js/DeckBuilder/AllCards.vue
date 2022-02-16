@@ -4,26 +4,26 @@
             <div v-if="user.subscription" class="md:flex m-4">
                 <div class="md:mr-4 md:w-auto md:max-w-250 flow-root">
                     <div class="w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none">
-                        <card-image :card="cards.hero()" class="mb-4"></card-image>
+                        <card-image :card="cards.hero()" class="mb-4"/>
                     </div>
                     <div class="w-1/2 md:w-auto float-left md:float-none">
                         <div class="bg-white rounded-lg pl-2 pr-4 pt-4">
-                            <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"/>
                         </div>
                         <div class="bg-white rounded-lg pl-2 pr-4 pt-4 mt-4">
-                            <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"></deck-curves>
+                            <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2 my-4">
                             <h3 class="font-serif uppercase text-lg">Totals</h3>
-                            <totals class="mt-2"></totals>
+                            <totals class="mt-2"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2">
                             <h3 class="font-serif uppercase text-lg">General</h3>
-                            <general class="mt-2"></general>
+                            <general class="mt-2"/>
                         </div>
                     </div>
                 </div>
