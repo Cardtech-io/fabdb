@@ -463,12 +463,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -552,9 +546,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    buyLink: function buyLink(card) {
-      return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q=' + card.identifier + '&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
-    },
     printingClasses: function printingClasses(printing) {
       return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;
     },
@@ -587,10 +578,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return this.card.keywords.join(', ');
-    },
-    sentenceCase: function sentenceCase(string) {
-      var sentence = string.replace("-", ' ');
-      return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
     },
     statToImagePath: function statToImagePath(stat, value) {
       if (stat === 'cost') return '/img/resource.png';
@@ -1600,7 +1587,7 @@ var render = function() {
                                 "inline-block flex rounded-lg overflow-hidden space-x-px mb-4"
                             },
                             _vm._l(_vm.card.stats, function(value, stat) {
-                              return value
+                              return !isNaN(value)
                                 ? _c(
                                     "div",
                                     {
@@ -1672,42 +1659,12 @@ var render = function() {
                     "div",
                     { staticClass: "md:w-1/2 md:ml-8" },
                     [
-                      _c(
-                        "a",
-                        {
-                          staticClass:
-                            "flex w-1/2 items-center bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1 mb-4",
-                          attrs: {
-                            href: _vm.buyLink(_vm.card),
-                            target: "_blank"
-                          }
-                        },
-                        [
-                          _c("icon", { attrs: { size: 6 } }, [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("path", {
-                              attrs: {
-                                "fill-rule": "evenodd",
-                                d:
-                                  "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
-                                "clip-rule": "evenodd"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(0)
-                        ],
-                        1
-                      ),
+                      _c("tcg-player", {
+                        attrs: { "buy-link": _vm.card.buyLink }
+                      }),
                       _vm._v(" "),
                       _c("latest-decks", {
-                        staticClass: "mb-4",
+                        staticClass: "mb-4 mt-4",
                         attrs: {
                           title: "Recent",
                           color: "bg-black",
@@ -1735,19 +1692,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "ml-1" }, [
-      _vm._v("Buy "),
-      _c("span", { staticClass: "hidden sm:inline" }, [
-        _vm._v("from TCGplayer")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

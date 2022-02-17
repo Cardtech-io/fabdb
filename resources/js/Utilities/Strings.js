@@ -33,6 +33,12 @@ export default {
             return this.parseMarkdown(content);
         },
 
+        sentenceCase(string) {
+            var sentence = string.replace("-", ' ');
+
+            return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
+        },
+
         prettified(text) {
             let content = text.split('\n');
 

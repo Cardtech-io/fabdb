@@ -9,7 +9,7 @@ export default {
         },
 
         squareThumbUrl(path, width) {
-            return path+'&rect=90,95,360,365&crop=edges&w='+width+'&h='+width+'&fit=crop&auto=compress';
+            return path+'&rect=90,70,360,370&crop=edges&w='+width+'&h='+width+'&fit=crop&auto=compress';
         },
 
         heroProfile(hero, width, rounded) {

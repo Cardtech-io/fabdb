@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.featured":"cards.view~decks.featured","decks.featured":"decks.featured","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","generator":"generator","practise":"practise","premium":"premium","privacy":"privacy","profile":"profile","support":"support","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee":"vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee","articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","decks.build~practise.view":"decks.build~practise.view","practise.view":"practise.view","events.mine~events.view":"events.mine~events.view","events.mine":"events.mine","events.view":"events.view","practise.setup":"practise.setup","tools.counter":"tools.counter","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"artists.view~cards.browse":"867e671a56c915a90edd","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"33a63768fae7e127cd0c","cards.browse~collection":"162634a95dcdc6a67741","cards.browse":"162560dbde3b4f8b528a","collection":"4510b860155790c8c5a6","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"bde55004af2c2f3cd304","cards.view~decks.featured":"f138312fa83d5884499d","decks.featured":"7c910ee3b78cd0bb8a4d","decks.browse~decks.mine~user.profile.decks":"f281d60440ba53f2ceac","decks.browse~decks.mine":"93516eb094e5e25771d2","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"ae1b8cc5b3cf30e7e6e2","user.profile.decks":"575c239ac6d1317e45f5","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"8ddcc081e8f1c5a296ba","support":"18d0d69e0075d7d0f694","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271":"f742e4c96b5cf77a7692","vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee":"77f5fe1fbfc0ecf2f453","articles.spoilers":"ed6b9b487f03a959ab2b","articles.view~cards.view~decks.view":"40903fe5aef93ce13c41","articles.view":"36ed1a8e3f2015125395","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"ef8d5f5502c103340d05","cards.prices":"56e22136362a26337658","decks.build~practise.view":"e23ba5e8f7535acb4161","practise.view":"d751cdbc31b289d9ec82","events.mine~events.view":"97976617b81fc1c9db96","events.mine":"d2b3571174b15338e807","events.view":"e7de8c95c6ced38d667d","practise.setup":"7358c23cb7db8f6c8403","tools.counter":"62a34aeb96f9ebc3e0d2","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"a10def5a5f43102f2f93","decks.view":"f7d80265307b523231c3","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"8134c8760a0d47e1ecef","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"98039a2324d8416426ee","home":"4f035938fce5a56b1215","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"8fd80a1afbf1c3b2b1af","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.featured":"cards.view~decks.featured","decks.featured":"decks.featured","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"80ada1a645dc5d744f47","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"867e671a56c915a90edd","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"e473a7f8bab2e57c3edf","cards.browse~collection":"162634a95dcdc6a67741","cards.browse":"162560dbde3b4f8b528a","collection":"2a17a36075873ecc2598","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.prices":"be59d30822868bdec065","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"bde55004af2c2f3cd304","cards.view~decks.featured":"f138312fa83d5884499d","decks.featured":"7c910ee3b78cd0bb8a4d","decks.browse~decks.mine~user.profile.decks":"f281d60440ba53f2ceac","decks.browse~decks.mine":"93516eb094e5e25771d2","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"ae1b8cc5b3cf30e7e6e2","user.profile.decks":"575c239ac6d1317e45f5","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"e3be008047b356c5e0ce","events.view":"2fac15e5ef66911d1c78","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","practise.setup":"0afae2d38b24f74fee68","practise.view":"838a251d59eda9daecf8","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"8ddcc081e8f1c5a296ba","support":"18d0d69e0075d7d0f694","tools.counter":"a6311ba159584905e011","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"1408e9ffe46bac96e793","decks.view":"efe18abe1d872307fca5","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"b8cc513bf5536cd061bf","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"8a5a6d08f46370d86db4","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"0134ab71d402c201b3e3","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2523,6 +2523,119 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_Utilities_Imagery__WEBPACK_IMPORTED_MODULE_0__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  props: {
+    stack: {
+      type: Array,
+      required: true
+    },
+    index: {
+      type: Number,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      card: this.stack[this.index]
+    };
+  },
+  computed: {
+    hasPrevious: function hasPrevious() {
+      return this.index > 0;
+    },
+    hasNext: function hasNext() {
+      return this.index < this.stack.length - 1;
+    }
+  },
+  methods: {
+    next: function next() {
+      this.card = this.stack[this.index + 1];
+    },
+    previous: function previous() {
+      this.card = this.stack[this.index - 1];
+    },
+    statToImagePath: function statToImagePath(stat, value) {
+      if (stat === 'cost') return '/img/resource.png';
+      if (stat === 'resource') return '/img/pitch-' + value + '.png';
+      return '/img/' + stat + '.png';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RaritySymbol.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/RaritySymbol.vue?vue&type=script&lang=js& ***!
@@ -3225,6 +3338,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    buyLink: {
+      type: String,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/VersionHandler.vue?vue&type=script&lang=js& ***!
@@ -3285,6 +3428,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/CardImage */ "./resources/js/CardDatabase/CardImage.vue");
+//
 //
 //
 //
@@ -3515,6 +3659,44 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 // module
 exports.push([module.i, ".vdatetime-fade-enter-active,\n.vdatetime-fade-leave-active {\n  transition: opacity .4s;\n}\n\n.vdatetime-fade-enter,\n.vdatetime-fade-leave-to {\n  opacity: 0;\n}\n\n.vdatetime-overlay {\n  z-index: 999;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, .5);\n  transition: opacity .5s;\n}\n\n.vdatetime-popup {\n  box-sizing: border-box;\n  z-index: 1000;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 340px;\n  max-width: calc(100% - 30px);\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);\n  color: #444;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  line-height: 1.18;\n  background: #fff;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)\n}\n\n.vdatetime-popup * {\n  box-sizing: border-box\n}\n\n.vdatetime-popup__header {\n  padding: 18px 30px;\n  background: #3f51b5;\n  color: #fff;\n  font-size: 32px;\n}\n\n.vdatetime-popup__title {\n  margin-bottom: 8px;\n  font-size: 21px;\n  font-weight: 300;\n}\n\n.vdatetime-popup__year {\n  font-weight: 300;\n  font-size: 14px;\n  opacity: 0.7;\n  cursor: pointer;\n  transition: opacity .3s\n}\n\n.vdatetime-popup__year:hover {\n  opacity: 1\n}\n\n.vdatetime-popup__date {\n  line-height: 1;\n  cursor: pointer;\n}\n\n.vdatetime-popup__actions {\n  padding: 0 20px 10px 30px;\n  text-align: right;\n}\n\n.vdatetime-popup__actions__button {\n  display: inline-block;\n  border: none;\n  padding: 10px 20px;\n  background: transparent;\n  font-size: 16px;\n  color: #3f51b5;\n  cursor: pointer;\n  transition: color .3s\n}\n\n.vdatetime-popup__actions__button:hover {\n  color: #444\n}\n\n.vdatetime-calendar__navigation--previous:hover svg path, .vdatetime-calendar__navigation--next:hover svg path {\n  stroke: #888;\n}\n\n.vdatetime-calendar__navigation,\n.vdatetime-calendar__navigation * {\n  box-sizing: border-box;\n}\n\n.vdatetime-calendar__navigation {\n  position: relative;\n  margin: 15px 0;\n  padding: 0 30px;\n  width: 100%;\n}\n\n.vdatetime-calendar__navigation--previous,\n.vdatetime-calendar__navigation--next {\n  position: absolute;\n  top: 0;\n  padding: 0 5px;\n  width: 18px;\n  cursor: pointer\n}\n\n.vdatetime-calendar__navigation--previous svg, .vdatetime-calendar__navigation--next svg {\n  width: 8px;\n  height: 13px;\n}\n\n.vdatetime-calendar__navigation--previous svg path, .vdatetime-calendar__navigation--next svg path {\n  transition: stroke .3s;\n}\n\n.vdatetime-calendar__navigation--previous {\n  left: 25px;\n}\n\n.vdatetime-calendar__navigation--next {\n  right: 25px;\n  transform: scaleX(-1);\n}\n\n.vdatetime-calendar__current--month {\n  text-align: center;\n  text-transform: capitalize;\n}\n\n.vdatetime-calendar__month {\n  padding: 0 20px;\n  transition: height .2s;\n}\n\n.vdatetime-calendar__month__weekday,\n.vdatetime-calendar__month__day {\n  display: inline-block;\n  width: 14.28571%;\n  line-height: 36px;\n  text-align: center;\n  font-size: 15px;\n  font-weight: 300;\n  cursor: pointer\n}\n\n.vdatetime-calendar__month__weekday > span, .vdatetime-calendar__month__day > span {\n  display: block;\n  width: 100%;\n  position: relative;\n  height: 0;\n  padding: 0 0 100%;\n  overflow: hidden;\n}\n\n.vdatetime-calendar__month__weekday > span > span, .vdatetime-calendar__month__day > span > span {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border: 0;\n  border-radius: 50%;\n  transition: background-color .3s, color .3s;\n}\n\n.vdatetime-calendar__month__weekday {\n  font-weight: bold;\n}\n\n.vdatetime-calendar__month__day:hover > span > span {\n  background: #eee;\n}\n\n.vdatetime-calendar__month__day--selected {\n}\n\n.vdatetime-calendar__month__day--selected > span > span,\n  .vdatetime-calendar__month__day--selected:hover > span > span {\n  color: #fff;\n  background: #3f51b5;\n}\n\n.vdatetime-calendar__month__day--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-calendar__month__day--disabled:hover > span > span {\n  color: inherit;\n  background: transparent;\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-time-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-time-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-time-picker__list {\n  float: left;\n  width: 50%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-time-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-time-picker__with-suffix .vdatetime-time-picker__list {\n  width: 33.3%;\n}\n\n.vdatetime-time-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-time-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-time-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default;\n  font-size: 20px !important;\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-year-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-year-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-year-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-year-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-year-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-year-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-year-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-year-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-thumb {\n  background: #ccc\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar-track {\n  background: #efefef\n}\n\n.vdatetime-month-picker * {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker {\n  box-sizing: border-box\n}\n\n.vdatetime-month-picker::after {\n  content: '';\n  display: table;\n  clear: both\n}\n\n.vdatetime-month-picker__list {\n  float: left;\n  width: 100%;\n  height: 305px;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch\n}\n\n.vdatetime-month-picker__list::-webkit-scrollbar {\n  width: 3px\n}\n\n.vdatetime-month-picker__item {\n  padding: 10px 0;\n  font-size: 20px;\n  text-align: center;\n  cursor: pointer;\n  transition: font-size .3s;\n}\n\n.vdatetime-month-picker__item:hover {\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--selected {\n  color: #3f51b5;\n  font-size: 32px;\n}\n\n.vdatetime-month-picker__item--disabled {\n  opacity: 0.4;\n  cursor: default\n}\n\n.vdatetime-month-picker__item--disabled:hover {\n  color: inherit;\n  background: transparent\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".vm--block-scroll {\n  overflow: hidden;\n  width: 100vw;\n}\n.vm--container {\n  position: fixed;\n  box-sizing: border-box;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100vh;\n  z-index: 999;\n}\n.vm--overlay {\n  position: fixed;\n  box-sizing: border-box;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.2);\n  /* z-index: 999; */\n  opacity: 1;\n}\n.vm--container.scrollable {\n  height: 100%;\n  min-height: 100vh;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.vm--modal {\n  position: relative;\n  overflow: hidden;\n  box-sizing: border-box;\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);\n}\n.vm--container.scrollable .vm--modal {\n  margin-bottom: 2px;\n}\n.vm--top-right-slot {\n  display: block;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n.vm-transition--overlay-enter-active,\n.vm-transition--overlay-leave-active {\n  transition: all 50ms;\n}\n.vm-transition--overlay-enter,\n.vm-transition--overlay-leave-active {\n  opacity: 0;\n}\n.vm-transition--modal-enter-active,\n.vm-transition--modal-leave-active {\n  transition: all 400ms;\n}\n.vm-transition--modal-enter,\n.vm-transition--modal-leave-active {\n  opacity: 0;\n  -webkit-transform: translateY(-20px);\n          transform: translateY(-20px);\n}\n.vm-transition--default-enter-active,\n.vm-transition--default-leave-active {\n  transition: all 2ms;\n}\n.vm-transition--default-enter,\n.vm-transition--default-leave-active {\n  opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".vue-modal-top,\n.vue-modal-bottom,\n.vue-modal-left,\n.vue-modal-right,\n.vue-modal-topRight,\n.vue-modal-topLeft,\n.vue-modal-bottomLeft,\n.vue-modal-bottomRight {\n  display: block;\n  overflow: hidden;\n  position: absolute;\n  background: transparent;\n  z-index: 9999999;\n}\n.vue-modal-topRight,\n.vue-modal-topLeft,\n.vue-modal-bottomLeft,\n.vue-modal-bottomRight {\n  width: 12px;\n  height: 12px;\n}\n.vue-modal-top {\n  right: 12;\n  top: 0;\n  width: 100%;\n  height: 12px;\n  cursor: n-resize;\n}\n.vue-modal-bottom {\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 12px;\n  cursor: s-resize;\n}\n.vue-modal-left {\n  left: 0;\n  top: 0;\n  width: 12px;\n  height: 100%;\n  cursor: w-resize;\n}\n.vue-modal-right {\n  right: 0;\n  top: 0;\n  width: 12px;\n  height: 100%;\n  cursor: e-resize;\n}\n.vue-modal-topRight {\n  right: 0;\n  top: 0;\n  background: transparent;\n  cursor: ne-resize;\n}\n.vue-modal-topLeft {\n  left: 0;\n  top: 0;\n  cursor: nw-resize;\n}\n.vue-modal-bottomLeft {\n  left: 0;\n  bottom: 0;\n  cursor: sw-resize;\n}\n.vue-modal-bottomRight {\n  right: 0;\n  bottom: 0;\n  cursor: se-resize;\n}\n#vue-modal-triangle::after {\n  display: block;\n  position: absolute;\n  content: '';\n  background: transparent;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-bottom: 10px solid #ddd;\n  border-left: 10px solid transparent;\n}\n#vue-modal-triangle.clicked::after {\n  border-bottom: 10px solid #369be9;\n}\n", ""]);
 
 // exports
 
@@ -21896,6 +22078,1945 @@ module.exports = json2mq;
 }.call(this));
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/InlineLexer.js":
+/*!************************************************!*\
+  !*** ./node_modules/marked/src/InlineLexer.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Renderer = __webpack_require__(/*! ./Renderer.js */ "./node_modules/marked/src/Renderer.js");
+const { defaults } = __webpack_require__(/*! ./defaults.js */ "./node_modules/marked/src/defaults.js");
+const { inline } = __webpack_require__(/*! ./rules.js */ "./node_modules/marked/src/rules.js");
+const {
+  findClosingBracket,
+  escape
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+
+/**
+ * Inline Lexer & Compiler
+ */
+module.exports = class InlineLexer {
+  constructor(links, options) {
+    this.options = options || defaults;
+    this.links = links;
+    this.rules = inline.normal;
+    this.options.renderer = this.options.renderer || new Renderer();
+    this.renderer = this.options.renderer;
+    this.renderer.options = this.options;
+
+    if (!this.links) {
+      throw new Error('Tokens array requires a `links` property.');
+    }
+
+    if (this.options.pedantic) {
+      this.rules = inline.pedantic;
+    } else if (this.options.gfm) {
+      if (this.options.breaks) {
+        this.rules = inline.breaks;
+      } else {
+        this.rules = inline.gfm;
+      }
+    }
+  }
+
+  /**
+   * Expose Inline Rules
+   */
+  static get rules() {
+    return inline;
+  }
+
+  /**
+   * Static Lexing/Compiling Method
+   */
+  static output(src, links, options) {
+    const inline = new InlineLexer(links, options);
+    return inline.output(src);
+  }
+
+  /**
+   * Lexing/Compiling
+   */
+  output(src) {
+    let out = '',
+      link,
+      text,
+      href,
+      title,
+      cap,
+      prevCapZero;
+
+    while (src) {
+      // escape
+      if (cap = this.rules.escape.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += escape(cap[1]);
+        continue;
+      }
+
+      // tag
+      if (cap = this.rules.tag.exec(src)) {
+        if (!this.inLink && /^<a /i.test(cap[0])) {
+          this.inLink = true;
+        } else if (this.inLink && /^<\/a>/i.test(cap[0])) {
+          this.inLink = false;
+        }
+        if (!this.inRawBlock && /^<(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
+          this.inRawBlock = true;
+        } else if (this.inRawBlock && /^<\/(pre|code|kbd|script)(\s|>)/i.test(cap[0])) {
+          this.inRawBlock = false;
+        }
+
+        src = src.substring(cap[0].length);
+        out += this.renderer.html(this.options.sanitize
+          ? (this.options.sanitizer
+            ? this.options.sanitizer(cap[0])
+            : escape(cap[0]))
+          : cap[0]);
+        continue;
+      }
+
+      // link
+      if (cap = this.rules.link.exec(src)) {
+        const lastParenIndex = findClosingBracket(cap[2], '()');
+        if (lastParenIndex > -1) {
+          const start = cap[0].indexOf('!') === 0 ? 5 : 4;
+          const linkLen = start + cap[1].length + lastParenIndex;
+          cap[2] = cap[2].substring(0, lastParenIndex);
+          cap[0] = cap[0].substring(0, linkLen).trim();
+          cap[3] = '';
+        }
+        src = src.substring(cap[0].length);
+        this.inLink = true;
+        href = cap[2];
+        if (this.options.pedantic) {
+          link = /^([^'"]*[^\s])\s+(['"])(.*)\2/.exec(href);
+
+          if (link) {
+            href = link[1];
+            title = link[3];
+          } else {
+            title = '';
+          }
+        } else {
+          title = cap[3] ? cap[3].slice(1, -1) : '';
+        }
+        href = href.trim().replace(/^<([\s\S]*)>$/, '$1');
+        out += this.outputLink(cap, {
+          href: InlineLexer.escapes(href),
+          title: InlineLexer.escapes(title)
+        });
+        this.inLink = false;
+        continue;
+      }
+
+      // reflink, nolink
+      if ((cap = this.rules.reflink.exec(src))
+          || (cap = this.rules.nolink.exec(src))) {
+        src = src.substring(cap[0].length);
+        link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
+        link = this.links[link.toLowerCase()];
+        if (!link || !link.href) {
+          out += cap[0].charAt(0);
+          src = cap[0].substring(1) + src;
+          continue;
+        }
+        this.inLink = true;
+        out += this.outputLink(cap, link);
+        this.inLink = false;
+        continue;
+      }
+
+      // strong
+      if (cap = this.rules.strong.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.strong(this.output(cap[4] || cap[3] || cap[2] || cap[1]));
+        continue;
+      }
+
+      // em
+      if (cap = this.rules.em.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.em(this.output(cap[6] || cap[5] || cap[4] || cap[3] || cap[2] || cap[1]));
+        continue;
+      }
+
+      // code
+      if (cap = this.rules.code.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.codespan(escape(cap[2].trim(), true));
+        continue;
+      }
+
+      // br
+      if (cap = this.rules.br.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.br();
+        continue;
+      }
+
+      // del (gfm)
+      if (cap = this.rules.del.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.del(this.output(cap[1]));
+        continue;
+      }
+
+      // autolink
+      if (cap = this.rules.autolink.exec(src)) {
+        src = src.substring(cap[0].length);
+        if (cap[2] === '@') {
+          text = escape(this.mangle(cap[1]));
+          href = 'mailto:' + text;
+        } else {
+          text = escape(cap[1]);
+          href = text;
+        }
+        out += this.renderer.link(href, null, text);
+        continue;
+      }
+
+      // url (gfm)
+      if (!this.inLink && (cap = this.rules.url.exec(src))) {
+        if (cap[2] === '@') {
+          text = escape(cap[0]);
+          href = 'mailto:' + text;
+        } else {
+          // do extended autolink path validation
+          do {
+            prevCapZero = cap[0];
+            cap[0] = this.rules._backpedal.exec(cap[0])[0];
+          } while (prevCapZero !== cap[0]);
+          text = escape(cap[0]);
+          if (cap[1] === 'www.') {
+            href = 'http://' + text;
+          } else {
+            href = text;
+          }
+        }
+        src = src.substring(cap[0].length);
+        out += this.renderer.link(href, null, text);
+        continue;
+      }
+
+      // text
+      if (cap = this.rules.text.exec(src)) {
+        src = src.substring(cap[0].length);
+        if (this.inRawBlock) {
+          out += this.renderer.text(this.options.sanitize ? (this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0])) : cap[0]);
+        } else {
+          out += this.renderer.text(escape(this.smartypants(cap[0])));
+        }
+        continue;
+      }
+
+      if (src) {
+        throw new Error('Infinite loop on byte: ' + src.charCodeAt(0));
+      }
+    }
+
+    return out;
+  }
+
+  static escapes(text) {
+    return text ? text.replace(InlineLexer.rules._escapes, '$1') : text;
+  }
+
+  /**
+   * Compile Link
+   */
+  outputLink(cap, link) {
+    const href = link.href,
+      title = link.title ? escape(link.title) : null;
+
+    return cap[0].charAt(0) !== '!'
+      ? this.renderer.link(href, title, this.output(cap[1]))
+      : this.renderer.image(href, title, escape(cap[1]));
+  }
+
+  /**
+   * Smartypants Transformations
+   */
+  smartypants(text) {
+    if (!this.options.smartypants) return text;
+    return text
+      // em-dashes
+      .replace(/---/g, '\u2014')
+      // en-dashes
+      .replace(/--/g, '\u2013')
+      // opening singles
+      .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
+      // closing singles & apostrophes
+      .replace(/'/g, '\u2019')
+      // opening doubles
+      .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
+      // closing doubles
+      .replace(/"/g, '\u201d')
+      // ellipses
+      .replace(/\.{3}/g, '\u2026');
+  }
+
+  /**
+   * Mangle Links
+   */
+  mangle(text) {
+    if (!this.options.mangle) return text;
+    const l = text.length;
+    let out = '',
+      i = 0,
+      ch;
+
+    for (; i < l; i++) {
+      ch = text.charCodeAt(i);
+      if (Math.random() > 0.5) {
+        ch = 'x' + ch.toString(16);
+      }
+      out += '&#' + ch + ';';
+    }
+
+    return out;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/Lexer.js":
+/*!******************************************!*\
+  !*** ./node_modules/marked/src/Lexer.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { defaults } = __webpack_require__(/*! ./defaults.js */ "./node_modules/marked/src/defaults.js");
+const { block } = __webpack_require__(/*! ./rules.js */ "./node_modules/marked/src/rules.js");
+const {
+  rtrim,
+  splitCells,
+  escape
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+
+/**
+ * Block Lexer
+ */
+module.exports = class Lexer {
+  constructor(options) {
+    this.tokens = [];
+    this.tokens.links = Object.create(null);
+    this.options = options || defaults;
+    this.rules = block.normal;
+
+    if (this.options.pedantic) {
+      this.rules = block.pedantic;
+    } else if (this.options.gfm) {
+      this.rules = block.gfm;
+    }
+  }
+
+  /**
+   * Expose Block Rules
+   */
+  static get rules() {
+    return block;
+  }
+
+  /**
+   * Static Lex Method
+   */
+  static lex(src, options) {
+    const lexer = new Lexer(options);
+    return lexer.lex(src);
+  };
+
+  /**
+   * Preprocessing
+   */
+  lex(src) {
+    src = src
+      .replace(/\r\n|\r/g, '\n')
+      .replace(/\t/g, '    ');
+
+    return this.token(src, true);
+  };
+
+  /**
+   * Lexing
+   */
+  token(src, top) {
+    src = src.replace(/^ +$/gm, '');
+    let next,
+      loose,
+      cap,
+      bull,
+      b,
+      item,
+      listStart,
+      listItems,
+      t,
+      space,
+      i,
+      tag,
+      l,
+      isordered,
+      istask,
+      ischecked;
+
+    while (src) {
+      // newline
+      if (cap = this.rules.newline.exec(src)) {
+        src = src.substring(cap[0].length);
+        if (cap[0].length > 1) {
+          this.tokens.push({
+            type: 'space'
+          });
+        }
+      }
+
+      // code
+      if (cap = this.rules.code.exec(src)) {
+        const lastToken = this.tokens[this.tokens.length - 1];
+        src = src.substring(cap[0].length);
+        // An indented code block cannot interrupt a paragraph.
+        if (lastToken && lastToken.type === 'paragraph') {
+          lastToken.text += '\n' + cap[0].trimRight();
+        } else {
+          cap = cap[0].replace(/^ {4}/gm, '');
+          this.tokens.push({
+            type: 'code',
+            codeBlockStyle: 'indented',
+            text: !this.options.pedantic
+              ? rtrim(cap, '\n')
+              : cap
+          });
+        }
+        continue;
+      }
+
+      // fences
+      if (cap = this.rules.fences.exec(src)) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'code',
+          lang: cap[2] ? cap[2].trim() : cap[2],
+          text: cap[3] || ''
+        });
+        continue;
+      }
+
+      // heading
+      if (cap = this.rules.heading.exec(src)) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'heading',
+          depth: cap[1].length,
+          text: cap[2]
+        });
+        continue;
+      }
+
+      // table no leading pipe (gfm)
+      if (cap = this.rules.nptable.exec(src)) {
+        item = {
+          type: 'table',
+          header: splitCells(cap[1].replace(/^ *| *\| *$/g, '')),
+          align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+          cells: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : []
+        };
+
+        if (item.header.length === item.align.length) {
+          src = src.substring(cap[0].length);
+
+          for (i = 0; i < item.align.length; i++) {
+            if (/^ *-+: *$/.test(item.align[i])) {
+              item.align[i] = 'right';
+            } else if (/^ *:-+: *$/.test(item.align[i])) {
+              item.align[i] = 'center';
+            } else if (/^ *:-+ *$/.test(item.align[i])) {
+              item.align[i] = 'left';
+            } else {
+              item.align[i] = null;
+            }
+          }
+
+          for (i = 0; i < item.cells.length; i++) {
+            item.cells[i] = splitCells(item.cells[i], item.header.length);
+          }
+
+          this.tokens.push(item);
+
+          continue;
+        }
+      }
+
+      // hr
+      if (cap = this.rules.hr.exec(src)) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'hr'
+        });
+        continue;
+      }
+
+      // blockquote
+      if (cap = this.rules.blockquote.exec(src)) {
+        src = src.substring(cap[0].length);
+
+        this.tokens.push({
+          type: 'blockquote_start'
+        });
+
+        cap = cap[0].replace(/^ *> ?/gm, '');
+
+        // Pass `top` to keep the current
+        // "toplevel" state. This is exactly
+        // how markdown.pl works.
+        this.token(cap, top);
+
+        this.tokens.push({
+          type: 'blockquote_end'
+        });
+
+        continue;
+      }
+
+      // list
+      if (cap = this.rules.list.exec(src)) {
+        src = src.substring(cap[0].length);
+        bull = cap[2];
+        isordered = bull.length > 1;
+
+        listStart = {
+          type: 'list_start',
+          ordered: isordered,
+          start: isordered ? +bull : '',
+          loose: false
+        };
+
+        this.tokens.push(listStart);
+
+        // Get each top-level item.
+        cap = cap[0].match(this.rules.item);
+
+        listItems = [];
+        next = false;
+        l = cap.length;
+        i = 0;
+
+        for (; i < l; i++) {
+          item = cap[i];
+
+          // Remove the list item's bullet
+          // so it is seen as the next token.
+          space = item.length;
+          item = item.replace(/^ *([*+-]|\d+\.) */, '');
+
+          // Outdent whatever the
+          // list item contains. Hacky.
+          if (~item.indexOf('\n ')) {
+            space -= item.length;
+            item = !this.options.pedantic
+              ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
+              : item.replace(/^ {1,4}/gm, '');
+          }
+
+          // Determine whether the next list item belongs here.
+          // Backpedal if it does not belong in this list.
+          if (i !== l - 1) {
+            b = block.bullet.exec(cap[i + 1])[0];
+            if (bull.length > 1 ? b.length === 1
+              : (b.length > 1 || (this.options.smartLists && b !== bull))) {
+              src = cap.slice(i + 1).join('\n') + src;
+              i = l - 1;
+            }
+          }
+
+          // Determine whether item is loose or not.
+          // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
+          // for discount behavior.
+          loose = next || /\n\n(?!\s*$)/.test(item);
+          if (i !== l - 1) {
+            next = item.charAt(item.length - 1) === '\n';
+            if (!loose) loose = next;
+          }
+
+          if (loose) {
+            listStart.loose = true;
+          }
+
+          // Check for task list items
+          istask = /^\[[ xX]\] /.test(item);
+          ischecked = undefined;
+          if (istask) {
+            ischecked = item[1] !== ' ';
+            item = item.replace(/^\[[ xX]\] +/, '');
+          }
+
+          t = {
+            type: 'list_item_start',
+            task: istask,
+            checked: ischecked,
+            loose: loose
+          };
+
+          listItems.push(t);
+          this.tokens.push(t);
+
+          // Recurse.
+          this.token(item, false);
+
+          this.tokens.push({
+            type: 'list_item_end'
+          });
+        }
+
+        if (listStart.loose) {
+          l = listItems.length;
+          i = 0;
+          for (; i < l; i++) {
+            listItems[i].loose = true;
+          }
+        }
+
+        this.tokens.push({
+          type: 'list_end'
+        });
+
+        continue;
+      }
+
+      // html
+      if (cap = this.rules.html.exec(src)) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: this.options.sanitize
+            ? 'paragraph'
+            : 'html',
+          pre: !this.options.sanitizer
+            && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
+          text: this.options.sanitize ? (this.options.sanitizer ? this.options.sanitizer(cap[0]) : escape(cap[0])) : cap[0]
+        });
+        continue;
+      }
+
+      // def
+      if (top && (cap = this.rules.def.exec(src))) {
+        src = src.substring(cap[0].length);
+        if (cap[3]) cap[3] = cap[3].substring(1, cap[3].length - 1);
+        tag = cap[1].toLowerCase().replace(/\s+/g, ' ');
+        if (!this.tokens.links[tag]) {
+          this.tokens.links[tag] = {
+            href: cap[2],
+            title: cap[3]
+          };
+        }
+        continue;
+      }
+
+      // table (gfm)
+      if (cap = this.rules.table.exec(src)) {
+        item = {
+          type: 'table',
+          header: splitCells(cap[1].replace(/^ *| *\| *$/g, '')),
+          align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+          cells: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : []
+        };
+
+        if (item.header.length === item.align.length) {
+          src = src.substring(cap[0].length);
+
+          for (i = 0; i < item.align.length; i++) {
+            if (/^ *-+: *$/.test(item.align[i])) {
+              item.align[i] = 'right';
+            } else if (/^ *:-+: *$/.test(item.align[i])) {
+              item.align[i] = 'center';
+            } else if (/^ *:-+ *$/.test(item.align[i])) {
+              item.align[i] = 'left';
+            } else {
+              item.align[i] = null;
+            }
+          }
+
+          for (i = 0; i < item.cells.length; i++) {
+            item.cells[i] = splitCells(
+              item.cells[i].replace(/^ *\| *| *\| *$/g, ''),
+              item.header.length);
+          }
+
+          this.tokens.push(item);
+
+          continue;
+        }
+      }
+
+      // lheading
+      if (cap = this.rules.lheading.exec(src)) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'heading',
+          depth: cap[2].charAt(0) === '=' ? 1 : 2,
+          text: cap[1]
+        });
+        continue;
+      }
+
+      // top-level paragraph
+      if (top && (cap = this.rules.paragraph.exec(src))) {
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'paragraph',
+          text: cap[1].charAt(cap[1].length - 1) === '\n'
+            ? cap[1].slice(0, -1)
+            : cap[1]
+        });
+        continue;
+      }
+
+      // text
+      if (cap = this.rules.text.exec(src)) {
+        // Top-level should never reach here.
+        src = src.substring(cap[0].length);
+        this.tokens.push({
+          type: 'text',
+          text: cap[0]
+        });
+        continue;
+      }
+
+      if (src) {
+        throw new Error('Infinite loop on byte: ' + src.charCodeAt(0));
+      }
+    }
+
+    return this.tokens;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/Parser.js":
+/*!*******************************************!*\
+  !*** ./node_modules/marked/src/Parser.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Renderer = __webpack_require__(/*! ./Renderer.js */ "./node_modules/marked/src/Renderer.js");
+const Slugger = __webpack_require__(/*! ./Slugger.js */ "./node_modules/marked/src/Slugger.js");
+const InlineLexer = __webpack_require__(/*! ./InlineLexer.js */ "./node_modules/marked/src/InlineLexer.js");
+const TextRenderer = __webpack_require__(/*! ./TextRenderer.js */ "./node_modules/marked/src/TextRenderer.js");
+const { defaults } = __webpack_require__(/*! ./defaults.js */ "./node_modules/marked/src/defaults.js");
+const {
+  merge,
+  unescape
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+
+/**
+ * Parsing & Compiling
+ */
+module.exports = class Parser {
+  constructor(options) {
+    this.tokens = [];
+    this.token = null;
+    this.options = options || defaults;
+    this.options.renderer = this.options.renderer || new Renderer();
+    this.renderer = this.options.renderer;
+    this.renderer.options = this.options;
+    this.slugger = new Slugger();
+  }
+
+  /**
+   * Static Parse Method
+   */
+  static parse(tokens, options) {
+    const parser = new Parser(options);
+    return parser.parse(tokens);
+  };
+
+  /**
+   * Parse Loop
+   */
+  parse(tokens) {
+    this.inline = new InlineLexer(tokens.links, this.options);
+    // use an InlineLexer with a TextRenderer to extract pure text
+    this.inlineText = new InlineLexer(
+      tokens.links,
+      merge({}, this.options, { renderer: new TextRenderer() })
+    );
+    this.tokens = tokens.reverse();
+
+    let out = '';
+    while (this.next()) {
+      out += this.tok();
+    }
+
+    return out;
+  };
+
+  /**
+   * Next Token
+   */
+  next() {
+    this.token = this.tokens.pop();
+    return this.token;
+  };
+
+  /**
+   * Preview Next Token
+   */
+  peek() {
+    return this.tokens[this.tokens.length - 1] || 0;
+  };
+
+  /**
+   * Parse Text Tokens
+   */
+  parseText() {
+    let body = this.token.text;
+
+    while (this.peek().type === 'text') {
+      body += '\n' + this.next().text;
+    }
+
+    return this.inline.output(body);
+  };
+
+  /**
+   * Parse Current Token
+   */
+  tok() {
+    let body = '';
+    switch (this.token.type) {
+      case 'space': {
+        return '';
+      }
+      case 'hr': {
+        return this.renderer.hr();
+      }
+      case 'heading': {
+        return this.renderer.heading(
+          this.inline.output(this.token.text),
+          this.token.depth,
+          unescape(this.inlineText.output(this.token.text)),
+          this.slugger);
+      }
+      case 'code': {
+        return this.renderer.code(this.token.text,
+          this.token.lang,
+          this.token.escaped);
+      }
+      case 'table': {
+        let header = '',
+          i,
+          row,
+          cell,
+          j;
+
+        // header
+        cell = '';
+        for (i = 0; i < this.token.header.length; i++) {
+          cell += this.renderer.tablecell(
+            this.inline.output(this.token.header[i]),
+            { header: true, align: this.token.align[i] }
+          );
+        }
+        header += this.renderer.tablerow(cell);
+
+        for (i = 0; i < this.token.cells.length; i++) {
+          row = this.token.cells[i];
+
+          cell = '';
+          for (j = 0; j < row.length; j++) {
+            cell += this.renderer.tablecell(
+              this.inline.output(row[j]),
+              { header: false, align: this.token.align[j] }
+            );
+          }
+
+          body += this.renderer.tablerow(cell);
+        }
+        return this.renderer.table(header, body);
+      }
+      case 'blockquote_start': {
+        body = '';
+
+        while (this.next().type !== 'blockquote_end') {
+          body += this.tok();
+        }
+
+        return this.renderer.blockquote(body);
+      }
+      case 'list_start': {
+        body = '';
+        const ordered = this.token.ordered,
+          start = this.token.start;
+
+        while (this.next().type !== 'list_end') {
+          body += this.tok();
+        }
+
+        return this.renderer.list(body, ordered, start);
+      }
+      case 'list_item_start': {
+        body = '';
+        const loose = this.token.loose;
+        const checked = this.token.checked;
+        const task = this.token.task;
+
+        if (this.token.task) {
+          if (loose) {
+            if (this.peek().type === 'text') {
+              const nextToken = this.peek();
+              nextToken.text = this.renderer.checkbox(checked) + ' ' + nextToken.text;
+            } else {
+              this.tokens.push({
+                type: 'text',
+                text: this.renderer.checkbox(checked)
+              });
+            }
+          } else {
+            body += this.renderer.checkbox(checked);
+          }
+        }
+
+        while (this.next().type !== 'list_item_end') {
+          body += !loose && this.token.type === 'text'
+            ? this.parseText()
+            : this.tok();
+        }
+        return this.renderer.listitem(body, task, checked);
+      }
+      case 'html': {
+        // TODO parse inline content if parameter markdown=1
+        return this.renderer.html(this.token.text);
+      }
+      case 'paragraph': {
+        return this.renderer.paragraph(this.inline.output(this.token.text));
+      }
+      case 'text': {
+        return this.renderer.paragraph(this.parseText());
+      }
+      default: {
+        const errMsg = 'Token with "' + this.token.type + '" type was not found.';
+        if (this.options.silent) {
+          console.log(errMsg);
+        } else {
+          throw new Error(errMsg);
+        }
+      }
+    }
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/Renderer.js":
+/*!*********************************************!*\
+  !*** ./node_modules/marked/src/Renderer.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const { defaults } = __webpack_require__(/*! ./defaults.js */ "./node_modules/marked/src/defaults.js");
+const {
+  cleanUrl,
+  escape
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+
+/**
+ * Renderer
+ */
+module.exports = class Renderer {
+  constructor(options) {
+    this.options = options || defaults;
+  }
+
+  code(code, infostring, escaped) {
+    const lang = (infostring || '').match(/\S*/)[0];
+    if (this.options.highlight) {
+      const out = this.options.highlight(code, lang);
+      if (out != null && out !== code) {
+        escaped = true;
+        code = out;
+      }
+    }
+
+    if (!lang) {
+      return '<pre><code>'
+        + (escaped ? code : escape(code, true))
+        + '</code></pre>';
+    }
+
+    return '<pre><code class="'
+      + this.options.langPrefix
+      + escape(lang, true)
+      + '">'
+      + (escaped ? code : escape(code, true))
+      + '</code></pre>\n';
+  };
+
+  blockquote(quote) {
+    return '<blockquote>\n' + quote + '</blockquote>\n';
+  };
+
+  html(html) {
+    return html;
+  };
+
+  heading(text, level, raw, slugger) {
+    if (this.options.headerIds) {
+      return '<h'
+        + level
+        + ' id="'
+        + this.options.headerPrefix
+        + slugger.slug(raw)
+        + '">'
+        + text
+        + '</h'
+        + level
+        + '>\n';
+    }
+    // ignore IDs
+    return '<h' + level + '>' + text + '</h' + level + '>\n';
+  };
+
+  hr() {
+    return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
+  };
+
+  list(body, ordered, start) {
+    const type = ordered ? 'ol' : 'ul',
+      startatt = (ordered && start !== 1) ? (' start="' + start + '"') : '';
+    return '<' + type + startatt + '>\n' + body + '</' + type + '>\n';
+  };
+
+  listitem(text) {
+    return '<li>' + text + '</li>\n';
+  };
+
+  checkbox(checked) {
+    return '<input '
+      + (checked ? 'checked="" ' : '')
+      + 'disabled="" type="checkbox"'
+      + (this.options.xhtml ? ' /' : '')
+      + '> ';
+  };
+
+  paragraph(text) {
+    return '<p>' + text + '</p>\n';
+  };
+
+  table(header, body) {
+    if (body) body = '<tbody>' + body + '</tbody>';
+
+    return '<table>\n'
+      + '<thead>\n'
+      + header
+      + '</thead>\n'
+      + body
+      + '</table>\n';
+  };
+
+  tablerow(content) {
+    return '<tr>\n' + content + '</tr>\n';
+  };
+
+  tablecell(content, flags) {
+    const type = flags.header ? 'th' : 'td';
+    const tag = flags.align
+      ? '<' + type + ' align="' + flags.align + '">'
+      : '<' + type + '>';
+    return tag + content + '</' + type + '>\n';
+  };
+
+  // span level renderer
+  strong(text) {
+    return '<strong>' + text + '</strong>';
+  };
+
+  em(text) {
+    return '<em>' + text + '</em>';
+  };
+
+  codespan(text) {
+    return '<code>' + text + '</code>';
+  };
+
+  br() {
+    return this.options.xhtml ? '<br/>' : '<br>';
+  };
+
+  del(text) {
+    return '<del>' + text + '</del>';
+  };
+
+  link(href, title, text) {
+    href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+    if (href === null) {
+      return text;
+    }
+    let out = '<a href="' + escape(href) + '"';
+    if (title) {
+      out += ' title="' + title + '"';
+    }
+    out += '>' + text + '</a>';
+    return out;
+  };
+
+  image(href, title, text) {
+    href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+    if (href === null) {
+      return text;
+    }
+
+    let out = '<img src="' + href + '" alt="' + text + '"';
+    if (title) {
+      out += ' title="' + title + '"';
+    }
+    out += this.options.xhtml ? '/>' : '>';
+    return out;
+  };
+
+  text(text) {
+    return text;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/Slugger.js":
+/*!********************************************!*\
+  !*** ./node_modules/marked/src/Slugger.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Slugger generates header id
+ */
+module.exports = class Slugger {
+  constructor() {
+    this.seen = {};
+  }
+
+  /**
+   * Convert string to unique id
+   */
+  slug(value) {
+    let slug = value
+      .toLowerCase()
+      .trim()
+      // remove html tags
+      .replace(/<[!\/a-z].*?>/ig, '')
+      // remove unwanted chars
+      .replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g, '')
+      .replace(/\s/g, '-');
+
+    if (this.seen.hasOwnProperty(slug)) {
+      const originalSlug = slug;
+      do {
+        this.seen[originalSlug]++;
+        slug = originalSlug + '-' + this.seen[originalSlug];
+      } while (this.seen.hasOwnProperty(slug));
+    }
+    this.seen[slug] = 0;
+
+    return slug;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/TextRenderer.js":
+/*!*************************************************!*\
+  !*** ./node_modules/marked/src/TextRenderer.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * TextRenderer
+ * returns only the textual part of the token
+ */
+module.exports = class TextRenderer {
+  // no need for block level renderers
+  strong(text) {
+    return text;
+  }
+
+  em(text) {
+    return text;
+  }
+
+  codespan(text) {
+    return text;
+  }
+
+  del(text) {
+    return text;
+  }
+
+  html(text) {
+    return text;
+  }
+
+  text(text) {
+    return text;
+  }
+
+  link(href, title, text) {
+    return '' + text;
+  }
+
+  image(href, title, text) {
+    return '' + text;
+  }
+
+  br() {
+    return '';
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/defaults.js":
+/*!*********************************************!*\
+  !*** ./node_modules/marked/src/defaults.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function getDefaults() {
+  return {
+    baseUrl: null,
+    breaks: false,
+    gfm: true,
+    headerIds: true,
+    headerPrefix: '',
+    highlight: null,
+    langPrefix: 'language-',
+    mangle: true,
+    pedantic: false,
+    renderer: null,
+    sanitize: false,
+    sanitizer: null,
+    silent: false,
+    smartLists: false,
+    smartypants: false,
+    xhtml: false
+  };
+}
+
+function changeDefaults(newDefaults) {
+  module.exports.defaults = newDefaults;
+}
+
+module.exports = {
+  defaults: getDefaults(),
+  getDefaults,
+  changeDefaults
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/helpers.js":
+/*!********************************************!*\
+  !*** ./node_modules/marked/src/helpers.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Helpers
+ */
+const escapeTest = /[&<>"']/;
+const escapeReplace = /[&<>"']/g;
+const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
+const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
+const escapeReplacements = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+const getEscapeReplacement = (ch) => escapeReplacements[ch];
+function escape(html, encode) {
+  if (encode) {
+    if (escapeTest.test(html)) {
+      return html.replace(escapeReplace, getEscapeReplacement);
+    }
+  } else {
+    if (escapeTestNoEncode.test(html)) {
+      return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
+    }
+  }
+
+  return html;
+}
+
+const unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig;
+
+function unescape(html) {
+  // explicitly match decimal, hex, and named HTML entities
+  return html.replace(unescapeTest, (_, n) => {
+    n = n.toLowerCase();
+    if (n === 'colon') return ':';
+    if (n.charAt(0) === '#') {
+      return n.charAt(1) === 'x'
+        ? String.fromCharCode(parseInt(n.substring(2), 16))
+        : String.fromCharCode(+n.substring(1));
+    }
+    return '';
+  });
+}
+
+const caret = /(^|[^\[])\^/g;
+function edit(regex, opt) {
+  regex = regex.source || regex;
+  opt = opt || '';
+  const obj = {
+    replace: (name, val) => {
+      val = val.source || val;
+      val = val.replace(caret, '$1');
+      regex = regex.replace(name, val);
+      return obj;
+    },
+    getRegex: () => {
+      return new RegExp(regex, opt);
+    }
+  };
+  return obj;
+}
+
+const nonWordAndColonTest = /[^\w:]/g;
+const originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
+function cleanUrl(sanitize, base, href) {
+  if (sanitize) {
+    let prot;
+    try {
+      prot = decodeURIComponent(unescape(href))
+        .replace(nonWordAndColonTest, '')
+        .toLowerCase();
+    } catch (e) {
+      return null;
+    }
+    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0 || prot.indexOf('data:') === 0) {
+      return null;
+    }
+  }
+  if (base && !originIndependentUrl.test(href)) {
+    href = resolveUrl(base, href);
+  }
+  try {
+    href = encodeURI(href).replace(/%25/g, '%');
+  } catch (e) {
+    return null;
+  }
+  return href;
+}
+
+const baseUrls = {};
+const justDomain = /^[^:]+:\/*[^/]*$/;
+const protocol = /^([^:]+:)[\s\S]*$/;
+const domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
+
+function resolveUrl(base, href) {
+  if (!baseUrls[' ' + base]) {
+    // we can ignore everything in base after the last slash of its path component,
+    // but we might need to add _that_
+    // https://tools.ietf.org/html/rfc3986#section-3
+    if (justDomain.test(base)) {
+      baseUrls[' ' + base] = base + '/';
+    } else {
+      baseUrls[' ' + base] = rtrim(base, '/', true);
+    }
+  }
+  base = baseUrls[' ' + base];
+  const relativeBase = base.indexOf(':') === -1;
+
+  if (href.substring(0, 2) === '//') {
+    if (relativeBase) {
+      return href;
+    }
+    return base.replace(protocol, '$1') + href;
+  } else if (href.charAt(0) === '/') {
+    if (relativeBase) {
+      return href;
+    }
+    return base.replace(domain, '$1') + href;
+  } else {
+    return base + href;
+  }
+}
+
+const noopTest = { exec: function noopTest() {} };
+
+function merge(obj) {
+  let i = 1,
+    target,
+    key;
+
+  for (; i < arguments.length; i++) {
+    target = arguments[i];
+    for (key in target) {
+      if (Object.prototype.hasOwnProperty.call(target, key)) {
+        obj[key] = target[key];
+      }
+    }
+  }
+
+  return obj;
+}
+
+function splitCells(tableRow, count) {
+  // ensure that every cell-delimiting pipe has a space
+  // before it to distinguish it from an escaped pipe
+  const row = tableRow.replace(/\|/g, (match, offset, str) => {
+      let escaped = false,
+        curr = offset;
+      while (--curr >= 0 && str[curr] === '\\') escaped = !escaped;
+      if (escaped) {
+        // odd number of slashes means | is escaped
+        // so we leave it alone
+        return '|';
+      } else {
+        // add space before unescaped |
+        return ' |';
+      }
+    }),
+    cells = row.split(/ \|/);
+  let i = 0;
+
+  if (cells.length > count) {
+    cells.splice(count);
+  } else {
+    while (cells.length < count) cells.push('');
+  }
+
+  for (; i < cells.length; i++) {
+    // leading or trailing whitespace is ignored per the gfm spec
+    cells[i] = cells[i].trim().replace(/\\\|/g, '|');
+  }
+  return cells;
+}
+
+// Remove trailing 'c's. Equivalent to str.replace(/c*$/, '').
+// /c*$/ is vulnerable to REDOS.
+// invert: Remove suffix of non-c chars instead. Default falsey.
+function rtrim(str, c, invert) {
+  const l = str.length;
+  if (l === 0) {
+    return '';
+  }
+
+  // Length of suffix matching the invert condition.
+  let suffLen = 0;
+
+  // Step left until we fail to match the invert condition.
+  while (suffLen < l) {
+    const currChar = str.charAt(l - suffLen - 1);
+    if (currChar === c && !invert) {
+      suffLen++;
+    } else if (currChar !== c && invert) {
+      suffLen++;
+    } else {
+      break;
+    }
+  }
+
+  return str.substr(0, l - suffLen);
+}
+
+function findClosingBracket(str, b) {
+  if (str.indexOf(b[1]) === -1) {
+    return -1;
+  }
+  const l = str.length;
+  let level = 0,
+    i = 0;
+  for (; i < l; i++) {
+    if (str[i] === '\\') {
+      i++;
+    } else if (str[i] === b[0]) {
+      level++;
+    } else if (str[i] === b[1]) {
+      level--;
+      if (level < 0) {
+        return i;
+      }
+    }
+  }
+  return -1;
+}
+
+function checkSanitizeDeprecation(opt) {
+  if (opt && opt.sanitize && !opt.silent) {
+    console.warn('marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options');
+  }
+}
+
+module.exports = {
+  escape,
+  unescape,
+  edit,
+  cleanUrl,
+  resolveUrl,
+  noopTest,
+  merge,
+  splitCells,
+  rtrim,
+  findClosingBracket,
+  checkSanitizeDeprecation
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/marked.js":
+/*!*******************************************!*\
+  !*** ./node_modules/marked/src/marked.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Lexer = __webpack_require__(/*! ./Lexer.js */ "./node_modules/marked/src/Lexer.js");
+const Parser = __webpack_require__(/*! ./Parser.js */ "./node_modules/marked/src/Parser.js");
+const Renderer = __webpack_require__(/*! ./Renderer.js */ "./node_modules/marked/src/Renderer.js");
+const TextRenderer = __webpack_require__(/*! ./TextRenderer.js */ "./node_modules/marked/src/TextRenderer.js");
+const InlineLexer = __webpack_require__(/*! ./InlineLexer.js */ "./node_modules/marked/src/InlineLexer.js");
+const Slugger = __webpack_require__(/*! ./Slugger.js */ "./node_modules/marked/src/Slugger.js");
+const {
+  merge,
+  checkSanitizeDeprecation,
+  escape
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+const {
+  getDefaults,
+  changeDefaults,
+  defaults
+} = __webpack_require__(/*! ./defaults.js */ "./node_modules/marked/src/defaults.js");
+
+/**
+ * Marked
+ */
+function marked(src, opt, callback) {
+  // throw error in case of non string input
+  if (typeof src === 'undefined' || src === null) {
+    throw new Error('marked(): input parameter is undefined or null');
+  }
+  if (typeof src !== 'string') {
+    throw new Error('marked(): input parameter is of type '
+      + Object.prototype.toString.call(src) + ', string expected');
+  }
+
+  if (callback || typeof opt === 'function') {
+    if (!callback) {
+      callback = opt;
+      opt = null;
+    }
+
+    opt = merge({}, marked.defaults, opt || {});
+    checkSanitizeDeprecation(opt);
+    const highlight = opt.highlight;
+    let tokens,
+      pending,
+      i = 0;
+
+    try {
+      tokens = Lexer.lex(src, opt);
+    } catch (e) {
+      return callback(e);
+    }
+
+    pending = tokens.length;
+
+    const done = function(err) {
+      if (err) {
+        opt.highlight = highlight;
+        return callback(err);
+      }
+
+      let out;
+
+      try {
+        out = Parser.parse(tokens, opt);
+      } catch (e) {
+        err = e;
+      }
+
+      opt.highlight = highlight;
+
+      return err
+        ? callback(err)
+        : callback(null, out);
+    };
+
+    if (!highlight || highlight.length < 3) {
+      return done();
+    }
+
+    delete opt.highlight;
+
+    if (!pending) return done();
+
+    for (; i < tokens.length; i++) {
+      (function(token) {
+        if (token.type !== 'code') {
+          return --pending || done();
+        }
+        return highlight(token.text, token.lang, function(err, code) {
+          if (err) return done(err);
+          if (code == null || code === token.text) {
+            return --pending || done();
+          }
+          token.text = code;
+          token.escaped = true;
+          --pending || done();
+        });
+      })(tokens[i]);
+    }
+
+    return;
+  }
+  try {
+    opt = merge({}, marked.defaults, opt || {});
+    checkSanitizeDeprecation(opt);
+    return Parser.parse(Lexer.lex(src, opt), opt);
+  } catch (e) {
+    e.message += '\nPlease report this to https://github.com/markedjs/marked.';
+    if ((opt || marked.defaults).silent) {
+      return '<p>An error occurred:</p><pre>'
+        + escape(e.message + '', true)
+        + '</pre>';
+    }
+    throw e;
+  }
+}
+
+/**
+ * Options
+ */
+
+marked.options =
+marked.setOptions = function(opt) {
+  merge(marked.defaults, opt);
+  changeDefaults(marked.defaults);
+  return marked;
+};
+
+marked.getDefaults = getDefaults;
+
+marked.defaults = defaults;
+
+/**
+ * Expose
+ */
+
+marked.Parser = Parser;
+marked.parser = Parser.parse;
+
+marked.Renderer = Renderer;
+marked.TextRenderer = TextRenderer;
+
+marked.Lexer = Lexer;
+marked.lexer = Lexer.lex;
+
+marked.InlineLexer = InlineLexer;
+marked.inlineLexer = InlineLexer.output;
+
+marked.Slugger = Slugger;
+
+marked.parse = marked;
+
+module.exports = marked;
+
+
+/***/ }),
+
+/***/ "./node_modules/marked/src/rules.js":
+/*!******************************************!*\
+  !*** ./node_modules/marked/src/rules.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const {
+  noopTest,
+  edit,
+  merge
+} = __webpack_require__(/*! ./helpers.js */ "./node_modules/marked/src/helpers.js");
+
+/**
+ * Block-Level Grammar
+ */
+const block = {
+  newline: /^\n+/,
+  code: /^( {4}[^\n]+\n*)+/,
+  fences: /^ {0,3}(`{3,}(?=[^`\n]*\n)|~{3,})([^\n]*)\n(?:|([\s\S]*?)\n)(?: {0,3}\1[~`]* *(?:\n+|$)|$)/,
+  hr: /^ {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\* *){3,})(?:\n+|$)/,
+  heading: /^ {0,3}(#{1,6}) +([^\n]*?)(?: +#+)? *(?:\n+|$)/,
+  blockquote: /^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/,
+  list: /^( {0,3})(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
+  html: '^ {0,3}(?:' // optional indentation
+    + '<(script|pre|style)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)' // (1)
+    + '|comment[^\\n]*(\\n+|$)' // (2)
+    + '|<\\?[\\s\\S]*?\\?>\\n*' // (3)
+    + '|<![A-Z][\\s\\S]*?>\\n*' // (4)
+    + '|<!\\[CDATA\\[[\\s\\S]*?\\]\\]>\\n*' // (5)
+    + '|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:\\n{2,}|$)' // (6)
+    + '|<(?!script|pre|style)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:\\n{2,}|$)' // (7) open tag
+    + '|</(?!script|pre|style)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:\\n{2,}|$)' // (7) closing tag
+    + ')',
+  def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
+  nptable: noopTest,
+  table: noopTest,
+  lheading: /^([^\n]+)\n {0,3}(=+|-+) *(?:\n+|$)/,
+  // regex template, placeholders will be replaced according to different paragraph
+  // interruption rules of commonmark and the original markdown spec:
+  _paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html)[^\n]+)*)/,
+  text: /^[^\n]+/
+};
+
+block._label = /(?!\s*\])(?:\\[\[\]]|[^\[\]])+/;
+block._title = /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/;
+block.def = edit(block.def)
+  .replace('label', block._label)
+  .replace('title', block._title)
+  .getRegex();
+
+block.bullet = /(?:[*+-]|\d{1,9}\.)/;
+block.item = /^( *)(bull) ?[^\n]*(?:\n(?!\1bull ?)[^\n]*)*/;
+block.item = edit(block.item, 'gm')
+  .replace(/bull/g, block.bullet)
+  .getRegex();
+
+block.list = edit(block.list)
+  .replace(/bull/g, block.bullet)
+  .replace('hr', '\\n+(?=\\1?(?:(?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$))')
+  .replace('def', '\\n+(?=' + block.def.source + ')')
+  .getRegex();
+
+block._tag = 'address|article|aside|base|basefont|blockquote|body|caption'
+  + '|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption'
+  + '|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe'
+  + '|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option'
+  + '|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr'
+  + '|track|ul';
+block._comment = /<!--(?!-?>)[\s\S]*?-->/;
+block.html = edit(block.html, 'i')
+  .replace('comment', block._comment)
+  .replace('tag', block._tag)
+  .replace('attribute', / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/)
+  .getRegex();
+
+block.paragraph = edit(block._paragraph)
+  .replace('hr', block.hr)
+  .replace('heading', ' {0,3}#{1,6} ')
+  .replace('|lheading', '') // setex headings don't interrupt commonmark paragraphs
+  .replace('blockquote', ' {0,3}>')
+  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
+  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)')
+  .replace('tag', block._tag) // pars can be interrupted by type (6) html blocks
+  .getRegex();
+
+block.blockquote = edit(block.blockquote)
+  .replace('paragraph', block.paragraph)
+  .getRegex();
+
+/**
+ * Normal Block Grammar
+ */
+
+block.normal = merge({}, block);
+
+/**
+ * GFM Block Grammar
+ */
+
+block.gfm = merge({}, block.normal, {
+  nptable: '^ *([^|\\n ].*\\|.*)\\n' // Header
+    + ' *([-:]+ *\\|[-| :]*)' // Align
+    + '(?:\\n((?:(?!\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)', // Cells
+  table: '^ *\\|(.+)\\n' // Header
+    + ' *\\|?( *[-:]+[-| :]*)' // Align
+    + '(?:\\n *((?:(?!\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)' // Cells
+});
+
+block.gfm.nptable = edit(block.gfm.nptable)
+  .replace('hr', block.hr)
+  .replace('heading', ' {0,3}#{1,6} ')
+  .replace('blockquote', ' {0,3}>')
+  .replace('code', ' {4}[^\\n]')
+  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
+  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)')
+  .replace('tag', block._tag) // tables can be interrupted by type (6) html blocks
+  .getRegex();
+
+block.gfm.table = edit(block.gfm.table)
+  .replace('hr', block.hr)
+  .replace('heading', ' {0,3}#{1,6} ')
+  .replace('blockquote', ' {0,3}>')
+  .replace('code', ' {4}[^\\n]')
+  .replace('fences', ' {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n')
+  .replace('list', ' {0,3}(?:[*+-]|1[.)]) ') // only lists starting from 1 can interrupt
+  .replace('html', '</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|!--)')
+  .replace('tag', block._tag) // tables can be interrupted by type (6) html blocks
+  .getRegex();
+
+/**
+ * Pedantic grammar (original John Gruber's loose markdown specification)
+ */
+
+block.pedantic = merge({}, block.normal, {
+  html: edit(
+    '^ *(?:comment *(?:\\n|\\s*$)'
+    + '|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)' // closed tag
+    + '|<tag(?:"[^"]*"|\'[^\']*\'|\\s[^\'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))')
+    .replace('comment', block._comment)
+    .replace(/tag/g, '(?!(?:'
+      + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub'
+      + '|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)'
+      + '\\b)\\w+(?!:|[^\\w\\s@]*@)\\b')
+    .getRegex(),
+  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/,
+  heading: /^ *(#{1,6}) *([^\n]+?) *(?:#+ *)?(?:\n+|$)/,
+  fences: noopTest, // fences not supported
+  paragraph: edit(block.normal._paragraph)
+    .replace('hr', block.hr)
+    .replace('heading', ' *#{1,6} *[^\n]')
+    .replace('lheading', block.lheading)
+    .replace('blockquote', ' {0,3}>')
+    .replace('|fences', '')
+    .replace('|list', '')
+    .replace('|html', '')
+    .getRegex()
+});
+
+/**
+ * Inline-Level Grammar
+ */
+const inline = {
+  escape: /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/,
+  autolink: /^<(scheme:[^\s\x00-\x1f<>]*|email)>/,
+  url: noopTest,
+  tag: '^comment'
+    + '|^</[a-zA-Z][\\w:-]*\\s*>' // self-closing tag
+    + '|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>' // open tag
+    + '|^<\\?[\\s\\S]*?\\?>' // processing instruction, e.g. <?php ?>
+    + '|^<![a-zA-Z]+\\s[\\s\\S]*?>' // declaration, e.g. <!DOCTYPE html>
+    + '|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>', // CDATA section
+  link: /^!?\[(label)\]\(\s*(href)(?:\s+(title))?\s*\)/,
+  reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
+  nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
+  strong: /^__([^\s_])__(?!_)|^\*\*([^\s*])\*\*(?!\*)|^__([^\s][\s\S]*?[^\s])__(?!_)|^\*\*([^\s][\s\S]*?[^\s])\*\*(?!\*)/,
+  em: /^_([^\s_])_(?!_)|^\*([^\s*<\[])\*(?!\*)|^_([^\s<][\s\S]*?[^\s_])_(?!_|[^\spunctuation])|^_([^\s_<][\s\S]*?[^\s])_(?!_|[^\spunctuation])|^\*([^\s<"][\s\S]*?[^\s\*])\*(?!\*|[^\spunctuation])|^\*([^\s*"<\[][\s\S]*?[^\s])\*(?!\*)/,
+  code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
+  br: /^( {2,}|\\)\n(?!\s*$)/,
+  del: noopTest,
+  text: /^(`+|[^`])(?:[\s\S]*?(?:(?=[\\<!\[`*]|\b_|$)|[^ ](?= {2,}\n))|(?= {2,}\n))/
+};
+
+// list of punctuation marks from common mark spec
+// without ` and ] to workaround Rule 17 (inline code blocks/links)
+inline._punctuation = '!"#$%&\'()*+,\\-./:;<=>?@\\[^_{|}~';
+inline.em = edit(inline.em).replace(/punctuation/g, inline._punctuation).getRegex();
+
+inline._escapes = /\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/g;
+
+inline._scheme = /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/;
+inline._email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/;
+inline.autolink = edit(inline.autolink)
+  .replace('scheme', inline._scheme)
+  .replace('email', inline._email)
+  .getRegex();
+
+inline._attribute = /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/;
+
+inline.tag = edit(inline.tag)
+  .replace('comment', block._comment)
+  .replace('attribute', inline._attribute)
+  .getRegex();
+
+inline._label = /(?:\[[^\[\]]*\]|\\.|`[^`]*`|[^\[\]\\`])*?/;
+inline._href = /<(?:\\[<>]?|[^\s<>\\])*>|[^\s\x00-\x1f]*/;
+inline._title = /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/;
+
+inline.link = edit(inline.link)
+  .replace('label', inline._label)
+  .replace('href', inline._href)
+  .replace('title', inline._title)
+  .getRegex();
+
+inline.reflink = edit(inline.reflink)
+  .replace('label', inline._label)
+  .getRegex();
+
+/**
+ * Normal Inline Grammar
+ */
+
+inline.normal = merge({}, inline);
+
+/**
+ * Pedantic Inline Grammar
+ */
+
+inline.pedantic = merge({}, inline.normal, {
+  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/,
+  link: edit(/^!?\[(label)\]\((.*?)\)/)
+    .replace('label', inline._label)
+    .getRegex(),
+  reflink: edit(/^!?\[(label)\]\s*\[([^\]]*)\]/)
+    .replace('label', inline._label)
+    .getRegex()
+});
+
+/**
+ * GFM Inline Grammar
+ */
+
+inline.gfm = merge({}, inline.normal, {
+  escape: edit(inline.escape).replace('])', '~|])').getRegex(),
+  _extended_email: /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/,
+  url: /^((?:ftp|https?):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/,
+  _backpedal: /(?:[^?!.,:;*_~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_~)]+(?!$))+/,
+  del: /^~+(?=\S)([\s\S]*?\S)~+/,
+  text: /^(`+|[^`])(?:[\s\S]*?(?:(?=[\\<!\[`*~]|\b_|https?:\/\/|ftp:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@))|(?= {2,}\n|[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@))/
+});
+
+inline.gfm.url = edit(inline.gfm.url, 'i')
+  .replace('email', inline.gfm._extended_email)
+  .getRegex();
+/**
+ * GFM + Line Breaks Inline Grammar
+ */
+
+inline.breaks = merge({}, inline.gfm, {
+  br: edit(inline.br).replace('{2,}', '*').getRegex(),
+  text: edit(inline.gfm.text)
+    .replace('\\b_', '\\b_| {2,}\\n')
+    .replace(/\{2,\}/g, '*')
+    .getRegex()
+});
+
+module.exports = {
+  block,
+  inline
+};
+
 
 /***/ }),
 
@@ -45876,6 +47997,948 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * A collection of shims that provide minimal functionality of the ES6 collections.
+ *
+ * These implementations are not meant to be used outside of the ResizeObserver
+ * modules as they cover only a limited range of use cases.
+ */
+/* eslint-disable require-jsdoc, valid-jsdoc */
+var MapShim = (function () {
+    if (typeof Map !== 'undefined') {
+        return Map;
+    }
+    /**
+     * Returns index in provided array that matches the specified key.
+     *
+     * @param {Array<Array>} arr
+     * @param {*} key
+     * @returns {number}
+     */
+    function getIndex(arr, key) {
+        var result = -1;
+        arr.some(function (entry, index) {
+            if (entry[0] === key) {
+                result = index;
+                return true;
+            }
+            return false;
+        });
+        return result;
+    }
+    return /** @class */ (function () {
+        function class_1() {
+            this.__entries__ = [];
+        }
+        Object.defineProperty(class_1.prototype, "size", {
+            /**
+             * @returns {boolean}
+             */
+            get: function () {
+                return this.__entries__.length;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @param {*} key
+         * @returns {*}
+         */
+        class_1.prototype.get = function (key) {
+            var index = getIndex(this.__entries__, key);
+            var entry = this.__entries__[index];
+            return entry && entry[1];
+        };
+        /**
+         * @param {*} key
+         * @param {*} value
+         * @returns {void}
+         */
+        class_1.prototype.set = function (key, value) {
+            var index = getIndex(this.__entries__, key);
+            if (~index) {
+                this.__entries__[index][1] = value;
+            }
+            else {
+                this.__entries__.push([key, value]);
+            }
+        };
+        /**
+         * @param {*} key
+         * @returns {void}
+         */
+        class_1.prototype.delete = function (key) {
+            var entries = this.__entries__;
+            var index = getIndex(entries, key);
+            if (~index) {
+                entries.splice(index, 1);
+            }
+        };
+        /**
+         * @param {*} key
+         * @returns {void}
+         */
+        class_1.prototype.has = function (key) {
+            return !!~getIndex(this.__entries__, key);
+        };
+        /**
+         * @returns {void}
+         */
+        class_1.prototype.clear = function () {
+            this.__entries__.splice(0);
+        };
+        /**
+         * @param {Function} callback
+         * @param {*} [ctx=null]
+         * @returns {void}
+         */
+        class_1.prototype.forEach = function (callback, ctx) {
+            if (ctx === void 0) { ctx = null; }
+            for (var _i = 0, _a = this.__entries__; _i < _a.length; _i++) {
+                var entry = _a[_i];
+                callback.call(ctx, entry[1], entry[0]);
+            }
+        };
+        return class_1;
+    }());
+})();
+
+/**
+ * Detects whether window and document objects are available in current environment.
+ */
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && window.document === document;
+
+// Returns global object of a current environment.
+var global$1 = (function () {
+    if (typeof global !== 'undefined' && global.Math === Math) {
+        return global;
+    }
+    if (typeof self !== 'undefined' && self.Math === Math) {
+        return self;
+    }
+    if (typeof window !== 'undefined' && window.Math === Math) {
+        return window;
+    }
+    // eslint-disable-next-line no-new-func
+    return Function('return this')();
+})();
+
+/**
+ * A shim for the requestAnimationFrame which falls back to the setTimeout if
+ * first one is not supported.
+ *
+ * @returns {number} Requests' identifier.
+ */
+var requestAnimationFrame$1 = (function () {
+    if (typeof requestAnimationFrame === 'function') {
+        // It's required to use a bounded function because IE sometimes throws
+        // an "Invalid calling object" error if rAF is invoked without the global
+        // object on the left hand side.
+        return requestAnimationFrame.bind(global$1);
+    }
+    return function (callback) { return setTimeout(function () { return callback(Date.now()); }, 1000 / 60); };
+})();
+
+// Defines minimum timeout before adding a trailing call.
+var trailingTimeout = 2;
+/**
+ * Creates a wrapper function which ensures that provided callback will be
+ * invoked only once during the specified delay period.
+ *
+ * @param {Function} callback - Function to be invoked after the delay period.
+ * @param {number} delay - Delay after which to invoke callback.
+ * @returns {Function}
+ */
+function throttle (callback, delay) {
+    var leadingCall = false, trailingCall = false, lastCallTime = 0;
+    /**
+     * Invokes the original callback function and schedules new invocation if
+     * the "proxy" was called during current request.
+     *
+     * @returns {void}
+     */
+    function resolvePending() {
+        if (leadingCall) {
+            leadingCall = false;
+            callback();
+        }
+        if (trailingCall) {
+            proxy();
+        }
+    }
+    /**
+     * Callback invoked after the specified delay. It will further postpone
+     * invocation of the original function delegating it to the
+     * requestAnimationFrame.
+     *
+     * @returns {void}
+     */
+    function timeoutCallback() {
+        requestAnimationFrame$1(resolvePending);
+    }
+    /**
+     * Schedules invocation of the original function.
+     *
+     * @returns {void}
+     */
+    function proxy() {
+        var timeStamp = Date.now();
+        if (leadingCall) {
+            // Reject immediately following calls.
+            if (timeStamp - lastCallTime < trailingTimeout) {
+                return;
+            }
+            // Schedule new call to be in invoked when the pending one is resolved.
+            // This is important for "transitions" which never actually start
+            // immediately so there is a chance that we might miss one if change
+            // happens amids the pending invocation.
+            trailingCall = true;
+        }
+        else {
+            leadingCall = true;
+            trailingCall = false;
+            setTimeout(timeoutCallback, delay);
+        }
+        lastCallTime = timeStamp;
+    }
+    return proxy;
+}
+
+// Minimum delay before invoking the update of observers.
+var REFRESH_DELAY = 20;
+// A list of substrings of CSS properties used to find transition events that
+// might affect dimensions of observed elements.
+var transitionKeys = ['top', 'right', 'bottom', 'left', 'width', 'height', 'size', 'weight'];
+// Check if MutationObserver is available.
+var mutationObserverSupported = typeof MutationObserver !== 'undefined';
+/**
+ * Singleton controller class which handles updates of ResizeObserver instances.
+ */
+var ResizeObserverController = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserverController.
+     *
+     * @private
+     */
+    function ResizeObserverController() {
+        /**
+         * Indicates whether DOM listeners have been added.
+         *
+         * @private {boolean}
+         */
+        this.connected_ = false;
+        /**
+         * Tells that controller has subscribed for Mutation Events.
+         *
+         * @private {boolean}
+         */
+        this.mutationEventsAdded_ = false;
+        /**
+         * Keeps reference to the instance of MutationObserver.
+         *
+         * @private {MutationObserver}
+         */
+        this.mutationsObserver_ = null;
+        /**
+         * A list of connected observers.
+         *
+         * @private {Array<ResizeObserverSPI>}
+         */
+        this.observers_ = [];
+        this.onTransitionEnd_ = this.onTransitionEnd_.bind(this);
+        this.refresh = throttle(this.refresh.bind(this), REFRESH_DELAY);
+    }
+    /**
+     * Adds observer to observers list.
+     *
+     * @param {ResizeObserverSPI} observer - Observer to be added.
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.addObserver = function (observer) {
+        if (!~this.observers_.indexOf(observer)) {
+            this.observers_.push(observer);
+        }
+        // Add listeners if they haven't been added yet.
+        if (!this.connected_) {
+            this.connect_();
+        }
+    };
+    /**
+     * Removes observer from observers list.
+     *
+     * @param {ResizeObserverSPI} observer - Observer to be removed.
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.removeObserver = function (observer) {
+        var observers = this.observers_;
+        var index = observers.indexOf(observer);
+        // Remove observer if it's present in registry.
+        if (~index) {
+            observers.splice(index, 1);
+        }
+        // Remove listeners if controller has no connected observers.
+        if (!observers.length && this.connected_) {
+            this.disconnect_();
+        }
+    };
+    /**
+     * Invokes the update of observers. It will continue running updates insofar
+     * it detects changes.
+     *
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.refresh = function () {
+        var changesDetected = this.updateObservers_();
+        // Continue running updates if changes have been detected as there might
+        // be future ones caused by CSS transitions.
+        if (changesDetected) {
+            this.refresh();
+        }
+    };
+    /**
+     * Updates every observer from observers list and notifies them of queued
+     * entries.
+     *
+     * @private
+     * @returns {boolean} Returns "true" if any observer has detected changes in
+     *      dimensions of it's elements.
+     */
+    ResizeObserverController.prototype.updateObservers_ = function () {
+        // Collect observers that have active observations.
+        var activeObservers = this.observers_.filter(function (observer) {
+            return observer.gatherActive(), observer.hasActive();
+        });
+        // Deliver notifications in a separate cycle in order to avoid any
+        // collisions between observers, e.g. when multiple instances of
+        // ResizeObserver are tracking the same element and the callback of one
+        // of them changes content dimensions of the observed target. Sometimes
+        // this may result in notifications being blocked for the rest of observers.
+        activeObservers.forEach(function (observer) { return observer.broadcastActive(); });
+        return activeObservers.length > 0;
+    };
+    /**
+     * Initializes DOM listeners.
+     *
+     * @private
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.connect_ = function () {
+        // Do nothing if running in a non-browser environment or if listeners
+        // have been already added.
+        if (!isBrowser || this.connected_) {
+            return;
+        }
+        // Subscription to the "Transitionend" event is used as a workaround for
+        // delayed transitions. This way it's possible to capture at least the
+        // final state of an element.
+        document.addEventListener('transitionend', this.onTransitionEnd_);
+        window.addEventListener('resize', this.refresh);
+        if (mutationObserverSupported) {
+            this.mutationsObserver_ = new MutationObserver(this.refresh);
+            this.mutationsObserver_.observe(document, {
+                attributes: true,
+                childList: true,
+                characterData: true,
+                subtree: true
+            });
+        }
+        else {
+            document.addEventListener('DOMSubtreeModified', this.refresh);
+            this.mutationEventsAdded_ = true;
+        }
+        this.connected_ = true;
+    };
+    /**
+     * Removes DOM listeners.
+     *
+     * @private
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.disconnect_ = function () {
+        // Do nothing if running in a non-browser environment or if listeners
+        // have been already removed.
+        if (!isBrowser || !this.connected_) {
+            return;
+        }
+        document.removeEventListener('transitionend', this.onTransitionEnd_);
+        window.removeEventListener('resize', this.refresh);
+        if (this.mutationsObserver_) {
+            this.mutationsObserver_.disconnect();
+        }
+        if (this.mutationEventsAdded_) {
+            document.removeEventListener('DOMSubtreeModified', this.refresh);
+        }
+        this.mutationsObserver_ = null;
+        this.mutationEventsAdded_ = false;
+        this.connected_ = false;
+    };
+    /**
+     * "Transitionend" event handler.
+     *
+     * @private
+     * @param {TransitionEvent} event
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.onTransitionEnd_ = function (_a) {
+        var _b = _a.propertyName, propertyName = _b === void 0 ? '' : _b;
+        // Detect whether transition may affect dimensions of an element.
+        var isReflowProperty = transitionKeys.some(function (key) {
+            return !!~propertyName.indexOf(key);
+        });
+        if (isReflowProperty) {
+            this.refresh();
+        }
+    };
+    /**
+     * Returns instance of the ResizeObserverController.
+     *
+     * @returns {ResizeObserverController}
+     */
+    ResizeObserverController.getInstance = function () {
+        if (!this.instance_) {
+            this.instance_ = new ResizeObserverController();
+        }
+        return this.instance_;
+    };
+    /**
+     * Holds reference to the controller's instance.
+     *
+     * @private {ResizeObserverController}
+     */
+    ResizeObserverController.instance_ = null;
+    return ResizeObserverController;
+}());
+
+/**
+ * Defines non-writable/enumerable properties of the provided target object.
+ *
+ * @param {Object} target - Object for which to define properties.
+ * @param {Object} props - Properties to be defined.
+ * @returns {Object} Target object.
+ */
+var defineConfigurable = (function (target, props) {
+    for (var _i = 0, _a = Object.keys(props); _i < _a.length; _i++) {
+        var key = _a[_i];
+        Object.defineProperty(target, key, {
+            value: props[key],
+            enumerable: false,
+            writable: false,
+            configurable: true
+        });
+    }
+    return target;
+});
+
+/**
+ * Returns the global object associated with provided element.
+ *
+ * @param {Object} target
+ * @returns {Object}
+ */
+var getWindowOf = (function (target) {
+    // Assume that the element is an instance of Node, which means that it
+    // has the "ownerDocument" property from which we can retrieve a
+    // corresponding global object.
+    var ownerGlobal = target && target.ownerDocument && target.ownerDocument.defaultView;
+    // Return the local global object if it's not possible extract one from
+    // provided element.
+    return ownerGlobal || global$1;
+});
+
+// Placeholder of an empty content rectangle.
+var emptyRect = createRectInit(0, 0, 0, 0);
+/**
+ * Converts provided string to a number.
+ *
+ * @param {number|string} value
+ * @returns {number}
+ */
+function toFloat(value) {
+    return parseFloat(value) || 0;
+}
+/**
+ * Extracts borders size from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @param {...string} positions - Borders positions (top, right, ...)
+ * @returns {number}
+ */
+function getBordersSize(styles) {
+    var positions = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        positions[_i - 1] = arguments[_i];
+    }
+    return positions.reduce(function (size, position) {
+        var value = styles['border-' + position + '-width'];
+        return size + toFloat(value);
+    }, 0);
+}
+/**
+ * Extracts paddings sizes from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @returns {Object} Paddings box.
+ */
+function getPaddings(styles) {
+    var positions = ['top', 'right', 'bottom', 'left'];
+    var paddings = {};
+    for (var _i = 0, positions_1 = positions; _i < positions_1.length; _i++) {
+        var position = positions_1[_i];
+        var value = styles['padding-' + position];
+        paddings[position] = toFloat(value);
+    }
+    return paddings;
+}
+/**
+ * Calculates content rectangle of provided SVG element.
+ *
+ * @param {SVGGraphicsElement} target - Element content rectangle of which needs
+ *      to be calculated.
+ * @returns {DOMRectInit}
+ */
+function getSVGContentRect(target) {
+    var bbox = target.getBBox();
+    return createRectInit(0, 0, bbox.width, bbox.height);
+}
+/**
+ * Calculates content rectangle of provided HTMLElement.
+ *
+ * @param {HTMLElement} target - Element for which to calculate the content rectangle.
+ * @returns {DOMRectInit}
+ */
+function getHTMLElementContentRect(target) {
+    // Client width & height properties can't be
+    // used exclusively as they provide rounded values.
+    var clientWidth = target.clientWidth, clientHeight = target.clientHeight;
+    // By this condition we can catch all non-replaced inline, hidden and
+    // detached elements. Though elements with width & height properties less
+    // than 0.5 will be discarded as well.
+    //
+    // Without it we would need to implement separate methods for each of
+    // those cases and it's not possible to perform a precise and performance
+    // effective test for hidden elements. E.g. even jQuery's ':visible' filter
+    // gives wrong results for elements with width & height less than 0.5.
+    if (!clientWidth && !clientHeight) {
+        return emptyRect;
+    }
+    var styles = getWindowOf(target).getComputedStyle(target);
+    var paddings = getPaddings(styles);
+    var horizPad = paddings.left + paddings.right;
+    var vertPad = paddings.top + paddings.bottom;
+    // Computed styles of width & height are being used because they are the
+    // only dimensions available to JS that contain non-rounded values. It could
+    // be possible to utilize the getBoundingClientRect if only it's data wasn't
+    // affected by CSS transformations let alone paddings, borders and scroll bars.
+    var width = toFloat(styles.width), height = toFloat(styles.height);
+    // Width & height include paddings and borders when the 'border-box' box
+    // model is applied (except for IE).
+    if (styles.boxSizing === 'border-box') {
+        // Following conditions are required to handle Internet Explorer which
+        // doesn't include paddings and borders to computed CSS dimensions.
+        //
+        // We can say that if CSS dimensions + paddings are equal to the "client"
+        // properties then it's either IE, and thus we don't need to subtract
+        // anything, or an element merely doesn't have paddings/borders styles.
+        if (Math.round(width + horizPad) !== clientWidth) {
+            width -= getBordersSize(styles, 'left', 'right') + horizPad;
+        }
+        if (Math.round(height + vertPad) !== clientHeight) {
+            height -= getBordersSize(styles, 'top', 'bottom') + vertPad;
+        }
+    }
+    // Following steps can't be applied to the document's root element as its
+    // client[Width/Height] properties represent viewport area of the window.
+    // Besides, it's as well not necessary as the <html> itself neither has
+    // rendered scroll bars nor it can be clipped.
+    if (!isDocumentElement(target)) {
+        // In some browsers (only in Firefox, actually) CSS width & height
+        // include scroll bars size which can be removed at this step as scroll
+        // bars are the only difference between rounded dimensions + paddings
+        // and "client" properties, though that is not always true in Chrome.
+        var vertScrollbar = Math.round(width + horizPad) - clientWidth;
+        var horizScrollbar = Math.round(height + vertPad) - clientHeight;
+        // Chrome has a rather weird rounding of "client" properties.
+        // E.g. for an element with content width of 314.2px it sometimes gives
+        // the client width of 315px and for the width of 314.7px it may give
+        // 314px. And it doesn't happen all the time. So just ignore this delta
+        // as a non-relevant.
+        if (Math.abs(vertScrollbar) !== 1) {
+            width -= vertScrollbar;
+        }
+        if (Math.abs(horizScrollbar) !== 1) {
+            height -= horizScrollbar;
+        }
+    }
+    return createRectInit(paddings.left, paddings.top, width, height);
+}
+/**
+ * Checks whether provided element is an instance of the SVGGraphicsElement.
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+var isSVGGraphicsElement = (function () {
+    // Some browsers, namely IE and Edge, don't have the SVGGraphicsElement
+    // interface.
+    if (typeof SVGGraphicsElement !== 'undefined') {
+        return function (target) { return target instanceof getWindowOf(target).SVGGraphicsElement; };
+    }
+    // If it's so, then check that element is at least an instance of the
+    // SVGElement and that it has the "getBBox" method.
+    // eslint-disable-next-line no-extra-parens
+    return function (target) { return (target instanceof getWindowOf(target).SVGElement &&
+        typeof target.getBBox === 'function'); };
+})();
+/**
+ * Checks whether provided element is a document element (<html>).
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+function isDocumentElement(target) {
+    return target === getWindowOf(target).document.documentElement;
+}
+/**
+ * Calculates an appropriate content rectangle for provided html or svg element.
+ *
+ * @param {Element} target - Element content rectangle of which needs to be calculated.
+ * @returns {DOMRectInit}
+ */
+function getContentRect(target) {
+    if (!isBrowser) {
+        return emptyRect;
+    }
+    if (isSVGGraphicsElement(target)) {
+        return getSVGContentRect(target);
+    }
+    return getHTMLElementContentRect(target);
+}
+/**
+ * Creates rectangle with an interface of the DOMRectReadOnly.
+ * Spec: https://drafts.fxtf.org/geometry/#domrectreadonly
+ *
+ * @param {DOMRectInit} rectInit - Object with rectangle's x/y coordinates and dimensions.
+ * @returns {DOMRectReadOnly}
+ */
+function createReadOnlyRect(_a) {
+    var x = _a.x, y = _a.y, width = _a.width, height = _a.height;
+    // If DOMRectReadOnly is available use it as a prototype for the rectangle.
+    var Constr = typeof DOMRectReadOnly !== 'undefined' ? DOMRectReadOnly : Object;
+    var rect = Object.create(Constr.prototype);
+    // Rectangle's properties are not writable and non-enumerable.
+    defineConfigurable(rect, {
+        x: x, y: y, width: width, height: height,
+        top: y,
+        right: x + width,
+        bottom: height + y,
+        left: x
+    });
+    return rect;
+}
+/**
+ * Creates DOMRectInit object based on the provided dimensions and the x/y coordinates.
+ * Spec: https://drafts.fxtf.org/geometry/#dictdef-domrectinit
+ *
+ * @param {number} x - X coordinate.
+ * @param {number} y - Y coordinate.
+ * @param {number} width - Rectangle's width.
+ * @param {number} height - Rectangle's height.
+ * @returns {DOMRectInit}
+ */
+function createRectInit(x, y, width, height) {
+    return { x: x, y: y, width: width, height: height };
+}
+
+/**
+ * Class that is responsible for computations of the content rectangle of
+ * provided DOM element and for keeping track of it's changes.
+ */
+var ResizeObservation = /** @class */ (function () {
+    /**
+     * Creates an instance of ResizeObservation.
+     *
+     * @param {Element} target - Element to be observed.
+     */
+    function ResizeObservation(target) {
+        /**
+         * Broadcasted width of content rectangle.
+         *
+         * @type {number}
+         */
+        this.broadcastWidth = 0;
+        /**
+         * Broadcasted height of content rectangle.
+         *
+         * @type {number}
+         */
+        this.broadcastHeight = 0;
+        /**
+         * Reference to the last observed content rectangle.
+         *
+         * @private {DOMRectInit}
+         */
+        this.contentRect_ = createRectInit(0, 0, 0, 0);
+        this.target = target;
+    }
+    /**
+     * Updates content rectangle and tells whether it's width or height properties
+     * have changed since the last broadcast.
+     *
+     * @returns {boolean}
+     */
+    ResizeObservation.prototype.isActive = function () {
+        var rect = getContentRect(this.target);
+        this.contentRect_ = rect;
+        return (rect.width !== this.broadcastWidth ||
+            rect.height !== this.broadcastHeight);
+    };
+    /**
+     * Updates 'broadcastWidth' and 'broadcastHeight' properties with a data
+     * from the corresponding properties of the last observed content rectangle.
+     *
+     * @returns {DOMRectInit} Last observed content rectangle.
+     */
+    ResizeObservation.prototype.broadcastRect = function () {
+        var rect = this.contentRect_;
+        this.broadcastWidth = rect.width;
+        this.broadcastHeight = rect.height;
+        return rect;
+    };
+    return ResizeObservation;
+}());
+
+var ResizeObserverEntry = /** @class */ (function () {
+    /**
+     * Creates an instance of ResizeObserverEntry.
+     *
+     * @param {Element} target - Element that is being observed.
+     * @param {DOMRectInit} rectInit - Data of the element's content rectangle.
+     */
+    function ResizeObserverEntry(target, rectInit) {
+        var contentRect = createReadOnlyRect(rectInit);
+        // According to the specification following properties are not writable
+        // and are also not enumerable in the native implementation.
+        //
+        // Property accessors are not being used as they'd require to define a
+        // private WeakMap storage which may cause memory leaks in browsers that
+        // don't support this type of collections.
+        defineConfigurable(this, { target: target, contentRect: contentRect });
+    }
+    return ResizeObserverEntry;
+}());
+
+var ResizeObserverSPI = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserver.
+     *
+     * @param {ResizeObserverCallback} callback - Callback function that is invoked
+     *      when one of the observed elements changes it's content dimensions.
+     * @param {ResizeObserverController} controller - Controller instance which
+     *      is responsible for the updates of observer.
+     * @param {ResizeObserver} callbackCtx - Reference to the public
+     *      ResizeObserver instance which will be passed to callback function.
+     */
+    function ResizeObserverSPI(callback, controller, callbackCtx) {
+        /**
+         * Collection of resize observations that have detected changes in dimensions
+         * of elements.
+         *
+         * @private {Array<ResizeObservation>}
+         */
+        this.activeObservations_ = [];
+        /**
+         * Registry of the ResizeObservation instances.
+         *
+         * @private {Map<Element, ResizeObservation>}
+         */
+        this.observations_ = new MapShim();
+        if (typeof callback !== 'function') {
+            throw new TypeError('The callback provided as parameter 1 is not a function.');
+        }
+        this.callback_ = callback;
+        this.controller_ = controller;
+        this.callbackCtx_ = callbackCtx;
+    }
+    /**
+     * Starts observing provided element.
+     *
+     * @param {Element} target - Element to be observed.
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.observe = function (target) {
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        // Do nothing if current environment doesn't have the Element interface.
+        if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+            return;
+        }
+        if (!(target instanceof getWindowOf(target).Element)) {
+            throw new TypeError('parameter 1 is not of type "Element".');
+        }
+        var observations = this.observations_;
+        // Do nothing if element is already being observed.
+        if (observations.has(target)) {
+            return;
+        }
+        observations.set(target, new ResizeObservation(target));
+        this.controller_.addObserver(this);
+        // Force the update of observations.
+        this.controller_.refresh();
+    };
+    /**
+     * Stops observing provided element.
+     *
+     * @param {Element} target - Element to stop observing.
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.unobserve = function (target) {
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        // Do nothing if current environment doesn't have the Element interface.
+        if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+            return;
+        }
+        if (!(target instanceof getWindowOf(target).Element)) {
+            throw new TypeError('parameter 1 is not of type "Element".');
+        }
+        var observations = this.observations_;
+        // Do nothing if element is not being observed.
+        if (!observations.has(target)) {
+            return;
+        }
+        observations.delete(target);
+        if (!observations.size) {
+            this.controller_.removeObserver(this);
+        }
+    };
+    /**
+     * Stops observing all elements.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.disconnect = function () {
+        this.clearActive();
+        this.observations_.clear();
+        this.controller_.removeObserver(this);
+    };
+    /**
+     * Collects observation instances the associated element of which has changed
+     * it's content rectangle.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.gatherActive = function () {
+        var _this = this;
+        this.clearActive();
+        this.observations_.forEach(function (observation) {
+            if (observation.isActive()) {
+                _this.activeObservations_.push(observation);
+            }
+        });
+    };
+    /**
+     * Invokes initial callback function with a list of ResizeObserverEntry
+     * instances collected from active resize observations.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.broadcastActive = function () {
+        // Do nothing if observer doesn't have active observations.
+        if (!this.hasActive()) {
+            return;
+        }
+        var ctx = this.callbackCtx_;
+        // Create ResizeObserverEntry instance for every active observation.
+        var entries = this.activeObservations_.map(function (observation) {
+            return new ResizeObserverEntry(observation.target, observation.broadcastRect());
+        });
+        this.callback_.call(ctx, entries, ctx);
+        this.clearActive();
+    };
+    /**
+     * Clears the collection of active observations.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.clearActive = function () {
+        this.activeObservations_.splice(0);
+    };
+    /**
+     * Tells whether observer has active observations.
+     *
+     * @returns {boolean}
+     */
+    ResizeObserverSPI.prototype.hasActive = function () {
+        return this.activeObservations_.length > 0;
+    };
+    return ResizeObserverSPI;
+}());
+
+// Registry of internal observers. If WeakMap is not available use current shim
+// for the Map collection as it has all required methods and because WeakMap
+// can't be fully polyfilled anyway.
+var observers = typeof WeakMap !== 'undefined' ? new WeakMap() : new MapShim();
+/**
+ * ResizeObserver API. Encapsulates the ResizeObserver SPI implementation
+ * exposing only those methods and properties that are defined in the spec.
+ */
+var ResizeObserver = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserver.
+     *
+     * @param {ResizeObserverCallback} callback - Callback that is invoked when
+     *      dimensions of the observed elements change.
+     */
+    function ResizeObserver(callback) {
+        if (!(this instanceof ResizeObserver)) {
+            throw new TypeError('Cannot call a class as a function.');
+        }
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        var controller = ResizeObserverController.getInstance();
+        var observer = new ResizeObserverSPI(callback, controller, this);
+        observers.set(this, observer);
+    }
+    return ResizeObserver;
+}());
+// Expose public methods of ResizeObserver.
+[
+    'observe',
+    'unobserve',
+    'disconnect'
+].forEach(function (method) {
+    ResizeObserver.prototype[method] = function () {
+        var _a;
+        return (_a = observers.get(this))[method].apply(_a, arguments);
+    };
+});
+
+var index = (function () {
+    // Export existing implementation if available.
+    if (typeof global$1.ResizeObserver !== 'undefined') {
+        return global$1.ResizeObserver;
+    }
+    return ResizeObserver;
+})();
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/setimmediate/setImmediate.js":
 /*!***************************************************!*\
   !*** ./node_modules/setimmediate/setImmediate.js ***!
@@ -46074,6 +49137,5155 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/showdown/dist/showdown.js":
+/*!************************************************!*\
+  !*** ./node_modules/showdown/dist/showdown.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown v 1.9.1 - 02-11-2019 */
+(function(){
+/**
+ * Created by Tivie on 13-07-2015.
+ */
+
+function getDefaultOpts (simple) {
+  'use strict';
+
+  var defaultOptions = {
+    omitExtraWLInCodeBlocks: {
+      defaultValue: false,
+      describe: 'Omit the default extra whiteline added to code blocks',
+      type: 'boolean'
+    },
+    noHeaderId: {
+      defaultValue: false,
+      describe: 'Turn on/off generated header id',
+      type: 'boolean'
+    },
+    prefixHeaderId: {
+      defaultValue: false,
+      describe: 'Add a prefix to the generated header ids. Passing a string will prefix that string to the header id. Setting to true will add a generic \'section-\' prefix',
+      type: 'string'
+    },
+    rawPrefixHeaderId: {
+      defaultValue: false,
+      describe: 'Setting this option to true will prevent showdown from modifying the prefix. This might result in malformed IDs (if, for instance, the " char is used in the prefix)',
+      type: 'boolean'
+    },
+    ghCompatibleHeaderId: {
+      defaultValue: false,
+      describe: 'Generate header ids compatible with github style (spaces are replaced with dashes, a bunch of non alphanumeric chars are removed)',
+      type: 'boolean'
+    },
+    rawHeaderId: {
+      defaultValue: false,
+      describe: 'Remove only spaces, \' and " from generated header ids (including prefixes), replacing them with dashes (-). WARNING: This might result in malformed ids',
+      type: 'boolean'
+    },
+    headerLevelStart: {
+      defaultValue: false,
+      describe: 'The header blocks level start',
+      type: 'integer'
+    },
+    parseImgDimensions: {
+      defaultValue: false,
+      describe: 'Turn on/off image dimension parsing',
+      type: 'boolean'
+    },
+    simplifiedAutoLink: {
+      defaultValue: false,
+      describe: 'Turn on/off GFM autolink style',
+      type: 'boolean'
+    },
+    excludeTrailingPunctuationFromURLs: {
+      defaultValue: false,
+      describe: 'Excludes trailing punctuation from links generated with autoLinking',
+      type: 'boolean'
+    },
+    literalMidWordUnderscores: {
+      defaultValue: false,
+      describe: 'Parse midword underscores as literal underscores',
+      type: 'boolean'
+    },
+    literalMidWordAsterisks: {
+      defaultValue: false,
+      describe: 'Parse midword asterisks as literal asterisks',
+      type: 'boolean'
+    },
+    strikethrough: {
+      defaultValue: false,
+      describe: 'Turn on/off strikethrough support',
+      type: 'boolean'
+    },
+    tables: {
+      defaultValue: false,
+      describe: 'Turn on/off tables support',
+      type: 'boolean'
+    },
+    tablesHeaderId: {
+      defaultValue: false,
+      describe: 'Add an id to table headers',
+      type: 'boolean'
+    },
+    ghCodeBlocks: {
+      defaultValue: true,
+      describe: 'Turn on/off GFM fenced code blocks support',
+      type: 'boolean'
+    },
+    tasklists: {
+      defaultValue: false,
+      describe: 'Turn on/off GFM tasklist support',
+      type: 'boolean'
+    },
+    smoothLivePreview: {
+      defaultValue: false,
+      describe: 'Prevents weird effects in live previews due to incomplete input',
+      type: 'boolean'
+    },
+    smartIndentationFix: {
+      defaultValue: false,
+      description: 'Tries to smartly fix indentation in es6 strings',
+      type: 'boolean'
+    },
+    disableForced4SpacesIndentedSublists: {
+      defaultValue: false,
+      description: 'Disables the requirement of indenting nested sublists by 4 spaces',
+      type: 'boolean'
+    },
+    simpleLineBreaks: {
+      defaultValue: false,
+      description: 'Parses simple line breaks as <br> (GFM Style)',
+      type: 'boolean'
+    },
+    requireSpaceBeforeHeadingText: {
+      defaultValue: false,
+      description: 'Makes adding a space between `#` and the header text mandatory (GFM Style)',
+      type: 'boolean'
+    },
+    ghMentions: {
+      defaultValue: false,
+      description: 'Enables github @mentions',
+      type: 'boolean'
+    },
+    ghMentionsLink: {
+      defaultValue: 'https://github.com/{u}',
+      description: 'Changes the link generated by @mentions. Only applies if ghMentions option is enabled.',
+      type: 'string'
+    },
+    encodeEmails: {
+      defaultValue: true,
+      description: 'Encode e-mail addresses through the use of Character Entities, transforming ASCII e-mail addresses into its equivalent decimal entities',
+      type: 'boolean'
+    },
+    openLinksInNewWindow: {
+      defaultValue: false,
+      description: 'Open all links in new windows',
+      type: 'boolean'
+    },
+    backslashEscapesHTMLTags: {
+      defaultValue: false,
+      description: 'Support for HTML Tag escaping. ex: \<div>foo\</div>',
+      type: 'boolean'
+    },
+    emoji: {
+      defaultValue: false,
+      description: 'Enable emoji support. Ex: `this is a :smile: emoji`',
+      type: 'boolean'
+    },
+    underline: {
+      defaultValue: false,
+      description: 'Enable support for underline. Syntax is double or triple underscores: `__underline word__`. With this option enabled, underscores no longer parses into `<em>` and `<strong>`',
+      type: 'boolean'
+    },
+    completeHTMLDocument: {
+      defaultValue: false,
+      description: 'Outputs a complete html document, including `<html>`, `<head>` and `<body>` tags',
+      type: 'boolean'
+    },
+    metadata: {
+      defaultValue: false,
+      description: 'Enable support for document metadata (defined at the top of the document between `«««` and `»»»` or between `---` and `---`).',
+      type: 'boolean'
+    },
+    splitAdjacentBlockquotes: {
+      defaultValue: false,
+      description: 'Split adjacent blockquote blocks',
+      type: 'boolean'
+    }
+  };
+  if (simple === false) {
+    return JSON.parse(JSON.stringify(defaultOptions));
+  }
+  var ret = {};
+  for (var opt in defaultOptions) {
+    if (defaultOptions.hasOwnProperty(opt)) {
+      ret[opt] = defaultOptions[opt].defaultValue;
+    }
+  }
+  return ret;
+}
+
+function allOptionsOn () {
+  'use strict';
+  var options = getDefaultOpts(true),
+      ret = {};
+  for (var opt in options) {
+    if (options.hasOwnProperty(opt)) {
+      ret[opt] = true;
+    }
+  }
+  return ret;
+}
+
+/**
+ * Created by Tivie on 06-01-2015.
+ */
+
+// Private properties
+var showdown = {},
+    parsers = {},
+    extensions = {},
+    globalOptions = getDefaultOpts(true),
+    setFlavor = 'vanilla',
+    flavor = {
+      github: {
+        omitExtraWLInCodeBlocks:              true,
+        simplifiedAutoLink:                   true,
+        excludeTrailingPunctuationFromURLs:   true,
+        literalMidWordUnderscores:            true,
+        strikethrough:                        true,
+        tables:                               true,
+        tablesHeaderId:                       true,
+        ghCodeBlocks:                         true,
+        tasklists:                            true,
+        disableForced4SpacesIndentedSublists: true,
+        simpleLineBreaks:                     true,
+        requireSpaceBeforeHeadingText:        true,
+        ghCompatibleHeaderId:                 true,
+        ghMentions:                           true,
+        backslashEscapesHTMLTags:             true,
+        emoji:                                true,
+        splitAdjacentBlockquotes:             true
+      },
+      original: {
+        noHeaderId:                           true,
+        ghCodeBlocks:                         false
+      },
+      ghost: {
+        omitExtraWLInCodeBlocks:              true,
+        parseImgDimensions:                   true,
+        simplifiedAutoLink:                   true,
+        excludeTrailingPunctuationFromURLs:   true,
+        literalMidWordUnderscores:            true,
+        strikethrough:                        true,
+        tables:                               true,
+        tablesHeaderId:                       true,
+        ghCodeBlocks:                         true,
+        tasklists:                            true,
+        smoothLivePreview:                    true,
+        simpleLineBreaks:                     true,
+        requireSpaceBeforeHeadingText:        true,
+        ghMentions:                           false,
+        encodeEmails:                         true
+      },
+      vanilla: getDefaultOpts(true),
+      allOn: allOptionsOn()
+    };
+
+/**
+ * helper namespace
+ * @type {{}}
+ */
+showdown.helper = {};
+
+/**
+ * TODO LEGACY SUPPORT CODE
+ * @type {{}}
+ */
+showdown.extensions = {};
+
+/**
+ * Set a global option
+ * @static
+ * @param {string} key
+ * @param {*} value
+ * @returns {showdown}
+ */
+showdown.setOption = function (key, value) {
+  'use strict';
+  globalOptions[key] = value;
+  return this;
+};
+
+/**
+ * Get a global option
+ * @static
+ * @param {string} key
+ * @returns {*}
+ */
+showdown.getOption = function (key) {
+  'use strict';
+  return globalOptions[key];
+};
+
+/**
+ * Get the global options
+ * @static
+ * @returns {{}}
+ */
+showdown.getOptions = function () {
+  'use strict';
+  return globalOptions;
+};
+
+/**
+ * Reset global options to the default values
+ * @static
+ */
+showdown.resetOptions = function () {
+  'use strict';
+  globalOptions = getDefaultOpts(true);
+};
+
+/**
+ * Set the flavor showdown should use as default
+ * @param {string} name
+ */
+showdown.setFlavor = function (name) {
+  'use strict';
+  if (!flavor.hasOwnProperty(name)) {
+    throw Error(name + ' flavor was not found');
+  }
+  showdown.resetOptions();
+  var preset = flavor[name];
+  setFlavor = name;
+  for (var option in preset) {
+    if (preset.hasOwnProperty(option)) {
+      globalOptions[option] = preset[option];
+    }
+  }
+};
+
+/**
+ * Get the currently set flavor
+ * @returns {string}
+ */
+showdown.getFlavor = function () {
+  'use strict';
+  return setFlavor;
+};
+
+/**
+ * Get the options of a specified flavor. Returns undefined if the flavor was not found
+ * @param {string} name Name of the flavor
+ * @returns {{}|undefined}
+ */
+showdown.getFlavorOptions = function (name) {
+  'use strict';
+  if (flavor.hasOwnProperty(name)) {
+    return flavor[name];
+  }
+};
+
+/**
+ * Get the default options
+ * @static
+ * @param {boolean} [simple=true]
+ * @returns {{}}
+ */
+showdown.getDefaultOptions = function (simple) {
+  'use strict';
+  return getDefaultOpts(simple);
+};
+
+/**
+ * Get or set a subParser
+ *
+ * subParser(name)       - Get a registered subParser
+ * subParser(name, func) - Register a subParser
+ * @static
+ * @param {string} name
+ * @param {function} [func]
+ * @returns {*}
+ */
+showdown.subParser = function (name, func) {
+  'use strict';
+  if (showdown.helper.isString(name)) {
+    if (typeof func !== 'undefined') {
+      parsers[name] = func;
+    } else {
+      if (parsers.hasOwnProperty(name)) {
+        return parsers[name];
+      } else {
+        throw Error('SubParser named ' + name + ' not registered!');
+      }
+    }
+  }
+};
+
+/**
+ * Gets or registers an extension
+ * @static
+ * @param {string} name
+ * @param {object|function=} ext
+ * @returns {*}
+ */
+showdown.extension = function (name, ext) {
+  'use strict';
+
+  if (!showdown.helper.isString(name)) {
+    throw Error('Extension \'name\' must be a string');
+  }
+
+  name = showdown.helper.stdExtName(name);
+
+  // Getter
+  if (showdown.helper.isUndefined(ext)) {
+    if (!extensions.hasOwnProperty(name)) {
+      throw Error('Extension named ' + name + ' is not registered!');
+    }
+    return extensions[name];
+
+    // Setter
+  } else {
+    // Expand extension if it's wrapped in a function
+    if (typeof ext === 'function') {
+      ext = ext();
+    }
+
+    // Ensure extension is an array
+    if (!showdown.helper.isArray(ext)) {
+      ext = [ext];
+    }
+
+    var validExtension = validate(ext, name);
+
+    if (validExtension.valid) {
+      extensions[name] = ext;
+    } else {
+      throw Error(validExtension.error);
+    }
+  }
+};
+
+/**
+ * Gets all extensions registered
+ * @returns {{}}
+ */
+showdown.getAllExtensions = function () {
+  'use strict';
+  return extensions;
+};
+
+/**
+ * Remove an extension
+ * @param {string} name
+ */
+showdown.removeExtension = function (name) {
+  'use strict';
+  delete extensions[name];
+};
+
+/**
+ * Removes all extensions
+ */
+showdown.resetExtensions = function () {
+  'use strict';
+  extensions = {};
+};
+
+/**
+ * Validate extension
+ * @param {array} extension
+ * @param {string} name
+ * @returns {{valid: boolean, error: string}}
+ */
+function validate (extension, name) {
+  'use strict';
+
+  var errMsg = (name) ? 'Error in ' + name + ' extension->' : 'Error in unnamed extension',
+      ret = {
+        valid: true,
+        error: ''
+      };
+
+  if (!showdown.helper.isArray(extension)) {
+    extension = [extension];
+  }
+
+  for (var i = 0; i < extension.length; ++i) {
+    var baseMsg = errMsg + ' sub-extension ' + i + ': ',
+        ext = extension[i];
+    if (typeof ext !== 'object') {
+      ret.valid = false;
+      ret.error = baseMsg + 'must be an object, but ' + typeof ext + ' given';
+      return ret;
+    }
+
+    if (!showdown.helper.isString(ext.type)) {
+      ret.valid = false;
+      ret.error = baseMsg + 'property "type" must be a string, but ' + typeof ext.type + ' given';
+      return ret;
+    }
+
+    var type = ext.type = ext.type.toLowerCase();
+
+    // normalize extension type
+    if (type === 'language') {
+      type = ext.type = 'lang';
+    }
+
+    if (type === 'html') {
+      type = ext.type = 'output';
+    }
+
+    if (type !== 'lang' && type !== 'output' && type !== 'listener') {
+      ret.valid = false;
+      ret.error = baseMsg + 'type ' + type + ' is not recognized. Valid values: "lang/language", "output/html" or "listener"';
+      return ret;
+    }
+
+    if (type === 'listener') {
+      if (showdown.helper.isUndefined(ext.listeners)) {
+        ret.valid = false;
+        ret.error = baseMsg + '. Extensions of type "listener" must have a property called "listeners"';
+        return ret;
+      }
+    } else {
+      if (showdown.helper.isUndefined(ext.filter) && showdown.helper.isUndefined(ext.regex)) {
+        ret.valid = false;
+        ret.error = baseMsg + type + ' extensions must define either a "regex" property or a "filter" method';
+        return ret;
+      }
+    }
+
+    if (ext.listeners) {
+      if (typeof ext.listeners !== 'object') {
+        ret.valid = false;
+        ret.error = baseMsg + '"listeners" property must be an object but ' + typeof ext.listeners + ' given';
+        return ret;
+      }
+      for (var ln in ext.listeners) {
+        if (ext.listeners.hasOwnProperty(ln)) {
+          if (typeof ext.listeners[ln] !== 'function') {
+            ret.valid = false;
+            ret.error = baseMsg + '"listeners" property must be an hash of [event name]: [callback]. listeners.' + ln +
+              ' must be a function but ' + typeof ext.listeners[ln] + ' given';
+            return ret;
+          }
+        }
+      }
+    }
+
+    if (ext.filter) {
+      if (typeof ext.filter !== 'function') {
+        ret.valid = false;
+        ret.error = baseMsg + '"filter" must be a function, but ' + typeof ext.filter + ' given';
+        return ret;
+      }
+    } else if (ext.regex) {
+      if (showdown.helper.isString(ext.regex)) {
+        ext.regex = new RegExp(ext.regex, 'g');
+      }
+      if (!(ext.regex instanceof RegExp)) {
+        ret.valid = false;
+        ret.error = baseMsg + '"regex" property must either be a string or a RegExp object, but ' + typeof ext.regex + ' given';
+        return ret;
+      }
+      if (showdown.helper.isUndefined(ext.replace)) {
+        ret.valid = false;
+        ret.error = baseMsg + '"regex" extensions must implement a replace string or function';
+        return ret;
+      }
+    }
+  }
+  return ret;
+}
+
+/**
+ * Validate extension
+ * @param {object} ext
+ * @returns {boolean}
+ */
+showdown.validateExtension = function (ext) {
+  'use strict';
+
+  var validateExtension = validate(ext, null);
+  if (!validateExtension.valid) {
+    console.warn(validateExtension.error);
+    return false;
+  }
+  return true;
+};
+
+/**
+ * showdownjs helper functions
+ */
+
+if (!showdown.hasOwnProperty('helper')) {
+  showdown.helper = {};
+}
+
+/**
+ * Check if var is string
+ * @static
+ * @param {string} a
+ * @returns {boolean}
+ */
+showdown.helper.isString = function (a) {
+  'use strict';
+  return (typeof a === 'string' || a instanceof String);
+};
+
+/**
+ * Check if var is a function
+ * @static
+ * @param {*} a
+ * @returns {boolean}
+ */
+showdown.helper.isFunction = function (a) {
+  'use strict';
+  var getType = {};
+  return a && getType.toString.call(a) === '[object Function]';
+};
+
+/**
+ * isArray helper function
+ * @static
+ * @param {*} a
+ * @returns {boolean}
+ */
+showdown.helper.isArray = function (a) {
+  'use strict';
+  return Array.isArray(a);
+};
+
+/**
+ * Check if value is undefined
+ * @static
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is `undefined`, else `false`.
+ */
+showdown.helper.isUndefined = function (value) {
+  'use strict';
+  return typeof value === 'undefined';
+};
+
+/**
+ * ForEach helper function
+ * Iterates over Arrays and Objects (own properties only)
+ * @static
+ * @param {*} obj
+ * @param {function} callback Accepts 3 params: 1. value, 2. key, 3. the original array/object
+ */
+showdown.helper.forEach = function (obj, callback) {
+  'use strict';
+  // check if obj is defined
+  if (showdown.helper.isUndefined(obj)) {
+    throw new Error('obj param is required');
+  }
+
+  if (showdown.helper.isUndefined(callback)) {
+    throw new Error('callback param is required');
+  }
+
+  if (!showdown.helper.isFunction(callback)) {
+    throw new Error('callback param must be a function/closure');
+  }
+
+  if (typeof obj.forEach === 'function') {
+    obj.forEach(callback);
+  } else if (showdown.helper.isArray(obj)) {
+    for (var i = 0; i < obj.length; i++) {
+      callback(obj[i], i, obj);
+    }
+  } else if (typeof (obj) === 'object') {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        callback(obj[prop], prop, obj);
+      }
+    }
+  } else {
+    throw new Error('obj does not seem to be an array or an iterable object');
+  }
+};
+
+/**
+ * Standardidize extension name
+ * @static
+ * @param {string} s extension name
+ * @returns {string}
+ */
+showdown.helper.stdExtName = function (s) {
+  'use strict';
+  return s.replace(/[_?*+\/\\.^-]/g, '').replace(/\s/g, '').toLowerCase();
+};
+
+function escapeCharactersCallback (wholeMatch, m1) {
+  'use strict';
+  var charCodeToEscape = m1.charCodeAt(0);
+  return '¨E' + charCodeToEscape + 'E';
+}
+
+/**
+ * Callback used to escape characters when passing through String.replace
+ * @static
+ * @param {string} wholeMatch
+ * @param {string} m1
+ * @returns {string}
+ */
+showdown.helper.escapeCharactersCallback = escapeCharactersCallback;
+
+/**
+ * Escape characters in a string
+ * @static
+ * @param {string} text
+ * @param {string} charsToEscape
+ * @param {boolean} afterBackslash
+ * @returns {XML|string|void|*}
+ */
+showdown.helper.escapeCharacters = function (text, charsToEscape, afterBackslash) {
+  'use strict';
+  // First we have to escape the escape characters so that
+  // we can build a character class out of them
+  var regexString = '([' + charsToEscape.replace(/([\[\]\\])/g, '\\$1') + '])';
+
+  if (afterBackslash) {
+    regexString = '\\\\' + regexString;
+  }
+
+  var regex = new RegExp(regexString, 'g');
+  text = text.replace(regex, escapeCharactersCallback);
+
+  return text;
+};
+
+/**
+ * Unescape HTML entities
+ * @param txt
+ * @returns {string}
+ */
+showdown.helper.unescapeHTMLEntities = function (txt) {
+  'use strict';
+
+  return txt
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+};
+
+var rgxFindMatchPos = function (str, left, right, flags) {
+  'use strict';
+  var f = flags || '',
+      g = f.indexOf('g') > -1,
+      x = new RegExp(left + '|' + right, 'g' + f.replace(/g/g, '')),
+      l = new RegExp(left, f.replace(/g/g, '')),
+      pos = [],
+      t, s, m, start, end;
+
+  do {
+    t = 0;
+    while ((m = x.exec(str))) {
+      if (l.test(m[0])) {
+        if (!(t++)) {
+          s = x.lastIndex;
+          start = s - m[0].length;
+        }
+      } else if (t) {
+        if (!--t) {
+          end = m.index + m[0].length;
+          var obj = {
+            left: {start: start, end: s},
+            match: {start: s, end: m.index},
+            right: {start: m.index, end: end},
+            wholeMatch: {start: start, end: end}
+          };
+          pos.push(obj);
+          if (!g) {
+            return pos;
+          }
+        }
+      }
+    }
+  } while (t && (x.lastIndex = s));
+
+  return pos;
+};
+
+/**
+ * matchRecursiveRegExp
+ *
+ * (c) 2007 Steven Levithan <stevenlevithan.com>
+ * MIT License
+ *
+ * Accepts a string to search, a left and right format delimiter
+ * as regex patterns, and optional regex flags. Returns an array
+ * of matches, allowing nested instances of left/right delimiters.
+ * Use the "g" flag to return all matches, otherwise only the
+ * first is returned. Be careful to ensure that the left and
+ * right format delimiters produce mutually exclusive matches.
+ * Backreferences are not supported within the right delimiter
+ * due to how it is internally combined with the left delimiter.
+ * When matching strings whose format delimiters are unbalanced
+ * to the left or right, the output is intentionally as a
+ * conventional regex library with recursion support would
+ * produce, e.g. "<<x>" and "<x>>" both produce ["x"] when using
+ * "<" and ">" as the delimiters (both strings contain a single,
+ * balanced instance of "<x>").
+ *
+ * examples:
+ * matchRecursiveRegExp("test", "\\(", "\\)")
+ * returns: []
+ * matchRecursiveRegExp("<t<<e>><s>>t<>", "<", ">", "g")
+ * returns: ["t<<e>><s>", ""]
+ * matchRecursiveRegExp("<div id=\"x\">test</div>", "<div\\b[^>]*>", "</div>", "gi")
+ * returns: ["test"]
+ */
+showdown.helper.matchRecursiveRegExp = function (str, left, right, flags) {
+  'use strict';
+
+  var matchPos = rgxFindMatchPos (str, left, right, flags),
+      results = [];
+
+  for (var i = 0; i < matchPos.length; ++i) {
+    results.push([
+      str.slice(matchPos[i].wholeMatch.start, matchPos[i].wholeMatch.end),
+      str.slice(matchPos[i].match.start, matchPos[i].match.end),
+      str.slice(matchPos[i].left.start, matchPos[i].left.end),
+      str.slice(matchPos[i].right.start, matchPos[i].right.end)
+    ]);
+  }
+  return results;
+};
+
+/**
+ *
+ * @param {string} str
+ * @param {string|function} replacement
+ * @param {string} left
+ * @param {string} right
+ * @param {string} flags
+ * @returns {string}
+ */
+showdown.helper.replaceRecursiveRegExp = function (str, replacement, left, right, flags) {
+  'use strict';
+
+  if (!showdown.helper.isFunction(replacement)) {
+    var repStr = replacement;
+    replacement = function () {
+      return repStr;
+    };
+  }
+
+  var matchPos = rgxFindMatchPos(str, left, right, flags),
+      finalStr = str,
+      lng = matchPos.length;
+
+  if (lng > 0) {
+    var bits = [];
+    if (matchPos[0].wholeMatch.start !== 0) {
+      bits.push(str.slice(0, matchPos[0].wholeMatch.start));
+    }
+    for (var i = 0; i < lng; ++i) {
+      bits.push(
+        replacement(
+          str.slice(matchPos[i].wholeMatch.start, matchPos[i].wholeMatch.end),
+          str.slice(matchPos[i].match.start, matchPos[i].match.end),
+          str.slice(matchPos[i].left.start, matchPos[i].left.end),
+          str.slice(matchPos[i].right.start, matchPos[i].right.end)
+        )
+      );
+      if (i < lng - 1) {
+        bits.push(str.slice(matchPos[i].wholeMatch.end, matchPos[i + 1].wholeMatch.start));
+      }
+    }
+    if (matchPos[lng - 1].wholeMatch.end < str.length) {
+      bits.push(str.slice(matchPos[lng - 1].wholeMatch.end));
+    }
+    finalStr = bits.join('');
+  }
+  return finalStr;
+};
+
+/**
+ * Returns the index within the passed String object of the first occurrence of the specified regex,
+ * starting the search at fromIndex. Returns -1 if the value is not found.
+ *
+ * @param {string} str string to search
+ * @param {RegExp} regex Regular expression to search
+ * @param {int} [fromIndex = 0] Index to start the search
+ * @returns {Number}
+ * @throws InvalidArgumentError
+ */
+showdown.helper.regexIndexOf = function (str, regex, fromIndex) {
+  'use strict';
+  if (!showdown.helper.isString(str)) {
+    throw 'InvalidArgumentError: first parameter of showdown.helper.regexIndexOf function must be a string';
+  }
+  if (regex instanceof RegExp === false) {
+    throw 'InvalidArgumentError: second parameter of showdown.helper.regexIndexOf function must be an instance of RegExp';
+  }
+  var indexOf = str.substring(fromIndex || 0).search(regex);
+  return (indexOf >= 0) ? (indexOf + (fromIndex || 0)) : indexOf;
+};
+
+/**
+ * Splits the passed string object at the defined index, and returns an array composed of the two substrings
+ * @param {string} str string to split
+ * @param {int} index index to split string at
+ * @returns {[string,string]}
+ * @throws InvalidArgumentError
+ */
+showdown.helper.splitAtIndex = function (str, index) {
+  'use strict';
+  if (!showdown.helper.isString(str)) {
+    throw 'InvalidArgumentError: first parameter of showdown.helper.regexIndexOf function must be a string';
+  }
+  return [str.substring(0, index), str.substring(index)];
+};
+
+/**
+ * Obfuscate an e-mail address through the use of Character Entities,
+ * transforming ASCII characters into their equivalent decimal or hex entities.
+ *
+ * Since it has a random component, subsequent calls to this function produce different results
+ *
+ * @param {string} mail
+ * @returns {string}
+ */
+showdown.helper.encodeEmailAddress = function (mail) {
+  'use strict';
+  var encode = [
+    function (ch) {
+      return '&#' + ch.charCodeAt(0) + ';';
+    },
+    function (ch) {
+      return '&#x' + ch.charCodeAt(0).toString(16) + ';';
+    },
+    function (ch) {
+      return ch;
+    }
+  ];
+
+  mail = mail.replace(/./g, function (ch) {
+    if (ch === '@') {
+      // this *must* be encoded. I insist.
+      ch = encode[Math.floor(Math.random() * 2)](ch);
+    } else {
+      var r = Math.random();
+      // roughly 10% raw, 45% hex, 45% dec
+      ch = (
+        r > 0.9 ? encode[2](ch) : r > 0.45 ? encode[1](ch) : encode[0](ch)
+      );
+    }
+    return ch;
+  });
+
+  return mail;
+};
+
+/**
+ *
+ * @param str
+ * @param targetLength
+ * @param padString
+ * @returns {string}
+ */
+showdown.helper.padEnd = function padEnd (str, targetLength, padString) {
+  'use strict';
+  /*jshint bitwise: false*/
+  // eslint-disable-next-line space-infix-ops
+  targetLength = targetLength>>0; //floor if number or convert non-number to 0;
+  /*jshint bitwise: true*/
+  padString = String(padString || ' ');
+  if (str.length > targetLength) {
+    return String(str);
+  } else {
+    targetLength = targetLength - str.length;
+    if (targetLength > padString.length) {
+      padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
+    }
+    return String(str) + padString.slice(0,targetLength);
+  }
+};
+
+/**
+ * POLYFILLS
+ */
+// use this instead of builtin is undefined for IE8 compatibility
+if (typeof console === 'undefined') {
+  console = {
+    warn: function (msg) {
+      'use strict';
+      alert(msg);
+    },
+    log: function (msg) {
+      'use strict';
+      alert(msg);
+    },
+    error: function (msg) {
+      'use strict';
+      throw msg;
+    }
+  };
+}
+
+/**
+ * Common regexes.
+ * We declare some common regexes to improve performance
+ */
+showdown.helper.regexes = {
+  asteriskDashAndColon: /([*_:~])/g
+};
+
+/**
+ * EMOJIS LIST
+ */
+showdown.helper.emojis = {
+  '+1':'\ud83d\udc4d',
+  '-1':'\ud83d\udc4e',
+  '100':'\ud83d\udcaf',
+  '1234':'\ud83d\udd22',
+  '1st_place_medal':'\ud83e\udd47',
+  '2nd_place_medal':'\ud83e\udd48',
+  '3rd_place_medal':'\ud83e\udd49',
+  '8ball':'\ud83c\udfb1',
+  'a':'\ud83c\udd70\ufe0f',
+  'ab':'\ud83c\udd8e',
+  'abc':'\ud83d\udd24',
+  'abcd':'\ud83d\udd21',
+  'accept':'\ud83c\ude51',
+  'aerial_tramway':'\ud83d\udea1',
+  'airplane':'\u2708\ufe0f',
+  'alarm_clock':'\u23f0',
+  'alembic':'\u2697\ufe0f',
+  'alien':'\ud83d\udc7d',
+  'ambulance':'\ud83d\ude91',
+  'amphora':'\ud83c\udffa',
+  'anchor':'\u2693\ufe0f',
+  'angel':'\ud83d\udc7c',
+  'anger':'\ud83d\udca2',
+  'angry':'\ud83d\ude20',
+  'anguished':'\ud83d\ude27',
+  'ant':'\ud83d\udc1c',
+  'apple':'\ud83c\udf4e',
+  'aquarius':'\u2652\ufe0f',
+  'aries':'\u2648\ufe0f',
+  'arrow_backward':'\u25c0\ufe0f',
+  'arrow_double_down':'\u23ec',
+  'arrow_double_up':'\u23eb',
+  'arrow_down':'\u2b07\ufe0f',
+  'arrow_down_small':'\ud83d\udd3d',
+  'arrow_forward':'\u25b6\ufe0f',
+  'arrow_heading_down':'\u2935\ufe0f',
+  'arrow_heading_up':'\u2934\ufe0f',
+  'arrow_left':'\u2b05\ufe0f',
+  'arrow_lower_left':'\u2199\ufe0f',
+  'arrow_lower_right':'\u2198\ufe0f',
+  'arrow_right':'\u27a1\ufe0f',
+  'arrow_right_hook':'\u21aa\ufe0f',
+  'arrow_up':'\u2b06\ufe0f',
+  'arrow_up_down':'\u2195\ufe0f',
+  'arrow_up_small':'\ud83d\udd3c',
+  'arrow_upper_left':'\u2196\ufe0f',
+  'arrow_upper_right':'\u2197\ufe0f',
+  'arrows_clockwise':'\ud83d\udd03',
+  'arrows_counterclockwise':'\ud83d\udd04',
+  'art':'\ud83c\udfa8',
+  'articulated_lorry':'\ud83d\ude9b',
+  'artificial_satellite':'\ud83d\udef0',
+  'astonished':'\ud83d\ude32',
+  'athletic_shoe':'\ud83d\udc5f',
+  'atm':'\ud83c\udfe7',
+  'atom_symbol':'\u269b\ufe0f',
+  'avocado':'\ud83e\udd51',
+  'b':'\ud83c\udd71\ufe0f',
+  'baby':'\ud83d\udc76',
+  'baby_bottle':'\ud83c\udf7c',
+  'baby_chick':'\ud83d\udc24',
+  'baby_symbol':'\ud83d\udebc',
+  'back':'\ud83d\udd19',
+  'bacon':'\ud83e\udd53',
+  'badminton':'\ud83c\udff8',
+  'baggage_claim':'\ud83d\udec4',
+  'baguette_bread':'\ud83e\udd56',
+  'balance_scale':'\u2696\ufe0f',
+  'balloon':'\ud83c\udf88',
+  'ballot_box':'\ud83d\uddf3',
+  'ballot_box_with_check':'\u2611\ufe0f',
+  'bamboo':'\ud83c\udf8d',
+  'banana':'\ud83c\udf4c',
+  'bangbang':'\u203c\ufe0f',
+  'bank':'\ud83c\udfe6',
+  'bar_chart':'\ud83d\udcca',
+  'barber':'\ud83d\udc88',
+  'baseball':'\u26be\ufe0f',
+  'basketball':'\ud83c\udfc0',
+  'basketball_man':'\u26f9\ufe0f',
+  'basketball_woman':'\u26f9\ufe0f&zwj;\u2640\ufe0f',
+  'bat':'\ud83e\udd87',
+  'bath':'\ud83d\udec0',
+  'bathtub':'\ud83d\udec1',
+  'battery':'\ud83d\udd0b',
+  'beach_umbrella':'\ud83c\udfd6',
+  'bear':'\ud83d\udc3b',
+  'bed':'\ud83d\udecf',
+  'bee':'\ud83d\udc1d',
+  'beer':'\ud83c\udf7a',
+  'beers':'\ud83c\udf7b',
+  'beetle':'\ud83d\udc1e',
+  'beginner':'\ud83d\udd30',
+  'bell':'\ud83d\udd14',
+  'bellhop_bell':'\ud83d\udece',
+  'bento':'\ud83c\udf71',
+  'biking_man':'\ud83d\udeb4',
+  'bike':'\ud83d\udeb2',
+  'biking_woman':'\ud83d\udeb4&zwj;\u2640\ufe0f',
+  'bikini':'\ud83d\udc59',
+  'biohazard':'\u2623\ufe0f',
+  'bird':'\ud83d\udc26',
+  'birthday':'\ud83c\udf82',
+  'black_circle':'\u26ab\ufe0f',
+  'black_flag':'\ud83c\udff4',
+  'black_heart':'\ud83d\udda4',
+  'black_joker':'\ud83c\udccf',
+  'black_large_square':'\u2b1b\ufe0f',
+  'black_medium_small_square':'\u25fe\ufe0f',
+  'black_medium_square':'\u25fc\ufe0f',
+  'black_nib':'\u2712\ufe0f',
+  'black_small_square':'\u25aa\ufe0f',
+  'black_square_button':'\ud83d\udd32',
+  'blonde_man':'\ud83d\udc71',
+  'blonde_woman':'\ud83d\udc71&zwj;\u2640\ufe0f',
+  'blossom':'\ud83c\udf3c',
+  'blowfish':'\ud83d\udc21',
+  'blue_book':'\ud83d\udcd8',
+  'blue_car':'\ud83d\ude99',
+  'blue_heart':'\ud83d\udc99',
+  'blush':'\ud83d\ude0a',
+  'boar':'\ud83d\udc17',
+  'boat':'\u26f5\ufe0f',
+  'bomb':'\ud83d\udca3',
+  'book':'\ud83d\udcd6',
+  'bookmark':'\ud83d\udd16',
+  'bookmark_tabs':'\ud83d\udcd1',
+  'books':'\ud83d\udcda',
+  'boom':'\ud83d\udca5',
+  'boot':'\ud83d\udc62',
+  'bouquet':'\ud83d\udc90',
+  'bowing_man':'\ud83d\ude47',
+  'bow_and_arrow':'\ud83c\udff9',
+  'bowing_woman':'\ud83d\ude47&zwj;\u2640\ufe0f',
+  'bowling':'\ud83c\udfb3',
+  'boxing_glove':'\ud83e\udd4a',
+  'boy':'\ud83d\udc66',
+  'bread':'\ud83c\udf5e',
+  'bride_with_veil':'\ud83d\udc70',
+  'bridge_at_night':'\ud83c\udf09',
+  'briefcase':'\ud83d\udcbc',
+  'broken_heart':'\ud83d\udc94',
+  'bug':'\ud83d\udc1b',
+  'building_construction':'\ud83c\udfd7',
+  'bulb':'\ud83d\udca1',
+  'bullettrain_front':'\ud83d\ude85',
+  'bullettrain_side':'\ud83d\ude84',
+  'burrito':'\ud83c\udf2f',
+  'bus':'\ud83d\ude8c',
+  'business_suit_levitating':'\ud83d\udd74',
+  'busstop':'\ud83d\ude8f',
+  'bust_in_silhouette':'\ud83d\udc64',
+  'busts_in_silhouette':'\ud83d\udc65',
+  'butterfly':'\ud83e\udd8b',
+  'cactus':'\ud83c\udf35',
+  'cake':'\ud83c\udf70',
+  'calendar':'\ud83d\udcc6',
+  'call_me_hand':'\ud83e\udd19',
+  'calling':'\ud83d\udcf2',
+  'camel':'\ud83d\udc2b',
+  'camera':'\ud83d\udcf7',
+  'camera_flash':'\ud83d\udcf8',
+  'camping':'\ud83c\udfd5',
+  'cancer':'\u264b\ufe0f',
+  'candle':'\ud83d\udd6f',
+  'candy':'\ud83c\udf6c',
+  'canoe':'\ud83d\udef6',
+  'capital_abcd':'\ud83d\udd20',
+  'capricorn':'\u2651\ufe0f',
+  'car':'\ud83d\ude97',
+  'card_file_box':'\ud83d\uddc3',
+  'card_index':'\ud83d\udcc7',
+  'card_index_dividers':'\ud83d\uddc2',
+  'carousel_horse':'\ud83c\udfa0',
+  'carrot':'\ud83e\udd55',
+  'cat':'\ud83d\udc31',
+  'cat2':'\ud83d\udc08',
+  'cd':'\ud83d\udcbf',
+  'chains':'\u26d3',
+  'champagne':'\ud83c\udf7e',
+  'chart':'\ud83d\udcb9',
+  'chart_with_downwards_trend':'\ud83d\udcc9',
+  'chart_with_upwards_trend':'\ud83d\udcc8',
+  'checkered_flag':'\ud83c\udfc1',
+  'cheese':'\ud83e\uddc0',
+  'cherries':'\ud83c\udf52',
+  'cherry_blossom':'\ud83c\udf38',
+  'chestnut':'\ud83c\udf30',
+  'chicken':'\ud83d\udc14',
+  'children_crossing':'\ud83d\udeb8',
+  'chipmunk':'\ud83d\udc3f',
+  'chocolate_bar':'\ud83c\udf6b',
+  'christmas_tree':'\ud83c\udf84',
+  'church':'\u26ea\ufe0f',
+  'cinema':'\ud83c\udfa6',
+  'circus_tent':'\ud83c\udfaa',
+  'city_sunrise':'\ud83c\udf07',
+  'city_sunset':'\ud83c\udf06',
+  'cityscape':'\ud83c\udfd9',
+  'cl':'\ud83c\udd91',
+  'clamp':'\ud83d\udddc',
+  'clap':'\ud83d\udc4f',
+  'clapper':'\ud83c\udfac',
+  'classical_building':'\ud83c\udfdb',
+  'clinking_glasses':'\ud83e\udd42',
+  'clipboard':'\ud83d\udccb',
+  'clock1':'\ud83d\udd50',
+  'clock10':'\ud83d\udd59',
+  'clock1030':'\ud83d\udd65',
+  'clock11':'\ud83d\udd5a',
+  'clock1130':'\ud83d\udd66',
+  'clock12':'\ud83d\udd5b',
+  'clock1230':'\ud83d\udd67',
+  'clock130':'\ud83d\udd5c',
+  'clock2':'\ud83d\udd51',
+  'clock230':'\ud83d\udd5d',
+  'clock3':'\ud83d\udd52',
+  'clock330':'\ud83d\udd5e',
+  'clock4':'\ud83d\udd53',
+  'clock430':'\ud83d\udd5f',
+  'clock5':'\ud83d\udd54',
+  'clock530':'\ud83d\udd60',
+  'clock6':'\ud83d\udd55',
+  'clock630':'\ud83d\udd61',
+  'clock7':'\ud83d\udd56',
+  'clock730':'\ud83d\udd62',
+  'clock8':'\ud83d\udd57',
+  'clock830':'\ud83d\udd63',
+  'clock9':'\ud83d\udd58',
+  'clock930':'\ud83d\udd64',
+  'closed_book':'\ud83d\udcd5',
+  'closed_lock_with_key':'\ud83d\udd10',
+  'closed_umbrella':'\ud83c\udf02',
+  'cloud':'\u2601\ufe0f',
+  'cloud_with_lightning':'\ud83c\udf29',
+  'cloud_with_lightning_and_rain':'\u26c8',
+  'cloud_with_rain':'\ud83c\udf27',
+  'cloud_with_snow':'\ud83c\udf28',
+  'clown_face':'\ud83e\udd21',
+  'clubs':'\u2663\ufe0f',
+  'cocktail':'\ud83c\udf78',
+  'coffee':'\u2615\ufe0f',
+  'coffin':'\u26b0\ufe0f',
+  'cold_sweat':'\ud83d\ude30',
+  'comet':'\u2604\ufe0f',
+  'computer':'\ud83d\udcbb',
+  'computer_mouse':'\ud83d\uddb1',
+  'confetti_ball':'\ud83c\udf8a',
+  'confounded':'\ud83d\ude16',
+  'confused':'\ud83d\ude15',
+  'congratulations':'\u3297\ufe0f',
+  'construction':'\ud83d\udea7',
+  'construction_worker_man':'\ud83d\udc77',
+  'construction_worker_woman':'\ud83d\udc77&zwj;\u2640\ufe0f',
+  'control_knobs':'\ud83c\udf9b',
+  'convenience_store':'\ud83c\udfea',
+  'cookie':'\ud83c\udf6a',
+  'cool':'\ud83c\udd92',
+  'policeman':'\ud83d\udc6e',
+  'copyright':'\u00a9\ufe0f',
+  'corn':'\ud83c\udf3d',
+  'couch_and_lamp':'\ud83d\udecb',
+  'couple':'\ud83d\udc6b',
+  'couple_with_heart_woman_man':'\ud83d\udc91',
+  'couple_with_heart_man_man':'\ud83d\udc68&zwj;\u2764\ufe0f&zwj;\ud83d\udc68',
+  'couple_with_heart_woman_woman':'\ud83d\udc69&zwj;\u2764\ufe0f&zwj;\ud83d\udc69',
+  'couplekiss_man_man':'\ud83d\udc68&zwj;\u2764\ufe0f&zwj;\ud83d\udc8b&zwj;\ud83d\udc68',
+  'couplekiss_man_woman':'\ud83d\udc8f',
+  'couplekiss_woman_woman':'\ud83d\udc69&zwj;\u2764\ufe0f&zwj;\ud83d\udc8b&zwj;\ud83d\udc69',
+  'cow':'\ud83d\udc2e',
+  'cow2':'\ud83d\udc04',
+  'cowboy_hat_face':'\ud83e\udd20',
+  'crab':'\ud83e\udd80',
+  'crayon':'\ud83d\udd8d',
+  'credit_card':'\ud83d\udcb3',
+  'crescent_moon':'\ud83c\udf19',
+  'cricket':'\ud83c\udfcf',
+  'crocodile':'\ud83d\udc0a',
+  'croissant':'\ud83e\udd50',
+  'crossed_fingers':'\ud83e\udd1e',
+  'crossed_flags':'\ud83c\udf8c',
+  'crossed_swords':'\u2694\ufe0f',
+  'crown':'\ud83d\udc51',
+  'cry':'\ud83d\ude22',
+  'crying_cat_face':'\ud83d\ude3f',
+  'crystal_ball':'\ud83d\udd2e',
+  'cucumber':'\ud83e\udd52',
+  'cupid':'\ud83d\udc98',
+  'curly_loop':'\u27b0',
+  'currency_exchange':'\ud83d\udcb1',
+  'curry':'\ud83c\udf5b',
+  'custard':'\ud83c\udf6e',
+  'customs':'\ud83d\udec3',
+  'cyclone':'\ud83c\udf00',
+  'dagger':'\ud83d\udde1',
+  'dancer':'\ud83d\udc83',
+  'dancing_women':'\ud83d\udc6f',
+  'dancing_men':'\ud83d\udc6f&zwj;\u2642\ufe0f',
+  'dango':'\ud83c\udf61',
+  'dark_sunglasses':'\ud83d\udd76',
+  'dart':'\ud83c\udfaf',
+  'dash':'\ud83d\udca8',
+  'date':'\ud83d\udcc5',
+  'deciduous_tree':'\ud83c\udf33',
+  'deer':'\ud83e\udd8c',
+  'department_store':'\ud83c\udfec',
+  'derelict_house':'\ud83c\udfda',
+  'desert':'\ud83c\udfdc',
+  'desert_island':'\ud83c\udfdd',
+  'desktop_computer':'\ud83d\udda5',
+  'male_detective':'\ud83d\udd75\ufe0f',
+  'diamond_shape_with_a_dot_inside':'\ud83d\udca0',
+  'diamonds':'\u2666\ufe0f',
+  'disappointed':'\ud83d\ude1e',
+  'disappointed_relieved':'\ud83d\ude25',
+  'dizzy':'\ud83d\udcab',
+  'dizzy_face':'\ud83d\ude35',
+  'do_not_litter':'\ud83d\udeaf',
+  'dog':'\ud83d\udc36',
+  'dog2':'\ud83d\udc15',
+  'dollar':'\ud83d\udcb5',
+  'dolls':'\ud83c\udf8e',
+  'dolphin':'\ud83d\udc2c',
+  'door':'\ud83d\udeaa',
+  'doughnut':'\ud83c\udf69',
+  'dove':'\ud83d\udd4a',
+  'dragon':'\ud83d\udc09',
+  'dragon_face':'\ud83d\udc32',
+  'dress':'\ud83d\udc57',
+  'dromedary_camel':'\ud83d\udc2a',
+  'drooling_face':'\ud83e\udd24',
+  'droplet':'\ud83d\udca7',
+  'drum':'\ud83e\udd41',
+  'duck':'\ud83e\udd86',
+  'dvd':'\ud83d\udcc0',
+  'e-mail':'\ud83d\udce7',
+  'eagle':'\ud83e\udd85',
+  'ear':'\ud83d\udc42',
+  'ear_of_rice':'\ud83c\udf3e',
+  'earth_africa':'\ud83c\udf0d',
+  'earth_americas':'\ud83c\udf0e',
+  'earth_asia':'\ud83c\udf0f',
+  'egg':'\ud83e\udd5a',
+  'eggplant':'\ud83c\udf46',
+  'eight_pointed_black_star':'\u2734\ufe0f',
+  'eight_spoked_asterisk':'\u2733\ufe0f',
+  'electric_plug':'\ud83d\udd0c',
+  'elephant':'\ud83d\udc18',
+  'email':'\u2709\ufe0f',
+  'end':'\ud83d\udd1a',
+  'envelope_with_arrow':'\ud83d\udce9',
+  'euro':'\ud83d\udcb6',
+  'european_castle':'\ud83c\udff0',
+  'european_post_office':'\ud83c\udfe4',
+  'evergreen_tree':'\ud83c\udf32',
+  'exclamation':'\u2757\ufe0f',
+  'expressionless':'\ud83d\ude11',
+  'eye':'\ud83d\udc41',
+  'eye_speech_bubble':'\ud83d\udc41&zwj;\ud83d\udde8',
+  'eyeglasses':'\ud83d\udc53',
+  'eyes':'\ud83d\udc40',
+  'face_with_head_bandage':'\ud83e\udd15',
+  'face_with_thermometer':'\ud83e\udd12',
+  'fist_oncoming':'\ud83d\udc4a',
+  'factory':'\ud83c\udfed',
+  'fallen_leaf':'\ud83c\udf42',
+  'family_man_woman_boy':'\ud83d\udc6a',
+  'family_man_boy':'\ud83d\udc68&zwj;\ud83d\udc66',
+  'family_man_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_girl':'\ud83d\udc68&zwj;\ud83d\udc67',
+  'family_man_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_man_man_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc66',
+  'family_man_man_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_man_girl':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67',
+  'family_man_man_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_man_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_man_woman_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_woman_girl':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_man_woman_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_woman_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_woman_boy':'\ud83d\udc69&zwj;\ud83d\udc66',
+  'family_woman_boy_boy':'\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_woman_girl':'\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_woman_girl_boy':'\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_woman_girl_girl':'\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_woman_woman_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc66',
+  'family_woman_woman_boy_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_woman_woman_girl':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_woman_woman_girl_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_woman_woman_girl_girl':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'fast_forward':'\u23e9',
+  'fax':'\ud83d\udce0',
+  'fearful':'\ud83d\ude28',
+  'feet':'\ud83d\udc3e',
+  'female_detective':'\ud83d\udd75\ufe0f&zwj;\u2640\ufe0f',
+  'ferris_wheel':'\ud83c\udfa1',
+  'ferry':'\u26f4',
+  'field_hockey':'\ud83c\udfd1',
+  'file_cabinet':'\ud83d\uddc4',
+  'file_folder':'\ud83d\udcc1',
+  'film_projector':'\ud83d\udcfd',
+  'film_strip':'\ud83c\udf9e',
+  'fire':'\ud83d\udd25',
+  'fire_engine':'\ud83d\ude92',
+  'fireworks':'\ud83c\udf86',
+  'first_quarter_moon':'\ud83c\udf13',
+  'first_quarter_moon_with_face':'\ud83c\udf1b',
+  'fish':'\ud83d\udc1f',
+  'fish_cake':'\ud83c\udf65',
+  'fishing_pole_and_fish':'\ud83c\udfa3',
+  'fist_raised':'\u270a',
+  'fist_left':'\ud83e\udd1b',
+  'fist_right':'\ud83e\udd1c',
+  'flags':'\ud83c\udf8f',
+  'flashlight':'\ud83d\udd26',
+  'fleur_de_lis':'\u269c\ufe0f',
+  'flight_arrival':'\ud83d\udeec',
+  'flight_departure':'\ud83d\udeeb',
+  'floppy_disk':'\ud83d\udcbe',
+  'flower_playing_cards':'\ud83c\udfb4',
+  'flushed':'\ud83d\ude33',
+  'fog':'\ud83c\udf2b',
+  'foggy':'\ud83c\udf01',
+  'football':'\ud83c\udfc8',
+  'footprints':'\ud83d\udc63',
+  'fork_and_knife':'\ud83c\udf74',
+  'fountain':'\u26f2\ufe0f',
+  'fountain_pen':'\ud83d\udd8b',
+  'four_leaf_clover':'\ud83c\udf40',
+  'fox_face':'\ud83e\udd8a',
+  'framed_picture':'\ud83d\uddbc',
+  'free':'\ud83c\udd93',
+  'fried_egg':'\ud83c\udf73',
+  'fried_shrimp':'\ud83c\udf64',
+  'fries':'\ud83c\udf5f',
+  'frog':'\ud83d\udc38',
+  'frowning':'\ud83d\ude26',
+  'frowning_face':'\u2639\ufe0f',
+  'frowning_man':'\ud83d\ude4d&zwj;\u2642\ufe0f',
+  'frowning_woman':'\ud83d\ude4d',
+  'middle_finger':'\ud83d\udd95',
+  'fuelpump':'\u26fd\ufe0f',
+  'full_moon':'\ud83c\udf15',
+  'full_moon_with_face':'\ud83c\udf1d',
+  'funeral_urn':'\u26b1\ufe0f',
+  'game_die':'\ud83c\udfb2',
+  'gear':'\u2699\ufe0f',
+  'gem':'\ud83d\udc8e',
+  'gemini':'\u264a\ufe0f',
+  'ghost':'\ud83d\udc7b',
+  'gift':'\ud83c\udf81',
+  'gift_heart':'\ud83d\udc9d',
+  'girl':'\ud83d\udc67',
+  'globe_with_meridians':'\ud83c\udf10',
+  'goal_net':'\ud83e\udd45',
+  'goat':'\ud83d\udc10',
+  'golf':'\u26f3\ufe0f',
+  'golfing_man':'\ud83c\udfcc\ufe0f',
+  'golfing_woman':'\ud83c\udfcc\ufe0f&zwj;\u2640\ufe0f',
+  'gorilla':'\ud83e\udd8d',
+  'grapes':'\ud83c\udf47',
+  'green_apple':'\ud83c\udf4f',
+  'green_book':'\ud83d\udcd7',
+  'green_heart':'\ud83d\udc9a',
+  'green_salad':'\ud83e\udd57',
+  'grey_exclamation':'\u2755',
+  'grey_question':'\u2754',
+  'grimacing':'\ud83d\ude2c',
+  'grin':'\ud83d\ude01',
+  'grinning':'\ud83d\ude00',
+  'guardsman':'\ud83d\udc82',
+  'guardswoman':'\ud83d\udc82&zwj;\u2640\ufe0f',
+  'guitar':'\ud83c\udfb8',
+  'gun':'\ud83d\udd2b',
+  'haircut_woman':'\ud83d\udc87',
+  'haircut_man':'\ud83d\udc87&zwj;\u2642\ufe0f',
+  'hamburger':'\ud83c\udf54',
+  'hammer':'\ud83d\udd28',
+  'hammer_and_pick':'\u2692',
+  'hammer_and_wrench':'\ud83d\udee0',
+  'hamster':'\ud83d\udc39',
+  'hand':'\u270b',
+  'handbag':'\ud83d\udc5c',
+  'handshake':'\ud83e\udd1d',
+  'hankey':'\ud83d\udca9',
+  'hatched_chick':'\ud83d\udc25',
+  'hatching_chick':'\ud83d\udc23',
+  'headphones':'\ud83c\udfa7',
+  'hear_no_evil':'\ud83d\ude49',
+  'heart':'\u2764\ufe0f',
+  'heart_decoration':'\ud83d\udc9f',
+  'heart_eyes':'\ud83d\ude0d',
+  'heart_eyes_cat':'\ud83d\ude3b',
+  'heartbeat':'\ud83d\udc93',
+  'heartpulse':'\ud83d\udc97',
+  'hearts':'\u2665\ufe0f',
+  'heavy_check_mark':'\u2714\ufe0f',
+  'heavy_division_sign':'\u2797',
+  'heavy_dollar_sign':'\ud83d\udcb2',
+  'heavy_heart_exclamation':'\u2763\ufe0f',
+  'heavy_minus_sign':'\u2796',
+  'heavy_multiplication_x':'\u2716\ufe0f',
+  'heavy_plus_sign':'\u2795',
+  'helicopter':'\ud83d\ude81',
+  'herb':'\ud83c\udf3f',
+  'hibiscus':'\ud83c\udf3a',
+  'high_brightness':'\ud83d\udd06',
+  'high_heel':'\ud83d\udc60',
+  'hocho':'\ud83d\udd2a',
+  'hole':'\ud83d\udd73',
+  'honey_pot':'\ud83c\udf6f',
+  'horse':'\ud83d\udc34',
+  'horse_racing':'\ud83c\udfc7',
+  'hospital':'\ud83c\udfe5',
+  'hot_pepper':'\ud83c\udf36',
+  'hotdog':'\ud83c\udf2d',
+  'hotel':'\ud83c\udfe8',
+  'hotsprings':'\u2668\ufe0f',
+  'hourglass':'\u231b\ufe0f',
+  'hourglass_flowing_sand':'\u23f3',
+  'house':'\ud83c\udfe0',
+  'house_with_garden':'\ud83c\udfe1',
+  'houses':'\ud83c\udfd8',
+  'hugs':'\ud83e\udd17',
+  'hushed':'\ud83d\ude2f',
+  'ice_cream':'\ud83c\udf68',
+  'ice_hockey':'\ud83c\udfd2',
+  'ice_skate':'\u26f8',
+  'icecream':'\ud83c\udf66',
+  'id':'\ud83c\udd94',
+  'ideograph_advantage':'\ud83c\ude50',
+  'imp':'\ud83d\udc7f',
+  'inbox_tray':'\ud83d\udce5',
+  'incoming_envelope':'\ud83d\udce8',
+  'tipping_hand_woman':'\ud83d\udc81',
+  'information_source':'\u2139\ufe0f',
+  'innocent':'\ud83d\ude07',
+  'interrobang':'\u2049\ufe0f',
+  'iphone':'\ud83d\udcf1',
+  'izakaya_lantern':'\ud83c\udfee',
+  'jack_o_lantern':'\ud83c\udf83',
+  'japan':'\ud83d\uddfe',
+  'japanese_castle':'\ud83c\udfef',
+  'japanese_goblin':'\ud83d\udc7a',
+  'japanese_ogre':'\ud83d\udc79',
+  'jeans':'\ud83d\udc56',
+  'joy':'\ud83d\ude02',
+  'joy_cat':'\ud83d\ude39',
+  'joystick':'\ud83d\udd79',
+  'kaaba':'\ud83d\udd4b',
+  'key':'\ud83d\udd11',
+  'keyboard':'\u2328\ufe0f',
+  'keycap_ten':'\ud83d\udd1f',
+  'kick_scooter':'\ud83d\udef4',
+  'kimono':'\ud83d\udc58',
+  'kiss':'\ud83d\udc8b',
+  'kissing':'\ud83d\ude17',
+  'kissing_cat':'\ud83d\ude3d',
+  'kissing_closed_eyes':'\ud83d\ude1a',
+  'kissing_heart':'\ud83d\ude18',
+  'kissing_smiling_eyes':'\ud83d\ude19',
+  'kiwi_fruit':'\ud83e\udd5d',
+  'koala':'\ud83d\udc28',
+  'koko':'\ud83c\ude01',
+  'label':'\ud83c\udff7',
+  'large_blue_circle':'\ud83d\udd35',
+  'large_blue_diamond':'\ud83d\udd37',
+  'large_orange_diamond':'\ud83d\udd36',
+  'last_quarter_moon':'\ud83c\udf17',
+  'last_quarter_moon_with_face':'\ud83c\udf1c',
+  'latin_cross':'\u271d\ufe0f',
+  'laughing':'\ud83d\ude06',
+  'leaves':'\ud83c\udf43',
+  'ledger':'\ud83d\udcd2',
+  'left_luggage':'\ud83d\udec5',
+  'left_right_arrow':'\u2194\ufe0f',
+  'leftwards_arrow_with_hook':'\u21a9\ufe0f',
+  'lemon':'\ud83c\udf4b',
+  'leo':'\u264c\ufe0f',
+  'leopard':'\ud83d\udc06',
+  'level_slider':'\ud83c\udf9a',
+  'libra':'\u264e\ufe0f',
+  'light_rail':'\ud83d\ude88',
+  'link':'\ud83d\udd17',
+  'lion':'\ud83e\udd81',
+  'lips':'\ud83d\udc44',
+  'lipstick':'\ud83d\udc84',
+  'lizard':'\ud83e\udd8e',
+  'lock':'\ud83d\udd12',
+  'lock_with_ink_pen':'\ud83d\udd0f',
+  'lollipop':'\ud83c\udf6d',
+  'loop':'\u27bf',
+  'loud_sound':'\ud83d\udd0a',
+  'loudspeaker':'\ud83d\udce2',
+  'love_hotel':'\ud83c\udfe9',
+  'love_letter':'\ud83d\udc8c',
+  'low_brightness':'\ud83d\udd05',
+  'lying_face':'\ud83e\udd25',
+  'm':'\u24c2\ufe0f',
+  'mag':'\ud83d\udd0d',
+  'mag_right':'\ud83d\udd0e',
+  'mahjong':'\ud83c\udc04\ufe0f',
+  'mailbox':'\ud83d\udceb',
+  'mailbox_closed':'\ud83d\udcea',
+  'mailbox_with_mail':'\ud83d\udcec',
+  'mailbox_with_no_mail':'\ud83d\udced',
+  'man':'\ud83d\udc68',
+  'man_artist':'\ud83d\udc68&zwj;\ud83c\udfa8',
+  'man_astronaut':'\ud83d\udc68&zwj;\ud83d\ude80',
+  'man_cartwheeling':'\ud83e\udd38&zwj;\u2642\ufe0f',
+  'man_cook':'\ud83d\udc68&zwj;\ud83c\udf73',
+  'man_dancing':'\ud83d\udd7a',
+  'man_facepalming':'\ud83e\udd26&zwj;\u2642\ufe0f',
+  'man_factory_worker':'\ud83d\udc68&zwj;\ud83c\udfed',
+  'man_farmer':'\ud83d\udc68&zwj;\ud83c\udf3e',
+  'man_firefighter':'\ud83d\udc68&zwj;\ud83d\ude92',
+  'man_health_worker':'\ud83d\udc68&zwj;\u2695\ufe0f',
+  'man_in_tuxedo':'\ud83e\udd35',
+  'man_judge':'\ud83d\udc68&zwj;\u2696\ufe0f',
+  'man_juggling':'\ud83e\udd39&zwj;\u2642\ufe0f',
+  'man_mechanic':'\ud83d\udc68&zwj;\ud83d\udd27',
+  'man_office_worker':'\ud83d\udc68&zwj;\ud83d\udcbc',
+  'man_pilot':'\ud83d\udc68&zwj;\u2708\ufe0f',
+  'man_playing_handball':'\ud83e\udd3e&zwj;\u2642\ufe0f',
+  'man_playing_water_polo':'\ud83e\udd3d&zwj;\u2642\ufe0f',
+  'man_scientist':'\ud83d\udc68&zwj;\ud83d\udd2c',
+  'man_shrugging':'\ud83e\udd37&zwj;\u2642\ufe0f',
+  'man_singer':'\ud83d\udc68&zwj;\ud83c\udfa4',
+  'man_student':'\ud83d\udc68&zwj;\ud83c\udf93',
+  'man_teacher':'\ud83d\udc68&zwj;\ud83c\udfeb',
+  'man_technologist':'\ud83d\udc68&zwj;\ud83d\udcbb',
+  'man_with_gua_pi_mao':'\ud83d\udc72',
+  'man_with_turban':'\ud83d\udc73',
+  'tangerine':'\ud83c\udf4a',
+  'mans_shoe':'\ud83d\udc5e',
+  'mantelpiece_clock':'\ud83d\udd70',
+  'maple_leaf':'\ud83c\udf41',
+  'martial_arts_uniform':'\ud83e\udd4b',
+  'mask':'\ud83d\ude37',
+  'massage_woman':'\ud83d\udc86',
+  'massage_man':'\ud83d\udc86&zwj;\u2642\ufe0f',
+  'meat_on_bone':'\ud83c\udf56',
+  'medal_military':'\ud83c\udf96',
+  'medal_sports':'\ud83c\udfc5',
+  'mega':'\ud83d\udce3',
+  'melon':'\ud83c\udf48',
+  'memo':'\ud83d\udcdd',
+  'men_wrestling':'\ud83e\udd3c&zwj;\u2642\ufe0f',
+  'menorah':'\ud83d\udd4e',
+  'mens':'\ud83d\udeb9',
+  'metal':'\ud83e\udd18',
+  'metro':'\ud83d\ude87',
+  'microphone':'\ud83c\udfa4',
+  'microscope':'\ud83d\udd2c',
+  'milk_glass':'\ud83e\udd5b',
+  'milky_way':'\ud83c\udf0c',
+  'minibus':'\ud83d\ude90',
+  'minidisc':'\ud83d\udcbd',
+  'mobile_phone_off':'\ud83d\udcf4',
+  'money_mouth_face':'\ud83e\udd11',
+  'money_with_wings':'\ud83d\udcb8',
+  'moneybag':'\ud83d\udcb0',
+  'monkey':'\ud83d\udc12',
+  'monkey_face':'\ud83d\udc35',
+  'monorail':'\ud83d\ude9d',
+  'moon':'\ud83c\udf14',
+  'mortar_board':'\ud83c\udf93',
+  'mosque':'\ud83d\udd4c',
+  'motor_boat':'\ud83d\udee5',
+  'motor_scooter':'\ud83d\udef5',
+  'motorcycle':'\ud83c\udfcd',
+  'motorway':'\ud83d\udee3',
+  'mount_fuji':'\ud83d\uddfb',
+  'mountain':'\u26f0',
+  'mountain_biking_man':'\ud83d\udeb5',
+  'mountain_biking_woman':'\ud83d\udeb5&zwj;\u2640\ufe0f',
+  'mountain_cableway':'\ud83d\udea0',
+  'mountain_railway':'\ud83d\ude9e',
+  'mountain_snow':'\ud83c\udfd4',
+  'mouse':'\ud83d\udc2d',
+  'mouse2':'\ud83d\udc01',
+  'movie_camera':'\ud83c\udfa5',
+  'moyai':'\ud83d\uddff',
+  'mrs_claus':'\ud83e\udd36',
+  'muscle':'\ud83d\udcaa',
+  'mushroom':'\ud83c\udf44',
+  'musical_keyboard':'\ud83c\udfb9',
+  'musical_note':'\ud83c\udfb5',
+  'musical_score':'\ud83c\udfbc',
+  'mute':'\ud83d\udd07',
+  'nail_care':'\ud83d\udc85',
+  'name_badge':'\ud83d\udcdb',
+  'national_park':'\ud83c\udfde',
+  'nauseated_face':'\ud83e\udd22',
+  'necktie':'\ud83d\udc54',
+  'negative_squared_cross_mark':'\u274e',
+  'nerd_face':'\ud83e\udd13',
+  'neutral_face':'\ud83d\ude10',
+  'new':'\ud83c\udd95',
+  'new_moon':'\ud83c\udf11',
+  'new_moon_with_face':'\ud83c\udf1a',
+  'newspaper':'\ud83d\udcf0',
+  'newspaper_roll':'\ud83d\uddde',
+  'next_track_button':'\u23ed',
+  'ng':'\ud83c\udd96',
+  'no_good_man':'\ud83d\ude45&zwj;\u2642\ufe0f',
+  'no_good_woman':'\ud83d\ude45',
+  'night_with_stars':'\ud83c\udf03',
+  'no_bell':'\ud83d\udd15',
+  'no_bicycles':'\ud83d\udeb3',
+  'no_entry':'\u26d4\ufe0f',
+  'no_entry_sign':'\ud83d\udeab',
+  'no_mobile_phones':'\ud83d\udcf5',
+  'no_mouth':'\ud83d\ude36',
+  'no_pedestrians':'\ud83d\udeb7',
+  'no_smoking':'\ud83d\udead',
+  'non-potable_water':'\ud83d\udeb1',
+  'nose':'\ud83d\udc43',
+  'notebook':'\ud83d\udcd3',
+  'notebook_with_decorative_cover':'\ud83d\udcd4',
+  'notes':'\ud83c\udfb6',
+  'nut_and_bolt':'\ud83d\udd29',
+  'o':'\u2b55\ufe0f',
+  'o2':'\ud83c\udd7e\ufe0f',
+  'ocean':'\ud83c\udf0a',
+  'octopus':'\ud83d\udc19',
+  'oden':'\ud83c\udf62',
+  'office':'\ud83c\udfe2',
+  'oil_drum':'\ud83d\udee2',
+  'ok':'\ud83c\udd97',
+  'ok_hand':'\ud83d\udc4c',
+  'ok_man':'\ud83d\ude46&zwj;\u2642\ufe0f',
+  'ok_woman':'\ud83d\ude46',
+  'old_key':'\ud83d\udddd',
+  'older_man':'\ud83d\udc74',
+  'older_woman':'\ud83d\udc75',
+  'om':'\ud83d\udd49',
+  'on':'\ud83d\udd1b',
+  'oncoming_automobile':'\ud83d\ude98',
+  'oncoming_bus':'\ud83d\ude8d',
+  'oncoming_police_car':'\ud83d\ude94',
+  'oncoming_taxi':'\ud83d\ude96',
+  'open_file_folder':'\ud83d\udcc2',
+  'open_hands':'\ud83d\udc50',
+  'open_mouth':'\ud83d\ude2e',
+  'open_umbrella':'\u2602\ufe0f',
+  'ophiuchus':'\u26ce',
+  'orange_book':'\ud83d\udcd9',
+  'orthodox_cross':'\u2626\ufe0f',
+  'outbox_tray':'\ud83d\udce4',
+  'owl':'\ud83e\udd89',
+  'ox':'\ud83d\udc02',
+  'package':'\ud83d\udce6',
+  'page_facing_up':'\ud83d\udcc4',
+  'page_with_curl':'\ud83d\udcc3',
+  'pager':'\ud83d\udcdf',
+  'paintbrush':'\ud83d\udd8c',
+  'palm_tree':'\ud83c\udf34',
+  'pancakes':'\ud83e\udd5e',
+  'panda_face':'\ud83d\udc3c',
+  'paperclip':'\ud83d\udcce',
+  'paperclips':'\ud83d\udd87',
+  'parasol_on_ground':'\u26f1',
+  'parking':'\ud83c\udd7f\ufe0f',
+  'part_alternation_mark':'\u303d\ufe0f',
+  'partly_sunny':'\u26c5\ufe0f',
+  'passenger_ship':'\ud83d\udef3',
+  'passport_control':'\ud83d\udec2',
+  'pause_button':'\u23f8',
+  'peace_symbol':'\u262e\ufe0f',
+  'peach':'\ud83c\udf51',
+  'peanuts':'\ud83e\udd5c',
+  'pear':'\ud83c\udf50',
+  'pen':'\ud83d\udd8a',
+  'pencil2':'\u270f\ufe0f',
+  'penguin':'\ud83d\udc27',
+  'pensive':'\ud83d\ude14',
+  'performing_arts':'\ud83c\udfad',
+  'persevere':'\ud83d\ude23',
+  'person_fencing':'\ud83e\udd3a',
+  'pouting_woman':'\ud83d\ude4e',
+  'phone':'\u260e\ufe0f',
+  'pick':'\u26cf',
+  'pig':'\ud83d\udc37',
+  'pig2':'\ud83d\udc16',
+  'pig_nose':'\ud83d\udc3d',
+  'pill':'\ud83d\udc8a',
+  'pineapple':'\ud83c\udf4d',
+  'ping_pong':'\ud83c\udfd3',
+  'pisces':'\u2653\ufe0f',
+  'pizza':'\ud83c\udf55',
+  'place_of_worship':'\ud83d\uded0',
+  'plate_with_cutlery':'\ud83c\udf7d',
+  'play_or_pause_button':'\u23ef',
+  'point_down':'\ud83d\udc47',
+  'point_left':'\ud83d\udc48',
+  'point_right':'\ud83d\udc49',
+  'point_up':'\u261d\ufe0f',
+  'point_up_2':'\ud83d\udc46',
+  'police_car':'\ud83d\ude93',
+  'policewoman':'\ud83d\udc6e&zwj;\u2640\ufe0f',
+  'poodle':'\ud83d\udc29',
+  'popcorn':'\ud83c\udf7f',
+  'post_office':'\ud83c\udfe3',
+  'postal_horn':'\ud83d\udcef',
+  'postbox':'\ud83d\udcee',
+  'potable_water':'\ud83d\udeb0',
+  'potato':'\ud83e\udd54',
+  'pouch':'\ud83d\udc5d',
+  'poultry_leg':'\ud83c\udf57',
+  'pound':'\ud83d\udcb7',
+  'rage':'\ud83d\ude21',
+  'pouting_cat':'\ud83d\ude3e',
+  'pouting_man':'\ud83d\ude4e&zwj;\u2642\ufe0f',
+  'pray':'\ud83d\ude4f',
+  'prayer_beads':'\ud83d\udcff',
+  'pregnant_woman':'\ud83e\udd30',
+  'previous_track_button':'\u23ee',
+  'prince':'\ud83e\udd34',
+  'princess':'\ud83d\udc78',
+  'printer':'\ud83d\udda8',
+  'purple_heart':'\ud83d\udc9c',
+  'purse':'\ud83d\udc5b',
+  'pushpin':'\ud83d\udccc',
+  'put_litter_in_its_place':'\ud83d\udeae',
+  'question':'\u2753',
+  'rabbit':'\ud83d\udc30',
+  'rabbit2':'\ud83d\udc07',
+  'racehorse':'\ud83d\udc0e',
+  'racing_car':'\ud83c\udfce',
+  'radio':'\ud83d\udcfb',
+  'radio_button':'\ud83d\udd18',
+  'radioactive':'\u2622\ufe0f',
+  'railway_car':'\ud83d\ude83',
+  'railway_track':'\ud83d\udee4',
+  'rainbow':'\ud83c\udf08',
+  'rainbow_flag':'\ud83c\udff3\ufe0f&zwj;\ud83c\udf08',
+  'raised_back_of_hand':'\ud83e\udd1a',
+  'raised_hand_with_fingers_splayed':'\ud83d\udd90',
+  'raised_hands':'\ud83d\ude4c',
+  'raising_hand_woman':'\ud83d\ude4b',
+  'raising_hand_man':'\ud83d\ude4b&zwj;\u2642\ufe0f',
+  'ram':'\ud83d\udc0f',
+  'ramen':'\ud83c\udf5c',
+  'rat':'\ud83d\udc00',
+  'record_button':'\u23fa',
+  'recycle':'\u267b\ufe0f',
+  'red_circle':'\ud83d\udd34',
+  'registered':'\u00ae\ufe0f',
+  'relaxed':'\u263a\ufe0f',
+  'relieved':'\ud83d\ude0c',
+  'reminder_ribbon':'\ud83c\udf97',
+  'repeat':'\ud83d\udd01',
+  'repeat_one':'\ud83d\udd02',
+  'rescue_worker_helmet':'\u26d1',
+  'restroom':'\ud83d\udebb',
+  'revolving_hearts':'\ud83d\udc9e',
+  'rewind':'\u23ea',
+  'rhinoceros':'\ud83e\udd8f',
+  'ribbon':'\ud83c\udf80',
+  'rice':'\ud83c\udf5a',
+  'rice_ball':'\ud83c\udf59',
+  'rice_cracker':'\ud83c\udf58',
+  'rice_scene':'\ud83c\udf91',
+  'right_anger_bubble':'\ud83d\uddef',
+  'ring':'\ud83d\udc8d',
+  'robot':'\ud83e\udd16',
+  'rocket':'\ud83d\ude80',
+  'rofl':'\ud83e\udd23',
+  'roll_eyes':'\ud83d\ude44',
+  'roller_coaster':'\ud83c\udfa2',
+  'rooster':'\ud83d\udc13',
+  'rose':'\ud83c\udf39',
+  'rosette':'\ud83c\udff5',
+  'rotating_light':'\ud83d\udea8',
+  'round_pushpin':'\ud83d\udccd',
+  'rowing_man':'\ud83d\udea3',
+  'rowing_woman':'\ud83d\udea3&zwj;\u2640\ufe0f',
+  'rugby_football':'\ud83c\udfc9',
+  'running_man':'\ud83c\udfc3',
+  'running_shirt_with_sash':'\ud83c\udfbd',
+  'running_woman':'\ud83c\udfc3&zwj;\u2640\ufe0f',
+  'sa':'\ud83c\ude02\ufe0f',
+  'sagittarius':'\u2650\ufe0f',
+  'sake':'\ud83c\udf76',
+  'sandal':'\ud83d\udc61',
+  'santa':'\ud83c\udf85',
+  'satellite':'\ud83d\udce1',
+  'saxophone':'\ud83c\udfb7',
+  'school':'\ud83c\udfeb',
+  'school_satchel':'\ud83c\udf92',
+  'scissors':'\u2702\ufe0f',
+  'scorpion':'\ud83e\udd82',
+  'scorpius':'\u264f\ufe0f',
+  'scream':'\ud83d\ude31',
+  'scream_cat':'\ud83d\ude40',
+  'scroll':'\ud83d\udcdc',
+  'seat':'\ud83d\udcba',
+  'secret':'\u3299\ufe0f',
+  'see_no_evil':'\ud83d\ude48',
+  'seedling':'\ud83c\udf31',
+  'selfie':'\ud83e\udd33',
+  'shallow_pan_of_food':'\ud83e\udd58',
+  'shamrock':'\u2618\ufe0f',
+  'shark':'\ud83e\udd88',
+  'shaved_ice':'\ud83c\udf67',
+  'sheep':'\ud83d\udc11',
+  'shell':'\ud83d\udc1a',
+  'shield':'\ud83d\udee1',
+  'shinto_shrine':'\u26e9',
+  'ship':'\ud83d\udea2',
+  'shirt':'\ud83d\udc55',
+  'shopping':'\ud83d\udecd',
+  'shopping_cart':'\ud83d\uded2',
+  'shower':'\ud83d\udebf',
+  'shrimp':'\ud83e\udd90',
+  'signal_strength':'\ud83d\udcf6',
+  'six_pointed_star':'\ud83d\udd2f',
+  'ski':'\ud83c\udfbf',
+  'skier':'\u26f7',
+  'skull':'\ud83d\udc80',
+  'skull_and_crossbones':'\u2620\ufe0f',
+  'sleeping':'\ud83d\ude34',
+  'sleeping_bed':'\ud83d\udecc',
+  'sleepy':'\ud83d\ude2a',
+  'slightly_frowning_face':'\ud83d\ude41',
+  'slightly_smiling_face':'\ud83d\ude42',
+  'slot_machine':'\ud83c\udfb0',
+  'small_airplane':'\ud83d\udee9',
+  'small_blue_diamond':'\ud83d\udd39',
+  'small_orange_diamond':'\ud83d\udd38',
+  'small_red_triangle':'\ud83d\udd3a',
+  'small_red_triangle_down':'\ud83d\udd3b',
+  'smile':'\ud83d\ude04',
+  'smile_cat':'\ud83d\ude38',
+  'smiley':'\ud83d\ude03',
+  'smiley_cat':'\ud83d\ude3a',
+  'smiling_imp':'\ud83d\ude08',
+  'smirk':'\ud83d\ude0f',
+  'smirk_cat':'\ud83d\ude3c',
+  'smoking':'\ud83d\udeac',
+  'snail':'\ud83d\udc0c',
+  'snake':'\ud83d\udc0d',
+  'sneezing_face':'\ud83e\udd27',
+  'snowboarder':'\ud83c\udfc2',
+  'snowflake':'\u2744\ufe0f',
+  'snowman':'\u26c4\ufe0f',
+  'snowman_with_snow':'\u2603\ufe0f',
+  'sob':'\ud83d\ude2d',
+  'soccer':'\u26bd\ufe0f',
+  'soon':'\ud83d\udd1c',
+  'sos':'\ud83c\udd98',
+  'sound':'\ud83d\udd09',
+  'space_invader':'\ud83d\udc7e',
+  'spades':'\u2660\ufe0f',
+  'spaghetti':'\ud83c\udf5d',
+  'sparkle':'\u2747\ufe0f',
+  'sparkler':'\ud83c\udf87',
+  'sparkles':'\u2728',
+  'sparkling_heart':'\ud83d\udc96',
+  'speak_no_evil':'\ud83d\ude4a',
+  'speaker':'\ud83d\udd08',
+  'speaking_head':'\ud83d\udde3',
+  'speech_balloon':'\ud83d\udcac',
+  'speedboat':'\ud83d\udea4',
+  'spider':'\ud83d\udd77',
+  'spider_web':'\ud83d\udd78',
+  'spiral_calendar':'\ud83d\uddd3',
+  'spiral_notepad':'\ud83d\uddd2',
+  'spoon':'\ud83e\udd44',
+  'squid':'\ud83e\udd91',
+  'stadium':'\ud83c\udfdf',
+  'star':'\u2b50\ufe0f',
+  'star2':'\ud83c\udf1f',
+  'star_and_crescent':'\u262a\ufe0f',
+  'star_of_david':'\u2721\ufe0f',
+  'stars':'\ud83c\udf20',
+  'station':'\ud83d\ude89',
+  'statue_of_liberty':'\ud83d\uddfd',
+  'steam_locomotive':'\ud83d\ude82',
+  'stew':'\ud83c\udf72',
+  'stop_button':'\u23f9',
+  'stop_sign':'\ud83d\uded1',
+  'stopwatch':'\u23f1',
+  'straight_ruler':'\ud83d\udccf',
+  'strawberry':'\ud83c\udf53',
+  'stuck_out_tongue':'\ud83d\ude1b',
+  'stuck_out_tongue_closed_eyes':'\ud83d\ude1d',
+  'stuck_out_tongue_winking_eye':'\ud83d\ude1c',
+  'studio_microphone':'\ud83c\udf99',
+  'stuffed_flatbread':'\ud83e\udd59',
+  'sun_behind_large_cloud':'\ud83c\udf25',
+  'sun_behind_rain_cloud':'\ud83c\udf26',
+  'sun_behind_small_cloud':'\ud83c\udf24',
+  'sun_with_face':'\ud83c\udf1e',
+  'sunflower':'\ud83c\udf3b',
+  'sunglasses':'\ud83d\ude0e',
+  'sunny':'\u2600\ufe0f',
+  'sunrise':'\ud83c\udf05',
+  'sunrise_over_mountains':'\ud83c\udf04',
+  'surfing_man':'\ud83c\udfc4',
+  'surfing_woman':'\ud83c\udfc4&zwj;\u2640\ufe0f',
+  'sushi':'\ud83c\udf63',
+  'suspension_railway':'\ud83d\ude9f',
+  'sweat':'\ud83d\ude13',
+  'sweat_drops':'\ud83d\udca6',
+  'sweat_smile':'\ud83d\ude05',
+  'sweet_potato':'\ud83c\udf60',
+  'swimming_man':'\ud83c\udfca',
+  'swimming_woman':'\ud83c\udfca&zwj;\u2640\ufe0f',
+  'symbols':'\ud83d\udd23',
+  'synagogue':'\ud83d\udd4d',
+  'syringe':'\ud83d\udc89',
+  'taco':'\ud83c\udf2e',
+  'tada':'\ud83c\udf89',
+  'tanabata_tree':'\ud83c\udf8b',
+  'taurus':'\u2649\ufe0f',
+  'taxi':'\ud83d\ude95',
+  'tea':'\ud83c\udf75',
+  'telephone_receiver':'\ud83d\udcde',
+  'telescope':'\ud83d\udd2d',
+  'tennis':'\ud83c\udfbe',
+  'tent':'\u26fa\ufe0f',
+  'thermometer':'\ud83c\udf21',
+  'thinking':'\ud83e\udd14',
+  'thought_balloon':'\ud83d\udcad',
+  'ticket':'\ud83c\udfab',
+  'tickets':'\ud83c\udf9f',
+  'tiger':'\ud83d\udc2f',
+  'tiger2':'\ud83d\udc05',
+  'timer_clock':'\u23f2',
+  'tipping_hand_man':'\ud83d\udc81&zwj;\u2642\ufe0f',
+  'tired_face':'\ud83d\ude2b',
+  'tm':'\u2122\ufe0f',
+  'toilet':'\ud83d\udebd',
+  'tokyo_tower':'\ud83d\uddfc',
+  'tomato':'\ud83c\udf45',
+  'tongue':'\ud83d\udc45',
+  'top':'\ud83d\udd1d',
+  'tophat':'\ud83c\udfa9',
+  'tornado':'\ud83c\udf2a',
+  'trackball':'\ud83d\uddb2',
+  'tractor':'\ud83d\ude9c',
+  'traffic_light':'\ud83d\udea5',
+  'train':'\ud83d\ude8b',
+  'train2':'\ud83d\ude86',
+  'tram':'\ud83d\ude8a',
+  'triangular_flag_on_post':'\ud83d\udea9',
+  'triangular_ruler':'\ud83d\udcd0',
+  'trident':'\ud83d\udd31',
+  'triumph':'\ud83d\ude24',
+  'trolleybus':'\ud83d\ude8e',
+  'trophy':'\ud83c\udfc6',
+  'tropical_drink':'\ud83c\udf79',
+  'tropical_fish':'\ud83d\udc20',
+  'truck':'\ud83d\ude9a',
+  'trumpet':'\ud83c\udfba',
+  'tulip':'\ud83c\udf37',
+  'tumbler_glass':'\ud83e\udd43',
+  'turkey':'\ud83e\udd83',
+  'turtle':'\ud83d\udc22',
+  'tv':'\ud83d\udcfa',
+  'twisted_rightwards_arrows':'\ud83d\udd00',
+  'two_hearts':'\ud83d\udc95',
+  'two_men_holding_hands':'\ud83d\udc6c',
+  'two_women_holding_hands':'\ud83d\udc6d',
+  'u5272':'\ud83c\ude39',
+  'u5408':'\ud83c\ude34',
+  'u55b6':'\ud83c\ude3a',
+  'u6307':'\ud83c\ude2f\ufe0f',
+  'u6708':'\ud83c\ude37\ufe0f',
+  'u6709':'\ud83c\ude36',
+  'u6e80':'\ud83c\ude35',
+  'u7121':'\ud83c\ude1a\ufe0f',
+  'u7533':'\ud83c\ude38',
+  'u7981':'\ud83c\ude32',
+  'u7a7a':'\ud83c\ude33',
+  'umbrella':'\u2614\ufe0f',
+  'unamused':'\ud83d\ude12',
+  'underage':'\ud83d\udd1e',
+  'unicorn':'\ud83e\udd84',
+  'unlock':'\ud83d\udd13',
+  'up':'\ud83c\udd99',
+  'upside_down_face':'\ud83d\ude43',
+  'v':'\u270c\ufe0f',
+  'vertical_traffic_light':'\ud83d\udea6',
+  'vhs':'\ud83d\udcfc',
+  'vibration_mode':'\ud83d\udcf3',
+  'video_camera':'\ud83d\udcf9',
+  'video_game':'\ud83c\udfae',
+  'violin':'\ud83c\udfbb',
+  'virgo':'\u264d\ufe0f',
+  'volcano':'\ud83c\udf0b',
+  'volleyball':'\ud83c\udfd0',
+  'vs':'\ud83c\udd9a',
+  'vulcan_salute':'\ud83d\udd96',
+  'walking_man':'\ud83d\udeb6',
+  'walking_woman':'\ud83d\udeb6&zwj;\u2640\ufe0f',
+  'waning_crescent_moon':'\ud83c\udf18',
+  'waning_gibbous_moon':'\ud83c\udf16',
+  'warning':'\u26a0\ufe0f',
+  'wastebasket':'\ud83d\uddd1',
+  'watch':'\u231a\ufe0f',
+  'water_buffalo':'\ud83d\udc03',
+  'watermelon':'\ud83c\udf49',
+  'wave':'\ud83d\udc4b',
+  'wavy_dash':'\u3030\ufe0f',
+  'waxing_crescent_moon':'\ud83c\udf12',
+  'wc':'\ud83d\udebe',
+  'weary':'\ud83d\ude29',
+  'wedding':'\ud83d\udc92',
+  'weight_lifting_man':'\ud83c\udfcb\ufe0f',
+  'weight_lifting_woman':'\ud83c\udfcb\ufe0f&zwj;\u2640\ufe0f',
+  'whale':'\ud83d\udc33',
+  'whale2':'\ud83d\udc0b',
+  'wheel_of_dharma':'\u2638\ufe0f',
+  'wheelchair':'\u267f\ufe0f',
+  'white_check_mark':'\u2705',
+  'white_circle':'\u26aa\ufe0f',
+  'white_flag':'\ud83c\udff3\ufe0f',
+  'white_flower':'\ud83d\udcae',
+  'white_large_square':'\u2b1c\ufe0f',
+  'white_medium_small_square':'\u25fd\ufe0f',
+  'white_medium_square':'\u25fb\ufe0f',
+  'white_small_square':'\u25ab\ufe0f',
+  'white_square_button':'\ud83d\udd33',
+  'wilted_flower':'\ud83e\udd40',
+  'wind_chime':'\ud83c\udf90',
+  'wind_face':'\ud83c\udf2c',
+  'wine_glass':'\ud83c\udf77',
+  'wink':'\ud83d\ude09',
+  'wolf':'\ud83d\udc3a',
+  'woman':'\ud83d\udc69',
+  'woman_artist':'\ud83d\udc69&zwj;\ud83c\udfa8',
+  'woman_astronaut':'\ud83d\udc69&zwj;\ud83d\ude80',
+  'woman_cartwheeling':'\ud83e\udd38&zwj;\u2640\ufe0f',
+  'woman_cook':'\ud83d\udc69&zwj;\ud83c\udf73',
+  'woman_facepalming':'\ud83e\udd26&zwj;\u2640\ufe0f',
+  'woman_factory_worker':'\ud83d\udc69&zwj;\ud83c\udfed',
+  'woman_farmer':'\ud83d\udc69&zwj;\ud83c\udf3e',
+  'woman_firefighter':'\ud83d\udc69&zwj;\ud83d\ude92',
+  'woman_health_worker':'\ud83d\udc69&zwj;\u2695\ufe0f',
+  'woman_judge':'\ud83d\udc69&zwj;\u2696\ufe0f',
+  'woman_juggling':'\ud83e\udd39&zwj;\u2640\ufe0f',
+  'woman_mechanic':'\ud83d\udc69&zwj;\ud83d\udd27',
+  'woman_office_worker':'\ud83d\udc69&zwj;\ud83d\udcbc',
+  'woman_pilot':'\ud83d\udc69&zwj;\u2708\ufe0f',
+  'woman_playing_handball':'\ud83e\udd3e&zwj;\u2640\ufe0f',
+  'woman_playing_water_polo':'\ud83e\udd3d&zwj;\u2640\ufe0f',
+  'woman_scientist':'\ud83d\udc69&zwj;\ud83d\udd2c',
+  'woman_shrugging':'\ud83e\udd37&zwj;\u2640\ufe0f',
+  'woman_singer':'\ud83d\udc69&zwj;\ud83c\udfa4',
+  'woman_student':'\ud83d\udc69&zwj;\ud83c\udf93',
+  'woman_teacher':'\ud83d\udc69&zwj;\ud83c\udfeb',
+  'woman_technologist':'\ud83d\udc69&zwj;\ud83d\udcbb',
+  'woman_with_turban':'\ud83d\udc73&zwj;\u2640\ufe0f',
+  'womans_clothes':'\ud83d\udc5a',
+  'womans_hat':'\ud83d\udc52',
+  'women_wrestling':'\ud83e\udd3c&zwj;\u2640\ufe0f',
+  'womens':'\ud83d\udeba',
+  'world_map':'\ud83d\uddfa',
+  'worried':'\ud83d\ude1f',
+  'wrench':'\ud83d\udd27',
+  'writing_hand':'\u270d\ufe0f',
+  'x':'\u274c',
+  'yellow_heart':'\ud83d\udc9b',
+  'yen':'\ud83d\udcb4',
+  'yin_yang':'\u262f\ufe0f',
+  'yum':'\ud83d\ude0b',
+  'zap':'\u26a1\ufe0f',
+  'zipper_mouth_face':'\ud83e\udd10',
+  'zzz':'\ud83d\udca4',
+
+  /* special emojis :P */
+  'octocat':  '<img alt=":octocat:" height="20" width="20" align="absmiddle" src="https://assets-cdn.github.com/images/icons/emoji/octocat.png">',
+  'showdown': '<span style="font-family: \'Anonymous Pro\', monospace; text-decoration: underline; text-decoration-style: dashed; text-decoration-color: #3e8b8a;text-underline-position: under;">S</span>'
+};
+
+/**
+ * Created by Estevao on 31-05-2015.
+ */
+
+/**
+ * Showdown Converter class
+ * @class
+ * @param {object} [converterOptions]
+ * @returns {Converter}
+ */
+showdown.Converter = function (converterOptions) {
+  'use strict';
+
+  var
+      /**
+       * Options used by this converter
+       * @private
+       * @type {{}}
+       */
+      options = {},
+
+      /**
+       * Language extensions used by this converter
+       * @private
+       * @type {Array}
+       */
+      langExtensions = [],
+
+      /**
+       * Output modifiers extensions used by this converter
+       * @private
+       * @type {Array}
+       */
+      outputModifiers = [],
+
+      /**
+       * Event listeners
+       * @private
+       * @type {{}}
+       */
+      listeners = {},
+
+      /**
+       * The flavor set in this converter
+       */
+      setConvFlavor = setFlavor,
+
+      /**
+       * Metadata of the document
+       * @type {{parsed: {}, raw: string, format: string}}
+       */
+      metadata = {
+        parsed: {},
+        raw: '',
+        format: ''
+      };
+
+  _constructor();
+
+  /**
+   * Converter constructor
+   * @private
+   */
+  function _constructor () {
+    converterOptions = converterOptions || {};
+
+    for (var gOpt in globalOptions) {
+      if (globalOptions.hasOwnProperty(gOpt)) {
+        options[gOpt] = globalOptions[gOpt];
+      }
+    }
+
+    // Merge options
+    if (typeof converterOptions === 'object') {
+      for (var opt in converterOptions) {
+        if (converterOptions.hasOwnProperty(opt)) {
+          options[opt] = converterOptions[opt];
+        }
+      }
+    } else {
+      throw Error('Converter expects the passed parameter to be an object, but ' + typeof converterOptions +
+      ' was passed instead.');
+    }
+
+    if (options.extensions) {
+      showdown.helper.forEach(options.extensions, _parseExtension);
+    }
+  }
+
+  /**
+   * Parse extension
+   * @param {*} ext
+   * @param {string} [name='']
+   * @private
+   */
+  function _parseExtension (ext, name) {
+
+    name = name || null;
+    // If it's a string, the extension was previously loaded
+    if (showdown.helper.isString(ext)) {
+      ext = showdown.helper.stdExtName(ext);
+      name = ext;
+
+      // LEGACY_SUPPORT CODE
+      if (showdown.extensions[ext]) {
+        console.warn('DEPRECATION WARNING: ' + ext + ' is an old extension that uses a deprecated loading method.' +
+          'Please inform the developer that the extension should be updated!');
+        legacyExtensionLoading(showdown.extensions[ext], ext);
+        return;
+        // END LEGACY SUPPORT CODE
+
+      } else if (!showdown.helper.isUndefined(extensions[ext])) {
+        ext = extensions[ext];
+
+      } else {
+        throw Error('Extension "' + ext + '" could not be loaded. It was either not found or is not a valid extension.');
+      }
+    }
+
+    if (typeof ext === 'function') {
+      ext = ext();
+    }
+
+    if (!showdown.helper.isArray(ext)) {
+      ext = [ext];
+    }
+
+    var validExt = validate(ext, name);
+    if (!validExt.valid) {
+      throw Error(validExt.error);
+    }
+
+    for (var i = 0; i < ext.length; ++i) {
+      switch (ext[i].type) {
+
+        case 'lang':
+          langExtensions.push(ext[i]);
+          break;
+
+        case 'output':
+          outputModifiers.push(ext[i]);
+          break;
+      }
+      if (ext[i].hasOwnProperty('listeners')) {
+        for (var ln in ext[i].listeners) {
+          if (ext[i].listeners.hasOwnProperty(ln)) {
+            listen(ln, ext[i].listeners[ln]);
+          }
+        }
+      }
+    }
+
+  }
+
+  /**
+   * LEGACY_SUPPORT
+   * @param {*} ext
+   * @param {string} name
+   */
+  function legacyExtensionLoading (ext, name) {
+    if (typeof ext === 'function') {
+      ext = ext(new showdown.Converter());
+    }
+    if (!showdown.helper.isArray(ext)) {
+      ext = [ext];
+    }
+    var valid = validate(ext, name);
+
+    if (!valid.valid) {
+      throw Error(valid.error);
+    }
+
+    for (var i = 0; i < ext.length; ++i) {
+      switch (ext[i].type) {
+        case 'lang':
+          langExtensions.push(ext[i]);
+          break;
+        case 'output':
+          outputModifiers.push(ext[i]);
+          break;
+        default:// should never reach here
+          throw Error('Extension loader error: Type unrecognized!!!');
+      }
+    }
+  }
+
+  /**
+   * Listen to an event
+   * @param {string} name
+   * @param {function} callback
+   */
+  function listen (name, callback) {
+    if (!showdown.helper.isString(name)) {
+      throw Error('Invalid argument in converter.listen() method: name must be a string, but ' + typeof name + ' given');
+    }
+
+    if (typeof callback !== 'function') {
+      throw Error('Invalid argument in converter.listen() method: callback must be a function, but ' + typeof callback + ' given');
+    }
+
+    if (!listeners.hasOwnProperty(name)) {
+      listeners[name] = [];
+    }
+    listeners[name].push(callback);
+  }
+
+  function rTrimInputText (text) {
+    var rsp = text.match(/^\s*/)[0].length,
+        rgx = new RegExp('^\\s{0,' + rsp + '}', 'gm');
+    return text.replace(rgx, '');
+  }
+
+  /**
+   * Dispatch an event
+   * @private
+   * @param {string} evtName Event name
+   * @param {string} text Text
+   * @param {{}} options Converter Options
+   * @param {{}} globals
+   * @returns {string}
+   */
+  this._dispatch = function dispatch (evtName, text, options, globals) {
+    if (listeners.hasOwnProperty(evtName)) {
+      for (var ei = 0; ei < listeners[evtName].length; ++ei) {
+        var nText = listeners[evtName][ei](evtName, text, this, options, globals);
+        if (nText && typeof nText !== 'undefined') {
+          text = nText;
+        }
+      }
+    }
+    return text;
+  };
+
+  /**
+   * Listen to an event
+   * @param {string} name
+   * @param {function} callback
+   * @returns {showdown.Converter}
+   */
+  this.listen = function (name, callback) {
+    listen(name, callback);
+    return this;
+  };
+
+  /**
+   * Converts a markdown string into HTML
+   * @param {string} text
+   * @returns {*}
+   */
+  this.makeHtml = function (text) {
+    //check if text is not falsy
+    if (!text) {
+      return text;
+    }
+
+    var globals = {
+      gHtmlBlocks:     [],
+      gHtmlMdBlocks:   [],
+      gHtmlSpans:      [],
+      gUrls:           {},
+      gTitles:         {},
+      gDimensions:     {},
+      gListLevel:      0,
+      hashLinkCounts:  {},
+      langExtensions:  langExtensions,
+      outputModifiers: outputModifiers,
+      converter:       this,
+      ghCodeBlocks:    [],
+      metadata: {
+        parsed: {},
+        raw: '',
+        format: ''
+      }
+    };
+
+    // This lets us use ¨ trema as an escape char to avoid md5 hashes
+    // The choice of character is arbitrary; anything that isn't
+    // magic in Markdown will work.
+    text = text.replace(/¨/g, '¨T');
+
+    // Replace $ with ¨D
+    // RegExp interprets $ as a special character
+    // when it's in a replacement string
+    text = text.replace(/\$/g, '¨D');
+
+    // Standardize line endings
+    text = text.replace(/\r\n/g, '\n'); // DOS to Unix
+    text = text.replace(/\r/g, '\n'); // Mac to Unix
+
+    // Stardardize line spaces
+    text = text.replace(/\u00A0/g, '&nbsp;');
+
+    if (options.smartIndentationFix) {
+      text = rTrimInputText(text);
+    }
+
+    // Make sure text begins and ends with a couple of newlines:
+    text = '\n\n' + text + '\n\n';
+
+    // detab
+    text = showdown.subParser('detab')(text, options, globals);
+
+    /**
+     * Strip any lines consisting only of spaces and tabs.
+     * This makes subsequent regexs easier to write, because we can
+     * match consecutive blank lines with /\n+/ instead of something
+     * contorted like /[ \t]*\n+/
+     */
+    text = text.replace(/^[ \t]+$/mg, '');
+
+    //run languageExtensions
+    showdown.helper.forEach(langExtensions, function (ext) {
+      text = showdown.subParser('runExtension')(ext, text, options, globals);
+    });
+
+    // run the sub parsers
+    text = showdown.subParser('metadata')(text, options, globals);
+    text = showdown.subParser('hashPreCodeTags')(text, options, globals);
+    text = showdown.subParser('githubCodeBlocks')(text, options, globals);
+    text = showdown.subParser('hashHTMLBlocks')(text, options, globals);
+    text = showdown.subParser('hashCodeTags')(text, options, globals);
+    text = showdown.subParser('stripLinkDefinitions')(text, options, globals);
+    text = showdown.subParser('blockGamut')(text, options, globals);
+    text = showdown.subParser('unhashHTMLSpans')(text, options, globals);
+    text = showdown.subParser('unescapeSpecialChars')(text, options, globals);
+
+    // attacklab: Restore dollar signs
+    text = text.replace(/¨D/g, '$$');
+
+    // attacklab: Restore tremas
+    text = text.replace(/¨T/g, '¨');
+
+    // render a complete html document instead of a partial if the option is enabled
+    text = showdown.subParser('completeHTMLDocument')(text, options, globals);
+
+    // Run output modifiers
+    showdown.helper.forEach(outputModifiers, function (ext) {
+      text = showdown.subParser('runExtension')(ext, text, options, globals);
+    });
+
+    // update metadata
+    metadata = globals.metadata;
+    return text;
+  };
+
+  /**
+   * Converts an HTML string into a markdown string
+   * @param src
+   * @param [HTMLParser] A WHATWG DOM and HTML parser, such as JSDOM. If none is supplied, window.document will be used.
+   * @returns {string}
+   */
+  this.makeMarkdown = this.makeMd = function (src, HTMLParser) {
+
+    // replace \r\n with \n
+    src = src.replace(/\r\n/g, '\n');
+    src = src.replace(/\r/g, '\n'); // old macs
+
+    // due to an edge case, we need to find this: > <
+    // to prevent removing of non silent white spaces
+    // ex: <em>this is</em> <strong>sparta</strong>
+    src = src.replace(/>[ \t]+</, '>¨NBSP;<');
+
+    if (!HTMLParser) {
+      if (window && window.document) {
+        HTMLParser = window.document;
+      } else {
+        throw new Error('HTMLParser is undefined. If in a webworker or nodejs environment, you need to provide a WHATWG DOM and HTML such as JSDOM');
+      }
+    }
+
+    var doc = HTMLParser.createElement('div');
+    doc.innerHTML = src;
+
+    var globals = {
+      preList: substitutePreCodeTags(doc)
+    };
+
+    // remove all newlines and collapse spaces
+    clean(doc);
+
+    // some stuff, like accidental reference links must now be escaped
+    // TODO
+    // doc.innerHTML = doc.innerHTML.replace(/\[[\S\t ]]/);
+
+    var nodes = doc.childNodes,
+        mdDoc = '';
+
+    for (var i = 0; i < nodes.length; i++) {
+      mdDoc += showdown.subParser('makeMarkdown.node')(nodes[i], globals);
+    }
+
+    function clean (node) {
+      for (var n = 0; n < node.childNodes.length; ++n) {
+        var child = node.childNodes[n];
+        if (child.nodeType === 3) {
+          if (!/\S/.test(child.nodeValue)) {
+            node.removeChild(child);
+            --n;
+          } else {
+            child.nodeValue = child.nodeValue.split('\n').join(' ');
+            child.nodeValue = child.nodeValue.replace(/(\s)+/g, '$1');
+          }
+        } else if (child.nodeType === 1) {
+          clean(child);
+        }
+      }
+    }
+
+    // find all pre tags and replace contents with placeholder
+    // we need this so that we can remove all indentation from html
+    // to ease up parsing
+    function substitutePreCodeTags (doc) {
+
+      var pres = doc.querySelectorAll('pre'),
+          presPH = [];
+
+      for (var i = 0; i < pres.length; ++i) {
+
+        if (pres[i].childElementCount === 1 && pres[i].firstChild.tagName.toLowerCase() === 'code') {
+          var content = pres[i].firstChild.innerHTML.trim(),
+              language = pres[i].firstChild.getAttribute('data-language') || '';
+
+          // if data-language attribute is not defined, then we look for class language-*
+          if (language === '') {
+            var classes = pres[i].firstChild.className.split(' ');
+            for (var c = 0; c < classes.length; ++c) {
+              var matches = classes[c].match(/^language-(.+)$/);
+              if (matches !== null) {
+                language = matches[1];
+                break;
+              }
+            }
+          }
+
+          // unescape html entities in content
+          content = showdown.helper.unescapeHTMLEntities(content);
+
+          presPH.push(content);
+          pres[i].outerHTML = '<precode language="' + language + '" precodenum="' + i.toString() + '"></precode>';
+        } else {
+          presPH.push(pres[i].innerHTML);
+          pres[i].innerHTML = '';
+          pres[i].setAttribute('prenum', i.toString());
+        }
+      }
+      return presPH;
+    }
+
+    return mdDoc;
+  };
+
+  /**
+   * Set an option of this Converter instance
+   * @param {string} key
+   * @param {*} value
+   */
+  this.setOption = function (key, value) {
+    options[key] = value;
+  };
+
+  /**
+   * Get the option of this Converter instance
+   * @param {string} key
+   * @returns {*}
+   */
+  this.getOption = function (key) {
+    return options[key];
+  };
+
+  /**
+   * Get the options of this Converter instance
+   * @returns {{}}
+   */
+  this.getOptions = function () {
+    return options;
+  };
+
+  /**
+   * Add extension to THIS converter
+   * @param {{}} extension
+   * @param {string} [name=null]
+   */
+  this.addExtension = function (extension, name) {
+    name = name || null;
+    _parseExtension(extension, name);
+  };
+
+  /**
+   * Use a global registered extension with THIS converter
+   * @param {string} extensionName Name of the previously registered extension
+   */
+  this.useExtension = function (extensionName) {
+    _parseExtension(extensionName);
+  };
+
+  /**
+   * Set the flavor THIS converter should use
+   * @param {string} name
+   */
+  this.setFlavor = function (name) {
+    if (!flavor.hasOwnProperty(name)) {
+      throw Error(name + ' flavor was not found');
+    }
+    var preset = flavor[name];
+    setConvFlavor = name;
+    for (var option in preset) {
+      if (preset.hasOwnProperty(option)) {
+        options[option] = preset[option];
+      }
+    }
+  };
+
+  /**
+   * Get the currently set flavor of this converter
+   * @returns {string}
+   */
+  this.getFlavor = function () {
+    return setConvFlavor;
+  };
+
+  /**
+   * Remove an extension from THIS converter.
+   * Note: This is a costly operation. It's better to initialize a new converter
+   * and specify the extensions you wish to use
+   * @param {Array} extension
+   */
+  this.removeExtension = function (extension) {
+    if (!showdown.helper.isArray(extension)) {
+      extension = [extension];
+    }
+    for (var a = 0; a < extension.length; ++a) {
+      var ext = extension[a];
+      for (var i = 0; i < langExtensions.length; ++i) {
+        if (langExtensions[i] === ext) {
+          langExtensions[i].splice(i, 1);
+        }
+      }
+      for (var ii = 0; ii < outputModifiers.length; ++i) {
+        if (outputModifiers[ii] === ext) {
+          outputModifiers[ii].splice(i, 1);
+        }
+      }
+    }
+  };
+
+  /**
+   * Get all extension of THIS converter
+   * @returns {{language: Array, output: Array}}
+   */
+  this.getAllExtensions = function () {
+    return {
+      language: langExtensions,
+      output: outputModifiers
+    };
+  };
+
+  /**
+   * Get the metadata of the previously parsed document
+   * @param raw
+   * @returns {string|{}}
+   */
+  this.getMetadata = function (raw) {
+    if (raw) {
+      return metadata.raw;
+    } else {
+      return metadata.parsed;
+    }
+  };
+
+  /**
+   * Get the metadata format of the previously parsed document
+   * @returns {string}
+   */
+  this.getMetadataFormat = function () {
+    return metadata.format;
+  };
+
+  /**
+   * Private: set a single key, value metadata pair
+   * @param {string} key
+   * @param {string} value
+   */
+  this._setMetadataPair = function (key, value) {
+    metadata.parsed[key] = value;
+  };
+
+  /**
+   * Private: set metadata format
+   * @param {string} format
+   */
+  this._setMetadataFormat = function (format) {
+    metadata.format = format;
+  };
+
+  /**
+   * Private: set metadata raw text
+   * @param {string} raw
+   */
+  this._setMetadataRaw = function (raw) {
+    metadata.raw = raw;
+  };
+};
+
+/**
+ * Turn Markdown link shortcuts into XHTML <a> tags.
+ */
+showdown.subParser('anchors', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('anchors.before', text, options, globals);
+
+  var writeAnchorTag = function (wholeMatch, linkText, linkId, url, m5, m6, title) {
+    if (showdown.helper.isUndefined(title)) {
+      title = '';
+    }
+    linkId = linkId.toLowerCase();
+
+    // Special case for explicit empty url
+    if (wholeMatch.search(/\(<?\s*>? ?(['"].*['"])?\)$/m) > -1) {
+      url = '';
+    } else if (!url) {
+      if (!linkId) {
+        // lower-case and turn embedded newlines into spaces
+        linkId = linkText.toLowerCase().replace(/ ?\n/g, ' ');
+      }
+      url = '#' + linkId;
+
+      if (!showdown.helper.isUndefined(globals.gUrls[linkId])) {
+        url = globals.gUrls[linkId];
+        if (!showdown.helper.isUndefined(globals.gTitles[linkId])) {
+          title = globals.gTitles[linkId];
+        }
+      } else {
+        return wholeMatch;
+      }
+    }
+
+    //url = showdown.helper.escapeCharacters(url, '*_', false); // replaced line to improve performance
+    url = url.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+
+    var result = '<a href="' + url + '"';
+
+    if (title !== '' && title !== null) {
+      title = title.replace(/"/g, '&quot;');
+      //title = showdown.helper.escapeCharacters(title, '*_', false); // replaced line to improve performance
+      title = title.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+      result += ' title="' + title + '"';
+    }
+
+    // optionLinksInNewWindow only applies
+    // to external links. Hash links (#) open in same page
+    if (options.openLinksInNewWindow && !/^#/.test(url)) {
+      // escaped _
+      result += ' rel="noopener noreferrer" target="¨E95Eblank"';
+    }
+
+    result += '>' + linkText + '</a>';
+
+    return result;
+  };
+
+  // First, handle reference-style links: [link text] [id]
+  text = text.replace(/\[((?:\[[^\]]*]|[^\[\]])*)] ?(?:\n *)?\[(.*?)]()()()()/g, writeAnchorTag);
+
+  // Next, inline-style links: [link text](url "optional title")
+  // cases with crazy urls like ./image/cat1).png
+  text = text.replace(/\[((?:\[[^\]]*]|[^\[\]])*)]()[ \t]*\([ \t]?<([^>]*)>(?:[ \t]*((["'])([^"]*?)\5))?[ \t]?\)/g,
+    writeAnchorTag);
+
+  // normal cases
+  text = text.replace(/\[((?:\[[^\]]*]|[^\[\]])*)]()[ \t]*\([ \t]?<?([\S]+?(?:\([\S]*?\)[\S]*?)?)>?(?:[ \t]*((["'])([^"]*?)\5))?[ \t]?\)/g,
+    writeAnchorTag);
+
+  // handle reference-style shortcuts: [link text]
+  // These must come last in case you've also got [link test][1]
+  // or [link test](/foo)
+  text = text.replace(/\[([^\[\]]+)]()()()()()/g, writeAnchorTag);
+
+  // Lastly handle GithubMentions if option is enabled
+  if (options.ghMentions) {
+    text = text.replace(/(^|\s)(\\)?(@([a-z\d]+(?:[a-z\d.-]+?[a-z\d]+)*))/gmi, function (wm, st, escape, mentions, username) {
+      if (escape === '\\') {
+        return st + mentions;
+      }
+
+      //check if options.ghMentionsLink is a string
+      if (!showdown.helper.isString(options.ghMentionsLink)) {
+        throw new Error('ghMentionsLink option must be a string');
+      }
+      var lnk = options.ghMentionsLink.replace(/\{u}/g, username),
+          target = '';
+      if (options.openLinksInNewWindow) {
+        target = ' rel="noopener noreferrer" target="¨E95Eblank"';
+      }
+      return st + '<a href="' + lnk + '"' + target + '>' + mentions + '</a>';
+    });
+  }
+
+  text = globals.converter._dispatch('anchors.after', text, options, globals);
+  return text;
+});
+
+// url allowed chars [a-z\d_.~:/?#[]@!$&'()*+,;=-]
+
+var simpleURLRegex  = /([*~_]+|\b)(((https?|ftp|dict):\/\/|www\.)[^'">\s]+?\.[^'">\s]+?)()(\1)?(?=\s|$)(?!["<>])/gi,
+    simpleURLRegex2 = /([*~_]+|\b)(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+?)([.!?,()\[\]])?(\1)?(?=\s|$)(?!["<>])/gi,
+    delimUrlRegex   = /()<(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)()>()/gi,
+    simpleMailRegex = /(^|\s)(?:mailto:)?([A-Za-z0-9!#$%&'*+-/=?^_`{|}~.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?=$|\s)/gmi,
+    delimMailRegex  = /<()(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi,
+
+    replaceLink = function (options) {
+      'use strict';
+      return function (wm, leadingMagicChars, link, m2, m3, trailingPunctuation, trailingMagicChars) {
+        link = link.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+        var lnkTxt = link,
+            append = '',
+            target = '',
+            lmc    = leadingMagicChars || '',
+            tmc    = trailingMagicChars || '';
+        if (/^www\./i.test(link)) {
+          link = link.replace(/^www\./i, 'http://www.');
+        }
+        if (options.excludeTrailingPunctuationFromURLs && trailingPunctuation) {
+          append = trailingPunctuation;
+        }
+        if (options.openLinksInNewWindow) {
+          target = ' rel="noopener noreferrer" target="¨E95Eblank"';
+        }
+        return lmc + '<a href="' + link + '"' + target + '>' + lnkTxt + '</a>' + append + tmc;
+      };
+    },
+
+    replaceMail = function (options, globals) {
+      'use strict';
+      return function (wholeMatch, b, mail) {
+        var href = 'mailto:';
+        b = b || '';
+        mail = showdown.subParser('unescapeSpecialChars')(mail, options, globals);
+        if (options.encodeEmails) {
+          href = showdown.helper.encodeEmailAddress(href + mail);
+          mail = showdown.helper.encodeEmailAddress(mail);
+        } else {
+          href = href + mail;
+        }
+        return b + '<a href="' + href + '">' + mail + '</a>';
+      };
+    };
+
+showdown.subParser('autoLinks', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('autoLinks.before', text, options, globals);
+
+  text = text.replace(delimUrlRegex, replaceLink(options));
+  text = text.replace(delimMailRegex, replaceMail(options, globals));
+
+  text = globals.converter._dispatch('autoLinks.after', text, options, globals);
+
+  return text;
+});
+
+showdown.subParser('simplifiedAutoLinks', function (text, options, globals) {
+  'use strict';
+
+  if (!options.simplifiedAutoLink) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('simplifiedAutoLinks.before', text, options, globals);
+
+  if (options.excludeTrailingPunctuationFromURLs) {
+    text = text.replace(simpleURLRegex2, replaceLink(options));
+  } else {
+    text = text.replace(simpleURLRegex, replaceLink(options));
+  }
+  text = text.replace(simpleMailRegex, replaceMail(options, globals));
+
+  text = globals.converter._dispatch('simplifiedAutoLinks.after', text, options, globals);
+
+  return text;
+});
+
+/**
+ * These are all the transformations that form block-level
+ * tags like paragraphs, headers, and list items.
+ */
+showdown.subParser('blockGamut', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('blockGamut.before', text, options, globals);
+
+  // we parse blockquotes first so that we can have headings and hrs
+  // inside blockquotes
+  text = showdown.subParser('blockQuotes')(text, options, globals);
+  text = showdown.subParser('headers')(text, options, globals);
+
+  // Do Horizontal Rules:
+  text = showdown.subParser('horizontalRule')(text, options, globals);
+
+  text = showdown.subParser('lists')(text, options, globals);
+  text = showdown.subParser('codeBlocks')(text, options, globals);
+  text = showdown.subParser('tables')(text, options, globals);
+
+  // We already ran _HashHTMLBlocks() before, in Markdown(), but that
+  // was to escape raw HTML in the original Markdown source. This time,
+  // we're escaping the markup we've just created, so that we don't wrap
+  // <p> tags around block-level tags.
+  text = showdown.subParser('hashHTMLBlocks')(text, options, globals);
+  text = showdown.subParser('paragraphs')(text, options, globals);
+
+  text = globals.converter._dispatch('blockGamut.after', text, options, globals);
+
+  return text;
+});
+
+showdown.subParser('blockQuotes', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('blockQuotes.before', text, options, globals);
+
+  // add a couple extra lines after the text and endtext mark
+  text = text + '\n\n';
+
+  var rgx = /(^ {0,3}>[ \t]?.+\n(.+\n)*\n*)+/gm;
+
+  if (options.splitAdjacentBlockquotes) {
+    rgx = /^ {0,3}>[\s\S]*?(?:\n\n)/gm;
+  }
+
+  text = text.replace(rgx, function (bq) {
+    // attacklab: hack around Konqueror 3.5.4 bug:
+    // "----------bug".replace(/^-/g,"") == "bug"
+    bq = bq.replace(/^[ \t]*>[ \t]?/gm, ''); // trim one level of quoting
+
+    // attacklab: clean up hack
+    bq = bq.replace(/¨0/g, '');
+
+    bq = bq.replace(/^[ \t]+$/gm, ''); // trim whitespace-only lines
+    bq = showdown.subParser('githubCodeBlocks')(bq, options, globals);
+    bq = showdown.subParser('blockGamut')(bq, options, globals); // recurse
+
+    bq = bq.replace(/(^|\n)/g, '$1  ');
+    // These leading spaces screw with <pre> content, so we need to fix that:
+    bq = bq.replace(/(\s*<pre>[^\r]+?<\/pre>)/gm, function (wholeMatch, m1) {
+      var pre = m1;
+      // attacklab: hack around Konqueror 3.5.4 bug:
+      pre = pre.replace(/^  /mg, '¨0');
+      pre = pre.replace(/¨0/g, '');
+      return pre;
+    });
+
+    return showdown.subParser('hashBlock')('<blockquote>\n' + bq + '\n</blockquote>', options, globals);
+  });
+
+  text = globals.converter._dispatch('blockQuotes.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Process Markdown `<pre><code>` blocks.
+ */
+showdown.subParser('codeBlocks', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('codeBlocks.before', text, options, globals);
+
+  // sentinel workarounds for lack of \A and \Z, safari\khtml bug
+  text += '¨0';
+
+  var pattern = /(?:\n\n|^)((?:(?:[ ]{4}|\t).*\n+)+)(\n*[ ]{0,3}[^ \t\n]|(?=¨0))/g;
+  text = text.replace(pattern, function (wholeMatch, m1, m2) {
+    var codeblock = m1,
+        nextChar = m2,
+        end = '\n';
+
+    codeblock = showdown.subParser('outdent')(codeblock, options, globals);
+    codeblock = showdown.subParser('encodeCode')(codeblock, options, globals);
+    codeblock = showdown.subParser('detab')(codeblock, options, globals);
+    codeblock = codeblock.replace(/^\n+/g, ''); // trim leading newlines
+    codeblock = codeblock.replace(/\n+$/g, ''); // trim trailing newlines
+
+    if (options.omitExtraWLInCodeBlocks) {
+      end = '';
+    }
+
+    codeblock = '<pre><code>' + codeblock + end + '</code></pre>';
+
+    return showdown.subParser('hashBlock')(codeblock, options, globals) + nextChar;
+  });
+
+  // strip sentinel
+  text = text.replace(/¨0/, '');
+
+  text = globals.converter._dispatch('codeBlocks.after', text, options, globals);
+  return text;
+});
+
+/**
+ *
+ *   *  Backtick quotes are used for <code></code> spans.
+ *
+ *   *  You can use multiple backticks as the delimiters if you want to
+ *     include literal backticks in the code span. So, this input:
+ *
+ *         Just type ``foo `bar` baz`` at the prompt.
+ *
+ *       Will translate to:
+ *
+ *         <p>Just type <code>foo `bar` baz</code> at the prompt.</p>
+ *
+ *    There's no arbitrary limit to the number of backticks you
+ *    can use as delimters. If you need three consecutive backticks
+ *    in your code, use four for delimiters, etc.
+ *
+ *  *  You can use spaces to get literal backticks at the edges:
+ *
+ *         ... type `` `bar` `` ...
+ *
+ *       Turns to:
+ *
+ *         ... type <code>`bar`</code> ...
+ */
+showdown.subParser('codeSpans', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('codeSpans.before', text, options, globals);
+
+  if (typeof text === 'undefined') {
+    text = '';
+  }
+  text = text.replace(/(^|[^\\])(`+)([^\r]*?[^`])\2(?!`)/gm,
+    function (wholeMatch, m1, m2, m3) {
+      var c = m3;
+      c = c.replace(/^([ \t]*)/g, '');	// leading whitespace
+      c = c.replace(/[ \t]*$/g, '');	// trailing whitespace
+      c = showdown.subParser('encodeCode')(c, options, globals);
+      c = m1 + '<code>' + c + '</code>';
+      c = showdown.subParser('hashHTMLSpans')(c, options, globals);
+      return c;
+    }
+  );
+
+  text = globals.converter._dispatch('codeSpans.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Create a full HTML document from the processed markdown
+ */
+showdown.subParser('completeHTMLDocument', function (text, options, globals) {
+  'use strict';
+
+  if (!options.completeHTMLDocument) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('completeHTMLDocument.before', text, options, globals);
+
+  var doctype = 'html',
+      doctypeParsed = '<!DOCTYPE HTML>\n',
+      title = '',
+      charset = '<meta charset="utf-8">\n',
+      lang = '',
+      metadata = '';
+
+  if (typeof globals.metadata.parsed.doctype !== 'undefined') {
+    doctypeParsed = '<!DOCTYPE ' +  globals.metadata.parsed.doctype + '>\n';
+    doctype = globals.metadata.parsed.doctype.toString().toLowerCase();
+    if (doctype === 'html' || doctype === 'html5') {
+      charset = '<meta charset="utf-8">';
+    }
+  }
+
+  for (var meta in globals.metadata.parsed) {
+    if (globals.metadata.parsed.hasOwnProperty(meta)) {
+      switch (meta.toLowerCase()) {
+        case 'doctype':
+          break;
+
+        case 'title':
+          title = '<title>' +  globals.metadata.parsed.title + '</title>\n';
+          break;
+
+        case 'charset':
+          if (doctype === 'html' || doctype === 'html5') {
+            charset = '<meta charset="' + globals.metadata.parsed.charset + '">\n';
+          } else {
+            charset = '<meta name="charset" content="' + globals.metadata.parsed.charset + '">\n';
+          }
+          break;
+
+        case 'language':
+        case 'lang':
+          lang = ' lang="' + globals.metadata.parsed[meta] + '"';
+          metadata += '<meta name="' + meta + '" content="' + globals.metadata.parsed[meta] + '">\n';
+          break;
+
+        default:
+          metadata += '<meta name="' + meta + '" content="' + globals.metadata.parsed[meta] + '">\n';
+      }
+    }
+  }
+
+  text = doctypeParsed + '<html' + lang + '>\n<head>\n' + title + charset + metadata + '</head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
+
+  text = globals.converter._dispatch('completeHTMLDocument.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Convert all tabs to spaces
+ */
+showdown.subParser('detab', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('detab.before', text, options, globals);
+
+  // expand first n-1 tabs
+  text = text.replace(/\t(?=\t)/g, '    '); // g_tab_width
+
+  // replace the nth with two sentinels
+  text = text.replace(/\t/g, '¨A¨B');
+
+  // use the sentinel to anchor our regex so it doesn't explode
+  text = text.replace(/¨B(.+?)¨A/g, function (wholeMatch, m1) {
+    var leadingText = m1,
+        numSpaces = 4 - leadingText.length % 4;  // g_tab_width
+
+    // there *must* be a better way to do this:
+    for (var i = 0; i < numSpaces; i++) {
+      leadingText += ' ';
+    }
+
+    return leadingText;
+  });
+
+  // clean up sentinels
+  text = text.replace(/¨A/g, '    ');  // g_tab_width
+  text = text.replace(/¨B/g, '');
+
+  text = globals.converter._dispatch('detab.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('ellipsis', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('ellipsis.before', text, options, globals);
+
+  text = text.replace(/\.\.\./g, '…');
+
+  text = globals.converter._dispatch('ellipsis.after', text, options, globals);
+
+  return text;
+});
+
+/**
+ * Turn emoji codes into emojis
+ *
+ * List of supported emojis: https://github.com/showdownjs/showdown/wiki/Emojis
+ */
+showdown.subParser('emoji', function (text, options, globals) {
+  'use strict';
+
+  if (!options.emoji) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('emoji.before', text, options, globals);
+
+  var emojiRgx = /:([\S]+?):/g;
+
+  text = text.replace(emojiRgx, function (wm, emojiCode) {
+    if (showdown.helper.emojis.hasOwnProperty(emojiCode)) {
+      return showdown.helper.emojis[emojiCode];
+    }
+    return wm;
+  });
+
+  text = globals.converter._dispatch('emoji.after', text, options, globals);
+
+  return text;
+});
+
+/**
+ * Smart processing for ampersands and angle brackets that need to be encoded.
+ */
+showdown.subParser('encodeAmpsAndAngles', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('encodeAmpsAndAngles.before', text, options, globals);
+
+  // Ampersand-encoding based entirely on Nat Irons's Amputator MT plugin:
+  // http://bumppo.net/projects/amputator/
+  text = text.replace(/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/g, '&amp;');
+
+  // Encode naked <'s
+  text = text.replace(/<(?![a-z\/?$!])/gi, '&lt;');
+
+  // Encode <
+  text = text.replace(/</g, '&lt;');
+
+  // Encode >
+  text = text.replace(/>/g, '&gt;');
+
+  text = globals.converter._dispatch('encodeAmpsAndAngles.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Returns the string, with after processing the following backslash escape sequences.
+ *
+ * attacklab: The polite way to do this is with the new escapeCharacters() function:
+ *
+ *    text = escapeCharacters(text,"\\",true);
+ *    text = escapeCharacters(text,"`*_{}[]()>#+-.!",true);
+ *
+ * ...but we're sidestepping its use of the (slow) RegExp constructor
+ * as an optimization for Firefox.  This function gets called a LOT.
+ */
+showdown.subParser('encodeBackslashEscapes', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('encodeBackslashEscapes.before', text, options, globals);
+
+  text = text.replace(/\\(\\)/g, showdown.helper.escapeCharactersCallback);
+  text = text.replace(/\\([`*_{}\[\]()>#+.!~=|-])/g, showdown.helper.escapeCharactersCallback);
+
+  text = globals.converter._dispatch('encodeBackslashEscapes.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Encode/escape certain characters inside Markdown code runs.
+ * The point is that in code, these characters are literals,
+ * and lose their special Markdown meanings.
+ */
+showdown.subParser('encodeCode', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('encodeCode.before', text, options, globals);
+
+  // Encode all ampersands; HTML entities are not
+  // entities within a Markdown code span.
+  text = text
+    .replace(/&/g, '&amp;')
+  // Do the angle bracket song and dance:
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+  // Now, escape characters that are magic in Markdown:
+    .replace(/([*_{}\[\]\\=~-])/g, showdown.helper.escapeCharactersCallback);
+
+  text = globals.converter._dispatch('encodeCode.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Within tags -- meaning between < and > -- encode [\ ` * _ ~ =] so they
+ * don't conflict with their use in Markdown for code, italics and strong.
+ */
+showdown.subParser('escapeSpecialCharsWithinTagAttributes', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('escapeSpecialCharsWithinTagAttributes.before', text, options, globals);
+
+  // Build a regex to find HTML tags.
+  var tags     = /<\/?[a-z\d_:-]+(?:[\s]+[\s\S]+?)?>/gi,
+      comments = /<!(--(?:(?:[^>-]|-[^>])(?:[^-]|-[^-])*)--)>/gi;
+
+  text = text.replace(tags, function (wholeMatch) {
+    return wholeMatch
+      .replace(/(.)<\/?code>(?=.)/g, '$1`')
+      .replace(/([\\`*_~=|])/g, showdown.helper.escapeCharactersCallback);
+  });
+
+  text = text.replace(comments, function (wholeMatch) {
+    return wholeMatch
+      .replace(/([\\`*_~=|])/g, showdown.helper.escapeCharactersCallback);
+  });
+
+  text = globals.converter._dispatch('escapeSpecialCharsWithinTagAttributes.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Handle github codeblocks prior to running HashHTML so that
+ * HTML contained within the codeblock gets escaped properly
+ * Example:
+ * ```ruby
+ *     def hello_world(x)
+ *       puts "Hello, #{x}"
+ *     end
+ * ```
+ */
+showdown.subParser('githubCodeBlocks', function (text, options, globals) {
+  'use strict';
+
+  // early exit if option is not enabled
+  if (!options.ghCodeBlocks) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('githubCodeBlocks.before', text, options, globals);
+
+  text += '¨0';
+
+  text = text.replace(/(?:^|\n)(?: {0,3})(```+|~~~+)(?: *)([^\s`~]*)\n([\s\S]*?)\n(?: {0,3})\1/g, function (wholeMatch, delim, language, codeblock) {
+    var end = (options.omitExtraWLInCodeBlocks) ? '' : '\n';
+
+    // First parse the github code block
+    codeblock = showdown.subParser('encodeCode')(codeblock, options, globals);
+    codeblock = showdown.subParser('detab')(codeblock, options, globals);
+    codeblock = codeblock.replace(/^\n+/g, ''); // trim leading newlines
+    codeblock = codeblock.replace(/\n+$/g, ''); // trim trailing whitespace
+
+    codeblock = '<pre><code' + (language ? ' class="' + language + ' language-' + language + '"' : '') + '>' + codeblock + end + '</code></pre>';
+
+    codeblock = showdown.subParser('hashBlock')(codeblock, options, globals);
+
+    // Since GHCodeblocks can be false positives, we need to
+    // store the primitive text and the parsed text in a global var,
+    // and then return a token
+    return '\n\n¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
+  });
+
+  // attacklab: strip sentinel
+  text = text.replace(/¨0/, '');
+
+  return globals.converter._dispatch('githubCodeBlocks.after', text, options, globals);
+});
+
+showdown.subParser('hashBlock', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('hashBlock.before', text, options, globals);
+  text = text.replace(/(^\n+|\n+$)/g, '');
+  text = '\n\n¨K' + (globals.gHtmlBlocks.push(text) - 1) + 'K\n\n';
+  text = globals.converter._dispatch('hashBlock.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Hash and escape <code> elements that should not be parsed as markdown
+ */
+showdown.subParser('hashCodeTags', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('hashCodeTags.before', text, options, globals);
+
+  var repFunc = function (wholeMatch, match, left, right) {
+    var codeblock = left + showdown.subParser('encodeCode')(match, options, globals) + right;
+    return '¨C' + (globals.gHtmlSpans.push(codeblock) - 1) + 'C';
+  };
+
+  // Hash naked <code>
+  text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '<code\\b[^>]*>', '</code>', 'gim');
+
+  text = globals.converter._dispatch('hashCodeTags.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('hashElement', function (text, options, globals) {
+  'use strict';
+
+  return function (wholeMatch, m1) {
+    var blockText = m1;
+
+    // Undo double lines
+    blockText = blockText.replace(/\n\n/g, '\n');
+    blockText = blockText.replace(/^\n/, '');
+
+    // strip trailing blank lines
+    blockText = blockText.replace(/\n+$/g, '');
+
+    // Replace the element text with a marker ("¨KxK" where x is its key)
+    blockText = '\n\n¨K' + (globals.gHtmlBlocks.push(blockText) - 1) + 'K\n\n';
+
+    return blockText;
+  };
+});
+
+showdown.subParser('hashHTMLBlocks', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('hashHTMLBlocks.before', text, options, globals);
+
+  var blockTags = [
+        'pre',
+        'div',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'blockquote',
+        'table',
+        'dl',
+        'ol',
+        'ul',
+        'script',
+        'noscript',
+        'form',
+        'fieldset',
+        'iframe',
+        'math',
+        'style',
+        'section',
+        'header',
+        'footer',
+        'nav',
+        'article',
+        'aside',
+        'address',
+        'audio',
+        'canvas',
+        'figure',
+        'hgroup',
+        'output',
+        'video',
+        'p'
+      ],
+      repFunc = function (wholeMatch, match, left, right) {
+        var txt = wholeMatch;
+        // check if this html element is marked as markdown
+        // if so, it's contents should be parsed as markdown
+        if (left.search(/\bmarkdown\b/) !== -1) {
+          txt = left + globals.converter.makeHtml(match) + right;
+        }
+        return '\n\n¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
+      };
+
+  if (options.backslashEscapesHTMLTags) {
+    // encode backslash escaped HTML tags
+    text = text.replace(/\\<(\/?[^>]+?)>/g, function (wm, inside) {
+      return '&lt;' + inside + '&gt;';
+    });
+  }
+
+  // hash HTML Blocks
+  for (var i = 0; i < blockTags.length; ++i) {
+
+    var opTagPos,
+        rgx1     = new RegExp('^ {0,3}(<' + blockTags[i] + '\\b[^>]*>)', 'im'),
+        patLeft  = '<' + blockTags[i] + '\\b[^>]*>',
+        patRight = '</' + blockTags[i] + '>';
+    // 1. Look for the first position of the first opening HTML tag in the text
+    while ((opTagPos = showdown.helper.regexIndexOf(text, rgx1)) !== -1) {
+
+      // if the HTML tag is \ escaped, we need to escape it and break
+
+
+      //2. Split the text in that position
+      var subTexts = showdown.helper.splitAtIndex(text, opTagPos),
+          //3. Match recursively
+          newSubText1 = showdown.helper.replaceRecursiveRegExp(subTexts[1], repFunc, patLeft, patRight, 'im');
+
+      // prevent an infinite loop
+      if (newSubText1 === subTexts[1]) {
+        break;
+      }
+      text = subTexts[0].concat(newSubText1);
+    }
+  }
+  // HR SPECIAL CASE
+  text = text.replace(/(\n {0,3}(<(hr)\b([^<>])*?\/?>)[ \t]*(?=\n{2,}))/g,
+    showdown.subParser('hashElement')(text, options, globals));
+
+  // Special case for standalone HTML comments
+  text = showdown.helper.replaceRecursiveRegExp(text, function (txt) {
+    return '\n\n¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
+  }, '^ {0,3}<!--', '-->', 'gm');
+
+  // PHP and ASP-style processor instructions (<?...?> and <%...%>)
+  text = text.replace(/(?:\n\n)( {0,3}(?:<([?%])[^\r]*?\2>)[ \t]*(?=\n{2,}))/g,
+    showdown.subParser('hashElement')(text, options, globals));
+
+  text = globals.converter._dispatch('hashHTMLBlocks.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Hash span elements that should not be parsed as markdown
+ */
+showdown.subParser('hashHTMLSpans', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('hashHTMLSpans.before', text, options, globals);
+
+  function hashHTMLSpan (html) {
+    return '¨C' + (globals.gHtmlSpans.push(html) - 1) + 'C';
+  }
+
+  // Hash Self Closing tags
+  text = text.replace(/<[^>]+?\/>/gi, function (wm) {
+    return hashHTMLSpan(wm);
+  });
+
+  // Hash tags without properties
+  text = text.replace(/<([^>]+?)>[\s\S]*?<\/\1>/g, function (wm) {
+    return hashHTMLSpan(wm);
+  });
+
+  // Hash tags with properties
+  text = text.replace(/<([^>]+?)\s[^>]+?>[\s\S]*?<\/\1>/g, function (wm) {
+    return hashHTMLSpan(wm);
+  });
+
+  // Hash self closing tags without />
+  text = text.replace(/<[^>]+?>/gi, function (wm) {
+    return hashHTMLSpan(wm);
+  });
+
+  /*showdown.helper.matchRecursiveRegExp(text, '<code\\b[^>]*>', '</code>', 'gi');*/
+
+  text = globals.converter._dispatch('hashHTMLSpans.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Unhash HTML spans
+ */
+showdown.subParser('unhashHTMLSpans', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('unhashHTMLSpans.before', text, options, globals);
+
+  for (var i = 0; i < globals.gHtmlSpans.length; ++i) {
+    var repText = globals.gHtmlSpans[i],
+        // limiter to prevent infinite loop (assume 10 as limit for recurse)
+        limit = 0;
+
+    while (/¨C(\d+)C/.test(repText)) {
+      var num = RegExp.$1;
+      repText = repText.replace('¨C' + num + 'C', globals.gHtmlSpans[num]);
+      if (limit === 10) {
+        console.error('maximum nesting of 10 spans reached!!!');
+        break;
+      }
+      ++limit;
+    }
+    text = text.replace('¨C' + i + 'C', repText);
+  }
+
+  text = globals.converter._dispatch('unhashHTMLSpans.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Hash and escape <pre><code> elements that should not be parsed as markdown
+ */
+showdown.subParser('hashPreCodeTags', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('hashPreCodeTags.before', text, options, globals);
+
+  var repFunc = function (wholeMatch, match, left, right) {
+    // encode html entities
+    var codeblock = left + showdown.subParser('encodeCode')(match, options, globals) + right;
+    return '\n\n¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
+  };
+
+  // Hash <pre><code>
+  text = showdown.helper.replaceRecursiveRegExp(text, repFunc, '^ {0,3}<pre\\b[^>]*>\\s*<code\\b[^>]*>', '^ {0,3}</code>\\s*</pre>', 'gim');
+
+  text = globals.converter._dispatch('hashPreCodeTags.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('headers', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('headers.before', text, options, globals);
+
+  var headerLevelStart = (isNaN(parseInt(options.headerLevelStart))) ? 1 : parseInt(options.headerLevelStart),
+
+      // Set text-style headers:
+      //	Header 1
+      //	========
+      //
+      //	Header 2
+      //	--------
+      //
+      setextRegexH1 = (options.smoothLivePreview) ? /^(.+)[ \t]*\n={2,}[ \t]*\n+/gm : /^(.+)[ \t]*\n=+[ \t]*\n+/gm,
+      setextRegexH2 = (options.smoothLivePreview) ? /^(.+)[ \t]*\n-{2,}[ \t]*\n+/gm : /^(.+)[ \t]*\n-+[ \t]*\n+/gm;
+
+  text = text.replace(setextRegexH1, function (wholeMatch, m1) {
+
+    var spanGamut = showdown.subParser('spanGamut')(m1, options, globals),
+        hID = (options.noHeaderId) ? '' : ' id="' + headerId(m1) + '"',
+        hLevel = headerLevelStart,
+        hashBlock = '<h' + hLevel + hID + '>' + spanGamut + '</h' + hLevel + '>';
+    return showdown.subParser('hashBlock')(hashBlock, options, globals);
+  });
+
+  text = text.replace(setextRegexH2, function (matchFound, m1) {
+    var spanGamut = showdown.subParser('spanGamut')(m1, options, globals),
+        hID = (options.noHeaderId) ? '' : ' id="' + headerId(m1) + '"',
+        hLevel = headerLevelStart + 1,
+        hashBlock = '<h' + hLevel + hID + '>' + spanGamut + '</h' + hLevel + '>';
+    return showdown.subParser('hashBlock')(hashBlock, options, globals);
+  });
+
+  // atx-style headers:
+  //  # Header 1
+  //  ## Header 2
+  //  ## Header 2 with closing hashes ##
+  //  ...
+  //  ###### Header 6
+  //
+  var atxStyle = (options.requireSpaceBeforeHeadingText) ? /^(#{1,6})[ \t]+(.+?)[ \t]*#*\n+/gm : /^(#{1,6})[ \t]*(.+?)[ \t]*#*\n+/gm;
+
+  text = text.replace(atxStyle, function (wholeMatch, m1, m2) {
+    var hText = m2;
+    if (options.customizedHeaderId) {
+      hText = m2.replace(/\s?\{([^{]+?)}\s*$/, '');
+    }
+
+    var span = showdown.subParser('spanGamut')(hText, options, globals),
+        hID = (options.noHeaderId) ? '' : ' id="' + headerId(m2) + '"',
+        hLevel = headerLevelStart - 1 + m1.length,
+        header = '<h' + hLevel + hID + '>' + span + '</h' + hLevel + '>';
+
+    return showdown.subParser('hashBlock')(header, options, globals);
+  });
+
+  function headerId (m) {
+    var title,
+        prefix;
+
+    // It is separate from other options to allow combining prefix and customized
+    if (options.customizedHeaderId) {
+      var match = m.match(/\{([^{]+?)}\s*$/);
+      if (match && match[1]) {
+        m = match[1];
+      }
+    }
+
+    title = m;
+
+    // Prefix id to prevent causing inadvertent pre-existing style matches.
+    if (showdown.helper.isString(options.prefixHeaderId)) {
+      prefix = options.prefixHeaderId;
+    } else if (options.prefixHeaderId === true) {
+      prefix = 'section-';
+    } else {
+      prefix = '';
+    }
+
+    if (!options.rawPrefixHeaderId) {
+      title = prefix + title;
+    }
+
+    if (options.ghCompatibleHeaderId) {
+      title = title
+        .replace(/ /g, '-')
+        // replace previously escaped chars (&, ¨ and $)
+        .replace(/&amp;/g, '')
+        .replace(/¨T/g, '')
+        .replace(/¨D/g, '')
+        // replace rest of the chars (&~$ are repeated as they might have been escaped)
+        // borrowed from github's redcarpet (some they should produce similar results)
+        .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
+        .toLowerCase();
+    } else if (options.rawHeaderId) {
+      title = title
+        .replace(/ /g, '-')
+        // replace previously escaped chars (&, ¨ and $)
+        .replace(/&amp;/g, '&')
+        .replace(/¨T/g, '¨')
+        .replace(/¨D/g, '$')
+        // replace " and '
+        .replace(/["']/g, '-')
+        .toLowerCase();
+    } else {
+      title = title
+        .replace(/[^\w]/g, '')
+        .toLowerCase();
+    }
+
+    if (options.rawPrefixHeaderId) {
+      title = prefix + title;
+    }
+
+    if (globals.hashLinkCounts[title]) {
+      title = title + '-' + (globals.hashLinkCounts[title]++);
+    } else {
+      globals.hashLinkCounts[title] = 1;
+    }
+    return title;
+  }
+
+  text = globals.converter._dispatch('headers.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Turn Markdown link shortcuts into XHTML <a> tags.
+ */
+showdown.subParser('horizontalRule', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('horizontalRule.before', text, options, globals);
+
+  var key = showdown.subParser('hashBlock')('<hr />', options, globals);
+  text = text.replace(/^ {0,2}( ?-){3,}[ \t]*$/gm, key);
+  text = text.replace(/^ {0,2}( ?\*){3,}[ \t]*$/gm, key);
+  text = text.replace(/^ {0,2}( ?_){3,}[ \t]*$/gm, key);
+
+  text = globals.converter._dispatch('horizontalRule.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Turn Markdown image shortcuts into <img> tags.
+ */
+showdown.subParser('images', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('images.before', text, options, globals);
+
+  var inlineRegExp      = /!\[([^\]]*?)][ \t]*()\([ \t]?<?([\S]+?(?:\([\S]*?\)[\S]*?)?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/g,
+      crazyRegExp       = /!\[([^\]]*?)][ \t]*()\([ \t]?<([^>]*)>(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(?:(["'])([^"]*?)\6))?[ \t]?\)/g,
+      base64RegExp      = /!\[([^\]]*?)][ \t]*()\([ \t]?<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/g,
+      referenceRegExp   = /!\[([^\]]*?)] ?(?:\n *)?\[([\s\S]*?)]()()()()()/g,
+      refShortcutRegExp = /!\[([^\[\]]+)]()()()()()/g;
+
+  function writeImageTagBase64 (wholeMatch, altText, linkId, url, width, height, m5, title) {
+    url = url.replace(/\s/g, '');
+    return writeImageTag (wholeMatch, altText, linkId, url, width, height, m5, title);
+  }
+
+  function writeImageTag (wholeMatch, altText, linkId, url, width, height, m5, title) {
+
+    var gUrls   = globals.gUrls,
+        gTitles = globals.gTitles,
+        gDims   = globals.gDimensions;
+
+    linkId = linkId.toLowerCase();
+
+    if (!title) {
+      title = '';
+    }
+    // Special case for explicit empty url
+    if (wholeMatch.search(/\(<?\s*>? ?(['"].*['"])?\)$/m) > -1) {
+      url = '';
+
+    } else if (url === '' || url === null) {
+      if (linkId === '' || linkId === null) {
+        // lower-case and turn embedded newlines into spaces
+        linkId = altText.toLowerCase().replace(/ ?\n/g, ' ');
+      }
+      url = '#' + linkId;
+
+      if (!showdown.helper.isUndefined(gUrls[linkId])) {
+        url = gUrls[linkId];
+        if (!showdown.helper.isUndefined(gTitles[linkId])) {
+          title = gTitles[linkId];
+        }
+        if (!showdown.helper.isUndefined(gDims[linkId])) {
+          width = gDims[linkId].width;
+          height = gDims[linkId].height;
+        }
+      } else {
+        return wholeMatch;
+      }
+    }
+
+    altText = altText
+      .replace(/"/g, '&quot;')
+    //altText = showdown.helper.escapeCharacters(altText, '*_', false);
+      .replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+    //url = showdown.helper.escapeCharacters(url, '*_', false);
+    url = url.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+    var result = '<img src="' + url + '" alt="' + altText + '"';
+
+    if (title && showdown.helper.isString(title)) {
+      title = title
+        .replace(/"/g, '&quot;')
+      //title = showdown.helper.escapeCharacters(title, '*_', false);
+        .replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
+      result += ' title="' + title + '"';
+    }
+
+    if (width && height) {
+      width  = (width === '*') ? 'auto' : width;
+      height = (height === '*') ? 'auto' : height;
+
+      result += ' width="' + width + '"';
+      result += ' height="' + height + '"';
+    }
+
+    result += ' />';
+
+    return result;
+  }
+
+  // First, handle reference-style labeled images: ![alt text][id]
+  text = text.replace(referenceRegExp, writeImageTag);
+
+  // Next, handle inline images:  ![alt text](url =<width>x<height> "optional title")
+
+  // base64 encoded images
+  text = text.replace(base64RegExp, writeImageTagBase64);
+
+  // cases with crazy urls like ./image/cat1).png
+  text = text.replace(crazyRegExp, writeImageTag);
+
+  // normal cases
+  text = text.replace(inlineRegExp, writeImageTag);
+
+  // handle reference-style shortcuts: ![img text]
+  text = text.replace(refShortcutRegExp, writeImageTag);
+
+  text = globals.converter._dispatch('images.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('italicsAndBold', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('italicsAndBold.before', text, options, globals);
+
+  // it's faster to have 3 separate regexes for each case than have just one
+  // because of backtracing, in some cases, it could lead to an exponential effect
+  // called "catastrophic backtrace". Ominous!
+
+  function parseInside (txt, left, right) {
+    /*
+    if (options.simplifiedAutoLink) {
+      txt = showdown.subParser('simplifiedAutoLinks')(txt, options, globals);
+    }
+    */
+    return left + txt + right;
+  }
+
+  // Parse underscores
+  if (options.literalMidWordUnderscores) {
+    text = text.replace(/\b___(\S[\s\S]*?)___\b/g, function (wm, txt) {
+      return parseInside (txt, '<strong><em>', '</em></strong>');
+    });
+    text = text.replace(/\b__(\S[\s\S]*?)__\b/g, function (wm, txt) {
+      return parseInside (txt, '<strong>', '</strong>');
+    });
+    text = text.replace(/\b_(\S[\s\S]*?)_\b/g, function (wm, txt) {
+      return parseInside (txt, '<em>', '</em>');
+    });
+  } else {
+    text = text.replace(/___(\S[\s\S]*?)___/g, function (wm, m) {
+      return (/\S$/.test(m)) ? parseInside (m, '<strong><em>', '</em></strong>') : wm;
+    });
+    text = text.replace(/__(\S[\s\S]*?)__/g, function (wm, m) {
+      return (/\S$/.test(m)) ? parseInside (m, '<strong>', '</strong>') : wm;
+    });
+    text = text.replace(/_([^\s_][\s\S]*?)_/g, function (wm, m) {
+      // !/^_[^_]/.test(m) - test if it doesn't start with __ (since it seems redundant, we removed it)
+      return (/\S$/.test(m)) ? parseInside (m, '<em>', '</em>') : wm;
+    });
+  }
+
+  // Now parse asterisks
+  if (options.literalMidWordAsterisks) {
+    text = text.replace(/([^*]|^)\B\*\*\*(\S[\s\S]*?)\*\*\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<strong><em>', '</em></strong>');
+    });
+    text = text.replace(/([^*]|^)\B\*\*(\S[\s\S]*?)\*\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<strong>', '</strong>');
+    });
+    text = text.replace(/([^*]|^)\B\*(\S[\s\S]*?)\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<em>', '</em>');
+    });
+  } else {
+    text = text.replace(/\*\*\*(\S[\s\S]*?)\*\*\*/g, function (wm, m) {
+      return (/\S$/.test(m)) ? parseInside (m, '<strong><em>', '</em></strong>') : wm;
+    });
+    text = text.replace(/\*\*(\S[\s\S]*?)\*\*/g, function (wm, m) {
+      return (/\S$/.test(m)) ? parseInside (m, '<strong>', '</strong>') : wm;
+    });
+    text = text.replace(/\*([^\s*][\s\S]*?)\*/g, function (wm, m) {
+      // !/^\*[^*]/.test(m) - test if it doesn't start with ** (since it seems redundant, we removed it)
+      return (/\S$/.test(m)) ? parseInside (m, '<em>', '</em>') : wm;
+    });
+  }
+
+
+  text = globals.converter._dispatch('italicsAndBold.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Form HTML ordered (numbered) and unordered (bulleted) lists.
+ */
+showdown.subParser('lists', function (text, options, globals) {
+  'use strict';
+
+  /**
+   * Process the contents of a single ordered or unordered list, splitting it
+   * into individual list items.
+   * @param {string} listStr
+   * @param {boolean} trimTrailing
+   * @returns {string}
+   */
+  function processListItems (listStr, trimTrailing) {
+    // The $g_list_level global keeps track of when we're inside a list.
+    // Each time we enter a list, we increment it; when we leave a list,
+    // we decrement. If it's zero, we're not in a list anymore.
+    //
+    // We do this because when we're not inside a list, we want to treat
+    // something like this:
+    //
+    //    I recommend upgrading to version
+    //    8. Oops, now this line is treated
+    //    as a sub-list.
+    //
+    // As a single paragraph, despite the fact that the second line starts
+    // with a digit-period-space sequence.
+    //
+    // Whereas when we're inside a list (or sub-list), that line will be
+    // treated as the start of a sub-list. What a kludge, huh? This is
+    // an aspect of Markdown's syntax that's hard to parse perfectly
+    // without resorting to mind-reading. Perhaps the solution is to
+    // change the syntax rules such that sub-lists must start with a
+    // starting cardinal number; e.g. "1." or "a.".
+    globals.gListLevel++;
+
+    // trim trailing blank lines:
+    listStr = listStr.replace(/\n{2,}$/, '\n');
+
+    // attacklab: add sentinel to emulate \z
+    listStr += '¨0';
+
+    var rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(¨0| {0,3}([*+-]|\d+[.])[ \t]+))/gm,
+        isParagraphed = (/\n[ \t]*\n(?!¨0)/.test(listStr));
+
+    // Since version 1.5, nesting sublists requires 4 spaces (or 1 tab) indentation,
+    // which is a syntax breaking change
+    // activating this option reverts to old behavior
+    if (options.disableForced4SpacesIndentedSublists) {
+      rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(¨0|\2([*+-]|\d+[.])[ \t]+))/gm;
+    }
+
+    listStr = listStr.replace(rgx, function (wholeMatch, m1, m2, m3, m4, taskbtn, checked) {
+      checked = (checked && checked.trim() !== '');
+
+      var item = showdown.subParser('outdent')(m4, options, globals),
+          bulletStyle = '';
+
+      // Support for github tasklists
+      if (taskbtn && options.tasklists) {
+        bulletStyle = ' class="task-list-item" style="list-style-type: none;"';
+        item = item.replace(/^[ \t]*\[(x|X| )?]/m, function () {
+          var otp = '<input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"';
+          if (checked) {
+            otp += ' checked';
+          }
+          otp += '>';
+          return otp;
+        });
+      }
+
+      // ISSUE #312
+      // This input: - - - a
+      // causes trouble to the parser, since it interprets it as:
+      // <ul><li><li><li>a</li></li></li></ul>
+      // instead of:
+      // <ul><li>- - a</li></ul>
+      // So, to prevent it, we will put a marker (¨A)in the beginning of the line
+      // Kind of hackish/monkey patching, but seems more effective than overcomplicating the list parser
+      item = item.replace(/^([-*+]|\d\.)[ \t]+[\S\n ]*/g, function (wm2) {
+        return '¨A' + wm2;
+      });
+
+      // m1 - Leading line or
+      // Has a double return (multi paragraph) or
+      // Has sublist
+      if (m1 || (item.search(/\n{2,}/) > -1)) {
+        item = showdown.subParser('githubCodeBlocks')(item, options, globals);
+        item = showdown.subParser('blockGamut')(item, options, globals);
+      } else {
+        // Recursion for sub-lists:
+        item = showdown.subParser('lists')(item, options, globals);
+        item = item.replace(/\n$/, ''); // chomp(item)
+        item = showdown.subParser('hashHTMLBlocks')(item, options, globals);
+
+        // Colapse double linebreaks
+        item = item.replace(/\n\n+/g, '\n\n');
+        if (isParagraphed) {
+          item = showdown.subParser('paragraphs')(item, options, globals);
+        } else {
+          item = showdown.subParser('spanGamut')(item, options, globals);
+        }
+      }
+
+      // now we need to remove the marker (¨A)
+      item = item.replace('¨A', '');
+      // we can finally wrap the line in list item tags
+      item =  '<li' + bulletStyle + '>' + item + '</li>\n';
+
+      return item;
+    });
+
+    // attacklab: strip sentinel
+    listStr = listStr.replace(/¨0/g, '');
+
+    globals.gListLevel--;
+
+    if (trimTrailing) {
+      listStr = listStr.replace(/\s+$/, '');
+    }
+
+    return listStr;
+  }
+
+  function styleStartNumber (list, listType) {
+    // check if ol and starts by a number different than 1
+    if (listType === 'ol') {
+      var res = list.match(/^ *(\d+)\./);
+      if (res && res[1] !== '1') {
+        return ' start="' + res[1] + '"';
+      }
+    }
+    return '';
+  }
+
+  /**
+   * Check and parse consecutive lists (better fix for issue #142)
+   * @param {string} list
+   * @param {string} listType
+   * @param {boolean} trimTrailing
+   * @returns {string}
+   */
+  function parseConsecutiveLists (list, listType, trimTrailing) {
+    // check if we caught 2 or more consecutive lists by mistake
+    // we use the counterRgx, meaning if listType is UL we look for OL and vice versa
+    var olRgx = (options.disableForced4SpacesIndentedSublists) ? /^ ?\d+\.[ \t]/gm : /^ {0,3}\d+\.[ \t]/gm,
+        ulRgx = (options.disableForced4SpacesIndentedSublists) ? /^ ?[*+-][ \t]/gm : /^ {0,3}[*+-][ \t]/gm,
+        counterRxg = (listType === 'ul') ? olRgx : ulRgx,
+        result = '';
+
+    if (list.search(counterRxg) !== -1) {
+      (function parseCL (txt) {
+        var pos = txt.search(counterRxg),
+            style = styleStartNumber(list, listType);
+        if (pos !== -1) {
+          // slice
+          result += '\n\n<' + listType + style + '>\n' + processListItems(txt.slice(0, pos), !!trimTrailing) + '</' + listType + '>\n';
+
+          // invert counterType and listType
+          listType = (listType === 'ul') ? 'ol' : 'ul';
+          counterRxg = (listType === 'ul') ? olRgx : ulRgx;
+
+          //recurse
+          parseCL(txt.slice(pos));
+        } else {
+          result += '\n\n<' + listType + style + '>\n' + processListItems(txt, !!trimTrailing) + '</' + listType + '>\n';
+        }
+      })(list);
+    } else {
+      var style = styleStartNumber(list, listType);
+      result = '\n\n<' + listType + style + '>\n' + processListItems(list, !!trimTrailing) + '</' + listType + '>\n';
+    }
+
+    return result;
+  }
+
+  /** Start of list parsing **/
+  text = globals.converter._dispatch('lists.before', text, options, globals);
+  // add sentinel to hack around khtml/safari bug:
+  // http://bugs.webkit.org/show_bug.cgi?id=11231
+  text += '¨0';
+
+  if (globals.gListLevel) {
+    text = text.replace(/^(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
+      function (wholeMatch, list, m2) {
+        var listType = (m2.search(/[*+-]/g) > -1) ? 'ul' : 'ol';
+        return parseConsecutiveLists(list, listType, true);
+      }
+    );
+  } else {
+    text = text.replace(/(\n\n|^\n?)(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
+      function (wholeMatch, m1, list, m3) {
+        var listType = (m3.search(/[*+-]/g) > -1) ? 'ul' : 'ol';
+        return parseConsecutiveLists(list, listType, false);
+      }
+    );
+  }
+
+  // strip sentinel
+  text = text.replace(/¨0/, '');
+  text = globals.converter._dispatch('lists.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Parse metadata at the top of the document
+ */
+showdown.subParser('metadata', function (text, options, globals) {
+  'use strict';
+
+  if (!options.metadata) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('metadata.before', text, options, globals);
+
+  function parseMetadataContents (content) {
+    // raw is raw so it's not changed in any way
+    globals.metadata.raw = content;
+
+    // escape chars forbidden in html attributes
+    // double quotes
+    content = content
+      // ampersand first
+      .replace(/&/g, '&amp;')
+      // double quotes
+      .replace(/"/g, '&quot;');
+
+    content = content.replace(/\n {4}/g, ' ');
+    content.replace(/^([\S ]+): +([\s\S]+?)$/gm, function (wm, key, value) {
+      globals.metadata.parsed[key] = value;
+      return '';
+    });
+  }
+
+  text = text.replace(/^\s*«««+(\S*?)\n([\s\S]+?)\n»»»+\n/, function (wholematch, format, content) {
+    parseMetadataContents(content);
+    return '¨M';
+  });
+
+  text = text.replace(/^\s*---+(\S*?)\n([\s\S]+?)\n---+\n/, function (wholematch, format, content) {
+    if (format) {
+      globals.metadata.format = format;
+    }
+    parseMetadataContents(content);
+    return '¨M';
+  });
+
+  text = text.replace(/¨M/g, '');
+
+  text = globals.converter._dispatch('metadata.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Remove one level of line-leading tabs or spaces
+ */
+showdown.subParser('outdent', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('outdent.before', text, options, globals);
+
+  // attacklab: hack around Konqueror 3.5.4 bug:
+  // "----------bug".replace(/^-/g,"") == "bug"
+  text = text.replace(/^(\t|[ ]{1,4})/gm, '¨0'); // attacklab: g_tab_width
+
+  // attacklab: clean up hack
+  text = text.replace(/¨0/g, '');
+
+  text = globals.converter._dispatch('outdent.after', text, options, globals);
+  return text;
+});
+
+/**
+ *
+ */
+showdown.subParser('paragraphs', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('paragraphs.before', text, options, globals);
+  // Strip leading and trailing lines:
+  text = text.replace(/^\n+/g, '');
+  text = text.replace(/\n+$/g, '');
+
+  var grafs = text.split(/\n{2,}/g),
+      grafsOut = [],
+      end = grafs.length; // Wrap <p> tags
+
+  for (var i = 0; i < end; i++) {
+    var str = grafs[i];
+    // if this is an HTML marker, copy it
+    if (str.search(/¨(K|G)(\d+)\1/g) >= 0) {
+      grafsOut.push(str);
+
+    // test for presence of characters to prevent empty lines being parsed
+    // as paragraphs (resulting in undesired extra empty paragraphs)
+    } else if (str.search(/\S/) >= 0) {
+      str = showdown.subParser('spanGamut')(str, options, globals);
+      str = str.replace(/^([ \t]*)/g, '<p>');
+      str += '</p>';
+      grafsOut.push(str);
+    }
+  }
+
+  /** Unhashify HTML blocks */
+  end = grafsOut.length;
+  for (i = 0; i < end; i++) {
+    var blockText = '',
+        grafsOutIt = grafsOut[i],
+        codeFlag = false;
+    // if this is a marker for an html block...
+    // use RegExp.test instead of string.search because of QML bug
+    while (/¨(K|G)(\d+)\1/.test(grafsOutIt)) {
+      var delim = RegExp.$1,
+          num   = RegExp.$2;
+
+      if (delim === 'K') {
+        blockText = globals.gHtmlBlocks[num];
+      } else {
+        // we need to check if ghBlock is a false positive
+        if (codeFlag) {
+          // use encoded version of all text
+          blockText = showdown.subParser('encodeCode')(globals.ghCodeBlocks[num].text, options, globals);
+        } else {
+          blockText = globals.ghCodeBlocks[num].codeblock;
+        }
+      }
+      blockText = blockText.replace(/\$/g, '$$$$'); // Escape any dollar signs
+
+      grafsOutIt = grafsOutIt.replace(/(\n\n)?¨(K|G)\d+\2(\n\n)?/, blockText);
+      // Check if grafsOutIt is a pre->code
+      if (/^<pre\b[^>]*>\s*<code\b[^>]*>/.test(grafsOutIt)) {
+        codeFlag = true;
+      }
+    }
+    grafsOut[i] = grafsOutIt;
+  }
+  text = grafsOut.join('\n');
+  // Strip leading and trailing lines:
+  text = text.replace(/^\n+/g, '');
+  text = text.replace(/\n+$/g, '');
+  return globals.converter._dispatch('paragraphs.after', text, options, globals);
+});
+
+/**
+ * Run extension
+ */
+showdown.subParser('runExtension', function (ext, text, options, globals) {
+  'use strict';
+
+  if (ext.filter) {
+    text = ext.filter(text, globals.converter, options);
+
+  } else if (ext.regex) {
+    // TODO remove this when old extension loading mechanism is deprecated
+    var re = ext.regex;
+    if (!(re instanceof RegExp)) {
+      re = new RegExp(re, 'g');
+    }
+    text = text.replace(re, ext.replace);
+  }
+
+  return text;
+});
+
+/**
+ * These are all the transformations that occur *within* block-level
+ * tags like paragraphs, headers, and list items.
+ */
+showdown.subParser('spanGamut', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('spanGamut.before', text, options, globals);
+  text = showdown.subParser('codeSpans')(text, options, globals);
+  text = showdown.subParser('escapeSpecialCharsWithinTagAttributes')(text, options, globals);
+  text = showdown.subParser('encodeBackslashEscapes')(text, options, globals);
+
+  // Process anchor and image tags. Images must come first,
+  // because ![foo][f] looks like an anchor.
+  text = showdown.subParser('images')(text, options, globals);
+  text = showdown.subParser('anchors')(text, options, globals);
+
+  // Make links out of things like `<http://example.com/>`
+  // Must come after anchors, because you can use < and >
+  // delimiters in inline links like [this](<url>).
+  text = showdown.subParser('autoLinks')(text, options, globals);
+  text = showdown.subParser('simplifiedAutoLinks')(text, options, globals);
+  text = showdown.subParser('emoji')(text, options, globals);
+  text = showdown.subParser('underline')(text, options, globals);
+  text = showdown.subParser('italicsAndBold')(text, options, globals);
+  text = showdown.subParser('strikethrough')(text, options, globals);
+  text = showdown.subParser('ellipsis')(text, options, globals);
+
+  // we need to hash HTML tags inside spans
+  text = showdown.subParser('hashHTMLSpans')(text, options, globals);
+
+  // now we encode amps and angles
+  text = showdown.subParser('encodeAmpsAndAngles')(text, options, globals);
+
+  // Do hard breaks
+  if (options.simpleLineBreaks) {
+    // GFM style hard breaks
+    // only add line breaks if the text does not contain a block (special case for lists)
+    if (!/\n\n¨K/.test(text)) {
+      text = text.replace(/\n+/g, '<br />\n');
+    }
+  } else {
+    // Vanilla hard breaks
+    text = text.replace(/  +\n/g, '<br />\n');
+  }
+
+  text = globals.converter._dispatch('spanGamut.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('strikethrough', function (text, options, globals) {
+  'use strict';
+
+  function parseInside (txt) {
+    if (options.simplifiedAutoLink) {
+      txt = showdown.subParser('simplifiedAutoLinks')(txt, options, globals);
+    }
+    return '<del>' + txt + '</del>';
+  }
+
+  if (options.strikethrough) {
+    text = globals.converter._dispatch('strikethrough.before', text, options, globals);
+    text = text.replace(/(?:~){2}([\s\S]+?)(?:~){2}/g, function (wm, txt) { return parseInside(txt); });
+    text = globals.converter._dispatch('strikethrough.after', text, options, globals);
+  }
+
+  return text;
+});
+
+/**
+ * Strips link definitions from text, stores the URLs and titles in
+ * hash references.
+ * Link defs are in the form: ^[id]: url "optional title"
+ */
+showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
+  'use strict';
+
+  var regex       = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?([^>\s]+)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=¨0))/gm,
+      base64Regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n\n|(?=¨0)|(?=\n\[))/gm;
+
+  // attacklab: sentinel workarounds for lack of \A and \Z, safari\khtml bug
+  text += '¨0';
+
+  var replaceFunc = function (wholeMatch, linkId, url, width, height, blankLines, title) {
+    linkId = linkId.toLowerCase();
+    if (url.match(/^data:.+?\/.+?;base64,/)) {
+      // remove newlines
+      globals.gUrls[linkId] = url.replace(/\s/g, '');
+    } else {
+      globals.gUrls[linkId] = showdown.subParser('encodeAmpsAndAngles')(url, options, globals);  // Link IDs are case-insensitive
+    }
+
+    if (blankLines) {
+      // Oops, found blank lines, so it's not a title.
+      // Put back the parenthetical statement we stole.
+      return blankLines + title;
+
+    } else {
+      if (title) {
+        globals.gTitles[linkId] = title.replace(/"|'/g, '&quot;');
+      }
+      if (options.parseImgDimensions && width && height) {
+        globals.gDimensions[linkId] = {
+          width:  width,
+          height: height
+        };
+      }
+    }
+    // Completely remove the definition from the text
+    return '';
+  };
+
+  // first we try to find base64 link references
+  text = text.replace(base64Regex, replaceFunc);
+
+  text = text.replace(regex, replaceFunc);
+
+  // attacklab: strip sentinel
+  text = text.replace(/¨0/, '');
+
+  return text;
+});
+
+showdown.subParser('tables', function (text, options, globals) {
+  'use strict';
+
+  if (!options.tables) {
+    return text;
+  }
+
+  var tableRgx       = /^ {0,3}\|?.+\|.+\n {0,3}\|?[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*:?[ \t]*(?:[-=]){2,}[\s\S]+?(?:\n\n|¨0)/gm,
+      //singeColTblRgx = /^ {0,3}\|.+\|\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n(?: {0,3}\|.+\|\n)+(?:\n\n|¨0)/gm;
+      singeColTblRgx = /^ {0,3}\|.+\|[ \t]*\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n( {0,3}\|.+\|[ \t]*\n)*(?:\n|¨0)/gm;
+
+  function parseStyles (sLine) {
+    if (/^:[ \t]*--*$/.test(sLine)) {
+      return ' style="text-align:left;"';
+    } else if (/^--*[ \t]*:[ \t]*$/.test(sLine)) {
+      return ' style="text-align:right;"';
+    } else if (/^:[ \t]*--*[ \t]*:$/.test(sLine)) {
+      return ' style="text-align:center;"';
+    } else {
+      return '';
+    }
+  }
+
+  function parseHeaders (header, style) {
+    var id = '';
+    header = header.trim();
+    // support both tablesHeaderId and tableHeaderId due to error in documentation so we don't break backwards compatibility
+    if (options.tablesHeaderId || options.tableHeaderId) {
+      id = ' id="' + header.replace(/ /g, '_').toLowerCase() + '"';
+    }
+    header = showdown.subParser('spanGamut')(header, options, globals);
+
+    return '<th' + id + style + '>' + header + '</th>\n';
+  }
+
+  function parseCells (cell, style) {
+    var subText = showdown.subParser('spanGamut')(cell, options, globals);
+    return '<td' + style + '>' + subText + '</td>\n';
+  }
+
+  function buildTable (headers, cells) {
+    var tb = '<table>\n<thead>\n<tr>\n',
+        tblLgn = headers.length;
+
+    for (var i = 0; i < tblLgn; ++i) {
+      tb += headers[i];
+    }
+    tb += '</tr>\n</thead>\n<tbody>\n';
+
+    for (i = 0; i < cells.length; ++i) {
+      tb += '<tr>\n';
+      for (var ii = 0; ii < tblLgn; ++ii) {
+        tb += cells[i][ii];
+      }
+      tb += '</tr>\n';
+    }
+    tb += '</tbody>\n</table>\n';
+    return tb;
+  }
+
+  function parseTable (rawTable) {
+    var i, tableLines = rawTable.split('\n');
+
+    for (i = 0; i < tableLines.length; ++i) {
+      // strip wrong first and last column if wrapped tables are used
+      if (/^ {0,3}\|/.test(tableLines[i])) {
+        tableLines[i] = tableLines[i].replace(/^ {0,3}\|/, '');
+      }
+      if (/\|[ \t]*$/.test(tableLines[i])) {
+        tableLines[i] = tableLines[i].replace(/\|[ \t]*$/, '');
+      }
+      // parse code spans first, but we only support one line code spans
+      tableLines[i] = showdown.subParser('codeSpans')(tableLines[i], options, globals);
+    }
+
+    var rawHeaders = tableLines[0].split('|').map(function (s) { return s.trim();}),
+        rawStyles = tableLines[1].split('|').map(function (s) { return s.trim();}),
+        rawCells = [],
+        headers = [],
+        styles = [],
+        cells = [];
+
+    tableLines.shift();
+    tableLines.shift();
+
+    for (i = 0; i < tableLines.length; ++i) {
+      if (tableLines[i].trim() === '') {
+        continue;
+      }
+      rawCells.push(
+        tableLines[i]
+          .split('|')
+          .map(function (s) {
+            return s.trim();
+          })
+      );
+    }
+
+    if (rawHeaders.length < rawStyles.length) {
+      return rawTable;
+    }
+
+    for (i = 0; i < rawStyles.length; ++i) {
+      styles.push(parseStyles(rawStyles[i]));
+    }
+
+    for (i = 0; i < rawHeaders.length; ++i) {
+      if (showdown.helper.isUndefined(styles[i])) {
+        styles[i] = '';
+      }
+      headers.push(parseHeaders(rawHeaders[i], styles[i]));
+    }
+
+    for (i = 0; i < rawCells.length; ++i) {
+      var row = [];
+      for (var ii = 0; ii < headers.length; ++ii) {
+        if (showdown.helper.isUndefined(rawCells[i][ii])) {
+
+        }
+        row.push(parseCells(rawCells[i][ii], styles[ii]));
+      }
+      cells.push(row);
+    }
+
+    return buildTable(headers, cells);
+  }
+
+  text = globals.converter._dispatch('tables.before', text, options, globals);
+
+  // find escaped pipe characters
+  text = text.replace(/\\(\|)/g, showdown.helper.escapeCharactersCallback);
+
+  // parse multi column tables
+  text = text.replace(tableRgx, parseTable);
+
+  // parse one column tables
+  text = text.replace(singeColTblRgx, parseTable);
+
+  text = globals.converter._dispatch('tables.after', text, options, globals);
+
+  return text;
+});
+
+showdown.subParser('underline', function (text, options, globals) {
+  'use strict';
+
+  if (!options.underline) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('underline.before', text, options, globals);
+
+  if (options.literalMidWordUnderscores) {
+    text = text.replace(/\b___(\S[\s\S]*?)___\b/g, function (wm, txt) {
+      return '<u>' + txt + '</u>';
+    });
+    text = text.replace(/\b__(\S[\s\S]*?)__\b/g, function (wm, txt) {
+      return '<u>' + txt + '</u>';
+    });
+  } else {
+    text = text.replace(/___(\S[\s\S]*?)___/g, function (wm, m) {
+      return (/\S$/.test(m)) ? '<u>' + m + '</u>' : wm;
+    });
+    text = text.replace(/__(\S[\s\S]*?)__/g, function (wm, m) {
+      return (/\S$/.test(m)) ? '<u>' + m + '</u>' : wm;
+    });
+  }
+
+  // escape remaining underscores to prevent them being parsed by italic and bold
+  text = text.replace(/(_)/g, showdown.helper.escapeCharactersCallback);
+
+  text = globals.converter._dispatch('underline.after', text, options, globals);
+
+  return text;
+});
+
+/**
+ * Swap back in all the special characters we've hidden.
+ */
+showdown.subParser('unescapeSpecialChars', function (text, options, globals) {
+  'use strict';
+  text = globals.converter._dispatch('unescapeSpecialChars.before', text, options, globals);
+
+  text = text.replace(/¨E(\d+)E/g, function (wholeMatch, m1) {
+    var charCodeToReplace = parseInt(m1);
+    return String.fromCharCode(charCodeToReplace);
+  });
+
+  text = globals.converter._dispatch('unescapeSpecialChars.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('makeMarkdown.blockquote', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+
+    for (var i = 0; i < childrenLength; ++i) {
+      var innerTxt = showdown.subParser('makeMarkdown.node')(children[i], globals);
+
+      if (innerTxt === '') {
+        continue;
+      }
+      txt += innerTxt;
+    }
+  }
+  // cleanup
+  txt = txt.trim();
+  txt = '> ' + txt.split('\n').join('\n> ');
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.codeBlock', function (node, globals) {
+  'use strict';
+
+  var lang = node.getAttribute('language'),
+      num  = node.getAttribute('precodenum');
+  return '```' + lang + '\n' + globals.preList[num] + '\n```';
+});
+
+showdown.subParser('makeMarkdown.codeSpan', function (node) {
+  'use strict';
+
+  return '`' + node.innerHTML + '`';
+});
+
+showdown.subParser('makeMarkdown.emphasis', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '*';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '*';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.header', function (node, globals, headerLevel) {
+  'use strict';
+
+  var headerMark = new Array(headerLevel + 1).join('#'),
+      txt = '';
+
+  if (node.hasChildNodes()) {
+    txt = headerMark + ' ';
+    var children = node.childNodes,
+        childrenLength = children.length;
+
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.hr', function () {
+  'use strict';
+
+  return '---';
+});
+
+showdown.subParser('makeMarkdown.image', function (node) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasAttribute('src')) {
+    txt += '![' + node.getAttribute('alt') + '](';
+    txt += '<' + node.getAttribute('src') + '>';
+    if (node.hasAttribute('width') && node.hasAttribute('height')) {
+      txt += ' =' + node.getAttribute('width') + 'x' + node.getAttribute('height');
+    }
+
+    if (node.hasAttribute('title')) {
+      txt += ' "' + node.getAttribute('title') + '"';
+    }
+    txt += ')';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.links', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes() && node.hasAttribute('href')) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+    txt = '[';
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '](';
+    txt += '<' + node.getAttribute('href') + '>';
+    if (node.hasAttribute('title')) {
+      txt += ' "' + node.getAttribute('title') + '"';
+    }
+    txt += ')';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.list', function (node, globals, type) {
+  'use strict';
+
+  var txt = '';
+  if (!node.hasChildNodes()) {
+    return '';
+  }
+  var listItems       = node.childNodes,
+      listItemsLenght = listItems.length,
+      listNum = node.getAttribute('start') || 1;
+
+  for (var i = 0; i < listItemsLenght; ++i) {
+    if (typeof listItems[i].tagName === 'undefined' || listItems[i].tagName.toLowerCase() !== 'li') {
+      continue;
+    }
+
+    // define the bullet to use in list
+    var bullet = '';
+    if (type === 'ol') {
+      bullet = listNum.toString() + '. ';
+    } else {
+      bullet = '- ';
+    }
+
+    // parse list item
+    txt += bullet + showdown.subParser('makeMarkdown.listItem')(listItems[i], globals);
+    ++listNum;
+  }
+
+  // add comment at the end to prevent consecutive lists to be parsed as one
+  txt += '\n<!-- -->\n';
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.listItem', function (node, globals) {
+  'use strict';
+
+  var listItemTxt = '';
+
+  var children = node.childNodes,
+      childrenLenght = children.length;
+
+  for (var i = 0; i < childrenLenght; ++i) {
+    listItemTxt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+  }
+  // if it's only one liner, we need to add a newline at the end
+  if (!/\n$/.test(listItemTxt)) {
+    listItemTxt += '\n';
+  } else {
+    // it's multiparagraph, so we need to indent
+    listItemTxt = listItemTxt
+      .split('\n')
+      .join('\n    ')
+      .replace(/^ {4}$/gm, '')
+      .replace(/\n\n+/g, '\n\n');
+  }
+
+  return listItemTxt;
+});
+
+
+
+showdown.subParser('makeMarkdown.node', function (node, globals, spansOnly) {
+  'use strict';
+
+  spansOnly = spansOnly || false;
+
+  var txt = '';
+
+  // edge case of text without wrapper paragraph
+  if (node.nodeType === 3) {
+    return showdown.subParser('makeMarkdown.txt')(node, globals);
+  }
+
+  // HTML comment
+  if (node.nodeType === 8) {
+    return '<!--' + node.data + '-->\n\n';
+  }
+
+  // process only node elements
+  if (node.nodeType !== 1) {
+    return '';
+  }
+
+  var tagName = node.tagName.toLowerCase();
+
+  switch (tagName) {
+
+    //
+    // BLOCKS
+    //
+    case 'h1':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 1) + '\n\n'; }
+      break;
+    case 'h2':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 2) + '\n\n'; }
+      break;
+    case 'h3':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 3) + '\n\n'; }
+      break;
+    case 'h4':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 4) + '\n\n'; }
+      break;
+    case 'h5':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 5) + '\n\n'; }
+      break;
+    case 'h6':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 6) + '\n\n'; }
+      break;
+
+    case 'p':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.paragraph')(node, globals) + '\n\n'; }
+      break;
+
+    case 'blockquote':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.blockquote')(node, globals) + '\n\n'; }
+      break;
+
+    case 'hr':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.hr')(node, globals) + '\n\n'; }
+      break;
+
+    case 'ol':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.list')(node, globals, 'ol') + '\n\n'; }
+      break;
+
+    case 'ul':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.list')(node, globals, 'ul') + '\n\n'; }
+      break;
+
+    case 'precode':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.codeBlock')(node, globals) + '\n\n'; }
+      break;
+
+    case 'pre':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.pre')(node, globals) + '\n\n'; }
+      break;
+
+    case 'table':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.table')(node, globals) + '\n\n'; }
+      break;
+
+    //
+    // SPANS
+    //
+    case 'code':
+      txt = showdown.subParser('makeMarkdown.codeSpan')(node, globals);
+      break;
+
+    case 'em':
+    case 'i':
+      txt = showdown.subParser('makeMarkdown.emphasis')(node, globals);
+      break;
+
+    case 'strong':
+    case 'b':
+      txt = showdown.subParser('makeMarkdown.strong')(node, globals);
+      break;
+
+    case 'del':
+      txt = showdown.subParser('makeMarkdown.strikethrough')(node, globals);
+      break;
+
+    case 'a':
+      txt = showdown.subParser('makeMarkdown.links')(node, globals);
+      break;
+
+    case 'img':
+      txt = showdown.subParser('makeMarkdown.image')(node, globals);
+      break;
+
+    default:
+      txt = node.outerHTML + '\n\n';
+  }
+
+  // common normalization
+  // TODO eventually
+
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.paragraph', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+  }
+
+  // some text normalization
+  txt = txt.trim();
+
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.pre', function (node, globals) {
+  'use strict';
+
+  var num  = node.getAttribute('prenum');
+  return '<pre>' + globals.preList[num] + '</pre>';
+});
+
+showdown.subParser('makeMarkdown.strikethrough', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '~~';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '~~';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.strong', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '**';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '**';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.table', function (node, globals) {
+  'use strict';
+
+  var txt = '',
+      tableArray = [[], []],
+      headings   = node.querySelectorAll('thead>tr>th'),
+      rows       = node.querySelectorAll('tbody>tr'),
+      i, ii;
+  for (i = 0; i < headings.length; ++i) {
+    var headContent = showdown.subParser('makeMarkdown.tableCell')(headings[i], globals),
+        allign = '---';
+
+    if (headings[i].hasAttribute('style')) {
+      var style = headings[i].getAttribute('style').toLowerCase().replace(/\s/g, '');
+      switch (style) {
+        case 'text-align:left;':
+          allign = ':---';
+          break;
+        case 'text-align:right;':
+          allign = '---:';
+          break;
+        case 'text-align:center;':
+          allign = ':---:';
+          break;
+      }
+    }
+    tableArray[0][i] = headContent.trim();
+    tableArray[1][i] = allign;
+  }
+
+  for (i = 0; i < rows.length; ++i) {
+    var r = tableArray.push([]) - 1,
+        cols = rows[i].getElementsByTagName('td');
+
+    for (ii = 0; ii < headings.length; ++ii) {
+      var cellContent = ' ';
+      if (typeof cols[ii] !== 'undefined') {
+        cellContent = showdown.subParser('makeMarkdown.tableCell')(cols[ii], globals);
+      }
+      tableArray[r].push(cellContent);
+    }
+  }
+
+  var cellSpacesCount = 3;
+  for (i = 0; i < tableArray.length; ++i) {
+    for (ii = 0; ii < tableArray[i].length; ++ii) {
+      var strLen = tableArray[i][ii].length;
+      if (strLen > cellSpacesCount) {
+        cellSpacesCount = strLen;
+      }
+    }
+  }
+
+  for (i = 0; i < tableArray.length; ++i) {
+    for (ii = 0; ii < tableArray[i].length; ++ii) {
+      if (i === 1) {
+        if (tableArray[i][ii].slice(-1) === ':') {
+          tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii].slice(-1), cellSpacesCount - 1, '-') + ':';
+        } else {
+          tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii], cellSpacesCount, '-');
+        }
+      } else {
+        tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii], cellSpacesCount);
+      }
+    }
+    txt += '| ' + tableArray[i].join(' | ') + ' |\n';
+  }
+
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.tableCell', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (!node.hasChildNodes()) {
+    return '';
+  }
+  var children = node.childNodes,
+      childrenLength = children.length;
+
+  for (var i = 0; i < childrenLength; ++i) {
+    txt += showdown.subParser('makeMarkdown.node')(children[i], globals, true);
+  }
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.txt', function (node) {
+  'use strict';
+
+  var txt = node.nodeValue;
+
+  // multiple spaces are collapsed
+  txt = txt.replace(/ +/g, ' ');
+
+  // replace the custom ¨NBSP; with a space
+  txt = txt.replace(/¨NBSP;/g, ' ');
+
+  // ", <, > and & should replace escaped html entities
+  txt = showdown.helper.unescapeHTMLEntities(txt);
+
+  // escape markdown magic characters
+  // emphasis, strong and strikethrough - can appear everywhere
+  // we also escape pipe (|) because of tables
+  // and escape ` because of code blocks and spans
+  txt = txt.replace(/([*_~|`])/g, '\\$1');
+
+  // escape > because of blockquotes
+  txt = txt.replace(/^(\s*)>/g, '\\$1>');
+
+  // hash character, only troublesome at the beginning of a line because of headers
+  txt = txt.replace(/^#/gm, '\\#');
+
+  // horizontal rules
+  txt = txt.replace(/^(\s*)([-=]{3,})(\s*)$/, '$1\\$2$3');
+
+  // dot, because of ordered lists, only troublesome at the beginning of a line when preceded by an integer
+  txt = txt.replace(/^( {0,3}\d+)\./gm, '$1\\.');
+
+  // +, * and -, at the beginning of a line becomes a list, so we need to escape them also (asterisk was already escaped)
+  txt = txt.replace(/^( {0,3})([+-])/gm, '$1\\$2');
+
+  // images and links, ] followed by ( is problematic, so we escape it
+  txt = txt.replace(/]([\s]*)\(/g, '\\]$1\\(');
+
+  // reference URIs must also be escaped
+  txt = txt.replace(/^ {0,3}\[([\S \t]*?)]:/gm, '\\[$1]:');
+
+  return txt;
+});
+
+var root = this;
+
+// AMD Loader
+if (true) {
+  !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    'use strict';
+    return showdown;
+  }).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+// CommonJS/nodeJS Loader
+} else {}
+}).call(this);
+
+//# sourceMappingURL=showdown.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/string-convert/camel2hyphen.js":
 /*!*****************************************************!*\
   !*** ./node_modules/string-convert/camel2hyphen.js ***!
@@ -46090,6 +54302,66 @@ var camel2hyphen = function (str) {
 };
 
 module.exports = camel2hyphen;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./Resizer.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -53035,6 +61307,1734 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vue-js-modal/src/components/Modal.vue":
+/*!************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Modal.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.vue?vue&type=template&id=47976847& */ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847&");
+/* harmony import */ var _Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.vue?vue&type=script&lang=js& */ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-js-modal/src/components/Modal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../style-loader!../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847&":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=template&id=47976847& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_47976847___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Resizer.vue":
+/*!**************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Resizer.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Resizer.vue?vue&type=template&id=4e1cded8& */ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8&");
+/* harmony import */ var _Resizer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Resizer.vue?vue&type=script&lang=js& */ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Resizer.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Resizer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-js-modal/src/components/Resizer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../vue-loader/lib??vue-loader-options!./Resizer.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../style-loader!../../../css-loader??ref--6-1!../../../vue-loader/lib/loaders/stylePostLoader.js!../../../postcss-loader/src??ref--6-2!../../../vue-loader/lib??vue-loader-options!./Resizer.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8&":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../vue-loader/lib??vue-loader-options!./Resizer.vue?vue&type=template&id=4e1cded8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Resizer_vue_vue_type_template_id_4e1cded8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/utils/focusTrap.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/utils/focusTrap.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const FOCUSABLE_ELEMENTS_QUERY =
+  'button:not([disabled]), ' +
+  'select:not([disabled]), ' +
+  'a[href]:not([disabled]), ' +
+  'area[href]:not([disabled]), ' +
+  '[contentEditable=""]:not([disabled]), ' +
+  '[contentEditable="true"]:not([disabled]), ' +
+  '[contentEditable="TRUE"]:not([disabled]), ' +
+  'textarea:not([disabled]), ' +
+  'iframe:not([disabled]), ' +
+  'input:not([disabled]), ' +
+  'summary:not([disabled]), ' +
+  '[tabindex]:not([tabindex="-1"])'
+
+const isTabPressed = event => {
+  return event.key === 'Tab' || event.keyCode === 9
+}
+
+const querySelectorAll = (element, selector) => {
+  return [...(element.querySelectorAll(selector) || [])]
+}
+
+const queryFocusableElements = element => {
+  return querySelectorAll(element, FOCUSABLE_ELEMENTS_QUERY)
+}
+
+const isFocused = element => {
+  return element == document.activeElement
+}
+
+const isNothingFocused = () => {
+  return !document.activeElement
+}
+
+class FocusTrap {
+  constructor() {
+    this.root = null
+    this.elements = []
+
+    this.onKeyDown = this.onKeyDown.bind(this)
+    this.enable = this.enable.bind(this)
+    this.disable = this.disable.bind(this)
+    this.firstElement = this.firstElement.bind(this)
+    this.lastElement = this.lastElement.bind(this)
+  }
+
+  lastElement() {
+    return this.elements[this.elements.length - 1] || null
+  }
+
+  firstElement() {
+    return this.elements[0] || null
+  }
+
+  onKeyDown(event) {
+    if (!isTabPressed(event)) {
+      return
+    }
+
+    // SHIFT + TAB
+    if (event.shiftKey && isFocused(this.firstElement())) {
+      this.lastElement().focus()
+      event.preventDefault()
+      return
+    }
+
+    // TAB
+    if (isNothingFocused() || isFocused(this.lastElement())) {
+      this.firstElement().focus()
+      event.preventDefault()
+      return
+    }
+  }
+
+  enabled() {
+    return !!this.root
+  }
+
+  enable(root) {
+    if (!root) {
+      return
+    }
+
+    this.root = root
+    this.elements = queryFocusableElements(this.root)
+
+    const firstElement = this.firstElement()
+
+    if (firstElement) {
+      firstElement.focus()
+    }
+
+    this.root.addEventListener('keydown', this.onKeyDown)
+  }
+
+  disable() {
+    this.root.removeEventListener('keydown', this.onKeyDown)
+    this.root = null
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (FocusTrap);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/utils/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/utils/index.js ***!
+  \******************************************************/
+/*! exports provided: inRange, generateId, createDivInBody, blurActiveElement, windowWidthWithoutScrollbar, stringStylesToObject, isInput, getTouchEvent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateId", function() { return generateId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDivInBody", function() { return createDivInBody; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "blurActiveElement", function() { return blurActiveElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "windowWidthWithoutScrollbar", function() { return windowWidthWithoutScrollbar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stringStylesToObject", function() { return stringStylesToObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isInput", function() { return isInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTouchEvent", function() { return getTouchEvent; });
+/* harmony import */ var _numbers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./numbers */ "./node_modules/vue-js-modal/src/utils/numbers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "inRange", function() { return _numbers__WEBPACK_IMPORTED_MODULE_0__["inRange"]; });
+
+
+
+const INPUT_NODE_NAMES = ['INPUT', 'TEXTAREA', 'SELECT']
+
+const generateId = ((index = 0) => () => (index++).toString())()
+/**
+ * @param {Number} from  Lower limit
+ * @param {Number} to    Upper limit
+ * @param {Number} value Checked number value
+ *
+ * @return {Number} Either source value itself or limit value if range limits
+ * are exceeded
+ */
+
+const createDivInBody = () => {
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+
+  return div
+}
+
+const blurActiveElement = () => {
+  if (
+    typeof document !== 'undefined' &&
+    document.activeElement &&
+    document.activeElement.tagName !== 'BODY' &&
+    document.activeElement.blur
+  ) {
+    document.activeElement.blur()
+  }
+}
+// Different browsers handle innerWidth/clientWidth differently,
+// this function tries to return the smallest width (assuming that it excludes
+// scrollbar width)
+const windowWidthWithoutScrollbar = () => {
+  const { innerWidth } = window
+  const { clientWidth } = document.documentElement
+
+  if (innerWidth && clientWidth) {
+    return Math.min(innerWidth, clientWidth)
+  }
+
+  return clientWidth || innerWidth
+}
+
+const stringStylesToObject = styles => {
+  const lines = styles
+    .split(';')
+    .map(line => line.trim())
+    .filter(Boolean)
+
+  const entries = lines.map(line => line.split(':'))
+
+  return entries.reduce((styles, [key, value]) => {
+    return {
+      ...styles,
+      [key]: value
+    }
+  }, {})
+}
+
+const isInput = element => {
+  return element && INPUT_NODE_NAMES.indexOf(element.nodeName) !== -1
+}
+
+const getTouchEvent = event => {
+  return event.touches && event.touches.length > 0 ? event.touches[0] : event
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/utils/numbers.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/utils/numbers.js ***!
+  \********************************************************/
+/*! exports provided: inRange */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inRange", function() { return inRange; });
+const inRange = (from, to, value) => {
+  return value < from ? from : value > to ? to : value
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/utils/parser.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/utils/parser.js ***!
+  \*******************************************************/
+/*! exports provided: parseNumber, validateNumber */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseNumber", function() { return parseNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateNumber", function() { return validateNumber; });
+const floatRegexp = '[-+]?[0-9]*.?[0-9]+'
+
+const types = [
+  {
+    name: 'px',
+    regexp: new RegExp(`^${floatRegexp}px$`)
+  },
+  {
+    name: '%',
+    regexp: new RegExp(`^${floatRegexp}%$`)
+  },
+  /**
+   * Fallback option
+   * If no suffix specified, assigning "px"
+   */
+  {
+    name: 'px',
+    regexp: new RegExp(`^${floatRegexp}$`)
+  }
+]
+
+const getType = value => {
+  if (value === 'auto') {
+    return {
+      type: value,
+      value: 0
+    }
+  }
+
+  const type = types.find(type => type.regexp.test(value))
+
+  if (type) {
+    return {
+      type: type.name,
+      value: parseFloat(value)
+    }
+  }
+
+  return {
+    type: '',
+    value: value
+  }
+}
+
+const parseNumber = value => {
+  switch (typeof value) {
+    case 'number':
+      return { type: 'px', value }
+    case 'string':
+      return getType(value)
+    default:
+      return { type: '', value }
+  }
+}
+
+const validateNumber = value => {
+  if (typeof value === 'string') {
+    let num = parseNumber(value)
+
+    return (num.type === '%' || num.type === 'px') && num.value > 0
+  }
+
+  return value >= 0
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/src/utils/resizeObserver.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue-js-modal/src/utils/resizeObserver.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js");
+
+
+const observer =
+  typeof window !== 'undefined' && window.ResizeObserver
+    ? ResizeObserver
+    : resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_0__["default"]
+
+/* harmony default export */ __webpack_exports__["default"] = (observer);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Resizer_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Resizer.vue */ "./node_modules/vue-js-modal/src/components/Resizer.vue");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./node_modules/vue-js-modal/src/utils/index.js");
+/* harmony import */ var _utils_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/parser */ "./node_modules/vue-js-modal/src/utils/parser.js");
+/* harmony import */ var _utils_resizeObserver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/resizeObserver */ "./node_modules/vue-js-modal/src/utils/resizeObserver.js");
+/* harmony import */ var _utils_focusTrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/focusTrap */ "./node_modules/vue-js-modal/src/utils/focusTrap.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+const defaultTransition = 'vm-transition--default'
+
+const TransitionState = {
+  Enter: 'enter',
+  Entering: 'entering',
+  Leave: 'leave',
+  Leaving: 'leavng'
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'VueJsModal',
+  props: {
+    name: {
+      required: true,
+      type: String
+    },
+    resizable: {
+      type: Boolean,
+      default: false
+    },
+    resizeEdges: {
+      default: () => ['r', 'br', 'b', 'bl', 'l', 'tl', 't', 'tr'],
+      validator: val =>
+        ['r', 'br', 'b', 'bl', 'l', 'tl', 't', 'tr'].filter(
+          value => val.indexOf(value) !== -1
+        ).length === val.length,
+      type: Array
+    },
+    centerResize: {
+      type: Boolean,
+      default: true
+    },
+    resizeIndicator: {
+      type: Boolean,
+      default: true
+    },
+    adaptive: {
+      type: Boolean,
+      default: false
+    },
+    draggable: {
+      type: [Boolean, String],
+      default: false
+    },
+    scrollable: {
+      type: Boolean,
+      default: false
+    },
+    focusTrap: {
+      type: Boolean,
+      default: false
+    },
+    reset: {
+      type: Boolean,
+      default: false
+    },
+    overlayTransition: {
+      type: String,
+      default: 'vm-transition--overlay'
+    },
+    transition: {
+      type: String,
+      default: 'vm-transition--modal'
+    },
+    clickToClose: {
+      type: Boolean,
+      default: true
+    },
+    classes: {
+      type: [String, Array],
+      default: () => []
+    },
+    styles: {
+      type: [String, Array, Object]
+    },
+    minWidth: {
+      type: Number,
+      default: 0,
+      validator(value) {
+        return value >= 0
+      }
+    },
+    minHeight: {
+      type: Number,
+      default: 0,
+      validator(value) {
+        return value >= 0
+      }
+    },
+    maxWidth: {
+      type: Number,
+      default: Number.MAX_SAFE_INTEGER
+    },
+    maxHeight: {
+      type: Number,
+      default: Number.MAX_SAFE_INTEGER
+    },
+    width: {
+      type: [Number, String],
+      default: 600,
+      validator(value) {
+        return value === 'auto' || Object(_utils_parser__WEBPACK_IMPORTED_MODULE_2__["validateNumber"])(value)
+      }
+    },
+    height: {
+      type: [Number, String],
+      default: 300,
+      validator(value) {
+        return value === 'auto' || Object(_utils_parser__WEBPACK_IMPORTED_MODULE_2__["validateNumber"])(value)
+      }
+    },
+    shiftX: {
+      type: Number,
+      default: 0.5,
+      validator(value) {
+        return value >= 0 && value <= 1
+      }
+    },
+    shiftY: {
+      type: Number,
+      default: 0.5,
+      validator(value) {
+        return value >= 0 && value <= 1
+      }
+    }
+  },
+  components: {
+    Resizer: _Resizer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data() {
+    return {
+      visible: false,
+
+      visibility: {
+        modal: false,
+        overlay: false
+      },
+
+      overlayTransitionState: null,
+      modalTransitionState: null,
+
+      shiftLeft: 0,
+      shiftTop: 0,
+
+      modal: {
+        width: 0,
+        widthType: 'px',
+        height: 0,
+        heightType: 'px',
+        renderedHeight: 0
+      },
+
+      viewportHeight: 0,
+      viewportWidth: 0
+    }
+  },
+  created() {
+    this.setInitialSize()
+  },
+  /**
+   * Sets global listeners
+   */
+  beforeMount() {
+    this.$modal.subscription.$on('toggle', this.onToggle)
+
+    window.addEventListener('resize', this.onWindowResize)
+    window.addEventListener('orientationchange', this.onWindowResize)
+
+    this.onWindowResize()
+    /**
+     * Making sure that autoHeight is enabled when using "scrollable"
+     */
+    if (this.scrollable && !this.isAutoHeight) {
+      console.warn(
+        `Modal "${this.name}" has scrollable flag set to true ` +
+          `but height is not "auto" (${this.height})`
+      )
+    }
+
+    if (this.clickToClose) {
+      window.addEventListener('keyup', this.onEscapeKeyUp)
+    }
+  },
+  mounted() {
+    this.resizeObserver = new _utils_resizeObserver__WEBPACK_IMPORTED_MODULE_3__["default"](entries => {
+      if (entries.length > 0) {
+        const [entry] = entries
+
+        this.modal.renderedHeight = entry.contentRect.height
+      }
+    })
+
+    this.$focusTrap = new _utils_focusTrap__WEBPACK_IMPORTED_MODULE_4__["default"]()
+  },
+  /**
+   * Removes global listeners
+   */
+  beforeDestroy() {
+    this.$modal.subscription.$off('toggle', this.onToggle)
+
+    window.removeEventListener('resize', this.onWindowResize)
+    window.removeEventListener('orientationchange', this.onWindowResize)
+
+    if (this.clickToClose) {
+      window.removeEventListener('keyup', this.onEscapeKeyUp)
+    }
+    /**
+     * Removes blocked scroll
+     */
+    document.body.classList.remove('vm--block-scroll')
+  },
+  computed: {
+    /**
+     *  Because modal state is based on transitions - we need to make sure
+     * that there is always a transition for overlay/modal
+     **/
+    guaranteedOverlayTransition() {
+      return this.overlayTransition || defaultTransition
+    },
+
+    guaranteedModalTransition() {
+      return this.transition || defaultTransition
+    },
+
+    /**
+     * Returns true if height is set to "auto"
+     */
+    isAutoHeight() {
+      return this.modal.heightType === 'auto'
+    },
+    /**
+     * Calculates and returns modal position based on the
+     * pivots, window size and modal size
+     */
+    position() {
+      const {
+        viewportHeight,
+        viewportWidth,
+        shiftLeft,
+        shiftTop,
+        shiftX,
+        shiftY,
+        trueModalWidth,
+        trueModalHeight
+      } = this
+
+      const maxLeft = viewportWidth - trueModalWidth
+      const maxTop = Math.max(viewportHeight - trueModalHeight, 0)
+
+      const left = shiftLeft + shiftX * maxLeft
+      const top = shiftTop + shiftY * maxTop
+
+      return {
+        left: parseInt(Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(0, maxLeft, left)),
+        top:
+          !trueModalHeight && this.isAutoHeight
+            ? undefined
+            : parseInt(Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(0, maxTop, top))
+      }
+    },
+    /**
+     * Returns pixel width (if set with %) and makes sure that modal size
+     * fits the window
+     */
+    trueModalWidth() {
+      const { viewportWidth, modal, adaptive, minWidth, maxWidth } = this
+
+      const value =
+        modal.widthType === '%'
+          ? (viewportWidth / 100) * modal.width
+          : modal.width
+
+      if (adaptive) {
+        const max = Math.max(minWidth, Math.min(viewportWidth, maxWidth))
+        return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(minWidth, max, value)
+      }
+
+      return value
+    },
+    /**
+     * Returns pixel height (if set with %) and makes sure that modal size
+     * fits the window.
+     *
+     * Returns modal.renderedHeight if height set as "auto"
+     */
+    trueModalHeight() {
+      const {
+        viewportHeight,
+        modal,
+        isAutoHeight,
+        adaptive,
+        minHeight,
+        maxHeight
+      } = this
+
+      const value =
+        modal.heightType === '%'
+          ? (viewportHeight / 100) * modal.height
+          : modal.height
+
+      if (isAutoHeight) {
+        // use renderedHeight when height 'auto'
+        return this.modal.renderedHeight
+      }
+
+      if (adaptive) {
+        const max = Math.max(minHeight, Math.min(viewportHeight, maxHeight))
+
+        return Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(minHeight, max, value)
+      }
+
+      return value
+    },
+
+    /**
+     * Returns the height of the modal when in 'auto' mode, making sure the
+     * modal fits the viewport if 'adaptive' is also true
+     */
+    autoHeight() {
+      return this.adaptive && this.modal.renderedHeight >= this.viewportHeight
+        ? Math.max(this.minHeight, this.viewportHeight) + 'px'
+        : 'auto'
+    },
+
+    containerClass() {
+      return [
+        'vm--container',
+        this.scrollable && this.isAutoHeight && 'scrollable'
+      ]
+    },
+
+    /**
+     * Returns class list for modal itself
+     */
+    modalClass() {
+      return ['vm--modal', this.classes]
+    },
+
+    stylesProp() {
+      return typeof this.styles === 'string'
+        ? Object(_utils__WEBPACK_IMPORTED_MODULE_1__["stringStylesToObject"])(this.styles)
+        : this.styles
+    },
+    /**
+     * CSS styles for position and size of the modal
+     */
+    modalStyle() {
+      return [
+        this.stylesProp,
+        {
+          top: this.position.top + 'px',
+          left: this.position.left + 'px',
+          width: this.trueModalWidth + 'px',
+          height: this.isAutoHeight
+            ? this.autoHeight
+            : this.trueModalHeight + 'px'
+        }
+      ]
+    },
+
+    isComponentReadyToBeDestroyed() {
+      return (
+        this.overlayTransitionState === TransitionState.Leave &&
+        this.modalTransitionState === TransitionState.Leave
+      )
+    }
+  },
+
+  watch: {
+    isComponentReadyToBeDestroyed(isReady) {
+      if (isReady) {
+        this.visible = false
+      }
+    }
+  },
+
+  methods: {
+    startTransitionEnter() {
+      this.visibility.overlay = true
+      this.visibility.modal = true
+    },
+
+    startTransitionLeave() {
+      this.visibility.overlay = false
+      this.visibility.modal = false
+    },
+
+    beforeOverlayTransitionEnter() {
+      this.overlayTransitionState = TransitionState.Entering
+    },
+
+    afterOverlayTransitionEnter() {
+      this.overlayTransitionState = TransitionState.Enter
+    },
+
+    beforeOverlayTransitionLeave() {
+      this.overlayTransitionState = TransitionState.Leaving
+    },
+
+    afterOverlayTransitionLeave() {
+      this.overlayTransitionState = TransitionState.Leave
+    },
+
+    beforeModalTransitionEnter() {
+      this.modalTransitionState = TransitionState.Entering
+
+      this.$nextTick(() => {
+        this.resizeObserver.observe(this.$refs.modal)
+      })
+    },
+
+    afterModalTransitionEnter() {
+      /* Setup resize ovserver */
+      this.modalTransitionState = TransitionState.Enter
+
+      if (this.draggable) {
+        this.addDraggableListeners()
+      }
+
+      if (this.focusTrap) {
+        this.$focusTrap.enable(this.$refs.modal)
+      }
+
+      const event = this.createModalEvent({
+        state: 'opened'
+      })
+
+      this.$emit('opened', event)
+    },
+
+    beforeModalTransitionLeave() {
+      this.modalTransitionState = TransitionState.Leaving
+      this.resizeObserver.unobserve(this.$refs.modal)
+
+      if (this.$focusTrap.enabled()) {
+        this.$focusTrap.disable()
+      }
+    },
+
+    afterModalTransitionLeave() {
+      this.modalTransitionState = TransitionState.Leave
+
+      const event = this.createModalEvent({
+        state: 'closed'
+      })
+
+      this.$emit('closed', event)
+    },
+
+    onToggle(name, state, params) {
+      if (this.name === name) {
+        const nextState = typeof state === 'undefined' ? !this.visible : state
+
+        this.toggle(nextState, params)
+      }
+    },
+    /**
+     * Initializes modal's size & position,
+     * if "reset" flag is set to true - this function will be called
+     * every time "beforeOpen" is triggered
+     */
+    setInitialSize() {
+      const width = Object(_utils_parser__WEBPACK_IMPORTED_MODULE_2__["parseNumber"])(this.width)
+      const height = Object(_utils_parser__WEBPACK_IMPORTED_MODULE_2__["parseNumber"])(this.height)
+
+      this.modal.width = width.value
+      this.modal.widthType = width.type
+      this.modal.height = height.value
+      this.modal.heightType = height.type
+    },
+
+    onEscapeKeyUp(event) {
+      if (event.which === 27 && this.visible) {
+        this.$modal.hide(this.name)
+      }
+    },
+
+    onWindowResize() {
+      this.viewportWidth = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["windowWidthWithoutScrollbar"])()
+      this.viewportHeight = window.innerHeight
+
+      this.ensureShiftInWindowBounds()
+    },
+    /**
+     * Generates event object
+     */
+    createModalEvent(properties = {}) {
+      return {
+        name: this.name,
+        ref: this.$refs.modal || null,
+        ...properties
+      }
+    },
+    /**
+     * Event handler which is triggered on modal resize
+     */
+    onModalResize(event) {
+      this.modal.widthType = 'px'
+      this.modal.width = event.size.width
+
+      this.modal.heightType = 'px'
+      this.modal.height = event.size.height
+      //Handle Shifting
+      if (!this.centerResize) {
+        this.shiftLeft = this.getResizedShiftLeft(event)
+        this.shiftTop = this.getResizedShiftTop(event)
+      }
+
+      const { size } = this.modal
+
+      this.$emit(
+        'resize',
+        this.createModalEvent({
+          size
+        })
+      )
+    },
+
+    /**
+     * When centerResize is set to false, the modal has to be shifted so the position of the modal stays fixed.
+     * This method shifts the modal in the x direction.
+     */
+    getResizedShiftLeft(event) {
+      const {
+        viewportHeight,
+        viewportWidth,
+        trueModalWidth,
+        trueModalHeight
+      } = this
+
+      let result = this.shiftLeft
+
+      switch (event.direction) {
+        case 'vue-modal-topRight':
+        case 'vue-modal-bottomRight':
+        case 'vue-modal-right':
+          result = result + 0.5 * event.dimGrowth.width
+          break
+        case 'vue-modal-bottomLeft':
+        case 'vue-modal-topLeft':
+        case 'vue-modal-left':
+          result = result - 0.5 * event.dimGrowth.width
+          break
+        case 'vue-modal-top':
+        case 'vue-modal-bottom':
+          break
+        default:
+          console.error('Could not Find Resize Direction In ShiftLeft')
+      }
+
+      return result
+    },
+    /**
+     * When centerResize is set to false, the modal has to be shifted so the position of the modal stays fixed.
+     * This method shifts the modal in the y direction.
+     */
+    getResizedShiftTop(event) {
+      const {
+        viewportHeight,
+        viewportWidth,
+        trueModalWidth,
+        trueModalHeight
+      } = this
+
+      let result = this.shiftTop
+
+      switch (event.direction) {
+        case 'vue-modal-bottom':
+        case 'vue-modal-bottomRight':
+        case 'vue-modal-bottomLeft':
+          result = result + 0.5 * event.dimGrowth.height
+          break
+        case 'vue-modal-top':
+        case 'vue-modal-topRight':
+        case 'vue-modal-topLeft':
+          result = result - 0.5 * event.dimGrowth.height
+          break
+        case 'vue-modal-left':
+        case 'vue-modal-right':
+          break
+        default:
+          console.error('Could not Find Resize Direction In ShiftTop')
+      }
+      return result
+    },
+    open(params) {
+      if (this.reset) {
+        this.setInitialSize()
+
+        this.shiftLeft = 0
+        this.shiftTop = 0
+      }
+
+      if (this.scrollable) {
+        document.body.classList.add('vm--block-scroll')
+      }
+
+      let cancelEvent = false
+
+      const cancel = () => {
+        cancelEvent = true
+      }
+
+      const event = this.createModalEvent({
+        cancel,
+        state: 'before-open',
+        params
+      })
+
+      this.$emit('before-open', event)
+
+      if (cancelEvent) {
+        if (this.scrollable) {
+          document.body.classList.remove('vm--block-scroll')
+        }
+
+        return
+      }
+      /**
+       * Need to unfocus previously focused element, otherwise
+       * all keypress events (ESC press, for example) will trigger on that element.
+       */
+      Object(_utils__WEBPACK_IMPORTED_MODULE_1__["blurActiveElement"])()
+
+      this.visible = true
+      /* Making sure that entering tranition uses "enter" sequance instead of "appear" */
+      this.$nextTick(() => {
+        this.startTransitionEnter()
+      })
+    },
+
+    close(params) {
+      if (this.scrollable) {
+        document.body.classList.remove('vm--block-scroll')
+      }
+
+      let cancelEvent = false
+
+      const cancel = () => {
+        cancelEvent = true
+      }
+
+      const event = this.createModalEvent({
+        cancel,
+        state: 'before-close',
+        params
+      })
+
+      this.$emit('before-close', event)
+
+      if (cancelEvent) {
+        return
+      }
+
+      this.startTransitionLeave()
+    },
+
+    toggle(isOpening, params) {
+      const { visible } = this
+
+      if (visible === isOpening) {
+        return
+      }
+
+      if (isOpening) {
+        this.open(params)
+      } else {
+        this.close(params)
+      }
+    },
+
+    getDraggableElement() {
+      if (this.draggable === true) {
+        return this.$refs.modal
+      }
+
+      if (typeof this.draggable === 'string') {
+        return this.$refs.modal.querySelector(this.draggable)
+      }
+
+      return null
+    },
+
+    /**
+     * Event handler that is triggered when background overlay is clicked
+     */
+    onOverlayClick() {
+      if (this.clickToClose) {
+        this.toggle(false)
+      }
+    },
+
+    addDraggableListeners() {
+      const dragger = this.getDraggableElement()
+
+      if (dragger) {
+        let startX = 0
+        let startY = 0
+        let initialShiftLeft = 0
+        let initialShiftTop = 0
+
+        const handleDraggableMousedown = event => {
+          let target = event.target
+
+          if (Object(_utils__WEBPACK_IMPORTED_MODULE_1__["isInput"])(target)) {
+            return
+          }
+
+          let { clientX, clientY } = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getTouchEvent"])(event)
+
+          document.addEventListener('mousemove', handleDraggableMousemove)
+          document.addEventListener('touchmove', handleDraggableMousemove)
+
+          document.addEventListener('mouseup', handleDraggableMouseup)
+          document.addEventListener('touchend', handleDraggableMouseup)
+
+          startX = clientX
+          startY = clientY
+
+          initialShiftLeft = this.shiftLeft
+          initialShiftTop = this.shiftTop
+        }
+
+        const handleDraggableMousemove = event => {
+          let { clientX, clientY } = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getTouchEvent"])(event)
+
+          this.shiftLeft = initialShiftLeft + clientX - startX
+          this.shiftTop = initialShiftTop + clientY - startY
+
+          event.preventDefault()
+        }
+
+        const handleDraggableMouseup = event => {
+          this.ensureShiftInWindowBounds()
+
+          document.removeEventListener('mousemove', handleDraggableMousemove)
+          document.removeEventListener('touchmove', handleDraggableMousemove)
+
+          document.removeEventListener('mouseup', handleDraggableMouseup)
+          document.removeEventListener('touchend', handleDraggableMouseup)
+
+          event.preventDefault()
+        }
+
+        dragger.addEventListener('mousedown', handleDraggableMousedown)
+        dragger.addEventListener('touchstart', handleDraggableMousedown)
+      }
+    },
+
+    ensureShiftInWindowBounds() {
+      const {
+        viewportHeight,
+        viewportWidth,
+        shiftLeft,
+        shiftTop,
+        shiftX,
+        shiftY,
+        trueModalWidth,
+        trueModalHeight
+      } = this
+
+      const maxLeft = viewportWidth - trueModalWidth
+      const maxTop = Math.max(viewportHeight - trueModalHeight, 0)
+
+      const left = shiftLeft + shiftX * maxLeft
+      const top = shiftTop + shiftY * maxTop
+
+      this.shiftLeft -= left - Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(0, maxLeft, left)
+      this.shiftTop -= top - Object(_utils__WEBPACK_IMPORTED_MODULE_1__["inRange"])(0, maxTop, top)
+    }
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./node_modules/vue-js-modal/src/utils/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'VueJsModalResizer',
+  props: {
+    minHeight: {
+      type: Number,
+      default: 0
+    },
+    minWidth: {
+      type: Number,
+      default: 0
+    },
+    maxWidth: {
+      type: Number,
+      default: Number.MAX_SAFE_INTEGER
+    },
+    maxHeight: {
+      type: Number,
+      default: Number.MAX_SAFE_INTEGER
+    },
+    viewportWidth: {
+      type: Number,
+      required: true
+    },
+    viewportHeight: {
+      type: Number,
+      required: true
+    },
+    resizeIndicator: {
+      type: Boolean,
+      default: true
+    },
+    resizeEdges: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      clicked: false,
+      targetClass: '',
+      size: {},
+      initialX: 0,
+      initialY: 0
+    }
+  },
+  mounted() {
+    this.$el.addEventListener('mousedown', this.start, false)
+  },
+  computed: {
+    className() {
+      const { clicked } = this
+      return ['vue-modal-bottomRight', { clicked }]
+    },
+    getID() {
+      if (this.resizeIndicator) return 'vue-modal-triangle'
+      else return ''
+    }
+  },
+  methods: {
+    start(event) {
+      this.targetClass = event.target.className
+      this.clicked = true
+      this.initialX = event.clientX
+      this.initialY = event.clientY
+
+      window.addEventListener('mousemove', this.mousemove, false)
+      window.addEventListener('mouseup', this.stop, false)
+
+      event.stopPropagation()
+      event.preventDefault()
+    },
+
+    stop() {
+      this.clicked = false
+      this.clicked = false
+      this.targetClass = ''
+      this.initialX = 0
+      this.initialY = 0
+
+      window.removeEventListener('mousemove', this.mousemove, false)
+      window.removeEventListener('mouseup', this.stop, false)
+
+      this.$emit('resize-stop', {
+        element: this.$el.parentElement,
+        size: this.size
+      })
+    },
+
+    mousemove(event) {
+      this.resize(event)
+    },
+    resize(event) {
+      var el = this.$el.parentElement
+
+      var width = event.clientX
+      var height = event.clientY
+      var styleWidth = parseInt(el.style.width.replace('px', ''))
+      var styleHeight = parseInt(el.style.height.replace('px', ''))
+
+      //Block Resize if mouse outside visable space.
+      if (event.clientX > this.viewportWidth || event.clientX < 0) return
+      if (event.clientY > this.viewportHeight || event.clientY < 0) return
+
+      //Calcualte new  Widht/Height based on direction
+      if (el) {
+        switch (this.targetClass) {
+          case 'vue-modal-right':
+            width = width - el.offsetLeft
+            height = styleHeight
+            break
+          case 'vue-modal-left':
+            height = styleHeight
+            width = styleWidth + (this.initialX - event.clientX)
+            break
+          case 'vue-modal-top':
+            width = styleWidth
+            height = styleHeight + (this.initialY - event.clientY)
+            break
+          case 'vue-modal-bottom':
+            width = styleWidth
+            height = height - el.offsetTop
+            break
+          case 'vue-modal-bottomRight':
+            width = width - el.offsetLeft
+            height = height - el.offsetTop
+            break
+          case 'vue-modal-topRight':
+            width = width - el.offsetLeft
+            height = styleHeight + (this.initialY - event.clientY)
+            break
+          case 'vue-modal-bottomLeft':
+            width = styleWidth + (this.initialX - event.clientX)
+            height = height - el.offsetTop
+            break
+          case 'vue-modal-topLeft':
+            width = styleWidth + (this.initialX - event.clientX)
+            height = styleHeight + (this.initialY - event.clientY)
+            break
+          default:
+            console.error('Incorrrect/no resize direction.')
+        }
+
+        const maxWidth = Math.min(Object(_utils__WEBPACK_IMPORTED_MODULE_0__["windowWidthWithoutScrollbar"])(), this.maxWidth)
+        const maxHeight = Math.min(window.innerHeight, this.maxHeight)
+        width = Object(_utils__WEBPACK_IMPORTED_MODULE_0__["inRange"])(this.minWidth, maxWidth, width)
+        height = Object(_utils__WEBPACK_IMPORTED_MODULE_0__["inRange"])(this.minHeight, maxHeight, height)
+        this.initialX = event.clientX
+        this.initialY = event.clientY
+
+        this.size = { width, height }
+
+        //Calculate growth in each dimension to be used when shifting the modal.
+        const dimGrowth = {
+          width: width - styleWidth,
+          height: height - styleHeight
+        }
+
+        el.style.width = width + 'px'
+        el.style.height = height + 'px'
+        this.$emit('resize', {
+          element: el,
+          size: this.size,
+          direction: this.targetClass,
+          dimGrowth: dimGrowth
+        })
+      }
+    }
+  }
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Modal.vue?vue&type=template&id=47976847& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.visible
+    ? _c(
+        "div",
+        { class: _vm.containerClass },
+        [
+          _c(
+            "transition",
+            {
+              attrs: { name: _vm.guaranteedOverlayTransition },
+              on: {
+                "before-enter": _vm.beforeOverlayTransitionEnter,
+                "after-enter": _vm.afterOverlayTransitionEnter,
+                "before-leave": _vm.beforeOverlayTransitionLeave,
+                "after-leave": _vm.afterOverlayTransitionLeave
+              }
+            },
+            [
+              _vm.visibility.overlay
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "vm--overlay",
+                      attrs: {
+                        "data-modal": _vm.name,
+                        "aria-expanded": _vm.visibility.overlay.toString()
+                      },
+                      on: {
+                        click: function($event) {
+                          if ($event.target !== $event.currentTarget) {
+                            return null
+                          }
+                          $event.stopPropagation()
+                          return _vm.onOverlayClick.apply(null, arguments)
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "vm--top-right-slot" },
+                        [_vm._t("top-right")],
+                        2
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "transition",
+            {
+              attrs: { name: _vm.guaranteedModalTransition },
+              on: {
+                "before-enter": _vm.beforeModalTransitionEnter,
+                "after-enter": _vm.afterModalTransitionEnter,
+                "before-leave": _vm.beforeModalTransitionLeave,
+                "after-leave": _vm.afterModalTransitionLeave
+              }
+            },
+            [
+              _vm.visibility.modal
+                ? _c(
+                    "div",
+                    {
+                      ref: "modal",
+                      class: _vm.modalClass,
+                      style: _vm.modalStyle,
+                      attrs: {
+                        "aria-expanded": _vm.visibility.modal.toString(),
+                        role: "dialog",
+                        "aria-modal": "true"
+                      }
+                    },
+                    [
+                      _vm._t("default"),
+                      _vm._v(" "),
+                      _vm.resizable && !_vm.isAutoHeight
+                        ? _c("resizer", {
+                            attrs: {
+                              "min-width": _vm.minWidth,
+                              "min-height": _vm.minHeight,
+                              "max-width": _vm.maxWidth,
+                              "max-height": _vm.maxHeight,
+                              "viewport-height": _vm.viewportHeight,
+                              "viewport-width": _vm.viewportWidth,
+                              "resize-indicator": _vm.resizeIndicator,
+                              "resize-edges": _vm.resizeEdges
+                            },
+                            on: { resize: _vm.onModalResize }
+                          })
+                        : _vm._e()
+                    ],
+                    2
+                  )
+                : _vm._e()
+            ]
+          )
+        ],
+        1
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-js-modal/src/components/Resizer.vue?vue&type=template&id=4e1cded8& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    this.resizeEdges.includes("t")
+      ? _c("div", { staticClass: "vue-modal-top" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("b")
+      ? _c("div", { staticClass: "vue-modal-bottom" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("l")
+      ? _c("div", { staticClass: "vue-modal-left" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("r")
+      ? _c("div", { staticClass: "vue-modal-right" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("tr")
+      ? _c("div", { staticClass: "vue-modal-topRight" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("tl")
+      ? _c("div", { staticClass: "vue-modal-topLeft" })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("br")
+      ? _c("div", { class: _vm.className, attrs: { id: _vm.getID } })
+      : _vm._e(),
+    _vm._v(" "),
+    this.resizeEdges.includes("bl")
+      ? _c("div", { staticClass: "vue-modal-bottomLeft" })
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/App.vue?vue&type=template&id=f348271a&":
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a& ***!
@@ -53208,6 +63208,220 @@ var render = function() {
     },
     on: { click: _vm.clicked }
   })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("header", { staticClass: "flex justify-between bg-gray-100 p-2 px-4" }, [
+      _c("h2", { staticClass: "font-serif uppercase text-lg" }, [
+        _vm._v(_vm._s(_vm.card.name))
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "absolute top-0 right-0 mr-2 mt-2",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.$modal.hideAll()
+            }
+          }
+        },
+        [
+          _c("icon", { attrs: { size: 6 } }, [
+            _c("path", {
+              attrs: {
+                d:
+                  "M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zM11.4 10l2.83-2.83-1.41-1.41L10 8.59 7.17 5.76 5.76 7.17 8.59 10l-2.83 2.83 1.41 1.41L10 11.41l2.83 2.83 1.41-1.41L11.41 10z"
+              }
+            })
+          ])
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "p-4" }, [
+      _c("div", { staticClass: "flex flex-col sm:flex-row sm:space-x-4" }, [
+        _c("div", { staticClass: "sm:w-2/5" }, [
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.$modal.hideAll()
+                }
+              }
+            },
+            [_c("card-image", { attrs: { card: _vm.card } })],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sm:w-3/5" }, [
+          _c("div", {
+            domProps: { innerHTML: _vm._s(_vm.prettyText(_vm.card.text)) }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex space-x-6 my-4" },
+            _vm._l(_vm.card.stats, function(value, stat) {
+              return !isNaN(value)
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "flex items-center bg-white space-x-2 py-2"
+                    },
+                    [
+                      _c("div", [
+                        _c("img", {
+                          staticClass: "h-6",
+                          attrs: {
+                            src: _vm.statToImagePath(stat, value),
+                            alt: _vm.sentenceCase(stat),
+                            title: _vm.sentenceCase(stat)
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v(_vm._s(value))])
+                    ]
+                  )
+                : _vm._e()
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex text-sm space-x-1" },
+            [
+              _c("tcg-player", {
+                staticClass: "w-1/2",
+                attrs: { "buy-link": _vm.card.buyLink }
+              }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "w-1/2 flex justify-end items-center text-right space-x-2 bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1",
+                  attrs: {
+                    href: "/cards/" + _vm.card.identifier,
+                    target: "_blank"
+                  }
+                },
+                [
+                  _c("span", [_vm._v("View card")]),
+                  _vm._v(" "),
+                  _c("icon", { attrs: { size: 5 } }, [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                      }
+                    })
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("footer", { staticClass: "flex justify-between bg-secondary" }, [
+      _vm.hasPrevious
+        ? _c(
+            "button",
+            {
+              staticClass: "flex items-center button-secondary p-2 px-4",
+              on: { click: _vm.previous }
+            },
+            [
+              _c("icon", { attrs: { size: 5 } }, [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414zm-6 0a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 1.414L5.414 10l4.293 4.293a1 1 0 010 1.414z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Previous")])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.hasNext
+        ? _c(
+            "button",
+            {
+              staticClass: "flex items-center button-secondary p-2 px-4",
+              on: { click: _vm.next }
+            },
+            [
+              _c("span", [_vm._v("Next")]),
+              _vm._v(" "),
+              _c("icon", { attrs: { size: 5 } }, [
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z",
+                    "clip-rule": "evenodd"
+                  }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ])
+            ],
+            1
+          )
+        : _vm._e()
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54156,6 +64370,59 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "a",
+    {
+      staticClass:
+        "flex items-center bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1",
+      attrs: { href: _vm.buyLink, target: "_blank" }
+    },
+    [
+      _c("icon", { attrs: { size: 6 } }, [
+        _c("path", {
+          attrs: {
+            d:
+              "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+          }
+        }),
+        _vm._v(" "),
+        _c("path", {
+          attrs: {
+            "fill-rule": "evenodd",
+            d:
+              "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+            "clip-rule": "evenodd"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "ml-1" }, [_vm._v("TCG Player")])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/VersionHandler.vue?vue&type=template&id=55f5115d&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/VersionHandler.vue?vue&type=template&id=55f5115d& ***!
@@ -54261,7 +64528,8 @@ var render = function() {
               "click-handler": _vm.hide
             }
           })
-        : _vm._e()
+        : _vm._e(),
+      _vm._v("\n    lijasdf\n")
     ],
     1
   )
@@ -74151,6 +84419,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/CardDatabase/CardPreview.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/CardDatabase/CardPreview.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardPreview.vue?vue&type=template&id=3d1b789c& */ "./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c&");
+/* harmony import */ var _CardPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardPreview.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CardPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/CardDatabase/CardPreview.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CardPreview.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardPreview.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CardPreview.vue?vue&type=template&id=3d1b789c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardPreview.vue?vue&type=template&id=3d1b789c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardPreview_vue_vue_type_template_id_3d1b789c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/CardDatabase/Cardable.js":
 /*!***********************************************!*\
   !*** ./resources/js/CardDatabase/Cardable.js ***!
@@ -74222,6 +84559,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=FABDB&c=' + cards;
     }
   })
+});
+
+/***/ }),
+
+/***/ "./resources/js/CardDatabase/PreviewCard.js":
+/*!**************************************************!*\
+  !*** ./resources/js/CardDatabase/PreviewCard.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardPreview__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardPreview */ "./resources/js/CardDatabase/CardPreview.vue");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  bind: function bind(element, binding, vnode) {
+    if (!binding.value) {
+      throw 'No value provided for preview-card binding.';
+    }
+
+    if (!(Array.isArray(binding.value.stack) && !isNaN(binding.value.index))) {
+      throw 'Both stack and index properties must be provided for preview-card as part of a JSON object.';
+    }
+
+    element.onmouseup = function () {
+      vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], binding.value, {
+        draggable: true,
+        adaptive: true,
+        height: 'auto',
+        scrollable: true
+      });
+    };
+  }
 });
 
 /***/ }),
@@ -75258,6 +85629,75 @@ __webpack_require__.r(__webpack_exports__);
     this.check(this.$route);
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/Components/TcgPlayer.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/Components/TcgPlayer.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TcgPlayer.vue?vue&type=template&id=d34682c4& */ "./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4&");
+/* harmony import */ var _TcgPlayer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TcgPlayer.vue?vue&type=script&lang=js& */ "./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TcgPlayer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/TcgPlayer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TcgPlayer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TcgPlayer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TcgPlayer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TcgPlayer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TcgPlayer.vue?vue&type=template&id=d34682c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/TcgPlayer.vue?vue&type=template&id=d34682c4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TcgPlayer_vue_vue_type_template_id_d34682c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -76366,7 +86806,7 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
+      return path + '&rect=90,70,360,370&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
       var url = hero.image + '&rect=90,95,360,365';
@@ -76390,6 +86830,290 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Utilities/Markdown/Blockquote.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/Utilities/Markdown/Blockquote.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  type: 'output',
+  regex: /<blockquote>([^]+?)<\/blockquote>/gi,
+  replace: '<blockquote class="relative py-2 px-8 pl-12 my-8 text-xl italic border border-l-4 quote rounded-lg z-0">' + '<div class="stylistic-quote-mark text-gray-200" aria-hidden="true">&ldquo;</div>' + '<p>$1</p>' + '</blockquote>'
+});
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Markdown/Cards.js":
+/*!**************************************************!*\
+  !*** ./resources/js/Utilities/Markdown/Cards.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Carding__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Carding */ "./resources/js/Utilities/Carding.js");
+
+var matches = [];
+var lastAlignment = 'left';
+var alignmentClasses = {
+  left: 'sm:float-left sm:m-4 sm:ml-0',
+  right: 'sm:float-right sm:m-4 sm:mr-0'
+};
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  type: 'lang',
+  regex: /\^cards\((([A-Z]{3}[0-9]{3},?)+)\)/gi,
+  replace: function replace(s, match) {
+    matches.push(match);
+    var n = matches.length - 1;
+    return '%CARDS' + n + '%';
+  }
+}, {
+  type: 'output',
+  filter: function filter(text) {
+    for (var i = 0; i < matches.length; ++i) {
+      var identifiers = matches[i].split(',');
+      var cards = identifiers.map(function (cardIdentifier) {
+        return '<card-ad identifier="' + cardIdentifier + '"></card-ad>';
+      });
+      var pat = '%CARDS' + i + '%';
+      var classes = ''; // Here we are moving and positioning the card in the article.
+
+      if (identifiers.length === 1) {
+        var alignment = lastAlignment === 'right' ? 'left' : 'right';
+        classes = alignmentClasses[alignment];
+        lastAlignment = alignment;
+      } else {
+        classes = 'flex items-start justify-center';
+      }
+
+      text = text.replace(new RegExp(pat, 'gi'), '<div class="' + classes + '">' + cards.join('\n') + '</div>');
+    } //reset array
+
+
+    matches = [];
+    return text;
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Markdown/Classes.js":
+/*!****************************************************!*\
+  !*** ./resources/js/Utilities/Markdown/Classes.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var classMap = {
+  a: 'link',
+  h1: 'text-4xl',
+  h2: 'text-2xl',
+  h3: 'text-xl',
+  ol: 'list-decimal ml-8',
+  p: 'my-4',
+  ul: 'list-disc ml-8'
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object.keys(classMap).map(function (key) {
+  return {
+    type: 'output',
+    regex: new RegExp("<".concat(key, "(.*)>"), 'g'),
+    replace: "<".concat(key, " class=\"").concat(classMap[key], "\" $1>")
+  };
+}));
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Markdown/Decks.js":
+/*!**************************************************!*\
+  !*** ./resources/js/Utilities/Markdown/Decks.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Carding__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Carding */ "./resources/js/Utilities/Carding.js");
+
+var matches = [];
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  type: 'lang',
+  regex: /\^deck\(([A-Z]+)\)/gi,
+  replace: function replace(s, match) {
+    matches.push(match);
+    var n = matches.length - 1;
+    return '%DECK' + n + '%';
+  }
+}, {
+  type: 'output',
+  filter: function filter(text) {
+    for (var i = 0; i < matches.length; ++i) {
+      var url = window.location.protocol + '//' + window.location.hostname + '/decks/embed/' + matches[i];
+      var pat = '<p>%DECK' + i + '% *<\/p>';
+      var replace = '<div class="block sm:m-8 mt-0 sm:float-right border border-gray-400">' + '<iframe src="' + url + '" width="350" height="1200" id="deck-' + i + '" sandbox="allow-same-origin allow-scripts" scrolling="yes"></iframe>' + '</div>';
+      text = text.replace(new RegExp(pat, 'gi'), replace);
+    } //reset array
+
+
+    matches = [];
+    return text;
+  }
+}]);
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Markdown/showdown.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Utilities/Markdown/showdown.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var showdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! showdown */ "./node_modules/showdown/dist/showdown.js");
+/* harmony import */ var showdown__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(showdown__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Classes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Classes */ "./resources/js/Utilities/Markdown/Classes.js");
+/* harmony import */ var _Blockquote__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Blockquote */ "./resources/js/Utilities/Markdown/Blockquote.js");
+/* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cards */ "./resources/js/Utilities/Markdown/Cards.js");
+/* harmony import */ var _Decks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Decks */ "./resources/js/Utilities/Markdown/Decks.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+
+
+
+
+
+var converter = new showdown__WEBPACK_IMPORTED_MODULE_0___default.a.Converter({
+  extensions: [_Cards__WEBPACK_IMPORTED_MODULE_3__["default"], _Decks__WEBPACK_IMPORTED_MODULE_4__["default"]].concat(_toConsumableArray(_Classes__WEBPACK_IMPORTED_MODULE_1__["default"]), [_Blockquote__WEBPACK_IMPORTED_MODULE_2__["default"]])
+});
+/* harmony default export */ __webpack_exports__["default"] = (function (string) {
+  return '<div>' + converter.makeHtml(string) + '</div>';
+});
+;
+
+/***/ }),
+
+/***/ "./resources/js/Utilities/Strings.js":
+/*!*******************************************!*\
+  !*** ./resources/js/Utilities/Strings.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! marked */ "./node_modules/marked/src/marked.js");
+/* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Markdown_showdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Markdown/showdown */ "./resources/js/Utilities/Markdown/showdown.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    kebabCase: function kebabCase(string) {
+      return this.snakeCase(string, '-');
+    },
+    parseMarkdown: function parseMarkdown(string) {
+      return Object(_Markdown_showdown__WEBPACK_IMPORTED_MODULE_1__["default"])(string);
+    },
+    minimalMarkdown: function minimalMarkdown(string) {
+      return Object(_Markdown_showdown__WEBPACK_IMPORTED_MODULE_1__["default"])(string);
+    },
+    prettyText: function prettyText(text) {
+      function chunk(arr, len) {
+        var chunks = [],
+            i = 0,
+            n = arr.length;
+
+        while (i < n) {
+          chunks.push(arr.slice(i, i += len));
+        }
+
+        return chunks;
+      }
+
+      var content = this.prettified(text);
+      return this.parseMarkdown(content);
+    },
+    sentenceCase: function sentenceCase(string) {
+      var sentence = string.replace("-", ' ');
+      return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
+    },
+    prettified: function prettified(text) {
+      var content = text.split('\n');
+      content = content.map(function (line) {
+        var regex = new RegExp(/\[([+-])?(([X0-9]{1})\s)?([a-z]+)\]/i);
+
+        while (true) {
+          var matches = regex.exec(line);
+
+          if (!matches) {
+            return line;
+          }
+
+          var modifier = matches[1];
+          var amount = matches[3];
+          var effect = matches[4];
+          var string = '';
+
+          if (effect === 'Pitch') {
+            effect = 'resource';
+          }
+
+          if (effect === 'Power') {
+            effect = 'attack';
+          }
+
+          effect = effect.toLowerCase();
+
+          if (modifier) {
+            string = modifier + amount + '<img src="/img/' + effect + '.png" class="inline-block h-5 align-middle">';
+          } else if (amount) {
+            for (var x = 0; x < amount; x++) {
+              string += '<img src="/img/' + effect + '.png" class="inline-block h-5">';
+            }
+          } else {
+            string += '<img src="/img/' + effect + '.png" class="inline-block h-5">';
+          }
+
+          line = line.replace(matches[0], string, line);
+        }
+      });
+      return content.join('\n');
+    },
+    snakeCase: function snakeCase(string, delimiter) {
+      if (!delimiter) delimiter = '_';
+      return string.toLowerCase().replace(/[^0-9a-z\s]+/g, '').replace(/\s+/g, delimiter);
+    },
+    ucfirst: function ucfirst(string) {
+      return string[0].toUpperCase() + string.slice(1);
+    },
+    imageDomain: function imageDomain() {
+      return window.settings.imageDomain;
+    },
+    buildQuery: function buildQuery(params) {
+      var esc = encodeURIComponent;
+      return Object.keys(params).map(function (k) {
+        return esc(k) + '=' + esc(params[k]);
+      }).join('&');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -76399,32 +87123,37 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_clipboard2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-clipboard2 */ "./node_modules/vue-clipboard2/vue-clipboard.js");
-/* harmony import */ var vue_clipboard2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_clipboard2__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_masonry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-masonry */ "./node_modules/vue-masonry/src/masonry.plugin.js");
-/* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-meta */ "./node_modules/vue-meta/dist/vue-meta.esm.js");
-/* harmony import */ var vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-awesome-countdown */ "./node_modules/vue-awesome-countdown/dist/vue-awesome-countdown.common.js");
-/* harmony import */ var vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue2-touch-events */ "./node_modules/vue2-touch-events/index.js");
-/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue2_touch_events__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_mq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-mq */ "./node_modules/vue-mq/dist/vue-mq.es.js");
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
-/* harmony import */ var _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Breadcrumbs */ "./resources/js/Components/Breadcrumbs.vue");
-/* harmony import */ var _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CardDatabase/CardAd */ "./resources/js/CardDatabase/CardAd.vue");
-/* harmony import */ var _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CardDatabase/CardImage */ "./resources/js/CardDatabase/CardImage.vue");
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Icon */ "./resources/js/Components/Icon.vue");
-/* harmony import */ var _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/HeaderTitle */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
-/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
-/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
-/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _Components_TcgPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/TcgPlayer */ "./resources/js/Components/TcgPlayer.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_clipboard2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-clipboard2 */ "./node_modules/vue-clipboard2/vue-clipboard.js");
+/* harmony import */ var vue_clipboard2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_clipboard2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_masonry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-masonry */ "./node_modules/vue-masonry/src/masonry.plugin.js");
+/* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-meta */ "./node_modules/vue-meta/dist/vue-meta.esm.js");
+/* harmony import */ var vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-awesome-countdown */ "./node_modules/vue-awesome-countdown/dist/vue-awesome-countdown.common.js");
+/* harmony import */ var vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue2-touch-events */ "./node_modules/vue2-touch-events/index.js");
+/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue2_touch_events__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_mq__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-mq */ "./node_modules/vue-mq/dist/vue-mq.es.js");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/Breadcrumbs */ "./resources/js/Components/Breadcrumbs.vue");
+/* harmony import */ var _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./CardDatabase/CardAd */ "./resources/js/CardDatabase/CardAd.vue");
+/* harmony import */ var _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./CardDatabase/CardImage */ "./resources/js/CardDatabase/CardImage.vue");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/HeaderTitle */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _CardDatabase_PreviewCard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./CardDatabase/PreviewCard */ "./resources/js/CardDatabase/PreviewCard.js");
+/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
+/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
+/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
+/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
+/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-js-modal/src/components/Modal */ "./node_modules/vue-js-modal/src/components/Modal.vue");
+
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -76447,19 +87176,23 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('breadcrumbs', _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_9__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card-ad', _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_10__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card-image', _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_11__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('icon', _Components_Icon__WEBPACK_IMPORTED_MODULE_12__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_14__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_15__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('header-title', _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_13__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_4___default.a, 'vac');
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue2_touch_events__WEBPACK_IMPORTED_MODULE_6___default.a, {
+
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('breadcrumbs', _Components_Breadcrumbs__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('card-ad', _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_11__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('card-image', _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('icon', _Components_Icon__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_16__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_17__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('header-title', _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_14__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('tcg-player', _Components_TcgPlayer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('preview-card', _CardDatabase_PreviewCard__WEBPACK_IMPORTED_MODULE_15__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_5___default.a, 'vac');
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_touch_events__WEBPACK_IMPORTED_MODULE_7___default.a, {
   disableClick: true,
   swipeTolerance: 60
 });
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_mq__WEBPACK_IMPORTED_MODULE_7__["default"], {
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_mq__WEBPACK_IMPORTED_MODULE_8__["default"], {
   breakpoints: {
     "sm": 640,
     "md": 768,
@@ -76468,19 +87201,36 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_mq__WEBPACK_IMPORTED_MODULE_7
     "2xl": 1536
   }
 });
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_5___default.a, {
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_6___default.a, {
+  componentName: 'abstract-modal',
   injectModalsContainer: true
+}); // This fixes the scrollable issue on iOS
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('modal', {
+  "extends": vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__["default"],
+  computed: {
+    /**
+     * Fix using "adaptive" and "scrollable" at the same time
+     */
+    autoHeight: function autoHeight() {
+      if (this.scrollable) {
+        return 'auto';
+      }
+
+      return vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__["default"].computed.autoHeight.apply(this);
+    }
+  }
 });
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_clipboard2__WEBPACK_IMPORTED_MODULE_1___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_masonry__WEBPACK_IMPORTED_MODULE_2__["VueMasonryPlugin"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$settings = window.settings;
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$eventHub = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.lang = JSON.parse(atob(window.lang));
-_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_17__["default"];
-_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_16__["default"];
-Object(_axios_config__WEBPACK_IMPORTED_MODULE_18__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_17__["default"]);
-new vue__WEBPACK_IMPORTED_MODULE_0___default.a(_App_vue__WEBPACK_IMPORTED_MODULE_8__["default"]).$mount('#app');
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_clipboard2__WEBPACK_IMPORTED_MODULE_2___default.a);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_meta__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_masonry__WEBPACK_IMPORTED_MODULE_3__["VueMasonryPlugin"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.$settings = window.settings;
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.$eventHub = new vue__WEBPACK_IMPORTED_MODULE_1___default.a();
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.lang = JSON.parse(atob(window.lang));
+_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_19__["default"];
+_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_18__["default"];
+Object(_axios_config__WEBPACK_IMPORTED_MODULE_20__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_19__["default"]);
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"]).$mount('#app');
 
 /***/ }),
 
@@ -76586,7 +87336,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: "/",
     component: function component() {
-      return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./Home */ "./resources/js/Home.vue"));
+      return Promise.all(/*! import() | home */[__webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("home")]).then(__webpack_require__.bind(null, /*! ./Home */ "./resources/js/Home.vue"));
     },
     name: 'home',
     meta: {
@@ -76622,7 +87372,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/cards/fabled",
     component: function component() {
-      return Promise.all(/*! import() | cards.fabled */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.fabled")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/Fabled */ "./resources/js/CardDatabase/Fabled.vue"));
+      return Promise.all(/*! import() | cards.fabled */[__webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.fabled")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/Fabled */ "./resources/js/CardDatabase/Fabled.vue"));
     },
     name: 'cards.fabled',
     meta: {
@@ -76631,7 +87381,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/cards/prices",
     component: function component() {
-      return Promise.all(/*! import() | cards.prices */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("cards.prices")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/PriceList */ "./resources/js/CardDatabase/PriceList.vue"));
+      return __webpack_require__.e(/*! import() | cards.prices */ "cards.prices").then(__webpack_require__.bind(null, /*! ./CardDatabase/PriceList */ "./resources/js/CardDatabase/PriceList.vue"));
     },
     name: 'cards.prices',
     meta: {
@@ -76640,7 +87390,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/cards/:identifier",
     component: function component() {
-      return Promise.all(/*! import() | cards.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("cards.view~decks.featured"), __webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.view")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/ViewCard */ "./resources/js/CardDatabase/ViewCard.vue"));
+      return Promise.all(/*! import() | cards.view */[__webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("cards.view~decks.featured"), __webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.view")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/ViewCard */ "./resources/js/CardDatabase/ViewCard.vue"));
     },
     name: 'cards.view',
     meta: {
@@ -76653,7 +87403,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/events/mine",
     component: function component() {
-      return Promise.all(/*! import() | events.mine */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("events.mine~events.view"), __webpack_require__.e("events.mine")]).then(__webpack_require__.bind(null, /*! ./Events/Events */ "./resources/js/Events/Events.vue"));
+      return __webpack_require__.e(/*! import() | events.mine */ "events.mine").then(__webpack_require__.bind(null, /*! ./Events/Events */ "./resources/js/Events/Events.vue"));
     },
     meta: {
       title: 'My Events',
@@ -76663,7 +87413,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/events/schedule",
     component: function component() {
-      return Promise.all(/*! import() | events.start */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("vendors~events.edit"), __webpack_require__.e("events.edit")]).then(__webpack_require__.bind(null, /*! ./Events/Event */ "./resources/js/Events/Event.vue"));
+      return Promise.all(/*! import() | events.start */[__webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("vendors~events.edit"), __webpack_require__.e("events.edit")]).then(__webpack_require__.bind(null, /*! ./Events/Event */ "./resources/js/Events/Event.vue"));
     },
     meta: {
       title: 'Events',
@@ -76673,7 +87423,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/events/:event",
     component: function component() {
-      return Promise.all(/*! import() | events.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("events.mine~events.view"), __webpack_require__.e("events.view")]).then(__webpack_require__.bind(null, /*! ./Events/ViewEvent */ "./resources/js/Events/ViewEvent.vue"));
+      return __webpack_require__.e(/*! import() | events.view */ "events.view").then(__webpack_require__.bind(null, /*! ./Events/ViewEvent */ "./resources/js/Events/ViewEvent.vue"));
     },
     meta: {
       title: 'View Event'
@@ -76682,7 +87432,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/events/:event/edit",
     component: function component() {
-      return Promise.all(/*! import() | events.edit */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("vendors~events.edit"), __webpack_require__.e("events.edit")]).then(__webpack_require__.bind(null, /*! ./Events/Event */ "./resources/js/Events/Event.vue"));
+      return Promise.all(/*! import() | events.edit */[__webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("vendors~events.edit"), __webpack_require__.e("events.edit")]).then(__webpack_require__.bind(null, /*! ./Events/Event */ "./resources/js/Events/Event.vue"));
     },
     meta: {
       title: 'Edit Event',
@@ -76722,7 +87472,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/collection/:identifier",
     component: function component() {
-      return Promise.all(/*! import() | collection.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("cards.view~decks.featured"), __webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.view")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/ViewCard */ "./resources/js/CardDatabase/ViewCard.vue"));
+      return Promise.all(/*! import() | collection.view */[__webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~cards.view~home"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("cards.view~decks.featured"), __webpack_require__.e("cards.fabled~cards.view"), __webpack_require__.e("cards.view")]).then(__webpack_require__.bind(null, /*! ./CardDatabase/ViewCard */ "./resources/js/CardDatabase/ViewCard.vue"));
     },
     name: 'collection-view',
     meta: {
@@ -76735,7 +87485,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/tools/life-counter',
     component: function component() {
-      return Promise.all(/*! import() | tools.counter */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("tools.counter")]).then(__webpack_require__.bind(null, /*! ./LifeCounter/Main */ "./resources/js/LifeCounter/Main.vue"));
+      return __webpack_require__.e(/*! import() | tools.counter */ "tools.counter").then(__webpack_require__.bind(null, /*! ./LifeCounter/Main */ "./resources/js/LifeCounter/Main.vue"));
     },
     name: 'tools.life-counter',
     meta: {
@@ -76767,7 +87517,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/build/:deck",
     component: function component() {
-      return Promise.all(/*! import() | decks.build */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("cards.advanced"), __webpack_require__.e("decks.build~practise.view"), __webpack_require__.e("decks.build~decks.view"), __webpack_require__.e("decks.build")]).then(__webpack_require__.bind(null, /*! ./DeckBuilder/DeckBuilder */ "./resources/js/DeckBuilder/DeckBuilder.vue"));
+      return Promise.all(/*! import() | decks.build */[__webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("vendors~decks.build~events.edit"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("cards.advanced"), __webpack_require__.e("decks.build~decks.view"), __webpack_require__.e("decks.build")]).then(__webpack_require__.bind(null, /*! ./DeckBuilder/DeckBuilder */ "./resources/js/DeckBuilder/DeckBuilder.vue"));
     },
     name: 'decks.build',
     meta: {
@@ -76785,7 +87535,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/:deck/test",
     component: function component() {
-      return Promise.all(/*! import() | decks.test.main */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~decks.test.main"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("decks.test.main")]).then(__webpack_require__.bind(null, /*! ./DeckTester/Main */ "./resources/js/DeckTester/Main.vue"));
+      return Promise.all(/*! import() | decks.test.main */[__webpack_require__.e("vendors~decks.test.main"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("decks.test.main")]).then(__webpack_require__.bind(null, /*! ./DeckTester/Main */ "./resources/js/DeckTester/Main.vue"));
     },
     name: 'decks.test.prepare',
     meta: {
@@ -76813,7 +87563,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/decks/:deck",
     component: function component() {
-      return Promise.all(/*! import() | decks.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("decks.build~decks.view"), __webpack_require__.e("decks.view")]).then(__webpack_require__.bind(null, /*! ./Decks/Viewing/ViewDeck */ "./resources/js/Decks/Viewing/ViewDeck.vue"));
+      return Promise.all(/*! import() | decks.view */[__webpack_require__.e("vendors~cards.view~decks.build~decks.view"), __webpack_require__.e("cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("decks.build~decks.view"), __webpack_require__.e("decks.view")]).then(__webpack_require__.bind(null, /*! ./Decks/Viewing/ViewDeck */ "./resources/js/Decks/Viewing/ViewDeck.vue"));
     },
     name: 'decks.view',
     meta: {
@@ -76822,13 +87572,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: "/articles/spoilers",
     component: function component() {
-      return Promise.all(/*! import() | articles.spoilers */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("articles.spoilers")]).then(__webpack_require__.bind(null, /*! ./Content/Spoilers */ "./resources/js/Content/Spoilers.vue"));
+      return __webpack_require__.e(/*! import() | articles.spoilers */ "articles.spoilers").then(__webpack_require__.bind(null, /*! ./Content/Spoilers */ "./resources/js/Content/Spoilers.vue"));
     },
     name: 'articles.spoilers'
   }, {
     path: "/articles/:title/:article",
     component: function component() {
-      return Promise.all(/*! import() | articles.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("articles.view")]).then(__webpack_require__.bind(null, /*! ./Content/ViewArticle */ "./resources/js/Content/ViewArticle.vue"));
+      return Promise.all(/*! import() | articles.view */[__webpack_require__.e("articles.view~cards.view~decks.view"), __webpack_require__.e("articles.view")]).then(__webpack_require__.bind(null, /*! ./Content/ViewArticle */ "./resources/js/Content/ViewArticle.vue"));
     },
     name: 'articles.view'
   }, {
@@ -76843,7 +87593,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/practise/setup',
     component: function component() {
-      return Promise.all(/*! import() | practise.setup */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("practise.setup")]).then(__webpack_require__.bind(null, /*! ./Practise/Setup */ "./resources/js/Practise/Setup.vue"));
+      return __webpack_require__.e(/*! import() | practise.setup */ "practise.setup").then(__webpack_require__.bind(null, /*! ./Practise/Setup */ "./resources/js/Practise/Setup.vue"));
     },
     name: 'practise.setup',
     meta: {
@@ -76852,7 +87602,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/practise/:practise',
     component: function component() {
-      return Promise.all(/*! import() | practise.view */[__webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~b23e5271"), __webpack_require__.e("vendors~articles.spoilers~articles.view~cards.fabled~cards.prices~cards.view~decks.build~decks.test.~c5546fee"), __webpack_require__.e("decks.build~practise.view"), __webpack_require__.e("practise.view")]).then(__webpack_require__.bind(null, /*! ./Practise/Draft */ "./resources/js/Practise/Draft.vue"));
+      return __webpack_require__.e(/*! import() | practise.view */ "practise.view").then(__webpack_require__.bind(null, /*! ./Practise/Draft */ "./resources/js/Practise/Draft.vue"));
     },
     name: 'practise.view',
     meta: {

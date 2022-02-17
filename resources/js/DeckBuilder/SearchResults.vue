@@ -37,10 +37,10 @@
             <div>
                 <div v-for="card in results.data">
                     <div v-if="galleryView" class="w-1/2 float-left mt-4 overflow-hidden px-2 sm:px-4" style="max-width: 350px" :class="classes">
-                        <card-image :card="card" :width="300" :clickHandler="addToDeck"></card-image>
+                        <card-image class="cursor-help" :card="card" :width="300" v-preview-card="{stack: [card], index: 0}"/>
                         <numbered-card-buttons :card="card" class="w-full mx-auto rounded sm:rounded-lg mt-1"/>
                     </div>
-                    <card-item v-else :card="card"/>
+                    <card-item v-else :card="card" layout="horizontal"/>
                 </div>
             </div>
         </div>

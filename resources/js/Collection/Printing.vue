@@ -1,9 +1,9 @@
 <template>
     <tr class="odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center p-1">
-        <td width="50"><img :src="cardImageFromSku(printing.sku.sku, 50)" class="rounded-card"/></td>
+        <td width="50"><img :src="cardImageFromSku(printing.sku.sku, 50)" class="rounded-card cursor-help" v-preview-card="{stack: [printing.card], index: 0}"/></td>
         <td class="pl-2 sm:pl-4">
             <div class="flex items-center space-x-1">
-                <div class="font-bold">{{printing.card.name}}</div>
+                <div class="font-bold cursor-help help-underline" v-preview-card="{stack: [printing.card], index: 0}">{{printing.card.name}}</div>
                 <colour :resource="printing.card.stats.resource" v-if="printing.card.stats.resource"/>
             </div>
             <sku-finish :sku="printing.sku"></sku-finish>

@@ -19,6 +19,7 @@ class CardResource extends JsonResource
             $response['sku'] = new Sku($this->resource->sku);
         }
 
+        $response['buyLink'] = $this->buyLink();
         $response['image'] = $this->alteredImage($this->resource->image, $request);
 
         if (isset($this->resource->ownedTotal)) {
@@ -48,5 +49,10 @@ class CardResource extends JsonResource
                 });
             }
         }
+    }
+
+    private function buyLink()
+    {
+        return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='.$this->resource->identifier.'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
     }
 }

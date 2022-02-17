@@ -920,7 +920,15 @@ var render = function() {
     [
       _c("td", { attrs: { width: "50" } }, [
         _c("img", {
-          staticClass: "rounded-card",
+          directives: [
+            {
+              name: "preview-card",
+              rawName: "v-preview-card",
+              value: { stack: [_vm.printing.card], index: 0 },
+              expression: "{stack: [printing.card], index: 0}"
+            }
+          ],
+          staticClass: "rounded-card cursor-help",
           attrs: { src: _vm.cardImageFromSku(_vm.printing.sku.sku, 50) }
         })
       ]),
@@ -933,9 +941,21 @@ var render = function() {
             "div",
             { staticClass: "flex items-center space-x-1" },
             [
-              _c("div", { staticClass: "font-bold" }, [
-                _vm._v(_vm._s(_vm.printing.card.name))
-              ]),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "preview-card",
+                      rawName: "v-preview-card",
+                      value: { stack: [_vm.printing.card], index: 0 },
+                      expression: "{stack: [printing.card], index: 0}"
+                    }
+                  ],
+                  staticClass: "font-bold cursor-help help-underline"
+                },
+                [_vm._v(_vm._s(_vm.printing.card.name))]
+              ),
               _vm._v(" "),
               _vm.printing.card.stats.resource
                 ? _c("colour", {

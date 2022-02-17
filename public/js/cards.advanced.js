@@ -133,6 +133,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -318,54 +320,103 @@ var render = function() {
         _c("div", { staticClass: "md:flex mb-4" }, [
           _c("div", { staticClass: "md:w-1/5 py-2" }, [_vm._v("Class")]),
           _vm._v(" "),
-          _c("div", { staticClass: "md:w-4/5" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.params.class,
-                    expression: "params.class"
+          _c(
+            "div",
+            { staticClass: "md:w-4/5" },
+            [
+              _c("label", { staticClass: "block" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.params.class,
+                      expression: "params.class"
+                    }
+                  ],
+                  attrs: { type: "checkbox", value: "none" },
+                  domProps: {
+                    checked: Array.isArray(_vm.params.class)
+                      ? _vm._i(_vm.params.class, "none") > -1
+                      : _vm.params.class
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.params.class,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = "none",
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(_vm.params, "class", $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.params,
+                              "class",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.params, "class", $$c)
+                      }
+                    }
                   }
-                ],
-                staticClass:
-                  "input focus:bg-white focus:border-gray-500 py-3 px-2 sm:px-4 rounded-lg",
-                class: _vm.active("class"),
-                attrs: { size: "6", multiple: "multiple" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.params,
-                      "class",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "none" } }, [
-                  _vm._v("Not classed")
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.$settings.game.classes, function(name, klass) {
-                  return _c("option", { domProps: { value: klass } }, [
-                    _vm._v(_vm._s(name))
-                  ])
-                })
-              ],
-              2
-            )
-          ])
+                }),
+                _vm._v(" Not classed\n                ")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.$settings.game.classes, function(name, klass) {
+                return _c("label", { staticClass: "block" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.params.class,
+                        expression: "params.class"
+                      }
+                    ],
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      value: klass,
+                      checked: Array.isArray(_vm.params.class)
+                        ? _vm._i(_vm.params.class, klass) > -1
+                        : _vm.params.class
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.params.class,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = klass,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.params, "class", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.params,
+                                "class",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.params, "class", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" " + _vm._s(name) + "\n                ")
+                ])
+              })
+            ],
+            2
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "md:flex mb-4" }, [

@@ -2292,18 +2292,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -47360,143 +47348,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.useRouter
-    ? _c(
-        "router-link",
+  return _c(
+    "div",
+    [
+      _vm.card.stats.resource || !_vm.collapse
+        ? _c("colour", {
+            staticClass: "mr-2",
+            attrs: { resource: _vm.card.stats.resource }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "span",
         {
-          staticClass: "block flex items-center",
-          attrs: { to: /cards/ + _vm.card.identifier }
-        },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
+          directives: [
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
-            },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.sideboardTotal
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
-    : _c(
-        "a",
-        {
-          staticClass: "block flex items-center",
-          attrs: { href: "/cards/" + _vm.card.identifier, target: "_blank" }
+              name: "preview-card",
+              rawName: "v-preview-card",
+              value: { stack: [_vm.card], index: 0 },
+              expression: "{stack: [card], index: 0}"
+            }
+          ],
+          staticClass: "cursor-help help-underline"
         },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
+        [_vm._v(_vm._s(_vm.card.name))]
+      ),
+      _vm._v(" "),
+      _vm.total()
+        ? _c("span", { staticClass: "ml-1" }, [
+            _vm._v("(" + _vm._s(_vm.total()) + ")")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.card.sideboardTotal
+        ? _c(
+            "div",
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
+              staticClass: "flex items-center ml-auto",
+              attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
             },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
+            [
+              _c("icon", { attrs: { size: 4 } }, [
+                _c("path", {
+                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.sideboardTotal
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -62600,7 +62516,7 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
+      return path + '&rect=90,70,360,370&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
       var url = hero.image + '&rect=90,95,360,365';

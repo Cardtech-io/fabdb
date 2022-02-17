@@ -398,6 +398,6 @@ button, button:focus {
     height: 0;
 }
 
-.vm--modal {
-    height: auto !important;
+.help-underline {
+    @apply border-b border-gray-800 border-dotted;
 }

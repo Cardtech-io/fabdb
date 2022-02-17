@@ -108,17 +108,17 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 $existing->total--;
                 $existing->save();
 
-                if ($existing->subType === 'young') {
-                    $deck->heroId = null;
-                    $this->save($deck);
-                }
-
                 $sideboard = $deck->sideboardCard($cardId);
 
                 if ($sideboard && $sideboard->total < $existing->total) {
                     DB::update('UPDATE sideboard SET total = total - 1 WHERE id = ?', [$sideboard->id]);
                 }
             } else {
+                if ($existing->card->type === 'hero') {
+                    $deck->heroId = null;
+                    $this->save($deck);
+                }
+
                 $existing->delete();
                 $deck->touch();
             }
@@ -282,7 +282,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
             if ($deckCard) {
                 if (!$total) {
-                    $deckCard->delete();
+                    $this->removeCardFromDeck($deckId, $cardId);
                 } else {
                     $deckCard->total = $total;
                     $deckCard->save();

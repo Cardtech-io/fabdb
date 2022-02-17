@@ -25,18 +25,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -514,143 +502,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.useRouter
-    ? _c(
-        "router-link",
+  return _c(
+    "div",
+    [
+      _vm.card.stats.resource || !_vm.collapse
+        ? _c("colour", {
+            staticClass: "mr-2",
+            attrs: { resource: _vm.card.stats.resource }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "span",
         {
-          staticClass: "block flex items-center",
-          attrs: { to: /cards/ + _vm.card.identifier }
-        },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
+          directives: [
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
-            },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.sideboardTotal
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
-    : _c(
-        "a",
-        {
-          staticClass: "block flex items-center",
-          attrs: { href: "/cards/" + _vm.card.identifier, target: "_blank" }
+              name: "preview-card",
+              rawName: "v-preview-card",
+              value: { stack: [_vm.card], index: 0 },
+              expression: "{stack: [card], index: 0}"
+            }
+          ],
+          staticClass: "cursor-help help-underline"
         },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
+        [_vm._v(_vm._s(_vm.card.name))]
+      ),
+      _vm._v(" "),
+      _vm.total()
+        ? _c("span", { staticClass: "ml-1" }, [
+            _vm._v("(" + _vm._s(_vm.total()) + ")")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.card.sideboardTotal
+        ? _c(
+            "div",
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
+              staticClass: "flex items-center ml-auto",
+              attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
             },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
+            [
+              _c("icon", { attrs: { size: 4 } }, [
+                _c("path", {
+                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.sideboardTotal
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -681,11 +597,15 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ol",
-      _vm._l(_vm.cards, function(card) {
+      _vm._l(_vm.cards, function(card, index) {
         return _c(
           "li",
           { staticClass: "p-2 pl-4 odd:bg-gray-100" },
-          [_c("deck-card", { attrs: { card: card, collapse: true } })],
+          [
+            _c("deck-card", {
+              attrs: { card: card, collapse: true, "use-router": false }
+            })
+          ],
           1
         )
       }),
@@ -917,148 +837,160 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full md:w-3/4 md:py-4" }, [
-                    _c("ul", { staticClass: "flex border-b border-gray-400" }, [
-                      _c("li", { staticClass: "mr-2" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
-                            class: _vm.tabClasses("composition"),
-                            on: {
-                              click: function($event) {
-                                _vm.tab = "composition"
-                              }
-                            }
-                          },
-                          [_vm._v("Composition")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "mr-2" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
-                            class: _vm.tabClasses("rulings"),
-                            on: {
-                              click: function($event) {
-                                _vm.tab = "rulings"
-                              }
-                            }
-                          },
-                          [_vm._v("Rulings")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "ml-4" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "flex items-center w-full sm:w-auto button-primary rounded-full px-4 py-2 text-sm",
-                            attrs: {
-                              href: _vm.buyLink(_vm.deck),
-                              target: "_blank"
-                            }
-                          },
-                          [
-                            _c("icon", { attrs: { size: 4 } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "flex items-center border-b border-gray-400 text-sm md:text-base space-x-1 md:space-x-2"
+                      },
+                      [
+                        _c("li", [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
+                              class: _vm.tabClasses("composition"),
+                              on: {
+                                click: function($event) {
+                                  _vm.tab = "composition"
                                 }
-                              }),
+                              }
+                            },
+                            [_vm._v("Composition")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
+                              class: _vm.tabClasses("rulings"),
+                              on: {
+                                click: function($event) {
+                                  _vm.tab = "rulings"
+                                }
+                              }
+                            },
+                            [_vm._v("Rulings")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "pl-1 md:mb-1" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "flex items-center w-full sm:w-auto button-primary rounded-full px-4 py-1 md:py-2",
+                              attrs: {
+                                href: _vm.buyLink(_vm.deck),
+                                target: "_blank",
+                                title: "Buy from TCG Player"
+                              }
+                            },
+                            [
+                              _c("icon", { attrs: { size: 4 } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    "fill-rule": "evenodd",
+                                    d:
+                                      "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+                                    "clip-rule": "evenodd"
+                                  }
+                                })
+                              ]),
                               _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  "fill-rule": "evenodd",
-                                  d:
-                                    "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
-                                  "clip-rule": "evenodd"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(0)
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "ml-2" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "sm:flex items-center w-full button-primary rounded-full px-4 py-2 text-sm",
-                            attrs: { title: "Copy deck to my decks" },
-                            on: { click: _vm.copyDeck }
-                          },
-                          [
-                            _c("icon", { attrs: { size: 4 } }, [
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "ml-2 hidden sm:block" },
-                              [_vm._v("Copy to my decks")]
-                            )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "ml-2" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "sm:flex items-center w-full button-primary rounded-full px-4 py-2 text-sm",
-                            attrs: { title: "Copy deck to clipboard" },
-                            on: {
-                              click: function($event) {
-                                _vm.copyToClipboard(
-                                  _vm.shareDeckViaText(_vm.deck),
-                                  "Deck build copied to clipboard."
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("icon", { attrs: { size: 4 } }, [
-                              _c("path", {
-                                attrs: {
-                                  d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"
-                                }
-                              }),
+                              _c(
+                                "span",
+                                { staticClass: "ml-1 hidden sm:inline" },
+                                [_vm._v("Buy deck")]
+                              )
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "md:mb-1" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "sm:flex items-center w-full button-primary rounded-full px-4 py-1 md:py-2",
+                              attrs: { title: "Copy deck to my decks" },
+                              on: { click: _vm.copyDeck }
+                            },
+                            [
+                              _c("icon", { attrs: { size: 4 } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
+                                  }
+                                })
+                              ]),
                               _vm._v(" "),
-                              _c("path", {
-                                attrs: {
-                                  d:
-                                    "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
+                              _c(
+                                "span",
+                                { staticClass: "ml-2 hidden sm:block" },
+                                [_vm._v("Copy to my decks")]
+                              )
+                            ],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "md:mb-1" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "sm:flex items-center w-full button-primary rounded-full px-4 py-1 md:py-2",
+                              attrs: { title: "Copy deck to clipboard" },
+                              on: {
+                                click: function($event) {
+                                  _vm.copyToClipboard(
+                                    _vm.shareDeckViaText(_vm.deck),
+                                    "Deck build copied to clipboard."
+                                  )
                                 }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "ml-1 hidden sm:block" },
-                              [_vm._v("Copy to clipboard")]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]),
+                              }
+                            },
+                            [
+                              _c("icon", { attrs: { size: 4 } }, [
+                                _c("path", {
+                                  attrs: {
+                                    d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "ml-1 hidden sm:block" },
+                                [_vm._v("Copy to clipboard")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
                     _vm.tab === "composition"
                       ? _c("div", { staticClass: "bg-gray-200 py-4" }, [
@@ -1227,22 +1159,13 @@ var render = function() {
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(0)
           ],
           1
         )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "ml-1" }, [
-      _vm._v("Buy "),
-      _c("span", { staticClass: "hidden sm:inline" }, [_vm._v("deck")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -1259,225 +1182,6 @@ var staticRenderFns = [
 render._withStripped = true
 
 
-
-/***/ }),
-
-/***/ "./resources/js/DeckBuilder/Viewable.js":
-/*!**********************************************!*\
-  !*** ./resources/js/DeckBuilder/Viewable.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  computed: {
-    attacksPerHand: function attacksPerHand() {
-      return (this.totalAttacks / (this.totalOther / 4)).toFixed(1);
-    },
-    averageAttack: function averageAttack() {
-      return (underscore__WEBPACK_IMPORTED_MODULE_0__["default"].reduce(this.attacks, function (total, card) {
-        return total + card.stats.attack * card.total;
-      }, 0) / this.totalAttacks).toFixed(1);
-    },
-    averageBlock: function averageBlock() {
-      return (underscore__WEBPACK_IMPORTED_MODULE_0__["default"].reduce(this.blocks, function (total, card) {
-        return total + card.stats.defense * card.total;
-      }, 0) / this.totalBlocks).toFixed(1);
-    },
-    averageCost: function averageCost() {
-      var totalCost = this.other.reduce(function (total, card) {
-        if (card.stats.cost && !isNaN(card.stats.cost)) {
-          return total + card.stats.cost * card.total;
-        }
-
-        return total;
-      }, 0);
-      return (this.totalOther ? totalCost / this.totalOther : 0).toFixed(2);
-    },
-    averagePitch: function averagePitch() {
-      var totalPitch = this.other.reduce(function (total, card) {
-        if (card.stats.resource) {
-          return total + card.stats.resource * card.total;
-        }
-
-        return total + 0;
-      }, 0);
-      return (this.totalOther ? totalPitch / this.totalOther : 0).toFixed(2);
-    },
-    hero: function hero() {
-      if (!this.cards) {
-        return;
-      }
-
-      return this.cards.filter(function (card) {
-        return card.type === 'hero';
-      })[0];
-    },
-    attacks: function attacks() {
-      return this.other.filter(function (card) {
-        return card.keywords.includes('attack') && !card.keywords.includes('reaction');
-      });
-    },
-    blocks: function blocks() {
-      return this.other.filter(function (card) {
-        return card.stats.defense && card.stats.defense > 0;
-      });
-    },
-    weapons: function weapons() {
-      return this.cards.filter(function (card) {
-        return card.keywords.includes('weapon');
-      });
-    },
-    equipment: function equipment() {
-      return this.cards.filter(function (card) {
-        return card.keywords.includes('equipment');
-      });
-    },
-    other: function other() {
-      var cards = this.cards.filter(function (card) {
-        return !(card.keywords.includes('hero') || card.keywords.includes('equipment') || card.keywords.includes('weapon'));
-      }); // Sort by pitch
-
-      return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].sortBy(cards, function (card) {
-        return card.stats.resource;
-      });
-    },
-    totalOther: function totalOther() {
-      return this.other.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    totalAttacks: function totalAttacks() {
-      return this.attacks.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    totalBlocks: function totalBlocks() {
-      return this.blocks.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    totalClass: function totalClass() {
-      return this.countCards(this.other.filter(function (card) {
-        return !card.keywords.includes('generic');
-      }));
-    },
-    totalGeneric: function totalGeneric() {
-      return this.countCards(this.other.filter(function (card) {
-        return card.keywords.includes('generic');
-      }));
-    },
-    totalCards: function totalCards() {
-      var count = this.other.filter(function (card) {
-        return !card.keywords.includes('token');
-      }).reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-
-      if (this.deck && this.deck.format === 'blitz') {
-        if (this.hero) {
-          count++;
-        }
-      }
-
-      return count + this.equipment.reduce(function (total, card) {
-        return total + card.total;
-      }, 0) + this.weapons.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    totalActions: function totalActions() {
-      return this.totalCardType(this.other, ['action']);
-    },
-    totalAttackActions: function totalAttackActions() {
-      return this.totalCardType(this.other, ['action', 'attack']);
-    },
-    totalAttackReactions: function totalAttackReactions() {
-      return this.totalCardType(this.other, ['attack', 'reaction']);
-    },
-    totalDefenseReactions: function totalDefenseReactions() {
-      return this.totalCardType(this.other, ['defense', 'reaction']);
-    },
-    totalInstants: function totalInstants() {
-      return this.totalCardType(this.other, ['instant']);
-    },
-    totalColoured: function totalColoured() {
-      return {
-        'blue': this.countColoured('blue'),
-        'yellow': this.countColoured('yellow'),
-        'red': this.countColoured('red')
-      };
-    }
-  },
-  methods: {
-    costCount: function costCount(cost) {
-      var cards = this.other.filter(function (card) {
-        if (cost < 3) {
-          return card.stats.cost == cost;
-        }
-
-        return card.stats.cost >= cost;
-      });
-      return cards.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    countColoured: function countColoured(colour) {
-      var resources = {
-        blue: 3,
-        yellow: 2,
-        red: 1
-      };
-      var cards = this.other.filter(function (card) {
-        return card.stats.resource == resources[colour];
-      });
-      var count = 0;
-
-      for (var i in cards) {
-        count += cards[i].total;
-      }
-
-      return count;
-    },
-    pitchCount: function pitchCount(type) {
-      var cards = this.other.filter(function (card) {
-        return card.stats.resource == type;
-      });
-      return cards.reduce(function (total, card) {
-        return total + card.total;
-      }, 0);
-    },
-    averageCardType: function averageCardType(cards, keywords) {
-      return (this.totalCardType(cards, keywords) / cards.length).toFixed(1);
-    },
-    totalCardType: function totalCardType(cards, keywords) {
-      return cards.reduce(function (total, card) {
-        var matches = 0;
-
-        for (var i = 0; i < keywords.length; i++) {
-          if (card.keywords.includes(keywords[i])) {
-            matches++;
-          }
-        }
-
-        if (matches < keywords.length) {
-          return total;
-        }
-
-        return total + card.total;
-      }, 0);
-    },
-    countCards: function countCards(cards) {
-      return underscore__WEBPACK_IMPORTED_MODULE_0__["default"].reduce(cards, function (total, card) {
-        return total + card.total;
-      }, 0);
-    }
-  }
-});
 
 /***/ }),
 
