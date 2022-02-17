@@ -53,6 +53,6 @@ class CardResource extends JsonResource
 
     private function buyLink()
     {
-        return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='.$this->resource->identifier.'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
+        return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='.$this->resource->name.'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="relative z-100">
         <header class="flex justify-between bg-gray-100 p-2 px-4">
             <h2 class="font-serif uppercase text-lg">{{card.name}}</h2>
             <button class="absolute top-0 right-0 mr-2 mt-2" @click.prevent="$modal.hideAll()">
@@ -11,8 +11,8 @@
         <section class="p-4">
             <div class="flex flex-col sm:flex-row sm:space-x-4">
                 <div class="sm:w-2/5">
-                    <button @click="$modal.hideAll()">
-                        <card-image :card="card" />
+                    <button @click.prevent="$modal.hideAll()">
+                        <card-image :card="card"/>
                     </button>
                 </div>
                 <div class="sm:w-3/5">

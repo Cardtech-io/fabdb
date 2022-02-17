@@ -63231,7 +63231,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "relative z-100" }, [
     _c("header", { staticClass: "flex justify-between bg-gray-100 p-2 px-4" }, [
       _c("h2", { staticClass: "font-serif uppercase text-lg" }, [
         _vm._v(_vm._s(_vm.card.name))
@@ -63270,6 +63270,7 @@ var render = function() {
             {
               on: {
                 click: function($event) {
+                  $event.preventDefault()
                   return _vm.$modal.hideAll()
                 }
               }
