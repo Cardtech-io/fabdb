@@ -84585,14 +84585,19 @@ __webpack_require__.r(__webpack_exports__);
       throw 'Both stack and index properties must be provided for preview-card as part of a JSON object.';
     }
 
+    element.value = binding.value;
+
     element.onmouseup = function () {
-      vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], binding.value, {
+      vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], element.value, {
         draggable: true,
         adaptive: true,
         height: 'auto',
         scrollable: true
       });
     };
+  },
+  componentUpdated: function componentUpdated(element, binding, vnode) {
+    element.value = binding.value;
   }
 });
 

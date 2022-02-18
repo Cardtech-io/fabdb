@@ -10,10 +10,12 @@ export default {
             throw 'Both stack and index properties must be provided for preview-card as part of a JSON object.';
         }
 
+        element.value = binding.value;
+
         element.onmouseup = () => {
             vnode.context.$modal.show(
                 CardPreview,
-                binding.value,
+                element.value,
                 {
                     draggable: true,
                     adaptive: true,
@@ -22,5 +24,9 @@ export default {
                 }
             )
         };
+    },
+
+    componentUpdated(element, binding, vnode) {
+        element.value = binding.value;
     }
 };

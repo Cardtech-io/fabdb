@@ -6,7 +6,7 @@
             </template>
         </header-title>
 
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div :class="fullScreenClasses">
             <div class="bg-white">
