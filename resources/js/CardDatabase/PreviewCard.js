@@ -17,7 +17,6 @@ export default {
                 CardPreview,
                 element.value,
                 {
-                    draggable: true,
                     adaptive: true,
                     height: 'auto',
                     scrollable: true,

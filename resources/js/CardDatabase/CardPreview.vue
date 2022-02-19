@@ -1,8 +1,8 @@
 <template>
-    <div class="relative z-100">
+    <div>
         <header class="flex justify-between bg-gray-100 p-2 px-4">
             <h2 class="font-serif uppercase text-lg">{{card.name}}</h2>
-            <button class="absolute top-0 right-0 mr-2 mt-2" @click.prevent="$modal.hideAll()">
+            <button class="absolute top-0 right-0 mr-2 mt-2" @click="$modal.hideAll()">
                 <icon :size="6">
                     <path d="M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zM11.4 10l2.83-2.83-1.41-1.41L10 8.59 7.17 5.76 5.76 7.17 8.59 10l-2.83 2.83 1.41 1.41L10 11.41l2.83 2.83 1.41-1.41L11.41 10z"/>
                 </icon>
@@ -11,7 +11,7 @@
         <section class="p-4">
             <div class="flex flex-col sm:flex-row sm:space-x-4">
                 <div class="sm:w-2/5">
-                    <button @click.prevent="$modal.hideAll()">
+                    <button @click="$modal.hideAll()">
                         <card-image :card="card"/>
                     </button>
                 </div>

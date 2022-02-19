@@ -63231,7 +63231,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative z-100" }, [
+  return _c("div", [
     _c("header", { staticClass: "flex justify-between bg-gray-100 p-2 px-4" }, [
       _c("h2", { staticClass: "font-serif uppercase text-lg" }, [
         _vm._v(_vm._s(_vm.card.name))
@@ -63243,7 +63243,6 @@ var render = function() {
           staticClass: "absolute top-0 right-0 mr-2 mt-2",
           on: {
             click: function($event) {
-              $event.preventDefault()
               return _vm.$modal.hideAll()
             }
           }
@@ -63270,7 +63269,6 @@ var render = function() {
             {
               on: {
                 click: function($event) {
-                  $event.preventDefault()
                   return _vm.$modal.hideAll()
                 }
               }
@@ -84589,7 +84587,6 @@ __webpack_require__.r(__webpack_exports__);
 
     element.onmouseup = function () {
       vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], element.value, {
-        draggable: true,
         adaptive: true,
         height: 'auto',
         scrollable: true
