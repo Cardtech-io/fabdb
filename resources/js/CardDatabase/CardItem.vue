@@ -1,7 +1,7 @@
 <template>
     <li @mouseenter="toggleDetails" @mouseleave="toggleDetails">
         <div class="relative overflow-hidden rounded-card">
-            <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" v-if="path"><card-image :card="card" :width="350"></card-image></router-link>
+            <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" v-if="path"><card-image :card="card" :width="350"/></router-link>
             <card-image :card="card" :width="300" v-else />
             <banned v-if="card.banned"></banned>
             <transition

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.featured":"cards.view~decks.featured","decks.featured":"decks.featured","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"80ada1a645dc5d744f47","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"867e671a56c915a90edd","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"e473a7f8bab2e57c3edf","cards.browse~collection":"162634a95dcdc6a67741","cards.browse":"162560dbde3b4f8b528a","collection":"2a17a36075873ecc2598","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.prices":"be59d30822868bdec065","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"bde55004af2c2f3cd304","cards.view~decks.featured":"f138312fa83d5884499d","decks.featured":"7c910ee3b78cd0bb8a4d","decks.browse~decks.mine~user.profile.decks":"f281d60440ba53f2ceac","decks.browse~decks.mine":"93516eb094e5e25771d2","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"ae1b8cc5b3cf30e7e6e2","user.profile.decks":"575c239ac6d1317e45f5","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"e3be008047b356c5e0ce","events.view":"2fac15e5ef66911d1c78","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","practise.setup":"0afae2d38b24f74fee68","practise.view":"838a251d59eda9daecf8","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"8ddcc081e8f1c5a296ba","support":"18d0d69e0075d7d0f694","tools.counter":"a6311ba159584905e011","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"1408e9ffe46bac96e793","decks.view":"efe18abe1d872307fca5","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"b8cc513bf5536cd061bf","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"8a5a6d08f46370d86db4","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"0134ab71d402c201b3e3","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.prices":"cards.prices","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.featured":"cards.view~decks.featured","decks.featured":"decks.featured","decks.browse~decks.mine~user.profile.decks":"decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"80ada1a645dc5d744f47","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"867e671a56c915a90edd","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"e473a7f8bab2e57c3edf","cards.browse~collection":"162634a95dcdc6a67741","cards.browse":"162560dbde3b4f8b528a","collection":"2a17a36075873ecc2598","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.prices":"be59d30822868bdec065","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"bde55004af2c2f3cd304","cards.view~decks.featured":"f138312fa83d5884499d","decks.featured":"7c910ee3b78cd0bb8a4d","decks.browse~decks.mine~user.profile.decks":"f281d60440ba53f2ceac","decks.browse~decks.mine":"93516eb094e5e25771d2","decks.browse":"03ec59bc36e1262ae0d3","decks.mine":"ae1b8cc5b3cf30e7e6e2","user.profile.decks":"575c239ac6d1317e45f5","decks.starters":"bf84ebf48b3a558dc438","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"e3be008047b356c5e0ce","events.view":"2fac15e5ef66911d1c78","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","practise.setup":"0afae2d38b24f74fee68","practise.view":"838a251d59eda9daecf8","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"8ddcc081e8f1c5a296ba","support":"18d0d69e0075d7d0f694","tools.counter":"a6311ba159584905e011","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"1408e9ffe46bac96e793","decks.view":"7197d851d6d9f160ab21","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"b8cc513bf5536cd061bf","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"1ff0905321dc2fce5e04","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"0134ab71d402c201b3e3","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3428,7 +3428,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CardDatabase/CardImage */ "./resources/js/CardDatabase/CardImage.vue");
-//
 //
 //
 //
@@ -64527,8 +64526,7 @@ var render = function() {
               "click-handler": _vm.hide
             }
           })
-        : _vm._e(),
-      _vm._v("\n    lijasdf\n")
+        : _vm._e()
     ],
     1
   )
@@ -84562,6 +84560,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./resources/js/CardDatabase/HoverCard.js":
+/*!************************************************!*\
+  !*** ./resources/js/CardDatabase/HoverCard.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  bind: function bind(element, binding, vnode) {
+    if (!binding.value) {
+      throw 'No card provided for hover-card binding.';
+    }
+
+    element.card = binding.value;
+
+    element.mouseenter = function () {
+      vnode.context.$eventHub.$emit('hover-card', element.card);
+    };
+
+    element.mouseleave = function () {
+      vnode.context.$eventHub.$emit('hover-card');
+    };
+
+    element.addEventListener('mouseenter', element.mouseenter);
+    element.addEventListener('mouseleave', element.mouseleave);
+  },
+  componentUpdated: function componentUpdated(element, binding, vnode) {
+    element.card = binding.value;
+  },
+  unbind: function unbind(element) {
+    element.removeEventListener('mouseenter', element.mouseenter);
+    element.removeEventListener('mouseleave', element.mouseleave);
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/CardDatabase/PreviewCard.js":
 /*!**************************************************!*\
   !*** ./resources/js/CardDatabase/PreviewCard.js ***!
@@ -87147,17 +87184,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/HeaderTitle */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _CardDatabase_PreviewCard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./CardDatabase/PreviewCard */ "./resources/js/CardDatabase/PreviewCard.js");
-/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
-/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
-/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
-/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
-/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
-/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-js-modal/src/components/Modal */ "./node_modules/vue-js-modal/src/components/Modal.vue");
+/* harmony import */ var _CardDatabase_HoverCard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./CardDatabase/HoverCard */ "./resources/js/CardDatabase/HoverCard.js");
+/* harmony import */ var _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./CardDatabase/RaritySymbol */ "./resources/js/CardDatabase/RaritySymbol.vue");
+/* harmony import */ var _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./CardDatabase/SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
+/* harmony import */ var _Store_Application__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Store/Application */ "./resources/js/Store/Application.js");
+/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./router.js */ "./resources/js/router.js");
+/* harmony import */ var _axios_config__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./axios-config */ "./resources/js/axios-config.js");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-datetime/dist/vue-datetime.css */ "./node_modules/vue-datetime/dist/vue-datetime.css");
+/* harmony import */ var vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(vue_datetime_dist_vue_datetime_css__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! vue-js-modal/src/components/Modal */ "./node_modules/vue-js-modal/src/components/Modal.vue");
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -87185,10 +87224,11 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('breadcrumbs', _Components_
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('card-ad', _CardDatabase_CardAd__WEBPACK_IMPORTED_MODULE_11__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('card-image', _CardDatabase_CardImage__WEBPACK_IMPORTED_MODULE_12__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('icon', _Components_Icon__WEBPACK_IMPORTED_MODULE_13__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_16__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_17__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('rarity-symbol', _CardDatabase_RaritySymbol__WEBPACK_IMPORTED_MODULE_17__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('sku-finish', _CardDatabase_SkuFinish__WEBPACK_IMPORTED_MODULE_18__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('header-title', _Components_HeaderTitle__WEBPACK_IMPORTED_MODULE_14__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('tcg-player', _Components_TcgPlayer__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('hover-card', _CardDatabase_HoverCard__WEBPACK_IMPORTED_MODULE_16__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.directive('preview-card', _CardDatabase_PreviewCard__WEBPACK_IMPORTED_MODULE_15__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_awesome_countdown__WEBPACK_IMPORTED_MODULE_5___default.a, 'vac');
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue2_touch_events__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -87210,7 +87250,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_js_modal__WEBPACK_IMPORTED_MO
 }); // This fixes the scrollable issue on iOS
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('modal', {
-  "extends": vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__["default"],
+  "extends": vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_23__["default"],
   computed: {
     /**
      * Fix using "adaptive" and "scrollable" at the same time
@@ -87220,7 +87260,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('modal', {
         return 'auto';
       }
 
-      return vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_22__["default"].computed.autoHeight.apply(this);
+      return vue_js_modal_src_components_Modal__WEBPACK_IMPORTED_MODULE_23__["default"].computed.autoHeight.apply(this);
     }
   }
 });
@@ -87230,9 +87270,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_masonry__WEBPACK_IMPORTED_MOD
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.$settings = window.settings;
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.$eventHub = new vue__WEBPACK_IMPORTED_MODULE_1___default.a();
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.prototype.lang = JSON.parse(atob(window.lang));
-_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_19__["default"];
-_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_18__["default"];
-Object(_axios_config__WEBPACK_IMPORTED_MODULE_20__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_19__["default"]);
+_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].router = _router_js__WEBPACK_IMPORTED_MODULE_20__["default"];
+_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"].store = _Store_Application__WEBPACK_IMPORTED_MODULE_19__["default"];
+Object(_axios_config__WEBPACK_IMPORTED_MODULE_21__["default"])(_router_js__WEBPACK_IMPORTED_MODULE_20__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a(_App_vue__WEBPACK_IMPORTED_MODULE_9__["default"]).$mount('#app');
 
 /***/ }),

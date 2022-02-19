@@ -786,12 +786,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
       return cards[0] ? cards[0].total : 0;
     }
-  }),
-  methods: {
-    setHover: function setHover(card) {
-      this.$eventHub.$emit('hover-card', card);
-    }
-  }
+  })
 });
 
 /***/ }),
@@ -3949,6 +3944,12 @@ var render = function() {
                       rawName: "v-preview-card",
                       value: { stack: [_vm.card], index: 0 },
                       expression: "{stack: [card], index: 0}"
+                    },
+                    {
+                      name: "hover-card",
+                      rawName: "v-hover-card",
+                      value: _vm.card,
+                      expression: "card"
                     }
                   ],
                   staticClass:

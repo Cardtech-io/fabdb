@@ -1,7 +1,7 @@
 <template>
     <div>
         <colour :resource="card.stats.resource" class="mr-2" v-if="card.stats.resource || !collapse"></colour>
-        <span v-preview-card="{stack: [card], index: 0}" class="cursor-help help-underline">{{ card.name }}</span>
+        <span v-preview-card="{stack: [card], index: 0}" v-hover-card="card" class="cursor-help help-underline">{{ card.name }}</span>
         <span class="ml-1" v-if="total()">({{ total() }})</span>
         <div class="flex items-center ml-auto" v-if="card.sideboardTotal" :title="card.sideboardTotal + ' in sideboard'">
             <icon :size="4">

@@ -18,6 +18,7 @@ import CardImage from "./CardDatabase/CardImage";
 import Icon from "./Components/Icon";
 import HeaderTitle from "./Components/HeaderTitle";
 import PreviewCard from "./CardDatabase/PreviewCard";
+import HoverCard from "./CardDatabase/HoverCard";
 import RaritySymbol from "./CardDatabase/RaritySymbol";
 import SkuFinish from "./CardDatabase/SkuFinish";
 import store from './Store/Application';
@@ -37,6 +38,7 @@ Vue.component('sku-finish', SkuFinish);
 Vue.component('header-title', HeaderTitle);
 Vue.component('tcg-player', TcgPlayer);
 
+Vue.directive('hover-card', HoverCard);
 Vue.directive('preview-card', PreviewCard);
 
 Vue.use(VueAwesomeCountdown, 'vac');

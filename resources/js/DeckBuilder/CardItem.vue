@@ -14,7 +14,7 @@
         }">
             <div class="flex items-center">
                 <colour :resource="card.stats.resource" class="mr-2"/>
-                <span v-preview-card="{stack: [card], index: 0}" class="cursor-help help-underline whitespace-nowrap overflow-hidden">{{ card.name }}</span>
+                <span v-preview-card="{stack: [card], index: 0}" v-hover-card="card" class="cursor-help help-underline whitespace-nowrap overflow-hidden">{{ card.name }}</span>
             </div>
         </div>
         <div class="w-1/5 text-center bg-white py-2 ml-1px">
@@ -61,12 +61,6 @@
                 });
 
                 return cards[0] ? cards[0].total : 0;
-            }
-        },
-
-        methods: {
-            setHover(card) {
-                this.$eventHub.$emit('hover-card', card);
             }
         }
     }

@@ -47367,6 +47367,12 @@ var render = function() {
               rawName: "v-preview-card",
               value: { stack: [_vm.card], index: 0 },
               expression: "{stack: [card], index: 0}"
+            },
+            {
+              name: "hover-card",
+              rawName: "v-hover-card",
+              value: _vm.card,
+              expression: "card"
             }
           ],
           staticClass: "cursor-help help-underline"
