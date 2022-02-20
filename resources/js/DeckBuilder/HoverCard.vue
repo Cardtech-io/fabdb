@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<script>
+<script> 
     import CardImage from "../CardDatabase/CardImage";
 
     export default {

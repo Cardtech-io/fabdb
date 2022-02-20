@@ -279,10 +279,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         DB::transaction(function() use ($deckId, $cardId, $total) {
             $deckCard = $this->deckCard($deckId, $cardId);
+            $deck = $this->find($deckId);
 
             if ($deckCard) {
-                if (!$total) {
-                    $this->removeCardFromDeck($deckId, $cardId);
+                if ($total == 0) {
+                    $deckCard->delete();
                 } else {
                     $deckCard->total = $total;
                     $deckCard->save();
@@ -290,6 +291,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             } else {
                 DeckCard::add($deckId, $cardId, $total);
             }
+
+            $deck->touch();
         }, 3);
     }
 
