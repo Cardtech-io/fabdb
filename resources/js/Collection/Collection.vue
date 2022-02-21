@@ -49,7 +49,7 @@
                                 </td>
                                 <td class="hidden md:table-cell w-1/10">Set/Release</td>
                                 <td class="hidden sm:table-cell w-1/20">
-                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"></sorter>
+                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"/>
                                 </td>
                                 <td class="w-1/4 md:w-1/10 text-center">Total</td>
                                 <td class="w-1/10 md:w-1/20 text-center">Trade</td>

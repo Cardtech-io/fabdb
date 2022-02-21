@@ -12,13 +12,13 @@
                         </a>
                     </li>
                 </ul>
-                <collapser></collapser>
+                <collapser/>
             </div>
         </div>
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page }"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page, order: order }"/>
             </div>
         </div>
 
@@ -34,8 +34,13 @@
                 <div v-else>
                     <div v-if="results && results.data">
                         <div class="flow-root">
-                            <div class="flow-root py-4">
-                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                            <div class="py-4">
+                                <div class="flex justify-between">
+                                    <div class="flex-grow">
+                                        <paginator :results="results" @page-selected="updatePage"/>
+                                    </div>
+                                    <ordering @order-changed="updateOrder"/>
+                                </div>
                             </div>
 
                             <ul class="flow-root -mx-2">
@@ -43,13 +48,11 @@
                             </ul>
 
                             <div class="py-4">
-                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                                <paginator :results="results" @page-selected="updatePage"/>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <search-tips></search-tips>
             </div>
         </div>
     </div>
@@ -63,9 +66,9 @@
     import CardSearch from './CardSearch.vue';
     import Collapser from "../Components/Collapser";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Ordering from "./Ordering";
     import Paginator from '../Components/Paginator.vue';
     import Query from "../Utilities/Query";
-    import SearchTips from './SearchTips.vue';
 
     export default {
         components: {
@@ -74,8 +77,8 @@
             CardSearch,
             Collapser,
             HeaderTitle,
-            Paginator,
-            SearchTips
+            Ordering,
+            Paginator
         },
 
         mixins: [Query],
@@ -89,6 +92,7 @@
         data() {
             return {
                 firstLoad: true,
+                order: 'sku',
                 page: Number(this.$route.query.page) || 1,
                 per_page: 30,
                 results: {},
@@ -118,6 +122,10 @@
             refreshResults(results) {
                 this.results = results;
                 this.firstLoad = false;
+            },
+
+            updateOrder(order) {
+                this.updateQuery({page: 1, order});
             },
 
             filterSets() {
