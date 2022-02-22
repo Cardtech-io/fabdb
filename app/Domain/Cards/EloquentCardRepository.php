@@ -5,6 +5,7 @@ use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
+use FabDB\Domain\Cards\Search\ExactNamefilter;
 use FabDB\Domain\Cards\Search\GroupFilter;
 use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
@@ -78,7 +79,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
-            'cards.rarity',
+            'cards.rarity'
         ]);
 
         $filters = [
@@ -265,9 +266,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function searchFirst(array $params)
     {
-        $query = $this->newQuery();
-
-        $query->select([
+        $query1 = $this->newQuery();
+        $query2 = $this->newQuery();
+        $columns = [
             'cards.id',
             'cards.identifier',
             'cards.name',
@@ -276,20 +277,30 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.stats',
             'cards.text',
             'cards.rarity',
-        ]);
+        ];
+
+        $query1->select($columns);
+        $query2->select($columns);
+
+        $this->applyFilters($query1, [
+            new ExactNamefilter
+        ], $params);
+
+        $result = $query1->first();
+
+        if ($result) {
+            return $result;
+        }
 
         $filters = [
             new NameFilter,
             new IdentifierFilter,
-            new BannedCardsFilter,
-            new PitchFilter,
-            new RarityFilter,
             new RulingsFilter,
         ];
 
-        $this->applyFilters($query, $filters, $params);
+        $this->applyFilters($query2, $filters, $params);
 
-        return $query->first();
+        return $query2->first();
     }
 
     public function uniqueHeroes()
