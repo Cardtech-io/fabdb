@@ -1,4 +1,7 @@
-<?php $css = \Illuminate\Support\Facades\Storage::disk('web')->get('/css/fabdb.css'); ?>
+<?php
+use FabDB\Domain\Cards\Cards;
+$css = \Illuminate\Support\Facades\Storage::disk('web')->get('/css/fabdb.css');
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -36,8 +39,9 @@
                     <tr>
                         <td class="px-2 py-1 border border-gray-500 font-serif uppercase text-center" colspan="6">Weapons / Equipment</td>
                     </tr>
+                    <?php $equipment = new Cards($deck->equipment()->merge($deck->weapons())->chunk(5)->values()); ?>
                     @for ($i = 0; $i < 5; $i++)
-                        @include('export/equipment', ['deck' => $deck, 'key' => $i])
+                        @include('export/equipment', ['equipment' => $equipment, 'key' => $i])
                     @endfor
                 </tbody>
             </table>

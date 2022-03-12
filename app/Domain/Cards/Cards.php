@@ -6,6 +6,20 @@ use Illuminate\Support\Arr;
 
 class Cards extends Collection
 {
+    public function chunk($size)
+    {
+        if ($size <= 0) {
+            return new static;
+        }
+
+        $chunks = [];
+
+        foreach (array_chunk($this->items, $size, false) as $chunk) {
+            $chunks[] = new static($chunk);
+        }
+
+        return new static($chunks);
+    }
     public function hasWeapon()
     {
         return $this->first(function(Card $card) {
