@@ -1,4 +1,6 @@
-<?php Debugbar::info($equipment[1]); ?>
+<?php
+use FabDB\Domain\Cards\Cards;
+?>
 <tr>
     <td class="px-2 py-1 border border-gray-500 font-serif text-center" width="40">
         {!! object_get(Arr::get($equipment, "0.$key"), 'pivot.total', '&nbsp;') !!}
@@ -14,7 +16,7 @@
     </td>
     <td class="px-2 py-1 border @if ($key == 3) pdf-totals-bottom @endif @if ($key == 4) border-black @else border-gray-500 @endif font-serif text-center" width="40">
         @if ($key == 4)
-            {{ $equipment->total() }}
+            {{ (new Cards($equipment->flatten()))->total() }}
         @else
             {!! object_get(Arr::get($equipment, "2.$key"), 'pivot.total', '&nbsp;') !!}
         @endif
