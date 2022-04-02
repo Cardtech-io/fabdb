@@ -61157,7 +61157,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return encodeURI(name);
       }).join('||');
       var code = 'FABDB';
-      return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=FABDB&c=' + cards;
+      return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=cardtech&c=' + cards;
     }
   })
 });

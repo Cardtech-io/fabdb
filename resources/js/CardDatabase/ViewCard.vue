@@ -94,7 +94,7 @@
 
                 <hr class="text-gray-500 mt-4">
 
-                <discussion type="card" :id="card.identifier" class="mx-4"></discussion>
+                <discussion type="card" :id="card.identifier" class="mx-4"/>
             </div>
         </div>
     </div>

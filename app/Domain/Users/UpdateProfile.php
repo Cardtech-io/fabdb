@@ -10,54 +10,15 @@ class UpdateProfile implements Loggable
     use LogsParams;
     use Dispatchable;
 
-    /**
-     * @var int
-     */
     private $userId;
-
-    /**
-     * @var string
-     */
     private $email;
-
-    /**
-     * @var string
-     */
     private $name;
-
-    /**
-     * @var string
-     */
     private $gemId;
-
-    /**
-     * @var int
-     */
     private $need;
-
-    /**
-     * @var string
-     */
     private $view;
-
-    /**
-     * @var string
-     */
     private $avatar;
-
-    /**
-     * @var string
-     */
     private $currency;
-
-    /**
-     * @var string
-     */
     private $theme;
-
-    /**
-     * @var string
-     */
     private $width;
 
     /** @var string */
