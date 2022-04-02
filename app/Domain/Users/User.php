@@ -136,7 +136,7 @@ class User extends Model implements Authenticatable
         if ($this->isDirty('name') && $this->subscription === 'legendary') {
             $this->attributes['vanity_slug'] = Str::slug($name);
         } else {
-            $this->attributes['vanity_slug'] = '';
+            $this->attributes['vanity_slug'] = null;
         }
     }
 
