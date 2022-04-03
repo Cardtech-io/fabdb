@@ -84622,13 +84622,16 @@ __webpack_require__.r(__webpack_exports__);
 
     element.value = binding.value;
 
-    element.onmouseup = function () {
+    var handler = function handler() {
       vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], element.value, {
         adaptive: true,
         height: 'auto',
         scrollable: true
       });
     };
+
+    element.onmouseup = handler;
+    element.ontouchend = handler;
   },
   componentUpdated: function componentUpdated(element, binding, vnode) {
     element.value = binding.value;

@@ -397,6 +397,10 @@ __webpack_require__.r(__webpack_exports__);
       var content = this.prettified(text);
       return this.parseMarkdown(content);
     },
+    sentenceCase: function sentenceCase(string) {
+      var sentence = string.replace("-", ' ');
+      return sentence.slice(0, 1).toUpperCase() + sentence.slice(1);
+    },
     prettified: function prettified(text) {
       var content = text.split('\n');
       content = content.map(function (line) {

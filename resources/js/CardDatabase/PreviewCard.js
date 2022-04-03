@@ -12,7 +12,7 @@ export default {
 
         element.value = binding.value;
 
-        element.onmouseup = () => {
+        let handler = () => {
             vnode.context.$modal.show(
                 CardPreview,
                 element.value,
@@ -23,6 +23,9 @@ export default {
                 }
             )
         };
+
+        element.onmouseup = handler;
+        element.ontouchend = handler;
     },
 
     componentUpdated(element, binding, vnode) {
