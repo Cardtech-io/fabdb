@@ -195,17 +195,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $filters = [
                 new DeckCardCountFilter,
                 new CardsFilter,
-                new UserFilter,
-//                new VotesFilter,
+                new UserFilter
             ];
 
             $this->applyFilters($query, $filters, $params);
         }
 
-        $query->join(DB::raw('deck_cards dc1'), 'dc1.deck_id', '=', 'decks.id');
         $query->join(DB::raw('cards c1'), function($join) use ($params) {
-            $join->on('c1.id', '=', 'dc1.card_id');
-            $join->whereType('hero');
+            $join->on('c1.id', '=', 'decks.hero_id');
 
             if (!empty($params['hero'])) {
                 $join->where('c1.name', $params['hero']);
@@ -220,8 +217,6 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             });
         }
 
-        $query->leftJoin('users', 'users.id', 'decks.user_id');
-
         if (!empty($params['format'])) {
             $query->where('decks.format', $params['format']);
         }
@@ -231,6 +226,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         if (!empty($params['user'])) {
+            $query->leftJoin('users', 'users.id', 'decks.user_id');
             $query->where('users.slug', $params['user']);
         }
 
@@ -247,6 +243,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         $query->where('decks.visibility', 'public');
+        $query->whereNotNull('decks.hero_id');
 
         if (!$forPaginator && Arr::has($params, 'page')) {
             $perPage = Arr::get($params, 'per_page', 24);
