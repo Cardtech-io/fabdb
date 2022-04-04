@@ -84621,8 +84621,9 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     element.value = binding.value;
+    var touchMoved = false;
 
-    var handler = function handler() {
+    var mouseHandler = function mouseHandler() {
       vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], element.value, {
         adaptive: true,
         height: 'auto',
@@ -84630,8 +84631,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    element.onmouseup = handler;
-    element.ontouchend = handler;
+    var touchHandler = function touchHandler(e) {
+      if (touchMoved) return;
+      vnode.context.$modal.show(_CardPreview__WEBPACK_IMPORTED_MODULE_0__["default"], element.value, {
+        adaptive: true,
+        height: 'auto',
+        scrollable: true
+      });
+      touchMoved = false;
+    };
+
+    element.onmouseup = mouseHandler;
+    element.ontouchend = touchHandler;
+
+    element.ontouchstart = function (e) {
+      touchMoved = false;
+    };
+
+    element.ontouchmove = function () {
+      touchMoved = true;
+    };
   },
   componentUpdated: function componentUpdated(element, binding, vnode) {
     element.value = binding.value;

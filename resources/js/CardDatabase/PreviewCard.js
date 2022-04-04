@@ -12,7 +12,9 @@ export default {
 
         element.value = binding.value;
 
-        let handler = () => {
+        let touchMoved = false;
+
+        let mouseHandler = () => {
             vnode.context.$modal.show(
                 CardPreview,
                 element.value,
@@ -24,8 +26,26 @@ export default {
             )
         };
 
-        element.onmouseup = handler;
-        element.ontouchend = handler;
+        let touchHandler = (e) => {
+            if (touchMoved) return;
+
+            vnode.context.$modal.show(
+                CardPreview,
+                element.value,
+                {
+                    adaptive: true,
+                    height: 'auto',
+                    scrollable: true,
+                }
+            )
+            
+            touchMoved = false;
+        };
+
+        element.onmouseup = mouseHandler;
+        element.ontouchend = touchHandler;
+        element.ontouchstart = (e) => { touchMoved = false; };
+        element.ontouchmove = () => { touchMoved = true; }
     },
 
     componentUpdated(element, binding, vnode) {
