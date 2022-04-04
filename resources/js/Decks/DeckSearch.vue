@@ -104,7 +104,7 @@
         },
 
         methods: {
-            ...mapActions('deckSearch', ['setPage', 'updateParam']),
+            ...mapActions('deckSearch', ['setCursor', 'updateParam']),
 
             active(field) {
                 if (this.params[field]) {
@@ -117,9 +117,15 @@
                     hero: this.hero,
                     order: this.order,
                     label: this.label,
-                    format: this.format,
-                    page: this.params.page
+                    format: this.format
                 };
+
+                if (this.params.cursor) {
+                    params.cursor = this.params.cursor;
+                }
+                if (this.params.page) {
+                    params.page = this.params.page;
+                }
 
                 let url = this.mine ? '/decks/mine' : '/decks';
 
@@ -128,14 +134,14 @@
                 }).catch(error => {});
             },
 
-            newSearch: function() {
-                this.setPage({ page: 1 });
+            newSearch() {
+                this.setCursor({ cursor: null });
                 this.search();
             },
         },
 
         watch: {
-            'params.page': function() {
+            'params.cursor': function() {
                 this.search();
             }
         },

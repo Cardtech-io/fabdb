@@ -38,7 +38,7 @@ export default {
                     scrollable: true,
                 }
             )
-            
+
             touchMoved = false;
         };
 

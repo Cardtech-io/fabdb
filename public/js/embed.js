@@ -62243,6 +62243,7 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     params: {
       currency: 'USD',
+      cursor: null,
       format: null,
       label: '',
       hero: null,

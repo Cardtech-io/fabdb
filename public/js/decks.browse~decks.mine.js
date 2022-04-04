@@ -212,7 +212,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setPage', 'updateParam']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setCursor', 'updateParam']), {
     active: function active(field) {
       if (this.params[field]) {
         return 'shadow-activeNumber';
@@ -225,9 +225,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         hero: this.hero,
         order: this.order,
         label: this.label,
-        format: this.format,
-        page: this.params.page
+        format: this.format
       };
+
+      if (this.params.cursor) {
+        params.cursor = this.params.cursor;
+      }
+
+      if (this.params.page) {
+        params.page = this.params.page;
+      }
+
       var url = this.mine ? '/decks/mine' : '/decks';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url, {
         params: params
@@ -236,14 +244,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (error) {});
     },
     newSearch: function newSearch() {
-      this.setPage({
-        page: 1
+      this.setCursor({
+        cursor: null
       });
       this.search();
     }
   }),
   watch: {
-    'params.page': function paramsPage() {
+    'params.cursor': function paramsCursor() {
       this.search();
     }
   },

@@ -23,7 +23,7 @@
                         </ul>
 
                         <div class="flow-root py-4" v-if="results.data.length">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
+                            <simple-paginator :results="results" @cursor-selected="updateCursor"/>
                         </div>
                     </div>
                     <div class="md:w-2/3 rounded-lg p-2 bg-blue-200 text-center text-base mx-auto">
@@ -45,9 +45,11 @@
     import Paginator from '../Components/Paginator.vue';
     import Models from "../Utilities/Models";
     import Deck from "./Deck";
+    import SimplePaginator from "../Components/SimplePaginator";
 
     export default {
         components: {
+            SimplePaginator,
             Breadcrumbs,
             DeckItem,
             DeckSearch,
@@ -89,8 +91,8 @@
                 this.results.data = Models.hydrateMany(results.data, Deck);
             },
 
-            updatePage(page) {
-                this.updateParam({ key: 'page', value: page });
+            updateCursor(cursor) {
+                this.updateParam({ key: 'cursor', value: cursor });
             }
         }
     };

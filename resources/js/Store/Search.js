@@ -4,6 +4,7 @@ export default {
     state: {
         params: {
             currency: 'USD',
+            cursor: null,
             format: null,
             label: '',
             hero: null,

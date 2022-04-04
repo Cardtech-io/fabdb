@@ -260,14 +260,9 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function search(array $params)
     {
-        $items = $this->searchPart($params, false)->get();
-        $total = $this->searchPart($params, true)->count();
-
         $perPage = Arr::get($params, 'per_page', 24);
-        $page = Arr::get($params, 'page', 1);
 
-        return (new \Illuminate\Pagination\LengthAwarePaginator($items, $total, $perPage, $page))
-            ->appends(Arr::except($params, ['page']));
+        return $this->searchPart($params, false)->cursorPaginate($perPage);
     }
 
     public function latest(array $params)
