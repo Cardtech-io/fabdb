@@ -62249,7 +62249,7 @@ __webpack_require__.r(__webpack_exports__);
       hero: null,
       order: 'newest',
       keywords: '',
-      page: 1
+      page: null
     }
   },
   mutations: {

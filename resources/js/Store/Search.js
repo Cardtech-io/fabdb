@@ -10,7 +10,7 @@ export default {
             hero: null,
             order: 'newest',
             keywords: '',
-            page: 1,
+            page: null,
         }
     },
 

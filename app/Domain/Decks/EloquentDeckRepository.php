@@ -196,7 +196,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 new DeckCardCountFilter,
                 new CardsFilter,
                 new UserFilter,
-                new VotesFilter,
+//                new VotesFilter,
             ];
 
             $this->applyFilters($query, $filters, $params);
@@ -248,7 +248,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $query->where('decks.visibility', 'public');
 
-        if (!$forPaginator) {
+        if (!$forPaginator && Arr::has($params, 'page')) {
             $perPage = Arr::get($params, 'per_page', 24);
 
             $query->offset((Arr::get($params, 'page', 1) - 1) * $perPage);
@@ -267,7 +267,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function latest(array $params)
     {
-        return $this->searchPart($params, false)->get();
+        return $this->searchPart($params, false)->cursorPaginate(3);
     }
 
     public function setCardTotal(int $deckId, int $cardId, int $total)
