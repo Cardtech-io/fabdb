@@ -187,7 +187,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.notes',
             'decks.label',
             'decks.slug',
-            'decks.format'
+            'decks.format',
+            'decks.updated_at'
         ]);
 
         // When querying for the paginator, we don't want to overload the query as it queries the entire database
@@ -195,7 +196,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $filters = [
                 new DeckCardCountFilter,
                 new CardsFilter,
-                new UserFilter
+                new UserFilter,
+                new VotesFilter,
             ];
 
             $this->applyFilters($query, $filters, $params);
@@ -233,11 +235,12 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         if (!empty($params['order'])) {
             switch ($params['order']) {
                 case 'newest':
-                    $query->orderBy('decks.id', 'desc');
+                    $query->orderBy('decks.updated_at', 'desc');
                     break;
                 case 'popular':
+                    $query->having('total_votes', '>', 0);
                     $query->orderBy('total_votes', 'desc');
-                    $query->orderBy('decks.id', 'desc');
+                    $query->orderBy('decks.updated_at', 'desc');
                     break;
             }
         }

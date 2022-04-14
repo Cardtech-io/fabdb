@@ -1,5 +1,5 @@
 <template>
-    <div class="md:px-2 w-full lg:w-1/2 my-2 text-sm">
+    <div class="md:px-2 w-full my-2 text-sm">
         <div class="rounded-full overflow-hidden">
             <router-link :to="{ name: route, params: { deck: deck.slug } }" class="block flex items-center" :class="themeClasses()">
                 <div class="relative flex-none">
@@ -16,6 +16,9 @@
                     <div>
                         <span class="font-italic text-blue-600 mb-1" v-if="deck.totalPrice">${{ deck.totalPrice }}</span>
                         <span class="md:hidden italic">({{ deck.totalCards }} cards)</span>
+                    </div>
+                    <div>
+                        {{ deck.updatedAt }}
                     </div>
                     <div class="inline-block flex">
                         <div class="space-x-1 mr-2">

@@ -86,6 +86,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -270,7 +273,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "md:px-2 w-full lg:w-1/2 my-2 text-sm" }, [
+  return _c("div", { staticClass: "md:px-2 w-full my-2 text-sm" }, [
     _c(
       "div",
       { staticClass: "rounded-full overflow-hidden" },
@@ -354,6 +357,14 @@ var render = function() {
                 _c("span", { staticClass: "md:hidden italic" }, [
                   _vm._v("(" + _vm._s(_vm.deck.totalCards) + " cards)")
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.deck.updatedAt) +
+                    "\n                "
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "inline-block flex" }, [

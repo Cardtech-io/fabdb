@@ -20,7 +20,7 @@
     "/js/collection.js": "/js/collection.js?id=2a17a36075873ecc2598",
     "/js/decks.browse.js": "/js/decks.browse.js?id=b6074792a2470d522f0c",
     "/js/decks.browse~decks.mine.js": "/js/decks.browse~decks.mine.js?id=73776c0f2addf3e33cb5",
-    "/js/decks.browse~decks.mine~user.profile.decks.js": "/js/decks.browse~decks.mine~user.profile.decks.js?id=f281d60440ba53f2ceac",
+    "/js/decks.browse~decks.mine~user.profile.decks.js": "/js/decks.browse~decks.mine~user.profile.decks.js?id=6db9964bbb3db64daddc",
     "/js/decks.build.js": "/js/decks.build.js?id=1ff0905321dc2fce5e04",
     "/js/decks.build~decks.view.js": "/js/decks.build~decks.view.js?id=1408e9ffe46bac96e793",
     "/js/decks.export.js": "/js/decks.export.js?id=5c9c64a716fb3fd54cd5",
@@ -52,9 +52,5 @@
     "/js/vendors~decks.build~events.edit.js": "/js/vendors~decks.build~events.edit.js?id=6c9cc02f160bcc1aa8fe",
     "/js/vendors~decks.test.main.js": "/js/vendors~decks.test.main.js?id=a4d9474e52b70f1fdb53",
     "/js/vendors~events.edit.js": "/js/vendors~events.edit.js?id=8ceac7daf29f538772cc",
-    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33",
-    "/js/decks.build~practise.view.js": "/js/decks.build~practise.view.js?id=73752b9efbfc57e5d835",
-    "/js/events.mine~events.view.js": "/js/events.mine~events.view.js?id=03cf27241bdc37b9b0e7",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.view~decks.build~decks.test.main~decks.vi~9e0585fc.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.view~decks.build~decks.test.main~decks.vi~9e0585fc.js?id=fcab2fb33b186461f49d",
-    "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.view~decks.build~decks.test.main~decks.vi~b3688639.js": "/js/vendors~articles.spoilers~articles.view~cards.fabled~cards.view~decks.build~decks.test.main~decks.vi~b3688639.js?id=71db7863d14ec840d252"
+    "/js/vendors~resources.api.js": "/js/vendors~resources.api.js?id=7db40f78d8894b6e0c33"
 }
