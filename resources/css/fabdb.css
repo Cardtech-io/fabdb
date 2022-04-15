@@ -401,3 +401,13 @@ button, button:focus {
 .help-underline {
     @apply border-b border-gray-800 border-dotted;
 }
+
+.white-stroke {
+    text-shadow: -2px 2px 1px #fff,
+            2px 2px 1px #fff,
+            2px -2px 1px #fff,
+            -2px -2px 1px #fff;
+    /*-webkit-text-fill-color: black; !* Will override color (regardless of order) *!*/
+    /*-webkit-text-stroke-width: 1px;*/
+    /*-webkit-text-stroke-color: white;*/
+}

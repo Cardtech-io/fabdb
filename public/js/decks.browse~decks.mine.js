@@ -390,7 +390,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("hero"),
             on: {
               change: function($event) {
@@ -434,7 +434,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("format"),
             on: {
               change: function($event) {
@@ -477,7 +477,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("label"),
             on: {
               change: function($event) {
@@ -525,7 +525,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("order"),
             on: {
               change: function($event) {

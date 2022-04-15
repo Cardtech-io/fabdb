@@ -4,8 +4,8 @@ namespace FabDB\Domain\Decks;
 use FabDB\Domain\Decks\Filters\VotesFilter;
 use FabDB\Domain\Decks\Search\CardsFilter;
 use FabDB\Domain\Decks\Search\DeckCardCountFilter;
-use FabDB\Domain\Decks\Search\PriceCalculationFilter;
 use FabDB\Domain\Decks\Search\UserFilter;
+use FabDB\Domain\Voting\CalculatesVotes;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\DB;
 
 class EloquentDeckRepository extends EloquentRepository implements DeckRepository
 {
+    use CalculatesVotes;
+
     protected function model(): Model
     {
         return new Deck;
@@ -238,8 +240,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                     $query->orderBy('decks.updated_at', 'desc');
                     break;
                 case 'popular':
-                    $query->having('total_votes', '>', 0);
-                    $query->orderBy('total_votes', 'desc');
+                    $query->where('decks.total_votes', '>', 0);
+                    $query->orderBy('decks.total_votes', 'desc');
                     $query->orderBy('decks.updated_at', 'desc');
                     break;
             }

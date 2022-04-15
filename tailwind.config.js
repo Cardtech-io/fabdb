@@ -98,6 +98,7 @@ module.exports = {
 
             minHeight: {
                 '96': '24rem',
+                '345px': '345px',
             },
 
             textColor: {
@@ -170,6 +171,7 @@ module.exports = {
             'sm': '.125rem',
             DEFAULT: '.35rem',
             'card': '5.5% / 4.5%',
+            'deck': '9999px 9999px .5rem .5rem',
             'lg': '.5rem',
             'full': '9999px',
             'xl': '1rem',

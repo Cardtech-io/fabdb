@@ -17,14 +17,17 @@ export default {
     mutations: {
         setKeywords(state, { keywords }) {
             state.params.keywords = keywords;
+            state.params.cursor = null;
         },
 
         setPage(state, { page }) {
             state.params.page = page;
+            state.params.cursor = null;
         },
 
         updateParam(state, { key, value }) {
             state.params[key] = value;
+            state.params.cursor = null;
         }
     },
 

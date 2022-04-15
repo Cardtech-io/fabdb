@@ -62256,15 +62256,18 @@ __webpack_require__.r(__webpack_exports__);
     setKeywords: function setKeywords(state, _ref) {
       var keywords = _ref.keywords;
       state.params.keywords = keywords;
+      state.params.cursor = null;
     },
     setPage: function setPage(state, _ref2) {
       var page = _ref2.page;
       state.params.page = page;
+      state.params.cursor = null;
     },
     updateParam: function updateParam(state, _ref3) {
       var key = _ref3.key,
           value = _ref3.value;
       state.params[key] = value;
+      state.params.cursor = null;
     }
   },
   actions: {

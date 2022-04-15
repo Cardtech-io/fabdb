@@ -1,5 +1,5 @@
 <template>
-    <button type="submit" ref="submit" class="appearance-none block rounded-lg py-3 px-4" :class="classes" :disabled="!enabled">
+    <button type="submit" ref="submit" class="appearance-none block rounded-lg py-2 px-4" :class="classes" :disabled="!enabled">
         {{ text }}
     </button>
 </template>

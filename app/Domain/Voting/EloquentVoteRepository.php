@@ -39,9 +39,11 @@ class EloquentVoteRepository extends EloquentRepository implements VoteRepositor
                 // Resetting the vote
                 if ($value == $vote->value) {
                     $vote->delete();
+                    $vote->voteable->decrementVotes();
                 } else {
                     $vote->value = $value;
                     $vote->save();
+                    $vote->voteable->incrementVotes();
                 }
             } else {
                 Vote::create(['voteable_type' => $type, 'voteable_id' => $foreignId, 'user_id' => $userId, 'value' => $value]);
