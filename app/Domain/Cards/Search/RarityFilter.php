@@ -29,12 +29,14 @@ class RarityFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $rarities = $this->toArray(Arr::get($input, 'rarity', ''));
+        $rarities = array_filter($this->toArray(Arr::get($input, 'rarity')));
 
         if ($this->deck && $this->deck->format === 'commoner') {
             $commoner = ['c', 'r'];
             $rarities = array_merge($rarities, $commoner);
         }
+
+        if (!$rarities) return;
 
         $query->where(function($query) use ($rarities) {
             foreach ($rarities as $rarity) {
