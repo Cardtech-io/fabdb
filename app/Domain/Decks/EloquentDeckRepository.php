@@ -239,9 +239,14 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
                 case 'newest':
                     $query->orderBy('decks.updated_at', 'desc');
                     break;
-                case 'popular':
+                case 'popular-all':
                     $query->where('decks.total_votes', '>', 0);
                     $query->orderBy('decks.total_votes', 'desc');
+                    $query->orderBy('decks.updated_at', 'desc');
+                    break;
+                case 'popular-7':
+                    $query->where('decks.week_votes', '>', 0);
+                    $query->orderBy('decks.week_votes', 'desc');
                     $query->orderBy('decks.updated_at', 'desc');
                     break;
             }

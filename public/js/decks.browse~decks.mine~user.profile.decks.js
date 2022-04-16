@@ -204,8 +204,11 @@ __webpack_require__.r(__webpack_exports__);
         case 'blitz':
           return 'bg-orange-500 text-white';
 
+        case 'commoner':
+          return 'bg-green-600 text-white';
+
         case 'constructed':
-          return 'bg-blue-400 text-white';
+          return 'bg-blue-500 text-white';
 
         case 'open':
           return 'bg-gray-500 text-white';

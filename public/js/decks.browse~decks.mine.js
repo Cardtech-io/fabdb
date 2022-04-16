@@ -453,14 +453,15 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "blitz" } }, [_vm._v("Blitz")]),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "constructed" } }, [
-              _vm._v("Constructed")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
-          ]
+            _vm._l(_vm.$settings.game.decks.formats, function(name, format) {
+              return _c("option", { domProps: { value: format } }, [
+                _vm._v(_vm._s(name))
+              ])
+            })
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -548,7 +549,13 @@ var render = function() {
             _vm._v(" "),
             _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "popular" } }, [_vm._v("Popular")])
+            _c("option", { attrs: { value: "popular-all" } }, [
+              _vm._v("Popular (All time)")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "popular-7" } }, [
+              _vm._v("Popular (Last 7 days)")
+            ])
           ]
         )
       ]),

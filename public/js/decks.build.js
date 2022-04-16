@@ -1511,8 +1511,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -4997,17 +4995,15 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _c("option", { attrs: { value: "blitz" } }, [
-                      _vm._v("Blitz")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "constructed" } }, [
-                      _vm._v("Constructed")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
-                  ]
+                  _vm._l(_vm.$settings.game.decks.formats, function(
+                    name,
+                    format
+                  ) {
+                    return _c("option", { domProps: { value: format } }, [
+                      _vm._v(_vm._s(name))
+                    ])
+                  }),
+                  0
                 )
               ])
             : _vm._e(),

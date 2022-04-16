@@ -23,9 +23,7 @@
                 <div class="w-full mb-4" v-if="!deck.practiseId">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
                     <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                        <option value="blitz">Blitz</option>
-                        <option value="constructed">Constructed</option>
-                        <option value="open">Open</option>
+                        <option v-for="(name, format) in $settings.game.decks.formats" :value="format">{{name}}</option>
                     </select>
                 </div>
 

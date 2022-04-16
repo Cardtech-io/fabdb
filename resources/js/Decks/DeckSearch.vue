@@ -9,9 +9,8 @@
 
         <div class="sm:w-1/6 pr-1">
             <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('format')">
-                <option value="blitz">Blitz</option>
-                <option value="constructed">Constructed</option>
-                <option value="open">Open</option>
+                <option value="">Format</option>
+                <option v-for="(name, format) in $settings.game.decks.formats" :value="format">{{name}}</option>
             </select>
         </div>
 
@@ -27,7 +26,8 @@
             <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('order')">
                 <option value="">Order</option>
                 <option value="newest">Newest</option>
-                <option value="popular">Popular</option>
+                <option value="popular-all">Popular (All time)</option>
+                <option value="popular-7">Popular (Last 7 days)</option>
             </select>
         </div>
 

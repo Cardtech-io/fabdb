@@ -14,6 +14,8 @@ trait Voteable
     public function scopeWithVotes($query)
     {
         $query->addSelect($this->getTable().'.total_votes');
+        $query->addSelect($this->getTable().'.week_votes');
+
         $query->addSelect('my_vote.value AS my_vote');
 
         $query->leftJoin(DB::raw('`votes` as my_vote'), function($query) {

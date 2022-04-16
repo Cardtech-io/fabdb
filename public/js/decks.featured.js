@@ -418,13 +418,13 @@ var render = function() {
       _c("div", { staticClass: "lg:flex" }, [
         _c(
           "div",
-          { staticClass: "w-full lg:w-1/3 lg:mr-4 mb-4 " },
+          { staticClass: "w-full lg:w-1/3 mb-4" },
           [
             _c("latest-decks", {
               attrs: {
-                title: "Competitive",
-                color: "bg-gray-800",
-                query: "label=competitive"
+                title: "Tournament",
+                color: "bg-black",
+                query: "label=tournament"
               }
             })
           ],
@@ -433,13 +433,13 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-full lg:w-1/3 mb-4" },
+          { staticClass: "w-full lg:w-1/3 lg:ml-4 mb-4" },
           [
             _c("latest-decks", {
               attrs: {
-                title: "Casual",
-                color: "bg-blue-300",
-                query: "label=casual"
+                title: "Commoner",
+                color: "bg-green-600",
+                query: "format=commoner"
               }
             })
           ],
@@ -452,9 +452,9 @@ var render = function() {
           [
             _c("latest-decks", {
               attrs: {
-                title: "Pauper",
-                color: "bg-red-700",
-                query: "label=pauper"
+                title: "Casual",
+                color: "bg-blue-300",
+                query: "label=casual"
               }
             })
           ],

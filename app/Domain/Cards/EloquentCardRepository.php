@@ -357,7 +357,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
-            new RarityFilter,
+            new RarityFilter($deck),
             new PauperFilter($deck),
             new OrderFilter,
             new UseCollectionFilter($user, $deck),

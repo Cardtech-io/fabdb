@@ -11,14 +11,14 @@
         <div class="bg-semi-black p-4 rounded-lg">
             <h3 class="font-serif text-2xl uppercase text-white mb-2">Explore...</h3>
             <div class="lg:flex">
-                <div class="w-full lg:w-1/3 lg:mr-4 mb-4 ">
-                    <latest-decks title="Competitive" color="bg-gray-800" query="label=competitive"/>
-                </div>
                 <div class="w-full lg:w-1/3 mb-4">
-                    <latest-decks title="Casual" color="bg-blue-300" query="label=casual"/>
+                    <latest-decks title="Tournament" color="bg-black" query="label=tournament"/>
+                </div>
+                <div class="w-full lg:w-1/3 lg:ml-4 mb-4">
+                    <latest-decks title="Commoner" color="bg-green-600" query="format=commoner"/>
                 </div>
                 <div class="w-full lg:w-1/3 lg:ml-4">
-                    <latest-decks title="Pauper" color="bg-red-700" query="label=pauper"/>
+                    <latest-decks title="Casual" color="bg-blue-300" query="label=casual"/>
                 </div>
             </div>
         </div>

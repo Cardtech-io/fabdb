@@ -13,6 +13,6 @@ trait MultiArrayFormats
      */
     private function toArray($input): array
     {
-        return is_array($input) ? $input : Arr::flatten([explode(',', $input)]);
+        return is_array($input) ? $input : Arr::flatten([explode(',', strtolower($input))]);
     }
 }

@@ -259,12 +259,12 @@ return [
         'labels' => [
             'casual' => 'Casual',
             'competitive' => 'Competitive',
-            'pauper' => 'Pauper',
             'janky' => 'Janky/fun',
             'meme' => 'Meme'
         ],
         'formats' => [
             'blitz' => 'Blitz',
+            'commoner' => 'Commoner',
             'constructed' => 'Constructed',
             'open' => 'Open',
         ]

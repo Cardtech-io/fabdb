@@ -13,7 +13,7 @@ class VotesFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        if ($input['order'] == 'popular') {
+        if (in_array($input['order'], ['popular-all', 'popular-7'])) {
             $query->withVotes();
         }
     }
