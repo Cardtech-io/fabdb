@@ -13,7 +13,7 @@ class Edition
 
     public function __construct(?string $edition)
     {
-        Assert::inArray($edition, [null, 'Alpha Print', '1st Edition', 'Unlimited', 'Slingshot Underground']);
+        Assert::inArray($edition, [null, '', 'Alpha Print', '1st Edition', 'Unlimited', 'Slingshot Underground']);
 
         $this->edition = $edition;
     }
