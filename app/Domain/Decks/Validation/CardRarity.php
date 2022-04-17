@@ -25,7 +25,7 @@ class CardRarity implements Rule
 
     public function validCommonerRarity(Card $card)
     {
-        return $card->rarity->matches('C') || ($card->isEquipment() && $card->rarity->matches('C', 'R'));
+        return $card->rarity->matches('C') || (($card->isEquipment() || $card->isWeapon()) && $card->rarity->matches('C', 'R'));
     }
 
     public function message()
