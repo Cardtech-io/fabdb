@@ -12,29 +12,14 @@ class RarityFilter implements SearchFilter
 {
     use MultiArrayFormats;
 
-    /**
-     * @var Deck|null
-     */
-    private ?Deck $deck;
-
-    public function __construct(?Deck $deck = null)
-    {
-        $this->deck = $deck;
-    }
-
     public function applies(array $input)
     {
-        return Arr::get($input, 'rarity') || $this->deck;
+        return Arr::get($input, 'rarity');
     }
 
     public function applyTo(Builder $query, array $input)
     {
         $rarities = array_filter($this->toArray(Arr::get($input, 'rarity')));
-
-        if ($this->deck && $this->deck->format === 'commoner') {
-            $commoner = ['c', 'r'];
-            $rarities = array_merge($rarities, $commoner);
-        }
 
         if (!$rarities) return;
 

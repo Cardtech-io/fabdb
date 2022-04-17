@@ -4,6 +4,7 @@ namespace FabDB\Domain\Cards;
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
 use FabDB\Domain\Cards\Search\CollectionFilter;
+use FabDB\Domain\Cards\Search\CommonerFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
 use FabDB\Domain\Cards\Search\ExactNamefilter;
 use FabDB\Domain\Cards\Search\GroupFilter;
@@ -357,7 +358,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new TypeFilter,
             new CostFilter,
             new PitchFilter,
-            new RarityFilter($deck),
+            new RarityFilter,
+            new CommonerFilter($deck),
             new PauperFilter($deck),
             new OrderFilter,
             new UseCollectionFilter($user, $deck),
