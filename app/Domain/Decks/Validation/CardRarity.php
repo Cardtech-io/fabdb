@@ -3,10 +3,11 @@ namespace FabDB\Domain\Decks\Validation;
 
 use FabDB\Domain\Decks\Deck;
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Support\Str;
 
 class CardRarity implements Rule
 {
+    use RequiresCard;
+
     private $deck;
 
     public function __construct(Deck $deck)
@@ -16,7 +17,7 @@ class CardRarity implements Rule
 
     public function passes($attribute, $identifier)
     {
-        $card = $this->deck->card($identifier);
+        $card = $this->getCard($identifier);
 
         return $this->deck->format !== 'commoner' || $card->rarity->matches('C', 'R');
     }
