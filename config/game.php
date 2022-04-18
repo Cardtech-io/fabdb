@@ -8,6 +8,12 @@ return [
             'released' => '2021-05-07',
             'browseable' => false,
         ],
+        'bri' => [
+            'id' => 'bri',
+            'name' => 'Briar Hero Deck',
+            'released' => '2021-09-24',
+            'browseable' => false,
+        ],
         'bvo' => [
             'id' => 'bvo',
             'name' => 'Bravo Hero Deck',
@@ -51,6 +57,18 @@ return [
             'name' => 'Levia Hero Deck',
             'released' => '2021-05-07',
             'browseable' => false,
+        ],
+        'lxi' => [
+            'id' => 'lxi',
+            'name' => 'Lexi Hero Deck',
+            'released' => '2021-09-24',
+            'browseable' => false
+        ],
+        'old' => [
+            'id' => 'old',
+            'name' => 'Oldhim Hero Deck',
+            'released' => '2021-09-24',
+            'browseable' => false
         ],
         'psm' => [
             'id' => 'psm',
