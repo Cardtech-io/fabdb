@@ -2,15 +2,34 @@
 
 namespace FabDB\Console\Commands;
 
+use Exception;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class ImportTournamentDecks extends Command
 {
+    // Total # of decks to import
+    private $total = 0;
+
+    // Total decks actually imported
+    private $imported = 0;
+
+    /**
+     * @var DeckRepository
+     */
+    private DeckRepository $decks;
+
+    /**
+     * @var CardRepository
+     */
+    private CardRepository $cards;
+
     /**
      * The name and signature of the console command.
      *
@@ -32,46 +51,73 @@ class ImportTournamentDecks extends Command
      */
     public function handle(CardRepository $cards, DeckRepository $decks)
     {
-        $tournamentDecks = json_decode(Storage::disk('carddb')->get('tournament-decks.json'));
+        $this->cards = $cards;
+        $this->decks = $decks;
 
-        // Loop through each deck, map their listed cards to actual card ids, then register those decks
-        foreach ($tournamentDecks as $deck) {
-            $this->info('Importing deck: '.$deck->details->decklist);
+        $path = base_path('resources/scrapers/scrape.js');
 
-            $existing = $decks->getTournamentDeck($deck->details->decklist);
+        $process = new Process(['node', $path]);
+        $process->setTimeout(null);
 
-            // No overwriting existing decks. If we've encountered a deck already, we skip the rest of the import.
-            if ($existing) continue;
+        $process->start(function($type, $buffer) {
+            if (Process::OUT === $type) {
+                $deck = json_decode($buffer);
 
-            $heroAge = str_contains('blitz', strtolower($deck->details->format)) ? 'young' : 'adult';
-            $heroText = preg_replace('/\([a-z\s]+\)$/i', '', $deck->details->hero);
+                // Likely an empty buffer line
+                if (is_null($deck)) return;
 
-            // Establish the hero card
-            $hero = $cards->findHero($heroText, $heroAge);
+                $this->total++;
 
-            if (!$hero) {
-                throw new Exception('No hero found for: ' . $heroText);
+                $this->import($deck);
             }
+        });
 
-            if (!$deck->details->result) continue;
+        $process->wait();
 
-            $format = str_contains(strtolower($deck->details->format), 'blitz') ? 'blitz' : 'constructed';
-            $result= (int) preg_replace('/[a-z]++/', '', $deck->details->result);
-
-            $d = Deck::importTournamentDeck($deck->details, $hero->id, $format, $result);
-
-            $decks->save($d);
-            $decks->setCardTotal($d->id, $hero->id, 1);
-
-            collect($deck->cards)->each(function ($c) use ($cards, $d, $decks) {
-                $card = $cards->getIdByIdentifierOrText($c->card);
-
-                if (is_null($card)) return;
-
-                $decks->setCardTotal($d->id, $card->id, (int) $c->total);
-            });
-        }
+        $this->info('# Decks available: '.$this->total);
+        $this->info('# Decks imported: '.$this->imported);
 
         return 0;
+    }
+
+    private function import($deck)
+    {
+        // Some decks have no result, so worth ignoring.
+        if (!$deck->details->result) return;
+
+        $this->info('Importing deck: '.$deck->details->decklist);
+
+        $existing = $this->decks->getTournamentDeck($deck->details->decklist);
+
+        // No overwriting existing decks. If we've encountered a deck already, we skip the rest of the import.
+        if ($existing) return;
+
+        $heroAge = str_contains('blitz', strtolower($deck->details->format)) ? 'young' : 'adult';
+        $heroText = preg_replace('/\([a-z\s]+\)$/i', '', $deck->details->hero);
+
+        // Establish the hero card
+        $hero = $this->cards->findHero($heroText, $heroAge);
+
+        if (!$hero) {
+            throw new Exception('No hero found for: ' . $heroText);
+        }
+
+        $format = str_contains(strtolower($deck->details->format), 'blitz') ? 'blitz' : 'constructed';
+        $result= (int) preg_replace('/[a-z]++/', '', $deck->details->result);
+
+        $d = Deck::importTournamentDeck($deck->details, $hero->id, $format, $result);
+
+        $this->decks->save($d);
+        $this->decks->setCardTotal($d->id, $hero->id, 1);
+
+        collect($deck->cards)->each(function ($c) use ($d) {
+            $card = $this->cards->getIdByIdentifierOrText($c->card);
+
+            if (is_null($card)) return;
+
+            $this->decks->setCardTotal($d->id, $card->id, (int) $c->total);
+        });
+
+        $this->imported++;
     }
 }

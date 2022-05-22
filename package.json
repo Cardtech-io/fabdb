@@ -25,6 +25,13 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
+        "bent": "^7.3.12",
+        "es6-promise": "^4.2.8",
+        "fs": "0.0.1-security",
+        "isomorphic-fetch": "^3.0.0",
+        "jsdom": "^16.4.0",
+        "mysql": "^2.18.1",
+        "request": "^2.88.2",
         "chart.js": "^2.9.4",
         "jquery": "^3.6.0",
         "luxon": "^1.28.0",
