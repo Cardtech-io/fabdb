@@ -101,6 +101,7 @@ class Deck extends Model
         $deck->result = $result;
         $deck->visibility = 'public';
         $deck->createdAt = Carbon::createFromFormat('j M Y',  $details->date);
+        $deck->updatedAt = $deck->createdAt;
 
         return $deck;
     }
