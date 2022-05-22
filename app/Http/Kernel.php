@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \FabDB\Http\Middleware\TrustProxies::class,
+        LogRequests::class,
         \FabDB\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \FabDB\Http\Middleware\TrimStrings::class,
