@@ -27,7 +27,10 @@ export default {
 
         updateParam(state, { key, value }) {
             state.params[key] = value;
-            state.params.cursor = null;
+
+            if (key !== 'cursor') {
+                state.params.cursor = null;
+            }
         }
     },
 

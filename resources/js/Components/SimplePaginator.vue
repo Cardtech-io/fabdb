@@ -1,7 +1,7 @@
 <template>
     <div class="flex text-sm justify-center" v-if="data">
-        <a href="" class="inline-block rounded p-2 mr-1" @click.prevent="previous" :class="disabled(!data.prev)">&lt;</a>
-        <a href="" class="inline-block rounded p-2 ml-1 sm:ml-0" @click.prevent="next" :class="disabled(!data.next)">&gt;</a>
+        <button href="" class="inline-block rounded p-2 mr-1" @click="previous" :class="disabled(!data.prev)">&lt;</button>
+        <button href="" class="inline-block rounded p-2 ml-1 sm:ml-0" @click="next" :class="disabled(!data.next)">&gt;</button>
     </div>
 </template>
 

@@ -62268,7 +62268,10 @@ __webpack_require__.r(__webpack_exports__);
       var key = _ref3.key,
           value = _ref3.value;
       state.params[key] = value;
-      state.params.cursor = null;
+
+      if (key !== 'cursor') {
+        state.params.cursor = null;
+      }
     }
   },
   actions: {

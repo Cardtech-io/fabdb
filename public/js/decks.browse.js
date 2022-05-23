@@ -185,33 +185,23 @@ var render = function() {
   return _vm.data
     ? _c("div", { staticClass: "flex text-sm justify-center" }, [
         _c(
-          "a",
+          "button",
           {
             staticClass: "inline-block rounded p-2 mr-1",
             class: _vm.disabled(!_vm.data.prev),
             attrs: { href: "" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.previous.apply(null, arguments)
-              }
-            }
+            on: { click: _vm.previous }
           },
           [_vm._v("<")]
         ),
         _vm._v(" "),
         _c(
-          "a",
+          "button",
           {
             staticClass: "inline-block rounded p-2 ml-1 sm:ml-0",
             class: _vm.disabled(!_vm.data.next),
             attrs: { href: "" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.next.apply(null, arguments)
-              }
-            }
+            on: { click: _vm.next }
           },
           [_vm._v(">")]
         )

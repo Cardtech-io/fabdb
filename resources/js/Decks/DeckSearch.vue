@@ -141,7 +141,7 @@
         },
 
         watch: {
-            'params.cursor': function() {
+            'params.cursor': function(value) {
                 this.search();
             }
         },
