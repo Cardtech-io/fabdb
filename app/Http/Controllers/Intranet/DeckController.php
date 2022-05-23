@@ -27,7 +27,7 @@ class DeckController extends Controller
                     ->from('deck_cards')
                     ->where('deck_cards.deck_id', DB::raw('decks.id'));
             })
-            ->orderBy('updated_at', 'DESC')
+            ->orderBy('updated_at', 'ASC')
             ->cursorPaginate(100);
     }
 }

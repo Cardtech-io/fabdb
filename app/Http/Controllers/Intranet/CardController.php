@@ -9,14 +9,8 @@ class CardController extends Controller
 {
     public function tekloSync(Request $request)
     {
-        $cards = Card::select('class', 'talent', 'type', 'sub_type', 'name', 'identifier', 'image')
+        return Card::select('class', 'talent', 'type', 'sub_type', 'name', 'identifier', 'image')
             ->orderBy('identifier')
             ->cursorPaginate(100);
-
-        $cards->each(function(Card $card) {
-            $card->makeVisible('attribute');
-        });
-
-        return $cards;
     }
 }
