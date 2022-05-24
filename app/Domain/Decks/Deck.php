@@ -96,6 +96,7 @@ class Deck extends Model
         $deck->label = 'tournament';
         $deck->heroId = $heroId;
         $deck->format = $format;
+        $deck->event = $details->event;
         $deck->player = $details->player;
         $deck->decklist = $details->decklist;
         $deck->result = $result;

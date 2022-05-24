@@ -14,7 +14,7 @@ class DeckController extends Controller
             'fromDate' => 'required'
         ]);
 
-        return Deck::select('id', 'user_id', 'player', 'format', 'label', 'result', 'slug', 'name', 'decklist', 'created_at', 'updated_at')
+        return Deck::select('id', 'user_id', 'player', 'format', 'label', 'result', 'slug', 'name', 'event', 'decklist', 'created_at', 'updated_at')
             ->with(['cards' => function($query) {
                 $query->select('cards.id', 'cards.class', 'cards.talent', 'cards.type', 'cards.sub_type', 'cards.name', 'cards.identifier', 'cards.image');
             }, 'sideboard' => function($query) {

@@ -426,7 +426,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
     public function findHero($hero, string $heroAge)
     {
-        $query = $this->newQuery()->whereRaw("MATCH(search_text) AGAINST(?)", [$hero]);
+
+        $query = $this->newQuery()
+            ->select('cards.id', DB::raw("MATCH(search_text) AGAINST('$hero') AS rating"))
+            ->whereType('hero')
+            ->whereRaw("MATCH(search_text) AGAINST(?)", [$hero])
+            ->orderBy('rating', 'DESC');
 
         if ($heroAge === 'young') {
             $query->where('sub_type', $heroAge);

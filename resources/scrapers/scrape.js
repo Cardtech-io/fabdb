@@ -9,6 +9,7 @@ const site = 'https://fabtcg.com';
 const baseUrl = site+'/decklists/';
 let lastPage = false;
 let decks = [];
+let total = 0;
 
 function request(url) {
     return fetch(url).then(response => {
@@ -40,12 +41,14 @@ async function scrape(page) {
 
                 request(deckUrl).then(response => {
                     let deck = new Deck(decklist, date, new JSDOM(response));
-                    console.log(JSON.stringify(deck.toJson()));
+                    // console.log(JSON.stringify(deck.toJson()));
+                    total++;
                 });
             });
 
             if (page < lastPage) {
-                scrape(page + 1);
+                console.log(page);
+                return scrape(page + 1);
             }
         });
     }

@@ -12,7 +12,7 @@ class Deck {
             decklist: this.decklist,
             player: baseData.querySelector('tr:nth-child(1) > td').textContent,
             date: this.date,
-            event: baseData.querySelector('tr:nth-child(3) > td').textContent,
+            event: this.event(baseData),
             format: baseData.querySelector('tr:nth-child(4) > td').textContent,
             hero: baseData.querySelector('tr:nth-child(5) > td').textContent,
             result: baseData.querySelector('tr:nth-child(6) > td').textContent
@@ -53,6 +53,16 @@ class Deck {
         }
 
         return identifier;
+    }
+
+    event(baseData) {
+        let event = baseData.querySelector('tr:nth-child(3) > td').textContent;
+
+        if (event) return event;
+
+        let parts = [...this.decklist.matchAll(/ - ([a-z\s]+)\s([0-9]+\.[0-9]+\.[0-9]+)/ig)];
+
+        return parts.length ? parts[0][1] : null;
     }
 
     toJson() {

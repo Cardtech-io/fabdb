@@ -7,9 +7,6 @@ use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 class ImportTournamentDecks extends Command
@@ -58,17 +55,22 @@ class ImportTournamentDecks extends Command
 
         $process = new Process(['node', $path]);
         $process->setTimeout(null);
+        $process->setIdleTimeout(null);
 
         $process->start(function($type, $buffer) {
             if (Process::OUT === $type) {
-                $deck = json_decode($buffer);
+                $decks = array_filter(explode("\n", $buffer));
 
-                // Likely an empty buffer line
-                if (is_null($deck)) return;
+                foreach ($decks as $deck) {
+                    $deck = json_decode($deck);
 
-                $this->total++;
+                    // Likely an empty buffer line
+                    if (is_null($deck)) return;
 
-                $this->import($deck);
+                    $this->total++;
+
+                    $this->import($deck);
+                }
             }
         });
 
@@ -83,7 +85,10 @@ class ImportTournamentDecks extends Command
     private function import($deck)
     {
         // Some decks have no result, so worth ignoring.
-        if (!$deck->details->result) return;
+        if (!$deck->details->result) {
+            $this->info('Deck has no tournament result.');
+            return;
+        }
 
         $this->info('Importing deck: '.$deck->details->decklist);
 
