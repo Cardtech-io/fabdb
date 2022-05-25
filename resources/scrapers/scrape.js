@@ -41,13 +41,12 @@ async function scrape(page) {
 
                 request(deckUrl).then(response => {
                     let deck = new Deck(decklist, date, new JSDOM(response));
-                    // console.log(JSON.stringify(deck.toJson()));
+                    console.log(JSON.stringify(deck.toJson()));
                     total++;
                 });
             });
 
             if (page < lastPage) {
-                console.log(page);
                 return scrape(page + 1);
             }
         });
