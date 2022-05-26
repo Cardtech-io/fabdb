@@ -2,6 +2,12 @@
 
 return [
     'sets' => [
+        '1hp' => [
+            'id' => '1hp',
+            'name' => 'History Pack 1',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
         'bol' => [
             'id' => 'bol',
             'name' => 'Boltyn Hero Deck',

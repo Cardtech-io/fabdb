@@ -19,12 +19,12 @@ class CardsImport
 {
     private Identifier $identifier;
     private bool $withImages;
-    private Command $logger;
+    private Command $command;
     private bool $printsOnly;
 
-    public function __construct(Command $logger, bool $withImages, bool $printsOnly = false)
+    public function __construct(Command $command, bool $withImages, bool $printsOnly = false)
     {
-        $this->logger = $logger;
+        $this->command = $command;
         $this->withImages = $withImages;
         $this->printsOnly = $printsOnly;
     }
@@ -73,19 +73,21 @@ class CardsImport
 
             $this->log("Registering print for sku [{$row['uid']}]");
 
-            $printing = Printing::register(
-                $card->id,
-                new Sku($row['uid']),
-                $row['Set Name'],
-                Rarity::fromLss($row['Rarity']),
-                new Edition($row['Edition']),
-                'en',
-                $row['Card Name'],
-                $row['Card Effect'],
-                ''
-            );
+            $sku = new Sku($row['uid']);
 
-            $this->log("Registered print [$printing->id] for sku [{$row['uid']}]");
+            $printing = Printing::where('sku', $sku)->first();
+
+            if ($printing && !$this->command->option('skip-existing')) {
+                $this->createOrUpdatePrinting($card, $sku, $row);
+
+                $this->log("Updated print [$printing->id] for sku [{$row['uid']}]");
+            }
+
+            if (!$printing) {
+                $printing = $this->createOrUpdatePrinting($card, $sku, $row);
+
+                $this->log("Registered print [$printing->id] for sku [{$row['uid']}]");
+            }
         }
     }
 
@@ -168,7 +170,7 @@ class CardsImport
 
     private function log(string $message)
     {
-        $this->logger->info("[{$this->identifier->raw()}] {$message}");
+        $this->command->info("[{$this->identifier->raw()}] {$message}");
     }
 
     /**
@@ -178,5 +180,26 @@ class CardsImport
     private function imagePath($row): string
     {
         return "cards/printings/{$row['uid']}.png";
+    }
+
+    /**
+     * @param Card $card
+     * @param Sku $sku
+     * @param $row
+     * @return mixed
+     */
+    private function createOrUpdatePrinting(Card $card, Sku $sku, $row)
+    {
+        return Printing::register(
+            $card->id,
+            $sku,
+            $row['Set Name'],
+            Rarity::fromLss(trim($row['Rarity'])),
+            new Edition($row['Edition']),
+            'en',
+            $row['Card Name'],
+            $row['Card Effect'],
+            ''
+        );
     }
 }
