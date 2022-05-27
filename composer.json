@@ -11,12 +11,13 @@
         { "type": "vcs", "url": "https://github.com/keliix06/Laravel-Prerender" }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
         "aws/aws-sdk-php": "^3.117",
+        "bugsnag/bugsnag-laravel": "^2.24",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
-        "ext-json": "*",
         "guzzlehttp/guzzle": "^7.0",
         "kirkbushell/eloquence": "^8.0",
         "laravel/framework": "^8.0",

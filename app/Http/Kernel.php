@@ -2,10 +2,13 @@
 namespace FabDB\Http;
 
 use FabDB\Http\Middleware\LogRequests;
+use FabDB\Library\OomBootstrapper;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    use OomBootstrapper;
+
     /**
      * The application's global HTTP middleware stack.
      *

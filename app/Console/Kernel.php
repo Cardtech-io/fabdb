@@ -2,11 +2,14 @@
 
 namespace FabDB\Console;
 
+use FabDB\Library\OomBootstrapper;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    use OomBootstrapper;
+
     /**
      * The Artisan commands provided by your application.
      *

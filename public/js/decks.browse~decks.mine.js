@@ -252,7 +252,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   watch: {
     'params.cursor': function paramsCursor(value) {
-      console.log(value);
       this.search();
     }
   },
