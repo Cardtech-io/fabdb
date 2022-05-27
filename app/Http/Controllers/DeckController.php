@@ -23,9 +23,7 @@ use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
-use RuntimeException;
 
 class DeckController extends Controller
 {
@@ -41,8 +39,6 @@ class DeckController extends Controller
 
     public function search(Request $request)
     {
-        Bugsnag::notifyException(new RuntimeException("Test error"));
-        
         return DeckResource::collection($this->decks->search(
             array_merge($request->all(), [
                 'currency' => object_get($request->user(), 'currency', 'USD')
