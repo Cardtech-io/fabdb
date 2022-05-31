@@ -181,7 +181,19 @@ return [
             'name' => 'Welcome to Rathe (Unlimited)',
             'released' => '2020-11-06',
             'browseable' => false,
-        ]
+        ],
+        'rvd' => [
+            'id' => 'rvd',
+            'name' => 'Rhinar Classic Battles Hero Deck',
+            'released' => '2022-05-28',
+            'browseable' => false,
+        ],
+        'dvr' => [
+            'id' => 'dvr',
+            'name' => 'Dorinthea Classic Battles Hero Deck',
+            'released' => '2022-05-28',
+            'browseable' => false,
+        ],
     ],
 
     'classes' => [
