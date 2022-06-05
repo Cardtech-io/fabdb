@@ -169,6 +169,13 @@ return [
             'browseable' => false,
             'draftable' => false
         ],
+        'upr' => [
+            'id' => 'upr',
+            'name' => 'Uprising',
+            'released' => '2022-06-05',
+            'browseable' => true,
+            'draftable' => true,
+        ]
         'wtr' => [
             'id' => 'wtr',
             'name' => 'Welcome to Rathe',
