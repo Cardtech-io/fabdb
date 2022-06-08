@@ -63578,13 +63578,13 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "my-4" }, [
         _vm._v(
-          "The more conditions and clauses you add, the more specific and targeted the search results become, for example:"
+          "Please note that if you wish to use spaces in your syntax, you must wrap your arguments in quotes, eg:"
         )
       ]),
       _vm._v(" "),
       _c("input", {
         staticClass: "input py-3 px-4 rounded-lg",
-        attrs: { type: "text", value: "go again attack power>4 pitch<3" }
+        attrs: { type: "text", value: '"go again" attack "power > 4" pitch<3' }
       }),
       _vm._v(" "),
       _c(

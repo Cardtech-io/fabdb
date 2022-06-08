@@ -28,8 +28,8 @@
             <input type="text" class="input py-3 px-4 rounded-lg" value="pitch=2 power=5 cost>0">
             <p class="my-4">You can also search using plain keywords. Looking for Back Alley Breakline (red)?</p>
             <input type="text" class="input py-3 px-4 rounded-lg" value="back alley pitch=1">
-            <p class="my-4">The more conditions and clauses you add, the more specific and targeted the search results become, for example:</p>
-            <input type="text" class="input py-3 px-4 rounded-lg" value="go again attack power>4 pitch<3">
+            <p class="my-4">Please note that if you wish to use spaces in your syntax, you must wrap your arguments in quotes, eg:</p>
+            <input type="text" class="input py-3 px-4 rounded-lg" value="&quot;go again&quot; attack &quot;power > 4&quot; pitch<3">
             <p class="italic bg-blue-200 p-4 mt-4 -mx-4 -mb-4 text-center">Note: FaB DB's deck builder will automatically filter cards by your chosen hero's class, and generics.</p>
         </div>
     </div>

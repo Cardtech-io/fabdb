@@ -46,12 +46,17 @@ class SyntaxFilter implements SearchFilter
 
     private function apply(Builder $query, string $terms)
     {
-        preg_match('/[\=\<\>]/', $terms, $operator);
+        $match = preg_match('/<=|>=/', $terms, $operator);
 
-        list($filter, $value) =  preg_split('/[\=\<\>]/', $terms);
+        if (!$match) {
+            preg_match('/[\=\<\>]/', $terms, $operator);
+        }
 
-        $value = explode(' ', str_replace('"', '', $value));
+        list($filter, $value) =  explode($operator[0], $terms);
 
+        $values = array_filter(preg_split('/\s*/', str_replace('"', '', $value)));
+        $value = array_pop($values);
+        
         switch (strtolower($filter)) {
             case 'a':
             case 'attack':
