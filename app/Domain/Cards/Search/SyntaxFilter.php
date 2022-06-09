@@ -37,7 +37,7 @@ class SyntaxFilter implements SearchFilter
 
     private function filter(string $keywords): array
     {
-        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
+        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', str_replace(',', '', $keywords));
 
         return array_filter($keywords, function($keyword) {
             return Str::contains($keyword, $this->operators);
@@ -56,7 +56,7 @@ class SyntaxFilter implements SearchFilter
 
         $values = array_filter(preg_split('/\s*/', str_replace('"', '', $value)));
         $value = array_pop($values);
-        
+
         switch (strtolower($filter)) {
             case 'a':
             case 'attack':
