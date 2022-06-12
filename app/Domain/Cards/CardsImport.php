@@ -48,6 +48,8 @@ class CardsImport
                 $this->copyImage($row);
             }
 
+            $sku = new Sku($row['uid']);
+
             if (!$this->printsOnly) {
                 $this->log("Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
 
@@ -72,8 +74,6 @@ class CardsImport
             }
 
             $this->log("Registering print for sku [{$row['uid']}]");
-
-            $sku = new Sku($row['uid']);
 
             $printing = Printing::where('sku', $sku)->first();
 
@@ -196,6 +196,7 @@ class CardsImport
             $row['Set Name'],
             Rarity::fromLss(trim($row['Rarity'])),
             new Edition($row['Edition']),
+            $row['Finish'],
             'en',
             $row['Card Name'],
             $row['Card Effect'],

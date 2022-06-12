@@ -56,7 +56,7 @@ class SyntaxFilter implements SearchFilter
 
         $values = array_filter(preg_split('/\s*/', str_replace('"', '', $value)));
         $value = array_pop($values);
-        
+
         if (is_null($filter) || is_null($value)) {
             return;
         }

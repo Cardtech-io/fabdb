@@ -547,7 +547,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     printingClasses: function printingClasses(printing) {
-      return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;
+      var finishes = {
+        'cold foil': 'cold',
+        'gold foil': 'gold',
+        'rainbow foil': 'rainbow',
+        'regular': 'regular'
+      };
+      console.log(finishes[printing.finish.toLowerCase()]);
+      return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : finishes[printing.finish.toLowerCase()];
     },
     selectPrinting: function selectPrinting(printing) {
       this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
@@ -1345,7 +1352,7 @@ var render = function() {
                         staticClass:
                           "inline-block text-sm text-white px-1 mr-1 rounded-sm",
                         class: _vm.printingClasses(printing),
-                        attrs: { title: printing.sku.finish },
+                        attrs: { title: printing.finish },
                         on: {
                           click: function($event) {
                             return _vm.selectPrinting(printing)

@@ -380,7 +380,7 @@ function () {
     value: function remove(card) {
       var deckCard = this.find(card);
 
-      if (deckCard.total > 1) {
+      if (deckCard && deckCard.total > 1) {
         deckCard.total -= 1;
       } else {
         var key = this.findKey(card);
@@ -486,7 +486,15 @@ function (_Model) {
   }, {
     key: "authorName",
     get: function get() {
-      return this.fields.user.name || 'Anonymous';
+      if (this.fields.player) {
+        return this.fields.player;
+      }
+
+      if (this.fields.user && this.fields.user.name) {
+        return this.fields.user.name;
+      }
+
+      return 'Anonymous';
     }
   }, {
     key: "user",
@@ -511,7 +519,7 @@ function (_Model) {
   }, {
     key: "hero",
     get: function get() {
-      return this.cards.hero() ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards.hero()) : null;
+      return this.fields.hero ? new _CardDatabase_Card__WEBPACK_IMPORTED_MODULE_1__["default"](this.fields.hero) : null;
     }
   }, {
     key: "sideboard",

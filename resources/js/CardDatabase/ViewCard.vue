@@ -12,12 +12,12 @@
                             <banned v-if="card.banned"/>
                         </div>
                         <div class="flex mt-2">
-                            <card-nav :to="card.prev" text="Previous" class="mr-1"></card-nav>
-                            <card-nav :to="card.next" text="Next" class="ml-1 text-right"></card-nav>
+                            <card-nav :to="card.prev" text="Previous" class="mr-1"/>
+                            <card-nav :to="card.next" text="Next" class="ml-1 text-right"/>
                         </div>
 
                         <h2 class="font-serif uppercase text-lg mb-1 mt-4">Printings</h2>
-                        <button @click="selectPrinting(printing)" v-for="printing in card.printings" :class="printingClasses(printing)" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.sku.finish">
+                        <button @click="selectPrinting(printing)" v-for="printing in card.printings" :class="printingClasses(printing)" class="inline-block text-sm text-white px-1 mr-1 rounded-sm" :title="printing.finish">
                             {{ printing.sku.sku }}
                         </button>
 
@@ -190,7 +190,16 @@
 
         methods: {
             printingClasses(printing) {
-                return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : printing.sku.finish;
+                let finishes = {
+                    'cold foil': 'cold',
+                    'gold foil': 'gold',
+                    'rainbow foil': 'rainbow',
+                    'regular': 'regular'
+                };
+
+                console.log(finishes[printing.finish.toLowerCase()]);
+
+                return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : finishes[printing.finish.toLowerCase()];
             },
 
             selectPrinting(printing) {

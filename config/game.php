@@ -219,6 +219,7 @@ return [
     ],
 
     'talents' => [
+        'draconic' => 'Draconic',
         'earth' => 'Earth',
         'elemental' => 'Elemental',
         'ice' => 'Ice',
@@ -230,6 +231,7 @@ return [
     'types' => [
         'action',
         'attack',
+        'aura',
         'defense',
         'equipment',
         'hero',
@@ -274,6 +276,7 @@ return [
         'R' => 'Rare',
         'S' => 'Super rare',
         'M' => 'Majestic',
+        'MV' => 'Marvel',
         'L' => 'Legendary',
         'F' => 'Fabled',
         'T' => 'Token',
