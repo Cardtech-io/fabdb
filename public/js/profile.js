@@ -261,6 +261,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1051,6 +1052,10 @@ var render = function() {
                         _vm._v(" "),
                         _c("option", { attrs: { value: "savage-lands" } }, [
                           _vm._v("Savage Lands")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "tales" } }, [
+                          _vm._v("Tales of Aria")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "the-pits" } }, [

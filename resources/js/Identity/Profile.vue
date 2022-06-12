@@ -80,6 +80,7 @@
                                 <option value="monarch">Monarch</option>
                                 <option value="skies">Skies</option>
                                 <option value="savage-lands">Savage Lands</option>
+                                <option value="tales">Tales of Aria</option>
                                 <option value="the-pits">The Pits</option>
                                 <option value="battle">Battle at the Peak (Patreon supporters only)</option>
                             </select>

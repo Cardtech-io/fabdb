@@ -60,6 +60,19 @@ body {
 }
 
 .theme-default {
+    --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-uprising.jpeg?auto=format') no-repeat top center;
+    --button-primary-background-color: theme("colors.red.800");
+    --button-primary-hover-background-color: theme("colors.red.600");
+    --button-primary-text-color: theme("colors.white");
+    --button-secondary-background-color: theme("colors.orange.800");
+    --button-secondary-hover-background-color: theme("colors.orange.600");
+    --button-secondary-text-color: theme("colors.white");
+    --link-color: theme("colors.orange.400");
+    --crumbs-background-color: theme('colors.orange.800');
+    --nav-hover-text-color: theme('colors.orange.400');
+}
+
+.theme-tales {
     --theme-background: theme('backgroundColor.gray.200') url('https://fabdb2.imgix.net/assets/backgrounds/background-tales-of-aria.jpg?auto=format') no-repeat top center;
     --button-primary-background-color: theme("colors.black");
     --button-primary-hover-background-color: theme("colors.green.800");
