@@ -174,7 +174,7 @@ return [
             'name' => 'Uprising',
             'released' => '2022-06-05',
             'browseable' => true,
-            'draftable' => true,
+            'draftable' => false,
         ],
         'wtr' => [
             'id' => 'wtr',

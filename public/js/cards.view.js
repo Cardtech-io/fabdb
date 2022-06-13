@@ -553,7 +553,6 @@ __webpack_require__.r(__webpack_exports__);
         'rainbow foil': 'rainbow',
         'regular': 'regular'
       };
-      console.log(finishes[printing.finish.toLowerCase()]);
       return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : finishes[printing.finish.toLowerCase()];
     },
     selectPrinting: function selectPrinting(printing) {
