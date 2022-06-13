@@ -185,6 +185,7 @@ return [
         FabDB\Domain\Practise\PractiseServiceProvider::class,
         FabDB\Domain\Market\MarketServiceProvider::class,
         FabDB\Domain\Stores\StoresServiceProvider::class,
+        FabDB\Library\TCGPlayer\TCGPlayerServiceProvider::class,
         FabDB\Domain\Users\UsersServiceProvider::class,
         FabDB\Domain\Voting\VotingServiceProvider::class,
     ],
