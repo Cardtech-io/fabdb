@@ -22,7 +22,7 @@ class CommonerFilter implements SearchFilter
     {
         return $this->deck->format === 'commoner';
     }
-
+    
     public function applyTo(Builder $query, array $input)
     {
         $query->where(function($query) {
@@ -30,7 +30,7 @@ class CommonerFilter implements SearchFilter
                 $query->whereIn('cards.type', ['weapon', 'equipment']);
                 $query->whereIn('printings.rarity', ['C', 'R', 'T']);
             });
-            $query->orWhere('printings.rarity', 'C');
+            $query->orWhereIn('printings.rarity', ['C', 'T']);
         });
     }
 }
