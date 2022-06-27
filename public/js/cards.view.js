@@ -556,7 +556,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.selected && this.selected.sku.sku === printing.sku.sku ? 'bg-black' : finishes[printing.finish.toLowerCase()];
     },
     selectPrinting: function selectPrinting(printing) {
-      this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
+      this.card.image = this.cardImageFromSku(printing.sku.sku, 450);
       this.selected = printing;
       this.switchContent(printing);
       this.$eventHub.$emit('language-selected', printing.language);

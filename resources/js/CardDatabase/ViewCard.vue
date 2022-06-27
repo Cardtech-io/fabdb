@@ -201,7 +201,7 @@
             },
 
             selectPrinting(printing) {
-                this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
+                this.card.image = this.cardImageFromSku(printing.sku.sku, 450);
                 this.selected = printing;
                 this.switchContent(printing);
                 this.$eventHub.$emit('language-selected', printing.language);

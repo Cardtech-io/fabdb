@@ -22,7 +22,7 @@ class CommonerFilter implements SearchFilter
     {
         return $this->deck->format === 'commoner';
     }
-    
+
     public function applyTo(Builder $query, array $input)
     {
         $query->where(function($query) {

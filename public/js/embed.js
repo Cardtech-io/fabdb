@@ -2213,7 +2213,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
     image: function image() {
-      var width = this.width || 300;
+      var width = this.width || 450;
 
       if (this.sku) {
         return this.cardImageFromSku(this.sku, width);

@@ -22,7 +22,7 @@
             },
 
             image() {
-                let width = this.width || 300;
+                let width = this.width || 450;
 
                 if (this.sku) {
                     return this.cardImageFromSku(this.sku, width);
