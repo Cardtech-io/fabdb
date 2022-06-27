@@ -11,12 +11,12 @@ trait HasImage
 
     protected function defaultImage($image)
     {
-        return $this->url("/{$image}?w=450&fit=clip&auto=compress&auto=compress,format");
+        return $this->url("/{$image}?w=400&fit=clip&auto=compress&auto=compress,format");
     }
 
     protected function alteredImage($image, $request)
     {
-        $width = $request->get('width', 450);
+        $width = $request->get('width', 400);
 
         return $this->url("/{$image}?w=$width&fit=clip&auto=compress,format");
     }
@@ -39,12 +39,12 @@ trait HasImage
 
     protected function printingImage(string $sku): string
     {
-        return $this->url("/cards/printings/{$sku}.png?w=450&fit=clip&auto=compress,format");
+        return $this->url("/cards/printings/{$sku}.png?w=400&fit=clip&auto=compress,format");
     }
 
     protected function cardBackImage($cardBack)
     {
-        return $this->url("/cards/backs/card-back-{$cardBack}.png?w=450&fit=clip&auto=compress,format");
+        return $this->url("/cards/backs/card-back-{$cardBack}.png?w=400&fit=clip&auto=compress,format");
     }
 
     protected function url($path)
