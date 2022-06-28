@@ -59,8 +59,17 @@ __webpack_require__.r(__webpack_exports__);
     name: {
       type: String
     },
+    rounded: {
+      type: Boolean,
+      "default": true
+    },
     width: {
       "default": 100
+    }
+  },
+  methods: {
+    classes: function classes() {
+      return this.rounded ? 'rounded-full' : '';
     }
   }
 });
@@ -156,7 +165,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.hero
     ? _c("img", {
-        staticClass: "rounded-full",
+        class: _vm.classes(),
         attrs: {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,

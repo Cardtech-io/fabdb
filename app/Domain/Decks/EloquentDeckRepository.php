@@ -5,6 +5,7 @@ use FabDB\Domain\Decks\Filters\VotesFilter;
 use FabDB\Domain\Decks\Search\CardsFilter;
 use FabDB\Domain\Decks\Search\DeckCardCountFilter;
 use FabDB\Domain\Decks\Search\UserFilter;
+use FabDB\Domain\Decks\Search\WeaponsFilter;
 use FabDB\Domain\Voting\CalculatesVotes;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
@@ -198,6 +199,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $filters = [
                 new DeckCardCountFilter,
                 new CardsFilter,
+                new WeaponsFilter,
                 new UserFilter,
                 new VotesFilter,
             ];
@@ -267,7 +269,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
     public function search(array $params)
     {
-        $perPage = Arr::get($params, 'per_page', 24);
+        $perPage = Arr::get($params, 'per_page', 30);
 
         return $this->searchPart($params, false)->cursorPaginate($perPage);
     }

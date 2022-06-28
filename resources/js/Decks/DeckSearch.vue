@@ -129,6 +129,10 @@
 
                 let url = this.mine ? '/decks/mine' : '/decks';
 
+                if (!this.mine) {
+                    params.include = 'weapons';
+                }
+
                 axios.get(url, { params: params }).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});

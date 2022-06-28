@@ -157,7 +157,10 @@ class Deck extends Model
 
     public function weapons()
     {
-        return $this->cards->weapons();
+        return $this->belongsToMany(Card::class, 'deck_cards')
+            ->orderBy('cards.name')
+            ->withPivot('id', 'total')
+            ->where('cards.type', 'weapon');
     }
 
     public function equipment()

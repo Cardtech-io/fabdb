@@ -62530,10 +62530,10 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return path + '&rect=90,70,360,370&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
+      return path + '&rect=90,115,400,345&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
-      var url = hero.image + '&rect=90,95,360,365';
+      var url = hero.image + '&rect=90,115,400,345';
 
       if (rounded) {
         url += '&mask=corners&h=' + width + '&corner-radius=100&fm=png';

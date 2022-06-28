@@ -20,6 +20,7 @@ class DeckResource extends JsonResource
         $response['cardBackImage'] = $this->cardBackImage($this->resource->cardBack);
         $response['practise'] = $this->when($this->resource->practiseId, new PractiseResource($this->resource->practise));
         $response['cards'] = CardResource::collection($this->whenLoaded('cards'));
+        $response['weapons'] = CardResource::collection($this->whenLoaded('weapons'));
         $response['hero'] = new CardResource($this->whenLoaded('hero'));
         $response['parent'] = new DeckResource($this->whenLoaded('parent'));
         $response['sideboard'] = SideboardResource::collection($this->whenLoaded('sideboard'));

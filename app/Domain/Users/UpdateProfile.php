@@ -15,7 +15,6 @@ class UpdateProfile implements Loggable
     private $name;
     private $gemId;
     private $need;
-    private $view;
     private $avatar;
     private $currency;
     private $theme;
@@ -24,7 +23,7 @@ class UpdateProfile implements Loggable
     /** @var string */
     private $newPassword;
 
-    public function __construct(int $userId, $email, $newPassword, $name, $gemId, $currency, $need, string $view, string $avatar, string $theme, string $width)
+    public function __construct(int $userId, $email, $newPassword, $name, $gemId, $currency, $need, string $avatar, string $theme, string $width)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -32,7 +31,6 @@ class UpdateProfile implements Loggable
         $this->gemId = $gemId;
         $this->currency = $currency;
         $this->need = $need;
-        $this->view = $view;
         $this->avatar = $avatar;
         $this->theme = $theme;
         $this->width = $width;
@@ -50,7 +48,6 @@ class UpdateProfile implements Loggable
             $this->gemId,
             $this->currency,
             $this->need,
-            $this->view,
             $this->avatar,
             $this->theme,
             $this->width

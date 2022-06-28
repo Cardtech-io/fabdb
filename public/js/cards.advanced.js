@@ -203,7 +203,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "border-b-4 border-gray-300" }, [
+  return _c("div", { staticClass: "border-b-4 border-gray-300 mb-24" }, [
     _c(
       "h2",
       {

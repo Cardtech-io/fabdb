@@ -254,14 +254,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -933,57 +925,6 @@ var render = function() {
                     { staticClass: "font-serif text-xl uppercase mt-8 mb-4" },
                     [_vm._v("Interface")]
                   ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-full mt-4 mb-4" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
-                      },
-                      [_vm._v("Width")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.width,
-                            expression: "width"
-                          }
-                        ],
-                        staticClass:
-                          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.width = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "narrow" } }, [
-                          _vm._v("Narrow")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "wide" } }, [
-                          _vm._v("Wide")
-                        ])
-                      ]
-                    )
-                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4" }, [
                     _c(

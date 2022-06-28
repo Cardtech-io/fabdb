@@ -36,11 +36,6 @@ class ProfileWasUpdated implements Loggable
     /**
      * @var string
      */
-    private $view;
-
-    /**
-     * @var string
-     */
     private $avatar;
 
     /**
@@ -55,7 +50,7 @@ class ProfileWasUpdated implements Loggable
 
     private $width;
 
-    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme, $width)
+    public function __construct(int $userId, $email, $name, $gemId, $currency, $need, $avatar, $theme, $width)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -63,7 +58,6 @@ class ProfileWasUpdated implements Loggable
         $this->gemId = $gemId;
         $this->currency = $currency;
         $this->need = $need;
-        $this->view = $view;
         $this->avatar = $avatar;
         $this->theme = $theme;
         $this->width = $width;
@@ -97,11 +91,6 @@ class ProfileWasUpdated implements Loggable
     public function need(): int
     {
         return $this->need;
-    }
-
-    public function view(): string
-    {
-        return $this->view;
     }
 
     public function avatar(): string

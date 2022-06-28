@@ -58,6 +58,8 @@ export default class Deck extends Model {
     }
 
     get weapons() {
+        if (this.fields.weapons) return new Cards(this.fields.weapons);
+
         return this.cards.weapons();
     }
 
