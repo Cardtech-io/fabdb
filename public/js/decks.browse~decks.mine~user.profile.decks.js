@@ -283,7 +283,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "px-2 w-1/2 md:w-1/3 lg:w-1/5 my-2 text-sm" },
+    { staticClass: "md:px-2 w-full md:w-1/3 lg:w-1/5 my-2 text-sm" },
     [
       _c(
         "div",
@@ -301,12 +301,12 @@ var render = function() {
             [
               _c("div", { staticClass: "relative flex-none" }, [
                 _c("div", {
+                  staticClass: "h-140 md:h-200 bg-center",
                   style: {
                     background:
                       "radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url(" +
                       _vm.heroProfile(_vm.deck.hero, 250) +
-                      ")",
-                    height: "220px"
+                      ")"
                   }
                 }),
                 _vm._v(" "),
@@ -373,7 +373,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "flex absolute bottom-0 w-full justify-between p-1"
+                      "flex absolute bottom-0 w-full justify-between p-2"
                   },
                   [
                     _vm.deck.weapons.count()
@@ -381,10 +381,11 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "flex items-center bg-nearly-black p-1 space-x-1"
+                              "flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1"
                           },
                           _vm._l(_vm.deck.weapons.all(), function(weapon) {
                             return _c("img", {
+                              staticClass: "rounded",
                               attrs: {
                                 src: _vm.squareThumbUrl(weapon.image, 55),
                                 width: "40",
