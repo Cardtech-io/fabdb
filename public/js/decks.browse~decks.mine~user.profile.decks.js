@@ -301,12 +301,12 @@ var render = function() {
             [
               _c("div", { staticClass: "relative flex-none" }, [
                 _c("div", {
-                  staticClass: "h-140 md:h-200 bg-center",
+                  staticClass: "h-140 md:h-200",
                   style: {
                     background:
                       "radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url(" +
                       _vm.heroProfile(_vm.deck.hero, 250) +
-                      ")"
+                      ") top center"
                   }
                 }),
                 _vm._v(" "),
