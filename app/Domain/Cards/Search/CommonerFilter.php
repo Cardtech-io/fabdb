@@ -30,7 +30,7 @@ class CommonerFilter implements SearchFilter
                 $query->whereIn('cards.type', ['weapon', 'equipment']);
                 $query->whereIn('printings.rarity', ['C', 'R', 'T']);
             });
-            $query->orWhere('printings.rarity', 'C');
+            $query->orWhereIn('printings.rarity', ['C', 'T']);
         });
     }
 }

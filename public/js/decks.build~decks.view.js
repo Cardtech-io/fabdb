@@ -59,8 +59,17 @@ __webpack_require__.r(__webpack_exports__);
     name: {
       type: String
     },
+    rounded: {
+      type: Boolean,
+      "default": true
+    },
     width: {
       "default": 100
+    }
+  },
+  methods: {
+    classes: function classes() {
+      return this.rounded ? 'rounded-full' : '';
     }
   }
 });
@@ -156,7 +165,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.hero
     ? _c("img", {
-        staticClass: "rounded-full",
+        class: _vm.classes(),
         attrs: {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,
@@ -490,7 +499,25 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     colours: function colours(values) {
       if (this.stat === 'resource') {
-        return ['239,68,68', '251,191,37', '96,165,250'];
+        var _colours = [];
+
+        if (values.indexOf('1') !== -1) {
+          _colours.push('239,68,68'); // red
+
+        }
+
+        if (values.indexOf('2') !== -1) {
+          _colours.push('251,191,37'); //yellow
+
+        }
+
+        if (values.indexOf('3') !== -1) {
+          _colours.push('96,165,250'); // blue
+
+        }
+
+        console.log(values, _colours);
+        return _colours;
       } // Construct a colour set for cost from blue -> red (red for most costly)
 
 

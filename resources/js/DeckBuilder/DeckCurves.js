@@ -24,7 +24,23 @@ export default {
     methods: {
         colours(values) {
             if (this.stat === 'resource') {
-                return ['239,68,68', '251,191,37', '96,165,250'];
+                let colours = [];
+
+                if (values.indexOf('1') !== -1) {
+                    colours.push('239,68,68'); // red
+                }
+
+                if (values.indexOf('2') !== -1) {
+                    colours.push('251,191,37'); //yellow
+                }
+
+                if (values.indexOf('3') !== -1) {
+                    colours.push('96,165,250'); // blue
+                }
+
+                console.log(values, colours);
+
+                return colours;
             }
 
             // Construct a colour set for cost from blue -> red (red for most costly)

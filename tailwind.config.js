@@ -53,6 +53,7 @@ module.exports = {
                 'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
                 'nearly-black': 'rgba(0, 0, 0, 0.85)',
+                'nearly-white': 'rgba(255, 255, 255, 0.85)'
             },
 
             colors: {
@@ -129,6 +130,7 @@ module.exports = {
                 '1/10': '10%',
                 '140': '140px',
                 '160': '160px',
+                '200': '200px',
             },
 
             inset: {

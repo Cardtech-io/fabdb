@@ -62,14 +62,6 @@
 
                         <h2 class="font-serif text-xl uppercase mt-8 mb-4">Interface</h2>
 
-                        <div class="w-full mt-4 mb-4">
-                            <label class="block font-serif uppercase tracking-wide mb-1">Width</label>
-                            <select v-model="width" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                                <option value="narrow">Narrow</option>
-                                <option value="wide">Wide</option>
-                            </select>
-                        </div>
-
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">Theme</label>
                             <select v-model="theme" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">

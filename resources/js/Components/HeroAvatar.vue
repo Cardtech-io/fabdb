@@ -1,5 +1,5 @@
 <template>
-    <img :src="heroProfile(hero, width)" :alt="name" class="rounded-full" :width="width" :height="width" v-if="hero">
+    <img :src="heroProfile(hero, width)" :alt="name" :class="classes()" :width="width" :height="width" v-if="hero">
 </template>
 
 <script>
@@ -18,8 +18,19 @@
                 type: String
             },
 
+            rounded: {
+                type: Boolean,
+                default: true
+            },
+
             width: {
                 default: 100
+            }
+        },
+
+        methods: {
+            classes() {
+                return this.rounded ? 'rounded-full' : '';
             }
         }
     };

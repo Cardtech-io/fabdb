@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title :title="name"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title :title="name"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="bg-gray-200">
             <div class="container sm:mx-auto pt-0 pb-8 md:py-8">
@@ -9,7 +9,7 @@
                     <div class="md:w-1/4 md:float-left p-4 md:py-0">
                         <div class="relative">
                             <card-image :card="card"/>
-                            <banned v-if="card.banned"/>
+                            <card-legality :card="card"/>
                         </div>
                         <div class="flex mt-2">
                             <card-nav :to="card.prev" text="Previous" class="mr-1"/>
@@ -21,7 +21,7 @@
                             {{ printing.sku.sku }}
                         </button>
 
-                        <advertisement :width="340" :height="340" :zone="107318" class="mt-4"></advertisement>
+                        <advertisement :width="340" :height="340" :zone="107318" class="mt-4"/>
 
                         <ul class="pt-4 text-base">
                             <li class="flex odd:bg-white" v-if="card.artist">
@@ -45,28 +45,13 @@
 
                     <div class="md:w-3/4 md:float-right sm:px-4 md:flex">
                         <div class="md:w-1/2">
-                            <div class="p-4 pt-0 sm:p-0 space-y-1">
-                                <section v-if="card.banned" class="bg-red-600 text-white text-center py-2 px-4 rounded-lg mb-4">
-                                    This card is banned {{bannedFormats}}.
-                                </section>
-
-                                <section class="flex">
-                                    <language-selector :languages="languages" @language-selected="findPrintingForLanguage" class="flex-grow pr-1"/>
-                                    <button @click="$modal.show('suggestion')" class="bg-white hover:bg-primary hover:text-white px-4 py-1 rounded-lg text-sm" v-if="selected">
-                                        Suggest correction
-                                    </button>
-                                </section>
-
-                                <modal name="suggestion" :adaptive="true" :min-height="730">
-                                    <suggest-correction :printing="selected" :identifier="card.identifier" v-if="selected"/>
-                                </modal>
-
+                            <div class="p-4 pt-0 sm:p-0 space-y-4">
                                 <div v-if="text" class="bg-white text-black rounded-lg">
                                     <div v-html="prettyText(text)" class="px-4 py-px"></div>
                                     <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="flavour">{{ flavour }}</div>
                                 </div>
 
-                                <div class="inline-block flex rounded-lg overflow-hidden space-x-px mb-4">
+                                <div class="inline-block flex rounded-lg overflow-hidden space-x-px">
                                     <div v-for="(value, stat) in card.stats" class="flex justify-center items-center flex-grow bg-white space-x-2 py-2" v-if="!isNaN(value)">
                                         <div class="">
                                             <img :src="statToImagePath(stat, value)" :alt="sentenceCase(stat)" class="h-6">
@@ -74,6 +59,8 @@
                                         <div class="text-xl">{{ value }}</div>
                                     </div>
                                 </div>
+
+                                <legality-banner :card="card" class="my-4"/>
 
                                 <article>
                                     <p class="my-4 italic">
@@ -104,10 +91,10 @@
     import axios from 'axios';
 
     import Advertisement from "../Components/Advertisement";
-    import Banned from './Banned';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
+    import CardLegality from './CardLegality';
     import CardPrice from "./Metrics/CardPrice";
     import CardNav from "./CardNav";
     import Discussion from "../Discussion/Discussion";
@@ -116,18 +103,18 @@
     import LanguageSelector from "./LanguageSelector";
     import LatestDecks from "../Decks/Featured/LatestDecks";
     import LazyLoader from '../Components/LazyLoader';
+    import LegalityBanner from "./LegalityBanner";
     import Pricing from './Pricing.vue';
     import RecentDecks from "./RecentDecks";
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
-    import SuggestCorrection from "./SuggestCorrection";
 
     export default {
         mixins: [Cardable, Imagery, Strings],
 
         components: {
+            CardLegality,
             Advertisement,
-            Banned,
             Breadcrumbs,
             CardImage,
             CardPrice,
@@ -136,16 +123,16 @@
             HeaderTitle,
             LanguageSelector,
             LatestDecks,
+            LegalityBanner,
             Pricing,
             RecentDecks,
-            Rulings,
-            SuggestCorrection
+            Rulings
         },
 
         computed: {
             bannedFormats() {
-                if (this.card.banned.length > 1) {
-                    return 'in both Blitz and Constructed formats';
+                if (Object.keys(this.card.legality).length > 2) {
+                    return 'in all formats';
                 }
 
                 return 'in '+this.ucfirst(this.card.banned[0])+' format';
@@ -201,7 +188,7 @@
             },
 
             selectPrinting(printing) {
-                this.card.image = this.cardImageFromSku(printing.sku.sku, 300);
+                this.card.image = this.cardImageFromSku(printing.sku.sku, 450);
                 this.selected = printing;
                 this.switchContent(printing);
                 this.$eventHub.$emit('language-selected', printing.language);

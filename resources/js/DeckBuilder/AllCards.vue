@@ -47,20 +47,20 @@
         <div v-else class="lg:flex m-4">
             <!-- Text-based deck view -->
             <div class="hidden lg:block md:mr-8 max-w-250">
-                <card-image :card="cards.hero()" class="mb-4"></card-image>
+                <card-image :card="cards.hero()" class="mb-4"/>
                 <div>
                     <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
-                        <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"/>
                     </div>
                     <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
-                        <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"></deck-curves>
+                        <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"/>
                     </div>
                 </div>
             </div>
             <div class="sm:flex-grow sm:mr-4">
                 <masonry-container container-id="text-sections" class="sm:flex sm:flex-wrap">
                     <div v-for="section in availableSections" v-if="section.cards.count()" class="w-full sm:w-1/2 lg:w-1/3 sm:pr-8">
-                        <card-item-section :cards="section.cards" :title="section.title"></card-item-section>
+                        <card-item-section :cards="section.cards" :title="section.title"/>
                     </div>
                 </masonry-container>
             </div>

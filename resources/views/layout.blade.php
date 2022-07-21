@@ -25,15 +25,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#4285f4">
 
-
         <link rel="stylesheet" href="{{ fab_asset('css/fabdb.css') }}">
-        @if ($user && $user->width == 'wide')
-        <style type="text/css">
-            .container {
-                max-width: 1800px !important;
-            }
-        </style>
-        @endif
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">

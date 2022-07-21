@@ -23,7 +23,6 @@ class UserController extends Controller
             $request->get('gemId'),
             $request->get('currency'),
             $request->get('need'),
-            $request->get('view'),
             $request->get('avatar', 'bauble'),
             $request->get('theme'),
             $request->get('width')

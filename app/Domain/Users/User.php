@@ -81,7 +81,7 @@ class User extends Model implements Authenticatable
         return !empty($this->password);
     }
 
-    public function updateProfile($email, $newPassword, $name, $gemId, $currency, $need, $view, string $avatar, string $theme, string $width)
+    public function updateProfile($email, $newPassword, $name, $gemId, $currency, $need, string $avatar, string $theme, string $width)
     {
         $this->email = $email;
         $this->password = $newPassword;
@@ -89,7 +89,6 @@ class User extends Model implements Authenticatable
         $this->gemId = $gemId;
         $this->currency = $currency;
         $this->need = $need;
-        $this->view = $view;
         $this->theme = $theme;
         $this->width = $width;
 
@@ -97,7 +96,7 @@ class User extends Model implements Authenticatable
             $this->avatar = $avatar;
         }
 
-        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $currency, $need, $view, $avatar, $theme, $width));
+        $this->raise(new ProfileWasUpdated($this->id, $email, $name, $gemId, $currency, $need, $avatar, $theme, $width));
 
         return $this;
     }

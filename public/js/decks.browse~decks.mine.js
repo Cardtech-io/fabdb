@@ -237,6 +237,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       var url = this.mine ? '/decks/mine' : '/decks';
+
+      if (!this.mine) {
+        params.include = 'weapons';
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url, {
         params: params
       }).then(function (response) {
