@@ -77,6 +77,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.identifier',
             'cards.image',
             'cards.name',
+            'cards.legality',
             'cards.keywords',
             'cards.stats',
             'cards.text',
@@ -118,6 +119,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.identifier',
             'cards.image',
             'cards.name',
+            'cards.legality',
             'cards.rarity',
             'cards.keywords',
             'cards.stats',
@@ -350,7 +352,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             new KeywordFilter,
             new SyntaxFilter,
             new IdentifierFilter,
-            new BannedCardsFilter($deck),
+            new BannedCardsFilter($this->legallyAffected(), $deck),
             new VariantsFilter,
             new HeroFilter($this, $deck),
             new ClassFilter,
@@ -392,6 +394,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.identifier',
                 'cards.image',
                 'cards.name',
+                'cards.legality',
                 'cards.rarity',
                 'cards.keywords',
                 'cards.stats',
@@ -456,5 +459,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 ->whereRaw("MATCH(search_text) AGAINST(?)", [$identifier])
                 ->orderBy('rating', 'DESC')
                 ->first();
+    }
+
+    private function legallyAffected()
+    {
+        return $this->newQuery()
+            ->whereNotNull('legality')
+            ->select('id', 'legality')
+            ->get();
     }
 }

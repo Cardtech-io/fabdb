@@ -21,6 +21,7 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
+        'legality' => 'array',
         'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,
@@ -79,13 +80,6 @@ class Card extends Model
                 $join->on('stores.id', '=', 'listings.store_id');
                 $join->whereNull('stores.deleted_at');
             });
-    }
-
-    public function getBannedAttribute()
-    {
-        $config = config('game.cards.banned');
-
-        return Arr::get($config, $this->identifier->raw());
     }
 
     public function rulings()

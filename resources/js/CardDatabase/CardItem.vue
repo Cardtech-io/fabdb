@@ -3,7 +3,7 @@
         <div class="relative overflow-hidden rounded-card">
             <router-link :to="{ name: 'cards.view', params: { identifier: card.identifier } }" v-if="path"><card-image :card="card" :width="350"/></router-link>
             <card-image :card="card" :width="300" v-else />
-            <banned v-if="card.banned"></banned>
+            <card-legality :card="card" v-if="card.legality"/>
             <transition
                 name="card-details"
                 enter-active-class="transition-all duration-150 ease-out-quad"
@@ -35,13 +35,13 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import Banned from './Banned';
     import CardImage from './CardImage';
+    import CardLegality from './CardLegality';
     import Icon from "../Components/Icon";
     import RarityText from "./RarityText";
 
     export default {
-        components: {Banned, CardImage, Icon, RarityText},
+        components: {CardImage, CardLegality, Icon, RarityText},
 
         props: {
             card: Object,

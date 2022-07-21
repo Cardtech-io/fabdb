@@ -529,6 +529,7 @@ function (_Model) {
   }, {
     key: "weapons",
     get: function get() {
+      if (this.fields.weapons) return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.fields.weapons);
       return this.cards.weapons();
     }
   }, {

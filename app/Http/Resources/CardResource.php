@@ -11,9 +11,7 @@ class CardResource extends JsonResource
 
     public function toArray($request)
     {
-        $this->resource->setAppends(['banned']);
-
-        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'banned', 'next', 'prev', 'available', 'class', 'type', 'subType', 'talent']);
+        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'legality', 'next', 'prev', 'available', 'class', 'type', 'subType', 'talent']);
 
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
