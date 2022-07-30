@@ -7,6 +7,7 @@ use FabDB\Domain\Cards\Boosters\CollectionBoosterRepository;
 use FabDB\Domain\Cards\Boosters\BoosterRepository;
 use FabDB\Domain\Cards\Boosters\Monarch;
 use FabDB\Domain\Cards\Boosters\TalesOfAria;
+use FabDB\Domain\Cards\Boosters\Uprising;
 use FabDB\Domain\Cards\Boosters\WelcomeToRathe;
 use FabDB\Providers\AppServiceProvider;
 
@@ -26,7 +27,8 @@ final class CardsServiceProvider extends AppServiceProvider
                 $app->make(WelcomeToRathe::class),
                 $app->make(ArcaneRising::class),
                 $app->make(Monarch::class),
-                $app->make(TalesOfAria::class)
+                $app->make(TalesOfAria::class),
+                $app->make(Uprising::class),
             );
         });
 
