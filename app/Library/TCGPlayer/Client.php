@@ -59,7 +59,6 @@ class Client
     public function productPrices(array $productIds)
     {
         $offset = 0;
-
         $chunks = array_chunk($productIds, 100);
 
         foreach ($chunks as $productIds) {

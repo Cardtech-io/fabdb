@@ -415,16 +415,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "absolute w-full text-white text-sm text-center py-1 z-50 -mt-2",
-      class: _vm.colour(),
-      staticStyle: { bottom: "40.35%" }
-    },
-    [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
-  )
+  return _vm.card.legality
+    ? _c(
+        "div",
+        {
+          staticClass:
+            "absolute w-full text-white text-sm text-center py-1 z-50 -mt-2",
+          class: _vm.colour(),
+          staticStyle: { bottom: "40.35%" }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

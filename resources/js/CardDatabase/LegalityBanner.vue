@@ -1,6 +1,6 @@
 <template>
     <div class="rounded-lg overflow-hidden text-sm text-center text-white">
-        <div v-for="format in Object.keys(formats)" v-if="card.legality[format]" class="py-1 px-4" :class="colours[card.legality[format]]">
+        <div v-for="format in Object.keys(formats)" v-if="card.legality && card.legality[format]" class="py-1 px-4" :class="colours[card.legality[format]]">
             This card is {{text(card.legality[format])}} in {{format}}.
         </div>
     </div>

@@ -15,4 +15,10 @@ class CurrentPrice extends Model
         'high_current' => 'float',
         'high_previous' => 'float',
     ];
+
+    protected $hidden = [
+        'id',
+        'card_id',
+        'printing_id',
+    ];
 }

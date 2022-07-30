@@ -133,7 +133,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         ];
 
         $query = $this->newQuery()
-            ->with(['artist'])
+            ->with(['artist', 'currentPrice'])
             ->whereIdentifier($identifier)
             ->select($select);
 
@@ -387,6 +387,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function findBySku(string $identifier)
     {
         $query = $this->newQuery()
+            ->with('artist', 'currentPrice')
             ->join('printings', 'printings.card_id', 'cards.id')
             ->where('sku', 'like', $identifier . '%')
             ->select([

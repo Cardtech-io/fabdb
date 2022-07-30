@@ -72,7 +72,7 @@
                             <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
                         </div>
                         <div class="md:w-1/2 md:ml-8">
-                            <tcg-player :buy-link="card.buyLink"/>
+                            <tcg-player :buy-link="card.buyLink" :prices="card.currentPrice"/>
 
                             <latest-decks title="Recent" color="bg-black" :query="'card='+card.identifier" class="mb-4 mt-4"></latest-decks>
                         </div>

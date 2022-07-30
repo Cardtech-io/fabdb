@@ -28,6 +28,7 @@ class CardResource extends JsonResource
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['artist'] = new ArtistResource($this->whenLoaded('artist'));
+        $response['currentPrice'] = $this->whenLoaded('currentPrice');
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');

@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute w-full text-white text-sm text-center py-1 z-50 -mt-2" style="bottom: 40.35%" :class="colour()">
+    <div class="absolute w-full text-white text-sm text-center py-1 z-50 -mt-2" style="bottom: 40.35%" :class="colour()" v-if="card.legality">
         {{ text() }}
     </div>
 </template>
