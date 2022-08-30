@@ -32,12 +32,24 @@ return [
             'released' => '2021-05-07',
             'browseable' => false,
         ],
+        'dro' => [
+            'id' => 'dro',
+            'name' => 'Dromai Hero Deck',
+            'released' => '2022-06-28',
+            'browseable' => false,
+        ],
         'ele' => [
             'id' => 'ele',
             'name' => 'Tales of Aria',
             'released' => '2021-09-24',
             'browseable' => true,
             'draftable' => true,
+        ],
+        'fai' => [
+            'id' => 'fai',
+            'name' => 'Fai Hero Deck',
+            'released' => '2022-06-28',
+            'browseable' => false,
         ],
         'u-ele' => [
             'id' => 'u-ele',
@@ -172,7 +184,7 @@ return [
         'upr' => [
             'id' => 'upr',
             'name' => 'Uprising',
-            'released' => '2022-06-05',
+            'released' => '2022-06-28',
             'browseable' => true,
             'draftable' => true,
         ],
