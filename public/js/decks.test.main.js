@@ -340,18 +340,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1166,57 +1154,17 @@ var render = function() {
           _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
           _vm._v(" "),
           _c("div", { staticClass: "bg-gray-200" }, [
-            _vm.premium
-              ? _c(
-                  "div",
-                  { staticClass: "container py-8 sm:mx-auto" },
-                  [
-                    _c(_vm.step, {
-                      tag: "component",
-                      attrs: { tester: _vm.tester }
-                    })
-                  ],
-                  1
-                )
-              : _c("div", [
-                  _c("div", { staticClass: "container px-4 py-8 sm:mx-auto" }, [
-                    _c(
-                      "h2",
-                      { staticClass: "font-serif uppercase text-xl mb-4" },
-                      [_vm._v("Membership required")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      [
-                        _vm._v(
-                          "\n                    Testing your deck's draw capabilities is a premium access feature. In order to use this feature,\n                    you must be a Patreon supporter. Check out "
-                        ),
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "link",
-                            attrs: { to: { name: "support" } }
-                          },
-                          [_vm._v("our support page")]
-                        ),
-                        _vm._v(" or\n                    go directly to our "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "link",
-                            attrs: { href: "https://www.patreon.com/fabdb" }
-                          },
-                          [_vm._v("Patreon page")]
-                        ),
-                        _vm._v(
-                          ". Memberships start as\n                    low as $3/month!\n                "
-                        )
-                      ],
-                      1
-                    )
-                  ])
-                ])
+            _c(
+              "div",
+              { staticClass: "container py-8 sm:mx-auto" },
+              [
+                _c(_vm.step, {
+                  tag: "component",
+                  attrs: { tester: _vm.tester }
+                })
+              ],
+              1
+            )
           ])
         ],
         1

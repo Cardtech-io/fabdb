@@ -67,12 +67,12 @@
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
                                 <td class="border border-gray-300 p-2 px-4">
                                     <div class="flex space-x-4 justify-center items-center">
-                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="lg:hidden hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="lg:hidden hover:text-gray-400">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
-                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="hidden lg:inline hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>

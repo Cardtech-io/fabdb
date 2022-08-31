@@ -772,13 +772,8 @@ var render = function() {
                                             "lg:hidden hover:text-gray-400",
                                           attrs: {
                                             to: {
-                                              name: "decks.test",
+                                              name: "decks.test.prepare",
                                               params: { deck: deck.slug }
-                                            }
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyDeck(deck)
                                             }
                                           }
                                         },
@@ -806,11 +801,6 @@ var render = function() {
                                             to: {
                                               name: "decks.test.prepare",
                                               params: { deck: deck.slug }
-                                            }
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyDeck(deck)
                                             }
                                           }
                                         },
