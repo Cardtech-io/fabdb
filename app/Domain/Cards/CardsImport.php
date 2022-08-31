@@ -34,7 +34,7 @@ class CardsImport
 
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::fromName($row['Card Name']);
+            $this->identifier = Identifier::fromLSS($row);
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
