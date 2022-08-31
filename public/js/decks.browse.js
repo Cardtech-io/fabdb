@@ -107,6 +107,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -261,12 +263,21 @@ var render = function() {
                           "div",
                           { staticClass: "flex flex-wrap" },
                           _vm._l(_vm.results.data, function(deck) {
-                            return _c("deck-item", {
-                              key: deck.slug,
-                              attrs: { deck: deck, theme: "light" }
-                            })
+                            return _c(
+                              "div",
+                              {
+                                staticClass: "w-full md:w-1/3 lg:w-1/5 md:px-2"
+                              },
+                              [
+                                _c("deck-item", {
+                                  key: deck.slug,
+                                  attrs: { deck: deck, theme: "light" }
+                                })
+                              ],
+                              1
+                            )
                           }),
-                          1
+                          0
                         )
                       : _c("div", { staticClass: "text-center py-8" }, [
                           _vm._v(

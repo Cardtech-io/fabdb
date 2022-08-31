@@ -15,7 +15,9 @@
                     <div class="flow-root py-4">
                         <ul class="flow-root sm:-mx-4">
                             <div v-if="results.data.length" class="flex flex-wrap">
-                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"/>
+                                <div class="w-full md:w-1/3 lg:w-1/5 md:px-2" v-for="deck in results.data">
+                                    <deck-item :deck="deck" :key="deck.slug" theme="light"/>
+                                </div>
                             </div>
                             <div class="text-center py-8" v-else>
                                 There are no decks that match your search criteria.

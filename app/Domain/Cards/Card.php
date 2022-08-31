@@ -204,4 +204,13 @@ class Card extends Model
     {
         return in_array('token', $this->keywords);
     }
+
+    public function getLegalityAttribute($value)
+    {
+        if (is_null($value)) {
+            $value = [];
+        }
+        
+        return $value;
+    }
 }

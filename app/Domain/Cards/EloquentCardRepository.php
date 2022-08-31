@@ -468,4 +468,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->select('id', 'legality')
             ->get();
     }
+
+    public function findAny(string $text)
+    {
+        return $this->newQuery()->whereFullText('search_text', $text)->limit(10)->get();
+    }
 }

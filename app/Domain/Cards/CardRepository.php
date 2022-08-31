@@ -96,4 +96,12 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function getIdByIdentifierOrText(string $identifier);
+
+    /**
+     * Will attempt to find any card by using its search text field based on the string provided, and will return the first result.
+     * 
+     * @param string $text
+     * @return mixed
+     */
+    public function findAny(string $text);
 }

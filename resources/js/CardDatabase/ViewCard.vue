@@ -4,9 +4,9 @@
         <breadcrumbs :crumbs="crumbs"/>
 
         <div class="bg-gray-200">
-            <div class="container sm:mx-auto pt-0 pb-8 md:py-8">
-                <div class="flow-root">
-                    <div class="md:w-1/4 md:float-left p-4 md:py-0">
+            <div class="container sm:mx-auto pt-0 pb-8">
+                <div class="md:flex md:space-x-4 p-4">
+                    <div class="md:w-1/4">
                         <div class="relative">
                             <card-image :card="card"/>
                             <card-legality :card="card"/>
@@ -43,45 +43,46 @@
                         </ul>
                     </div>
 
-                    <div class="md:w-3/4 md:float-right sm:px-4 md:flex">
-                        <div class="md:w-1/2">
-                            <div class="p-4 pt-0 sm:p-0 space-y-4">
-                                <div v-if="text" class="bg-white text-black rounded-lg">
-                                    <div v-html="prettyText(text)" class="px-4 py-px"></div>
-                                    <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="flavour">{{ flavour }}</div>
-                                </div>
-
-                                <div class="inline-block flex rounded-lg overflow-hidden space-x-px">
-                                    <div v-for="(value, stat) in card.stats" class="flex justify-center items-center flex-grow bg-white space-x-2 py-2" v-if="!isNaN(value)">
-                                        <div class="">
-                                            <img :src="statToImagePath(stat, value)" :alt="sentenceCase(stat)" class="h-6">
-                                        </div>
-                                        <div class="text-xl">{{ value }}</div>
-                                    </div>
-                                </div>
-
-                                <legality-banner :card="card" class="my-4"/>
-
-                                <article>
-                                    <p class="my-4 italic">
-                                        <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.printings[0].sku.sku)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
-                                    </p>
-                                </article>
+                    <div class="md:w-1/2 mt-4 md:mt-0">
+                        <div class="space-y-4">
+                            <div v-if="text" class="bg-white text-black rounded-lg">
+                                <div v-html="prettyText(text)" class="px-4 py-px"></div>
+                                <div class="italic border-t border-gray-200 p-4 text-gray-600" v-if="flavour">{{ flavour }}</div>
                             </div>
 
-                            <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
-                        </div>
-                        <div class="md:w-1/2 md:ml-8">
-                            <tcg-player :buy-link="card.buyLink"/>
+                            <div class="inline-block flex rounded-lg overflow-hidden space-x-px">
+                                <div v-for="(value, stat) in card.stats" class="flex justify-center items-center flex-grow bg-white space-x-2 py-2" v-if="!isNaN(value)">
+                                    <div class="">
+                                        <img :src="statToImagePath(stat, value)" :alt="sentenceCase(stat)" class="h-6">
+                                    </div>
+                                    <div class="text-xl">{{ value }}</div>
+                                </div>
+                            </div>
 
-                            <latest-decks title="Recent" color="bg-black" :query="'card='+card.identifier" class="mb-4 mt-4"></latest-decks>
+                            <legality-banner :card="card" class="my-4"/>
+
+                            <article>
+                                <p class="my-4 italic">
+                                    <strong>"{{ card.name }}"</strong> is a trading card from the <strong>"{{ setToString(setFromIdentifier(card.printings[0].sku.sku)) }}"</strong> set of the trading card game, <strong>Flesh & Blood.</strong>
+                                </p>
+                            </article>
                         </div>
+
+                        <rulings :rulings="rulings" class="px-4 sm:px-0" v-if="rulings.length"></rulings>
+
+                        <hr class="text-gray-500 mt-4">
+
+                        <discussion type="card" :id="card.identifier" class="md:block"/>
+                    </div>
+                    <div class="md:w-1/4 mt-4 md:mt-0">
+                        <tcg-player :buy-link="card.buyLink"/>
+                        <recent-decks :card="card" class="mt-4"/>
                     </div>
                 </div>
 
                 <hr class="text-gray-500 mt-4">
 
-                <discussion type="card" :id="card.identifier" class="mx-4"/>
+                <discussion type="card" :id="card.identifier" class="mx-4 md:hidden"/>
             </div>
         </div>
     </div>
@@ -101,11 +102,10 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Imagery from "../Utilities/Imagery";
     import LanguageSelector from "./LanguageSelector";
-    import LatestDecks from "../Decks/Featured/LatestDecks";
     import LazyLoader from '../Components/LazyLoader';
     import LegalityBanner from "./LegalityBanner";
     import Pricing from './Pricing.vue';
-    import RecentDecks from "./RecentDecks";
+    import RecentDecks from "../Decks/Featured/RecentDecks";
     import Rulings from "./Rulings";
     import Strings from '../Utilities/Strings';
 
@@ -122,7 +122,6 @@
             Discussion,
             HeaderTitle,
             LanguageSelector,
-            LatestDecks,
             LegalityBanner,
             Pricing,
             RecentDecks,

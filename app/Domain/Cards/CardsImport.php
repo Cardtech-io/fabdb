@@ -38,6 +38,11 @@ class CardsImport
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
+                if (!$row['Product Image']) {
+                    $this->log('error', 'Image path missing.');
+                    continue;
+                }
+
                 $this->copyImage($row);
             }
 

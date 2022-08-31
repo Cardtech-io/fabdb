@@ -1,9 +1,9 @@
 <template>
-    <div class="md:px-2 w-full md:w-1/3 lg:w-1/5 my-2 text-sm">
+    <div class="my-2 text-sm">
         <div class="rounded-lg overflow-hidden">
             <router-link :to="{ name: route, params: { deck: deck.slug } }" class="block" :class="themeClasses()">
                 <div class="relative flex-none">
-                    <div class="h-140 md:h-200" :style="{background: 'radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url('+heroProfile(deck.hero, 250)+') top center'}"></div>
+                    <div class="h-140 md:h-200" :style="{background: 'radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url('+heroProfile(deck.hero, 250)+') top center', backgroundSize: 'cover'}"></div>
                     <div class="absolute top-0 w-full p-2">
                         <h3 class="text-white font-serif uppercase text-lg md:text-xl overflow-hidden" style="max-height: 30px">{{ deck.name }}</h3>
                         <div class="text-xs space-y-1">

@@ -245,73 +245,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Decks_Deck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Decks/Deck */ "./resources/js/Decks/Deck.js");
-/* harmony import */ var _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Decks/Viewing/DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
-/* harmony import */ var _Decks_Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Decks/Viewing/FormatLabel */ "./resources/js/Decks/Viewing/FormatLabel.vue");
-/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
-/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    card: {
-      required: true,
-      type: Object
-    }
-  },
-  components: {
-    DeckLabel: _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FormatLabel: _Decks_Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__["default"],
-    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
-  data: function data() {
-    return {
-      decks: []
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/decks?card=' + this.card.identifier + '&per_page=5').then(function (response) {
-      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__["default"].hydrateMany(response.data.data, _Decks_Deck__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/Rulings.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/Rulings.vue?vue&type=script&lang=js& ***!
@@ -366,13 +299,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 /* harmony import */ var _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./LanguageSelector */ "./resources/js/CardDatabase/LanguageSelector.vue");
-/* harmony import */ var _Decks_Featured_LatestDecks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Decks/Featured/LatestDecks */ "./resources/js/Decks/Featured/LatestDecks.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./LegalityBanner */ "./resources/js/CardDatabase/LegalityBanner.vue");
-/* harmony import */ var _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pricing.vue */ "./resources/js/CardDatabase/Pricing.vue");
-/* harmony import */ var _RecentDecks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./RecentDecks */ "./resources/js/CardDatabase/RecentDecks.vue");
-/* harmony import */ var _Rulings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Rulings */ "./resources/js/CardDatabase/Rulings.vue");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _LegalityBanner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./LegalityBanner */ "./resources/js/CardDatabase/LegalityBanner.vue");
+/* harmony import */ var _Pricing_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Pricing.vue */ "./resources/js/CardDatabase/Pricing.vue");
+/* harmony import */ var _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Decks/Featured/RecentDecks */ "./resources/js/Decks/Featured/RecentDecks.vue");
+/* harmony import */ var _Rulings__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Rulings */ "./resources/js/CardDatabase/Rulings.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -462,7 +394,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
 
 
 
@@ -482,7 +414,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__["default"]],
   components: {
     CardLegality: _CardLegality__WEBPACK_IMPORTED_MODULE_5__["default"],
     Advertisement: _Components_Advertisement__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -493,11 +425,10 @@ __webpack_require__.r(__webpack_exports__);
     Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     LanguageSelector: _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__["default"],
-    LatestDecks: _Decks_Featured_LatestDecks__WEBPACK_IMPORTED_MODULE_12__["default"],
-    LegalityBanner: _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__["default"],
-    Pricing: _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    RecentDecks: _RecentDecks__WEBPACK_IMPORTED_MODULE_16__["default"],
-    Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_17__["default"]
+    LegalityBanner: _LegalityBanner__WEBPACK_IMPORTED_MODULE_13__["default"],
+    Pricing: _Pricing_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+    RecentDecks: _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_15__["default"],
+    Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_16__["default"]
   },
   computed: {
     bannedFormats: function bannedFormats() {
@@ -625,7 +556,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_12__["default"])(function (to, callback) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/' + to.params.identifier).then(function (response) {
       callback(function () {
         this.card = response.data;
@@ -718,6 +649,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var tag = '<' + 'script' + ' src="' + url + '" async>' + '<' + '/script>';
       postscribe__WEBPACK_IMPORTED_MODULE_0___default()(_this.$refs.ad, tag);
     }, 100);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DeckItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DeckItem */ "./resources/js/Decks/DeckItem.vue");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Deck */ "./resources/js/Decks/Deck.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    card: {
+      type: Object
+    }
+  },
+  components: {
+    DeckItem: _DeckItem__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      decks: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/latest?per_page=3&card=' + this.card.identifier + '&include=weapons').then(function (response) {
+      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_2__["default"].hydrateMany(response.data.data, _Deck__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    });
   }
 });
 
@@ -991,102 +982,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "mb-4" },
-    [
-      _c("h2", { staticClass: "text-lg uppercase font-serif mb-4" }, [
-        _vm._v("Latest decks including " + _vm._s(_vm.card.name))
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.decks, function(deck) {
-        return _c(
-          "router-link",
-          {
-            key: deck.slug,
-            staticClass:
-              "flex items-center hover:bg-gray-100 pr-4 mb-2 rounded-full",
-            attrs: { to: { name: "decks.view", params: { deck: deck.slug } } }
-          },
-          [
-            _c("hero-avatar", {
-              staticClass: "hidden sm:block",
-              attrs: { hero: deck.hero, width: "90" }
-            }),
-            _vm._v(" "),
-            _c("hero-avatar", {
-              staticClass: "sm:hidden",
-              attrs: { hero: deck.hero, width: "80" }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ml-2" },
-              [
-                _c("h3", { staticClass: "font-serif text-lg uppercase" }, [
-                  _vm._v(_vm._s(deck.name))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v("by " + _vm._s(deck.authorName))
-                ]),
-                _vm._v(" "),
-                _c("deck-label", {
-                  staticClass: "mr-1 text-xs px-2 sm:py-1 rounded-full",
-                  attrs: { label: deck.label }
-                }),
-                _vm._v(" "),
-                _c("format-label", {
-                  staticClass: "mr-2 text-xs px-2 sm:py-1 rounded-full",
-                  attrs: { format: deck.format }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex-none font-serif text-center ml-auto" },
-              [
-                _c("div", { staticClass: "text-4xl" }, [
-                  _vm._v(_vm._s(deck.totalCards))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-gray-400 text-base ml-1" }, [
-                  _vm._v("cards")
-                ])
-              ]
-            )
-          ],
-          1
-        )
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/Rulings.vue?vue&type=template&id=6105b018&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/Rulings.vue?vue&type=template&id=6105b018& ***!
@@ -1161,12 +1056,12 @@ var render = function() {
       _c("div", { staticClass: "bg-gray-200" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto pt-0 pb-8 md:py-8" },
+          { staticClass: "container sm:mx-auto pt-0 pb-8" },
           [
-            _c("div", { staticClass: "flow-root" }, [
+            _c("div", { staticClass: "md:flex md:space-x-4 p-4" }, [
               _c(
                 "div",
-                { staticClass: "md:w-1/4 md:float-left p-4 md:py-0" },
+                { staticClass: "md:w-1/4" },
                 [
                   _c(
                     "div",
@@ -1329,153 +1224,141 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "md:w-3/4 md:float-right sm:px-4 md:flex" },
+                { staticClass: "md:w-1/2 mt-4 md:mt-0" },
                 [
                   _c(
                     "div",
-                    { staticClass: "md:w-1/2" },
+                    { staticClass: "space-y-4" },
                     [
-                      _c(
-                        "div",
-                        { staticClass: "p-4 pt-0 sm:p-0 space-y-4" },
-                        [
-                          _vm.text
-                            ? _c(
-                                "div",
-                                {
-                                  staticClass: "bg-white text-black rounded-lg"
-                                },
-                                [
-                                  _c("div", {
-                                    staticClass: "px-4 py-px",
-                                    domProps: {
-                                      innerHTML: _vm._s(
-                                        _vm.prettyText(_vm.text)
-                                      )
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _vm.flavour
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "italic border-t border-gray-200 p-4 text-gray-600"
-                                        },
-                                        [_vm._v(_vm._s(_vm.flavour))]
-                                      )
-                                    : _vm._e()
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
+                      _vm.text
+                        ? _c(
                             "div",
-                            {
-                              staticClass:
-                                "inline-block flex rounded-lg overflow-hidden space-x-px"
-                            },
-                            _vm._l(_vm.card.stats, function(value, stat) {
-                              return !isNaN(value)
+                            { staticClass: "bg-white text-black rounded-lg" },
+                            [
+                              _c("div", {
+                                staticClass: "px-4 py-px",
+                                domProps: {
+                                  innerHTML: _vm._s(_vm.prettyText(_vm.text))
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.flavour
                                 ? _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "flex justify-center items-center flex-grow bg-white space-x-2 py-2"
+                                        "italic border-t border-gray-200 p-4 text-gray-600"
                                     },
-                                    [
-                                      _c("div", {}, [
-                                        _c("img", {
-                                          staticClass: "h-6",
-                                          attrs: {
-                                            src: _vm.statToImagePath(
-                                              stat,
-                                              value
-                                            ),
-                                            alt: _vm.sentenceCase(stat)
-                                          }
-                                        })
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "text-xl" }, [
-                                        _vm._v(_vm._s(value))
-                                      ])
-                                    ]
+                                    [_vm._v(_vm._s(_vm.flavour))]
                                   )
                                 : _vm._e()
-                            }),
-                            0
-                          ),
-                          _vm._v(" "),
-                          _c("legality-banner", {
-                            staticClass: "my-4",
-                            attrs: { card: _vm.card }
-                          }),
-                          _vm._v(" "),
-                          _c("article", [
-                            _c("p", { staticClass: "my-4 italic" }, [
-                              _c("strong", [
-                                _vm._v('"' + _vm._s(_vm.card.name) + '"')
-                              ]),
-                              _vm._v(" is a trading card from the "),
-                              _c("strong", [
-                                _vm._v(
-                                  '"' +
-                                    _vm._s(
-                                      _vm.setToString(
-                                        _vm.setFromIdentifier(
-                                          _vm.card.printings[0].sku.sku
-                                        )
-                                      )
-                                    ) +
-                                    '"'
-                                )
-                              ]),
-                              _vm._v(" set of the trading card game, "),
-                              _c("strong", [_vm._v("Flesh & Blood.")])
-                            ])
-                          ])
-                        ],
-                        1
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "inline-block flex rounded-lg overflow-hidden space-x-px"
+                        },
+                        _vm._l(_vm.card.stats, function(value, stat) {
+                          return !isNaN(value)
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex justify-center items-center flex-grow bg-white space-x-2 py-2"
+                                },
+                                [
+                                  _c("div", {}, [
+                                    _c("img", {
+                                      staticClass: "h-6",
+                                      attrs: {
+                                        src: _vm.statToImagePath(stat, value),
+                                        alt: _vm.sentenceCase(stat)
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "text-xl" }, [
+                                    _vm._v(_vm._s(value))
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
+                        }),
+                        0
                       ),
                       _vm._v(" "),
-                      _vm.rulings.length
-                        ? _c("rulings", {
-                            staticClass: "px-4 sm:px-0",
-                            attrs: { rulings: _vm.rulings }
-                          })
-                        : _vm._e()
+                      _c("legality-banner", {
+                        staticClass: "my-4",
+                        attrs: { card: _vm.card }
+                      }),
+                      _vm._v(" "),
+                      _c("article", [
+                        _c("p", { staticClass: "my-4 italic" }, [
+                          _c("strong", [
+                            _vm._v('"' + _vm._s(_vm.card.name) + '"')
+                          ]),
+                          _vm._v(" is a trading card from the "),
+                          _c("strong", [
+                            _vm._v(
+                              '"' +
+                                _vm._s(
+                                  _vm.setToString(
+                                    _vm.setFromIdentifier(
+                                      _vm.card.printings[0].sku.sku
+                                    )
+                                  )
+                                ) +
+                                '"'
+                            )
+                          ]),
+                          _vm._v(" set of the trading card game, "),
+                          _c("strong", [_vm._v("Flesh & Blood.")])
+                        ])
+                      ])
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "md:w-1/2 md:ml-8" },
-                    [
-                      _c("tcg-player", {
-                        attrs: { "buy-link": _vm.card.buyLink }
-                      }),
-                      _vm._v(" "),
-                      _c("latest-decks", {
-                        staticClass: "mb-4 mt-4",
-                        attrs: {
-                          title: "Recent",
-                          color: "bg-black",
-                          query: "card=" + _vm.card.identifier
-                        }
+                  _vm.rulings.length
+                    ? _c("rulings", {
+                        staticClass: "px-4 sm:px-0",
+                        attrs: { rulings: _vm.rulings }
                       })
-                    ],
-                    1
-                  )
-                ]
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "text-gray-500 mt-4" }),
+                  _vm._v(" "),
+                  _c("discussion", {
+                    staticClass: "md:block",
+                    attrs: { type: "card", id: _vm.card.identifier }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "md:w-1/4 mt-4 md:mt-0" },
+                [
+                  _c("tcg-player", { attrs: { "buy-link": _vm.card.buyLink } }),
+                  _vm._v(" "),
+                  _c("recent-decks", {
+                    staticClass: "mt-4",
+                    attrs: { card: _vm.card }
+                  })
+                ],
+                1
               )
             ]),
             _vm._v(" "),
             _c("hr", { staticClass: "text-gray-500 mt-4" }),
             _vm._v(" "),
             _c("discussion", {
-              staticClass: "mx-4",
+              staticClass: "mx-4 md:hidden",
               attrs: { type: "card", id: _vm.card.identifier }
             })
           ],
@@ -1511,6 +1394,90 @@ var render = function() {
   return _vm.marketable
     ? _c("div", { staticClass: "mx-auto", style: _vm.style }, [
         _c("div", { ref: "ad" })
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.decks
+    ? _c("section", [
+        _c(
+          "header",
+          {
+            staticClass:
+              "flex items-center py-2 px-4 rounded-lg overflow-hidden bg-black text-white"
+          },
+          [
+            _c("h2", { staticClass: "font-serif text-xl uppercase" }, [
+              _vm._v("Recent decks")
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass:
+                  "block flex items-center ml-auto rounded py-1 px-2 text-base button-primary",
+                attrs: {
+                  to: {
+                    name: "decks.browse",
+                    query: "card=" + this.card.identifier
+                  }
+                }
+              },
+              [
+                _vm._v("\n            See more\n            "),
+                _c(
+                  "icon",
+                  { staticClass: "inline-block", attrs: { size: 5 } },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d:
+                          "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                        "clip-rule": "evenodd"
+                      }
+                    })
+                  ]
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "bg-gray-200 rounded-b-lg" },
+          _vm._l(_vm.decks, function(deck) {
+            return _c("deck-item", {
+              key: deck.slug,
+              attrs: { deck: deck, theme: "light" }
+            })
+          }),
+          1
+        )
       ])
     : _vm._e()
 }
@@ -1992,75 +1959,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./resources/js/CardDatabase/RecentDecks.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=template&id=3ffc762e& */ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&");
-/* harmony import */ var _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/CardDatabase/RecentDecks.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e& ***!
-  \**********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=template&id=3ffc762e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/CardDatabase/Rulings.vue":
 /*!***********************************************!*\
   !*** ./resources/js/CardDatabase/Rulings.vue ***!
@@ -2263,6 +2161,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Advertisement_vue_vue_type_template_id_2fc7116c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Advertisement_vue_vue_type_template_id_2fc7116c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=template&id=68402291& */ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&");
+/* harmony import */ var _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Featured/RecentDecks.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=template&id=68402291& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
