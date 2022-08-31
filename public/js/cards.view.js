@@ -734,7 +734,7 @@ var render = function() {
     {
       staticClass: "absolute w-full text-white text-center py-2 z-50 -mt-2",
       class: _vm.colour(),
-      staticStyle: { bottom: "38%" }
+      staticStyle: { bottom: "40%" }
     },
     [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
   )
