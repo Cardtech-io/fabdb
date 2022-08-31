@@ -31,7 +31,7 @@ class MigrateRarerCardsToCorrectIdentifiers extends Command
     public function handle()
     {
         // This process updates all non-common, non-rare cards to ensure they do NOT have colored identifiers
-        Card::whereNotIn('rarity', ['c', 'r'])->each(function($card) {
+        Card::whereNotIn('rarity', ['C', 'R'])->each(function($card) {
             $identifier = $card->identifier->raw();
             
             // The card matches a coloured identifier pattern
@@ -44,7 +44,7 @@ class MigrateRarerCardsToCorrectIdentifiers extends Command
         });
 
         // This process does the inverse - it finds all common and rare cards that do not have colored identifiers, and adds them
-        // Card::whereIn('rarity', ['c', 'r'])->each(function($card) {
+        // Card::whereIn('rarity', ['C', 'R'])->each(function($card) {
         //     $identifier = $card->identifier->raw();
             
         //     // The card matches a coloured identifier pattern
