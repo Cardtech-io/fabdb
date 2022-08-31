@@ -44,7 +44,7 @@ class CardsImport
             $sku = new Sku($row['uid']);
 
             if (!$this->printsOnly) {
-                $this->log("Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
+                $this->log('info', "Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
 
                 $card = Card::register(
                     $this->identifier,
