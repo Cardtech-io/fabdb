@@ -42,15 +42,11 @@ class MaxTotalCardsTest extends TestCase
         $this->fillDeck($deck, 11);
 
         $card = $this->card('armour', ['type' => 'equipment', 'keywords' => ['equipment']]);
+
         $this->cards->shouldReceive('findByIdentifier')->with('armour')->andReturn($card);
 
         $validator = new MaxTotalCards($deck);
 
         $this->assertFalse($validator->passes('card', 'armour'));
-    }
-
-    function test_card_can_be_set_to_a_specific_total_less_than_max()
-    {
-
     }
 }
