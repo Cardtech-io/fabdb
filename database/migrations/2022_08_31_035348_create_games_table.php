@@ -16,9 +16,11 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('source');
-            $table->unsignedBigInteger('game_id');
             $table->unsignedBigInteger('deck_id');
+            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('opposing_hero_id');
             $table->timestamps();
+            $table->unique(['deck_id', 'game_id']);
         });
     }
 

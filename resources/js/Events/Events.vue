@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="bg-gray-200">
             <div class="container sm:mx-auto p-4 py-8">
                 <ol v-if="events.length">

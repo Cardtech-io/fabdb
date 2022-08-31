@@ -23,13 +23,13 @@ final class Game extends Model
         return $this->hasMany(GameCard::class);
     }
 
-    public static function setup(int $deckId, int $opposingHero, string $source, int $gameId)
+    public static function setup(int $deckId, int $opposingHeroId, string $source, int $gameId)
     {
         $game = new static;
         $game->source = $source;
         $game->gameId = $gameId;
         $game->deckId = $deckId;
-        $game->opposingHero = $opposingHero;
+        $game->opposingHeroId = $opposingHeroId;
         
         return $game;
     }

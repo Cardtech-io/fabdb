@@ -15,7 +15,12 @@ class CreateGameCardsTable extends Migration
     {
         Schema::create('game_cards', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('card_id');
+            $table->unsignedMediumInteger('seen');
+            $table->unsignedMediumInteger('pitched');
+            $table->unsignedMediumInteger('played');
+            $table->unsignedMediumInteger('blocked');
         });
     }
 
