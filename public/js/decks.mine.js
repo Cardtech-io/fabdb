@@ -192,14 +192,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -620,15 +612,13 @@ var render = function() {
             ? _c(
                 "div",
                 [
-                  _vm._m(0),
-                  _vm._v(" "),
                   _c(
                     "table",
                     {
                       staticClass: "w-full table-auto border-collapse bg-white"
                     },
                     [
-                      _vm._m(1),
+                      _vm._m(0),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -645,8 +635,16 @@ var render = function() {
                                 { staticClass: "border border-gray-300" },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "flex items-center" },
+                                    "router-link",
+                                    {
+                                      staticClass: "block flex items-center",
+                                      attrs: {
+                                        to: {
+                                          name: "decks.build",
+                                          params: { deck: deck.slug }
+                                        }
+                                      }
+                                    },
                                     [
                                       deck.hero
                                         ? _c("img", {
@@ -660,22 +658,17 @@ var render = function() {
                                         : _vm._e(),
                                       _vm._v(" "),
                                       _c(
-                                        "router-link",
+                                        "span",
                                         {
-                                          staticClass: "block px-4 py-2",
-                                          attrs: {
-                                            to: {
-                                              name: "decks.build",
-                                              params: { deck: deck.slug }
-                                            }
-                                          }
+                                          staticClass:
+                                            "block flex-grow px-4 py-2"
                                         },
                                         [_vm._v(_vm._s(deck.name))]
                                       )
-                                    ],
-                                    1
+                                    ]
                                   )
-                                ]
+                                ],
+                                1
                               ),
                               _vm._v(" "),
                               _c(
@@ -700,14 +693,14 @@ var render = function() {
                                 "td",
                                 {
                                   staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden lg:table-cell"
+                                    "border border-gray-300 hidden lg:table-cell"
                                 },
                                 [
                                   deck.parent
                                     ? _c(
                                         "router-link",
                                         {
-                                          staticClass: "block",
+                                          staticClass: "block w-full p-2 px-4",
                                           attrs: {
                                             to: {
                                               name: "decks.build",
@@ -779,13 +772,8 @@ var render = function() {
                                             "lg:hidden hover:text-gray-400",
                                           attrs: {
                                             to: {
-                                              name: "decks.test",
+                                              name: "decks.test.prepare",
                                               params: { deck: deck.slug }
-                                            }
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyDeck(deck)
                                             }
                                           }
                                         },
@@ -813,11 +801,6 @@ var render = function() {
                                             to: {
                                               name: "decks.test.prepare",
                                               params: { deck: deck.slug }
-                                            }
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyDeck(deck)
                                             }
                                           }
                                         },
@@ -937,36 +920,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-4" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "bg-green-700 rounded-lg text-white px-4 py-2 text-center"
-        },
-        [
-          _vm._v(
-            "\n                        The new deck tester is now LIVE! Available to all for the until next week for free. After then,\n                        restricted to "
-          ),
-          _c(
-            "a",
-            {
-              staticClass: "underline hover:bg-yellow-500",
-              attrs: { href: "https://patreon.com/fabdb", target: "_blank" }
-            },
-            [_vm._v("supporters of FaB DB")]
-          ),
-          _vm._v(
-            ".\n                        Available on laptop/desktop only.\n                    "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "text-base" }, [
         _c(
@@ -1071,7 +1024,7 @@ var render = function() {
         "button",
         {
           staticClass:
-            "py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer",
+            "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
           class: { "button-disabled": !_vm.enabled },
           attrs: { type: "submit", disabled: !_vm.enabled }
         },

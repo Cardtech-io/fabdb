@@ -9,7 +9,7 @@ class Format implements \JsonSerializable
 
     public function __construct(string $format)
     {
-        Assert::inArray($format, ['sealed', 'team-sealed']);
+        Assert::inArray($format, ['draft', 'sealed', 'team-sealed']);
 
         $this->format = $format;
     }

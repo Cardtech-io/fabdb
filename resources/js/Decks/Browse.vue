@@ -5,7 +5,7 @@
 
         <div class="bg-white py-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <deck-search @search-completed="refreshResults"></deck-search>
+                <deck-search @search-completed="refreshResults"/>
             </div>
         </div>
 
@@ -15,7 +15,9 @@
                     <div class="flow-root py-4">
                         <ul class="flow-root sm:-mx-4">
                             <div v-if="results.data.length" class="flex flex-wrap">
-                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"></deck-item>
+                                <div class="w-full md:w-1/3 lg:w-1/5 md:px-2" v-for="deck in results.data">
+                                    <deck-item :deck="deck" :key="deck.slug" theme="light"/>
+                                </div>
                             </div>
                             <div class="text-center py-8" v-else>
                                 There are no decks that match your search criteria.
@@ -23,7 +25,7 @@
                         </ul>
 
                         <div class="flow-root py-4" v-if="results.data.length">
-                            <paginator :results="results" @page-selected="updatePage"></paginator>
+                            <simple-paginator :results="results" @cursor-selected="updateCursor"/>
                         </div>
                     </div>
                     <div class="md:w-2/3 rounded-lg p-2 bg-blue-200 text-center text-base mx-auto">
@@ -45,9 +47,11 @@
     import Paginator from '../Components/Paginator.vue';
     import Models from "../Utilities/Models";
     import Deck from "./Deck";
+    import SimplePaginator from "../Components/SimplePaginator";
 
     export default {
         components: {
+            SimplePaginator,
             Breadcrumbs,
             DeckItem,
             DeckSearch,
@@ -89,8 +93,8 @@
                 this.results.data = Models.hydrateMany(results.data, Deck);
             },
 
-            updatePage(page) {
-                this.updateParam({ key: 'page', value: page });
+            updateCursor(cursor) {
+                this.updateParam({ key: 'cursor', value: cursor });
             }
         }
     };

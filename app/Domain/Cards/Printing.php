@@ -8,7 +8,7 @@ use FabDB\Library\Model;
 
 class Printing extends Model
 {
-    protected $fillable = ['cardId', 'sku', 'set', 'rarity', 'edition'];
+    protected $fillable = ['cardId', 'sku', 'set', 'rarity', 'edition', 'finish', 'language', 'name', 'text', 'flavour'];
 
     protected $casts = [
         'released_at' => 'date',
@@ -19,9 +19,12 @@ class Printing extends Model
 
     public $timestamps = false;
 
-    public static function register(int $cardId, Sku $sku, $set, Rarity $rarity, Edition $edition)
+    public static function register(int $cardId, Sku $sku, $set, Rarity $rarity, Edition $edition, string $finish, string $language, string $name, $text, $flavour)
     {
-        return static::updateOrCreate(['sku' => $sku], compact('cardId','set', 'rarity', 'edition'));
+        $text = (string) $text;
+        $flavour = (string) $flavour;
+
+        return static::updateOrCreate(['sku' => $sku], compact('cardId','set', 'rarity', 'edition', 'finish', 'language', 'name', 'text', 'flavour'));
     }
 
     public function card()

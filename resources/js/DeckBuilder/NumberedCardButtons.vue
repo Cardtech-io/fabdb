@@ -1,6 +1,6 @@
 <template>
     <div class="flex space-x-px overflow-hidden">
-        <button class="py-1" :class="classes(i)" @click="setTotal(i)" v-for="(n, i) in maxAvailable + 1">{{ i }}</button>
+        <button :class="classes(i)" @click="setTotal(i)" v-for="(n, i) in maxAvailable + 1">{{ i }}</button>
     </div>
 </template>
 

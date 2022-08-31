@@ -22,10 +22,10 @@ class HasHeroTest extends TestCase
     function test_passes_when_hero_is_present_and_card_added_is_not_a_hero()
     {
         $hero = $this->card('hero', ['type' => 'hero']);
-        $card = $this->card('hero', ['type' => 'weapon']);
+        $card = $this->card('weapon', ['type' => 'weapon']);
 
         $deck = new Deck;
-        $deck->setRelation('cards', new Cards([$hero]));
+        $deck->setRelation('hero', $hero);
 
         $validator = new HasHero($deck);
 

@@ -1,3 +1,5 @@
+import TcgPlayer from "./Components/TcgPlayer";
+
 require('./bootstrap');
 
 import Vue from 'vue';
@@ -15,6 +17,8 @@ import CardAd from "./CardDatabase/CardAd";
 import CardImage from "./CardDatabase/CardImage";
 import Icon from "./Components/Icon";
 import HeaderTitle from "./Components/HeaderTitle";
+import PreviewCard from "./CardDatabase/PreviewCard";
+import HoverCard from "./CardDatabase/HoverCard";
 import RaritySymbol from "./CardDatabase/RaritySymbol";
 import SkuFinish from "./CardDatabase/SkuFinish";
 import store from './Store/Application';
@@ -23,6 +27,8 @@ import config from './axios-config';
 
 import 'vue-datetime/dist/vue-datetime.css';
 
+import AbstractModal from 'vue-js-modal/src/components/Modal';
+
 Vue.component('breadcrumbs', Breadcrumbs);
 Vue.component('card-ad', CardAd);
 Vue.component('card-image', CardImage);
@@ -30,6 +36,10 @@ Vue.component('icon', Icon);
 Vue.component('rarity-symbol', RaritySymbol);
 Vue.component('sku-finish', SkuFinish);
 Vue.component('header-title', HeaderTitle);
+Vue.component('tcg-player', TcgPlayer);
+
+Vue.directive('hover-card', HoverCard);
+Vue.directive('preview-card', PreviewCard);
 
 Vue.use(VueAwesomeCountdown, 'vac');
 
@@ -48,7 +58,28 @@ Vue.use(VueMq, {
     }
 });
 
-Vue.use(VModal, { injectModalsContainer: true });
+Vue.use(VModal, {
+    componentName: 'abstract-modal',
+    injectModalsContainer: true
+});
+
+// This fixes the scrollable issue on iOS
+Vue.component('modal', {
+    extends: AbstractModal,
+    computed: {
+        /**
+         * Fix using "adaptive" and "scrollable" at the same time
+         */
+        autoHeight () {
+            if (this.scrollable) {
+                return 'auto';
+            }
+
+            return AbstractModal.computed.autoHeight.apply(this);
+        }
+    }
+});
+
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);

@@ -6,7 +6,6 @@ use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Content\Feature;
 use FabDB\Domain\Practise\Practise;
 use FabDB\Domain\Users\User;
-use FabDB\Domain\Voting\Vote;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Model;
 use FabDB\Library\Raiseable;
@@ -27,7 +26,12 @@ class Deck extends Model
         'use_collection' => 'boolean',
     ];
 
-    protected $hidden = ['id', 'user_id'];
+    protected $hidden = ['id', 'user_id', 'hero_id'];
+
+    public function hero()
+    {
+        return $this->belongsTo(Card::class, 'hero_id');
+    }
 
     public function user()
     {
@@ -47,11 +51,6 @@ class Deck extends Model
     public function feature()
     {
         return $this->morphOne(Feature::class, 'featureable');
-    }
-
-    public function votes()
-    {
-        return $this->morphMany(Vote::class, 'voteable');
     }
 
     public function deckCards()
@@ -76,7 +75,7 @@ class Deck extends Model
 
     public function scopeFeatured($query)
     {
-        $query->withHero();
+        $query->with(['hero']);
     }
 
     public static function add(int $userId, string $name, ?int $practiseId)
@@ -87,6 +86,23 @@ class Deck extends Model
         $deck->name = $name;
 
         $deck->raise(new DeckWasAdded($userId, $name, $practiseId));
+
+        return $deck;
+    }
+
+    public static function importTournamentDeck($details, $heroId, $format, $result)
+    {
+        $deck = self::add(0, $details->decklist, null);
+        $deck->label = 'tournament';
+        $deck->heroId = $heroId;
+        $deck->format = $format;
+        $deck->event = $details->event;
+        $deck->player = $details->player;
+        $deck->decklist = $details->decklist;
+        $deck->result = $result;
+        $deck->visibility = 'public';
+        $deck->createdAt = Carbon::createFromFormat('j M Y',  $details->date);
+        $deck->updatedAt = $deck->createdAt;
 
         return $deck;
     }
@@ -107,7 +123,7 @@ class Deck extends Model
 
     public function mainKeywords()
     {
-        $hero = $this->hero();
+        $hero = $this->hero;
         $keywords = ['generic'];
 
         if ($hero) {
@@ -127,23 +143,6 @@ class Deck extends Model
         return $this->cards->hasWeapon();
     }
 
-    public function getHeroAttribute()
-    {
-        return $this->cards->hero();
-    }
-
-    public function hero()
-    {
-        return $this->cards->hero();
-    }
-
-    public function scopeWithHero($query)
-    {
-        $query->with(['cards' => function($include) {
-            $include->whereIn('type', ['hero']);
-        }]);
-    }
-
     public function scopeWithCardCount($query)
     {
         $query->addSelect(
@@ -158,7 +157,10 @@ class Deck extends Model
 
     public function weapons()
     {
-        return $this->cards->weapons();
+        return $this->belongsToMany(Card::class, 'deck_cards')
+            ->orderBy('cards.name')
+            ->withPivot('id', 'total')
+            ->where('cards.type', 'weapon');
     }
 
     public function equipment()
@@ -219,10 +221,12 @@ class Deck extends Model
 
         $deck = new Deck;
         $deck->parentId = $this->id;
+        $deck->heroId = $this->heroId;
         $deck->name = $name;
         $deck->notes = $this->notes;
         $deck->userId = $userId;
         $deck->format = $this->format;
+        $deck->visibility = 'private';
 
         $deck->raise(new DeckWasCopied($this->id, $userId));
 

@@ -15,8 +15,8 @@
                             </div>
 
                             <div class="flex-auto">
-                                <label class="block font-serif uppercase tracking-wide mb-1">Avatar</label>
-                                <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto">
+                                <label class="block font-serif uppercase tracking-wide mb-1">Avatar (Patrons only)</label>
+                                <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" :disabled="!subscribed">
                                     <option value="bauble">Bauble</option>
                                     <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name }}</option>
                                 </select>
@@ -62,14 +62,6 @@
 
                         <h2 class="font-serif text-xl uppercase mt-8 mb-4">Interface</h2>
 
-                        <div class="w-full mt-4 mb-4">
-                            <label class="block font-serif uppercase tracking-wide mb-1">Width</label>
-                            <select v-model="width" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                                <option value="narrow">Narrow</option>
-                                <option value="wide">Wide</option>
-                            </select>
-                        </div>
-
                         <div class="w-full mt-4">
                             <label class="block font-serif uppercase tracking-wide mb-1">Theme</label>
                             <select v-model="theme" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" required="required">
@@ -77,8 +69,10 @@
                                 <option value="aria">Aria</option>
                                 <option value="demonastery">Demonastery</option>
                                 <option value="library">Library</option>
+                                <option value="monarch">Monarch</option>
                                 <option value="skies">Skies</option>
                                 <option value="savage-lands">Savage Lands</option>
+                                <option value="tales">Tales of Aria</option>
                                 <option value="the-pits">The Pits</option>
                                 <option value="battle">Battle at the Peak (Patreon supporters only)</option>
                             </select>
@@ -160,7 +154,7 @@
         components: { Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },
 
         computed: {
-            ...mapGetters('session', ['user']),
+            ...mapGetters('session', ['user', 'subscribed']),
 
             email: {
                 get() {

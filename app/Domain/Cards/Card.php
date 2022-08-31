@@ -4,11 +4,10 @@ namespace FabDB\Domain\Cards;
 use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Domain\Comments\Comment;
 use FabDB\Domain\Stores\Listing;
-use FabDB\Domain\Stores\Store;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
 use FabDB\Library\Casts\CastsRarity;
-use FabDB\Library\Casts\CastsSet;
+use FabDB\Library\Casts\CastsStats;
 use FabDB\Library\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +21,8 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
-        'stats' => 'array',
+        'legality' => 'array',
+        'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,
     ];
@@ -43,6 +43,11 @@ class Card extends Model
         return $this->belongsTo(Artist::class);
     }
 
+    public function translations()
+    {
+        return $this->hasMany(Translation::class);
+    }
+
     public function ownedCards()
     {
         return $this->hasMany(OwnedCard::class);
@@ -50,7 +55,7 @@ class Card extends Model
 
     public function printings()
     {
-        return $this->hasMany(Printing::class, 'card_id', 'id');
+        return $this->hasMany(Printing::class);
     }
 
     public function variants()
@@ -75,11 +80,6 @@ class Card extends Model
                 $join->on('stores.id', '=', 'listings.store_id');
                 $join->whereNull('stores.deleted_at');
             });
-    }
-
-    public function getBannedAttribute()
-    {
-        return in_array($this->identifier, config('game.cards.banned'));
     }
 
     public function rulings()
@@ -162,18 +162,20 @@ class Card extends Model
 
     public function hasEssence()
     {
-        return (bool) preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text);
+        return (bool) preg_match('/essence of ([a-z]+)/i', $this->text);
     }
 
     public function talents()
     {
-        preg_match('/essence of ([a-z]+) and ([a-z]+)/i', $this->text, $matches);
+        $paragraphs = explode("\n", $this->text);
+        $parts = preg_split('/[^\w]/', strtolower($paragraphs[0]));
+        $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
 
-        if ($matches) {
-            array_shift($matches);
+        if ($this->talent) {
+            array_unshift($matches, $this->talent);
         }
 
-        return array_filter(Arr::flatten([$this->talent, array_map(fn($match) => strtolower($match), $matches)]));
+        return array_unique($matches);
     }
 
     public function is1hWeapon()
@@ -201,5 +203,14 @@ class Card extends Model
     public function isToken()
     {
         return in_array('token', $this->keywords);
+    }
+
+    public function getLegalityAttribute($value)
+    {
+        if (is_null($value)) {
+            $value = [];
+        }
+        
+        return $value;
     }
 }

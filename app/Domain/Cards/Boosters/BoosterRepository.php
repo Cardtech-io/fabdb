@@ -54,4 +54,6 @@ interface BoosterRepository
      * @return mixed
      */
     public function useSet(Set $set);
+
+    public function getRandomTalentCommons(string $class, int $num);
 }

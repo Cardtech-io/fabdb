@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-200 pb-8 text-base">
+        <div class="bg-gray-200 pb-8 text-sm sm:text-base">
             <div class="container sm:mx-auto">
                 <div v-if="results && results.data" class="sm:px-4">
                     <div class="mx-auto py-4">
@@ -49,7 +49,7 @@
                                 </td>
                                 <td class="hidden md:table-cell w-1/10">Set/Release</td>
                                 <td class="hidden sm:table-cell w-1/20">
-                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"></sorter>
+                                    <sorter field="rarity" text="Rarity" :order="search.order" :direction="search.direction" :clicked="sort" class="justify-center"/>
                                 </td>
                                 <td class="w-1/4 md:w-1/10 text-center">Total</td>
                                 <td class="w-1/10 md:w-1/20 text-center">Trade</td>

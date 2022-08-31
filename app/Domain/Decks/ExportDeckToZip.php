@@ -97,8 +97,8 @@ class ExportDeckToZip
         $text = [
             $deck->name,
             '',
-            'Class: '.ucfirst($deck->hero()->keywords[0]),
-            'Hero: '.$deck->hero()->name,
+            'Class: '.ucfirst($deck->hero->class),
+            'Hero: '.$deck->hero->name,
             'Weapons: '.$weapons,
             'Equipment: '.$equipment,
             ''
@@ -126,7 +126,7 @@ class ExportDeckToZip
     {
         $csv = [
             'Card name|Pitch|Total',
-            implode('|', [object_get($deck->hero(), 'name'), null, 1]),
+            implode('|', [object_get($deck->hero, 'name'), null, 1]),
             implode('|', [object_get($deck->weapon(), 'name'), null, object_get($deck->weapon(), 'total')])
         ];
 

@@ -1,33 +1,32 @@
 <template>
-    <div class="md:px-2 w-full lg:w-1/2 my-2 text-sm">
-        <div class="rounded-full overflow-hidden">
-            <router-link :to="{ name: route, params: { deck: deck.slug } }" class="block flex items-center" :class="themeClasses()">
+    <div class="my-2 text-sm">
+        <div class="rounded-lg overflow-hidden">
+            <router-link :to="{ name: route, params: { deck: deck.slug } }" class="block" :class="themeClasses()">
                 <div class="relative flex-none">
-                    <hero-avatar :hero="deck.hero" :name="deck.name" class="block sm:hidden" :width="80"></hero-avatar>
-                    <hero-avatar :hero="deck.hero" :name="deck.name" class="hidden sm:block" :width="80"></hero-avatar>
-                    <div class="absolute bottom-0 left-0 ml-2 mb-2" v-if="deck.notes">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-white" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="h-140 md:h-200" :style="{background: 'radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url('+heroProfile(deck.hero, 250)+') top center', backgroundSize: 'cover'}"></div>
+                    <div class="absolute top-0 w-full p-2">
+                        <h3 class="text-white font-serif uppercase text-lg md:text-xl overflow-hidden" style="max-height: 30px">{{ deck.name }}</h3>
+                        <div class="text-xs space-y-1">
+                            <div><deck-label :label="deck.label" class="text-xs px-2 rounded-full"/></div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 mt-2 mr-2" v-if="deck.notes" title="Deck has notes for play.">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 sm:h-8 sm:w-8 text-white" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                     </div>
-                </div>
-                <div class="flex-auto ml-4">
-                    <h2 class="font-serif uppercase text-lg md:text-2xl overflow-hidden md:mb-1" style="max-height: 30px">{{ deck.name }}</h2>
-                    <div>
-                        <span class="font-italic text-blue-600 mb-1" v-if="deck.totalPrice">${{ deck.totalPrice }}</span>
-                        <span class="md:hidden italic">({{ deck.totalCards }} cards)</span>
-                    </div>
-                    <div class="inline-block flex">
-                        <div class="space-x-1 mr-2">
-                            <format-label :format="deck.format" class="text-xs rounded-full px-2 sm:py-1"></format-label>
-                            <deck-label :label="deck.label" class="text-xs px-2 sm:py-1 rounded-full"></deck-label>
+                    <div class="flex absolute bottom-0 w-full justify-between p-2">
+                        <div v-if="deck.weapons.count()" class="flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1">
+                            <img :src="squareThumbUrl(weapon.image, 55)" v-for="weapon in deck.weapons.all()" width="40" height="40" class="rounded">
                         </div>
-                        <span>by {{deck.authorName}}</span>
+                        <div class="font-serif text-4xl text-white pr-1">{{ deck.totalCards }}</div>
                     </div>
                 </div>
-                <div class="flex-none mx-10 font-serif text-center hidden md:block">
-                    <div class="text-4xl">{{ deck.totalCards }}</div>
-                    <div class="text-gray-500 ml-1">cards</div>
+                <div class="p-2 space-y-2">
+                    <div class="flex justify-between">
+                        <div>by {{deck.authorName}}</div>
+                        <div>{{ deck.updatedAt }}</div>
+                    </div>
                 </div>
             </router-link>
         </div>

@@ -14,9 +14,21 @@
         },
 
         data() {
+            let colours = {
+                'draft': 'bg-purple-500',
+                'sealed': 'bg-blue-500',
+                'team-sealed': 'bg-green-500',
+            };
+
+            let formats = {
+                'draft': 'Draft',
+                'sealed': 'Solo',
+                'team-sealed': 'Team',
+            };
+
             return {
-                colour: this.format === 'sealed' ? 'bg-blue-500' : 'bg-green-500',
-                text: this.format === 'sealed' ? 'Solo' : 'Team',
+                colour: colours[this.format],
+                text: formats[this.format],
             }
         }
     }

@@ -22,9 +22,12 @@ class Finish
         ''   => 'regular',
         'ap' => 'artist proof',
         'aa' => 'alternate art',
+        'back' => 'Back',
+        'mvback' => 'Marvel back',
         'cf' => 'cold',
         'ea' => 'extended',
         'gf' => 'gold',
+        'mv' => 'marvel',
         'rf' => 'rainbow',
     ];
 

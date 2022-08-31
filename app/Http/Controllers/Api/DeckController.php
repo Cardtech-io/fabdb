@@ -3,6 +3,8 @@ namespace FabDB\Http\Controllers\Api;
 
 use FabDB\Domain\Decks\Deck;
 use FabDB\Http\Resources\OscResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DeckController extends \FabDB\Http\Controllers\DeckController
 {
@@ -12,5 +14,21 @@ class DeckController extends \FabDB\Http\Controllers\DeckController
         $deck->load('sideboard', 'sideboard', 'sideboard.printings');
 
         return new OscResource($deck);
+    }
+
+    public function tekloSync(Request $request)
+    {
+        $query = Deck::select('id', 'slug', 'name', 'format', 'label', 'created_at', 'updated_at')
+            ->with(['cards' => function($query) {
+                $query->select(DB::raw('cards.id AS card_id'), 'name', 'image', 'class', 'talent', 'type', 'sub_type');
+            }, 'sideboard' => function($query) {
+                $query->select(DB::raw('cards.id AS card_id'));
+            }]);
+
+        if ($request->has('from')) {
+            $query->where('decks.updated_at', '>=', $request->get('from'));
+        }
+
+        return $query->simplePaginate($request->get('per_page', 50));
     }
 }

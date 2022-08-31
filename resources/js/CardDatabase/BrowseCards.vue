@@ -4,21 +4,21 @@
 
         <div class="crumbs font-serif uppercase">
             <div class="container sm:mx-auto px-4 flex">
-                <ul class="flex">
-                    <li class="mr-8 border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
+                <ul class="flex space-x-4 md:space-x-8">
+                    <li class="border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
                         <a href="" class="block text-center py-4" @click.prevent="switchSet(set.id)">
-                            <span class="md:hidden">{{set.id}}</span>
+                            <span class="md:hidden">{{set.id ? set.id : 'All'}}</span>
                             <span class="hidden md:inline">{{set.name}}</span>
                         </a>
                     </li>
                 </ul>
-                <collapser></collapser>
+                <collapser/>
             </div>
         </div>
 
         <div class="bg-white pt-4 border-b-4 border-gray-300">
             <div class="container sm:mx-auto md:px-4">
-                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page }"></card-search>
+                <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page, order: order }"/>
             </div>
         </div>
 
@@ -27,15 +27,20 @@
                 <div v-if="firstLoad">
                     <ul class="flow-root -mx-2 pt-16">
                         <li class="float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6" v-for="n in 30">
-                            <card-loader></card-loader>
+                            <card-loader/>
                         </li>
                     </ul>
                 </div>
                 <div v-else>
                     <div v-if="results && results.data">
                         <div class="flow-root">
-                            <div class="flow-root py-4">
-                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                            <div class="py-4">
+                                <div class="flex justify-between">
+                                    <div class="flex-grow">
+                                        <paginator :results="results" @page-selected="updatePage"/>
+                                    </div>
+                                    <ordering @order-changed="updateOrder"/>
+                                </div>
                             </div>
 
                             <ul class="flow-root -mx-2">
@@ -43,13 +48,11 @@
                             </ul>
 
                             <div class="py-4">
-                                <paginator :results="results" @page-selected="updatePage"></paginator>
+                                <paginator :results="results" @page-selected="updatePage"/>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <search-tips></search-tips>
             </div>
         </div>
     </div>
@@ -63,9 +66,9 @@
     import CardSearch from './CardSearch.vue';
     import Collapser from "../Components/Collapser";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import Ordering from "./Ordering";
     import Paginator from '../Components/Paginator.vue';
     import Query from "../Utilities/Query";
-    import SearchTips from './SearchTips.vue';
 
     export default {
         components: {
@@ -74,8 +77,8 @@
             CardSearch,
             Collapser,
             HeaderTitle,
-            Paginator,
-            SearchTips
+            Ordering,
+            Paginator
         },
 
         mixins: [Query],
@@ -89,11 +92,12 @@
         data() {
             return {
                 firstLoad: true,
+                order: 'sku',
                 page: Number(this.$route.query.page) || 1,
-                per_page: 20,
+                per_page: 30,
                 results: {},
                 sets: this.filterSets(),
-                set: this.$route.query.set,
+                set: this.$route.query.set || '',
                 view: 'gallery'
             }
         },
@@ -118,6 +122,10 @@
             refreshResults(results) {
                 this.results = results;
                 this.firstLoad = false;
+            },
+
+            updateOrder(order) {
+                this.updateQuery({page: 1, order});
             },
 
             filterSets() {

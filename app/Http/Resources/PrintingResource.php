@@ -10,7 +10,7 @@ class PrintingResource extends JsonResource
 
     public function toArray($request)
     {
-        $response = Arr::only($this->resource->toArray(), ['id', 'sku', 'set', 'edition', 'rarity', 'total', 'trade', 'want']);
+        $response = Arr::only($this->resource->toArray(), ['id', 'sku', 'set', 'language', 'edition', 'finish', 'rarity', 'name', 'flavour', 'text', 'total', 'trade', 'want']);
 
         if (Arr::has($response, 'total')) {
             $response['total'] = (int) $response['total'];

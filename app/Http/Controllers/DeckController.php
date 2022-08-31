@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http\Controllers;
 
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
@@ -22,7 +23,6 @@ use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
 use FabDB\Http\Resources\DeckResource;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 
 class DeckController extends Controller

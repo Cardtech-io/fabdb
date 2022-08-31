@@ -11,6 +11,7 @@
 |
 */
 
+use FabDB\Domain\Cards\CardRepository;
 use Illuminate\Http\Request;
 
 Route::get('sitemap', 'SitemapController@view');
@@ -34,8 +35,10 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
         Route::get('cards/for-packs', 'CardController@forPacks');
+        Route::post('cards/{identifier}/corrections', 'CardController@suggestCorrection');
         Route::get('cards/{identifier}', 'CardController@view');
         Route::get('packs/generate', 'CardController@generatePack');
+
 
         Route::get('export/{deck}/tts-images', 'ExportController@ttsImages');
         Route::post('export/{deck}.pdf', 'ExportController@pdf')->name('export.pdf');
@@ -122,7 +125,7 @@ Route::middleware(['web'])->group(function() {
     })->name('decks.embed');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
-    Route::fallback(function(Request $request) {
+    Route::fallback(function(Request $request, CardRepository $cards) {
         function pathMatches(string $path) {
             foreach (config('spa.client') as $pattern) {
                 $pattern = str_replace('/', '\/', $pattern);
@@ -137,6 +140,13 @@ Route::middleware(['web'])->group(function() {
 
         if (!$request->wantsJson() && pathMatches($request->path())) {
             return response()->view('layout');
+        }
+
+        // next, we look to see if we can find a card that matches the query
+        $cards = $cards->findAny($request->path());
+        
+        if ($cards->count()) {
+            return redirect('cards/'.$cards[0]->identifier->raw());
         }
 
         abort(404);

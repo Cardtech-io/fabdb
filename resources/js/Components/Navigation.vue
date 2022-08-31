@@ -2,9 +2,9 @@
     <div class="bg-hardly-black backdrop-blur-2 z-25">
         <header class="block relative sm:flex container sm:mx-auto items-center sm:px-4 z-25" v-if="show">
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
-                <div class="relative overflow-visible logo ml-4 sm:ml-0 py-1">
+                <div class="relative overflow-visible ml-4 sm:ml-0 py-1">
                     <router-link to="/">
-                        <img src="/img/fabdb-logo.png" width="90" height="38">
+                        <img src="/img/fabdb-symbol.png" width="35" height="42">
                     </router-link>
                 </div>
                 <button type="button" class="block text-white sm:hidden mr-4" @click="toggle">
@@ -47,7 +47,6 @@
 
                     { text: 'Cards', children: [
                         { link: '/cards/browse', text: 'Browse' },
-                        { link: '/cards/prices', text: 'Price list' },
                         { link: '/cards/fabled', text: 'Fabled cards' },
                     ]},
 

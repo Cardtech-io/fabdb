@@ -27,8 +27,17 @@ __webpack_require__.r(__webpack_exports__);
     name: {
       type: String
     },
+    rounded: {
+      type: Boolean,
+      "default": true
+    },
     width: {
       "default": 100
+    }
+  },
+  methods: {
+    classes: function classes() {
+      return this.rounded ? 'rounded-full' : '';
     }
   }
 });
@@ -50,7 +59,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
 /* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Deck */ "./resources/js/Decks/Deck.js");
-//
 //
 //
 //
@@ -153,16 +161,26 @@ __webpack_require__.r(__webpack_exports__);
           return 'bg-yellow-500 text-black';
 
         case 'casual':
-          return 'bg-blue-300 text-black';
+          return 'bg-green-300 text-black';
 
         case 'competitive':
-          return 'bg-gray-800 text-white';
+          return 'bg-blue-800 text-white';
+
+        case 'pauper':
+          return 'bg-red-700 text-white';
+
+        case 'tournament':
+          return 'bg-black text-white';
 
         case 'meme':
           return 'bg-pink-600 text-white';
       }
     },
     name: function name() {
+      if (this.label === 'tournament') {
+        return 'Tournament';
+      }
+
       return this.$settings.game.decks.labels[this.label];
     }
   }
@@ -196,8 +214,11 @@ __webpack_require__.r(__webpack_exports__);
         case 'blitz':
           return 'bg-orange-500 text-white';
 
+        case 'commoner':
+          return 'bg-green-600 text-white';
+
         case 'constructed':
-          return 'bg-blue-400 text-white';
+          return 'bg-blue-500 text-white';
 
         case 'open':
           return 'bg-gray-500 text-white';
@@ -228,7 +249,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.hero
     ? _c("img", {
-        staticClass: "rounded-full",
+        class: _vm.classes(),
         attrs: {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,
@@ -260,42 +281,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "md:px-2 w-full lg:w-1/2 my-2 text-sm" }, [
-    _c(
-      "div",
-      { staticClass: "rounded-full overflow-hidden" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "block flex items-center",
-            class: _vm.themeClasses(),
-            attrs: { to: { name: _vm.route, params: { deck: _vm.deck.slug } } }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "relative flex-none" },
-              [
-                _c("hero-avatar", {
-                  staticClass: "block sm:hidden",
-                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
+  return _c(
+    "div",
+    { staticClass: "md:px-2 w-full md:w-1/3 lg:w-1/5 my-2 text-sm" },
+    [
+      _c(
+        "div",
+        { staticClass: "rounded-lg overflow-hidden" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "block",
+              class: _vm.themeClasses(),
+              attrs: {
+                to: { name: _vm.route, params: { deck: _vm.deck.slug } }
+              }
+            },
+            [
+              _c("div", { staticClass: "relative flex-none" }, [
+                _c("div", {
+                  staticClass: "h-140 md:h-200",
+                  style: {
+                    background:
+                      "radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url(" +
+                      _vm.heroProfile(_vm.deck.hero, 250) +
+                      ") top center"
+                  }
                 }),
                 _vm._v(" "),
-                _c("hero-avatar", {
-                  staticClass: "hidden sm:block",
-                  attrs: { hero: _vm.deck.hero, name: _vm.deck.name, width: 80 }
-                }),
+                _c("div", { staticClass: "absolute top-0 w-full p-2" }, [
+                  _c(
+                    "h3",
+                    {
+                      staticClass:
+                        "text-white font-serif uppercase text-lg md:text-xl overflow-hidden",
+                      staticStyle: { "max-height": "30px" }
+                    },
+                    [_vm._v(_vm._s(_vm.deck.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-xs space-y-1" }, [
+                    _c(
+                      "div",
+                      [
+                        _c("deck-label", {
+                          staticClass: "text-xs px-2 rounded-full",
+                          attrs: { label: _vm.deck.label }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
                 _vm.deck.notes
                   ? _c(
                       "div",
-                      { staticClass: "absolute bottom-0 left-0 ml-2 mb-2" },
+                      {
+                        staticClass: "absolute top-0 right-0 mt-2 mr-2",
+                        attrs: { title: "Deck has notes for play." }
+                      },
                       [
                         _c(
                           "svg",
                           {
-                            staticClass: "h-6 w-6 sm:h-8 sm:w-8 text-white",
+                            staticClass: "h-8 w-8 sm:h-8 sm:w-8 text-white",
                             attrs: {
                               xmlns: "http://www.w3.org/2000/svg",
                               viewBox: "0 0 24 24",
@@ -316,80 +367,59 @@ var render = function() {
                         )
                       ]
                     )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex-auto ml-4" }, [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "font-serif uppercase text-lg md:text-2xl overflow-hidden md:mb-1",
-                  staticStyle: { "max-height": "30px" }
-                },
-                [_vm._v(_vm._s(_vm.deck.name))]
-              ),
-              _vm._v(" "),
-              _c("div", [
-                _vm.deck.totalPrice
-                  ? _c(
-                      "span",
-                      { staticClass: "font-italic text-blue-600 mb-1" },
-                      [_vm._v("$" + _vm._s(_vm.deck.totalPrice))]
-                    )
                   : _vm._e(),
                 _vm._v(" "),
-                _c("span", { staticClass: "md:hidden italic" }, [
-                  _vm._v("(" + _vm._s(_vm.deck.totalCards) + " cards)")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "inline-block flex" }, [
                 _c(
                   "div",
-                  { staticClass: "space-x-1 mr-2" },
+                  {
+                    staticClass:
+                      "flex absolute bottom-0 w-full justify-between p-2"
+                  },
                   [
-                    _c("format-label", {
-                      staticClass: "text-xs rounded-full px-2 sm:py-1",
-                      attrs: { format: _vm.deck.format }
-                    }),
+                    _vm.deck.weapons.count()
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1"
+                          },
+                          _vm._l(_vm.deck.weapons.all(), function(weapon) {
+                            return _c("img", {
+                              staticClass: "rounded",
+                              attrs: {
+                                src: _vm.squareThumbUrl(weapon.image, 55),
+                                width: "40",
+                                height: "40"
+                              }
+                            })
+                          }),
+                          0
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
-                    _c("deck-label", {
-                      staticClass: "text-xs px-2 sm:py-1 rounded-full",
-                      attrs: { label: _vm.deck.label }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v("by " + _vm._s(_vm.deck.authorName))])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex-none mx-10 font-serif text-center hidden md:block"
-              },
-              [
-                _c("div", { staticClass: "text-4xl" }, [
-                  _vm._v(_vm._s(_vm.deck.totalCards))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-gray-500 ml-1" }, [
-                  _vm._v("cards")
+                    _c(
+                      "div",
+                      { staticClass: "font-serif text-4xl text-white pr-1" },
+                      [_vm._v(_vm._s(_vm.deck.totalCards))]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-2 space-y-2" }, [
+                _c("div", { staticClass: "flex justify-between" }, [
+                  _c("div", [_vm._v("by " + _vm._s(_vm.deck.authorName))]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s(_vm.deck.updatedAt))])
                 ])
-              ]
-            )
-          ]
-        )
-      ],
-      1
-    )
-  ])
+              ])
+            ]
+          )
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

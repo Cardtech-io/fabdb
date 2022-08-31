@@ -15,12 +15,20 @@ class Card {
         return this.fields.class;
     }
 
+    get sku() {
+        return this.fields.sku;
+    }
+
     get stats() {
         return this.fields.stats;
     }
 
     get keywords() {
         return this.fields.keywords;
+    }
+
+    get total() {
+        return this.fields.total;
     }
 
     avatar() {

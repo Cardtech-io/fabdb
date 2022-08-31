@@ -46,6 +46,37 @@ function remove(card, cards, bin) {
     }
 };
 
+function setTotal(card, cards, total) {
+    let existing = find(card, cards);
+
+    // If it exists, manage it
+    if (existing) {
+        if (total) {
+            existing.total = total;
+        } else {
+            remove(card, cards, true);
+        }
+    }
+    else if (total) {
+        existing = add(card, cards);
+        existing.total = total;
+    }
+}
+
+function setMaxTotal(card, cards, max) {
+    let existing = find(card, cards);
+
+    // If it exists, ensure it doesn't eclipse the max
+    if (existing) {
+        if (max && existing.total > max) {
+            existing.total = max;
+        }
+        else if (max === 0) {
+            remove(card, cards, true);
+        }
+    }
+}
+
 // the following matrix dictates the floor and ceiling
 // of the zoom level based on whether or not fullscreen
 // is enabled, and whether or not the mode is set to all.
@@ -161,19 +192,8 @@ export default {
         },
 
         setCardTotal(state, { card, total }) {
-            let existing = find(card, state.cards);
-
-            // If it exists, manage it
-            if (existing) {
-                if (total) {
-                    existing.total = total;
-                } else {
-                    remove(card, state.cards, true);
-                }
-            } else if (total) {
-                existing = add(card, state.cards);
-                existing.total = total;
-            }
+            setTotal(card, state.cards, total);
+            setMaxTotal(card, state.sideboard, total);
         },
 
         setDeck(state, { deck }) {

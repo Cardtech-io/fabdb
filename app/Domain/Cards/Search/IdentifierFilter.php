@@ -11,7 +11,7 @@ class IdentifierFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return Arr::get($input, 'keywords') && $this->matchesIdentifier($input['keywords']);
+        return (Arr::get($input, 'keywords') && $this->matchesIdentifier($input['keywords'])) || Arr::get($input, 'skus');
     }
 
     public function applyTo(Builder $query, array $input)
@@ -24,6 +24,15 @@ class IdentifierFilter implements SearchFilter
                 $query->orWhere('printings.sku', 'LIKE', '%'.$identifier.'%');
             }
         });
+
+        if ($skus = Arr::get($input, 'skus')) {
+            $skus = explode(',', $skus);
+            $query->orWhere(function($query) use ($skus) {
+                foreach ($skus as $sku) {
+                    $query->orWhere('printings.sku', 'LIKE', '%' . $sku . '%');
+                }
+            });
+        }
     }
 
     private function identifiers($keywords)

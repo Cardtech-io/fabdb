@@ -3,10 +3,6 @@ import Carding from "../Utilities/Carding";
 export default {
     computed: {
         maxAvailable() {
-            if (!isNaN(this.card.available)) {
-                return this.card.available;
-            }
-
             if (this.card.keywords.includes('hero')) {
                 return 1;
             }
@@ -23,10 +19,10 @@ export default {
                 return 1;
             }
 
-            let limits = {blitz: 2, constructed: 3, open: 100};
+            let limits = {blitz: 2, commoner: 2, constructed: 3, open: 7};
             let available = limits[this.deck.format];
 
-            if (this.deck.useCollection && this.card.ownedTotal < available) {
+            if (this.deck.limitToCollection === 1 && this.card.ownedTotal < available) {
                 available = this.card.ownedTotal;
             }
 
@@ -52,7 +48,7 @@ export default {
 
             let code = 'FABDB';
 
-            return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium='+code+'&utm_source=FABDB&c='+cards;
+            return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium='+code+'&utm_source=cardtech&c='+cards;
         }
     }
 };

@@ -36,14 +36,6 @@
 
             <div class="bg-gray-200 p-4 sm:p-0">
                 <div v-if="user">
-                    <div class="p-4">
-                        <div class="bg-green-700 rounded-lg text-white px-4 py-2 text-center">
-                            The new deck tester is now LIVE! Available to all for the until next week for free. After then,
-                            restricted to <a href="https://patreon.com/fabdb" class="underline hover:bg-yellow-500" target="_blank">supporters of FaB DB</a>.
-                            Available on laptop/desktop only.
-                        </div>
-                    </div>
-
                     <table class="w-full table-auto border-collapse bg-white">
                         <thead>
                             <tr class="text-base">
@@ -59,28 +51,28 @@
                         <tbody>
                             <tr class="odd:bg-gray-100 group hover:bg-gray-600 hover:text-white" v-for="(deck, key) in decks">
                                 <td class="border border-gray-300">
-                                    <div class="flex items-center">
-                                        <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero">
-                                        <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block px-4 py-2">{{deck.name}}</router-link>
-                                    </div>
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block flex items-center">
+                                        <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero"/>
+                                        <span class="block flex-grow px-4 py-2">{{deck.name}}</span>
+                                    </router-link>
                                 </td>
                                 <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
                                     <deck-label :label="deck.label" v-if="deck.label" class="text-xs rounded-full p-1 px-2"/>
                                 </td>
-                                <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
-                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block" v-if="deck.parent">{{deck.parent.name}}</router-link>
+                                <td class="border border-gray-300 hidden lg:table-cell">
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block w-full p-2 px-4" v-if="deck.parent">{{deck.parent.name}}</router-link>
                                 </td>
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
                                 <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
                                 <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
                                 <td class="border border-gray-300 p-2 px-4">
                                     <div class="flex space-x-4 justify-center items-center">
-                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="lg:hidden hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="lg:hidden hover:text-gray-400">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
-                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" @click="copyDeck(deck)" class="hidden lg:inline hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>

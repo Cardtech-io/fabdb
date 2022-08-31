@@ -5,13 +5,16 @@
 
         <div :class="fullScreenClasses">
             <div class="bg-white">
-                <div class="flex p-4 w-full" :class="containers">
+                <div class="flex p-4 w-full items-center" :class="containers">
                     <div class="flex rounded-lg overflow-hidden text-sm xl:text-base mr-2">
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('packs')" :class="classes('packs')">Packs</button>
                         <button type="button" class="flex-grow block px-4 py-3"  @click="setMode('cards')" :class="classes('cards')" :disabled="!opened">Cards</button>
                     </div>
 
-                    <add-deck label="Craft deck" :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="craftable"></add-deck>
+                    <add-deck :name="'Sealed practise'" :params="{practise: practise.slug}" :enabled="craftable">
+                        Craft deck
+                    </add-deck>
+
                     <filter-selector class="mx-2" v-if="mode === 'cards'"></filter-selector>
                     <grouping-selector v-if="mode === 'cards'" class="hidden xl:block" :grouping="grouping" @selected="updateGrouping" :options="{'none': 'None', 'class': 'Class', talent: 'Talent'}"></grouping-selector>
                     <fullscreen :full-screen="fullScreen" :toggle="toggleFullScreen" class="ml-auto" v-if="mode === 'cards' || fullScreen"></fullscreen>
@@ -97,10 +100,6 @@
                     'button-disabled': this.mode === view,
                     'button-secondary': this.mode !== view
                 };
-            },
-
-            craftDeck() {
-
             },
 
             setMode(mode) {

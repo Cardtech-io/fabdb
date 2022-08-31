@@ -11,21 +11,20 @@ class CardResource extends JsonResource
 
     public function toArray($request)
     {
-        $this->resource->setAppends(['banned']);
-
-        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'banned', 'next', 'prev', 'available', 'class', 'type', 'subType', 'talent']);
+        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'legality', 'next', 'prev', 'available', 'class', 'type', 'subType', 'talent']);
 
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
         }
 
+        $response['buyLink'] = $this->buyLink();
         $response['image'] = $this->alteredImage($this->resource->image, $request);
 
-        if (object_get($this->resource, 'totalOwned')) {
-            $response['totalOwned'] = (int) $this->resource->totalOwned;
+        if (isset($this->resource->ownedTotal)) {
+            $response['ownedTotal'] = (int) $this->resource->ownedTotal;
         }
 
-        $response['totalSideboard'] = object_get($this, 'resource.totalSideboard', 0);
+        $response['sideboardTotal'] = object_get($this, 'resource.sideboardTotal', 0);
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['artist'] = new ArtistResource($this->whenLoaded('artist'));
@@ -48,5 +47,10 @@ class CardResource extends JsonResource
                 });
             }
         }
+    }
+
+    private function buyLink()
+    {
+        return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='.$this->resource->name.'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
     }
 }

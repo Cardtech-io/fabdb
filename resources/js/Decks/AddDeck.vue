@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="addDeck()" class="block text-right">
-        <button type="submit" class="py-2 px-4 appearance-none rounded-lg p-2 button-secondary cursor-pointer" :class="{'button-disabled': !enabled}" :disabled="!enabled">
+        <button type="submit" class="py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer" :class="{'button-disabled': !enabled}" :disabled="!enabled">
             <slot></slot>
         </button>
     </form>

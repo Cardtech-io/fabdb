@@ -27,8 +27,17 @@ __webpack_require__.r(__webpack_exports__);
     name: {
       type: String
     },
+    rounded: {
+      type: Boolean,
+      "default": true
+    },
     width: {
       "default": 100
+    }
+  },
+  methods: {
+    classes: function classes() {
+      return this.rounded ? 'rounded-full' : '';
     }
   }
 });
@@ -126,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/latest?per_page=3&' + this.query).then(function (response) {
-      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__["default"].hydrateMany(response.data, _Deck__WEBPACK_IMPORTED_MODULE_5__["default"]);
+      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__["default"].hydrateMany(response.data.data, _Deck__WEBPACK_IMPORTED_MODULE_5__["default"]);
     });
   }
 });
@@ -160,16 +169,26 @@ __webpack_require__.r(__webpack_exports__);
           return 'bg-yellow-500 text-black';
 
         case 'casual':
-          return 'bg-blue-300 text-black';
+          return 'bg-green-300 text-black';
 
         case 'competitive':
-          return 'bg-gray-800 text-white';
+          return 'bg-blue-800 text-white';
+
+        case 'pauper':
+          return 'bg-red-700 text-white';
+
+        case 'tournament':
+          return 'bg-black text-white';
 
         case 'meme':
           return 'bg-pink-600 text-white';
       }
     },
     name: function name() {
+      if (this.label === 'tournament') {
+        return 'Tournament';
+      }
+
       return this.$settings.game.decks.labels[this.label];
     }
   }
@@ -203,8 +222,11 @@ __webpack_require__.r(__webpack_exports__);
         case 'blitz':
           return 'bg-orange-500 text-white';
 
+        case 'commoner':
+          return 'bg-green-600 text-white';
+
         case 'constructed':
-          return 'bg-blue-400 text-white';
+          return 'bg-blue-500 text-white';
 
         case 'open':
           return 'bg-gray-500 text-white';
@@ -235,7 +257,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.hero
     ? _c("img", {
-        staticClass: "rounded-full",
+        class: _vm.classes(),
         attrs: {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,

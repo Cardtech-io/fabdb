@@ -7,6 +7,7 @@ $user = auth()->user();
 
 if ($user) {
     $user->append('hasCollection');
+    $user->makeVisible('email');
 }
 
 $settings = compile_settings();
@@ -24,15 +25,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#4285f4">
 
-
-        <link rel="stylesheet" href="{{ fab_asset('/css/fabdb.css') }}">
-        @if ($user && $user->width == 'wide')
-        <style type="text/css">
-            .container {
-                max-width: 1800px !important;
-            }
-        </style>
-        @endif
+        <link rel="stylesheet" href="{{ fab_asset('css/fabdb.css') }}">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -70,8 +63,8 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
+        <script src="{{ fab_asset($jsFile) }}"></script>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">¡
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
-        <script src="{{ fab_asset($jsFile) }}"></script>
     </body>
 </html>

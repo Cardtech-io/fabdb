@@ -3,7 +3,9 @@ namespace FabDB\Http\Controllers;
 
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Boosters\Packs;
+use FabDB\Domain\Cards\PrintingRepository;
 use FabDB\Domain\Cards\Set;
+use FabDB\Domain\Cards\SuggestCorrection;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Http\Resources\CardResource;
 use Illuminate\Http\Request;
@@ -38,9 +40,9 @@ class CardController extends Controller
     public function fabled()
     {
         return CardResource::collection(collect([
-            $this->cards->findByIdentifier('heart-of-fyendal-blue'),
-            $this->cards->findByIdentifier('eye-of-ophidia-blue'),
-            $this->cards->findByIdentifier('arknight-shard-blue'),
+            $this->cards->findByIdentifier('heart-of-fyendal'),
+            $this->cards->findByIdentifier('eye-of-ophidia'),
+            $this->cards->findByIdentifier('arknight-shard'),
             $this->cards->findByIdentifier('great-library-of-solana'),
         ]));
     }
@@ -78,5 +80,18 @@ class CardController extends Controller
     public function forPacks(Request $request)
     {
         return CardResource::collection($this->cards->forPacks(new Set($request->get('set'))));
+    }
+
+    public function suggestCorrection(Request $request, PrintingRepository $printings)
+    {
+        $printing = $printings->findBySku($request->get('printing'));
+
+        $this->dispatchNow(new SuggestCorrection(
+            $request->user()->id,
+            $printing->id,
+            $request->get('name'),
+            $request->get('text'),
+            $request->get('comment', ''),
+        ));
     }
 }

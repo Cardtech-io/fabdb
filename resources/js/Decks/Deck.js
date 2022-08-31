@@ -22,7 +22,15 @@ export default class Deck extends Model {
     }
 
     get authorName() {
-        return this.fields.user.name || 'Anonymous';
+        if (this.fields.player) {
+            return this.fields.player;
+        }
+
+        if (this.fields.user && this.fields.user.name) {
+            return this.fields.user.name;
+        }
+
+        return 'Anonymous';
     }
 
     get user() {
@@ -42,7 +50,7 @@ export default class Deck extends Model {
     }
 
     get hero() {
-        return this.cards.hero() ? new Card(this.cards.hero()) : null;
+        return this.fields.hero ? new Card(this.fields.hero) : null;
     }
 
     get sideboard() {
@@ -50,6 +58,8 @@ export default class Deck extends Model {
     }
 
     get weapons() {
+        if (this.fields.weapons) return new Cards(this.fields.weapons);
+
         return this.cards.weapons();
     }
 
@@ -70,7 +80,7 @@ export default class Deck extends Model {
     }
 
     get totalSideboard() {
-        return this.fields.totalSideboard || 0;
+        return this.fields.sideboardTotal || 0;
     }
 
     get totalMainDeck() {

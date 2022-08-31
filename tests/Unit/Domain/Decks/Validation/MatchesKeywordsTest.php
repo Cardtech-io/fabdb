@@ -21,19 +21,19 @@ class MatchesKeywordsTest extends TestCase
     function test_card_added_matches_required_keywords()
     {
         $deck = new Deck;
-        $deck->setRelation('cards', new Cards([$this->card('hero', [
+        $deck->setRelation('hero', $this->card('hero', [
             'class' => 'guardian',
             'type' => 'hero',
-            'keywords' => ['guardian', 'hero']],
-        )]));
+            'keywords' => ['guardian', 'hero']
+        ]));
 
         $card1 = $this->card('001', ['keywords' => ['guardian', 'weapon', '1h']]);
         $card2 = $this->card('002', ['keywords' => ['ninja', 'weapon', '1h']]);
         $card3 = $this->card('003', ['keywords' => ['generic', 'weapon', '1h']]);
 
-        $validator1 = new MatchesKeywords($deck, $card1);
-        $validator2 = new MatchesKeywords($deck, $card2);
-        $validator3 = new MatchesKeywords($deck, $card3);
+        $validator1 = new MatchesKeywords($deck);
+        $validator2 = new MatchesKeywords($deck);
+        $validator3 = new MatchesKeywords($deck);
 
         $this->cards->shouldReceive('findByIdentifier')->with('WTR001')->andReturn($card1);
         $this->cards->shouldReceive('findByIdentifier')->with('WTR002')->andReturn($card2);
@@ -62,7 +62,7 @@ class MatchesKeywordsTest extends TestCase
         $hero = $this->card('Lexi', ['type' => 'hero', 'class' => 'ranger', 'text' => '**Essence of Ice and Lightning']);
 
         $deck = new Deck;
-        $deck->setRelation('cards', new Cards([$hero]));
+        $deck->setRelation('hero', $hero);
 
         $card = $this->card('weave lightning', ['keywords' => ['lightning', 'action']]);
 

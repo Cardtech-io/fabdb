@@ -14,8 +14,8 @@ export default {
 
         fromQuery(params) {
             return _.mapObject(params, (param, key) => {
-                if (['class', 'cardType', 'rarity', 'set', ';'].indexOf(key) !== -1) {
-                    return param.split(',');
+                if (['class', 'cardType', 'rarity', 'set', 'talent', ';'].indexOf(key) !== -1) {
+                    return param.split(',').filter(value => !!value);
                 }
 
                 return param;
@@ -23,7 +23,7 @@ export default {
         },
 
         updateQuery(params) {
-            let query = this.combineParams(params);
+            let query = this.buildQuery(params);
 
             this.$router.push({
                 query: query
@@ -38,14 +38,14 @@ export default {
             return JSON.parse(JSON.stringify(query))
         },
 
-        onlyParams(...args) {
+        exceptParams(...args) {
             let params = {};
             let query = this.clone(this.$route.query);
 
             for (var i in query) {
-                if (args.indexOf(i) !== -1) {
-                    params[i] = query[i];
-                }
+                if (args.indexOf(i) !== -1) continue;
+
+                params[i] = query[i];
             }
 
             return params;

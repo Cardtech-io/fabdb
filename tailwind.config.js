@@ -23,6 +23,7 @@ module.exports = {
             'md:w-1/6',
             'md:w-1/7',
             'md:w-1/8',
+            'h-14'
         ]
     },
     theme: {
@@ -52,6 +53,7 @@ module.exports = {
                 'hardly-black': 'rgba(0, 0, 0, 0.25)',
                 'semi-black': 'rgba(0, 0, 0, 0.5)',
                 'nearly-black': 'rgba(0, 0, 0, 0.85)',
+                'nearly-white': 'rgba(255, 255, 255, 0.85)'
             },
 
             colors: {
@@ -87,8 +89,17 @@ module.exports = {
                 '12': '12rem',
             },
 
+            listStyleType: {
+                none: 'none',
+                disc: 'disc',
+                decimal: 'decimal',
+                square: 'square',
+                roman: 'lower-roman',
+            },
+
             minHeight: {
                 '96': '24rem',
+                '345px': '345px',
             },
 
             textColor: {
@@ -119,6 +130,7 @@ module.exports = {
                 '1/10': '10%',
                 '140': '140px',
                 '160': '160px',
+                '200': '200px',
             },
 
             inset: {
@@ -161,6 +173,7 @@ module.exports = {
             'sm': '.125rem',
             DEFAULT: '.35rem',
             'card': '5.5% / 4.5%',
+            'deck': '9999px 9999px .5rem .5rem',
             'lg': '.5rem',
             'full': '9999px',
             'xl': '1rem',

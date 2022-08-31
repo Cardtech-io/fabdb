@@ -11,16 +11,14 @@ use Illuminate\Support\Facades\Storage;
  */
 function fab_asset(string $asset): string
 {
-    $version = fab_version();
     $pathInfo = pathinfo($asset);
+    $extension = $pathInfo['extension'];
 
-    $versionedAsset = $pathInfo['dirname'].'/'.$pathInfo['filename'].'-'.$version.'.'.$pathInfo['extension'];
-    
-    if (File::exists(public_path($versionedAsset))) {
-        return $versionedAsset;
+    if (app()->environment('production')) {
+        $extension = "min.$extension";
     }
 
-    return $asset;
+    return mix("{$pathInfo['dirname']}/{$pathInfo['filename']}.$extension");
 }
 
 /**
@@ -44,6 +42,7 @@ function compile_settings(): array
         'apiDomain' => config('api.domain'),
         'imageDomain' => config('services.imgix.domain'),
         'game' => config('game'),
+        'languages' => config('language')
     ];
 }
 

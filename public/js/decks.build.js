@@ -28,6 +28,41 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    toggle: {
+      type: Function,
+      required: true
+    },
+    fullScreen: {
+      type: Boolean,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/HeroSelector.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/HeroSelector.vue?vue&type=script&lang=js& ***!
@@ -89,6 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.deck && this.deck.practise) {
         return this.availableHeroes.filter(function (hero) {
+          console.log(hero);
           return hero.young() && hero.sku.set.id === _this.deck.practise.set.id;
         });
       }
@@ -405,11 +441,14 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     selected: {
-      type: String,
+      type: Array,
       required: true
     }
   },
   methods: {
+    isSelected: function isSelected(cardType) {
+      return this.selected.indexOf(cardType) !== -1;
+    },
     text: function text() {
       return this.type === '' ? 'All' : this.ucfirst(this.type);
     }
@@ -575,6 +614,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -606,11 +656,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     removeCardFromDeck: function removeCardFromDeck() {
       var _this2 = this;
 
+      this.removeCard({
+        card: this.card
+      });
       this.removeRemote(this.card, function () {
-        _this2.removeCard({
-          card: _this2.card
-        });
-
         _this2.$eventHub.$emit('card-selected');
       });
     }
@@ -690,11 +739,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['action', 'card', 'applySoftLimit'],
+  props: {
+    card: {
+      type: Object,
+      required: true
+    },
+    applySoftLimit: {
+      type: Boolean,
+      required: false,
+      "default": true
+    },
+    layout: {
+      type: String,
+      required: false,
+      "default": 'horizontal'
+    }
+  },
   components: {
     CardButtons: _CardButtons__WEBPACK_IMPORTED_MODULE_1__["default"],
     Colour: _Colour__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -712,12 +786,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
       return cards[0] ? cards[0].total : 0;
     }
-  }),
-  methods: {
-    setHover: function setHover(card) {
-      this.$eventHub.$emit('hover-card', card);
-    }
-  }
+  })
 });
 
 /***/ }),
@@ -764,8 +833,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _CardDatabase_AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/AdvancedCardSearch */ "./resources/js/CardDatabase/AdvancedCardSearch.vue");
+//
+//
+//
 //
 //
 //
@@ -781,11 +853,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
-      keywords: '',
+      params: {
+        keywords: ''
+      },
       searchTimeout: null
     };
   },
@@ -800,13 +874,36 @@ __webpack_require__.r(__webpack_exports__);
 
       this.reset();
       this.searchTimeout = setTimeout(function () {
-        _this.$eventHub.$emit('search-requested', _this.keywords);
+        _this.$eventHub.$emit('search-requested', _this.params);
       }, 700);
     },
     finishSearch: function finishSearch() {
       this.reset();
-      this.$eventHub.$emit('search-requested', this.keywords);
+      this.$eventHub.$emit('search-requested', this.params);
+    },
+    showAdvancedSearch: function showAdvancedSearch() {
+      this.$modal.show(_CardDatabase_AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        query: this.params
+      }, {
+        adaptive: true,
+        classes: ['rounded-lg'],
+        scrollable: true,
+        height: 'auto',
+        maxHeight: 300
+      });
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.$eventHub.$on('search-completed', function (results, params) {
+      if (!_this2.searchTimeout) {
+        _this2.params = params;
+      }
+    });
+    this.$eventHub.$on('advanced-search', function (params) {
+      _this2.$eventHub.$emit('search-requested', params);
+    });
   }
 });
 
@@ -982,11 +1079,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     mainAreaClasses: function mainAreaClasses() {
-      return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 lg:w-2/3' : 'w-full';
+      return this.mode === 'search' || this.mode === 'sideboard' ? 'w-0 md:w-2/3' : 'w-full';
     },
     sidebarClasses: function sidebarClasses() {
       return {
-        'hidden lg:block lg:w-1/3 p-4': true
+        'hidden md:block md:w-1/3 p-4 pr-0': true
       };
     },
     topAreaClasses: function topAreaClasses() {
@@ -1099,16 +1196,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1337,8 +1424,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -1685,6 +1770,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var state = {
+  x: 0,
+  previous: null
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action', 'cards', 'groupId', 'width'],
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Redrawable__WEBPACK_IMPORTED_MODULE_6__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_7__["default"]],
@@ -1695,9 +1784,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
-    cardClasses: function cardClasses() {
-      return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth;
-    },
     cardWidth: function cardWidth() {
       var widths = [3, 4, 5, 6, 7, 8];
       return widths[this.zoom];
@@ -1728,11 +1814,77 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       styles.push('top: ' + i * this.offset + '%');
       styles.push('left: 0');
       return styles.join('; ');
+    },
+    // This is rather complex. It needs to figure out exactly how many iterations of the current card we're at,
+    // to better understand whether or not the overlay should be shown. Depending purely on i means that the
+    // calculation will be wrong.
+    showOverlay: function showOverlay(card) {
+      if (!state.previous || card.identifier !== state.previous) {
+        state.x = 0;
+      } else {
+        state.x++;
+      } // For some reason, this results in a render loop.
+
+
+      state.previous = card.identifier;
+      return this.deck.limitToCollection === 2 && this.mode !== 'sideboard' && (!card.ownedTotal || card.ownedTotal < state.x + 1);
     }
   },
   watch: {
     cards: function cards() {
       this.redraw(this.groupId);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    grouping: {
+      type: String,
+      required: true
+    },
+    options: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    select: function select(grouping) {
+      this.$emit('selected', grouping);
+      this.isOpen = false;
     }
   }
 });
@@ -1965,7 +2117,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.deck.format === 'blitz' ? 53 : 81;
     },
     totalCards: function totalCards() {
-      return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards).total();
+      var total = new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.cards).total();
+
+      if (this.deck.format === 'blitz') {
+        total++;
+      }
+
+      return total;
     },
     totalSideboard: function totalSideboard() {
       return new _Cards__WEBPACK_IMPORTED_MODULE_1__["default"](this.sideboard).total();
@@ -2128,6 +2286,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2138,10 +2319,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['requiresSideboard']), {
     modes: function modes() {
       return {
-        all: 'Deck',
-        search: 'Edit',
-        sideboard: 'Sideboard',
-        details: 'Settings'
+        all: {
+          name: 'Deck',
+          icon: '<path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>'
+        },
+        search: {
+          name: 'Edit',
+          icon: '<path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />'
+        },
+        sideboard: {
+          name: 'Sideboard',
+          icon: '<path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>'
+        },
+        details: {
+          name: 'Settings',
+          icon: '<path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />'
+        }
       };
     }
   }),
@@ -2150,7 +2343,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return {
         'button-disabled': this.mode === view,
         'button-secondary': this.mode !== view,
-        'hidden lg:inline-block': view === 'sideboard'
+        'hidden md:flex': view === 'sideboard'
       };
     },
     select: function select(mode) {
@@ -2348,10 +2541,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   data: function data() {
     return {
-      cardType: '',
-      keywords: '',
       results: {},
-      page: 1
+      page: 1,
+      params: {
+        cardType: [''],
+        keywords: ''
+      }
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
@@ -2372,43 +2567,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       this.page = page;
-      var params = {
+
+      var params = _objectSpread({}, this.params, {
         deck: this.deck.slug,
-        cardType: this.cardType,
         hero: this.hero ? this.hero.identifier : '',
-        keywords: this.keywords,
         page: page
-      };
+      });
+
       axios.get('/cards/build', {
         params: params
       }).then(function (response) {
         _this2.results = response.data;
 
         _this2.$emit('search-completed');
+
+        _this2.$eventHub.$emit('search-completed', _this2.results, params);
       })["catch"](function (error) {});
     },
-    updateCardType: function updateCardType(value) {
-      if (value === 'all') {
-        value = '';
+    selectCardType: function selectCardType(cardType) {
+      if (cardType === '') {
+        this.resetCardTypes();
+        return;
       }
 
-      this.cardType = value;
-      this.search();
+      this.toggleCardType(cardType); // If none are selected, reset back to default
+
+      if (this.params.cardType.length === 0) {
+        this.resetCardTypes();
+      }
+    },
+    resetCardTypes: function resetCardTypes() {
+      this.params.cardType = [''];
+    },
+    toggleCardType: function toggleCardType(cardType) {
+      var existing = this.params.cardType.indexOf(cardType);
+
+      if (existing !== -1) {
+        this.params.cardType.splice(existing, 1);
+      } else {
+        this.params.cardType.push(cardType); // Now we remove '*'
+
+        var all = this.params.cardType.indexOf('');
+
+        if (all !== -1) {
+          this.params.cardType.splice(all, 1);
+        }
+      }
     }
   }),
   mounted: function mounted() {
     var _this3 = this;
 
-    this.$eventHub.$on('search-requested', function (keywords) {
-      _this3.keywords = keywords;
+    this.$eventHub.$on('search-requested', function (params) {
+      _this3.params = _objectSpread({}, _this3.params, {}, params);
 
       _this3.search(1);
     });
     this.search(1);
   },
   watch: {
-    cardType: function cardType(value) {
-      this.search(1);
+    "params.cardType": {
+      handler: function handler() {
+        this.search(1);
+      },
+      deep: true
     }
   }
 });
@@ -2429,8 +2651,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cards */ "./resources/js/DeckBuilder/Cards.js");
-/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
-/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Colour__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Colour */ "./resources/js/DeckBuilder/Colour.vue");
+/* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
+/* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2446,6 +2669,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2454,16 +2722,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['collection'],
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_5__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
-    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    Colour: _Colour__WEBPACK_IMPORTED_MODULE_4__["default"],
+    GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['deck', 'fullScreen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['cards', 'deck', 'fullScreen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
     sideboard: function sideboard() {
       return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['removeFromSideBoard']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['addToSideboard', 'removeFromSideBoard']), {
+    add: function add(card) {
+      if (card.total - this.sideboardCardTotal(card) <= 0) return;
+      this.addToSideboard({
+        card: card
+      });
+      this.addRemote(card);
+    },
+    addRemote: function addRemote(card) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/decks/' + this.deck.slug + '/sideboard', {
+        card: card.identifier
+      });
+    },
     remove: function remove(card) {
       this.removeFromSideBoard({
         card: card
@@ -2472,6 +2753,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeRemote: function removeRemote(card) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/decks/' + this.deck.slug + '/sideboard/' + card.identifier);
+    },
+    setHover: function setHover(card) {
+      this.$eventHub.$emit('hover-card', card);
+    },
+    sideboardCardTotal: function sideboardCardTotal(card) {
+      var sideboardCard = this.collection.filter(function (sideboardCard) {
+        return sideboardCard.identifier === card.identifier;
+      })[0];
+      return sideboardCard ? sideboardCard.total : 0;
     }
   })
 });
@@ -2489,8 +2779,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Decks_Deck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Decks/Deck */ "./resources/js/Decks/Deck.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
+/* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Shareable */ "./resources/js/Components/Shareable.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2534,34 +2827,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_2__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__["default"], _Components_Shareable__WEBPACK_IMPORTED_MODULE_6__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__["default"]],
   props: ['deck'],
   computed: {
     cards: function cards() {
       return this.deck.cards;
     },
-    shareText: function shareText() {
-      var weapons = this.weapons.map(function (weapon) {
-        return weapon.name;
-      }).join(', ');
-      var equipment = this.equipment.map(function (item) {
-        return item.name;
-      }).join(', ');
-      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name) + this.shareLine('') + this.shareLine('Class: ' + this.ucfirst(this.hero.keywords[0])) + this.shareLine('Hero: ' + this.hero.name) + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
-
-      for (var i in this.other) {
-        var card = this.other[i];
-        text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
-      }
-
-      text = text + this.shareLine('');
-      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
-      return text;
+    shareDeck: function shareDeck() {
+      return new _Decks_Deck__WEBPACK_IMPORTED_MODULE_2__["default"](this.deck);
     }
   },
   data: function data() {
@@ -2570,13 +2862,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
-    copy: function copy() {
-      this.$copyText(this.shareText);
-      this.addMessage({
-        status: 'success',
-        message: 'Deck share text copied to clipboard.'
-      });
-    },
     exportToTTS: function exportToTTS() {
       var _this = this;
 
@@ -2585,9 +2870,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.exporting = false;
         window.open('/export/' + _this.deck.slug + '/tts-json');
       });
-    },
-    shareLine: function shareLine(line) {
-      return line + '\n';
     }
   })
 });
@@ -2751,6 +3033,65 @@ var render = function() {
       }
     },
     [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      staticClass: "block link-alternate",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.toggle.apply(null, arguments)
+        }
+      }
+    },
+    [
+      _c(
+        "svg",
+        {
+          staticClass: "fill-current h-6",
+          attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+        },
+        [
+          !_vm.fullScreen
+            ? _c("path", {
+                attrs: {
+                  d:
+                    "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"
+                }
+              })
+            : _c("path", {
+                attrs: {
+                  d:
+                    "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
+                }
+              })
+        ]
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -3256,10 +3597,9 @@ var render = function() {
     "button",
     {
       staticClass: "flex-1 border-r border-gray-200 py-2 px-1 md:px-2",
-      class:
-        _vm.selected === _vm.type
-          ? "bg-gray-800 text-white"
-          : "hover:bg-secondary hover:text-white",
+      class: _vm.isSelected(_vm.type)
+        ? "bg-gray-800 text-white"
+        : "hover:bg-secondary hover:text-white",
       attrs: { title: _vm.text() }
     },
     [
@@ -3393,7 +3733,7 @@ var render = function() {
     },
     [
       _c("icon", { attrs: { size: 6 } }, [
-        _vm.action == "in"
+        _vm.action === "in"
           ? _c("path", {
               attrs: {
                 "fill-rule": "evenodd",
@@ -3437,15 +3777,23 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex overflow-hidden items-stretch space-x-px" },
+    {
+      staticClass: "flex overflow-hidden items-stretch",
+      class:
+        _vm.$parent.layout === "horizontal"
+          ? "space-x-px"
+          : "flex-col flex-col-reverse"
+    },
     [
       _c(
         "button",
         {
-          staticClass: "py-2 w-1/2 bg-white",
+          staticClass: "bg-white",
           class: {
             "hover:bg-secondary hover:text-white": _vm.total > 0,
-            "bg-gray-100 text-gray-300": _vm.total === 0
+            "bg-gray-100 text-gray-300": _vm.total === 0,
+            "w-full h-1/2": _vm.$parent.layout === "vertical",
+            "w-1/2": _vm.$parent.layout === "horizontal"
           },
           attrs: { disabled: _vm.total === 0 },
           on: { click: _vm.removeCardFromDeck }
@@ -3468,10 +3816,12 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "py-2 w-1/2 bg-white",
+          staticClass: "bg-white",
           class: {
             "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
-            "bg-gray-100 text-gray-300": _vm.total >= _vm.maxAvailable
+            "bg-gray-100 text-gray-300": _vm.total >= _vm.maxAvailable,
+            "w-full h-1/2": _vm.$parent.layout === "vertical",
+            "w-1/2": _vm.$parent.layout === "horizontal"
           },
           attrs: { disabled: _vm.total >= _vm.maxAvailable },
           on: { click: _vm.addCardToDeck }
@@ -3547,22 +3897,31 @@ var render = function() {
       class: {
         "opacity-50 text-black":
           _vm.applySoftLimit &&
-          (!_vm.card.totalOwned || _vm.card.totalOwned < _vm.total) &&
+          (!_vm.card.ownedTotal || _vm.card.ownedTotal < _vm.total) &&
           _vm.deck.limitToCollection === 2
       }
     },
     [
       _c("card-buttons", {
-        staticClass: "w-1/5",
-        class: _vm.mode === "all" ? "block sm:hidden" : "block",
+        class: {
+          "block sm:hidden": _vm.mode === "all",
+          block: _vm.mode !== "all",
+          "w-1/10": _vm.layout === "vertical",
+          "w-1/5": _vm.layout === "horizontal"
+        },
         attrs: { card: _vm.card, total: _vm.total }
       }),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "w-3/5 pl-4 p-2 ml-1px bg-white cursor-default",
-          class: _vm.mode === "all" ? "w-3/5 sm:w-4/5" : "w-3/5"
+          staticClass: "pl-4 p-2 ml-1px bg-white cursor-default",
+          class: {
+            "w-3/5 sm:w-4/5": _vm.mode === "all",
+            "w-3/5": _vm.mode !== "all",
+            "w-7/10": _vm.layout === "vertical",
+            "w-3/5": _vm.layout === "horizontal"
+          }
         },
         [
           _c(
@@ -3577,18 +3936,22 @@ var render = function() {
               _c(
                 "span",
                 {
-                  staticClass: "cursor-help whitespace-nowrap overflow-hidden",
-                  on: {
-                    mouseover: function($event) {
-                      return _vm.setHover(_vm.card)
+                  directives: [
+                    {
+                      name: "preview-card",
+                      rawName: "v-preview-card",
+                      value: { stack: [_vm.card], index: 0 },
+                      expression: "{stack: [card], index: 0}"
                     },
-                    mouseleave: function($event) {
-                      return _vm.setHover(false)
-                    },
-                    click: function($event) {
-                      return _vm.setHover(_vm.card)
+                    {
+                      name: "hover-card",
+                      rawName: "v-hover-card",
+                      value: _vm.card,
+                      expression: "card"
                     }
-                  }
+                  ],
+                  staticClass:
+                    "cursor-help help-underline whitespace-nowrap overflow-hidden"
                 },
                 [_vm._v(_vm._s(_vm.card.name))]
               )
@@ -3640,7 +4003,11 @@ var render = function() {
             _vm._l(_vm.cards, function(card) {
               return _c("card-item", {
                 key: card.identifier,
-                attrs: { card: card, "apply-soft-limit": true }
+                attrs: {
+                  card: card,
+                  "apply-soft-limit": true,
+                  layout: "vertical"
+                }
               })
             })
           ],
@@ -3658,7 +4025,11 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("card-item", {
-              attrs: { card: _vm.card, "apply-soft-limit": true }
+              attrs: {
+                card: _vm.card,
+                "apply-soft-limit": true,
+                layout: "vertical"
+              }
             })
           ],
           1
@@ -3689,19 +4060,36 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass:
+          "flex-initial bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.$modal.show("search-help")
+          }
+        }
+      },
+      [_vm._v("\n        SYNTAX HELP\n    ")]
+    ),
+    _vm._v(" "),
     _c("input", {
       directives: [
         {
           name: "model",
           rawName: "v-model",
-          value: _vm.keywords,
-          expression: "keywords"
+          value: _vm.params.keywords,
+          expression: "params.keywords"
         }
       ],
       ref: "nameSearch",
-      staticClass: "flex-1 bg-transparent outline-none py-2 px-4 text-gray-200",
-      attrs: { type: "text", placeholder: "Search" },
-      domProps: { value: _vm.keywords },
+      staticClass:
+        "flex-1 bg-transparent outline-none py-2 px-4 lg:text-gray-200",
+      attrs: { type: "text", placeholder: "Search..." },
+      domProps: { value: _vm.params.keywords },
       on: {
         keyup: [
           _vm.delayedSearch,
@@ -3719,7 +4107,7 @@ var render = function() {
           if ($event.target.composing) {
             return
           }
-          _vm.keywords = $event.target.value
+          _vm.$set(_vm.params, "keywords", $event.target.value)
         }
       }
     }),
@@ -3727,19 +4115,17 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "flex-initial mr-4 link-alternate",
-        on: {
-          click: function($event) {
-            return _vm.$modal.show("search-help")
-          }
-        }
+        staticClass: "button-primary text-xs px-2",
+        on: { click: _vm.showAdvancedSearch }
       },
       [
         _c("icon", { attrs: { size: 6 } }, [
           _c("path", {
             attrs: {
+              "fill-rule": "evenodd",
               d:
-                "M2.93 17.07A10 10 0 1117.07 2.93 10 10 0 012.93 17.07zm12.73-1.41A8 8 0 104.34 4.34a8 8 0 0011.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
+                "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
+              "clip-rule": "evenodd"
             }
           })
         ])
@@ -3825,7 +4211,7 @@ var render = function() {
                 [
                   _c(
                     "div",
-                    { staticClass: "flex-auto hidden sm:block" },
+                    { staticClass: "flex-auto" },
                     [_c("deck-totals")],
                     1
                   ),
@@ -3846,14 +4232,14 @@ var render = function() {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  _c("mode-selector", { staticClass: "w-full sm:w-auto" }),
+                  _c("mode-selector", { staticClass: "w-auto" }),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "px-2 lg:px-1 flex" },
                     [
                       _c("zoom-button", {
-                        staticClass: "hidden lg:block",
+                        staticClass: "hidden md:block",
                         attrs: {
                           zoom: _vm.zoom,
                           action: "in",
@@ -3862,7 +4248,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("zoom-button", {
-                        staticClass: "hidden lg:block",
+                        staticClass: "hidden md:block",
                         attrs: {
                           zoom: _vm.zoom,
                           action: "out",
@@ -3897,7 +4283,8 @@ var render = function() {
                     },
                     [
                       _c("card-search", {
-                        staticClass: "flex bg-gray-800 rounded-lg w-full",
+                        staticClass:
+                          "flex bg-gray-800 rounded-lg w-full overflow-hidden",
                         class: {
                           "focus:bg-white focus:border-gray-500": !_vm.fullScreen
                         }
@@ -3980,7 +4367,7 @@ var render = function() {
                   {
                     ref: "searchResults",
                     staticClass:
-                      "w-full lg:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
                   },
                   [
                     _vm.mode === "search"
@@ -4247,62 +4634,11 @@ var render = function() {
             ? _c("div", [_c("deck-settings", { attrs: { deck: _vm.deck } })], 1)
             : _vm._e(),
           _vm._v(" "),
-          _vm.tab == "export"
+          _vm.tab === "export"
             ? _c(
                 "div",
-                { staticClass: "pt-8" },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
-                      attrs: { href: "" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.copyShareURL.apply(null, arguments)
-                        }
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "float-left mr-4" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "fill-current h-20",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "h2",
-                        { staticClass: "font-serif uppercase text-xl" },
-                        [_vm._v("Link to deck")]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "text-base" }, [
-                        _vm._v(
-                          "Copies your publicly-accessible deck URL to the clipboard."
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("tts-exporter", { attrs: { deck: _vm.deck } })
-                ],
+                { staticClass: "py-8" },
+                [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
                 1
               )
             : _vm._e()
@@ -4659,17 +4995,15 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _c("option", { attrs: { value: "blitz" } }, [
-                      _vm._v("Blitz")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "constructed" } }, [
-                      _vm._v("Constructed")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
-                  ]
+                  _vm._l(_vm.$settings.game.decks.formats, function(
+                    name,
+                    format
+                  ) {
+                    return _c("option", { domProps: { value: format } }, [
+                      _vm._v(_vm._s(name))
+                    ])
+                  }),
+                  0
                 )
               ])
             : _vm._e(),
@@ -4987,7 +5321,7 @@ var render = function() {
                               attrs: {
                                 cards: _vm.cards.other().withCost(),
                                 stat: "cost",
-                                strategy: "length"
+                                strategy: "total"
                               }
                             })
                           ],
@@ -5006,7 +5340,7 @@ var render = function() {
                               attrs: {
                                 cards: _vm.cards.other().withResource(),
                                 stat: "resource",
-                                strategy: "length"
+                                strategy: "total"
                               }
                             })
                           ],
@@ -5106,22 +5440,28 @@ var render = function() {
                                     { staticClass: "my-4 mx-2" },
                                     [
                                       _c("card-image", {
+                                        directives: [
+                                          {
+                                            name: "preview-card",
+                                            rawName: "v-preview-card",
+                                            value: { stack: [card], index: 0 },
+                                            expression:
+                                              "{stack: [card], index: 0}"
+                                          }
+                                        ],
+                                        staticClass: "cursor-help",
                                         class: {
                                           "shadow-error":
-                                            (!card.totalOwned ||
-                                              card.totalOwned < card.total) &&
+                                            (!card.ownedTotal ||
+                                              card.ownedTotal < card.total) &&
                                             _vm.deck.limitToCollection === 2
                                         },
-                                        attrs: {
-                                          card: card,
-                                          width: 300,
-                                          clickHandler: _vm.removeFromDeck
-                                        }
+                                        attrs: { card: card, width: 300 }
                                       }),
                                       _vm._v(" "),
                                       _c("numbered-card-buttons", {
                                         staticClass:
-                                          "w-full mx-auto rounded sm:rounded-lg mt-1",
+                                          "w-full mx-auto rounded mt-1",
                                         attrs: { card: card }
                                       })
                                     ],
@@ -5181,7 +5521,7 @@ var render = function() {
                       attrs: {
                         cards: _vm.cards.other().withCost(),
                         stat: "cost",
-                        strategy: "length"
+                        strategy: "total"
                       }
                     })
                   ],
@@ -5199,7 +5539,7 @@ var render = function() {
                       attrs: {
                         cards: _vm.cards.other().withResource(),
                         stat: "resource",
-                        strategy: "length"
+                        strategy: "total"
                       }
                     })
                   ],
@@ -5228,8 +5568,7 @@ var render = function() {
                           directives: [
                             { name: "masonry-tile", rawName: "v-masonry-tile" }
                           ],
-                          staticClass: "w-full sm:w-1/2 sm:pr-8",
-                          class: { "lg:w-1/3": _vm.fullScreen }
+                          staticClass: "w-full sm:w-1/2 sm:pr-8"
                         },
                         [
                           _c("card-item-section", {
@@ -5276,12 +5615,12 @@ var render = function() {
   return _c(
     "masonry-container",
     { staticClass: "pb-2 mx-2", attrs: { containerId: _vm.groupId } },
-    _vm._l(_vm.groupedCards, function(grouped) {
+    _vm._l(_vm.groupedCards, function(group) {
       return _c(
         "card-container",
         {
           directives: [{ name: "masonry-tile", rawName: "v-masonry-tile" }],
-          key: grouped[0].identifier,
+          key: group[0].identifier,
           staticClass: "rounded-card",
           attrs: { width: _vm.width }
         },
@@ -5292,11 +5631,11 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "block w-full invisible",
-                style: _vm.margin(grouped.length),
-                attrs: { src: grouped[0].image }
+                style: _vm.margin(group.length),
+                attrs: { src: group[0].image }
               }),
               _vm._v(" "),
-              _vm._l(grouped, function(card, i) {
+              _vm._l(group, function(card, i) {
                 return _c(
                   "div",
                   {
@@ -5313,9 +5652,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    (!card.totalOwned || card.totalOwned < i + 1) &&
-                    _vm.deck.limitToCollection === 2 &&
-                    _vm.mode !== "sideboard"
+                    _vm.showOverlay(card)
                       ? _c("div", {
                           staticClass:
                             " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25"
@@ -5338,6 +5675,113 @@ var render = function() {
     }),
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "relative font-serif" }, [
+    _c(
+      "button",
+      {
+        staticClass:
+          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+        class: {
+          "border-gray-500": _vm.isOpen,
+          "bg-white": _vm.isOpen,
+          "bg-gray-200": !_vm.isOpen,
+          "z-75": _vm.isOpen
+        },
+        staticStyle: { width: "150px" },
+        on: {
+          click: function($event) {
+            _vm.isOpen = !_vm.isOpen
+          }
+        }
+      },
+      [
+        _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
+          _vm._v("Grouping")
+        ]),
+        _vm._v(" "),
+        _c(
+          "svg",
+          {
+            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
+            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              }
+            })
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _vm.isOpen
+      ? _c("button", {
+          staticClass:
+            "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              _vm.isOpen = false
+            }
+          }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.isOpen
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+          },
+          _vm._l(_vm.options, function(text, option) {
+            return _c(
+              "button",
+              {
+                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                class:
+                  option === _vm.grouping
+                    ? "bg-blue-400 text-white"
+                    : "hover:bg-blue-400 hover:text-white",
+                on: {
+                  click: function($event) {
+                    return _vm.select(option)
+                  }
+                }
+              },
+              [_vm._v(_vm._s(text))]
+            )
+          }),
+          0
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5796,31 +6240,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "flex rounded-lg overflow-hidden text-sm xl:text-base mr-2"
-    },
-    _vm._l(_vm.modes, function(text, view) {
-      return view !== "sideboard" || _vm.requiresSideboard
-        ? _c(
-            "button",
-            {
-              staticClass: "flex-grow block px-4 py-2",
-              class: _vm.classes(view),
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.select(view)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm" },
+      _vm._l(_vm.modes, function(mode, view) {
+        return view !== "sideboard" || _vm.requiresSideboard
+          ? _c(
+              "button",
+              {
+                staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
+                class: _vm.classes(view),
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.select(view)
+                  }
                 }
+              },
+              [
+                _c("icon", {
+                  attrs: { size: 5 },
+                  domProps: { innerHTML: _vm._s(mode.icon) }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(mode.name))])
+              ],
+              1
+            )
+          : _vm._e()
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "block lg:hidden relative font-serif" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          class: {
+            "border-gray-500": _vm.isOpen,
+            "bg-white": _vm.isOpen,
+            "bg-gray-200": !_vm.isOpen,
+            "z-75": _vm.isOpen
+          },
+          staticStyle: { width: "150px" },
+          on: {
+            click: function($event) {
+              _vm.isOpen = !_vm.isOpen
+            }
+          }
+        },
+        [
+          _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
+            _vm._v(_vm._s(_vm.modes[_vm.mode].name))
+          ]),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              staticClass: "inline-block h-5 w-5 fill-current ml-auto",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 20 20"
               }
             },
-            [_vm._v("\n        " + _vm._s(text) + "\n    ")]
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.isOpen
+        ? _c("button", {
+            staticClass:
+              "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                _vm.isOpen = false
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isOpen
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+            },
+            _vm._l(_vm.modes, function(mode, option) {
+              return _c(
+                "button",
+                {
+                  staticClass:
+                    "flex items-center space-x-2 w-full text-base text-left px-4 py-1 uppercase",
+                  class:
+                    option === mode
+                      ? "bg-blue-400 text-white"
+                      : "hover:bg-blue-400 hover:text-white",
+                  on: {
+                    click: function($event) {
+                      return _vm.select(option)
+                    }
+                  }
+                },
+                [
+                  _c("icon", {
+                    attrs: { size: 5 },
+                    domProps: { innerHTML: _vm._s(mode.icon) }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(_vm._s(mode.name))])
+                ],
+                1
+              )
+            }),
+            0
           )
         : _vm._e()
-    }),
-    0
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5851,7 +6400,6 @@ var render = function() {
       return _c(
         "button",
         {
-          staticClass: "py-1",
           class: _vm.classes(i),
           on: {
             click: function($event) {
@@ -5905,10 +6453,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "", selected: _vm.cardType },
+                  attrs: { type: "", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = ""
+                      return _vm.selectCardType("")
                     }
                   }
                 },
@@ -5926,10 +6474,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "weapon", selected: _vm.cardType },
+                  attrs: { type: "weapon", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "weapon"
+                      return _vm.selectCardType("weapon")
                     }
                   }
                 },
@@ -5946,10 +6494,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "equipment", selected: _vm.cardType },
+                  attrs: { type: "equipment", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "equipment"
+                      return _vm.selectCardType("equipment")
                     }
                   }
                 },
@@ -5966,10 +6514,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "instant", selected: _vm.cardType },
+                  attrs: { type: "instant", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "instant"
+                      return _vm.selectCardType("instant")
                     }
                   }
                 },
@@ -5979,10 +6527,10 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "item", selected: _vm.cardType },
+                  attrs: { type: "item", selected: _vm.params.cardType },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "item"
+                      return _vm.selectCardType("item")
                     }
                   }
                 },
@@ -6000,10 +6548,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "non-attack action", selected: _vm.cardType },
+                  attrs: {
+                    type: "non-attack action",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "non-attack action"
+                      return _vm.selectCardType("non-attack action")
                     }
                   }
                 },
@@ -6021,10 +6572,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "attack action", selected: _vm.cardType },
+                  attrs: {
+                    type: "attack action",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "attack action"
+                      return _vm.selectCardType("attack action")
                     }
                   }
                 },
@@ -6042,10 +6596,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "attack reaction", selected: _vm.cardType },
+                  attrs: {
+                    type: "attack reaction",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "attack reaction"
+                      return _vm.selectCardType("attack reaction")
                     }
                   }
                 },
@@ -6062,10 +6619,13 @@ var render = function() {
               _c(
                 "card-type",
                 {
-                  attrs: { type: "defense reaction", selected: _vm.cardType },
+                  attrs: {
+                    type: "defense reaction",
+                    selected: _vm.params.cardType
+                  },
                   nativeOn: {
                     click: function($event) {
-                      _vm.cardType = "defense reaction"
+                      return _vm.selectCardType("defense reaction")
                     }
                   }
                 },
@@ -6101,11 +6661,16 @@ var render = function() {
                       },
                       [
                         _c("card-image", {
-                          attrs: {
-                            card: card,
-                            width: 300,
-                            clickHandler: _vm.addToDeck
-                          }
+                          directives: [
+                            {
+                              name: "preview-card",
+                              rawName: "v-preview-card",
+                              value: { stack: [card], index: 0 },
+                              expression: "{stack: [card], index: 0}"
+                            }
+                          ],
+                          staticClass: "cursor-help",
+                          attrs: { card: card, width: 300 }
                         }),
                         _vm._v(" "),
                         _c("numbered-card-buttons", {
@@ -6116,7 +6681,9 @@ var render = function() {
                       ],
                       1
                     )
-                  : _c("card-item", { attrs: { card: card } })
+                  : _c("card-item", {
+                      attrs: { card: card, layout: "horizontal" }
+                    })
               ],
               1
             )
@@ -6156,33 +6723,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "mb-40" },
-    [
-      _c("grouped-cards", {
-        attrs: {
-          cards: _vm.sideboard,
-          "group-id": "sideboard",
-          action: _vm.remove,
-          width: _vm.fullScreen ? "sm:w-1/3" : "sm:w-1/2"
-        }
-      }),
-      _vm._v(" "),
-      !_vm.sideboard.cards.length
-        ? _c("div", { staticClass: "text-center my-20 mx-10" }, [
-            _vm._v("\n        You have not yet added"),
-            _c("br"),
-            _vm._v("any cards"),
-            _c("br"),
-            _vm._v("to your sideboard.\n    ")
-          ])
-        : _vm._e()
-    ],
-    1
-  )
+  return _c("div", { staticClass: "mb-40" }, [
+    _c(
+      "div",
+      { staticClass: "hidden md:block" },
+      [
+        _c("grouped-cards", {
+          attrs: {
+            cards: _vm.sideboard,
+            "group-id": "sideboard",
+            action: _vm.remove,
+            width: _vm.fullScreen ? "md:w-1/3" : "md:w-1/2"
+          }
+        }),
+        _vm._v(" "),
+        !_vm.sideboard.cards.length
+          ? _c("div", { staticClass: "text-center my-20 mx-10" }, [
+              _vm._v("\n            You have not yet added"),
+              _c("br"),
+              _vm._v("any cards"),
+              _c("br"),
+              _vm._v("to your sideboard.\n        ")
+            ])
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "md:hidden" }, [
+      _c(
+        "table",
+        { staticClass: "w-full border-collapse border border-gray-200" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.cards, function(card) {
+              return _c("tr", [
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.add(card)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(card.total - _vm.sideboardCardTotal(card)) +
+                            "\n                            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("icon", { attrs: { size: 5 } }, [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ])
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "div",
+                    { staticClass: "flex bg-white items-center p-2" },
+                    [
+                      _c("colour", {
+                        staticClass: "mr-2",
+                        attrs: { resource: card.stats.resource }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "cursor-help whitespace-nowrap overflow-hidden",
+                          on: {
+                            click: function($event) {
+                              return _vm.setHover(card)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(card.name))]
+                      )
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.remove(card)
+                        }
+                      }
+                    },
+                    [
+                      _c("icon", { attrs: { size: 5 } }, [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z",
+                            "clip-rule": "evenodd"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.sideboardCardTotal(card)) +
+                            "\n                            "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ])
+              ])
+            }),
+            0
+          )
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "text-white" }, [
+        _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
+          _vm._v("Deck")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "p-2 bg-gray-800 text-left" }, [
+          _vm._v("Card")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
+          _vm._v("Sideboard")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -6206,7 +6914,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mt-4" },
+    { staticClass: "space-y-4" },
     [
       _c(
         "a",
@@ -6217,31 +6925,70 @@ var render = function() {
           on: {
             click: function($event) {
               $event.preventDefault()
-              return _vm.copy.apply(null, arguments)
+              return _vm.copyShareURL.apply(null, arguments)
             }
           }
         },
         [
-          _c("div", { staticClass: "float-left mr-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current h-20",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 20 20"
-                }
-              },
-              [
+          _c(
+            "div",
+            { staticClass: "float-left mr-4" },
+            [
+              _c("icon", { attrs: { size: 14 } }, [
                 _c("path", {
                   attrs: {
                     d:
-                      "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
+                      "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
                   }
                 })
-              ]
-            )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Link to deck")
           ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-base" }, [
+            _vm._v("Copies your publicly-accessible deck URL to the clipboard.")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass:
+            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.shareDeckViaText(_vm.shareDeck)
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "float-left mr-4" },
+            [
+              _c("icon", { attrs: { size: 14 } }, [
+                _c("path", {
+                  attrs: { d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
+                  }
+                })
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
             _vm._v("Copy text")
@@ -6253,20 +7000,17 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "flow-root p-4 bg-white rounded-lg mt-4" }, [
-        _c("div", { staticClass: "float-left mr-4" }, [
-          _c(
-            "svg",
-            {
-              staticClass: "fill-current h-20",
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
-            },
-            [_c("path", { attrs: { d: "M4 4l12 6-12 6z" } })]
-          )
-        ]),
+      _c("div", { staticClass: "flow-root p-4 bg-white rounded-lg" }, [
+        _c(
+          "div",
+          { staticClass: "float-left mr-4" },
+          [
+            _c("icon", { attrs: { size: 14 } }, [
+              _c("path", { attrs: { d: "M4 4l12 6-12 6z" } })
+            ])
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
           _vm._v("Table Top Simulator")
@@ -6279,35 +7023,30 @@ var render = function() {
         "router-link",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white mt-4",
+            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
           attrs: {
             to: { name: "decks.export", params: { deck: _vm.deck.slug } }
           }
         },
         [
-          _c("div", { staticClass: "float-left mr-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current h-20",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 20 20"
-                }
-              },
-              [
+          _c(
+            "div",
+            { staticClass: "float-left mr-4" },
+            [
+              _c("icon", { attrs: { size: 14 } }, [
                 _c("path", {
                   attrs: {
                     d:
                       "M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"
                   }
                 })
-              ]
-            )
-          ]),
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-            _vm._v("Tournament Booster")
+            _vm._v("Tournament Pack")
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-base" }, [
@@ -6403,80 +7142,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/CardDatabase/Card.js":
-/*!*******************************************!*\
-  !*** ./resources/js/CardDatabase/Card.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Card =
-/*#__PURE__*/
-function () {
-  function Card(fields) {
-    _classCallCheck(this, Card);
-
-    this.fields = fields;
-  }
-
-  _createClass(Card, [{
-    key: "avatar",
-    value: function avatar() {
-      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
-
-      if (this.young()) {
-        return name + '-blitz';
-      }
-
-      return name;
-    }
-  }, {
-    key: "young",
-    value: function young() {
-      return this.fields.subType === 'young';
-    }
-  }, {
-    key: "name",
-    get: function get() {
-      return this.fields.name;
-    }
-  }, {
-    key: "image",
-    get: function get() {
-      return this.fields.image;
-    }
-  }, {
-    key: "class",
-    get: function get() {
-      return this.fields["class"];
-    }
-  }, {
-    key: "stats",
-    get: function get() {
-      return this.fields.stats;
-    }
-  }, {
-    key: "keywords",
-    get: function get() {
-      return this.fields.keywords;
-    }
-  }]);
-
-  return Card;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (Card);
-
-/***/ }),
-
 /***/ "./resources/js/Components/Form/Button.vue":
 /*!*************************************************!*\
   !*** ./resources/js/Components/Form/Button.vue ***!
@@ -6541,6 +7206,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Button_vue_vue_type_template_id_699cd8fc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Button_vue_vue_type_template_id_699cd8fc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/Fullscreen.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Components/Fullscreen.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Fullscreen.vue?vue&type=template&id=07359a74& */ "./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74&");
+/* harmony import */ var _Fullscreen_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Fullscreen.vue?vue&type=script&lang=js& */ "./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Fullscreen_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/Fullscreen.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Fullscreen_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Fullscreen.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Fullscreen.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Fullscreen_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Fullscreen.vue?vue&type=template&id=07359a74& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Fullscreen.vue?vue&type=template&id=07359a74&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Fullscreen_vue_vue_type_template_id_07359a74___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -6612,6 +7346,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroSelector_vue_vue_type_template_id_0a1e4544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Components/LazyLoader.js":
+/*!***********************************************!*\
+  !*** ./resources/js/Components/LazyLoader.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (loadData) {
+  var loaderCallback = function loaderCallback() {};
+
+  var loadRoute = function loadRoute(to, from, next) {
+    loadData(to, function (callback) {
+      loaderCallback = callback;
+      next();
+    });
+  };
+
+  return {
+    beforeRouteEnter: loadRoute,
+    beforeRouteUpdate: loadRoute,
+    created: function created() {
+      loaderCallback.apply(this);
+    },
+    watch: {
+      '$route': function $route() {
+        loaderCallback.apply(this);
+      }
+    }
+  };
+});
 
 /***/ }),
 
@@ -7909,6 +8678,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/DeckBuilder/GroupingSelector.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/DeckBuilder/GroupingSelector.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GroupingSelector.vue?vue&type=template&id=72b0dffd& */ "./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd&");
+/* harmony import */ var _GroupingSelector_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GroupingSelector.vue?vue&type=script&lang=js& */ "./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GroupingSelector_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/DeckBuilder/GroupingSelector.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupingSelector_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./GroupingSelector.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupingSelector_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./GroupingSelector.vue?vue&type=template&id=72b0dffd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/GroupingSelector.vue?vue&type=template&id=72b0dffd&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupingSelector_vue_vue_type_template_id_72b0dffd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/DeckBuilder/MainDeck.vue":
 /*!***********************************************!*\
   !*** ./resources/js/DeckBuilder/MainDeck.vue ***!
@@ -8593,6 +9431,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/DeckBuilder/Redrawable.js":
+/*!************************************************!*\
+  !*** ./resources/js/DeckBuilder/Redrawable.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var methods = {
+  redraw: function redraw(id) {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.$redrawVueMasonry(id);
+    }, 10);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: methods
+});
+
+/***/ }),
+
 /***/ "./resources/js/DeckBuilder/SearchResults.vue":
 /*!****************************************************!*\
   !*** ./resources/js/DeckBuilder/SearchResults.vue ***!
@@ -8797,34 +9659,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TtsExporter_vue_vue_type_template_id_6418b0c9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/Utilities/Models.js":
-/*!******************************************!*\
-  !*** ./resources/js/Utilities/Models.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  hydrateMany: function hydrateMany(records, klass) {
-    var _this = this;
-
-    return records.map(function (record) {
-      return _this.hydrate(record, klass);
-    });
-  },
-  hydrate: function hydrate(record, klass) {
-    return new klass(record);
-  },
-  hydratePaginated: function hydratePaginated(data, klass) {
-    data.data = this.hydrateMany(data.data, klass);
-    return data;
-  }
-});
 
 /***/ }),
 

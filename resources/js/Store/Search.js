@@ -4,26 +4,33 @@ export default {
     state: {
         params: {
             currency: 'USD',
+            cursor: null,
             format: null,
             label: '',
             hero: null,
             order: 'newest',
             keywords: '',
-            page: 1,
+            page: null,
         }
     },
 
     mutations: {
         setKeywords(state, { keywords }) {
             state.params.keywords = keywords;
+            state.params.cursor = null;
         },
 
         setPage(state, { page }) {
             state.params.page = page;
+            state.params.cursor = null;
         },
 
         updateParam(state, { key, value }) {
             state.params[key] = value;
+
+            if (key !== 'cursor') {
+                state.params.cursor = null;
+            }
         }
     },
 

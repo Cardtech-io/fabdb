@@ -2,7 +2,7 @@
     <div class="h-full">
         <div id="app" class="flex flex-col relative h-full">
             <!-- Header -->
-            <navigation class="navigation"></navigation>
+            <navigation class="navigation"/>
 
             <!-- Content -->
             <div class="flow-root flex-grow">
@@ -10,16 +10,16 @@
             </div>
 
             <!-- Footer -->
-            <app-footer></app-footer>
+            <app-footer/>
         </div>
 
-        <messages></messages>
-        <complete-profile></complete-profile>
-        <version-handler></version-handler>
-        <hover-card></hover-card>
+        <messages/>
+        <complete-profile/>
+        <version-handler/>
+        <hover-card/>
 
-        <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 rounded-xl">
-            <search-help></search-help>
+        <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 rounded-xl relative z-50">
+            <search-help/>
         </modal>
     </div>
 </template>
@@ -69,14 +69,6 @@
             }
 
             this.bootState();
-        },
-
-        watch: {
-            user(user, oldValue) {
-                if (user && user.hasCollection && !user.clarification) {
-                    this.$modal.show('collection-clarification');
-                }
-            }
         },
     };
 </script>

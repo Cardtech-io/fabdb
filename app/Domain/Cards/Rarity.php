@@ -12,7 +12,7 @@ final class Rarity implements \JsonSerializable
 
     public function __construct(string $rarity)
     {
-        Assert::oneOf($rarity, ['C', 'R', 'S', 'M', 'L', 'F', 'T', 'P']);
+        Assert::oneOf($rarity, ['', 'C', 'R', 'S', 'M', 'MV', 'L', 'F', 'T', 'P']);
 
         $this->rarity = $rarity;
     }
@@ -35,10 +35,12 @@ final class Rarity implements \JsonSerializable
     public static function fromLss($rarity)
     {
         $map = [
+            '' => '',
             'Common' => 'C',
             'Rare' => 'R',
             'Super Rare' => 'S',
             'Majestic' => 'M',
+            'Marvel' => 'MV',
             'Legendary' => 'L',
             'Fabled' => 'F',
             'Token' => 'T',

@@ -25,6 +25,7 @@ class CollectionFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
+        $query->where('printings.language', 'en');
         $query->join('cards', 'cards.id', 'printings.card_id');
 
         if (isset($input['set'])) {
@@ -45,11 +46,11 @@ class CollectionFilter implements SearchFilter
         if (isset($input['view'])) {
             switch ($input['view']) {
                 case 'need':
-                    $query->addSelect(DB::raw('owned_cards.id AS owned_card_id, SUM(owned_cards.total) AS total_owned'));
-                    $query->havingRaw("owned_card_id IS NULL OR total_owned < {$this->user->need}");
+                    $query->addSelect(DB::raw('owned_cards.id AS owned_card_id, SUM(owned_cards.total) AS owned_total'));
+                    $query->havingRaw("owned_cards.id IS NULL || owned_total < {$this->user->need}");
                     break;
                 case 'have':
-                    $query->whereNotNull('owned_cards.id');
+                    $query->where('owned_cards.total', '>', 0);
                     break;
             }
         }

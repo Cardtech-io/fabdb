@@ -23,10 +23,18 @@ class CardTest extends TestCase
 
     function test_talents_returns_registered_talents_and_inferred()
     {
-        $card1 = new Card(['text' => '**Essence of Ice and Lightning']);
+        $card1 = new Card(['text' => '**Essence of Ice and Lightning (']);
         $card1->talent = 'shadow';
 
-        $this->assertSame(['shadow', 'ice', 'lightning'], $card1->talents());
+        $card2 = new Card(['text' => 'Essence of Earth, Ice, and Lightning (You may have Earth, Ice, and Lightning cards in your deck.)']);
+
+        $this->assertContains('shadow', $card1->talents());
+        $this->assertContains('ice', $card1->talents());
+        $this->assertContains('lightning', $card1->talents());
+        $this->assertContains('earth', $card2->talents());
+        $this->assertContains('ice', $card2->talents());
+        $this->assertContains('lightning', $card2->talents());
+        $this->assertNotContains('shadow', $card2->talents());
 
     }
 }

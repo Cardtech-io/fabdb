@@ -37,7 +37,7 @@ class SyntaxFilter implements SearchFilter
 
     private function filter(string $keywords): array
     {
-        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
+        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', str_replace(',', '', $keywords));
 
         return array_filter($keywords, function($keyword) {
             return Str::contains($keyword, $this->operators);
@@ -46,11 +46,20 @@ class SyntaxFilter implements SearchFilter
 
     private function apply(Builder $query, string $terms)
     {
-        preg_match('/[\=\<\>]/', $terms, $operator);
+        $match = preg_match('/<=|>=/', $terms, $operator);
 
-        list($filter, $value) =  preg_split('/[\=\<\>]/', $terms);
+        if (!$match) {
+            preg_match('/[=<>]/', $terms, $operator);
+        }
 
-        $value = explode(' ', str_replace('"', '', $value));
+        list($filter, $value) =  explode($operator[0], $terms);
+
+        $values = array_filter(preg_split('/\s*/', str_replace('"', '', $value)), fn($value) => is_numeric($value));
+        $value = array_pop($values);
+
+        if (is_null($filter) || is_null($value)) {
+            return;
+        }
 
         switch (strtolower($filter)) {
             case 'a':

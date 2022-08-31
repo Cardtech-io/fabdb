@@ -39,13 +39,19 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
     public function remove(int $printingId, int $userId, int $total)
     {
         DB::transaction(function() use ($printingId, $userId, $total) {
-            $ownedCard = $this->newQuery()
+            $query = $this->newQuery()
                 ->wherePrintingId($printingId)
-                ->whereUserId($userId)
-                ->first();
+                ->whereUserId($userId);
 
-            if ($ownedCard) {
-                $ownedCard->remove($total);
+            if ($total) {
+                $ownedCard = $query->first();
+
+                if ($ownedCard) {
+                    $ownedCard->remove($total);
+                }
+            }
+            else {
+                $query->delete();
             }
         });
     }
@@ -96,6 +102,7 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             ->join('printings', 'printings.id', 'owned_cards.printing_id')
             ->join('cards', 'cards.id', 'printings.card_id')
             ->whereNotNull('owned_cards.printing_id')
+            ->where('printings.language', 'en')
             ->where('owned_cards.user_id', $userId)
             ->where("owned_cards.$view", '>', 0)
             ->groupBy('owned_cards.printing_id');

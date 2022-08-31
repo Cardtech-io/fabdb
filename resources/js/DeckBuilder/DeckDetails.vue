@@ -16,12 +16,12 @@
                 <div class="sm:flex pt-8" v-if="tab == 'metrics'">
                     <div class="sm:w-1/3 sm:mr-4">
                         <h3 class="font-serif uppercase text-2xl">Totals</h3>
-                        <totals></totals>
+                        <totals/>
                     </div>
 
                     <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
                         <h3 class="font-serif uppercase text-2xl">General</h3>
-                        <general></general>
+                        <general/>
                     </div>
 
                     <div class="mt-4 sm:mt-0 sm:w-1/3 sm:mx-4">
@@ -41,25 +41,15 @@
                 </div>
 
                 <div class="sm:flex pt-8" v-if="tab == 'rulings'">
-                    <rulings :rulings="rulings"></rulings>
+                    <rulings :rulings="rulings"/>
                 </div>
 
                 <div v-if="tab == 'settings'">
-                    <deck-settings :deck="deck"></deck-settings>
+                    <deck-settings :deck="deck"/>
                 </div>
 
-                <div class="pt-8" v-if="tab == 'export'">
-                    <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copyShareURL">
-                        <div class="float-left mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-20">
-                                <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
-                            </svg>
-                        </div>
-                        <h2 class="font-serif uppercase text-xl">Link to deck</h2>
-                        <p class="text-base">Copies your publicly-accessible deck URL to the clipboard.</p>
-                    </a>
-
-                    <tts-exporter :deck="deck"></tts-exporter>
+                <div class="py-8" v-if="tab === 'export'">
+                    <tts-exporter :deck="deck"/>
                 </div>
             </div>
         </div>

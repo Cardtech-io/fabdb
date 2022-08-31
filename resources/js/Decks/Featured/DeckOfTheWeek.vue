@@ -2,14 +2,14 @@
     <section class="sm:flex sm:items-start" v-if="deck">
         <div class="block w-full sm:w-250 sm:m-0 flex-none">
             <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" class="block w-full">
-                <card-image :card="deck.hero" class="w-full"></card-image>
+                <card-image :card="deck.hero" class="w-full"/>
             </router-link>
         </div>
         <div class="p-4">
             <div class="flex items-center">
                 <h1 class="block font-serif text-lg uppercase text-gray-300 mb-2">Deck of the week</h1>
-                <deck-label :label="deck.label" class="text-xs px-2 py-1 -mt-1 ml-4 rounded-full"></deck-label>
-                <format-label :format="deck.format" class="text-xs px-2 py-1 -mt-1 ml-1 rounded-full"></format-label>
+                <deck-label :label="deck.label" class="text-xs px-2 py-1 -mt-1 ml-4 rounded-full"/>
+                <format-label :format="deck.format" class="text-xs px-2 py-1 -mt-1 ml-1 rounded-full"/>
             </div>
 
             <div class="flex items-center font-serif text-4xl uppercase text-white">

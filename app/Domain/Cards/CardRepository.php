@@ -13,6 +13,14 @@ interface CardRepository extends Repository
     public function findByIdentifier(string $identifier, int $userId = null);
 
     /**
+     * Will return a collection of card IDs based on the card slugs/identifiers.
+     * 
+     * @param array $identifiers
+     * @return array
+     */
+    public function getAllIdsByIdentifiers(array $identifiers): array;
+
+    /**
      * View a specific card, and retrieve the previous/next card ids, as well.
      *
      * @param string $identifier
@@ -79,4 +87,29 @@ interface CardRepository extends Repository
      * @return Collection
      */
     public function forPacks(Set $set): Collection;
+
+    /**
+     * Attempts to find a hero based on some fairly loose text usage from LSS.
+     *
+     * @param string $hero
+     * @param string $heroAge
+     * @return mixed
+     */
+    public function findHero($hero, string $heroAge);
+
+    /**
+     * Tried to find a card based on the identifier or via search text.
+     *
+     * @param string $identifier
+     * @return mixed
+     */
+    public function getIdByIdentifierOrText(string $identifier);
+
+    /**
+     * Will attempt to find any card by using its search text field based on the string provided, and will return the first result.
+     * 
+     * @param string $text
+     * @return mixed
+     */
+    public function findAny(string $text);
 }

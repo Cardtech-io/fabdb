@@ -121,6 +121,7 @@ return [
     */
 
     'key' => env('APP_KEY'),
+    'intra_key' => env('INTRA_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -170,6 +171,7 @@ return [
         /*
          * Application Service Providers...
          */
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         FabDB\Providers\AuthServiceProvider::class,
         FabDB\Providers\BroadcastServiceProvider::class,
         FabDB\Providers\EventServiceProvider::class,

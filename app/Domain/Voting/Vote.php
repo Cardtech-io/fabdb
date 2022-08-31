@@ -11,4 +11,9 @@ class Vote extends Model
     use Sluggable;
 
     protected $fillable = ['user_id', 'voteable_type', 'voteable_id', 'direction', 'value'];
+
+    public function voteable()
+    {
+        return $this->morphTo();
+    }
 }

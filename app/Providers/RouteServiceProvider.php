@@ -8,6 +8,7 @@ use FabDB\Domain\Content\ArticleRepository;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Events\EventRepository;
 use FabDB\Domain\Practise\PractiseRepository;
+use FabDB\Http\Middleware\IntranetAuth;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -65,10 +66,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapIntraRoutes();
         $this->mapApiRoutes();
         $this->mapWebRoutes();
-
-        //
     }
 
     /**
@@ -97,5 +97,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::domain($this->app['config']->get('api.domain'))
              ->namespace($this->namespace.'\Api')
              ->group(base_path('routes/api.php'));
+    }
+
+    private function mapIntraRoutes()
+    {
+        Route::domain($this->app['config']->get('api.intra_domain'))
+            ->namespace($this->namespace.'\Intranet')
+            ->group(base_path('routes/intra.php'));
     }
 }

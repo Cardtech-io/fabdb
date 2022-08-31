@@ -9,6 +9,7 @@ use FabDB\Domain\Cards\Search\KeywordFilter;
 use FabDB\Domain\Cards\Search\OrderFilter;
 use FabDB\Domain\Cards\Search\PitchFilter;
 use FabDB\Domain\Cards\Search\RarityFilter;
+use FabDB\Domain\Cards\Search\SkuFilter;
 use FabDB\Domain\Cards\Search\SyntaxFilter;
 use FabDB\Domain\Cards\Search\TalentFilter;
 use FabDB\Domain\Cards\Search\TypeFilter;
@@ -32,6 +33,7 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
     {
         $query = $this->newQuery();
         $query->with(['card']);
+        $query->groupBy('printings.id');
 
         $query->select([
             'printings.id',
@@ -39,13 +41,13 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             'printings.card_id',
             'printings.sku',
             'printings.set',
-            'printings.rarity',
             'owned_cards.total',
             'owned_cards.trade',
             'owned_cards.want',
         ]);
 
         $filters = [
+            new CollectionFilter($user),
             new KeywordFilter,
             new IdentifierFilter,
             new ClassFilter,
@@ -54,7 +56,6 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             new CostFilter,
             new PitchFilter,
             new RarityFilter,
-            new CollectionFilter($user),
             new OrderFilter,
         ];
 

@@ -2,10 +2,22 @@
 
 return [
     'sets' => [
+        '1hp' => [
+            'id' => '1hp',
+            'name' => 'History Pack 1',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
         'bol' => [
             'id' => 'bol',
             'name' => 'Boltyn Hero Deck',
             'released' => '2021-05-07',
+            'browseable' => false,
+        ],
+        'bri' => [
+            'id' => 'bri',
+            'name' => 'Briar Hero Deck',
+            'released' => '2021-09-24',
             'browseable' => false,
         ],
         'bvo' => [
@@ -20,11 +32,37 @@ return [
             'released' => '2021-05-07',
             'browseable' => false,
         ],
+        'dro' => [
+            'id' => 'dro',
+            'name' => 'Dromai Hero Deck',
+            'released' => '2022-06-28',
+            'browseable' => false,
+        ],
         'ele' => [
             'id' => 'ele',
             'name' => 'Tales of Aria',
             'released' => '2021-09-24',
             'browseable' => true,
+            'draftable' => true,
+        ],
+        'fai' => [
+            'id' => 'fai',
+            'name' => 'Fai Hero Deck',
+            'released' => '2022-06-28',
+            'browseable' => false,
+        ],
+        'u-ele' => [
+            'id' => 'u-ele',
+            'name' => 'Tales of Aria (Unlimited)',
+            'released' => '2021-09-24',
+            'browseable' => false,
+        ],
+        'evr' => [
+            'id' => 'evr',
+            'name' => 'Everfest',
+            'released' => '2022-01-22',
+            'browseable' => true,
+            'draftable' => false,
         ],
         'ksu' => [
             'id' => 'ksu',
@@ -37,6 +75,18 @@ return [
             'name' => 'Levia Hero Deck',
             'released' => '2021-05-07',
             'browseable' => false,
+        ],
+        'lxi' => [
+            'id' => 'lxi',
+            'name' => 'Lexi Hero Deck',
+            'released' => '2021-09-24',
+            'browseable' => false
+        ],
+        'old' => [
+            'id' => 'old',
+            'name' => 'Oldhim Hero Deck',
+            'released' => '2021-09-24',
+            'browseable' => false
         ],
         'psm' => [
             'id' => 'psm',
@@ -129,7 +179,14 @@ return [
             'name' => 'Monarch (Unlimited)',
             'released' => '2021-05-28',
             'browseable' => false,
-            'draftable' => true
+            'draftable' => false
+        ],
+        'upr' => [
+            'id' => 'upr',
+            'name' => 'Uprising',
+            'released' => '2022-06-28',
+            'browseable' => true,
+            'draftable' => true,
         ],
         'wtr' => [
             'id' => 'wtr',
@@ -143,7 +200,19 @@ return [
             'name' => 'Welcome to Rathe (Unlimited)',
             'released' => '2020-11-06',
             'browseable' => false,
-        ]
+        ],
+        'rvd' => [
+            'id' => 'rvd',
+            'name' => 'Rhinar Classic Battles Hero Deck',
+            'released' => '2022-05-28',
+            'browseable' => false,
+        ],
+        'dvr' => [
+            'id' => 'dvr',
+            'name' => 'Dorinthea Classic Battles Hero Deck',
+            'released' => '2022-05-28',
+            'browseable' => false,
+        ],
     ],
 
     'classes' => [
@@ -162,6 +231,7 @@ return [
     ],
 
     'talents' => [
+        'draconic' => 'Draconic',
         'earth' => 'Earth',
         'elemental' => 'Elemental',
         'ice' => 'Ice',
@@ -173,6 +243,7 @@ return [
     'types' => [
         'action',
         'attack',
+        'aura',
         'defense',
         'equipment',
         'hero',
@@ -217,6 +288,7 @@ return [
         'R' => 'Rare',
         'S' => 'Super rare',
         'M' => 'Majestic',
+        'MV' => 'Marvel',
         'L' => 'Legendary',
         'F' => 'Fabled',
         'T' => 'Token',
@@ -224,11 +296,25 @@ return [
     ],
 
     'cards' => [
-        'banned' => [
-            'drone-of-brutality-red',
-            'drone-of-brutality-yellow',
-            'drone-of-brutality-blue',
-        ],
+        'awakening' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'ball-lightning-red' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'ball-lightning-yellow' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'ball-lightning-blue' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'bloodsheath-skeleta' => ['constructed' => 'suspended'],
+        'bravo-star-of-the-show' => ['constructed' => 'legend'],
+        'chane-bound-by-shadow' => ['constructed' => 'legend'],
+        'drone-of-brutality-red' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'drone-of-brutality-yellow' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'drone-of-brutality-blue' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'duskblade' => ['blitz' => 'banned', 'constructed' => 'banned'],
+        'galaxxi-black' => ['constructed' => 'legend'],
+        'heartened-cross-strap' => ['blitz' => 'banned'],
+        'nebula-blade' => ['blitz' => 'legend'],
+        'plunder-run-red' => ['constructed' => 'banned'],
+        'plunder-run-yellow' => ['constructed' => 'banned'],
+        'plunder-run-blue' => ['constructed' => 'banned'],
+        'stubby-hammerers' => ['blitz' => 'banned'],
+        'viserai' => ['blitz' => 'legend'],
     ],
 
     'decks' => [
@@ -240,6 +326,7 @@ return [
         ],
         'formats' => [
             'blitz' => 'Blitz',
+            'commoner' => 'Commoner',
             'constructed' => 'Constructed',
             'open' => 'Open',
         ]

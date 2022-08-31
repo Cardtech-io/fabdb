@@ -1,32 +1,33 @@
 <template>
     <form class="px-4 md:px-0 block flex w-full" @submit.prevent="newSearch">
         <div class="sm:w-2/6 pr-1">
-            <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('hero')">
+            <select v-model="hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('hero')">
                 <option value="">Select hero</option>
                 <option :value="hero.name" v-for="hero in heroes">{{ hero.name }}</option>
             </select>
         </div>
 
         <div class="sm:w-1/6 pr-1">
-            <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('format')">
-                <option value="blitz">Blitz</option>
-                <option value="constructed">Constructed</option>
-                <option value="open">Open</option>
+            <select v-model="format" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('format')">
+                <option value="">Format</option>
+                <option v-for="(name, format) in $settings.game.decks.formats" :value="format">{{name}}</option>
             </select>
         </div>
 
         <div class="sm:w-1/6 pr-1">
-            <select v-model="label" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('label')">
+            <select v-model="label" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('label')">
                 <option value="">Label</option>
+                <option value="tournament">Tournament</option>
                 <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
             </select>
         </div>
 
         <div class="sm:w-1/6 pr-1">
-            <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg" :class="active('order')">
+            <select v-model="order" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg" :class="active('order')">
                 <option value="">Order</option>
                 <option value="newest">Newest</option>
-                <option value="popular">Popular</option>
+                <option value="popular-all">Popular (All time)</option>
+                <option value="popular-7">Popular (Last 7 days)</option>
             </select>
         </div>
 
@@ -103,7 +104,7 @@
         },
 
         methods: {
-            ...mapActions('deckSearch', ['setPage', 'updateParam']),
+            ...mapActions('deckSearch', ['setCursor', 'updateParam']),
 
             active(field) {
                 if (this.params[field]) {
@@ -116,25 +117,35 @@
                     hero: this.hero,
                     order: this.order,
                     label: this.label,
-                    format: this.format,
-                    page: this.params.page
+                    format: this.format
                 };
 
+                if (this.params.cursor) {
+                    params.cursor = this.params.cursor;
+                }
+                if (this.params.page) {
+                    params.page = this.params.page;
+                }
+
                 let url = this.mine ? '/decks/mine' : '/decks';
+
+                if (!this.mine) {
+                    params.include = 'weapons';
+                }
 
                 axios.get(url, { params: params }).then(response => {
                     this.$emit('search-completed', response.data);
                 }).catch(error => {});
             },
 
-            newSearch: function() {
-                this.setPage({ page: 1 });
+            newSearch() {
+                this.setCursor({ cursor: null });
                 this.search();
             },
         },
 
         watch: {
-            'params.page': function() {
+            'params.cursor': function(value) {
                 this.search();
             }
         },

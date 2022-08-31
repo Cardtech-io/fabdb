@@ -100,6 +100,11 @@ __webpack_require__.r(__webpack_exports__);
         'h-50': this.viewing == card
       };
     },
+    sets: function sets() {
+      return Object.values(this.$settings.game.sets).filter(function (set) {
+        return set.draftable === true;
+      });
+    },
     toggle: function toggle(card) {
       if (this.viewing != card) {
         this.viewing = card;
@@ -196,15 +201,12 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "arc" } }, [
-                        _vm._v("Arcane Rising")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "wtr" } }, [
-                        _vm._v("Welcome to Rathe")
+                    _vm._l(_vm.sets(), function(set) {
+                      return _c("option", { domProps: { value: set.id } }, [
+                        _vm._v(_vm._s(set.name))
                       ])
-                    ]
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "mb-4" }, [

@@ -254,12 +254,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -278,7 +272,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user', 'subscribed']), {
     email: {
       get: function get() {
         return this.user.email;
@@ -567,7 +561,7 @@ var render = function() {
                           staticClass:
                             "block font-serif uppercase tracking-wide mb-1"
                         },
-                        [_vm._v("Avatar")]
+                        [_vm._v("Avatar (Patrons only)")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -583,6 +577,7 @@ var render = function() {
                           ],
                           staticClass:
                             "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
+                          attrs: { disabled: !_vm.subscribed },
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -931,57 +926,6 @@ var render = function() {
                     [_vm._v("Interface")]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "w-full mt-4 mb-4" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
-                      },
-                      [_vm._v("Width")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.width,
-                            expression: "width"
-                          }
-                        ],
-                        staticClass:
-                          "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.width = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      [
-                        _c("option", { attrs: { value: "narrow" } }, [
-                          _vm._v("Narrow")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "wide" } }, [
-                          _vm._v("Wide")
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4" }, [
                     _c(
                       "label",
@@ -1039,12 +983,20 @@ var render = function() {
                           _vm._v("Library")
                         ]),
                         _vm._v(" "),
+                        _c("option", { attrs: { value: "monarch" } }, [
+                          _vm._v("Monarch")
+                        ]),
+                        _vm._v(" "),
                         _c("option", { attrs: { value: "skies" } }, [
                           _vm._v("Skies")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "savage-lands" } }, [
                           _vm._v("Savage Lands")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "tales" } }, [
+                          _vm._v("Tales of Aria")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "the-pits" } }, [
@@ -1334,6 +1286,11 @@ function () {
       return this.fields["class"];
     }
   }, {
+    key: "sku",
+    get: function get() {
+      return this.fields.sku;
+    }
+  }, {
     key: "stats",
     get: function get() {
       return this.fields.stats;
@@ -1342,6 +1299,11 @@ function () {
     key: "keywords",
     get: function get() {
       return this.fields.keywords;
+    }
+  }, {
+    key: "total",
+    get: function get() {
+      return this.fields.total;
     }
   }]);
 

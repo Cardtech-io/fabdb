@@ -11,13 +11,13 @@
         </header>
         <div class="bg-gray-200 rounded-b-lg">
             <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white px-4 py-2" :key="deck.slug">
-                <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"></hero-avatar>
-                <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"></hero-avatar>
+                <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"/>
+                <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"/>
                 <div class="ml-2">
                     <h3 class="font-serif text-lg uppercase">{{deck.name}}</h3>
                     <p class="text-base">by {{deck.authorName}}</p>
-                    <deck-label :label="deck.label" class="mr-1 text-xs px-2 sm:py-1 rounded-full"></deck-label>
-                    <format-label :format="deck.format" class="mr-2 text-xs px-2 sm:py-1 rounded-full"></format-label>
+                    <deck-label :label="deck.label" class="mr-1 text-xs px-2 sm:py-1 rounded-full"/>
+                    <format-label :format="deck.format" class="mr-2 text-xs px-2 sm:py-1 rounded-full"/>
                 </div>
                 <div class="flex-none font-serif text-center ml-auto">
                     <div class="text-4xl">{{ deck.totalCards }}</div>
@@ -78,7 +78,7 @@
 
         mounted() {
             axios.get('/decks/latest?per_page=3&'+this.query).then(response => {
-                this.decks = Models.hydrateMany(response.data, Deck);
+                this.decks = Models.hydrateMany(response.data.data, Deck);
             });
         }
     };

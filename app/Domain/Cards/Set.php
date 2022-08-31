@@ -29,9 +29,14 @@ class Set implements \JsonSerializable
 
     public static function fromUid(string $uid)
     {
-        preg_match('/^((U-)?[A-Z]{3})[0-9]{3}/i', $uid, $matches);
+        preg_match('/^(((U)([A-Z]+)?-)?[A-Z]{3})[0-9]{3}/i', $uid, $matches);
 
         return new self($matches[1]);
+    }
+
+    public static function fromSku(Sku $sku)
+    {
+        return $sku->set();
     }
 
     public function uppercase(): string

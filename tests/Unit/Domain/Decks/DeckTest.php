@@ -52,10 +52,11 @@ class DeckTest extends TestCase
         $card2 = $this->card('dorinthea', ['type' => 'hero', 'keywords' => ['hero', 'warrior']]);
 
         $deck = new Deck;
+        $deck->setRelation('hero', $card2);
         $deck->setRelation('cards', new Cards([$card1, $card2]));
 
         $this->assertNotNull($deck->hero());
-        $this->assertSame($card2->name, $deck->hero()->name);
+        $this->assertSame($card2->name, $deck->hero->name);
     }
 
     function test_main_keywords()
@@ -68,7 +69,7 @@ class DeckTest extends TestCase
         ]);
 
         $deck = new Deck;
-        $deck->setRelation('cards', new Cards([$hero]));
+        $deck->setRelation('hero', $hero);
 
         $this->assertContains('generic', $deck->mainKeywords());
         $this->assertContains('warrior', $deck->mainKeywords());

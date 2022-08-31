@@ -42,8 +42,15 @@ export default {
         },
 
         generatePacks(state) {
-            let packsRequired = state.practise.format === 'sealed' ? 6 : 9;
-            let total = packsRequired - state.practise.packs.length;
+            let packsPerFormat = {
+                'draft': 3,
+                'sealed' : 6,
+                'team-sealed': 9
+            };
+
+            let requiredPacks = packsPerFormat[state.practise.format];
+            
+            let total = requiredPacks - state.practise.packs.length;
 
             for (let i = 0; i < total; i++) {
                 state.practise.packs.push([]);

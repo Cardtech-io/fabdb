@@ -13,6 +13,6 @@ class CardsFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $query->withHero();
+        $query->with(['hero']);
     }
 }

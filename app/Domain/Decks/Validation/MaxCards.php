@@ -65,7 +65,7 @@ class MaxCards implements Rule
             return 1;
         }
 
-        if ($this->deck->format == 'blitz') {
+        if (in_array($this->deck->format, ['blitz', 'commoner'])) {
             return 2;
         }
 

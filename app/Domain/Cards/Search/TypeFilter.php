@@ -14,7 +14,7 @@ class TypeFilter implements SearchFilter
 
     public function applyTo(Builder $query, array $input)
     {
-        $types = explode(',', $input['cardType']);
+        $types = $this->cardTypes($input['cardType']);
 
         $query->where(function($query) use ($types) {
             for ($i = 0; $i < count($types); $i++) {
@@ -33,5 +33,15 @@ class TypeFilter implements SearchFilter
                 }
             }
         });
+    }
+
+    /**
+     * Fetches and filters types to ensure no invalid/empty type values are provided.
+     */
+    private function cardTypes($cardType)
+    {
+        $types = !is_array($cardType) ? explode(',', $cardType) : $cardType;
+
+        return array_filter($types);
     }
 }

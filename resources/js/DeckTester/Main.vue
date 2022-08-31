@@ -4,20 +4,8 @@
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
         <div class="bg-gray-200">
-            <div v-if="premium" class="container py-8 sm:mx-auto">
-                <component :is="step" :tester="tester"></component>
-            </div>
-            <div v-else>
-                <div class="container px-4 py-8 sm:mx-auto">
-                    <h2 class="font-serif uppercase text-xl mb-4">Membership required</h2>
-
-                    <p>
-                        Testing your deck's draw capabilities is a premium access feature. In order to use this feature,
-                        you must be a Patreon supporter. Check out <router-link :to="{name: 'support'}" class="link">our support page</router-link> or
-                        go directly to our <a href="https://www.patreon.com/fabdb" class="link">Patreon page</a>. Memberships start as
-                        low as $3/month!
-                    </p>
-                </div>
+            <div class="container py-8 sm:mx-auto">
+                <component :is="step" :tester="tester"/>
             </div>
         </div>
     </div>

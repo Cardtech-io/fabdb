@@ -230,7 +230,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "px-4" }, [
       _c(
         "p",
-        { staticClass: "text-gray-400 bg-semi-black p-4 rounded-lg leading-8" },
+        { staticClass: "text-gray-200 bg-semi-black p-4 rounded-lg leading-8" },
         [
           _c(
             "span",

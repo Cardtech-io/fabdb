@@ -3,10 +3,13 @@ namespace FabDB\Http;
 
 use FabDB\Http\Middleware\ApiAuthentication;
 use FabDB\Http\Middleware\LogRequests;
+use FabDB\Library\OomBootstrapper;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    use OomBootstrapper;
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -16,6 +19,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \FabDB\Http\Middleware\TrustProxies::class,
+        LogRequests::class,
         \FabDB\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \FabDB\Http\Middleware\TrimStrings::class,

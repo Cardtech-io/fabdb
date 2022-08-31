@@ -147,6 +147,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -211,7 +212,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setPage', 'updateParam']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setCursor', 'updateParam']), {
     active: function active(field) {
       if (this.params[field]) {
         return 'shadow-activeNumber';
@@ -224,10 +225,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         hero: this.hero,
         order: this.order,
         label: this.label,
-        format: this.format,
-        page: this.params.page
+        format: this.format
       };
+
+      if (this.params.cursor) {
+        params.cursor = this.params.cursor;
+      }
+
+      if (this.params.page) {
+        params.page = this.params.page;
+      }
+
       var url = this.mine ? '/decks/mine' : '/decks';
+
+      if (!this.mine) {
+        params.include = 'weapons';
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url, {
         params: params
       }).then(function (response) {
@@ -235,14 +249,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (error) {});
     },
     newSearch: function newSearch() {
-      this.setPage({
-        page: 1
+      this.setCursor({
+        cursor: null
       });
       this.search();
     }
   }),
   watch: {
-    'params.page': function paramsPage() {
+    'params.cursor': function paramsCursor(value) {
       this.search();
     }
   },
@@ -381,7 +395,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("hero"),
             on: {
               change: function($event) {
@@ -425,7 +439,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("format"),
             on: {
               change: function($event) {
@@ -444,14 +458,15 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "blitz" } }, [_vm._v("Blitz")]),
+            _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "constructed" } }, [
-              _vm._v("Constructed")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
-          ]
+            _vm._l(_vm.$settings.game.decks.formats, function(name, format) {
+              return _c("option", { domProps: { value: format } }, [
+                _vm._v(_vm._s(name))
+              ])
+            })
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -468,7 +483,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("label"),
             on: {
               change: function($event) {
@@ -488,6 +503,10 @@ var render = function() {
           },
           [
             _c("option", { attrs: { value: "" } }, [_vm._v("Label")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "tournament" } }, [
+              _vm._v("Tournament")
+            ]),
             _vm._v(" "),
             _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
               return _c("option", { domProps: { value: label } }, [
@@ -512,7 +531,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
             class: _vm.active("order"),
             on: {
               change: function($event) {
@@ -535,7 +554,13 @@ var render = function() {
             _vm._v(" "),
             _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "popular" } }, [_vm._v("Popular")])
+            _c("option", { attrs: { value: "popular-all" } }, [
+              _vm._v("Popular (All time)")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "popular-7" } }, [
+              _vm._v("Popular (Last 7 days)")
+            ])
           ]
         )
       ]),

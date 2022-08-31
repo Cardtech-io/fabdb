@@ -6,6 +6,20 @@ use Illuminate\Support\Arr;
 
 class Cards extends Collection
 {
+    public function chunk($size)
+    {
+        if ($size <= 0) {
+            return new static;
+        }
+
+        $chunks = [];
+
+        foreach (array_chunk($this->items, $size, false) as $chunk) {
+            $chunks[] = new static($chunk);
+        }
+
+        return new static($chunks);
+    }
     public function hasWeapon()
     {
         return $this->first(function(Card $card) {
@@ -39,7 +53,11 @@ class Cards extends Collection
         return $this->filter(function(Card $card) {
             return !($card->isEquipment() || $card->isWeapon() || $card->isHero());
         })->filter(function(Card $card) use ($pitch) {
-            if (!$pitch) return true;
+            if (is_null($pitch)) return true;
+
+            if ($pitch === 0 && !Arr::has($card->stats, 'resource')) {
+                return true;
+            }
 
             return Arr::get($card->stats, 'resource') == $pitch;
         })->values();
@@ -64,6 +82,6 @@ class Cards extends Collection
     {
         return $this->filter(function(Card $card) {
             return !$card->isHero() && !$card->isToken();
-        })->sum('total');
+        })->sum('pivot.total');
     }
 }

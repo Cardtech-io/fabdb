@@ -1,4 +1,7 @@
-<?php $css = \Illuminate\Support\Facades\Storage::disk('web')->get('/css/fabdb.css'); ?>
+<?php
+use FabDB\Domain\Cards\Cards;
+$css = \Illuminate\Support\Facades\Storage::disk('web')->get('/css/fabdb.css');
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -22,7 +25,7 @@
                     <td class="w-2/3 px-2 py-1 border border-gray-500 font-serif" colspan="2"><span class="uppercase text-gray-600">GEM ID:</span> {{ $gemId }}</td>
                 </tr>
                 <tr>
-                    <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Hero:</span> {{ $deck->hero()->name}}</td>
+                    <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Hero:</span> {{ $deck->hero->name}}</td>
                     <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Date:</span> {{ date('jS F Y') }}</td>
                     <td class="w-1/3 px-2 py-1 border border-gray-500 font-serif"><span class="uppercase text-gray-600">Event:</span> {{ $event }}</td>
                 </tr>
@@ -36,8 +39,9 @@
                     <tr>
                         <td class="px-2 py-1 border border-gray-500 font-serif uppercase text-center" colspan="6">Weapons / Equipment</td>
                     </tr>
+                    <?php $equipment = new Cards($deck->equipment()->merge($deck->weapons)->chunk(5)->values()); ?>
                     @for ($i = 0; $i < 5; $i++)
-                        @include('export/equipment', ['deck' => $deck, 'key' => $i])
+                        @include('export/equipment', ['equipment' => $equipment, 'key' => $i])
                     @endfor
                 </tbody>
             </table>
@@ -49,8 +53,9 @@
                 <tbody>
                     <tr>
                         <td class="border border-gray-500 font-serif clearfix p-1" colspan="2">
+                            <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-0.png" class="h-8"></div>
                             <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-1.png" class="h-8"></div>
-                            <div class=" float-left p-2 h-8">Pitch 1 (Red)</div>
+                            <div class=" float-left p-2 h-8">Pitch 0 / Pitch 1 (Red)</div>
                         </td>
                         <td class="border border-gray-500 font-serif clearfix p-1" colspan="2">
                             <div class="float-left w-auto"><img src="https://fabdb.net/img/pitch-2.png" class="h-8"></div>
@@ -61,10 +66,11 @@
                             <div class=" float-left p-2 h-8">Pitch 3 (Blue)</div>
                         </td>
                     </tr>
-                    <?php $maxLines = max($deck->other(1)->count(), $deck->other(2)->count(), $deck->other(3)->count()); ?>
+                    <?php $maxLines = max($deck->other(0)->count() + $deck->other(1)->count(), $deck->other(2)->count(), $deck->other(3)->count()); ?>
+                    <?php $pitch01 = $deck->other(0)->merge($deck->other(1)); ?>
                     @for ($i = 0; $i < $maxLines; $i++)
                     <tr>
-                        <?php $pitch1 = $deck->other(1)->get($i); ?>
+                        <?php $pitch1 = $pitch01->get($i); ?>
                         <?php $pitch2 = $deck->other(2)->get($i); ?>
                         <?php $pitch3 = $deck->other(3)->get($i); ?>
                         <td class="px-2 py-1 border border-gray-500 @if ($i == $maxLines-1) pdf-totals-bottom @endif font-serif text-center" width="40">{!! object_get($pitch1, 'pivot.total', '&nbsp;') !!}</td>
@@ -76,8 +82,8 @@
                     </tr>
                     @endfor
                     <tr>
-                        <td class="px-2 py-1 border border-black font-serif text-center" width="40">{{ $deck->other(1)->total() }}</td>
-                        <td class="px-2 py-1 border border-gray-500 pdf-totals-right font-serif" width="30%">Total Pitch 1</td>
+                        <td class="px-2 py-1 border border-black font-serif text-center" width="40">{{ $deck->other(0)->total() + $deck->other(1)->total() }}</td>
+                        <td class="px-2 py-1 border border-gray-500 pdf-totals-right font-serif" width="30%">Total Pitch 0 / Pitch 1</td>
                         <td class="px-2 py-1 border border-black font-serif text-center" width="40">{{ $deck->other(2)->total() }}</td>
                         <td class="px-2 py-1 border border-gray-500 pdf-totals-right font-serif" width="30%">Total Pitch 2</td>
                         <td class="px-2 py-1 border border-black font-serif text-center" width="40">{{ $deck->other(3)->total() }}</td>

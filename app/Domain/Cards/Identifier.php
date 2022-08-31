@@ -21,12 +21,28 @@ class Identifier implements \JsonSerializable
         return new self(Str::slug($name));
     }
 
+    public static function fromLSS(array $data)
+    {
+        $name = $data['Card Name'];
+
+        // strip the left/right
+        if (Str::endsWith($name, ['(Left)', '(Right)'])) {
+            $name = preg_replace('/ \((Left|Right)\)/', '', $name);
+        }
+
+        if (!self::coloured($name) && in_array($data['Rarity'], ['Common', 'Rare']) && is_numeric($data['Pitch Value'])) {
+            $name = $name.' ('.self::resourceName($data['Pitch Value']).')';
+        }
+
+        return self::fromName($name);
+    }
+
     public static function fromString(string $identifier)
     {
         return new self($identifier);
     }
 
-    private static function resourceName(int $resource)
+    public static function resourceName(int $resource)
     {
         $names = [1 => 'red', 'yellow', 'blue'];
 

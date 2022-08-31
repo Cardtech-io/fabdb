@@ -58,7 +58,7 @@ abstract class AppServiceProvider extends ServiceProvider
         if (config('database.log')) {
             $path = storage_path().'/logs/query.log';
 
-            Event::listen(QueryExecuted::class, function ($query) use ($path) {
+            DB::listen(function ($query) use ($path) {
                 $sql = str_replace(['%', '?', "\n", "\r"], ['%%', "'%s'", ' ', ' '], $query->sql);
                 $sql = vsprintf($sql, $query->bindings);
                 $time_now = (new \DateTime)->format('Y-m-d H:i:s');

@@ -120,6 +120,7 @@ module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
     var requestData = config.data;
     var requestHeaders = config.headers;
+    var responseType = config.responseType;
 
     if (utils.isFormData(requestData)) {
       delete requestHeaders['Content-Type']; // Let the browser set it
@@ -140,23 +141,14 @@ module.exports = function xhrAdapter(config) {
     // Set the request timeout in MS
     request.timeout = config.timeout;
 
-    // Listen for ready state
-    request.onreadystatechange = function handleLoad() {
-      if (!request || request.readyState !== 4) {
+    function onloadend() {
+      if (!request) {
         return;
       }
-
-      // The request errored out and we didn't get a response, this will be
-      // handled by onerror instead
-      // With one exception: request that using file: protocol, most browsers
-      // will return status as 0 even though it's a successful request
-      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-        return;
-      }
-
       // Prepare the response
       var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var responseData = !responseType || responseType === 'text' ||  responseType === 'json' ?
+        request.responseText : request.response;
       var response = {
         data: responseData,
         status: request.status,
@@ -170,7 +162,30 @@ module.exports = function xhrAdapter(config) {
 
       // Clean up request
       request = null;
-    };
+    }
+
+    if ('onloadend' in request) {
+      // Use onloadend if available
+      request.onloadend = onloadend;
+    } else {
+      // Listen for ready state to emulate onloadend
+      request.onreadystatechange = function handleLoad() {
+        if (!request || request.readyState !== 4) {
+          return;
+        }
+
+        // The request errored out and we didn't get a response, this will be
+        // handled by onerror instead
+        // With one exception: request that using file: protocol, most browsers
+        // will return status as 0 even though it's a successful request
+        if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+          return;
+        }
+        // readystate handler is calling before onerror or ontimeout handlers,
+        // so we should call onloadend on the next 'tick'
+        setTimeout(onloadend);
+      };
+    }
 
     // Handle browser request cancellation (as opposed to a manual cancellation)
     request.onabort = function handleAbort() {
@@ -200,7 +215,10 @@ module.exports = function xhrAdapter(config) {
       if (config.timeoutErrorMessage) {
         timeoutErrorMessage = config.timeoutErrorMessage;
       }
-      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
+      reject(createError(
+        timeoutErrorMessage,
+        config,
+        config.transitional && config.transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED',
         request));
 
       // Clean up request
@@ -240,16 +258,8 @@ module.exports = function xhrAdapter(config) {
     }
 
     // Add responseType to request if needed
-    if (config.responseType) {
-      try {
-        request.responseType = config.responseType;
-      } catch (e) {
-        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-        if (config.responseType !== 'json') {
-          throw e;
-        }
-      }
+    if (responseType && responseType !== 'json') {
+      request.responseType = config.responseType;
     }
 
     // Handle progress if needed
@@ -488,7 +498,9 @@ var buildURL = __webpack_require__(/*! ../helpers/buildURL */ "./node_modules/ax
 var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "./node_modules/axios/lib/core/InterceptorManager.js");
 var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "./node_modules/axios/lib/core/dispatchRequest.js");
 var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
+var validator = __webpack_require__(/*! ../helpers/validator */ "./node_modules/axios/lib/helpers/validator.js");
 
+var validators = validator.validators;
 /**
  * Create a new instance of Axios
  *
@@ -528,20 +540,71 @@ Axios.prototype.request = function request(config) {
     config.method = 'get';
   }
 
-  // Hook up interceptors middleware
-  var chain = [dispatchRequest, undefined];
-  var promise = Promise.resolve(config);
+  var transitional = config.transitional;
 
+  if (transitional !== undefined) {
+    validator.assertOptions(transitional, {
+      silentJSONParsing: validators.transitional(validators.boolean, '1.0.0'),
+      forcedJSONParsing: validators.transitional(validators.boolean, '1.0.0'),
+      clarifyTimeoutError: validators.transitional(validators.boolean, '1.0.0')
+    }, false);
+  }
+
+  // filter out skipped interceptors
+  var requestInterceptorChain = [];
+  var synchronousRequestInterceptors = true;
   this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+    if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
+      return;
+    }
+
+    synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
+
+    requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
   });
 
+  var responseInterceptorChain = [];
   this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-    chain.push(interceptor.fulfilled, interceptor.rejected);
+    responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
   });
 
-  while (chain.length) {
-    promise = promise.then(chain.shift(), chain.shift());
+  var promise;
+
+  if (!synchronousRequestInterceptors) {
+    var chain = [dispatchRequest, undefined];
+
+    Array.prototype.unshift.apply(chain, requestInterceptorChain);
+    chain = chain.concat(responseInterceptorChain);
+
+    promise = Promise.resolve(config);
+    while (chain.length) {
+      promise = promise.then(chain.shift(), chain.shift());
+    }
+
+    return promise;
+  }
+
+
+  var newConfig = config;
+  while (requestInterceptorChain.length) {
+    var onFulfilled = requestInterceptorChain.shift();
+    var onRejected = requestInterceptorChain.shift();
+    try {
+      newConfig = onFulfilled(newConfig);
+    } catch (error) {
+      onRejected(error);
+      break;
+    }
+  }
+
+  try {
+    promise = dispatchRequest(newConfig);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+
+  while (responseInterceptorChain.length) {
+    promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());
   }
 
   return promise;
@@ -604,10 +667,12 @@ function InterceptorManager() {
  *
  * @return {Number} An ID used to remove interceptor later
  */
-InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+InterceptorManager.prototype.use = function use(fulfilled, rejected, options) {
   this.handlers.push({
     fulfilled: fulfilled,
-    rejected: rejected
+    rejected: rejected,
+    synchronous: options ? options.synchronous : false,
+    runWhen: options ? options.runWhen : null
   });
   return this.handlers.length - 1;
 };
@@ -743,7 +808,8 @@ module.exports = function dispatchRequest(config) {
   config.headers = config.headers || {};
 
   // Transform request data
-  config.data = transformData(
+  config.data = transformData.call(
+    config,
     config.data,
     config.headers,
     config.transformRequest
@@ -769,7 +835,8 @@ module.exports = function dispatchRequest(config) {
     throwIfCancellationRequested(config);
 
     // Transform response data
-    response.data = transformData(
+    response.data = transformData.call(
+      config,
       response.data,
       response.headers,
       config.transformResponse
@@ -782,7 +849,8 @@ module.exports = function dispatchRequest(config) {
 
       // Transform response data
       if (reason && reason.response) {
-        reason.response.data = transformData(
+        reason.response.data = transformData.call(
+          config,
           reason.response.data,
           reason.response.headers,
           config.transformResponse
@@ -998,6 +1066,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var defaults = __webpack_require__(/*! ./../defaults */ "./node_modules/axios/lib/defaults.js");
 
 /**
  * Transform the data for a request or a response
@@ -1008,9 +1077,10 @@ var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/util
  * @returns {*} The resulting transformed data
  */
 module.exports = function transformData(data, headers, fns) {
+  var context = this || defaults;
   /*eslint no-param-reassign:0*/
   utils.forEach(fns, function transform(fn) {
-    data = fn(data, headers);
+    data = fn.call(context, data, headers);
   });
 
   return data;
@@ -1031,6 +1101,7 @@ module.exports = function transformData(data, headers, fns) {
 
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
 var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "./node_modules/axios/lib/helpers/normalizeHeaderName.js");
+var enhanceError = __webpack_require__(/*! ./core/enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1054,12 +1125,35 @@ function getDefaultAdapter() {
   return adapter;
 }
 
+function stringifySafely(rawValue, parser, encoder) {
+  if (utils.isString(rawValue)) {
+    try {
+      (parser || JSON.parse)(rawValue);
+      return utils.trim(rawValue);
+    } catch (e) {
+      if (e.name !== 'SyntaxError') {
+        throw e;
+      }
+    }
+  }
+
+  return (encoder || JSON.stringify)(rawValue);
+}
+
 var defaults = {
+
+  transitional: {
+    silentJSONParsing: true,
+    forcedJSONParsing: true,
+    clarifyTimeoutError: false
+  },
+
   adapter: getDefaultAdapter(),
 
   transformRequest: [function transformRequest(data, headers) {
     normalizeHeaderName(headers, 'Accept');
     normalizeHeaderName(headers, 'Content-Type');
+
     if (utils.isFormData(data) ||
       utils.isArrayBuffer(data) ||
       utils.isBuffer(data) ||
@@ -1076,20 +1170,32 @@ var defaults = {
       setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
       return data.toString();
     }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
+    if (utils.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {
+      setContentTypeIfUnset(headers, 'application/json');
+      return stringifySafely(data);
     }
     return data;
   }],
 
   transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
+    var transitional = this.transitional;
+    var silentJSONParsing = transitional && transitional.silentJSONParsing;
+    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;
+    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';
+
+    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {
       try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
+        return JSON.parse(data);
+      } catch (e) {
+        if (strictJSONParsing) {
+          if (e.name === 'SyntaxError') {
+            throw enhanceError(e, this, 'E_JSON_PARSE');
+          }
+          throw e;
+        }
+      }
     }
+
     return data;
   }],
 
@@ -1583,6 +1689,123 @@ module.exports = function spread(callback) {
 
 /***/ }),
 
+/***/ "./node_modules/axios/lib/helpers/validator.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/validator.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var pkg = __webpack_require__(/*! ./../../package.json */ "./node_modules/axios/package.json");
+
+var validators = {};
+
+// eslint-disable-next-line func-names
+['object', 'boolean', 'number', 'function', 'string', 'symbol'].forEach(function(type, i) {
+  validators[type] = function validator(thing) {
+    return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
+  };
+});
+
+var deprecatedWarnings = {};
+var currentVerArr = pkg.version.split('.');
+
+/**
+ * Compare package versions
+ * @param {string} version
+ * @param {string?} thanVersion
+ * @returns {boolean}
+ */
+function isOlderVersion(version, thanVersion) {
+  var pkgVersionArr = thanVersion ? thanVersion.split('.') : currentVerArr;
+  var destVer = version.split('.');
+  for (var i = 0; i < 3; i++) {
+    if (pkgVersionArr[i] > destVer[i]) {
+      return true;
+    } else if (pkgVersionArr[i] < destVer[i]) {
+      return false;
+    }
+  }
+  return false;
+}
+
+/**
+ * Transitional option validator
+ * @param {function|boolean?} validator
+ * @param {string?} version
+ * @param {string} message
+ * @returns {function}
+ */
+validators.transitional = function transitional(validator, version, message) {
+  var isDeprecated = version && isOlderVersion(version);
+
+  function formatMessage(opt, desc) {
+    return '[Axios v' + pkg.version + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+  }
+
+  // eslint-disable-next-line func-names
+  return function(value, opt, opts) {
+    if (validator === false) {
+      throw new Error(formatMessage(opt, ' has been removed in ' + version));
+    }
+
+    if (isDeprecated && !deprecatedWarnings[opt]) {
+      deprecatedWarnings[opt] = true;
+      // eslint-disable-next-line no-console
+      console.warn(
+        formatMessage(
+          opt,
+          ' has been deprecated since v' + version + ' and will be removed in the near future'
+        )
+      );
+    }
+
+    return validator ? validator(value, opt, opts) : true;
+  };
+};
+
+/**
+ * Assert object's properties type
+ * @param {object} options
+ * @param {object} schema
+ * @param {boolean?} allowUnknown
+ */
+
+function assertOptions(options, schema, allowUnknown) {
+  if (typeof options !== 'object') {
+    throw new TypeError('options must be an object');
+  }
+  var keys = Object.keys(options);
+  var i = keys.length;
+  while (i-- > 0) {
+    var opt = keys[i];
+    var validator = schema[opt];
+    if (validator) {
+      var value = options[opt];
+      var result = value === undefined || validator(value, opt, options);
+      if (result !== true) {
+        throw new TypeError('option ' + opt + ' must be ' + result);
+      }
+      continue;
+    }
+    if (allowUnknown !== true) {
+      throw Error('Unknown option ' + opt);
+    }
+  }
+}
+
+module.exports = {
+  isOlderVersion: isOlderVersion,
+  assertOptions: assertOptions,
+  validators: validators
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/lib/utils.js":
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/utils.js ***!
@@ -1594,8 +1817,6 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-
-/*global toString:true*/
 
 // utils is a library of generic helper functions non-specific to axios
 
@@ -1780,7 +2001,7 @@ function isURLSearchParams(val) {
  * @returns {String} The String freed of excess whitespace
  */
 function trim(str) {
-  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+  return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
 }
 
 /**
@@ -1946,6 +2167,17 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/axios/package.json":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/package.json ***!
+  \*****************************************/
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, browser, bugs, bundleDependencies, bundlesize, dependencies, deprecated, description, devDependencies, homepage, jsdelivr, keywords, license, main, name, repository, scripts, typings, unpkg, version, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"_from\":\"axios@0.21.4\",\"_id\":\"axios@0.21.4\",\"_inBundle\":false,\"_integrity\":\"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==\",\"_location\":\"/axios\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"axios@0.21.4\",\"name\":\"axios\",\"escapedName\":\"axios\",\"rawSpec\":\"0.21.4\",\"saveSpec\":null,\"fetchSpec\":\"0.21.4\"},\"_requiredBy\":[\"#DEV:/\",\"#USER\"],\"_resolved\":\"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz\",\"_shasum\":\"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575\",\"_spec\":\"axios@0.21.4\",\"_where\":\"/Users/kirkbushell/Work/Mine/fabdb\",\"author\":{\"name\":\"Matt Zabriskie\"},\"browser\":{\"./lib/adapters/http.js\":\"./lib/adapters/xhr.js\"},\"bugs\":{\"url\":\"https://github.com/axios/axios/issues\"},\"bundleDependencies\":false,\"bundlesize\":[{\"path\":\"./dist/axios.min.js\",\"threshold\":\"5kB\"}],\"dependencies\":{\"follow-redirects\":\"^1.14.0\"},\"deprecated\":false,\"description\":\"Promise based HTTP client for the browser and node.js\",\"devDependencies\":{\"coveralls\":\"^3.0.0\",\"es6-promise\":\"^4.2.4\",\"grunt\":\"^1.3.0\",\"grunt-banner\":\"^0.6.0\",\"grunt-cli\":\"^1.2.0\",\"grunt-contrib-clean\":\"^1.1.0\",\"grunt-contrib-watch\":\"^1.0.0\",\"grunt-eslint\":\"^23.0.0\",\"grunt-karma\":\"^4.0.0\",\"grunt-mocha-test\":\"^0.13.3\",\"grunt-ts\":\"^6.0.0-beta.19\",\"grunt-webpack\":\"^4.0.2\",\"istanbul-instrumenter-loader\":\"^1.0.0\",\"jasmine-core\":\"^2.4.1\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-firefox-launcher\":\"^2.1.0\",\"karma-jasmine\":\"^1.1.1\",\"karma-jasmine-ajax\":\"^0.1.13\",\"karma-safari-launcher\":\"^1.0.0\",\"karma-sauce-launcher\":\"^4.3.6\",\"karma-sinon\":\"^1.0.5\",\"karma-sourcemap-loader\":\"^0.3.8\",\"karma-webpack\":\"^4.0.2\",\"load-grunt-tasks\":\"^3.5.2\",\"minimist\":\"^1.2.0\",\"mocha\":\"^8.2.1\",\"sinon\":\"^4.5.0\",\"terser-webpack-plugin\":\"^4.2.3\",\"typescript\":\"^4.0.5\",\"url-search-params\":\"^0.10.0\",\"webpack\":\"^4.44.2\",\"webpack-dev-server\":\"^3.11.0\"},\"homepage\":\"https://axios-http.com\",\"jsdelivr\":\"dist/axios.min.js\",\"keywords\":[\"xhr\",\"http\",\"ajax\",\"promise\",\"node\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"axios\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/axios/axios.git\"},\"scripts\":{\"build\":\"NODE_ENV=production grunt build\",\"coveralls\":\"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\"examples\":\"node ./examples/server.js\",\"fix\":\"eslint --fix lib/**/*.js\",\"postversion\":\"git push && git push --tags\",\"preversion\":\"npm test\",\"start\":\"node ./sandbox/server.js\",\"test\":\"grunt test\",\"version\":\"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json\"},\"typings\":\"./index.d.ts\",\"unpkg\":\"dist/axios.min.js\",\"version\":\"0.21.4\"}");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardImage.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/CardImage.vue?vue&type=script&lang=js& ***!
@@ -1981,7 +2213,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return [this.handlerProvided() ? 'cursor-pointer' : ''];
     },
     image: function image() {
-      var width = this.width || 300;
+      var width = this.width || 450;
 
       if (this.sku) {
         return this.cardImageFromSku(this.sku, width);
@@ -2060,18 +2292,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2097,7 +2317,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$eventHub.$emit('hover-card', card);
     },
     total: function total() {
-      return this.card.total - this.card.totalSideboard;
+      return this.card.total - this.card.sideboardTotal;
     }
   }
 });
@@ -41578,7 +41798,7 @@ function emulatedSet(keys) {
   var hash = {};
   for (var l = keys.length, i = 0; i < l; ++i) hash[keys[i]] = true;
   return {
-    contains: function(key) { return hash[key]; },
+    contains: function(key) { return hash[key] === true; },
     push: function(key) {
       hash[key] = true;
       return keys.push(key);
@@ -42232,7 +42452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nonEnumerableProps", function() { return nonEnumerableProps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAX_ARRAY_INDEX", function() { return MAX_ARRAY_INDEX; });
 // Current version.
-var VERSION = '1.13.1';
+var VERSION = '1.13.2';
 
 // Establish the root object, `window` (`self`) in the browser, `global`
 // on the server, or `this` in some virtual machines. We use `self`
@@ -44180,7 +44400,7 @@ __webpack_require__.r(__webpack_exports__);
 // Named Exports
 // =============
 
-//     Underscore.js 1.13.1
+//     Underscore.js 1.13.2
 //     https://underscorejs.org
 //     (c) 2009-2021 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
 //     Underscore may be freely distributed under the MIT license.
@@ -46193,10 +46413,10 @@ function result(obj, path, fallback) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sample; });
 /* harmony import */ var _isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_isArrayLike.js */ "./node_modules/underscore/modules/_isArrayLike.js");
-/* harmony import */ var _clone_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clone.js */ "./node_modules/underscore/modules/clone.js");
-/* harmony import */ var _values_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./values.js */ "./node_modules/underscore/modules/values.js");
-/* harmony import */ var _getLength_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_getLength.js */ "./node_modules/underscore/modules/_getLength.js");
-/* harmony import */ var _random_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./random.js */ "./node_modules/underscore/modules/random.js");
+/* harmony import */ var _values_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./values.js */ "./node_modules/underscore/modules/values.js");
+/* harmony import */ var _getLength_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_getLength.js */ "./node_modules/underscore/modules/_getLength.js");
+/* harmony import */ var _random_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./random.js */ "./node_modules/underscore/modules/random.js");
+/* harmony import */ var _toArray_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./toArray.js */ "./node_modules/underscore/modules/toArray.js");
 
 
 
@@ -46209,15 +46429,15 @@ __webpack_require__.r(__webpack_exports__);
 // The internal `guard` argument allows it to work with `_.map`.
 function sample(obj, n, guard) {
   if (n == null || guard) {
-    if (!Object(_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(obj)) obj = Object(_values_js__WEBPACK_IMPORTED_MODULE_2__["default"])(obj);
-    return obj[Object(_random_js__WEBPACK_IMPORTED_MODULE_4__["default"])(obj.length - 1)];
+    if (!Object(_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(obj)) obj = Object(_values_js__WEBPACK_IMPORTED_MODULE_1__["default"])(obj);
+    return obj[Object(_random_js__WEBPACK_IMPORTED_MODULE_3__["default"])(obj.length - 1)];
   }
-  var sample = Object(_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(obj) ? Object(_clone_js__WEBPACK_IMPORTED_MODULE_1__["default"])(obj) : Object(_values_js__WEBPACK_IMPORTED_MODULE_2__["default"])(obj);
-  var length = Object(_getLength_js__WEBPACK_IMPORTED_MODULE_3__["default"])(sample);
+  var sample = Object(_toArray_js__WEBPACK_IMPORTED_MODULE_4__["default"])(obj);
+  var length = Object(_getLength_js__WEBPACK_IMPORTED_MODULE_2__["default"])(sample);
   n = Math.max(Math.min(n, length), 0);
   var last = length - 1;
   for (var index = 0; index < n; index++) {
-    var rand = Object(_random_js__WEBPACK_IMPORTED_MODULE_4__["default"])(index, last);
+    var rand = Object(_random_js__WEBPACK_IMPORTED_MODULE_3__["default"])(index, last);
     var temp = sample[index];
     sample[index] = sample[rand];
     sample[rand] = temp;
@@ -47128,143 +47348,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.useRouter
-    ? _c(
-        "router-link",
+  return _c(
+    "div",
+    [
+      _vm.card.stats.resource || !_vm.collapse
+        ? _c("colour", {
+            staticClass: "mr-2",
+            attrs: { resource: _vm.card.stats.resource }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "span",
         {
-          staticClass: "block flex items-center",
-          attrs: { to: /cards/ + _vm.card.identifier }
-        },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
+          directives: [
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
+              name: "preview-card",
+              rawName: "v-preview-card",
+              value: { stack: [_vm.card], index: 0 },
+              expression: "{stack: [card], index: 0}"
             },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.totalSideboard
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
-    : _c(
-        "a",
-        {
-          staticClass: "block flex items-center",
-          attrs: { href: "/cards/" + _vm.card.identifier, target: "_blank" }
-        },
-        [
-          _vm.card.stats.resource || !_vm.collapse
-            ? _c("colour", {
-                staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "span",
             {
-              on: {
-                mouseover: function($event) {
-                  return _vm.toggleCard(_vm.card)
-                },
-                mouseleave: function($event) {
-                  return _vm.toggleCard(false)
-                }
-              }
+              name: "hover-card",
+              rawName: "v-hover-card",
+              value: _vm.card,
+              expression: "card"
+            }
+          ],
+          staticClass: "cursor-help help-underline"
+        },
+        [_vm._v(_vm._s(_vm.card.name))]
+      ),
+      _vm._v(" "),
+      _vm.total()
+        ? _c("span", { staticClass: "ml-1" }, [
+            _vm._v("(" + _vm._s(_vm.total()) + ")")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.card.sideboardTotal
+        ? _c(
+            "div",
+            {
+              staticClass: "flex items-center ml-auto",
+              attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
             },
-            [_vm._v(_vm._s(_vm.card.name))]
-          ),
-          _vm._v(" "),
-          _vm.total()
-            ? _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.total()) + ")")
+            [
+              _c("icon", { attrs: { size: 4 } }, [
+                _c("path", {
+                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                }),
+                _vm._v(" "),
+                _c("path", {
+                  attrs: {
+                    "fill-rule": "evenodd",
+                    d:
+                      "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                    "clip-rule": "evenodd"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.card.totalSideboard
-            ? _c(
-                "div",
-                {
-                  staticClass: "flex items-center ml-auto",
-                  attrs: { title: _vm.card.totalSideboard + " in sideboard" }
-                },
-                [
-                  _c("icon", { attrs: { size: 4 } }, [
-                    _c("path", {
-                      attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
-                    }),
-                    _vm._v(" "),
-                    _c("path", {
-                      attrs: {
-                        "fill-rule": "evenodd",
-                        d:
-                          "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "ml-1" }, [
-                    _vm._v("(" + _vm._s(_vm.card.totalSideboard) + ")")
-                  ])
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -60955,10 +61109,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     maxAvailable: function maxAvailable() {
-      if (!isNaN(this.card.available)) {
-        return this.card.available;
-      }
-
       if (this.card.keywords.includes('hero')) {
         return 1;
       }
@@ -60977,12 +61127,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var limits = {
         blitz: 2,
+        commoner: 2,
         constructed: 3,
-        open: 100
+        open: 7
       };
       var available = limits[this.deck.format];
 
-      if (this.deck.useCollection && this.card.ownedTotal < available) {
+      if (this.deck.limitToCollection === 1 && this.card.ownedTotal < available) {
         available = this.card.ownedTotal;
       }
 
@@ -61007,7 +61158,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return encodeURI(name);
       }).join('||');
       var code = 'FABDB';
-      return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=FABDB&c=' + cards;
+      return 'https://www.tcgplayer.com/massentry?productline=Flesh%20%26%20Blood%20TCG&utm_campaign=affiliate&utm_medium=' + code + '&utm_source=cardtech&c=' + cards;
     }
   })
 });
@@ -61573,9 +61724,37 @@ function remove(card, cards, bin) {
   }
 }
 
-; // the following matrix dictates the floor and ceiling
+;
+
+function setTotal(card, cards, total) {
+  var existing = find(card, cards); // If it exists, manage it
+
+  if (existing) {
+    if (total) {
+      existing.total = total;
+    } else {
+      remove(card, cards, true);
+    }
+  } else if (total) {
+    existing = add(card, cards);
+    existing.total = total;
+  }
+}
+
+function setMaxTotal(card, cards, max) {
+  var existing = find(card, cards); // If it exists, ensure it doesn't eclipse the max
+
+  if (existing) {
+    if (max && existing.total > max) {
+      existing.total = max;
+    } else if (max === 0) {
+      remove(card, cards, true);
+    }
+  }
+} // the following matrix dictates the floor and ceiling
 // of the zoom level based on whether or not fullscreen
 // is enabled, and whether or not the mode is set to all.
+
 
 var zoomMatrix = [[[5, 4], [2, 1]], // fullscreen
 [[4, 3], [1, 0]]];
@@ -61681,18 +61860,8 @@ function controlMaxZoom(state) {
     setCardTotal: function setCardTotal(state, _ref5) {
       var card = _ref5.card,
           total = _ref5.total;
-      var existing = find(card, state.cards); // If it exists, manage it
-
-      if (existing) {
-        if (total) {
-          existing.total = total;
-        } else {
-          remove(card, state.cards, true);
-        }
-      } else if (total) {
-        existing = add(card, state.cards);
-        existing.total = total;
-      }
+      setTotal(card, state.cards, total);
+      setMaxTotal(card, state.sideboard, total);
     },
     setDeck: function setDeck(state, _ref6) {
       var deck = _ref6.deck;
@@ -61891,8 +62060,13 @@ __webpack_require__.r(__webpack_exports__);
       state.practise = practise;
     },
     generatePacks: function generatePacks(state) {
-      var packsRequired = state.practise.format === 'sealed' ? 6 : 9;
-      var total = packsRequired - state.practise.packs.length;
+      var packsPerFormat = {
+        'draft': 3,
+        'sealed': 6,
+        'team-sealed': 9
+      };
+      var requiredPacks = packsPerFormat[state.practise.format];
+      var total = requiredPacks - state.practise.packs.length;
 
       for (var i = 0; i < total; i++) {
         state.practise.packs.push([]);
@@ -62070,27 +62244,34 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     params: {
       currency: 'USD',
+      cursor: null,
       format: null,
       label: '',
       hero: null,
       order: 'newest',
       keywords: '',
-      page: 1
+      page: null
     }
   },
   mutations: {
     setKeywords: function setKeywords(state, _ref) {
       var keywords = _ref.keywords;
       state.params.keywords = keywords;
+      state.params.cursor = null;
     },
     setPage: function setPage(state, _ref2) {
       var page = _ref2.page;
       state.params.page = page;
+      state.params.cursor = null;
     },
     updateParam: function updateParam(state, _ref3) {
       var key = _ref3.key,
           value = _ref3.value;
       state.params[key] = value;
+
+      if (key !== 'cursor') {
+        state.params.cursor = null;
+      }
     }
   },
   actions: {
@@ -62368,10 +62549,10 @@ __webpack_require__.r(__webpack_exports__);
       return window.location.protocol + '//' + window.settings.imageDomain + path + '?crop=edges&w=' + width + '&h=' + height + '&fit=crop&auto=compress';
     },
     squareThumbUrl: function squareThumbUrl(path, width) {
-      return path + '&rect=90,95,360,365&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
+      return path + '&rect=90,115,400,345&crop=edges&w=' + width + '&h=' + width + '&fit=crop&auto=compress';
     },
     heroProfile: function heroProfile(hero, width, rounded) {
-      var url = hero.image + '&rect=90,95,360,365';
+      var url = hero.image + '&rect=90,115,400,345';
 
       if (rounded) {
         url += '&mask=corners&h=' + width + '&corner-radius=100&fm=png';
@@ -62380,6 +62561,8 @@ __webpack_require__.r(__webpack_exports__);
       return url;
     },
     cardImageFromSku: function cardImageFromSku(sku, width) {
+      // first we remove any language value from the sku (ie. UES)
+      sku = sku.replace(/^((u)[a-z]+(\-))(.+)?/i, '$2$3$4');
       return this.imageUrl(this.cardImagePathFromSku(sku), width);
     },
     cardImagePathFromSku: function cardImagePathFromSku(sku) {

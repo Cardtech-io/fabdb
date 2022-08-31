@@ -21,7 +21,7 @@ class SaveDeckSettingsRequest extends FormRequest
         return [
             'cardBack' => ['in:1,2,3,4,5,6,7,8'],
             'visibility' => ['in:private,public'],
-            'format' => ['in:blitz,constructed,open'],
+            'format' => ['in:'.implode(',', array_keys(config('game.decks.formats')))],
         ];
     }
 }

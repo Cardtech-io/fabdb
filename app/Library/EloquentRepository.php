@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Library;
 
+use DB;
 use FabDB\Domain\Voting\Voteable;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
@@ -64,5 +65,10 @@ abstract class EloquentRepository implements Repository
                 $filter->applyTo($query, $input);
             }
         }
+    }
+    
+    public function transaction(\Closure $callback)
+    {
+        DB::transaction($callback);
     }
 }
