@@ -18,18 +18,28 @@ class TypeFilter implements SearchFilter
 
         $query->where(function($query) use ($types) {
             for ($i = 0; $i < count($types); $i++) {
-                if ($types[$i] === 'attack action') {
-                    $query->orWhere(function($query) {
-                        $query->where('cards.sub_type', 'attack');
-                    });
-                } else {
-                    $splitType = explode(' ', $types[$i]);
+                switch ($types[$i]) {
+                    case 'attack action':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.sub_type', 'attack');
+                        });
+                        break;
+                    case 'non-attack action':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.type', 'action');
+                            $query->where('cards.sub_type', '!=', 'attack');
+                        });
+                        break;
+                    default:
+                        $splitType = explode(' ', $types[$i]);
 
-                    $query->where('cards.type', $splitType[0]); 
+                        $query->where('cards.type', $splitType[0]); 
 
-                    if (count($splitType) == 2) {
-                        $query->where('cards.sub_type', $splitType[1]); 
-                    }
+                        if (count($splitType) == 2) {
+                            $query->where('cards.sub_type', $splitType[1]); 
+                        }
+
+                        break;
                 }
             }
         });
