@@ -772,7 +772,7 @@ var render = function() {
                                             "lg:hidden hover:text-gray-400",
                                           attrs: {
                                             to: {
-                                              name: "decks.test.prepare",
+                                              name: "decks.test",
                                               params: { deck: deck.slug }
                                             }
                                           }

@@ -18,18 +18,18 @@ class TypeFilter implements SearchFilter
 
         $query->where(function($query) use ($types) {
             for ($i = 0; $i < count($types); $i++) {
-                if ($types[$i] === 'non-attack action') {
+                if ($types[$i] === 'attack action') {
                     $query->orWhere(function($query) {
-                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'action') IS NOT NULL");
-                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
+                        $query->where('cards.sub_type', 'attack');
                     });
                 } else {
                     $splitType = explode(' ', $types[$i]);
-                    $query->orWhere(function($query) use ($splitType) {
-                        foreach ($splitType as $part) {
-                            $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$part}') IS NOT NULL");
-                        }
-                    });
+
+                    $query->where('cards.type', $splitType[0]); 
+
+                    if (count($splitType) == 2) {
+                        $query->where('cards.sub_type', $splitType[1]); 
+                    }
                 }
             }
         });
