@@ -2316,7 +2316,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       isOpen: false
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['requiresSideboard']), {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode']), {
     modes: function modes() {
       return {
         all: {
@@ -2342,8 +2342,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     classes: function classes(view) {
       return {
         'button-disabled': this.mode === view,
-        'button-secondary': this.mode !== view,
-        'hidden md:flex': view === 'sideboard'
+        'button-secondary': this.mode !== view
       };
     },
     select: function select(mode) {
@@ -6245,30 +6244,28 @@ var render = function() {
       "div",
       { staticClass: "hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm" },
       _vm._l(_vm.modes, function(mode, view) {
-        return view !== "sideboard" || _vm.requiresSideboard
-          ? _c(
-              "button",
-              {
-                staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
-                class: _vm.classes(view),
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    return _vm.select(view)
-                  }
-                }
-              },
-              [
-                _c("icon", {
-                  attrs: { size: 5 },
-                  domProps: { innerHTML: _vm._s(mode.icon) }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(mode.name))])
-              ],
-              1
-            )
-          : _vm._e()
+        return _c(
+          "button",
+          {
+            staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
+            class: _vm.classes(view),
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.select(view)
+              }
+            }
+          },
+          [
+            _c("icon", {
+              attrs: { size: 5 },
+              domProps: { innerHTML: _vm._s(mode.icon) }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(mode.name))])
+          ],
+          1
+        )
       }),
       0
     ),

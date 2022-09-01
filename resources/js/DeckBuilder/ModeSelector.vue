@@ -2,7 +2,7 @@
     <div>
         <!-- Desktop view -->
         <div class="hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm">
-            <button type="button" class="flex-grow flex items-center space-x-2 px-3 py-2" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)" v-if="view !== 'sideboard' || requiresSideboard">
+            <button type="button" class="flex-grow flex items-center space-x-2 px-3 py-2" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)">
                 <icon :size="5" v-html="mode.icon"/>
                 <span>{{ mode.name }}</span>
             </button>
@@ -41,7 +41,6 @@
 
         computed: {
             ...mapState('deck', ['mode']),
-            ...mapGetters('deck', ['requiresSideboard']),
 
             modes() {
                 return {
@@ -71,12 +70,11 @@
             classes(view) {
                 return {
                     'button-disabled': this.mode === view,
-                    'button-secondary': this.mode !== view,
-                    'hidden md:flex': view === 'sideboard'
+                    'button-secondary': this.mode !== view
                 };
             },
 
-            select: function(mode) {
+            select(mode) {
                 if (mode !== this.mode) {
                     this.setMode({ mode });
                     this.isOpen = false;
