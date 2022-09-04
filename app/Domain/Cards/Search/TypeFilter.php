@@ -24,6 +24,11 @@ class TypeFilter implements SearchFilter
                             $query->where('cards.sub_type', 'attack');
                         });
                         break;
+                    case 'item':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.sub_type', 'item');
+                        });
+                        break;
                     case 'non-attack action':
                         $query->orWhere(function($query) {
                             $query->where('cards.type', 'action');
