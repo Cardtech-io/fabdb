@@ -51,6 +51,12 @@ return [
             'released' => '2022-06-28',
             'browseable' => false,
         ],
+        'jdg' => [
+            'id' => 'jdg',
+            'name' => 'Judge promos',
+            'released' => '2022-01-01',
+            'browseable' => false,
+        ],
         'u-ele' => [
             'id' => 'u-ele',
             'name' => 'Tales of Aria (Unlimited)',
