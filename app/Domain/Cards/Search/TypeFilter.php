@@ -32,7 +32,10 @@ class TypeFilter implements SearchFilter
                     case 'non-attack action':
                         $query->orWhere(function($query) {
                             $query->where('cards.type', 'action');
-                            $query->where('cards.sub_type', '!=', 'attack');
+                            $query->where(function($query) {
+                                $query->whereNull('cards.sub_type');
+                                $query->orWhereNotIn('cards.sub_type', ['attack', 'item']);
+                            });
                         });
                         break;
                     default:
