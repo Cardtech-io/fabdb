@@ -21,7 +21,6 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
-        'legality' => 'array',
         'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,
@@ -205,12 +204,12 @@ class Card extends Model
         return in_array('token', $this->keywords);
     }
 
-    public function getLegalityAttribute($value)
+    public function getLegalityAttribute($value): array
     {
         if (is_null($value)) {
-            $value = [];
+            return [];
         }
         
-        return $value;
+        return json_decode($value, true);
     }
 }

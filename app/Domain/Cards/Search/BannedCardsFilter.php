@@ -16,7 +16,7 @@ class BannedCardsFilter implements SearchFilter
     {
         return isset($input['use-case']) && $input['use-case'] == 'build' && $this->deck->format !== 'open';
     }
-
+    
     public function applyTo(Builder $query, array $input)
     {
         $query->whereNotIn('cards.id', $this->ignoreCards());
