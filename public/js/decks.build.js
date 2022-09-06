@@ -1511,6 +1511,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1535,6 +1541,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: this.deck.name,
         label: this.deck.label,
         notes: this.deck.notes,
+        videoUrl: this.deck.videoUrl,
         type: this.deck.type,
         format: this.deck.format,
         limitToCollection: this.deck.limitToCollection,
@@ -4912,6 +4919,37 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "w-full mb-4" }, [
+            _c(
+              "label",
+              { staticClass: "block font-serif uppercase tracking-wide mb-1" },
+              [_vm._v("Video")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.deck.videoUrl,
+                  expression: "deck.videoUrl"
+                }
+              ],
+              staticClass:
+                "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              attrs: { type: "text", required: "" },
+              domProps: { value: _vm.deck.videoUrl },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.deck, "videoUrl", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "w-full mb-4" },
@@ -5227,6 +5265,12 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("ul", { staticClass: "list-disc ml-8" }, [
+        _c("li", [
+          _vm._v(
+            "Video: Embed a decktech video on your deck page. Currently only supports YouTube."
+          )
+        ]),
+        _vm._v(" "),
         _c("li", [
           _vm._v(
             "Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups."

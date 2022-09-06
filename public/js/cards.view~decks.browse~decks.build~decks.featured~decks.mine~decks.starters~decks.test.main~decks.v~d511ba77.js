@@ -512,6 +512,11 @@ function (_Model) {
       return this.fields.notes;
     }
   }, {
+    key: "videoUrl",
+    get: function get() {
+      return this.fields.videoUrl;
+    }
+  }, {
     key: "cards",
     get: function get() {
       return new _DeckBuilder_Cards__WEBPACK_IMPORTED_MODULE_0__["default"](this.fields.cards);

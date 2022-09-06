@@ -7,70 +7,33 @@ class SaveDeckSettings
 {
     use Dispatchable;
 
-    /**
-     * @var int
-     */
-    private $deckId;
-
-    /**
-     * @var string
-     */
-    private $visibility;
-
-    /**
-     * @var int
-     */
-    private $cardBack;
-
-    /**
-     * @var string
-     */
-    private $name;
-    /**
-     * @var string
-     */
-    private $format;
-
-    /**
-     * @var bool
-     */
-    private $limitToCollection;
-
-    /**
-     * @var string
-     */
-    private $notes;
-
-    /**
-     * @var string
-     */
-    private $label;
-
     public function __construct(
-        int $deckId,
-        string $name,
-        string $label, string $notes,
-        string $format,
-        int $limitToCollection,
-        string $visibility,
-        int $cardBack
-    ) {
-        $this->deckId = $deckId;
-        $this->name = $name;
-        $this->label = $label;
-        $this->notes = $notes;
-        $this->format = $format;
-        $this->visibility = $visibility;
-        $this->cardBack = $cardBack;
-        $this->limitToCollection = $limitToCollection;
-    }
+        private int $deckId,
+        private string $name,
+        private string $label, 
+        private string $notes,
+        private string $videoUrl,
+        private string $format,
+        private int $limitToCollection,
+        private string $visibility,
+        private int $cardBack
+    ) {}
 
     public function handle(DeckRepository $decks)
     {
         /** @var Deck $deck */
         $deck = $decks->find($this->deckId);
 
-        $deck->saveSettings($this->name, $this->label, $this->notes, $this->format, $this->limitToCollection, $this->visibility, $this->cardBack);
+        $deck->saveSettings(
+            $this->name, 
+            $this->label, 
+            $this->notes, 
+            $this->videoUrl,
+            $this->format, 
+            $this->limitToCollection, 
+            $this->visibility, 
+            $this->cardBack
+        );
 
         $decks->save($deck);
 

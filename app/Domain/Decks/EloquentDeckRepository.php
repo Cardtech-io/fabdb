@@ -188,6 +188,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.hero_id',
             'decks.name',
             'decks.notes',
+            'decks.video_url',
             'decks.label',
             'decks.slug',
             'decks.format',

@@ -79,9 +79,12 @@
                             </ul>
 
                             <div class="bg-gray-200 py-4" v-if="tab === 'composition'">
-                                <div v-if="deck.notes" class="md:flex">
+                                <div v-if="deck.notes || deck.videoUrl" class="md:flex">
                                     <div class="w-full md:w-2/3 md:pl-4 md:pr-8">
-                                        <div class="mb-8" v-html="minimalMarkdown(deck.notes.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''))"></div>
+                                        <div v-if="deck.videoUrl" class="mb-8">
+                                            <deck-video :url="deck.videoUrl"/>
+                                        </div>
+                                        <div class="mb-8" v-html="minimalMarkdown(deck.notes.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''))" v-if="deck.notes"></div>
                                         <div class="border-t border-gray-400 mt-4">
                                             <discussion type="deck" :id="deck.slug" class="pb-8"></discussion>
                                         </div>
@@ -140,6 +143,7 @@
     import Cards from "./Cards";
     import DeckCurves from "../../DeckBuilder/DeckCurves";
     import DeckLabel from "./DeckLabel";
+    import DeckVideo from './DeckVideo';
     import Discussion from "../../Discussion/Discussion";
     import HeaderTitle from '../../Components/HeaderTitle.vue';
     import HeroAvatar from "../../Components/HeroAvatar";
@@ -163,13 +167,14 @@
             Cards,
             DeckCurves,
             DeckLabel,
+            DeckVideo,
             Discussion,
             HeaderTitle,
             HeroAvatar,
             Icon,
             Respond,
             Rulings,
-            Votes
+            Votes,
         },
 
         computed: {
