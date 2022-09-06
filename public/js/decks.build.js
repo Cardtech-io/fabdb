@@ -4937,7 +4937,7 @@ var render = function() {
               ],
               staticClass:
                 "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
-              attrs: { type: "text", required: "" },
+              attrs: { type: "text" },
               domProps: { value: _vm.deck.videoUrl },
               on: {
                 input: function($event) {

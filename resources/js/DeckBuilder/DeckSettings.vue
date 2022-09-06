@@ -17,7 +17,7 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Video</label>
-                    <input type="text" v-model="deck.videoUrl" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" required>
+                    <input type="text" v-model="deck.videoUrl" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
                 </div>
 
                 <div class="w-full mb-4">
