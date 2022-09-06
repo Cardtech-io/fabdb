@@ -45,6 +45,10 @@ export default class Deck extends Model {
         return this.fields.notes;
     }
 
+    get videoUrl() {
+        return this.fields.videoUrl;
+    }
+
     get cards() {
         return new Cards(this.fields.cards);
     }

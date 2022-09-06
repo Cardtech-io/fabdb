@@ -12,6 +12,8 @@ interface CardRepository extends Repository
 
     public function findByIdentifier(string $identifier, int $userId = null);
 
+    public function getFirstLikeSku(string $sku);
+
     /**
      * Will return a collection of card IDs based on the card slugs/identifiers.
      * 
@@ -19,6 +21,14 @@ interface CardRepository extends Repository
      * @return array
      */
     public function getAllIdsByIdentifiers(array $identifiers): array;
+
+    /**
+     * Will return a collection of card IDs based on the card skus.
+     * 
+     * @param array $skus
+     * @return array
+     */
+    public function getAllIdsBySkus(array $skus): array;
 
     /**
      * View a specific card, and retrieve the previous/next card ids, as well.

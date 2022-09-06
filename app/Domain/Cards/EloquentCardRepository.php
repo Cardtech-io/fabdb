@@ -481,4 +481,28 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->pluck('identifier')
             ->toArray();
     }
+
+    public function getAllIdsBySkus(array $skus): array
+    {
+        $skus = array_map(fn($sku) => "printings.sku LIKE '$sku%'", $skus);
+
+        return $this->newQuery()
+            ->select('cards.id', 'printings.sku')
+            ->join('printings', function($join) {
+                $join->on('printings.card_id', 'printings.id');
+            })
+            ->whereRaw(implode(' OR ', $skus))
+            ->get()
+            ->keyBy('id')
+            ->pluck('sku')
+            ->toArray();
+    }
+
+    public function getFirstLikeSku(string $sku)
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.sku', 'LIKE', $sku.'%')
+            ->first();
+    }
 }

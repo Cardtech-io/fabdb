@@ -18,18 +18,36 @@ class TypeFilter implements SearchFilter
 
         $query->where(function($query) use ($types) {
             for ($i = 0; $i < count($types); $i++) {
-                if ($types[$i] === 'non-attack action') {
-                    $query->orWhere(function($query) {
-                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'action') IS NOT NULL");
-                        $query->whereRaw("JSON_SEARCH(keywords, 'one', 'attack') IS NULL");
-                    });
-                } else {
-                    $splitType = explode(' ', $types[$i]);
-                    $query->orWhere(function($query) use ($splitType) {
-                        foreach ($splitType as $part) {
-                            $query->whereRaw("JSON_SEARCH(keywords, 'one', '{$part}') IS NOT NULL");
+                switch ($types[$i]) {
+                    case 'attack action':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.sub_type', 'attack');
+                        });
+                        break;
+                    case 'item':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.sub_type', 'item');
+                        });
+                        break;
+                    case 'non-attack action':
+                        $query->orWhere(function($query) {
+                            $query->where('cards.type', 'action');
+                            $query->where(function($query) {
+                                $query->whereNull('cards.sub_type');
+                                $query->orWhereNotIn('cards.sub_type', ['attack', 'item']);
+                            });
+                        });
+                        break;
+                    default:
+                        $splitType = explode(' ', $types[$i]);
+
+                        $query->where('cards.type', $splitType[0]); 
+
+                        if (count($splitType) == 2) {
+                            $query->where('cards.sub_type', $splitType[1]); 
                         }
-                    });
+
+                        break;
                 }
             }
         });

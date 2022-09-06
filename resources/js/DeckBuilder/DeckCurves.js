@@ -38,8 +38,6 @@ export default {
                     colours.push('96,165,250'); // blue
                 }
 
-                console.log(values, colours);
-
                 return colours;
             }
 

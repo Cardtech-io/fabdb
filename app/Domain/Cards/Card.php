@@ -198,18 +198,18 @@ class Card extends Model
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);
     }
-
+    
     public function isToken()
     {
         return in_array('token', $this->keywords);
     }
 
-    public function getLegalityAttribute($value)
+    public function getLegalityAttribute($value): array
     {
         if (is_null($value)) {
-            $value = '[]';
+            return [];
         }
         
-        return json_decode($value);
+        return json_decode($value, true);
     }
 }

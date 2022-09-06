@@ -16,6 +16,11 @@
                 </div>
 
                 <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Video</label>
+                    <input type="text" v-model="deck.videoUrl" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" required>
+                </div>
+
+                <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Notes</label>
                     <markdown-editor :configs="{toolbar: ['heading', 'bold', 'italic', 'quote', '|', 'unordered-list', 'ordered-list']}" v-model="deck.notes" ref="markdownEditor"></markdown-editor>
                 </div>
@@ -71,6 +76,7 @@
             <p class="my-4">With the various deck settings you can change several values:</p>
 
             <ul class="list-disc ml-8">
+                <li>Video: Embed a decktech video on your deck page. Currently only supports YouTube.</li>
                 <li>Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups.</li>
                 <li>Deck format: Whether your deck is for blitz/UPF or constructed play.</li>
                 <li>Limit to collection: Select soft if you just want missing cards highlighted. Select the hard limit if you do not want missing cards to show up in search at all. The former is better for purchase planning, the latter is better for tournament preparaation.</li>
@@ -116,6 +122,7 @@
                     name: this.deck.name,
                     label: this.deck.label,
                     notes: this.deck.notes,
+                    videoUrl: this.deck.videoUrl,
                     type: this.deck.type,
                     format: this.deck.format,
                     limitToCollection: this.deck.limitToCollection,

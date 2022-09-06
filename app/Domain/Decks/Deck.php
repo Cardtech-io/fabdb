@@ -192,6 +192,7 @@ class Deck extends Model
         string $name,
         string $label,
         string $notes,
+        string $videoUrl,
         string $format,
         int $limitToCollection,
         string $visibility,
@@ -202,13 +203,21 @@ class Deck extends Model
         $this->timestamps = false;
         $this->name = $name;
         $this->notes = $notes;
+        $this->videoUrl = $videoUrl;
         $this->label = $label;
         $this->format = $format;
         $this->limitToCollection = $limitToCollection;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
 
-        $this->raise(new DeckSettingsSaved($this->id, $name, $label, $format, $visibility, $cardBack));
+        $this->raise(new DeckSettingsSaved(
+            $this->id, 
+            $name, 
+            $label, 
+            $format, 
+            $visibility, 
+            $cardBack
+        ));
     }
 
     public function copy(int $userId)

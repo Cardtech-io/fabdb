@@ -1,7 +1,6 @@
 <?php
 namespace FabDB\Http\Controllers;
 
-use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
@@ -133,6 +132,7 @@ class DeckController extends Controller
             $request->get('name', $request->deck->name),
             $request->get('label', $request->deck->label),
             $request->get('notes', object_get($request, 'deck.notes', '')),
+            $request->get('videoUrl', object_get($request, 'deck.videoUrl', '')),
             $request->get('format', $request->deck->format),
             (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),

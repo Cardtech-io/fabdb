@@ -2,6 +2,7 @@
 
 namespace FabDB\Http\Controllers\Api;
 
+use Illuminate\Support\Arr;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Http\Controllers\Controller;
@@ -12,16 +13,17 @@ class GameController extends Controller
 {
     public function results(SaveGameRequest $request, DeckRepository $decks, CardRepository $cards)
     {
-        $deck = $decks->bySlug($request->get('deckId'));
+        $json = json_decode($request->getContent(), true);
+        $deck = $decks->bySlug(Arr::get($json,'deckId'));
         
         $this->dispatch(new SaveGameResults(
             'fabtcg_online',
-            $request->get('gameId'),
+            Arr::get($json, 'gameId'),
             $deck->id,
             $request->opposingHeroId(),
-            $request->get('turns'),
-            $request->get('result'),
-            $request->get('cardResults')
+            Arr::get($json, 'turns'),
+            Arr::get($json, 'result'),
+            Arr::get($json, 'cardResults')
         ));
     }
 }
