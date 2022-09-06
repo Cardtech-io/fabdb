@@ -374,16 +374,16 @@ __webpack_require__.r(__webpack_exports__);
       var equipment = deck.cards.equipment().all().map(function (item) {
         return item.name;
       }).join(', ');
-      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name) + this.shareLine('') + this.shareLine('Class: ' + this.ucfirst(deck.hero["class"])) + this.shareLine('Hero: ' + deck.hero.name) + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
+      var text = this.shareLine('Deck build - via https://fabdb.net :') + this.shareLine('') + this.shareLine(this.deck.name + ' (' + deck.hero.name + ')') + this.shareLine('') + this.shareLine('Weapons: ' + weapons) + this.shareLine('Equipment: ' + equipment) + this.shareLine('');
       var other = deck.other;
 
       for (var i in other.all()) {
         var card = other.all()[i];
-        text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
+        text = text + this.shareLine('[' + card.total + '] ' + card.name + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')');
       }
 
       text = text + this.shareLine('');
-      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
+      text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug);
       this.copyToClipboard(text, 'Deck build copied to clipboard.');
     },
     shareLine: function shareLine(text) {
