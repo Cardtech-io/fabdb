@@ -379,7 +379,13 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i in other.all()) {
         var card = other.all()[i];
-        text = text + this.shareLine('[' + card.total + '] ' + card.name + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')');
+        var cardText = +'[' + card.total + '] ' + card.name;
+
+        if (!isNaN(card.stats.resource)) {
+          cardText = cardText + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')';
+        }
+
+        text = text + this.shareLine(cardText);
       }
 
       text = text + this.shareLine('');

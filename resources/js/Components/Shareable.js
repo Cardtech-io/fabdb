@@ -4,11 +4,11 @@ export default{
             this.$copyText(text);
             this.addMessage({status: 'success', message});
         },
-
+        
         shareDeckViaText(deck) {
             const weapons = deck.cards.weapons().all().map(weapon => weapon.name).join(', ');
             const equipment = deck.cards.equipment().all().map(item => item.name).join(', ');
-
+            
             let text = this.shareLine('Deck build - via https://fabdb.net :') +
                 this.shareLine('') +
                 this.shareLine(this.deck.name + ' ('+deck.hero.name+')') +
@@ -21,8 +21,13 @@ export default{
 
             for (let i in other.all()) {
                 let card = other.all()[i];
+                let cardText = + '[' + card.total + '] ' + card.name;
+                
+                if (!isNaN(card.stats.resource)) {
+                    cardText = cardText + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')';
+                }
 
-                text = text + this.shareLine('[' + card.total + '] ' + card.name + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')');
+                text = text + this.shareLine(cardText);
             }
             
             text = text + this.shareLine('');
