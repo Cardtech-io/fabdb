@@ -361,7 +361,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -757,7 +756,7 @@ var render = function() {
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
-            _c("div", { staticClass: "bg-white" }, [
+            _c("div", { staticClass: "bg-white dark:bg-gray-800" }, [
               _c("div", { staticClass: "container sm:mx-auto px-4 flex" }, [
                 _c(
                   "div",
@@ -809,7 +808,7 @@ var render = function() {
                   [
                     _c("votes", {
                       attrs: {
-                        size: 6,
+                        size: 5,
                         total: _vm.deck.fields.totalVotes,
                         voted: _vm.deck.fields.myVote,
                         voteable: "deck",
@@ -822,7 +821,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "bg-gray-200" }, [
+            _c("div", { staticClass: "main-body" }, [
               _c("div", { staticClass: "container sm:mx-auto px-4" }, [
                 _c("div", { staticClass: "md:flex md:pt-0" }, [
                   _c(
@@ -843,16 +842,16 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "mt-4 rounded-lg bg-gray-100 overflow-hidden"
+                            "mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden"
                         },
                         [
                           _c(
                             "h3",
                             {
                               staticClass:
-                                "font-serif uppercase text-2xl mb-2 bg-white p-2 px-4"
+                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-black p-2 px-4"
                             },
-                            [_vm._v("Deck stats")]
+                            [_vm._v("Basic stats")]
                           ),
                           _vm._v(" "),
                           _c(

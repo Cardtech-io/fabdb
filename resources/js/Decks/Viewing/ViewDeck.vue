@@ -4,7 +4,7 @@
             <header-title :title="deck.name + ' (' + deck.hero.name + ')'"></header-title>
             <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-            <div class="bg-white">
+            <div class="bg-white dark:bg-gray-800">
                 <div class="container sm:mx-auto px-4 flex">
                     <div class="flex-1 font-serif uppercase py-4 md:px-0">
                         {{ deck.cards.total() }} Cards in deck &nbsp;
@@ -17,22 +17,21 @@
                         </span>
                     </div>
                     <div class="text-right mt-2">
-                        <votes :size="6" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"></votes>
+                        <votes :size="5" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"/>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-200">
+            <div class="main-body">
                 <div class="container sm:mx-auto px-4">
                     <div class="md:flex md:pt-0">
                         <div class="py-4 md:pr-4 md:w-1/4">
-                            <card-image :card="deck.hero"></card-image>
+                            <card-image :card="deck.hero"/>
+                            <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg mt-4" v-if="deck.label"/>
 
-                            <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg mt-4" v-if="deck.label"></deck-label>
-
-                            <div class="mt-4 rounded-lg bg-gray-100 overflow-hidden">
-                                <h3 class="font-serif uppercase text-2xl mb-2 bg-white p-2 px-4">Deck stats</h3>
-
+                            <div class="mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                                <h3 class="font-serif uppercase text-xl mb-2 bg-white dark:bg-black p-2 px-4">Basic stats</h3>
+                                
                                 <div class="px-4">
                                     <ol class="mb-8">
                                         <li class="block py-1 w-full">Attack actions: {{ deck.other.attackActions().total() }}</li>

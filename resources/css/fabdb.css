@@ -10,10 +10,18 @@
     --button-disabled-background-color: theme("colors.gray.400");
     --button-disabled-text-color: theme("colors.white");
     --crumbs-text-color: theme('colors.white');
+    --input-background: theme('colors.black');
     --link-hover-color: theme("colors.white");
     --main-text-color: theme('colors.gray.900');
+    --main-background-color: theme('colors.gray.200');
     --nav-text-color: theme('colors.white');
     --nav-hover-background-color: theme('colors.black');
+}
+
+.dark {
+    --input-background: theme('colors.black');
+    --main-background-color: theme('colors.gray.900');
+    --main-text-color: theme('colors.gray.300');
 }
 
 .theme-battle {
@@ -153,6 +161,11 @@
     color: var(--main-text-color);
 }
 
+.main-body {
+    background: var(--main-background-color);
+    color: var(--main-text-color);
+}
+
 .button-primary {
     @apply leading-none;
     @apply outline-none;
@@ -188,6 +201,7 @@
 }
 
 .crumbs {
+    @apply text-sm;
     background-color: var(--crumbs-background-color);
     color: var(--crumbs-text-color);
 }
@@ -298,12 +312,13 @@ footer.footer .link:hover {
     @apply appearance-none;
     @apply block;
     @apply w-full;
-    @apply bg-gray-200;
     @apply text-gray-700;
     @apply border;
     @apply border-gray-200;
     @apply leading-none;
     @apply outline-none;
+
+    background: var(--input-background);
 }
 
 .input-white {

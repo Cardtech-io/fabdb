@@ -1,6 +1,6 @@
 <template>
-    <div class="h-full">
-        <div id="app" class="flex flex-col relative h-full">
+    <div class="h-full dark">
+        <div class="flex flex-col relative h-full">
             <!-- Header -->
             <navigation class="navigation"/>
 
@@ -54,7 +54,7 @@
             titleTemplate: '%s',
             meta: [
                 { vmid: 'og:url', property: 'og:url', content: window.location.href },
-                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.' },
+                { vmid: 'description', name: 'description', content: 'fabdb.net is a free card database, collection manager and deck builder for the fantastic TCG, Flesh & Blood.' },
                 { vmid: 'fb:app_id', property: 'fb:app_id', content: 269161470718107 }
             ]
         },

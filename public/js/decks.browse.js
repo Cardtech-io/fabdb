@@ -239,20 +239,27 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white py-4 border-b-4 border-gray-300" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto md:px-4" },
-          [
-            _c("deck-search", {
-              on: { "search-completed": _vm.refreshResults }
-            })
-          ],
-          1
-        )
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container sm:mx-auto md:px-4" },
+            [
+              _c("deck-search", {
+                on: { "search-completed": _vm.refreshResults }
+              })
+            ],
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c("div", { staticClass: "container sm:mx-auto px-4" }, [
           _vm.results && _vm.results.data
             ? _c("div", { staticClass: "pb-8" }, [

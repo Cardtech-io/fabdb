@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.browse~decks.mine~user.profile.decks":"cards.view~decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"80ada1a645dc5d744f47","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"db91e5380ca16e64fb92","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"a530804b55243b4f3481","cards.browse~collection":"162634a95dcdc6a67741","cards.browse":"65ec1cda2eb2f8fbe189","collection":"2a17a36075873ecc2598","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"e95f880cddbb0bc41d3a","cards.view~decks.browse~decks.mine~user.profile.decks":"6a7d0def34778027bd95","decks.browse~decks.mine":"f955f2db170725d4cb41","decks.browse":"ab200a0e3962075b9965","decks.mine":"d21065f7afb17585552e","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"74d0eb60109cc015fb6f","decks.starters":"830187818f1363fa3cbb","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"e3be008047b356c5e0ce","events.view":"2fac15e5ef66911d1c78","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","practise.setup":"0afae2d38b24f74fee68","practise.view":"838a251d59eda9daecf8","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"2a2b794157d1ba7d5c7a","support":"18d0d69e0075d7d0f694","tools.counter":"017b246cb6add18b91c6","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"75a76235b058c2c57604","decks.view":"0af9cf525c451046a714","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"82f416ef5fe872670763","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"55fc6398ecf3e68347f3","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"669f366c03bb86030f42","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.browse~decks.mine~user.profile.decks":"cards.view~decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"5ef78c40b115de521d5c","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"db91e5380ca16e64fb92","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"a530804b55243b4f3481","cards.browse~collection":"08842e36ee4a7f5e884b","cards.browse":"052f2ffd00e4d1f16630","collection":"2a17a36075873ecc2598","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"e95f880cddbb0bc41d3a","cards.view~decks.browse~decks.mine~user.profile.decks":"4f338fab406995ae9124","decks.browse~decks.mine":"f955f2db170725d4cb41","decks.browse":"fdf8b8904bc958fe0ab3","decks.mine":"d21065f7afb17585552e","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"74d0eb60109cc015fb6f","decks.starters":"830187818f1363fa3cbb","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"17b6040f18b1f1c0c628","events.view":"2fac15e5ef66911d1c78","generator":"a69bd50e4d5a773f078d","practise":"946331657f31b3b27d38","practise.setup":"0afae2d38b24f74fee68","practise.view":"838a251d59eda9daecf8","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"2a2b794157d1ba7d5c7a","support":"18d0d69e0075d7d0f694","tools.counter":"017b246cb6add18b91c6","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"75a76235b058c2c57604","decks.view":"cbf466b4fbb96d042ff3","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"5680067a6e3410ac2d2f","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"55fc6398ecf3e68347f3","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"669f366c03bb86030f42","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"73e34f52d1da1b05330f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2371,7 +2371,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, {
       vmid: 'description',
       name: 'description',
-      content: 'fabdb.net is a free card management and deck builder for the fantastic TCG, Flesh & Blood.'
+      content: 'fabdb.net is a free card database, collection manager and deck builder for the fantastic TCG, Flesh & Blood.'
     }, {
       vmid: 'fb:app_id',
       property: 'fb:app_id',
@@ -63051,11 +63051,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "h-full" },
+    { staticClass: "h-full dark" },
     [
       _c(
         "div",
-        { staticClass: "flex flex-col relative h-full", attrs: { id: "app" } },
+        { staticClass: "flex flex-col relative h-full" },
         [
           _c("navigation", { staticClass: "navigation" }),
           _vm._v(" "),
@@ -63656,7 +63656,10 @@ var render = function() {
   return _c("div", { staticClass: "crumbs font-serif uppercase" }, [
     _c(
       "div",
-      { staticClass: "container sm:mx-auto p-4 sm:flex justify-items-center" },
+      {
+        staticClass:
+          "container sm:mx-auto p-4 py-2 sm:flex justify-items-center"
+      },
       [
         _c("crumbs", { attrs: { crumbs: _vm.crumbs } }),
         _vm._v(" "),
@@ -63839,7 +63842,7 @@ var render = function() {
     ? _c("div", { staticClass: "container sm:mx-auto hidden sm:block" }, [
         _c(
           "div",
-          { staticClass: "p-4 md:py-8 flex items-center" },
+          { staticClass: "p-4 flex items-center" },
           [
             _vm._t("title", function() {
               return [
@@ -64256,11 +64259,7 @@ var render = function() {
                   [
                     _c("router-link", { attrs: { to: "/" } }, [
                       _c("img", {
-                        attrs: {
-                          src: "/img/fabdb-symbol.png",
-                          width: "35",
-                          height: "42"
-                        }
+                        attrs: { src: "/img/fabdb-symbol.png", width: "27" }
                       })
                     ])
                   ],
@@ -64387,7 +64386,7 @@ var render = function() {
     "a",
     {
       staticClass:
-        "flex items-center bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1",
+        "flex items-center bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600 border border-gray-400 hover:border-black dark:hover:border-gray-200 rounded p-2 py-1",
       attrs: { href: _vm.buyLink, target: "_blank" }
     },
     [

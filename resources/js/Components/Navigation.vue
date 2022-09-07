@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
                 <div class="relative overflow-visible ml-4 sm:ml-0 py-1">
                     <router-link to="/">
-                        <img src="/img/fabdb-symbol.png" width="35" height="42">
+                        <img src="/img/fabdb-symbol.png" width="27">
                     </router-link>
                 </div>
                 <button type="button" class="block text-white sm:hidden mr-4" @click="toggle">

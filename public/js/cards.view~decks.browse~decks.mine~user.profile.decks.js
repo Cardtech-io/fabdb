@@ -127,7 +127,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     themeClasses: function themeClasses() {
-      return this.theme === 'light' ? 'bg-gray-100 hover:bg-white' : 'bg-semi-black hover:bg-black';
+      return this.theme === 'light' ? 'bg-gray-100 hover:bg-white dark:bg-gray-700 dark:hover:bg-gray-600' : 'bg-semi-black hover:bg-black';
     }
   }
 });

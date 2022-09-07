@@ -284,7 +284,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-3/4 relative pr-1 flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg mr-2 items-center"
+                "w-3/4 relative pr-1 flex bg-gray-200 dark:bg-gray-900 focus:bg-gray-700 focus:border-gray-500 rounded-lg mr-2 items-center"
             },
             [
               _c(
@@ -347,7 +347,8 @@ var render = function() {
                     expression: "params.keywords"
                   }
                 ],
-                staticClass: "flex-1 bg-transparent outline-none py-2",
+                staticClass:
+                  "flex-1 bg-transparent outline-none py-2 dark:text-gray-300",
                 class: _vm.keywordClasses,
                 attrs: { type: "text", placeholder: "Search..." },
                 domProps: { value: _vm.params.keywords },
@@ -365,7 +366,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "absolute right-0 text-black hover:text-gray-600 mr-1",
+                    "absolute right-0 text-black dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-100 mr-1",
                   attrs: { type: "button" },
                   on: {
                     click: function($event) {
