@@ -1190,6 +1190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _Components_TabItem__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/TabItem */ "./resources/js/Components/TabItem.vue");
+/* harmony import */ var _Components_Tabs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/Tabs */ "./resources/js/Components/Tabs.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1244,16 +1246,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -1273,6 +1267,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     General: _Metrics_General__WEBPACK_IMPORTED_MODULE_7__["default"],
     Rulings: _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_4__["default"],
     Stat: _Metrics_Stat_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    TabItem: _Components_TabItem__WEBPACK_IMPORTED_MODULE_11__["default"],
+    Tabs: _Components_Tabs__WEBPACK_IMPORTED_MODULE_12__["default"],
     Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_6__["default"],
     TtsExporter: _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
@@ -4453,113 +4449,30 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "w-full lg:w-3/4" }, [
-      _c(
-        "ul",
-        {
-          staticClass:
-            "block border-b border-gray-400 font-serif uppercase flow-root text-sm sm:text-base"
-        },
-        [
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
+    _c(
+      "div",
+      { staticClass: "w-full lg:w-3/4" },
+      [
+        _c(
+          "tabs",
+          [
             _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "settings"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "settings"
-                  }
-                }
-              },
-              [_vm._v("Settings")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
+              "tab-item",
+              { attrs: { name: "Settings" } },
+              [_c("deck-settings", { attrs: { deck: _vm.deck } })],
+              1
+            ),
+            _vm._v(" "),
             _c(
-              "a",
+              "tab-item",
               {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "metrics"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "metrics"
-                  }
-                }
+                staticClass: "md:flex md:space-x-4",
+                attrs: { name: "Metrics" }
               },
-              [_vm._v("Metrics")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "rulings"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "rulings"
-                  }
-                }
-              },
-              [_vm._v("Rulings")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "export"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "export"
-                  }
-                }
-              },
-              [_vm._v("Export")]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "bg-gray-200 border border-t-0 border-gray-400 px-4" },
-        [
-          _vm.tab == "metrics"
-            ? _c("div", { staticClass: "sm:flex pt-8" }, [
+              [
                 _c(
                   "div",
-                  { staticClass: "sm:w-1/3 sm:mr-4" },
+                  { staticClass: "md:w-1/3" },
                   [
                     _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
                       _vm._v("Totals")
@@ -4572,7 +4485,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "mt-4 sm:mt-0 sm:w-1/3 sm:mx-4" },
+                  { staticClass: "mt-4 md:mt-0 md:w-1/3 md:mx-4" },
                   [
                     _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
                       _vm._v("General")
@@ -4583,7 +4496,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "mt-4 sm:mt-0 sm:w-1/3 sm:mx-4" }, [
+                _c("div", { staticClass: "mt-4 md:mt-0 md:w-1/3 md:mx-4" }, [
                   _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
                     _vm._v("Offensive")
                   ]),
@@ -4621,7 +4534,7 @@ var render = function() {
                   _c(
                     "h3",
                     {
-                      staticClass: "font-serif uppercase text-2xl mt-4 sm:mt-8"
+                      staticClass: "font-serif uppercase text-2xl mt-4 md:mt-8"
                     },
                     [_vm._v("Defensive")]
                   ),
@@ -4649,33 +4562,28 @@ var render = function() {
                     1
                   )
                 ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab == "rulings"
-            ? _c(
-                "div",
-                { staticClass: "sm:flex pt-8" },
-                [_c("rulings", { attrs: { rulings: _vm.rulings } })],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab == "settings"
-            ? _c("div", [_c("deck-settings", { attrs: { deck: _vm.deck } })], 1)
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab === "export"
-            ? _c(
-                "div",
-                { staticClass: "py-8" },
-                [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
-                1
-              )
-            : _vm._e()
-        ]
-      )
-    ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "tab-item",
+              { attrs: { name: "Rulings" } },
+              [_c("rulings", { attrs: { rulings: _vm.rulings } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "tab-item",
+              { attrs: { name: "Export" } },
+              [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
+              1
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -4877,8 +4785,7 @@ var render = function() {
                   expression: "deck.name"
                 }
               ],
-              staticClass:
-                "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              staticClass: "input py-3 px-4 rounded-lg",
               attrs: { type: "text", maxlength: "25", required: "" },
               domProps: { value: _vm.deck.name },
               on: {
@@ -4910,8 +4817,7 @@ var render = function() {
                     expression: "deck.label"
                   }
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 attrs: { type: "text" },
                 on: {
                   change: function($event) {
@@ -4960,8 +4866,7 @@ var render = function() {
                   expression: "deck.videoUrl"
                 }
               ],
-              staticClass:
-                "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              staticClass: "input py-3 px-4 rounded-lg",
               attrs: { type: "text" },
               domProps: { value: _vm.deck.videoUrl },
               on: {
@@ -5035,8 +4940,7 @@ var render = function() {
                         expression: "deck.format"
                       }
                     ],
-                    staticClass:
-                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    staticClass: "input py-3 px-4 rounded-lg",
                     on: {
                       change: function($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -5088,8 +4992,7 @@ var render = function() {
                     expression: "deck.limitToCollection"
                   }
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -5138,8 +5041,7 @@ var render = function() {
                     expression: "deck.visibility"
                   }
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -5186,8 +5088,7 @@ var render = function() {
                     expression: "deck.cardBack"
                   }
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 attrs: { disabled: !_vm.user.subscription },
                 on: {
                   change: function($event) {
@@ -5831,7 +5732,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2"
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg"
           },
           _vm._l(_vm.options, function(text, option) {
             return _c(
@@ -6199,7 +6100,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-3/4 bg-white dark:bg-gray-800 p-2",
+        staticClass: "w-3/4 bg-white dark:bg-gray-700 p-2",
         class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.text))]
@@ -6208,7 +6109,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-1/4 bg-white dark:bg-gray-800 py-2 text-center",
+        staticClass: "w-1/4 bg-white dark:bg-gray-700 py-2 text-center",
         class: { "rounded-tr-lg": _vm.top(), "rounded-br-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.value))]
@@ -6349,11 +6250,11 @@ var render = function() {
         "button",
         {
           staticClass:
-            "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+            "relative flex items-center text-left text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white dark:hover:bg-gray-600",
           class: {
-            "border-gray-500": _vm.isOpen,
+            "bg-white dark:bg-gray-600": _vm.isOpen,
             "bg-white": _vm.isOpen,
-            "bg-gray-200": !_vm.isOpen,
+            "bg-gray-200 dark:bg-black": !_vm.isOpen,
             "z-75": _vm.isOpen
           },
           staticStyle: { width: "150px" },
@@ -6407,7 +6308,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+                "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg"
             },
             _vm._l(_vm.modes, function(mode, option) {
               return _c(
@@ -6991,7 +6892,7 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: { href: "" },
           on: {
             click: function($event) {
@@ -7031,7 +6932,7 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: { href: "" },
           on: {
             click: function($event) {
@@ -7071,30 +6972,34 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "flow-root p-4 bg-white rounded-lg" }, [
-        _c(
-          "div",
-          { staticClass: "float-left mr-4" },
-          [
-            _c("icon", { attrs: { size: 14 } }, [
-              _c("path", { attrs: { d: "M4 4l12 6-12 6z" } })
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-          _vm._v("Table Top Simulator")
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]),
+      _c(
+        "div",
+        { staticClass: "flow-root p-4 bg-white dark:bg-gray-600 rounded-lg" },
+        [
+          _c(
+            "div",
+            { staticClass: "float-left mr-4" },
+            [
+              _c("icon", { attrs: { size: 14 } }, [
+                _c("path", { attrs: { d: "M4 4l12 6-12 6z" } })
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Table Top Simulator")
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
       _vm._v(" "),
       _c(
         "router-link",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: {
             to: { name: "decks.export", params: { deck: _vm.deck.slug } }
           }

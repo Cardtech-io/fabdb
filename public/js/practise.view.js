@@ -1019,7 +1019,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2"
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg"
           },
           _vm._l(_vm.options, function(text, option) {
             return _c(

@@ -47350,6 +47350,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "flex items-center" },
     [
       _vm.card.stats.resource || !_vm.collapse
         ? _c("colour", {
@@ -47409,7 +47410,7 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "ml-1" }, [
+              _c("div", { staticClass: "ml-1" }, [
                 _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
               ])
             ],

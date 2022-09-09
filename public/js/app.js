@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.browse~decks.mine~user.profile.decks":"cards.view~decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"5ef78c40b115de521d5c","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"db91e5380ca16e64fb92","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"95f31a24f1ddb46a9069","cards.browse~collection":"241b6853d71d791f6f03","cards.browse":"403976c5af326a2a31da","collection":"23338e9d854eb02dab87","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"e95f880cddbb0bc41d3a","cards.view~decks.browse~decks.mine~user.profile.decks":"4f338fab406995ae9124","decks.browse~decks.mine":"f955f2db170725d4cb41","decks.browse":"fdf8b8904bc958fe0ab3","decks.mine":"5b051ad913b6ba0287fa","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"74d0eb60109cc015fb6f","decks.starters":"830187818f1363fa3cbb","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"17b6040f18b1f1c0c628","events.view":"2fac15e5ef66911d1c78","generator":"8e10cc0c8242979d528b","practise":"ffb521be5621069cdc82","practise.setup":"b6125dadeda43b911b64","practise.view":"5e9b7f0c466e84651dff","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"af05bab52d9a81706f2b","support":"18d0d69e0075d7d0f694","tools.counter":"017b246cb6add18b91c6","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"75a76235b058c2c57604","decks.view":"b4e345bb96bf103b784f","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"5680067a6e3410ac2d2f","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"b6bf974307cbb8e9f184","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"669f366c03bb86030f42","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"4471d9fe3a75e30ae716"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"articles.spoilers":"articles.spoilers","articles.view~cards.view~decks.view":"articles.view~cards.view~decks.view","articles.view":"articles.view","artists.view~cards.browse":"artists.view~cards.browse","artists.view":"artists.view","auth.login":"auth.login","auth.logout":"auth.logout","cards.advanced":"cards.advanced","cards.browse~collection":"cards.browse~collection","cards.browse":"cards.browse","collection":"collection","cards.fabled~cards.view":"cards.fabled~cards.view","cards.fabled":"cards.fabled","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77","cards.view~decks.browse~decks.mine~user.profile.decks":"cards.view~decks.browse~decks.mine~user.profile.decks","decks.browse~decks.mine":"decks.browse~decks.mine","decks.browse":"decks.browse","decks.mine":"decks.mine","user.profile.decks":"user.profile.decks","decks.featured":"decks.featured","decks.starters":"decks.starters","decks.export":"decks.export","decks.test":"decks.test","events.mine":"events.mine","events.view":"events.view","generator":"generator","practise":"practise","practise.setup":"practise.setup","practise.view":"practise.view","premium":"premium","privacy":"privacy","profile":"profile","support":"support","tools.counter":"tools.counter","user.profile.view":"user.profile.view","user.profile.wants":"user.profile.wants","vendors~cards.view~decks.build~decks.view":"vendors~cards.view~decks.build~decks.view","decks.build~decks.view":"decks.build~decks.view","decks.view":"decks.view","vendors~cards.view~home":"vendors~cards.view~home","cards.view":"cards.view","vendors~decks.build~events.edit":"vendors~decks.build~events.edit","decks.build":"decks.build","home":"home","vendors~events.edit":"vendors~events.edit","events.edit":"events.edit","vendors~decks.test.main":"vendors~decks.test.main","decks.test.main":"decks.test.main","vendors~resources.api":"vendors~resources.api","resources.api":"resources.api"}[chunkId]||chunkId) + ".js?id=" + {"articles.spoilers":"442bde2c77a23322e63d","articles.view~cards.view~decks.view":"5ef78c40b115de521d5c","articles.view":"36ed1a8e3f2015125395","artists.view~cards.browse":"db91e5380ca16e64fb92","artists.view":"b82c9b9d657be4fe38df","auth.login":"c377f72303163d9304f4","auth.logout":"098c2a244c9887a89606","cards.advanced":"95f31a24f1ddb46a9069","cards.browse~collection":"241b6853d71d791f6f03","cards.browse":"403976c5af326a2a31da","collection":"23338e9d854eb02dab87","cards.fabled~cards.view":"124e42b4b3c940cf9205","cards.fabled":"a7de7331cba179459742","cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77":"e95f880cddbb0bc41d3a","cards.view~decks.browse~decks.mine~user.profile.decks":"4f338fab406995ae9124","decks.browse~decks.mine":"f955f2db170725d4cb41","decks.browse":"fdf8b8904bc958fe0ab3","decks.mine":"5b051ad913b6ba0287fa","user.profile.decks":"575c239ac6d1317e45f5","decks.featured":"74d0eb60109cc015fb6f","decks.starters":"830187818f1363fa3cbb","decks.export":"5c9c64a716fb3fd54cd5","decks.test":"03bb78cf88efcb4ee790","events.mine":"17b6040f18b1f1c0c628","events.view":"2fac15e5ef66911d1c78","generator":"8e10cc0c8242979d528b","practise":"ffb521be5621069cdc82","practise.setup":"b6125dadeda43b911b64","practise.view":"bcc7d33fc606bd25fc76","premium":"64fcecc8c075ad60f9ff","privacy":"026ce50e3d7ea74ee2a8","profile":"af05bab52d9a81706f2b","support":"18d0d69e0075d7d0f694","tools.counter":"017b246cb6add18b91c6","user.profile.view":"b1e608761170f85c3b14","user.profile.wants":"5b2e7613f7c8f1091dc9","vendors~cards.view~decks.build~decks.view":"918fa164283161953314","decks.build~decks.view":"07afdcf0d3976f9e9187","decks.view":"63a909c2f538af663c8e","vendors~cards.view~home":"ebc3276d93fca15552bf","cards.view":"5680067a6e3410ac2d2f","vendors~decks.build~events.edit":"6c9cc02f160bcc1aa8fe","decks.build":"418350eb062803302e72","home":"11eb3fc65f92b01986b4","vendors~events.edit":"8ceac7daf29f538772cc","events.edit":"54dcd26804fb04724c73","vendors~decks.test.main":"a4d9474e52b70f1fdb53","decks.test.main":"669f366c03bb86030f42","vendors~resources.api":"7db40f78d8894b6e0c33","resources.api":"4471d9fe3a75e30ae716"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3027,6 +3027,63 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Icon */ "./resources/js/Components/Icon.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Icon: _Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      darkMode: localStorage.getItem('darkMode') === 'true'
+    };
+  },
+  methods: {
+    setDarkMode: function setDarkMode() {
+      if (this.darkMode == true) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+    },
+    toggleDarkMode: function toggleDarkMode() {
+      this.darkMode = !this.darkMode;
+      localStorage.setItem('darkMode', this.darkMode);
+      this.setDarkMode();
+    }
+  },
+  mounted: function mounted() {
+    this.setDarkMode();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Messages.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Messages.vue?vue&type=script&lang=js& ***!
@@ -3154,27 +3211,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _LightSwitch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LightSwitch */ "./resources/js/Components/LightSwitch.vue");
 /* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./resources/js/Components/NavItem.vue");
 /* harmony import */ var _RouteHide__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RouteHide */ "./resources/js/Components/RouteHide.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3209,15 +3254,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_RouteHide__WEBPACK_IMPORTED_MODULE_3__["default"]],
   components: {
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_1__["default"],
+    LightSwitch: _LightSwitch__WEBPACK_IMPORTED_MODULE_1__["default"],
     NavItem: _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
       activeItem: null,
       openedItem: null,
-      isOpen: false,
-      darkMode: localStorage.getItem('darkMode') === 'true'
+      isOpen: false
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
@@ -3310,26 +3354,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     toggle: function toggle() {
       this.isOpen = !this.isOpen;
     },
-    setDarkMode: function setDarkMode() {
-      console.log(_typeof(this.darkMode));
-
-      if (this.darkMode == true) {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-    },
-    toggleDarkMode: function toggleDarkMode() {
-      this.darkMode = !this.darkMode;
-      localStorage.setItem('darkMode', this.darkMode);
-      this.setDarkMode();
-    },
     routeName: function routeName() {
       return 'tools.life-counter';
     }
-  },
-  mounted: function mounted() {
-    this.setDarkMode();
   }
 });
 
@@ -64113,6 +64140,77 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      staticClass: "flex ml-auto bg-black rounded-full space-x-4",
+      on: { click: _vm.toggleDarkMode }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "p-1 rounded-full",
+          class: { "bg-gray-600": _vm.darkMode }
+        },
+        [
+          _c("icon", { attrs: { size: 4 } }, [
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M7.455 2.004a.75.75 0 01.26.77 7 7 0 009.958 7.967.75.75 0 011.067.853A8.5 8.5 0 116.647 1.921a.75.75 0 01.808.083z",
+                "clip-rule": "evenodd"
+              }
+            })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "p-1 rounded-full",
+          class: { "bg-gray-600": !_vm.darkMode }
+        },
+        [
+          _c("icon", { attrs: { size: 4 } }, [
+            _c("path", {
+              attrs: {
+                d:
+                  "M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.061 1.06l1.06 1.06z"
+              }
+            })
+          ])
+        ],
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Messages.vue?vue&type=template&id=ef412ed2&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Messages.vue?vue&type=template&id=ef412ed2& ***!
@@ -64308,6 +64406,8 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
+                _c("light-switch", { staticClass: "sm:hidden mr-4" }),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -64347,7 +64447,8 @@ var render = function() {
                     )
                   ]
                 )
-              ]
+              ],
+              1
             ),
             _vm._v(" "),
             _c(
@@ -64372,52 +64473,10 @@ var render = function() {
             ),
             _vm._v(" "),
             _c(
-              "button",
-              {
-                staticClass: "flex ml-auto bg-black rounded-full p-1 space-x-4",
-                on: { click: _vm.toggleDarkMode }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "p-1 rounded-full",
-                    class: { "bg-gray-600": _vm.darkMode }
-                  },
-                  [
-                    _c("icon", { attrs: { size: 4 } }, [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d:
-                            "M7.455 2.004a.75.75 0 01.26.77 7 7 0 009.958 7.967.75.75 0 011.067.853A8.5 8.5 0 116.647 1.921a.75.75 0 01.808.083z",
-                          "clip-rule": "evenodd"
-                        }
-                      })
-                    ])
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "p-1 rounded-full",
-                    class: { "bg-gray-600": !_vm.darkMode }
-                  },
-                  [
-                    _c("icon", { attrs: { size: 4 } }, [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.061 1.06l1.06 1.06z"
-                        }
-                      })
-                    ])
-                  ],
-                  1
-                )
-              ]
+              "div",
+              { staticClass: "hidden sm:block ml-auto" },
+              [_c("light-switch")],
+              1
             )
           ]
         )
@@ -85469,6 +85528,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_5e339405___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_5e339405___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Components/LightSwitch.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Components/LightSwitch.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LightSwitch.vue?vue&type=template&id=2c9bc1ef& */ "./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef&");
+/* harmony import */ var _LightSwitch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LightSwitch.vue?vue&type=script&lang=js& */ "./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LightSwitch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Components/LightSwitch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LightSwitch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LightSwitch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/LightSwitch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LightSwitch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./LightSwitch.vue?vue&type=template&id=2c9bc1ef& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/LightSwitch.vue?vue&type=template&id=2c9bc1ef&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LightSwitch_vue_vue_type_template_id_2c9bc1ef___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
