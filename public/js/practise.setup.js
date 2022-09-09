@@ -98,14 +98,17 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
           { staticClass: "w-auto flex justify-center items-start py-8" },
           _vm._l(_vm.sets(), function(set) {
             return _c(
               "div",
-              { staticClass: "booster mx-4 hover:bg-white p-4 rounded-lg" },
+              {
+                staticClass:
+                  "booster mx-4 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg"
+              },
               [
                 _c(
                   "button",

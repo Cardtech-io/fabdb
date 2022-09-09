@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button type="button" class="flex-initial bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase" @click.prevent="$modal.show('search-help')">
+        <button type="button" class="flex-initial bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase" @click.prevent="showSearchSyntax">
             SYNTAX HELP
         </button>
         <input type="text" ref="nameSearch" v-model="params.keywords" placeholder="Search..." class="flex-1 bg-transparent outline-none py-2 px-4 lg:text-gray-200" @keyup="delayedSearch" @keyup.enter="finishSearch">
@@ -55,7 +55,7 @@
                     },
                     {
                         adaptive: true,
-                        classes: ['rounded-lg'],
+                        classes: ['rounded-lg', 'bg-white', 'dark:bg-gray-800'],
                         scrollable: true,
                         height: 'auto',
                         maxHeight: 300

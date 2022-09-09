@@ -337,14 +337,14 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c("div", { staticClass: "container sm:mx-auto px-4 py-8 flex" }, [
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "w-3/4" }, [
             _c(
               "div",
-              { staticClass: "bg-white p-4" },
+              { staticClass: "bg-white dark:bg-gray-800 p-4" },
               [
                 _c("h2", { staticClass: "font-serif uppercase text-2xl" }, [
                   _vm._v("Getting started")
@@ -440,7 +440,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "vue-code-highlight",
-                  { staticClass: "text-base", attrs: { language: "json" } },
+                  {
+                    staticClass: "text-base dark:bg-gray-900",
+                    attrs: { language: "json" }
+                  },
                   [
                     _c("pre", [
                       _vm._v(
@@ -632,15 +635,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "my-4 font-mono bg-gray-300 p-4" }, [
-      _vm._v("\n                            Accept: application/json"),
-      _c("br"),
-      _vm._v("\n                            Accept: application/xml"),
-      _c("br"),
-      _vm._v(
-        "\n                            Accept: text/csv\n                        "
-      )
-    ])
+    return _c(
+      "p",
+      { staticClass: "my-4 font-mono bg-gray-300 dark:bg-gray-900 p-4" },
+      [
+        _vm._v("\n                            Accept: application/json"),
+        _c("br"),
+        _vm._v("\n                            Accept: application/xml"),
+        _c("br"),
+        _vm._v(
+          "\n                            Accept: text/csv\n                        "
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -653,7 +660,7 @@ var staticRenderFns = [
           "my-4 w-full border-collapse border border-gray-500 text-base"
       },
       [
-        _c("thead", { staticClass: "font-bold bg-gray-100" }, [
+        _c("thead", { staticClass: "font-bold bg-gray-100 dark:bg-gray-900" }, [
           _c("th", { staticClass: "text-left p-2 border border-gray-400" }, [
             _vm._v("Parameter")
           ]),

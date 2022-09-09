@@ -485,7 +485,7 @@ var render = function() {
         _c(
           "form",
           {
-            staticClass: "bg-white p-4 block sm:flex w-full",
+            staticClass: "main-body p-4 block sm:flex w-full",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -507,7 +507,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    "input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -556,7 +556,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    "input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
                   on: {
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -607,7 +607,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 p-4 sm:p-0" }, [
+        _c("div", { staticClass: "main-body" }, [
           _vm.user
             ? _c(
                 "div",
@@ -615,7 +615,8 @@ var render = function() {
                   _c(
                     "table",
                     {
-                      staticClass: "w-full table-auto border-collapse bg-white"
+                      staticClass:
+                        "w-full table-auto border-collapse bg-white dark:bg-gray-800"
                     },
                     [
                       _vm._m(0),
@@ -627,12 +628,11 @@ var render = function() {
                             "tr",
                             {
                               staticClass:
-                                "odd:bg-gray-100 group hover:bg-gray-600 hover:text-white"
+                                "odd:bg-gray-100 dark:odd:bg-gray-700 group hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200"
                             },
                             [
                               _c(
                                 "td",
-                                { staticClass: "border border-gray-300" },
                                 [
                                   _c(
                                     "router-link",
@@ -674,8 +674,7 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden lg:table-cell"
+                                  staticClass: "p-2 px-4 hidden lg:table-cell"
                                 },
                                 [
                                   deck.label
@@ -691,10 +690,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "td",
-                                {
-                                  staticClass:
-                                    "border border-gray-300 hidden lg:table-cell"
-                                },
+                                { staticClass: "hidden lg:table-cell" },
                                 [
                                   deck.parent
                                     ? _c(
@@ -718,8 +714,7 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden sm:table-cell"
+                                  staticClass: "p-2 px-4 hidden sm:table-cell"
                                 },
                                 [
                                   _vm._v(
@@ -737,8 +732,7 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden md:table-cell"
+                                  staticClass: "p-2 px-4 hidden md:table-cell"
                                 },
                                 [_vm._v(_vm._s(deck.totalCards))]
                               ),
@@ -746,138 +740,132 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass:
-                                    "border border-gray-300 p-2 px-4 hidden sm:table-cell"
+                                  staticClass: "p-2 px-4 hidden sm:table-cell"
                                 },
                                 [_vm._v(_vm._s(deck.updatedAt))]
                               ),
                               _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass: "border border-gray-300 p-2 px-4"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "flex space-x-4 justify-center items-center"
-                                    },
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass:
-                                            "lg:hidden hover:text-gray-400",
-                                          attrs: {
-                                            to: {
-                                              name: "decks.test",
-                                              params: { deck: deck.slug }
-                                            }
+                              _c("td", { staticClass: "p-2 px-4" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "flex space-x-4 justify-center items-center"
+                                  },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "lg:hidden",
+                                        attrs: {
+                                          to: {
+                                            name: "decks.test",
+                                            params: { deck: deck.slug }
                                           }
-                                        },
-                                        [
-                                          _c("icon", { attrs: { size: 6 } }, [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
-                                                "clip-rule": "evenodd"
-                                              }
-                                            })
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "router-link",
-                                        {
-                                          staticClass:
-                                            "hidden lg:inline hover:text-gray-400",
-                                          attrs: {
-                                            to: {
-                                              name: "decks.test.prepare",
-                                              params: { deck: deck.slug }
+                                        }
+                                      },
+                                      [
+                                        _c("icon", { attrs: { size: 6 } }, [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+                                              "clip-rule": "evenodd"
                                             }
+                                          })
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "router-link",
+                                      {
+                                        staticClass:
+                                          "hidden lg:inline hover:text-gray-400 dark:hover:text-white",
+                                        attrs: {
+                                          to: {
+                                            name: "decks.test.prepare",
+                                            params: { deck: deck.slug }
                                           }
-                                        },
-                                        [
-                                          _c("icon", { attrs: { size: 6 } }, [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
-                                                "clip-rule": "evenodd"
-                                              }
-                                            })
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass: "hover:text-gray-400",
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.copyDeck(deck)
+                                        }
+                                      },
+                                      [
+                                        _c("icon", { attrs: { size: 6 } }, [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+                                              "clip-rule": "evenodd"
                                             }
+                                          })
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "hover:text-gray-400 dark:hover:text-white",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.copyDeck(deck)
                                           }
-                                        },
-                                        [
-                                          _c("icon", { attrs: { size: 6 } }, [
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("path", {
-                                              attrs: {
-                                                d:
-                                                  "M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"
-                                              }
-                                            })
-                                          ])
-                                        ],
-                                        1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass: "hover:text-gray-400",
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.removeDeck(deck, key)
+                                        }
+                                      },
+                                      [
+                                        _c("icon", { attrs: { size: 6 } }, [
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"
                                             }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"
+                                            }
+                                          })
+                                        ])
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "hover:text-gray-400 dark:hover:text-white",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.removeDeck(deck, key)
                                           }
-                                        },
-                                        [
-                                          _c("icon", { attrs: { size: 6 } }, [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
-                                                "clip-rule": "evenodd"
-                                              }
-                                            })
-                                          ])
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ]
-                              )
+                                        }
+                                      },
+                                      [
+                                        _c("icon", { attrs: { size: 6 } }, [
+                                          _c("path", {
+                                            attrs: {
+                                              "fill-rule": "evenodd",
+                                              d:
+                                                "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
+                                              "clip-rule": "evenodd"
+                                            }
+                                          })
+                                        ])
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
                             ]
                           )
                         }),
@@ -922,20 +910,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "text-base" }, [
-        _c(
-          "th",
-          {
-            staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left"
-          },
-          [_vm._v("Deck")]
-        ),
+        _c("th", { staticClass: "p-2 px-4 font-serif uppercase text-left" }, [
+          _vm._v("Deck")
+        ]),
         _vm._v(" "),
         _c(
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
           },
           [_vm._v("Label")]
         ),
@@ -944,7 +927,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
           },
           [_vm._v("Parent")]
         ),
@@ -953,7 +936,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
           },
           [_vm._v("Class")]
         ),
@@ -962,7 +945,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden md:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden md:table-cell"
           },
           [_vm._v("Cards")]
         ),
@@ -971,18 +954,14 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
           },
           [_vm._v("Last updated")]
         ),
         _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "border border-gray-300 p-2 px-4 font-serif uppercase"
-          },
-          [_c("span", { staticClass: "hidden lg:block" }, [_vm._v("Actions")])]
-        )
+        _c("th", { staticClass: "p-2 px-4 font-serif uppercase" }, [
+          _c("span", { staticClass: "hidden lg:block" }, [_vm._v("Actions")])
+        ])
       ])
     ])
   }

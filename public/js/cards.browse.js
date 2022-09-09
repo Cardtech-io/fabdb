@@ -411,11 +411,10 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg p-1 uppercase hover:bg-white hover:border-gray-500",
+          "relative flex items-center text-left text-base font-serif rounded-lg p-1 uppercase hover:bg-white dark:hover:bg-gray-600",
         class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
+          "bg-white dark:bg-gray-600": _vm.isOpen,
+          "bg-gray-200 dark:bg-gray-800": !_vm.isOpen,
           "z-75": _vm.isOpen
         },
         on: {
@@ -468,7 +467,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500",
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg",
             staticStyle: { width: "150px" }
           },
           _vm._l(_vm.options, function(order, option) {

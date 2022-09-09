@@ -2,9 +2,9 @@
     <div>
         <!-- Desktop view -->
         <div class="hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm">
-            <button type="button" class="flex-grow flex items-center space-x-2 px-3 py-2" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)">
+            <button type="button" class="flex-grow flex items-center space-x-2 px-3" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)">
                 <icon :size="5" v-html="mode.icon"/>
-                <span>{{ mode.name }}</span>
+                <span class="py-2">{{ mode.name }}</span>
             </button>
         </div>
 

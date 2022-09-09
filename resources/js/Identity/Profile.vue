@@ -3,14 +3,14 @@
         <header-title title="Profile Update"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
-            <div class="container sm:mx-auto bg-white py-8 px-8 md:flex">
+        <div class="main-body">
+            <div class="container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex">
                 <div class="md:w-1/2 md:pr-8">
                     <form @submit.prevent="save">
                         <div class="w-full flex items-center">
                             <div class="mr-4">
                                 <div class="rounded-xl overflow-hidden">
-                                    <avatar :user="user" :width="100"></avatar>
+                                    <avatar :user="user" :width="80"></avatar>
                                 </div>
                             </div>
 

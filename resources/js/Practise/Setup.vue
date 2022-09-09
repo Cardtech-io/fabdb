@@ -3,9 +3,9 @@
         <header-title title="Limited practise"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="w-auto flex justify-center items-start py-8">
-                <div v-for="set in sets()" class="booster mx-4 hover:bg-white p-4 rounded-lg">
+                <div v-for="set in sets()" class="booster mx-4 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg">
                     <button class="block link-alternate" @click="setup(set.id)">
                         <img :src="imageUrl('/boosters/'+kebabCase(set.name)+'.png', 180)" :alt="set.name" :title="set.name">
                     </button>

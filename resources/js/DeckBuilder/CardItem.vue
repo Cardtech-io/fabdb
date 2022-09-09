@@ -6,7 +6,7 @@
             'w-1/10': layout === 'vertical',
             'w-1/5': layout === 'horizontal'
         }"/>
-        <div class="pl-4 p-2 ml-1px bg-white cursor-default" :class="{
+        <div class="pl-4 p-2 ml-1px bg-white dark:bg-gray-800 cursor-default" :class="{
             'w-3/5 sm:w-4/5': mode === 'all',
             'w-3/5': mode !== 'all',
             'w-7/10': layout === 'vertical',
@@ -17,7 +17,7 @@
                 <span v-preview-card="{stack: [card], index: 0}" v-hover-card="card" class="cursor-help help-underline whitespace-nowrap overflow-hidden">{{ card.name }}</span>
             </div>
         </div>
-        <div class="w-1/5 text-center bg-white py-2 ml-1px">
+        <div class="w-1/5 text-center bg-white dark:bg-gray-800 py-2 ml-1px">
             {{ total }}
         </div>
     </div>

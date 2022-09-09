@@ -1,12 +1,12 @@
 <template>
     <div>
-        <header-title title="Limited practise"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Limited practise"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container flex sm:mx-auto px-4 py-8">
                 <div :class="{'w-1/2': practises.length}">
-                    <p class="bg-white p-4">
+                    <p class="bg-white dark:bg-gray-800 p-4">
                         Each Limited Practise run will generate a number of packs, that can then be viewed
                         and saved for future reference. This will allow you to test with and build decks
                         based on the random nature of the booster packs, and even be able to practise
@@ -24,7 +24,7 @@
                 <div class="w-1/2 pl-4" v-if="practises.length">
                     <h2 class="font-serif uppercase text-xl mb-2">Previous practise runs</h2>
                     <ul>
-                        <li v-for="practise in practises" class="flex odd:bg-white p-4">
+                        <li v-for="practise in practises" class="flex odd:bg-white dark:odd:bg-gray-800 p-4">
                             <div class="w-4/5">
                                 <router-link :to="{name: 'practise.view', params: {practise: practise.slug}}" class="link-alternate">{{when(practise.createdAt)}}</router-link> ({{practise.set.name}})
                             </div>

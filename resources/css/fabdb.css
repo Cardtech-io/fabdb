@@ -10,7 +10,7 @@
     --button-disabled-background-color: theme("colors.gray.400");
     --button-disabled-text-color: theme("colors.white");
     --crumbs-text-color: theme('colors.white');
-    --input-background: theme('colors.black');
+    --input-background: theme('colors.gray.200');
     --link-hover-color: theme("colors.white");
     --main-text-color: theme('colors.gray.900');
     --main-background-color: theme('colors.gray.200');
@@ -315,10 +315,20 @@ footer.footer .link:hover {
     @apply text-gray-700;
     @apply border;
     @apply border-gray-200;
+    @apply focus:border-gray-400;
     @apply leading-none;
     @apply outline-none;
 
     background: var(--input-background);
+}
+
+.dark .input {
+    @apply border-gray-600;
+    @apply text-gray-300;
+}
+
+.dark .input:focus {
+    @apply focus:border-gray-400
 }
 
 .input-white {

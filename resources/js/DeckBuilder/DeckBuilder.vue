@@ -9,7 +9,7 @@
         <breadcrumbs :crumbs="crumbs"/>
 
         <div :class="fullScreenClasses">
-            <div class="bg-white">
+            <div class="bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600">
                 <div :class="containers">
                     <div class="flex">
                         <div class="flex items-center p-4" :class="topAreaClasses">
@@ -27,14 +27,14 @@
                                 <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"/>
                             </div>
                         </div>
-                        <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
+                        <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300 dark:border-gray-600': !this.fullScreen}}">
                             <card-search class="flex bg-gray-800 rounded-lg w-full overflow-hidden" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"/>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-200 h-full relative">
+            <div class="main-body h-full relative">
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
                         <div v-if="!hero" class="h-full">
@@ -52,7 +52,7 @@
                             <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
                         </div>
                     </div>
-                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
+                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
                         <search-results v-if="mode === 'search'" @search-completed="scrollTop"/>
                         <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
                     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full dark">
+    <div class="h-full">
         <div class="flex flex-col relative h-full">
             <!-- Header -->
             <navigation class="navigation"/>
@@ -18,7 +18,7 @@
         <version-handler/>
         <hover-card/>
 
-        <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 rounded-xl relative z-50">
+        <modal name="search-help" :adaptive="true" :dialog="true" height="auto" classes="bg-gray-100 dark:bg-gray-800 rounded-xl relative z-50">
             <search-help/>
         </modal>
     </div>

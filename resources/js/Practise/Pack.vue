@@ -5,7 +5,7 @@
                 <card-image :card="card" :width="350" style="max-width: 350px"></card-image>
             </div>
         </div>
-        <div class="inline-block booster hover:bg-white p-4 rounded-lg" v-else>
+        <div class="inline-block booster hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg" v-else>
             <button class="block link-alternate" @click="openPack(index)">
                 <img :src="imageUrl('/boosters/'+kebabCase(practise.set.name)+'.png', 180)" alt="Open pack" title="Open pack">
             </button>

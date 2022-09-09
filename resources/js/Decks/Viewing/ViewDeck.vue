@@ -30,7 +30,7 @@
                             <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg mt-4" v-if="deck.label"/>
 
                             <div class="mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                                <h3 class="font-serif uppercase text-xl mb-2 bg-white dark:bg-black p-2 px-4">Basic stats</h3>
+                                <h3 class="font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4">Basic stats</h3>
                                 
                                 <div class="px-4">
                                     <ol class="mb-8">
@@ -46,16 +46,16 @@
                         </div>
 
                         <div class="w-full md:w-3/4 md:py-4">
-                            <ul class="flex items-center border-b border-gray-400 text-sm md:text-base space-x-1 md:space-x-2">
-                                <li><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'composition'" :class="tabClasses('composition')">Composition</button></li>
-                                <li><button class="border border-b-0 border-gray-400 rounded-t-lg px-4 py-2" @click="tab = 'rulings'" :class="tabClasses('rulings')">Rulings</button></li>
+                            <ul class="flex items-center text-sm md:text-base space-x-1 md:space-x-2">
+                                <li><button class="rounded-t-lg px-4 py-2" @click="tab = 'composition'" :class="tabClasses('composition')">Composition</button></li>
+                                <li><button class="rounded-t-lg px-4 py-2" @click="tab = 'rulings'" :class="tabClasses('rulings')">Rulings</button></li>
                                 <li class="pl-1 md:mb-1">
                                     <a :href="buyLink(deck)" class="flex items-center w-full sm:w-auto button-primary rounded-full px-4 py-1 md:py-2" target="_blank" title="Buy from TCG Player">
                                         <icon :size="4">
                                             <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
                                         </icon>
-                                        <span class="ml-1 hidden sm:inline">Buy deck</span>
+                                        <span class="ml-1 hidden sm:inline">Buy</span>
                                     </a>
                                 </li>
                                 <li class="md:mb-1">
@@ -77,7 +77,7 @@
                                 </li>
                             </ul>
 
-                            <div class="bg-gray-200 py-4" v-if="tab === 'composition'">
+                            <div class="bg-gray-200 dark:bg-gray-800 py-4" v-if="tab === 'composition'">
                                 <div v-if="deck.notes || deck.videoUrl" class="md:flex">
                                     <div class="w-full md:w-2/3 md:pl-4 md:pr-8">
                                         <div v-if="deck.videoUrl" class="mb-8">
@@ -106,8 +106,8 @@
                                 </div>
                             </div>
 
-                            <div class="md:pl-4 bg-gray-200 py-2" v-if="tab == 'rulings'">
-                                <rulings :rulings="rulings"></rulings>
+                            <div class="md:pl-4 bg-gray-200 dark:bg-gray-800 py-2" v-if="tab == 'rulings'">
+                                <rulings :rulings="rulings"/>
                             </div>
                         </div>
                     </div>
@@ -219,10 +219,10 @@
 
             tabClasses(tab) {
                 if (this.tab === tab) {
-                    return 'relative bg-gray-200 -bottom-1px text-gray-800';
+                    return 'relative bg-gray-200 dark:bg-gray-800 -bottom-1px text-gray-800 dark:text-gray-300';
                 }
 
-                return 'bg-gray-200 hover:bg-white text-gray-600';
+                return 'bg-gray-200 dark:bg-black hover:bg-white dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300';
             }
         },
 

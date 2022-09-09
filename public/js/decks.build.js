@@ -886,7 +886,7 @@ __webpack_require__.r(__webpack_exports__);
         query: this.params
       }, {
         adaptive: true,
-        classes: ['rounded-lg'],
+        classes: ['rounded-lg', 'bg-white', 'dark:bg-gray-800'],
         scrollable: true,
         height: 'auto',
         maxHeight: 300
@@ -2402,7 +2402,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_2__["default"]],
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
     background: function background() {
-      return 'bg-white hover:bg-secondary hover:text-white';
+      return 'bg-white hover:bg-secondary hover:text-white dark:bg-gray-700 dark:hover:bg-gray-500';
     },
     cardCount: function cardCount() {
       var _this = this;
@@ -2416,7 +2416,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
     active: function active(count) {
       if (this.cardCount === count) {
-        return 'bg-gray-100 text-gray-400';
+        return 'bg-gray-100 text-gray-400 dark:bg-gray-700 dark:text-gray-500';
       }
 
       return this.background;
@@ -3330,7 +3330,10 @@ var render = function() {
                       [
                         _c(
                           "div",
-                          { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4" },
+                          {
+                            staticClass:
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4"
+                          },
                           [
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
@@ -3348,7 +3351,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 mt-4"
                           },
                           [
                             _c("deck-curves", {
@@ -3506,7 +3509,10 @@ var render = function() {
               _c("div", [
                 _c(
                   "div",
-                  { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2" },
+                  {
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2"
+                  },
                   [
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
@@ -3523,7 +3529,8 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
                   },
                   [
                     _c("deck-curves", {
@@ -3602,7 +3609,8 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "flex-1 border-r border-gray-200 py-2 px-1 md:px-2",
+      staticClass:
+        "flex-1 border-r border-gray-200 dark:border-gray-600 py-2 px-1 md:px-2",
       class: _vm.isSelected(_vm.type)
         ? "bg-gray-800 text-white"
         : "hover:bg-secondary hover:text-white",
@@ -3794,10 +3802,12 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "bg-white",
+          staticClass: "bg-white dark:bg-gray-800",
           class: {
-            "hover:bg-secondary hover:text-white": _vm.total > 0,
-            "bg-gray-100 text-gray-300": _vm.total === 0,
+            "hover:bg-secondary hover:text-white dark:hover:bg-gray-600":
+              _vm.total > 0,
+            "bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600":
+              _vm.total === 0,
             "w-full h-1/2": _vm.$parent.layout === "vertical",
             "w-1/2": _vm.$parent.layout === "horizontal"
           },
@@ -3822,10 +3832,12 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "bg-white",
+          staticClass: "bg-white dark:bg-gray-800",
           class: {
-            "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
-            "bg-gray-100 text-gray-300": _vm.total >= _vm.maxAvailable,
+            "hover:bg-secondary hover:text-white dark:hover:bg-gray-600":
+              _vm.total < _vm.maxAvailable,
+            "bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600":
+              _vm.total >= _vm.maxAvailable,
             "w-full h-1/2": _vm.$parent.layout === "vertical",
             "w-1/2": _vm.$parent.layout === "horizontal"
           },
@@ -3921,7 +3933,8 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "pl-4 p-2 ml-1px bg-white cursor-default",
+          staticClass:
+            "pl-4 p-2 ml-1px bg-white dark:bg-gray-800 cursor-default",
           class: {
             "w-3/5 sm:w-4/5": _vm.mode === "all",
             "w-3/5": _vm.mode !== "all",
@@ -3967,9 +3980,13 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/5 text-center bg-white py-2 ml-1px" }, [
-        _vm._v("\n        " + _vm._s(_vm.total) + "\n    ")
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "w-1/5 text-center bg-white dark:bg-gray-800 py-2 ml-1px"
+        },
+        [_vm._v("\n        " + _vm._s(_vm.total) + "\n    ")]
+      )
     ],
     1
   )
@@ -4075,7 +4092,7 @@ var render = function() {
         on: {
           click: function($event) {
             $event.preventDefault()
-            return _vm.$modal.show("search-help")
+            return _vm.showSearchSyntax.apply(null, arguments)
           }
         }
       },
@@ -4205,105 +4222,113 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { class: _vm.fullScreenClasses }, [
-        _c("div", { staticClass: "bg-white" }, [
-          _c("div", { class: _vm.containers }, [
-            _c("div", { staticClass: "flex" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "flex items-center p-4",
-                  class: _vm.topAreaClasses
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "flex-auto" },
-                    [_c("deck-totals")],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm.mode !== "details"
-                    ? _c("grouping-selector", {
-                        staticClass: "mr-2 hidden md:block",
-                        attrs: {
-                          grouping: _vm.grouping,
-                          options: {
-                            default: "Default",
-                            pitch: "Pitch",
-                            cost: "Cost",
-                            type: "Type"
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600"
+          },
+          [
+            _c("div", { class: _vm.containers }, [
+              _c("div", { staticClass: "flex" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flex items-center p-4",
+                    class: _vm.topAreaClasses
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "flex-auto" },
+                      [_c("deck-totals")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.mode !== "details"
+                      ? _c("grouping-selector", {
+                          staticClass: "mr-2 hidden md:block",
+                          attrs: {
+                            grouping: _vm.grouping,
+                            options: {
+                              default: "Default",
+                              pitch: "Pitch",
+                              cost: "Cost",
+                              type: "Type"
+                            }
+                          },
+                          on: { selected: _vm.updateGrouping }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("mode-selector", { staticClass: "w-auto" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "px-2 lg:px-1 flex" },
+                      [
+                        _c("zoom-button", {
+                          staticClass: "hidden md:block",
+                          attrs: {
+                            zoom: _vm.zoom,
+                            action: "in",
+                            fullScreen: _vm.fullScreen
                           }
-                        },
-                        on: { selected: _vm.updateGrouping }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("mode-selector", { staticClass: "w-auto" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "px-2 lg:px-1 flex" },
-                    [
-                      _c("zoom-button", {
-                        staticClass: "hidden md:block",
-                        attrs: {
-                          zoom: _vm.zoom,
-                          action: "in",
-                          fullScreen: _vm.fullScreen
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("zoom-button", {
-                        staticClass: "hidden md:block",
-                        attrs: {
-                          zoom: _vm.zoom,
-                          action: "out",
-                          fullScreen: _vm.fullScreen
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("view-button"),
-                      _vm._v(" "),
-                      _c("fullscreen-button", {
-                        attrs: {
-                          "full-screen": _vm.fullScreen,
-                          toggle: _vm.toggleFullScreen
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.mode === "search"
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "flex items-center",
-                      class: Object.assign({}, _vm.sidebarClasses, {
-                        "px-0 pr-4": this.fullScreen,
-                        "border-l border-gray-300": !this.fullScreen
-                      })
-                    },
-                    [
-                      _c("card-search", {
-                        staticClass:
-                          "flex bg-gray-800 rounded-lg w-full overflow-hidden",
-                        class: {
-                          "focus:bg-white focus:border-gray-500": !_vm.fullScreen
-                        }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        _c("zoom-button", {
+                          staticClass: "hidden md:block",
+                          attrs: {
+                            zoom: _vm.zoom,
+                            action: "out",
+                            fullScreen: _vm.fullScreen
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("view-button"),
+                        _vm._v(" "),
+                        _c("fullscreen-button", {
+                          attrs: {
+                            "full-screen": _vm.fullScreen,
+                            toggle: _vm.toggleFullScreen
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.mode === "search"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "flex items-center",
+                        class: Object.assign({}, _vm.sidebarClasses, {
+                          "px-0 pr-4": this.fullScreen,
+                          "border-l border-gray-300 dark:border-gray-600": !this
+                            .fullScreen
+                        })
+                      },
+                      [
+                        _c("card-search", {
+                          staticClass:
+                            "flex bg-gray-800 rounded-lg w-full overflow-hidden",
+                          class: {
+                            "focus:bg-white focus:border-gray-500": !_vm.fullScreen
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ])
             ])
-          ])
-        ]),
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 h-full relative" }, [
+        _c("div", { staticClass: "main-body h-full relative" }, [
           _c("div", { staticClass: "flex h-full", class: _vm.containers }, [
             _c(
               "div",
@@ -4373,7 +4398,7 @@ var render = function() {
                   {
                     ref: "searchResults",
                     staticClass:
-                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600"
                   },
                   [
                     _vm.mode === "search"
@@ -5357,7 +5382,10 @@ var render = function() {
                       [
                         _c(
                           "div",
-                          { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4" },
+                          {
+                            staticClass:
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4"
+                          },
                           [
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
@@ -5375,7 +5403,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 mt-4"
                           },
                           [
                             _c("deck-curves", {
@@ -5557,7 +5585,10 @@ var render = function() {
               _c("div", [
                 _c(
                   "div",
-                  { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2" },
+                  {
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2"
+                  },
                   [
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
@@ -5574,7 +5605,8 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
                   },
                   [
                     _c("deck-curves", {
@@ -5741,16 +5773,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative font-serif" }, [
+  return _c("div", { staticClass: "relative text-sm xl:text-base" }, [
     _c(
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          "relative flex items-center overflow-hidden rounded-lg hover:bg-white dark:hover:bg-gray-600 leading-none px-2",
         class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
+          "bg-white dark:bg-gray-600": _vm.isOpen,
+          "bg-gray-200 dark:bg-black": !_vm.isOpen,
           "z-75": _vm.isOpen
         },
         staticStyle: { width: "150px" },
@@ -5761,14 +5792,13 @@ var render = function() {
         }
       },
       [
-        _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v("Grouping")
-        ]),
+        _c("span", { staticClass: "py-2" }, [_vm._v("Grouping")]),
         _vm._v(" "),
         _c(
           "svg",
           {
-            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
+            staticClass: "h-6 fill-current ml-auto",
+            class: { "transform rotate-180": _vm.isOpen },
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [
@@ -5801,13 +5831,13 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2"
           },
           _vm._l(_vm.options, function(text, option) {
             return _c(
               "button",
               {
-                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                staticClass: "w-full text-base text-left px-4 py-1",
                 class:
                   option === _vm.grouping
                     ? "bg-blue-400 text-white"
@@ -6169,7 +6199,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-3/4 bg-white p-2",
+        staticClass: "w-3/4 bg-white dark:bg-gray-800 p-2",
         class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.text))]
@@ -6178,7 +6208,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-1/4 bg-white py-2 text-center",
+        staticClass: "w-1/4 bg-white dark:bg-gray-800 py-2 text-center",
         class: { "rounded-tr-lg": _vm.top(), "rounded-br-lg": _vm.bottom() }
       },
       [_vm._v(_vm._s(_vm.value))]
@@ -6291,7 +6321,7 @@ var render = function() {
         return _c(
           "button",
           {
-            staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
+            staticClass: "flex-grow flex items-center space-x-2 px-3",
             class: _vm.classes(view),
             attrs: { type: "button" },
             on: {
@@ -6306,7 +6336,7 @@ var render = function() {
               domProps: { innerHTML: _vm._s(mode.icon) }
             }),
             _vm._v(" "),
-            _c("span", [_vm._v(_vm._s(mode.name))])
+            _c("span", { staticClass: "py-2" }, [_vm._v(_vm._s(mode.name))])
           ],
           1
         )
@@ -6483,12 +6513,12 @@ var render = function() {
       _c("card-search", { staticClass: "md:hidden flex" }),
       _vm._v(" "),
       _c("div", { staticClass: "flow-root" }, [
-        _c("div", { staticClass: "text-base pr-0 bg-white" }, [
+        _c("div", { staticClass: "text-base pr-0 bg-white dark:bg-gray-800" }, [
           _c(
             "div",
             {
               staticClass:
-                "w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200"
+                "w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200 dark:border-gray-600"
             },
             [
               _c(

@@ -457,10 +457,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     tabClasses: function tabClasses(tab) {
       if (this.tab === tab) {
-        return 'relative bg-gray-200 -bottom-1px text-gray-800';
+        return 'relative bg-gray-200 dark:bg-gray-800 -bottom-1px text-gray-800 dark:text-gray-300';
       }
 
-      return 'bg-gray-200 hover:bg-white text-gray-600';
+      return 'bg-gray-200 dark:bg-black hover:bg-white dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300';
     }
   }),
   metaInfo: function metaInfo() {
@@ -645,7 +645,7 @@ var render = function() {
       _vm._l(_vm.cards, function(card, index) {
         return _c(
           "li",
-          { staticClass: "p-2 pl-4 odd:bg-gray-100" },
+          { staticClass: "p-2 pl-4 odd:bg-gray-100 dark:odd:bg-gray-700" },
           [
             _c("deck-card", {
               attrs: { card: card, collapse: true, "use-router": false }
@@ -849,7 +849,7 @@ var render = function() {
                             "h3",
                             {
                               staticClass:
-                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-black p-2 px-4"
+                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4"
                             },
                             [_vm._v("Basic stats")]
                           ),
@@ -921,15 +921,14 @@ var render = function() {
                       "ul",
                       {
                         staticClass:
-                          "flex items-center border-b border-gray-400 text-sm md:text-base space-x-1 md:space-x-2"
+                          "flex items-center text-sm md:text-base space-x-1 md:space-x-2"
                       },
                       [
                         _c("li", [
                           _c(
                             "button",
                             {
-                              staticClass:
-                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
+                              staticClass: "rounded-t-lg px-4 py-2",
                               class: _vm.tabClasses("composition"),
                               on: {
                                 click: function($event) {
@@ -945,8 +944,7 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass:
-                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
+                              staticClass: "rounded-t-lg px-4 py-2",
                               class: _vm.tabClasses("rulings"),
                               on: {
                                 click: function($event) {
@@ -992,7 +990,7 @@ var render = function() {
                               _c(
                                 "span",
                                 { staticClass: "ml-1 hidden sm:inline" },
-                                [_vm._v("Buy deck")]
+                                [_vm._v("Buy")]
                               )
                             ],
                             1
@@ -1073,155 +1071,164 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _vm.tab === "composition"
-                      ? _c("div", { staticClass: "bg-gray-200 py-4" }, [
-                          _vm.deck.notes || _vm.deck.videoUrl
-                            ? _c("div", { staticClass: "md:flex" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "w-full md:w-2/3 md:pl-4 md:pr-8"
-                                  },
-                                  [
-                                    _vm.deck.videoUrl
-                                      ? _c(
-                                          "div",
-                                          { staticClass: "mb-8" },
-                                          [
-                                            _c("deck-video", {
-                                              attrs: { url: _vm.deck.videoUrl }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.notes
-                                      ? _c("div", {
-                                          staticClass: "mb-8",
-                                          domProps: {
-                                            innerHTML: _vm._s(
-                                              _vm.minimalMarkdown(
-                                                _vm.deck.notes.replace(
-                                                  /(?:https?|ftp):\/\/[\n\S]+/g,
-                                                  ""
+                      ? _c(
+                          "div",
+                          { staticClass: "bg-gray-200 dark:bg-gray-800 py-4" },
+                          [
+                            _vm.deck.notes || _vm.deck.videoUrl
+                              ? _c("div", { staticClass: "md:flex" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "w-full md:w-2/3 md:pl-4 md:pr-8"
+                                    },
+                                    [
+                                      _vm.deck.videoUrl
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "mb-8" },
+                                            [
+                                              _c("deck-video", {
+                                                attrs: {
+                                                  url: _vm.deck.videoUrl
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.notes
+                                        ? _c("div", {
+                                            staticClass: "mb-8",
+                                            domProps: {
+                                              innerHTML: _vm._s(
+                                                _vm.minimalMarkdown(
+                                                  _vm.deck.notes.replace(
+                                                    /(?:https?|ftp):\/\/[\n\S]+/g,
+                                                    ""
+                                                  )
                                                 )
                                               )
-                                            )
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "border-t border-gray-400 mt-4"
-                                      },
-                                      [
-                                        _c("discussion", {
-                                          staticClass: "pb-8",
-                                          attrs: {
-                                            type: "deck",
-                                            id: _vm.deck.slug
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "w-full md:w-1/3" },
-                                  [
-                                    _vm.deck.weapons.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.weapons,
-                                            heading: "Weapons"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.equipment.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.equipment,
-                                            heading: "Equipment"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.other.total()
-                                      ? _c("cards", {
-                                          attrs: {
-                                            cards: _vm.deck.other,
-                                            heading: "Other"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              ])
-                            : _c("div", { staticClass: "md:flex" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "w-full md:w-1/3",
-                                    class: { "pr-4": !_vm.deck.notes }
-                                  },
-                                  [
-                                    _vm.deck.weapons.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.weapons,
-                                            heading: "Weapons"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.equipment.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.equipment,
-                                            heading: "Equipment"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "w-full md:w-1/3" },
-                                  [
-                                    _vm.deck.other.total()
-                                      ? _c("cards", {
-                                          attrs: {
-                                            cards: _vm.deck.other,
-                                            heading: "Other"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              ])
-                        ])
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "border-t border-gray-400 mt-4"
+                                        },
+                                        [
+                                          _c("discussion", {
+                                            staticClass: "pb-8",
+                                            attrs: {
+                                              type: "deck",
+                                              id: _vm.deck.slug
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "w-full md:w-1/3" },
+                                    [
+                                      _vm.deck.weapons.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.weapons,
+                                              heading: "Weapons"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.equipment.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.equipment,
+                                              heading: "Equipment"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.other.total()
+                                        ? _c("cards", {
+                                            attrs: {
+                                              cards: _vm.deck.other,
+                                              heading: "Other"
+                                            }
+                                          })
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ])
+                              : _c("div", { staticClass: "md:flex" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "w-full md:w-1/3",
+                                      class: { "pr-4": !_vm.deck.notes }
+                                    },
+                                    [
+                                      _vm.deck.weapons.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.weapons,
+                                              heading: "Weapons"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.equipment.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.equipment,
+                                              heading: "Equipment"
+                                            }
+                                          })
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "w-full md:w-1/3" },
+                                    [
+                                      _vm.deck.other.total()
+                                        ? _c("cards", {
+                                            attrs: {
+                                              cards: _vm.deck.other,
+                                              heading: "Other"
+                                            }
+                                          })
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                ])
+                          ]
+                        )
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.tab == "rulings"
                       ? _c(
                           "div",
-                          { staticClass: "md:pl-4 bg-gray-200 py-2" },
+                          {
+                            staticClass:
+                              "md:pl-4 bg-gray-200 dark:bg-gray-800 py-2"
+                          },
                           [_c("rulings", { attrs: { rulings: _vm.rulings } })],
                           1
                         )

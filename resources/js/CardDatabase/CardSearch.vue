@@ -118,7 +118,7 @@
                     },
                     {
                         adaptive: true,
-                        classes: ['rounded-lg'],
+                        classes: ['rounded-lg', 'bg-white', 'dark:bg-gray-800'],
                         scrollable: true,
                         height: 'auto',
                         maxHeight: 300
