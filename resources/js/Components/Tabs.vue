@@ -1,8 +1,9 @@
 <template>
     <div>
-        <ul class="flex space-x-1">
+        <div class="flex space-x-1">
             <button class="flex rounded-t-lg px-4 py-2" @click="selectTab(index)" v-for="(tab, index) in tabs" :class="classes(index)">{{tab.name}}</button>
-        </ul>
+            <slot name="right"></slot>
+        </div>
         <div class="bg-gray-300 dark:bg-gray-800 p-4">
             <slot></slot>
         </div>
@@ -36,12 +37,8 @@ export default {
         }
     },
 
-    created () {
-        this.tabs = this.$children;
-    },
-
     mounted () {
-        this.selectTab(0)
+        this.selectTab(0);
     }
 }
 </script>

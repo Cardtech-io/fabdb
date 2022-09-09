@@ -102,6 +102,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       active: true
     };
+  },
+  created: function created() {
+    this.$parent.tabs.push(this);
   }
 });
 
@@ -116,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -148,9 +152,6 @@ __webpack_require__.r(__webpack_exports__);
         tab.active = index === i;
       });
     }
-  },
-  created: function created() {
-    this.tabs = this.$children;
   },
   mounted: function mounted() {
     this.selectTab(0);
@@ -320,24 +321,28 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c(
-      "ul",
+      "div",
       { staticClass: "flex space-x-1" },
-      _vm._l(_vm.tabs, function(tab, index) {
-        return _c(
-          "button",
-          {
-            staticClass: "flex rounded-t-lg px-4 py-2",
-            class: _vm.classes(index),
-            on: {
-              click: function($event) {
-                return _vm.selectTab(index)
+      [
+        _vm._l(_vm.tabs, function(tab, index) {
+          return _c(
+            "button",
+            {
+              staticClass: "flex rounded-t-lg px-4 py-2",
+              class: _vm.classes(index),
+              on: {
+                click: function($event) {
+                  return _vm.selectTab(index)
+                }
               }
-            }
-          },
-          [_vm._v(_vm._s(tab.name))]
-        )
-      }),
-      0
+            },
+            [_vm._v(_vm._s(tab.name))]
+          )
+        }),
+        _vm._v(" "),
+        _vm._t("right")
+      ],
+      2
     ),
     _vm._v(" "),
     _c(

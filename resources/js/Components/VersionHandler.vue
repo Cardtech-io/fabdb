@@ -1,5 +1,5 @@
 <template>
-    <modal name="version-refresh" :adaptive="true" :diablog="true" height="auto" classes="bg-gray-100">
+    <modal name="version-refresh" :adaptive="true" :diablog="true" height="auto" classes="bg-gray-100 dark:bg-gray-800">
         <div class="m-8 text-center flex items-center">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-10 w-10 text-red-700">
