@@ -12,11 +12,11 @@ interface CardRepository extends Repository
 
     public function findByIdentifier(string $identifier, int $userId = null);
 
-    public function getFirstLikeSku(string $sku);
+    public function getFirstByNumber(string $number);
 
     /**
      * Will return a collection of card IDs based on the card slugs/identifiers.
-     * 
+     *
      * @param array $identifiers
      * @return array
      */
@@ -24,11 +24,11 @@ interface CardRepository extends Repository
 
     /**
      * Will return a collection of card IDs based on the card skus.
-     * 
-     * @param array $skus
+     *
+     * @param array $numbers
      * @return array
      */
-    public function getAllIdsBySkus(array $skus): array;
+    public function getAllIdsByCardNumbers(array $numbers): array;
 
     /**
      * View a specific card, and retrieve the previous/next card ids, as well.
@@ -117,7 +117,7 @@ interface CardRepository extends Repository
 
     /**
      * Will attempt to find any card by using its search text field based on the string provided, and will return the first result.
-     * 
+     *
      * @param string $text
      * @return mixed
      */
