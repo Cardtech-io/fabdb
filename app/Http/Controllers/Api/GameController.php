@@ -20,6 +20,7 @@ class GameController extends Controller
             $request->get('gameId'),
             $deck->id,
             $request->opposingHeroId(),
+            $request->get('firstPlayer'),
             $request->get('turns'),
             $request->get('result'),
             $request->get('cardResults')
