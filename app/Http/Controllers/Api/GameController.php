@@ -14,16 +14,16 @@ class GameController extends Controller
     public function results(SaveGameRequest $request, DeckRepository $decks, CardRepository $cards)
     {
         $json = json_decode($request->getContent(), true);
-        $deck = $decks->bySlug(Arr::get($json,'deckId'));
-        
+        $deck = $decks->bySlug($request->deck);
+
         $this->dispatch(new SaveGameResults(
             'fabtcg_online',
-            Arr::get($json, 'gameId'),
+            $request->get('gameId'),
             $deck->id,
             $request->opposingHeroId(),
-            Arr::get($json, 'turns'),
-            Arr::get($json, 'result'),
-            Arr::get($json, 'cardResults')
+            $request->get('turns'),
+            $request->get('result'),
+            $request->get('cardResults')
         ));
     }
 }
