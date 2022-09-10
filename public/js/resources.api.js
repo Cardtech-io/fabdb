@@ -594,7 +594,7 @@ var render = function() {
                   [
                     _c("pre", [
                       _vm._v(
-                        "    https://api.fabdb.net/cards?token=mytokenstringhere&keywords=action&set=wtr&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3\n"
+                        "    https://api.fabdb.net/cards?keywords=action&set=wtr&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3\n"
                       )
                     ])
                   ]

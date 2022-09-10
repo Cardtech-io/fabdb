@@ -13,17 +13,8 @@ class SaveGameRequest extends FormRequest
         return [];
     }
 
-    public function payload(string $field = '')
-    {
-        $json = json_decode($this->getContent(), true);
-
-        if (!$field) return $json;
-
-        return Arr::get($json, $field);
-    }
-    
     public function opposingHeroId(): int
     {
-        return app(CardRepository::class)->getFirstLikeSku($this->payload('opposingHero'))?->id;
+        return app(CardRepository::class)->getFirstByNumber($this->get('opposingHero'))?->id;
     }
 }
