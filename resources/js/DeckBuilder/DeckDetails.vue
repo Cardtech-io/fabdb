@@ -95,7 +95,7 @@
 
             rulings() {
                 let rulings = _.flatten(this.cards.map(card => {
-                    return _.flatten(card.rulings.map(ruling => { return ruling.description; }));
+                    return _.flatten(card.rulings && card.rulings.length ? card.rulings.map(ruling => { return ruling.description; }) : []);
                 }));
 
                 return _.uniq(rulings);
