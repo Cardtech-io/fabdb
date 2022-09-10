@@ -373,7 +373,7 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "px-4 md:px-0 block flex w-full",
+      staticClass: "px-4 md:px-0 block flex flex-wrap w-full",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -382,192 +382,208 @@ var render = function() {
       }
     },
     [
-      _c("div", { staticClass: "sm:w-2/6 pr-1" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.hero,
-                expression: "hero"
+      _c(
+        "div",
+        { staticClass: "w-full sm:w-1/2 md:w-2/6 sm:pb-1 md:pb-0 sm:pr-1" },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.hero,
+                  expression: "hero"
+                }
+              ],
+              staticClass:
+                "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
+              class: _vm.active("hero"),
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.hero = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
               }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Select hero")]),
+              _vm._v(" "),
+              _vm._l(_vm.heroes, function(hero) {
+                return _c("option", { domProps: { value: hero.name } }, [
+                  _vm._v(_vm._s(hero.name))
+                ])
+              })
             ],
-            staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
-            class: _vm.active("hero"),
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.hero = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Select hero")]),
-            _vm._v(" "),
-            _vm._l(_vm.heroes, function(hero) {
-              return _c("option", { domProps: { value: hero.name } }, [
-                _vm._v(_vm._s(hero.name))
-              ])
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sm:w-1/6 pr-1" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.format,
-                expression: "format"
-              }
-            ],
-            staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
-            class: _vm.active("format"),
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.format = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
-            _vm._v(" "),
-            _vm._l(_vm.$settings.game.decks.formats, function(name, format) {
-              return _c("option", { domProps: { value: format } }, [
-                _vm._v(_vm._s(name))
-              ])
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sm:w-1/6 pr-1" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.label,
-                expression: "label"
-              }
-            ],
-            staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
-            class: _vm.active("label"),
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.label = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Label")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "tournament" } }, [
-              _vm._v("Tournament")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
-              return _c("option", { domProps: { value: label } }, [
-                _vm._v(_vm._s(name))
-              ])
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sm:w-1/6 pr-1" }, [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.order,
-                expression: "order"
-              }
-            ],
-            staticClass:
-              "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
-            class: _vm.active("order"),
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.order = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Order")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "popular-all" } }, [
-              _vm._v("Popular (All time)")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "popular-7" } }, [
-              _vm._v("Popular (Last 7 days)")
-            ])
-          ]
-        )
-      ]),
+            2
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "sm:w-1/6" },
+        { staticClass: "w-full sm:w-1/2 md:w-1/6 sm:pb-1 md:pb-0 md:pr-1" },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.format,
+                  expression: "format"
+                }
+              ],
+              staticClass:
+                "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
+              class: _vm.active("format"),
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.format = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
+              _vm._v(" "),
+              _vm._l(_vm.$settings.game.decks.formats, function(name, format) {
+                return _c("option", { domProps: { value: format } }, [
+                  _vm._v(_vm._s(name))
+                ])
+              })
+            ],
+            2
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "w-full sm:w-1/2 md:w-1/6 sm:pb-1 md:pb-0 sm:pr-1" },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.label,
+                  expression: "label"
+                }
+              ],
+              staticClass:
+                "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
+              class: _vm.active("label"),
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.label = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Label")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "tournament" } }, [
+                _vm._v("Tournament")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
+                return _c("option", { domProps: { value: label } }, [
+                  _vm._v(_vm._s(name))
+                ])
+              })
+            ],
+            2
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "w-full sm:w-1/2 md:w-1/6 sm:pb-1 md:pb-0 md:pr-1" },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.order,
+                  expression: "order"
+                }
+              ],
+              staticClass:
+                "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
+              class: _vm.active("order"),
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.order = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Order")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "popular-all" } }, [
+                _vm._v("Popular (All time)")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "popular-7" } }, [
+                _vm._v("Popular (Last 7 days)")
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "w-full md:w-1/6" },
         [_c("submit", { staticClass: "w-full", attrs: { text: "Search" } })],
         1
       )

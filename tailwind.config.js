@@ -3,6 +3,10 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
     darkMode: 'class',
 
+    corePlugins: {
+        container: false
+    },
+
     purge: {
         content: [
             './resources/js/**/*.vue',
@@ -242,6 +246,29 @@ module.exports = {
                     'backdrop-filter': 'blur(2px)'
                 }
             });
-        })
+        }),
+
+        function ({ addComponents }) {
+            addComponents({
+                '.container': {
+                    maxWidth: '100%',
+                    '@screen sm': {
+                        maxWidth: '100%',
+                    },
+                    '@screen md': {
+                        maxWidth: '100%',
+                    },
+                    '@screen lg': {
+                        maxWidth: '100%',
+                    },
+                    '@screen xl': {
+                        maxWidth: '1280px',
+                    },
+                    '@screen 2xl': {
+                        maxWidth: '1536px',
+                    },
+                }
+            })
+        }
     ]
 };
