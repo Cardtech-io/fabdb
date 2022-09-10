@@ -24,9 +24,9 @@ Route::middleware(['api'])->group(function() {
     Route::get('printings/{sku}', 'PrintingController@view');
 });
 
-//Route::middleware(['api.auth'])->group(function() {
+Route::middleware(['api.auth'])->group(function() {
     Route::post('game/results/{deck}', 'GameController@results');
-//});
+});
 
 Route::fallback(function() {
     return redirect(config('app.url').'/resources/api');

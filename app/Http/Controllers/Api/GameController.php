@@ -13,7 +13,6 @@ class GameController extends Controller
 {
     public function results(SaveGameRequest $request, DeckRepository $decks, CardRepository $cards)
     {
-        $json = json_decode($request->getContent(), true);
         $deck = $decks->bySlug($request->deck);
 
         $this->dispatch(new SaveGameResults(
