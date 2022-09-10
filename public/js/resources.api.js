@@ -433,12 +433,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-gray-200 -mx-4 p-4" }, [
+  return _c("div", { staticClass: "bg-gray-200 dark:bg-gray-900 -mx-4 p-4" }, [
     _c(
       "div",
       {
         staticClass:
-          "bg-white rounded-lg overflow-hidden border border-gray-200"
+          "bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200"
       },
       [
         _c(
