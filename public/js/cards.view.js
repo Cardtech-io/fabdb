@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['text', 'to'],
+  props: ['to'],
   computed: {
     classes: function classes() {
       return this.to ? 'button-primary' : 'button-disabled';
@@ -297,14 +297,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CardNav */ "./resources/js/CardDatabase/CardNav.vue");
 /* harmony import */ var _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Discussion/Discussion */ "./resources/js/Discussion/Discussion.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
-/* harmony import */ var _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./LanguageSelector */ "./resources/js/CardDatabase/LanguageSelector.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _LegalityBanner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./LegalityBanner */ "./resources/js/CardDatabase/LegalityBanner.vue");
-/* harmony import */ var _Pricing_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Pricing.vue */ "./resources/js/CardDatabase/Pricing.vue");
-/* harmony import */ var _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Decks/Featured/RecentDecks */ "./resources/js/Decks/Featured/RecentDecks.vue");
-/* harmony import */ var _Rulings__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Rulings */ "./resources/js/CardDatabase/Rulings.vue");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _LanguageSelector__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./LanguageSelector */ "./resources/js/CardDatabase/LanguageSelector.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./LegalityBanner */ "./resources/js/CardDatabase/LegalityBanner.vue");
+/* harmony import */ var _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pricing.vue */ "./resources/js/CardDatabase/Pricing.vue");
+/* harmony import */ var _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Decks/Featured/RecentDecks */ "./resources/js/Decks/Featured/RecentDecks.vue");
+/* harmony import */ var _Rulings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Rulings */ "./resources/js/CardDatabase/Rulings.vue");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
 //
 //
@@ -395,6 +396,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -414,7 +430,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__["default"]],
   components: {
     CardLegality: _CardLegality__WEBPACK_IMPORTED_MODULE_5__["default"],
     Advertisement: _Components_Advertisement__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -424,11 +440,12 @@ __webpack_require__.r(__webpack_exports__);
     CardNav: _CardNav__WEBPACK_IMPORTED_MODULE_7__["default"],
     Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    LanguageSelector: _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__["default"],
-    LegalityBanner: _LegalityBanner__WEBPACK_IMPORTED_MODULE_13__["default"],
-    Pricing: _Pricing_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-    RecentDecks: _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_15__["default"],
-    Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_16__["default"]
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_10__["default"],
+    LanguageSelector: _LanguageSelector__WEBPACK_IMPORTED_MODULE_12__["default"],
+    LegalityBanner: _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__["default"],
+    Pricing: _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    RecentDecks: _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_16__["default"],
+    Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
   computed: {
     bannedFormats: function bannedFormats() {
@@ -556,7 +573,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_12__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__["default"])(function (to, callback) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/cards/' + to.params.identifier).then(function (response) {
       callback(function () {
         this.card = response.data;
@@ -764,12 +781,12 @@ var render = function() {
   return _c(
     "router-link",
     {
-      staticClass:
-        "w-1/2 appearance-none block w-full mt-2 rounded-lg py-3 px-4",
+      staticClass: "w-1/2 appearance-none block w-full py-2 px-4",
       class: _vm.classes,
       attrs: { to: "/cards/" + _vm.to, disabled: _vm.to }
     },
-    [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
+    [_vm._t("default")],
+    2
   )
 }
 var staticRenderFns = []
@@ -1052,12 +1069,12 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
           { staticClass: "container sm:mx-auto pt-0 pb-8" },
           [
-            _c("div", { staticClass: "md:flex md:space-x-4 p-4" }, [
+            _c("div", { staticClass: "md:flex md:space-x-8 p-4" }, [
               _c(
                 "div",
                 { staticClass: "md:w-1/4" },
@@ -1075,17 +1092,63 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "flex mt-2" },
+                    { staticClass: "flex mt-2 space-x-px" },
                     [
-                      _c("card-nav", {
-                        staticClass: "mr-1",
-                        attrs: { to: _vm.card.prev, text: "Previous" }
-                      }),
+                      _c(
+                        "card-nav",
+                        {
+                          staticClass:
+                            "flex items-center space-x-2 rounded-l-lg",
+                          attrs: { to: _vm.card.prev, text: "Previous" }
+                        },
+                        [
+                          _c("icon", { attrs: { size: 5 } }, [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d:
+                                  "M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z",
+                                "clip-rule": "evenodd"
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "\n                                Previous\n                            "
+                            )
+                          ])
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("card-nav", {
-                        staticClass: "ml-1 text-right",
-                        attrs: { to: _vm.card.next, text: "Next" }
-                      })
+                      _c(
+                        "card-nav",
+                        {
+                          staticClass:
+                            "flex items-center justify-end space-x-2 rounded-r-lg text-right",
+                          attrs: { to: _vm.card.next, text: "Next" }
+                        },
+                        [
+                          _c("span", [
+                            _vm._v(
+                              "\n                                Next\n                            "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("icon", { attrs: { size: 5 } }, [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d:
+                                  "M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z",
+                                "clip-rule": "evenodd"
+                              }
+                            })
+                          ])
+                        ],
+                        1
+                      )
                     ],
                     1
                   ),
@@ -1101,7 +1164,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "inline-block text-sm text-white px-1 mr-1 rounded-sm",
+                          "block w-full py-1 px-2 text-sm text-white mb-1 rounded-sm",
                         class: _vm.printingClasses(printing),
                         attrs: { title: printing.finish },
                         on: {
@@ -1127,95 +1190,110 @@ var render = function() {
                   _vm._v(" "),
                   _c("ul", { staticClass: "pt-4 text-base" }, [
                     _vm.card.artist
-                      ? _c("li", { staticClass: "flex odd:bg-white" }, [
-                          _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                            _vm._v("Artist")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "w-2/3 p-2 px-4" },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link-alternate",
-                                  attrs: {
-                                    to: {
-                                      name: "artists.view",
-                                      params: { artist: _vm.card.artist.slug }
+                      ? _c(
+                          "li",
+                          {
+                            staticClass:
+                              "flex odd:bg-white dark:odd:bg-gray-700"
+                          },
+                          [
+                            _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                              _vm._v("Artist")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "w-2/3 p-2 px-4" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link-alternate",
+                                    attrs: {
+                                      to: {
+                                        name: "artists.view",
+                                        params: { artist: _vm.card.artist.slug }
+                                      }
                                     }
-                                  }
-                                },
-                                [_vm._v(_vm._s(_vm.card.artist.name))]
-                              )
-                            ],
-                            1
-                          )
-                        ])
+                                  },
+                                  [_vm._v(_vm._s(_vm.card.artist.name))]
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        )
                       : _vm._e(),
                     _vm._v(" "),
-                    _c("li", { staticClass: "flex odd:bg-white" }, [
-                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                        _vm._v("Rarity")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-2/3 p-2 px-4" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "link-alternate",
-                              attrs: {
-                                to: {
-                                  name: "cards.browse",
-                                  query: {
-                                    rarity: _vm.card.rarity.toLowerCase()
+                    _c(
+                      "li",
+                      { staticClass: "flex odd:bg-white dark:odd:bg-gray-700" },
+                      [
+                        _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                          _vm._v("Rarity")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-2/3 p-2 px-4" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "link-alternate",
+                                attrs: {
+                                  to: {
+                                    name: "cards.browse",
+                                    query: {
+                                      rarity: _vm.card.rarity.toLowerCase()
+                                    }
                                   }
                                 }
-                              }
-                            },
-                            [_vm._v(_vm._s(_vm.rarity))]
-                          )
-                        ],
-                        1
-                      )
-                    ]),
+                              },
+                              [_vm._v(_vm._s(_vm.rarity))]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("li", { staticClass: "flex odd:bg-white" }, [
-                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                        _vm._v("Keywords")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-2/3 p-2 px-4" },
-                        _vm._l(_vm.card.keywords, function(keyword, index) {
-                          return _c(
-                            "span",
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link-alternate",
-                                  attrs: {
-                                    to: "/cards/browse?keywords=" + keyword
-                                  }
-                                },
-                                [_vm._v(_vm._s(keyword))]
-                              ),
-                              index < _vm.card.keywords.length - 1
-                                ? _c("span", [_vm._v(", ")])
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    ])
+                    _c(
+                      "li",
+                      { staticClass: "flex odd:bg-white dark:odd:bg-gray-700" },
+                      [
+                        _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                          _vm._v("Keywords")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-2/3 p-2 px-4" },
+                          _vm._l(_vm.card.keywords, function(keyword, index) {
+                            return _c(
+                              "span",
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link-alternate",
+                                    attrs: {
+                                      to: "/cards/browse?keywords=" + keyword
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(keyword))]
+                                ),
+                                index < _vm.card.keywords.length - 1
+                                  ? _c("span", [_vm._v(", ")])
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    )
                   ])
                 ],
                 2
@@ -1232,7 +1310,10 @@ var render = function() {
                       _vm.text
                         ? _c(
                             "div",
-                            { staticClass: "bg-white text-black rounded-lg" },
+                            {
+                              staticClass:
+                                "bg-white dark:bg-gray-800 rounded-lg"
+                            },
                             [
                               _c("div", {
                                 staticClass: "px-4 py-px",
@@ -1246,7 +1327,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "italic border-t border-gray-200 p-4 text-gray-600"
+                                        "italic border-t border-gray-200 dark:border-gray-900 p-4"
                                     },
                                     [_vm._v(_vm._s(_vm.flavour))]
                                   )
@@ -1267,7 +1348,7 @@ var render = function() {
                                 "div",
                                 {
                                   staticClass:
-                                    "flex justify-center items-center flex-grow bg-white space-x-2 py-2"
+                                    "flex justify-center items-center flex-grow bg-white dark:bg-gray-800 space-x-2 py-2"
                                 },
                                 [
                                   _c("div", {}, [
@@ -1468,7 +1549,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-gray-200 rounded-b-lg" },
+          {
+            staticClass:
+              "bg-gray-200 dark:bg-transparent rounded-b-lg overflow-hidden"
+          },
           _vm._l(_vm.decks, function(deck) {
             return _c("deck-item", {
               key: deck.slug,

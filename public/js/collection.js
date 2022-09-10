@@ -585,7 +585,7 @@ var render = function() {
             }
           ],
           staticClass:
-            "w-full bg-white text-center outline-none focus:bg-white p-2",
+            "w-full bg-white dark:bg-gray-900 text-center outline-none focus:bg-white p-2",
           attrs: { type: "text", tabindex: _vm.index },
           domProps: { value: _vm.total },
           on: {
@@ -731,24 +731,31 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white pt-4 border-b-4 border-gray-300" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto sm:px-4" },
-          [
-            _c("card-search", {
-              attrs: {
-                "use-case": "collection",
-                external: Object.assign({}, { per_page: 15 }, _vm.search)
-              },
-              on: { "search-completed": _vm.refreshResults }
-            })
-          ],
-          1
-        )
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container sm:mx-auto sm:px-4" },
+            [
+              _c("card-search", {
+                attrs: {
+                  "use-case": "collection",
+                  external: Object.assign({}, { per_page: 15 }, _vm.search)
+                },
+                on: { "search-completed": _vm.refreshResults }
+              })
+            ],
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200 pb-8 text-sm sm:text-base" }, [
+      _c("div", { staticClass: "main-body pb-8 text-sm sm:text-base" }, [
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
             ? _c("div", { staticClass: "sm:px-4" }, [
@@ -768,7 +775,7 @@ var render = function() {
                   "table",
                   {
                     staticClass:
-                      "w-full bg-white space-x-4 p-1 border-b-2 border-gray-300"
+                      "w-full bg-white dark:bg-gray-800 space-x-4 p-1 border-b-2 border-gray-300 dark:border-gray-600"
                   },
                   [
                     _c("thead", [
@@ -915,7 +922,7 @@ var render = function() {
     "tr",
     {
       staticClass:
-        "odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center p-1"
+        "odd:bg-gray-100 hover:bg-gray-300 dark:odd:bg-gray-700 group dark:hover:bg-gray-600 hover:font-bold items-center p-1"
     },
     [
       _c("td", { attrs: { width: "50" } }, [

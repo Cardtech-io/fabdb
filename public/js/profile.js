@@ -523,10 +523,13 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto bg-white py-8 px-8 md:flex" },
+          {
+            staticClass:
+              "container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex"
+          },
           [
             _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
               _c(
@@ -546,9 +549,7 @@ var render = function() {
                         "div",
                         { staticClass: "rounded-xl overflow-hidden" },
                         [
-                          _c("avatar", {
-                            attrs: { user: _vm.user, width: 100 }
-                          })
+                          _c("avatar", { attrs: { user: _vm.user, width: 80 } })
                         ],
                         1
                       )

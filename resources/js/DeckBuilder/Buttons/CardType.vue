@@ -1,5 +1,5 @@
 <template>
-    <button class="flex-1 border-r border-gray-200 py-2 px-1 md:px-2" :class="isSelected(type) ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'" :title="text()">
+    <button class="flex-1 border-r border-gray-200 dark:border-gray-600 py-2 px-1 md:px-2" :class="isSelected(type) ? 'bg-gray-800 text-white' : 'hover:bg-secondary hover:text-white'" :title="text()">
         <icon :size="6" :box="24"  class="mx-auto">
             <slot></slot>
         </icon>

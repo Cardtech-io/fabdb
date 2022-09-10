@@ -17,14 +17,15 @@ Route::middleware(['api'])->group(function() {
     Route::get('cards', 'CardController@list');
     Route::get('cards/first', 'CardController@first');
     Route::get('cards/{cardIdentifier}', 'CardController@view');
-    
+
     Route::get('decks/{deck}/osc', 'DeckController@osc');
     Route::get('decks/{deck}', 'DeckController@view');
 
     Route::get('printings/{sku}', 'PrintingController@view');
+});
 
+Route::middleware(['api.auth'])->group(function() {
     Route::post('game/results', 'GameController@results');
-
 });
 
 Route::fallback(function() {

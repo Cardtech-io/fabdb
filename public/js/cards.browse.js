@@ -66,19 +66,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -101,17 +88,22 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_8__["default"]],
   computed: {
     setDescription: function setDescription() {
-      return 'Browse the Flesh & Blood card list for the set, "' + this.sets[this.set] + '".';
+      return 'Browse the entire Flesh & Blood card catalogue at FaB DB.';
     }
   },
   data: function data() {
     return {
+      crumbs: [{
+        text: 'Home',
+        link: '/'
+      }, {
+        text: 'Cards'
+      }],
       firstLoad: true,
       order: 'sku',
       page: Number(this.$route.query.page) || 1,
       per_page: 30,
       results: {},
-      sets: this.filterSets(),
       set: this.$route.query.set || '',
       view: 'gallery'
     };
@@ -127,12 +119,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    isActive: function isActive(set) {
-      return {
-        'border-white': this.set === set,
-        'border-crumbs': this.set !== set
-      };
-    },
     refreshResults: function refreshResults(results) {
       this.results = results;
       this.firstLoad = false;
@@ -143,27 +129,9 @@ __webpack_require__.r(__webpack_exports__);
         order: order
       });
     },
-    filterSets: function filterSets() {
-      var sets = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.sortBy(lodash__WEBPACK_IMPORTED_MODULE_0___default.a.filter(this.$settings.game.sets, function (setting) {
-        return setting.browseable;
-      }), 'released');
-
-      sets.unshift({
-        id: '',
-        name: 'All cards'
-      });
-      return sets;
-    },
     updatePage: function updatePage(page) {
       this.updateQuery({
         page: page
-      });
-    },
-    switchSet: function switchSet(set) {
-      this.set = set;
-      this.updateQuery({
-        page: 1,
-        set: set
       });
     }
   }
@@ -265,76 +233,35 @@ var render = function() {
     [
       _c("header-title", { attrs: { title: "Browse cards" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "crumbs font-serif uppercase" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto px-4 flex" },
-          [
-            _c(
-              "ul",
-              { staticClass: "flex space-x-4 md:space-x-8" },
-              _vm._l(_vm.sets, function(set) {
-                return _c(
-                  "li",
-                  {
-                    staticClass: "border-b-4 border-white",
-                    class: _vm.isActive(set.id)
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "block text-center py-4",
-                        attrs: { href: "" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.switchSet(set.id)
-                          }
-                        }
-                      },
-                      [
-                        _c("span", { staticClass: "md:hidden" }, [
-                          _vm._v(_vm._s(set.id ? set.id : "All"))
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "hidden md:inline" }, [
-                          _vm._v(_vm._s(set.name))
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("collapser")
-          ],
-          1
-        )
-      ]),
+      _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white pt-4 border-b-4 border-gray-300" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto md:px-4" },
-          [
-            _c("card-search", {
-              attrs: {
-                useCase: "browse",
-                page: _vm.page,
-                refreshable: true,
-                external: { per_page: _vm.per_page, order: _vm.order }
-              },
-              on: { "search-completed": _vm.refreshResults }
-            })
-          ],
-          1
-        )
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container sm:mx-auto md:px-4" },
+            [
+              _c("card-search", {
+                attrs: {
+                  useCase: "browse",
+                  page: _vm.page,
+                  refreshable: true,
+                  external: { per_page: _vm.per_page, order: _vm.order }
+                },
+                on: { "search-completed": _vm.refreshResults }
+              })
+            ],
+            1
+          )
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c("div", { staticClass: "container sm:mx-auto px-4" }, [
           _vm.firstLoad
             ? _c("div", [
@@ -484,11 +411,10 @@ var render = function() {
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg p-1 uppercase hover:bg-white hover:border-gray-500",
+          "relative flex items-center text-left text-base font-serif rounded-lg p-1 uppercase hover:bg-white dark:hover:bg-gray-600",
         class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
+          "bg-white dark:bg-gray-600": _vm.isOpen,
+          "bg-gray-200 dark:bg-gray-800": !_vm.isOpen,
           "z-75": _vm.isOpen
         },
         on: {
@@ -541,7 +467,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500",
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg",
             staticStyle: { width: "150px" }
           },
           _vm._l(_vm.options, function(order, option) {

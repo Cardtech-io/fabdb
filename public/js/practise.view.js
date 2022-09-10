@@ -727,19 +727,18 @@ var render = function() {
       class: { "bg-red-600": _vm.filtersEnabled }
     },
     [
-      _c("div", { staticClass: "relative font-serif" }, [
+      _c("div", { staticClass: "relative text-sm xl:text-base" }, [
         _c(
           "button",
           {
             staticClass:
-              "relative text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-2 uppercase hover:bg-white hover:border-gray-500 flex",
+              "relative flex items-center overflow-hidden rounded-lg hover:bg-white dark:hover:bg-gray-600 leading-none px-2",
             class: {
-              "border-gray-500": _vm.isOpen,
-              "bg-white": _vm.isOpen,
-              "bg-gray-200": !_vm.isOpen,
+              "bg-white dark:bg-gray-600": _vm.isOpen,
+              "bg-gray-200 dark:bg-black": !_vm.isOpen,
               "z-75": _vm.isOpen
             },
-            staticStyle: { width: "200px" },
+            staticStyle: { width: "230px" },
             on: {
               click: function($event) {
                 _vm.isOpen = !_vm.isOpen
@@ -747,14 +746,12 @@ var render = function() {
             }
           },
           [
-            _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-              _vm._v("Filters")
-            ]),
+            _c("span", { staticClass: "py-2" }, [_vm._v("Filters")]),
             _vm._v(" "),
             _c(
               "svg",
               {
-                staticClass: "inline-block h-6 fill-current",
+                staticClass: "h-6 fill-current ml-auto",
                 attrs: {
                   xmlns: "http://www.w3.org/2000/svg",
                   viewBox: "0 0 20 20"
@@ -790,14 +787,14 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+                  "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2"
               },
               _vm._l(_vm.availableFilters, function(text, filter) {
                 return _c(
                   "button",
                   {
                     staticClass:
-                      "group w-full text-base text-left p-2 hover:bg-blue-400 hover:text-white uppercase flex items-center",
+                      "group w-full text-base text-left p-2 hover:bg-blue-400 hover:text-white flex items-center",
                     on: {
                       click: function($event) {
                         return _vm.select(filter)
@@ -849,7 +846,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "flex items-center text-sm text-white w-full h-full cursor-pointer",
+                "flex items-center text-white w-full h-full cursor-pointer",
               on: { click: _vm.clearFilters }
             },
             [
@@ -964,16 +961,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative font-serif" }, [
+  return _c("div", { staticClass: "relative text-sm xl:text-base" }, [
     _c(
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          "relative flex items-center overflow-hidden rounded-lg hover:bg-white dark:hover:bg-gray-600 leading-none px-2",
         class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
+          "bg-white dark:bg-gray-600": _vm.isOpen,
+          "bg-gray-200 dark:bg-black": !_vm.isOpen,
           "z-75": _vm.isOpen
         },
         staticStyle: { width: "150px" },
@@ -984,14 +980,13 @@ var render = function() {
         }
       },
       [
-        _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v("Grouping")
-        ]),
+        _c("span", { staticClass: "py-2" }, [_vm._v("Grouping")]),
         _vm._v(" "),
         _c(
           "svg",
           {
-            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
+            staticClass: "h-6 fill-current ml-auto",
+            class: { "transform rotate-180": _vm.isOpen },
             attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
           },
           [
@@ -1024,13 +1019,13 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg"
           },
           _vm._l(_vm.options, function(text, option) {
             return _c(
               "button",
               {
-                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                staticClass: "w-full text-base text-left px-4 py-1",
                 class:
                   option === _vm.grouping
                     ? "bg-blue-400 text-white"
@@ -1156,99 +1151,106 @@ var render = function() {
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { class: _vm.fullScreenClasses }, [
-        _c("div", { staticClass: "bg-white" }, [
-          _c(
-            "div",
-            {
-              staticClass: "flex p-4 w-full items-center",
-              class: _vm.containers
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "flex rounded-lg overflow-hidden text-sm xl:text-base mr-2"
-                },
-                [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "flex-grow block px-4 py-3",
-                      class: _vm.classes("packs"),
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.setMode("packs")
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "flex p-4 w-full items-center",
+                class: _vm.containers
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex rounded-lg overflow-hidden text-sm xl:text-base mr-2"
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "flex-grow block px-4 py-2",
+                        class: _vm.classes("packs"),
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.setMode("packs")
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Packs")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "flex-grow block px-4 py-3",
-                      class: _vm.classes("cards"),
-                      attrs: { type: "button", disabled: !_vm.opened },
-                      on: {
-                        click: function($event) {
-                          return _vm.setMode("cards")
+                      },
+                      [_vm._v("Packs")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "flex-grow block px-4 py-2",
+                        class: _vm.classes("cards"),
+                        attrs: { type: "button", disabled: !_vm.opened },
+                        on: {
+                          click: function($event) {
+                            return _vm.setMode("cards")
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Cards")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "add-deck",
-                {
-                  attrs: {
-                    name: "Sealed practise",
-                    params: { practise: _vm.practise.slug },
-                    enabled: _vm.craftable
-                  }
-                },
-                [_vm._v("\n                    Craft deck\n                ")]
-              ),
-              _vm._v(" "),
-              _vm.mode === "cards"
-                ? _c("filter-selector", { staticClass: "mx-2" })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.mode === "cards"
-                ? _c("grouping-selector", {
-                    staticClass: "hidden xl:block",
+                      },
+                      [_vm._v("Cards")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "add-deck",
+                  {
                     attrs: {
-                      grouping: _vm.grouping,
-                      options: {
-                        none: "None",
-                        class: "Class",
-                        talent: "Talent"
-                      }
-                    },
-                    on: { selected: _vm.updateGrouping }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.mode === "cards" || _vm.fullScreen
-                ? _c("fullscreen", {
-                    staticClass: "ml-auto",
-                    attrs: {
-                      "full-screen": _vm.fullScreen,
-                      toggle: _vm.toggleFullScreen
+                      name: "Sealed practise",
+                      params: { practise: _vm.practise.slug },
+                      enabled: _vm.craftable
                     }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
-        ]),
+                  },
+                  [_vm._v("\n                    Craft deck\n                ")]
+                ),
+                _vm._v(" "),
+                _vm.mode === "cards"
+                  ? _c("filter-selector", { staticClass: "mx-2" })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mode === "cards"
+                  ? _c("grouping-selector", {
+                      staticClass: "hidden xl:block",
+                      attrs: {
+                        grouping: _vm.grouping,
+                        options: {
+                          none: "None",
+                          class: "Class",
+                          talent: "Talent"
+                        }
+                      },
+                      on: { selected: _vm.updateGrouping }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.mode === "cards" || _vm.fullScreen
+                  ? _c("fullscreen", {
+                      staticClass: "ml-auto",
+                      attrs: {
+                        "full-screen": _vm.fullScreen,
+                        toggle: _vm.toggleFullScreen
+                      }
+                    })
+                  : _vm._e()
+              ],
+              1
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 h-full pt-4 pb-16 px-4" }, [
+        _c("div", { staticClass: "main-body h-full pt-4 pb-16 px-4" }, [
           _c(
             "div",
             {
@@ -1422,7 +1424,10 @@ var render = function() {
         )
       : _c(
           "div",
-          { staticClass: "inline-block booster hover:bg-white p-4 rounded-lg" },
+          {
+            staticClass:
+              "inline-block booster hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg"
+          },
           [
             _c(
               "button",

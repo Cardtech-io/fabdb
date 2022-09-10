@@ -3,7 +3,7 @@
         <header-title title="API Documentation"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4 py-8 flex">
                 <div class="w-1/4">
                     <ul class="mr-4">
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 <div class="w-3/4">
-                    <div class="bg-white p-4">
+                    <div class="bg-white dark:bg-gray-800 p-4">
                         <h2 class="font-serif uppercase text-2xl">Getting started</h2>
                         <p class="my-4">
                             The FaB DB API provides a public interface for access to card and deck information entered into
@@ -91,7 +91,7 @@
                             The default response is JSON, with both XML and CSV available when you set the accepted content
                             type as part of your requests headers, eg:
                         </p>
-                        <p class="my-4 font-mono bg-gray-300 p-4">
+                        <p class="my-4 font-mono bg-gray-300 dark:bg-gray-900 p-4">
                             Accept: application/json<br>
                             Accept: application/xml<br>
                             Accept: text/csv
@@ -124,7 +124,7 @@
                         <h4 class="font-bold text-lg">Card search</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="json" class="text-base">
+                        <vue-code-highlight language="json" class="text-base dark:bg-gray-900">
 
 <pre>
 {
@@ -148,7 +148,7 @@
 }</pre>
                         </vue-code-highlight>
                         <table class="my-4 w-full border-collapse border border-gray-500 text-base">
-                            <thead class="font-bold bg-gray-100">
+                            <thead class="font-bold bg-gray-100 dark:bg-gray-900">
                                 <th class="text-left p-2 border border-gray-400">Parameter</th>
                                 <th class="text-left p-2 border border-gray-400">Description</th>
                                 <th class="text-left p-2 border border-gray-400">Options</th>

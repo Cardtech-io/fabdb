@@ -9,7 +9,7 @@
                 </icon>
             </router-link>
         </header>
-        <div class="bg-gray-200 rounded-b-lg">
+        <div class="bg-gray-200 dark:bg-transparent rounded-b-lg overflow-hidden">
             <deck-item v-for="deck in decks" :deck="deck" :key="deck.slug" theme="light"/>
         </div>
     </section>

@@ -195,10 +195,10 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c("div", { staticClass: "container flex sm:mx-auto px-4 py-8" }, [
           _c("div", { class: { "w-1/2": _vm.practises.length } }, [
-            _c("p", { staticClass: "bg-white p-4" }, [
+            _c("p", { staticClass: "bg-white dark:bg-gray-800 p-4" }, [
               _vm._v(
                 "\n                    Each Limited Practise run will generate a number of packs, that can then be viewed\n                    and saved for future reference. This will allow you to test with and build decks\n                    based on the random nature of the booster packs, and even be able to practise\n                    over and over with especially bad Limited drafts.\n                "
               )
@@ -279,40 +279,49 @@ var render = function() {
                 _c(
                   "ul",
                   _vm._l(_vm.practises, function(practise) {
-                    return _c("li", { staticClass: "flex odd:bg-white p-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "w-4/5" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "link-alternate",
-                              attrs: {
-                                to: {
-                                  name: "practise.view",
-                                  params: { practise: practise.slug }
+                    return _c(
+                      "li",
+                      {
+                        staticClass:
+                          "flex odd:bg-white dark:odd:bg-gray-800 p-4"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "w-4/5" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "link-alternate",
+                                attrs: {
+                                  to: {
+                                    name: "practise.view",
+                                    params: { practise: practise.slug }
+                                  }
                                 }
-                              }
-                            },
-                            [_vm._v(_vm._s(_vm.when(practise.createdAt)))]
-                          ),
-                          _vm._v(
-                            " (" +
-                              _vm._s(practise.set.name) +
-                              ")\n                        "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-1/5 text-right" },
-                        [_c("format", { attrs: { format: practise.format } })],
-                        1
-                      )
-                    ])
+                              },
+                              [_vm._v(_vm._s(_vm.when(practise.createdAt)))]
+                            ),
+                            _vm._v(
+                              " (" +
+                                _vm._s(practise.set.name) +
+                                ")\n                        "
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-1/5 text-right" },
+                          [
+                            _c("format", { attrs: { format: practise.format } })
+                          ],
+                          1
+                        )
+                      ]
+                    )
                   }),
                   0
                 )

@@ -51,7 +51,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -139,7 +138,7 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
           { staticClass: "container sm:mx-auto px-4 py-8 sm:flow-root" },
@@ -183,8 +182,7 @@ var render = function() {
                           expression: "set"
                         }
                       ],
-                      staticClass:
-                        "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      staticClass: "input py-3 px-4 rounded-lg",
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter

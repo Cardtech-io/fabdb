@@ -21,20 +21,20 @@
             </div>
         </div>
 
-        <div class="bg-white pt-4 border-b-4 border-gray-300">
+        <div class="bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto sm:px-4">
                 <card-search use-case="collection" @search-completed="refreshResults" :external="{ per_page: 15, ...search }"></card-search>
             </div>
         </div>
 
-        <div class="bg-gray-200 pb-8 text-sm sm:text-base">
+        <div class="main-body pb-8 text-sm sm:text-base">
             <div class="container sm:mx-auto">
                 <div v-if="results && results.data" class="sm:px-4">
                     <div class="mx-auto py-4">
-                        <paginator :results="results" @page-selected="updatePage"></paginator>
+                        <paginator :results="results" @page-selected="updatePage"/>
                     </div>
 
-                    <table class="w-full bg-white space-x-4 p-1 border-b-2 border-gray-300">
+                    <table class="w-full bg-white dark:bg-gray-800 space-x-4 p-1 border-b-2 border-gray-300 dark:border-gray-600">
                         <thead>
                             <tr>
                                 <td class="">

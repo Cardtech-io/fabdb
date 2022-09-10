@@ -12,16 +12,16 @@
             </div>
         </div>
         <div class="container sm:px-4 sm:mx-auto">
-            <form class="bg-white p-4 block sm:flex w-full" @submit.prevent="newSearch">
+            <form class="main-body p-4 block sm:flex w-full" @submit.prevent="newSearch">
                 <div class="w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1">
-                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg">
                         <option value="">Select class</option>
                         <option :value="k" v-for="(c, k) in $settings.game.classes">{{ c }}</option>
                     </select>
                 </div>
 
                 <div class="w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1">
-                    <select v-model="params.format" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="params.format" class="input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg">
                         <option value="">Format</option>
                         <option value="blitz">Blitz</option>
                         <option value="constructed">Constructed</option>
@@ -34,56 +34,56 @@
                 </div>
             </form>
 
-            <div class="bg-gray-200 p-4 sm:p-0">
+            <div class="main-body">
                 <div v-if="user">
-                    <table class="w-full table-auto border-collapse bg-white">
+                    <table class="w-full table-auto border-collapse bg-white dark:bg-gray-800">
                         <thead>
                             <tr class="text-base">
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left">Deck</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Label</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Parent</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Class</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden md:table-cell">Cards</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Last updated</th>
-                                <th class="border border-gray-300 p-2 px-4 font-serif uppercase"><span class="hidden lg:block">Actions</span></th>
+                                <th class="p-2 px-4 font-serif uppercase text-left">Deck</th>
+                                <th class="p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Label</th>
+                                <th class="p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Parent</th>
+                                <th class="p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Class</th>
+                                <th class="p-2 px-4 font-serif uppercase text-left hidden md:table-cell">Cards</th>
+                                <th class="p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Last updated</th>
+                                <th class="p-2 px-4 font-serif uppercase"><span class="hidden lg:block">Actions</span></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd:bg-gray-100 group hover:bg-gray-600 hover:text-white" v-for="(deck, key) in decks">
-                                <td class="border border-gray-300">
+                            <tr class="odd:bg-gray-100 dark:odd:bg-gray-700 group hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200" v-for="(deck, key) in decks">
+                                <td>
                                     <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block flex items-center">
                                         <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero"/>
                                         <span class="block flex-grow px-4 py-2">{{deck.name}}</span>
                                     </router-link>
                                 </td>
-                                <td class="border border-gray-300 p-2 px-4 hidden lg:table-cell">
+                                <td class="p-2 px-4 hidden lg:table-cell">
                                     <deck-label :label="deck.label" v-if="deck.label" class="text-xs rounded-full p-1 px-2"/>
                                 </td>
-                                <td class="border border-gray-300 hidden lg:table-cell">
+                                <td class="hidden lg:table-cell">
                                     <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block w-full p-2 px-4" v-if="deck.parent">{{deck.parent.name}}</router-link>
                                 </td>
-                                <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
-                                <td class="border border-gray-300 p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
-                                <td class="border border-gray-300 p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
-                                <td class="border border-gray-300 p-2 px-4">
+                                <td class="p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
+                                <td class="p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
+                                <td class="p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
+                                <td class="p-2 px-4">
                                     <div class="flex space-x-4 justify-center items-center">
-                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="lg:hidden hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="lg:hidden">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
-                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400">
+                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400 dark:hover:text-white">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                             </icon>
                                         </router-link>
-                                        <button @click="copyDeck(deck)" class="hover:text-gray-400">
+                                        <button @click="copyDeck(deck)" class="hover:text-gray-400 dark:hover:text-white">
                                             <icon :size="6">
                                                 <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
                                                 <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
                                             </icon>
                                         </button>
-                                        <button @click="removeDeck(deck, key)" class="hover:text-gray-400">
+                                        <button @click="removeDeck(deck, key)" class="hover:text-gray-400 dark:hover:text-white">
                                             <icon :size="6">
                                                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                             </icon>

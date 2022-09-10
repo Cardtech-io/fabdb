@@ -3,13 +3,13 @@
         <header-title title="Browse decks"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-white py-4 border-b-4 border-gray-300">
+        <div class="bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">
                 <deck-search @search-completed="refreshResults"/>
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data" class="pb-8">
                     <div class="flow-root py-4">

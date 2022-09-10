@@ -678,7 +678,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      "input focus:border-gray-500 py-3 px-4 rounded-lg",
                     attrs: { type: "text", placeholder: "Name", required: "" },
                     domProps: { value: _vm.name },
                     on: {
@@ -703,8 +703,7 @@ var render = function() {
                     expression: "content"
                   }
                 ],
-                staticClass:
-                  "input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input focus:border-gray-500 py-3 px-4 rounded-lg",
                 attrs: {
                   type: "text",
                   rows: "4",
@@ -723,7 +722,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("submit", {
-              staticClass: "mt-2",
+              staticClass: "w-full sm:w-auto mt-2 mx-auto",
               attrs: { text: "Comment", disabled: _vm.saving }
             })
           ],

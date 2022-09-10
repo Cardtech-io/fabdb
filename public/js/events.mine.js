@@ -524,7 +524,7 @@ var render = function() {
       _c("header-title", { attrs: { title: "My events" } }),
       _vm._v(" "),
       _c("div", { staticClass: "crumbs font-serif uppercase" }, [
-        _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
+        _c("div", { staticClass: "container px-4 py-2 sm:mx-auto flex" }, [
           _c(
             "div",
             { staticClass: "flex-auto" },
