@@ -10,6 +10,7 @@ class SaveGameResults
         private string $source,
         private int $gameId,
         private int $deckId,
+        private $userId,
         private int $opposingHeroId,
         private int $gameLength,
         private string $result,

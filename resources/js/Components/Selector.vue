@@ -9,7 +9,7 @@
             </slot>
         </button>
 
-        <button v-else @click="isOpen = !isOpen" :class="{ 'z-75': isOpen }">
+        <button v-else @click="isOpen = !isOpen" class="relative flex items-center" :class="{ 'z-75': isOpen }">
             <slot name="title"></slot>
         </button>
 

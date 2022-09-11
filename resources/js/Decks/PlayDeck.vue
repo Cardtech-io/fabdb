@@ -1,5 +1,5 @@
 <template>
-    <selector :width="150" layout="icon">
+    <selector :width="170" layout="icon">
         <template #title>
             <icon :size="6">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -7,14 +7,25 @@
         </template>
         <template v-slot:items="slotProps">
             <selector-item value="test" :selected="slotProps.selected">
-                <a :href="fabOnlineUrl()" target="_blank">Play on Talishar</a>
+                <a :href="fabOnlineUrl()" target="_blank" class="flex items-center space-x-1">
+                    <icon :size="4">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                    </icon>
+                    <span>Play on Talishar</span>
+                </a>
             </selector-item>
             <selector-item value="test" :selected="slotProps.selected">
-                <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="lg:hidden">
-                    Deck tester
+                <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="flex items-center space-x-1 lg:hidden">
+                    <icon :size="4">
+                        <path d="M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z" />
+                    </icon>
+                    <span>Deck tester</span>
                 </router-link>
-                <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400 dark:hover:text-white">
-                    Deck tester
+                <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="items-center space-x-1 hidden lg:flex hover:text-gray-400 dark:hover:text-white">
+                    <icon :size="4">
+                        <path d="M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z" />
+                    </icon>
+                    <span>Deck tester</span>
                 </router-link>
             </selector-item>
         </template>

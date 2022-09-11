@@ -497,6 +497,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -595,6 +606,7 @@ var render = function() {
       : _c(
           "button",
           {
+            staticClass: "relative flex items-center",
             class: { "z-75": _vm.isOpen },
             on: {
               click: function($event) {
@@ -1299,7 +1311,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("selector", {
-    attrs: { width: 150, layout: "icon" },
+    attrs: { width: 170, layout: "icon" },
     scopedSlots: _vm._u([
       {
         key: "title",
@@ -1329,8 +1341,23 @@ var render = function() {
               [
                 _c(
                   "a",
-                  { attrs: { href: _vm.fabOnlineUrl(), target: "_blank" } },
-                  [_vm._v("Play on Talishar")]
+                  {
+                    staticClass: "flex items-center space-x-1",
+                    attrs: { href: _vm.fabOnlineUrl(), target: "_blank" }
+                  },
+                  [
+                    _c("icon", { attrs: { size: 4 } }, [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Play on Talishar")])
+                  ],
+                  1
                 )
               ]
             ),
@@ -1342,7 +1369,7 @@ var render = function() {
                 _c(
                   "router-link",
                   {
-                    staticClass: "lg:hidden",
+                    staticClass: "flex items-center space-x-1 lg:hidden",
                     attrs: {
                       to: {
                         name: "decks.test",
@@ -1350,14 +1377,26 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n                Deck tester\n            ")]
+                  [
+                    _c("icon", { attrs: { size: 4 } }, [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Deck tester")])
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "router-link",
                   {
                     staticClass:
-                      "hidden lg:inline hover:text-gray-400 dark:hover:text-white",
+                      "items-center space-x-1 hidden lg:flex hover:text-gray-400 dark:hover:text-white",
                     attrs: {
                       to: {
                         name: "decks.test.prepare",
@@ -1365,7 +1404,19 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n                Deck tester\n            ")]
+                  [
+                    _c("icon", { attrs: { size: 4 } }, [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Deck tester")])
+                  ],
+                  1
                 )
               ],
               1
