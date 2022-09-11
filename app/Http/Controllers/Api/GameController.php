@@ -13,7 +13,11 @@ class GameController extends Controller
     public function results(SaveGameRequest $request, DeckRepository $decks, UserRepository $users)
     {
         $deck = $decks->bySlug($request->deck);
-        $user = $users->bySlug($request->get('user'));
+        $user = $request->get('user');
+
+        if ($user) {
+            $user = $users->bySlug($user);
+        }
 
         $this->dispatch(new SaveGameResults(
             'fabtcg_online',
@@ -21,6 +25,7 @@ class GameController extends Controller
             $deck->id,
             $user?->id,
             $request->opposingHeroId(),
+            $request->get('firstPlayer'),
             $request->get('turns'),
             $request->get('result'),
             $request->get('cardResults')
