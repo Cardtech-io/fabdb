@@ -62,6 +62,7 @@
     import Viewable from './Viewable';
 
     export default {
+        name: 'deck-builder.search-results',
         mixins: [ManagesDecks, Viewable],
 
         components: {

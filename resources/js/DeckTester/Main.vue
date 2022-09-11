@@ -3,7 +3,7 @@
         <header-title title="Test Deck"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container py-8 sm:mx-auto">
                 <component :is="step" :tester="tester"/>
             </div>

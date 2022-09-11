@@ -1,5 +1,5 @@
 <template>
-    <div class="text-base" v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight">
+    <div class="text-base">
         <header-title>
             <template v-slot:title>
                 <deck-name :name="deck.name" :hero="hero"></deck-name>
@@ -41,20 +41,20 @@
                             <hero-selector @hero-selected="setHero" :deck="deck"/>
                         </div>
                         <div v-else class="h-full">
-                            <div v-if="mode === 'all'">
+                            <div v-show="mode === 'all'">
                                 <div>
                                     <all-cards :collection="cards" class="hidden sm:block"/>
                                     <edit-deck :collection="cards" class="sm:hidden"/>
                                 </div>
                             </div>
-                            <edit-deck v-if="mode === 'search'" :collection="cards"/>
+                            <edit-deck v-show="mode === 'search'" :collection="cards"/>
                             <deck-details v-if="mode === 'details'"/>
-                            <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
+                            <main-deck v-show="mode === 'sideboard'" :collection="cards"/>
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
-                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"/>
-                        <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
+                        <search-results v-show="mode === 'search'" @search-completed="scrollTop"/>
+                        <sideboard v-show="mode === 'sideboard'" :collection="sideboard"/>
                     </div>
                 </div>
             </div>
@@ -178,14 +178,6 @@
             scrollTop() {
                 this.$refs.searchResults.scrollTop = 0;
                 window.scrollTo({top: 0});
-            },
-
-            swipeLeft() {
-                this.changeMode(this.currentSwipeMode() + 1);
-            },
-
-            swipeRight() {
-                this.changeMode(this.currentSwipeMode() - 1);
             },
 
             changeMode(newMode) {

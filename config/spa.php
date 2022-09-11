@@ -31,6 +31,7 @@ return [
         'packs/generate',
         'practise/([^/]+)',
         'practise',
+        'privacy',
         'profile',
         'premium',
         'resources/api',

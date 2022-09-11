@@ -1118,12 +1118,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         top: 0
       });
     },
-    swipeLeft: function swipeLeft() {
-      this.changeMode(this.currentSwipeMode() + 1);
-    },
-    swipeRight: function swipeRight() {
-      this.changeMode(this.currentSwipeMode() - 1);
-    },
     changeMode: function changeMode(newMode) {
       if (newMode >= 0 && newMode <= 2) {
         this.setMode({
@@ -2522,6 +2516,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'deck-builder.search-results',
   mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_5__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2723,6 +2718,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'deck-builder.sideboard',
   props: ['collection'],
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
@@ -3608,7 +3604,7 @@ var render = function() {
       staticClass:
         "flex-1 border-r border-gray-200 dark:border-gray-600 py-2 px-1 md:px-2",
       class: _vm.isSelected(_vm.type)
-        ? "bg-gray-800 text-white"
+        ? "bg-gray-800 dark:bg-gray-600 text-white"
         : "hover:bg-secondary hover:text-white",
       attrs: { title: _vm.text() }
     },
@@ -4088,7 +4084,7 @@ var render = function() {
         on: {
           click: function($event) {
             $event.preventDefault()
-            return _vm.showSearchSyntax.apply(null, arguments)
+            return _vm.$modal.show("search-help")
           }
         }
       },
@@ -4177,27 +4173,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      directives: [
-        {
-          name: "touch",
-          rawName: "v-touch:swipe.left",
-          value: _vm.swipeLeft,
-          expression: "swipeLeft",
-          arg: "swipe",
-          modifiers: { left: true }
-        },
-        {
-          name: "touch",
-          rawName: "v-touch:swipe.right",
-          value: _vm.swipeRight,
-          expression: "swipeRight",
-          arg: "swipe",
-          modifiers: { right: true }
-        }
-      ],
-      staticClass: "text-base"
-    },
+    { staticClass: "text-base" },
     [
       _c("header-title", {
         scopedSlots: _vm._u([
@@ -4349,39 +4325,62 @@ var render = function() {
                       "div",
                       { staticClass: "h-full" },
                       [
-                        _vm.mode === "all"
-                          ? _c("div", [
-                              _c(
-                                "div",
-                                [
-                                  _c("all-cards", {
-                                    staticClass: "hidden sm:block",
-                                    attrs: { collection: _vm.cards }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("edit-deck", {
-                                    staticClass: "sm:hidden",
-                                    attrs: { collection: _vm.cards }
-                                  })
-                                ],
-                                1
-                              )
-                            ])
-                          : _vm._e(),
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.mode === "all",
+                                expression: "mode === 'all'"
+                              }
+                            ]
+                          },
+                          [
+                            _c(
+                              "div",
+                              [
+                                _c("all-cards", {
+                                  staticClass: "hidden sm:block",
+                                  attrs: { collection: _vm.cards }
+                                }),
+                                _vm._v(" "),
+                                _c("edit-deck", {
+                                  staticClass: "sm:hidden",
+                                  attrs: { collection: _vm.cards }
+                                })
+                              ],
+                              1
+                            )
+                          ]
+                        ),
                         _vm._v(" "),
-                        _vm.mode === "search"
-                          ? _c("edit-deck", {
-                              attrs: { collection: _vm.cards }
-                            })
-                          : _vm._e(),
+                        _c("edit-deck", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.mode === "search",
+                              expression: "mode === 'search'"
+                            }
+                          ],
+                          attrs: { collection: _vm.cards }
+                        }),
                         _vm._v(" "),
                         _vm.mode === "details" ? _c("deck-details") : _vm._e(),
                         _vm._v(" "),
-                        _vm.mode === "sideboard"
-                          ? _c("main-deck", {
-                              attrs: { collection: _vm.cards }
-                            })
-                          : _vm._e()
+                        _c("main-deck", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.mode === "sideboard",
+                              expression: "mode === 'sideboard'"
+                            }
+                          ],
+                          attrs: { collection: _vm.cards }
+                        })
                       ],
                       1
                     )
@@ -4397,17 +4396,29 @@ var render = function() {
                       "w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600"
                   },
                   [
-                    _vm.mode === "search"
-                      ? _c("search-results", {
-                          on: { "search-completed": _vm.scrollTop }
-                        })
-                      : _vm._e(),
+                    _c("search-results", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.mode === "search",
+                          expression: "mode === 'search'"
+                        }
+                      ],
+                      on: { "search-completed": _vm.scrollTop }
+                    }),
                     _vm._v(" "),
-                    _vm.mode === "sideboard"
-                      ? _c("sideboard", {
-                          attrs: { collection: _vm.sideboard }
-                        })
-                      : _vm._e()
+                    _c("sideboard", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.mode === "sideboard",
+                          expression: "mode === 'sideboard'"
+                        }
+                      ],
+                      attrs: { collection: _vm.sideboard }
+                    })
                   ],
                   1
                 )

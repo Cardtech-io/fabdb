@@ -62,6 +62,7 @@
     import Viewable from './Viewable';
 
     export default {
+        name: 'deck-builder.sideboard',
         props: ['collection'],
         mixins: [Cardable, Viewable],
         components: {Colour, GroupedCards},

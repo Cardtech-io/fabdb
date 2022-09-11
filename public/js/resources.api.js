@@ -336,7 +336,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -578,13 +577,13 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { staticClass: "my-4" }, [
                   _vm._v(
-                    "\n                            Each request must also be signed using your secret token. To do this, you must compile all your URL arguments\n                            into one query string, such as: keywords=action&set=wtr\n                        "
+                    "\n                            Each request must also be signed using your secret token. To do this, include one parameter in your query string/post data: time. Time must be a unix timestamp.\n                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "my-4" }, [
                   _vm._v(
-                    "\n                            Once that is done, you must hash the query string using the sha512 algorithm, using your\n                            secret token as a prefix, wo it would look like this: THISISYOURSECRETkeywords=action&set=wtr\n                            which will result in the following:\n                        "
+                    "\n                            Once that is done, you must hash the query string using the sha512 algorithm, using your\n                            secret token as a prefix, wo it would look like this: THISISYOURSECRET1662853301\n                            which will result in the following:\n                        "
                   )
                 ]),
                 _vm._v(" "),
@@ -594,7 +593,7 @@ var render = function() {
                   [
                     _c("pre", [
                       _vm._v(
-                        "    https://api.fabdb.net/cards?keywords=action&set=wtr&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3\n"
+                        "    https://api.fabdb.net/cards?time=1662853301&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3\n"
                       )
                     ])
                   ]

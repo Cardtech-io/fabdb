@@ -67,16 +67,8 @@
                                 <td class="p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
                                 <td class="p-2 px-4">
                                     <div class="flex space-x-4 justify-center items-center">
-                                        <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="lg:hidden">
-                                            <icon :size="6">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                            </icon>
-                                        </router-link>
-                                        <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="hidden lg:inline hover:text-gray-400 dark:hover:text-white">
-                                            <icon :size="6">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                            </icon>
-                                        </router-link>
+                                        <play-deck :deck="deck"/>
+
                                         <button @click="copyDeck(deck)" class="hover:text-gray-400 dark:hover:text-white">
                                             <icon :size="6">
                                                 <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
@@ -105,6 +97,7 @@
 <script>
     import { mapGetters } from 'vuex';
 
+    import axios from "axios";
     import AddDeck from '../Decks/AddDeck';
     import Collapser from "../Components/Collapser";
     import Crumbs from "../Components/Crumbs";
@@ -118,11 +111,11 @@
     import Sorter from "../Components/Sorter";
     import Submit from "../Components/Form/Submit";
     import Imagery from "../Utilities/Imagery";
-    import axios from "axios";
+    import PlayDeck from "../Decks/PlayDeck";
 
     export default {
         mixins: [Imagery],
-        components: {AddDeck, Collapser, Crumbs, DeckItem, DeckLabel, DeckSearch, Paginator, Sorter, Submit},
+        components: {AddDeck, Collapser, Crumbs, DeckItem, DeckLabel, DeckSearch, Paginator, PlayDeck, Sorter, Submit},
 
         computed: {
             ...mapGetters('session', ['user'])

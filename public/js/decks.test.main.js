@@ -855,91 +855,87 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "rounded-xl border border-gray-400 p-4 pb-3" },
-    [
-      _vm.stack.total()
-        ? _c(
-            "div",
-            _vm._l(_vm.stack, function(card) {
-              return _c(
-                "div",
-                {
-                  staticClass:
-                    "group flex items-center bg-gray-300 hover:bg-gray-100 overflow-auto rounded-lg text-base mb-1 cursor-pointer",
-                  on: {
-                    click: function($event) {
-                      return _vm.handler(card)
-                    }
+  return _c("div", { staticClass: "rounded border border-gray-400 p-4 pb-3" }, [
+    _vm.stack.total()
+      ? _c(
+          "div",
+          _vm._l(_vm.stack, function(card) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "group flex items-center bg-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-auto rounded-lg text-base mb-1 cursor-pointer",
+                on: {
+                  click: function($event) {
+                    return _vm.handler(card)
                   }
-                },
-                [
-                  _vm.$slots.left
-                    ? _c(
-                        "div",
-                        { staticClass: "pl-4" },
-                        [
-                          _c(
-                            "icon",
-                            {
-                              staticClass: "group-hover:text-gray-500",
-                              attrs: { size: 5 }
-                            },
-                            [_vm._t("left")],
-                            2
-                          )
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "pl-4" },
-                    [
-                      card.stats.resource
-                        ? _c("colour", {
-                            staticClass: "mr-2",
-                            attrs: { resource: card.stats.resource }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "px-2 py-1" }, [
-                    _vm._v(_vm._s(card.name) + " (" + _vm._s(card.total) + ")")
-                  ]),
-                  _vm._v(" "),
-                  _vm.$slots.right
-                    ? _c(
-                        "div",
-                        { staticClass: "px-4 ml-auto" },
-                        [
-                          _c(
-                            "icon",
-                            {
-                              staticClass: "group-hover:text-gray-500",
-                              attrs: { size: 5 }
-                            },
-                            [_vm._t("right")],
-                            2
-                          )
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ]
-              )
-            }),
-            0
-          )
-        : _c("div", { staticClass: "text-base pb-1" }, [
-            _vm._v("\n        There are no cards in this stack.\n    ")
-          ])
-    ]
-  )
+                }
+              },
+              [
+                _vm.$slots.left
+                  ? _c(
+                      "div",
+                      { staticClass: "pl-4" },
+                      [
+                        _c(
+                          "icon",
+                          {
+                            staticClass: "group-hover:text-gray-500",
+                            attrs: { size: 5 }
+                          },
+                          [_vm._t("left")],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "pl-4" },
+                  [
+                    card.stats.resource
+                      ? _c("colour", {
+                          staticClass: "mr-2",
+                          attrs: { resource: card.stats.resource }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "px-2 py-1" }, [
+                  _vm._v(_vm._s(card.name) + " (" + _vm._s(card.total) + ")")
+                ]),
+                _vm._v(" "),
+                _vm.$slots.right
+                  ? _c(
+                      "div",
+                      { staticClass: "px-4 ml-auto" },
+                      [
+                        _c(
+                          "icon",
+                          {
+                            staticClass: "group-hover:text-gray-500",
+                            attrs: { size: 5 }
+                          },
+                          [_vm._t("right")],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              ]
+            )
+          }),
+          0
+        )
+      : _c("div", { staticClass: "text-base pb-1" }, [
+          _vm._v("\n        There are no cards in this stack.\n    ")
+        ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1016,7 +1012,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", {
               staticClass:
-                "transition duration-300 absolute top-0 bottom-0 w-full bg-gray-200 rounded-card",
+                "transition duration-300 absolute top-0 bottom-0 w-full bg-gray-200 dark:bg-gray-900 rounded-card",
               class: _vm.classes(i)
             })
           ],
@@ -1153,7 +1149,7 @@ var render = function() {
           _vm._v(" "),
           _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-gray-200" }, [
+          _c("div", { staticClass: "main-body" }, [
             _c(
               "div",
               { staticClass: "container py-8 sm:mx-auto" },
@@ -1571,7 +1567,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center"
+                "bg-gray-300 dark:bg-gray-800 font-serif text-xl uppercase rounded-card h-full pt-32 text-center"
             },
             [_vm._v(_vm._s(_vm.name))]
           )

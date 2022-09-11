@@ -55,18 +55,17 @@
                         </vue-code-highlight>
 
                         <p class="my-4">
-                            Each request must also be signed using your secret token. To do this, you must compile all your URL arguments
-                            into one query string, such as: keywords=action&set=wtr
+                            Each request must also be signed using your secret token. To do this, include one parameter in your query string/post data: time. Time must be a unix timestamp.
                         </p>
                         <p class="my-4">
                             Once that is done, you must hash the query string using the sha512 algorithm, using your
-                            secret token as a prefix, wo it would look like this: THISISYOURSECRETkeywords=action&set=wtr
+                            secret token as a prefix, wo it would look like this: THISISYOURSECRET1662853301
                             which will result in the following:
                         </p>
 
                         <vue-code-highlight language="text" class="text-base">
 <pre>
-    https://api.fabdb.net/cards?keywords=action&set=wtr&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3
+    https://api.fabdb.net/cards?time=1662853301&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3
 </pre>
                         </vue-code-highlight>
 
