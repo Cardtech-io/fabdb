@@ -93,7 +93,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Icon */ "./resources/js/Components/Icon.vue");
 //
 //
 //
@@ -114,6 +114,9 @@ __webpack_require__.r(__webpack_exports__);
       type: Boolean,
       required: true
     }
+  },
+  components: {
+    Icon: _Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -914,29 +917,23 @@ var render = function() {
       }
     },
     [
-      _c(
-        "svg",
-        {
-          staticClass: "fill-current h-6",
-          attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
-        },
-        [
-          !_vm.fullScreen
-            ? _c("path", {
-                attrs: {
-                  d:
-                    "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"
-                }
-              })
-            : _c("path", {
-                attrs: {
-                  d:
-                    "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
-                }
-              })
-        ]
-      )
-    ]
+      _c("icon", { attrs: { size: 6 } }, [
+        !_vm.fullScreen
+          ? _c("path", {
+              attrs: {
+                d:
+                  "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"
+              }
+            })
+          : _c("path", {
+              attrs: {
+                d:
+                  "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
+              }
+            })
+      ])
+    ],
+    1
   )
 }
 var staticRenderFns = []

@@ -20,7 +20,8 @@
                             <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
                             <mode-selector class="w-auto"/>
 
-                            <div class="px-2 lg:px-1 flex">
+                            <div class="px-2 lg:px-1 flex space-x-2">
+                                <play-deck :deck="deck"/>
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <view-button/>
@@ -88,6 +89,7 @@
     import ViewButton from "./Buttons/View";
     import ZoomButton from './Buttons/Zoom';
     import ManagesDecks from "./ManagesDecks";
+    import PlayDeck from "../Decks/PlayDeck";
 
     export default {
         components: {
@@ -106,6 +108,7 @@
             DeckDetails,
             ModeSelector,
             HeaderTitle,
+            PlayDeck,
             SearchResults,
             Sideboard,
             ViewButton,
