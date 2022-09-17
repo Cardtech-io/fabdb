@@ -1021,7 +1021,7 @@ var render = function() {
       _vm._l(_vm.rulings, function(ruling) {
         return _c("li", {
           staticClass:
-            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4",
+            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-sm md:text-base sm:-pl-4",
           domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) }
         })
       }),

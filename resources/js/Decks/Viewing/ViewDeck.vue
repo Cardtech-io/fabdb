@@ -5,7 +5,7 @@
             <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
             <div class="bg-white dark:bg-gray-800">
-                <div class="container sm:mx-auto px-4 flex">
+                <div class="container sm:mx-auto px-4 flex items-center">
                     <div class="flex-1 font-serif uppercase py-4 md:px-0">
                         {{ deck.cards.total() }} Cards in deck &nbsp;
                         <span class="hidden md:inline">
@@ -17,7 +17,7 @@
                         </span>
                     </div>
                     <div class="text-right mt-2">
-                        <votes :size="5" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"/>
+                        <votes :size="6" :total="deck.fields.totalVotes" :voted="deck.fields.myVote" voteable="deck" :foreign="deck.slug"/>
                     </div>
                 </div>
             </div>
@@ -25,11 +25,30 @@
             <div class="main-body">
                 <div class="container sm:mx-auto px-4">
                     <div class="md:flex md:pt-0">
-                        <div class="py-4 md:pr-4 md:w-1/4">
-                            <card-image :card="deck.hero"/>
-                            <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg mt-4" v-if="deck.label"/>
+                        <div class="py-4 md:pr-4 md:w-1/4 space-y-4">
+                            <div>
+                                <card-image :card="deck.hero" class="relative z-25"/>
 
-                            <div class="mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                                <div class="relative flex rounded-b-xl overflow-hidden space-x-px -mt-8 z-0">
+                                    <a :href="buyLink(deck)" class="flex w-1/2 items-center justify-center button-primary rounded-l-xl px-2 pb-2 pt-10" target="_blank" title="Buy from TCG Player">
+                                        <icon :size="4">
+                                            <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                                        </icon>
+                                        <span class="ml-1">Buy deck</span>
+                                    </a>
+                                    <button @click="copyDeck" class="flex w-1/2 items-center justify-center button-primary rounded-r-xl px-2 pb-2 pt-10" title="Copy deck to my decks">
+                                        <icon :size="4">
+                                            <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
+                                        </icon>
+                                        <span class="ml-2">Copy deck</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg" v-if="deck.label"/>
+
+                            <div class="rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden">
                                 <h3 class="font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4">Basic stats</h3>
 
                                 <div class="px-4">
@@ -47,7 +66,7 @@
 
                         <div class="w-full md:w-3/4 md:py-4">
                             <tabs>
-                                <tab-item name="Composition">
+                                <tab-item name="Deck">
                                     <div v-if="deck.notes || deck.videoUrl" class="md:flex">
                                         <div class="w-full md:w-2/3 md:pl-4 md:pr-8">
                                             <div v-if="deck.videoUrl" class="mb-8">
@@ -74,40 +93,12 @@
                                         </div>
                                     </div>
                                 </tab-item>
+                                <tab-item name="Metrics & Performance">
+                                    <metrics-performance :deck="deck"/>
+                                </tab-item>
                                 <tab-item name="Rulings">
                                     <rulings :rulings="rulings"/>
                                 </tab-item>
-
-                                <template #right>
-                                    <ul class="flex items-center text-sm space-x-1 md:space-x-2">
-                                        <li class="pl-1 md:mb-1">
-                                            <a :href="buyLink(deck)" class="flex items-center w-full sm:w-auto button-primary rounded-full px-2 py-1" target="_blank" title="Buy from TCG Player">
-                                                <icon :size="4">
-                                                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
-                                                </icon>
-                                                <span class="ml-1 hidden sm:inline">Buy</span>
-                                            </a>
-                                        </li>
-                                        <li class="md:mb-1">
-                                            <button @click="copyDeck" class="sm:flex items-center w-full button-primary rounded-full px-2 py-1" title="Copy deck to my decks">
-                                                <icon :size="4">
-                                                    <path d="M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"/>
-                                                </icon>
-                                                <span class="ml-2 hidden sm:block">Copy to my decks</span>
-                                            </button>
-                                        </li>
-                                        <li class="md:mb-1">
-                                            <button @click="copyToClipboard(shareDeckViaText(deck), 'Deck build copied to clipboard.')" class="sm:flex items-center w-full button-primary rounded-full px-2 py-1" title="Copy deck to clipboard">
-                                                <icon :size="4">
-                                                    <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
-                                                    <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
-                                                </icon>
-                                                <span class="ml-1 hidden sm:block">Copy to clipboard</span>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </template>
                             </tabs>
                         </div>
                     </div>
@@ -159,6 +150,7 @@
     import Shareable from "../../Components/Shareable";
     import Tabs from "../../Components/Tabs";
     import TabItem from "../../Components/TabItem";
+    import MetricsPerformance from "../Metrics/MetricsPerformance";
 
     export default {
         mixins: [Cardable, Shareable, Imagery, Strings, Viewable],
@@ -173,6 +165,7 @@
             HeaderTitle,
             HeroAvatar,
             Icon,
+            MetricsPerformance,
             Respond,
             Rulings,
             TabItem,

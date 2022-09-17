@@ -65,18 +65,19 @@ export default {
                 datasets: [
                     {
                         label: label,
-                        backgroundColor: colours.map(colour => 'rgba(' + colour + ', 0.6)'),
+                        backgroundColor: colours.map(colour => 'rgba(' + colour + ', 0.8)'),
                         borderColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
-                        borderWidth: 1,
+                        borderWidth: 2,
+                        borderRadius: 5,
                         data: _.values(values),
-                        barPercentage: 0.6,
+                        barPercentage: 0.7,
                     }
                 ],
             };
 
             this.renderChart(chartData, {
                 legend: {
-                    display: true,
+                    display: false,
                     position: 'bottom',
                 },
                 responsive: true,
@@ -91,7 +92,8 @@ export default {
                     yAxes: [{
                         ticks: {
                             stepSize: 10,
-                            suggestedMin: 0
+                            suggestedMin: 0,
+                            display: false
                         }
                     }]
                 }
@@ -122,3 +124,4 @@ export default {
         this.update(this.cards);
     }
 };
+

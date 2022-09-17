@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'flex': layout !== 'vertical' }">
+    <div :class="{ 'flex items-center': layout !== 'vertical' }">
         <div class="text-xl mr-2 mt-1" v-if="layout !== 'vertical'">
             <span v-if="total && total > 0">{{ actualTotal }}</span>
         </div>

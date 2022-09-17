@@ -348,7 +348,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -365,7 +364,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    classes: function classes() {
+    classes: function classes() {},
+    sizes: function sizes() {
       return ['h-' + this.size];
     }
   },
@@ -834,7 +834,8 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "text-gray-400 hover:text-gray-800",
+      staticClass: "text-gray-400 hover:text-gray-800 dark:hover:text-white",
+      class: _vm.classes,
       on: {
         click: function($event) {
           return _vm.vote()
@@ -846,23 +847,16 @@ var render = function() {
         "svg",
         {
           staticClass: "fill-current",
-          class: _vm.classes,
+          class: _vm.sizes,
           attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
         },
         [
-          _vm.direction === "up"
-            ? _c("path", {
-                attrs: {
-                  d:
-                    "M11 0h1v3l3 7v8a2 2 0 01-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 012-2h7V2a2 2 0 012-2zm6 10h3v10h-3V10z"
-                }
-              })
-            : _c("path", {
-                attrs: {
-                  d:
-                    "M11 20a2 2 0 01-2-2v-6H2a2 2 0 01-2-2V8l2.3-6.12A3.11 3.11 0 015 0h8a2 2 0 012 2v8l-3 7v3h-1zm6-10V0h3v10h-3z"
-                }
-              })
+          _c("path", {
+            attrs: {
+              d:
+                "M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z"
+            }
+          })
         ]
       )
     ]
@@ -890,41 +884,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { class: { flex: _vm.layout !== "vertical" } }, [
-    _vm.layout !== "vertical"
-      ? _c("div", { staticClass: "text-xl mr-2 mt-1" }, [
-          _vm.total && _vm.total > 0
-            ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
+  return _c(
+    "div",
+    { class: { "flex items-center": _vm.layout !== "vertical" } },
+    [
+      _vm.layout !== "vertical"
+        ? _c("div", { staticClass: "text-xl mr-2 mt-1" }, [
+            _vm.total && _vm.total > 0
+              ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
+              : _vm._e()
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mt-1", class: { flex: _vm.layout !== "vertical" } },
+        [
+          _c(
+            "div",
+            [
+              _c("vote", {
+                class: { "text-gray-800": _vm.voteState === 1 },
+                attrs: { size: _vm.size, direction: "up" },
+                on: { voted: _vm.handleVote }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.layout === "vertical"
+            ? _c("div", { staticClass: "text-center -mt-1" }, [
+                _vm.total && _vm.total > 0
+                  ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
+                  : _vm._e()
+              ])
             : _vm._e()
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "mt-1", class: { flex: _vm.layout !== "vertical" } },
-      [
-        _c(
-          "div",
-          [
-            _c("vote", {
-              class: { "text-gray-800": _vm.voteState === 1 },
-              attrs: { size: _vm.size, direction: "up" },
-              on: { voted: _vm.handleVote }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.layout === "vertical"
-          ? _c("div", { staticClass: "text-center -mt-1" }, [
-              _vm.total && _vm.total > 0
-                ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
-                : _vm._e()
-            ])
-          : _vm._e()
-      ]
-    )
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

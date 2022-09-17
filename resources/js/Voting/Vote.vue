@@ -1,8 +1,7 @@
 <template>
-    <button class="text-gray-400 hover:text-gray-800" @click="vote()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current" :class="classes">
-            <path d="M11 0h1v3l3 7v8a2 2 0 01-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 012-2h7V2a2 2 0 012-2zm6 10h3v10h-3V10z" v-if="direction === 'up'"/>
-            <path d="M11 20a2 2 0 01-2-2v-6H2a2 2 0 01-2-2V8l2.3-6.12A3.11 3.11 0 015 0h8a2 2 0 012 2v8l-3 7v3h-1zm6-10V0h3v10h-3z" v-else/>
+    <button class="text-gray-400 hover:text-gray-800 dark:hover:text-white" @click="vote()" :class="classes">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current" :class="sizes">
+            <path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
         </svg>
     </button>
 </template>
@@ -27,6 +26,10 @@
 
         computed: {
             classes() {
+
+            },
+
+            sizes() {
                 return ['h-' + this.size];
             }
         },
