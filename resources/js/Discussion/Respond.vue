@@ -20,7 +20,7 @@
 <script>
     import { mapActions, mapGetters } from 'vuex';
     import axios from 'axios';
-    import Submit from "../Components/Form/Submit";
+    import Submit from "../Components/Form/Submit.vue";
 
     export default {
         props: [ 'type', 'foreign' ],

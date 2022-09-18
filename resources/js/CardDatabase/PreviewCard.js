@@ -1,4 +1,4 @@
-import CardPreview from "./CardPreview";
+import CardPreview from "./CardPreview.vue";
 
 export default {
     bind(element, binding, vnode) {

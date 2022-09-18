@@ -125,14 +125,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     {
-      staticClass: "mx-2 bg-semi-black bg-semi-black p-4 sm:p-2 mb-4 rounded-xl"
+      staticClass:
+        "mx-2 bg-semi-black bg-semi-black p-4 sm:p-2 mb-4 rounded-xl",
     },
     [
       _c("card-image", { attrs: { card: _vm.deck.hero } }),
@@ -146,7 +147,7 @@ var render = function() {
             {
               staticClass:
                 "block button-primary w-1/2 text-center px-3 py-2 rounded-l mr-1",
-              attrs: { href: _vm.buyLink(_vm.deck), target: "_blank" }
+              attrs: { href: _vm.buyLink(_vm.deck), target: "_blank" },
             },
             [_vm._v("Buy")]
           ),
@@ -157,14 +158,14 @@ var render = function() {
               staticClass:
                 "block button-secondary w-1/2 text-center px-3 py-2 rounded-r",
               attrs: {
-                to: { name: "decks.view", params: { deck: _vm.deck.slug } }
-              }
+                to: { name: "decks.view", params: { deck: _vm.deck.slug } },
+              },
             },
             [_vm._v("View")]
-          )
+          ),
         ],
         1
-      )
+      ),
     ],
     1
   )
@@ -187,7 +188,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -203,12 +204,12 @@ var render = function() {
           ? _c(
               "div",
               { staticClass: "flex flex-wrap mt-8 mx-2" },
-              _vm._l(_vm.decks, function(deck) {
+              _vm._l(_vm.decks, function (deck) {
                 return _c(
                   "div",
                   {
                     key: _vm.decks.slug,
-                    staticClass: "w-full sm:w-1/2 md:w-1/4"
+                    staticClass: "w-full sm:w-1/2 md:w-1/4",
                   },
                   [_c("starter-deck", { attrs: { deck: deck } })],
                   1
@@ -216,14 +217,14 @@ var render = function() {
               }),
               0
             )
-          : _vm._e()
-      ])
+          : _vm._e(),
+      ]),
     ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -237,17 +238,17 @@ var staticRenderFns = [
             {
               staticClass:
                 "block text-5xl font-serif uppercase float-left relative leading-3",
-              staticStyle: { top: "15px" }
+              staticStyle: { top: "15px" },
             },
             [_vm._v("L")]
           ),
           _vm._v(
             "ooking for the Official starter decks? Want to import them into TTS, or simply want to create your own\n                deck from them? Look no further! This page lists all of the official Flesh & Blood starter decks, as well as\n                providing all the usual features you've come to expect from FaB DB!\n            "
-          )
+          ),
         ]
-      )
+      ),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

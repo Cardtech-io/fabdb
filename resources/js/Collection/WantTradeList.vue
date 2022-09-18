@@ -16,11 +16,11 @@
 
 <script>
     import axios from "axios";
-    import CardImage from "../CardDatabase/CardImage";
-    import Paginator from "../Components/Paginator";
-    import SkuFinish from "../CardDatabase/SkuFinish";
-    import LazyLoader from "../Components/LazyLoader";
-    import Imagery from "../Utilities/Imagery";
+    import CardImage from "../CardDatabase/CardImage.vue";
+    import Paginator from "../Components/Paginator.vue";
+    import SkuFinish from "../CardDatabase/SkuFinish.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
+    import Imagery from "../Utilities/Imagery.js";
 
     export default {
         props: ['user'],

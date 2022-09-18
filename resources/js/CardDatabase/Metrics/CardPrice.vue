@@ -1,11 +1,11 @@
 <template>
     <div>
-        <card-price-chart :card="card" style="height: 200px"></card-price-chart>
+        <card-price-chart :card="card" style="height: 200px"/>
     </div>
 </template>
 
 <script>
-    import CardPriceChart from "./CardPriceChart";
+    import CardPriceChart from "./CardPriceChart.js";
 
     export default {
         props: ['card'],

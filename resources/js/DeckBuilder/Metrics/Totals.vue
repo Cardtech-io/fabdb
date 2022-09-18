@@ -18,8 +18,8 @@
 
 <script>
     import {mapState} from 'vuex';
-    import Stat from "./Stat";
-    import Viewable from "../Viewable";
+    import Stat from "./Stat.vue";
+    import Viewable from "../Viewable.js";
 
     export default {
         mixins: [Viewable],

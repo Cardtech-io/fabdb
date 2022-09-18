@@ -22,11 +22,10 @@
 
 <script>
     import axios from 'axios';
-    import {mapState} from 'vuex';
-    import HeroAvatar from "./HeroAvatar";
-    import Strings from '../Utilities/Strings';
-    import Models from "../Utilities/Models";
-    import Card from "../CardDatabase/Card";
+    import HeroAvatar from "./HeroAvatar.vue";
+    import Strings from '../Utilities/Strings.js';
+    import Models from "../Utilities/Models.js";
+    import Card from "../CardDatabase/Card.js";
 
     export default {
         props: ['deck'],

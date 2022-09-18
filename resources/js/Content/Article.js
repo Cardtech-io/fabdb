@@ -1,4 +1,4 @@
-import Strings from '../Utilities/Strings';
+import Strings from '../Utilities/Strings.js';
 
 class Article
 {

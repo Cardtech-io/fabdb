@@ -40,8 +40,8 @@
 <script>
     import { mapActions, mapGetters } from 'vuex';
     import EventTypeIcon from './EventTypeIcon.vue';
-    import Time from '../Utilities/Time';
-    import Strings from '../Utilities/Strings';
+    import Time from '../Utilities/Time.js';
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         components: { EventTypeIcon },

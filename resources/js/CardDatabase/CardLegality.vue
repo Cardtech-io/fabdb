@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Legality from "./Legality/Legality";
+    import Legality from "./Legality/Legality.vue";
 
     export default {
         props: {
@@ -20,7 +20,7 @@
             colour() {
                 return this.colours[this.highestLevel()];
             },
-            
+
             highestLevel() {
                 let level = 0;
                 let levels = ['', 'suspended', 'legend', 'banned'];

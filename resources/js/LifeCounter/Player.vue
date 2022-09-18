@@ -20,9 +20,9 @@
 </template>
 
 <script>
-    import HeroAvatar from "../Components/HeroAvatar";
-    import Imagery from "../Utilities/Imagery";
-    import Resource from "../Decks/Resource";
+    import HeroAvatar from "../Components/HeroAvatar.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import Resource from "../Decks/Resource.vue";
 
     export default {
         props: {

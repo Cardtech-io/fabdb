@@ -28,9 +28,9 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import LightSwitch from './LightSwitch';
-    import NavItem from './NavItem';
-    import RouteHide from "./RouteHide";
+    import LightSwitch from './LightSwitch.vue';
+    import NavItem from './NavItem.vue';
+    import RouteHide from "./RouteHide.js";
 
     export default {
         mixins: [RouteHide],
@@ -105,7 +105,7 @@
             toggle() {
                 this.isOpen = !this.isOpen;
             },
-            
+
             routeName() {
                 return 'tools.life-counter';
             },

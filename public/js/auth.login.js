@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login/Register */ "./resources/js/Auth/Login/Register.vue");
 /* harmony import */ var _Login_ValidateCode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Login/ValidateCode */ "./resources/js/Auth/Login/ValidateCode.vue");
 /* harmony import */ var _Login_EnterPassword__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Login/EnterPassword */ "./resources/js/Auth/Login/EnterPassword.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -62,7 +62,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       step: 'first'
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('session', ['setUser']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('session', ['setUser'])), {}, {
     updateEmail: function updateEmail(email) {
       this.email = email;
     },
@@ -87,9 +87,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -119,7 +119,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       email: ''
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     checkEmail: function checkEmail() {
       var _this = this;
 
@@ -164,9 +164,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
 /* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/Tracker */ "./resources/js/Components/Tracker.js");
 /* harmony import */ var _SuccessfulAuth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SuccessfulAuth */ "./resources/js/Auth/Login/SuccessfulAuth.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -205,7 +205,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       password: ''
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser'])), {}, {
     login: function login() {
       var _this = this;
 
@@ -243,9 +243,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -282,7 +282,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       emailConfirmation: ''
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), {}, {
     register: function register() {
       var _this = this;
 
@@ -326,9 +326,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
 /* harmony import */ var _SuccessfulAuth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SuccessfulAuth */ "./resources/js/Auth/Login/SuccessfulAuth.js");
 /* harmony import */ var _Components_Tracker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Tracker */ "./resources/js/Components/Tracker.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -364,7 +364,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       code: ''
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUser'])), {}, {
     submitCode: function submitCode() {
       var _this = this;
 
@@ -400,7 +400,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -421,15 +421,15 @@ var render = function() {
                 ? _c("check-email", {
                     on: {
                       "status-changed": _vm.updateStep,
-                      "email-changed": _vm.updateEmail
-                    }
+                      "email-changed": _vm.updateEmail,
+                    },
                   })
                 : _vm._e(),
               _vm._v(" "),
               _vm.step === "registration-required"
                 ? _c("register", {
                     attrs: { email: _vm.email },
-                    on: { "status-changed": _vm.updateStep }
+                    on: { "status-changed": _vm.updateStep },
                   })
                 : _vm._e(),
               _vm._v(" "),
@@ -439,25 +439,25 @@ var render = function() {
               _vm._v(" "),
               _vm.step === "password-required"
                 ? _c("enter-password", { attrs: { email: _vm.email } })
-                : _vm._e()
+                : _vm._e(),
             ],
             1
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "crumbs font-serif uppercase" }, [
-      _c("div", { staticClass: "container sm:mx-auto p-4" }, [_vm._v(" ")])
+      _c("div", { staticClass: "container sm:mx-auto p-4" }, [_vm._v(" ")]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -476,7 +476,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -484,11 +484,11 @@ var render = function() {
     "form",
     {
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.checkEmail()
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -501,31 +501,31 @@ var render = function() {
                 name: "model",
                 rawName: "v-model",
                 value: _vm.email,
-                expression: "email"
-              }
+                expression: "email",
+              },
             ],
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-3/4 p-4 rounded-l-lg",
             attrs: {
               type: "email",
               placeholder: "Email address",
-              required: "required"
+              required: "required",
             },
             domProps: { value: _vm.email },
             on: {
-              input: function($event) {
+              input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
                 _vm.email = $event.target.value
-              }
-            }
+              },
+            },
           }),
           _vm._v(" "),
           _c("submit", {
             staticClass: "w-1/4 p-4 rounded-l-none rounded-r-lg",
-            attrs: { text: "Next" }
-          })
+            attrs: { text: "Next" },
+          }),
         ],
         1
       ),
@@ -533,8 +533,8 @@ var render = function() {
       _c("p", [
         _vm._v(
           "\n        Some features on FaB DB require an account. Registration & login is super easy! Just\n        provide your email address and we'll take it from here!\n    "
-        )
-      ])
+        ),
+      ]),
     ]
   )
 }
@@ -556,7 +556,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -564,11 +564,11 @@ var render = function() {
     "form",
     {
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.login()
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -579,7 +579,7 @@ var render = function() {
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2",
             attrs: { type: "email", readonly: "" },
-            domProps: { value: _vm.email }
+            domProps: { value: _vm.email },
           }),
           _vm._v(" "),
           _c("input", {
@@ -588,28 +588,28 @@ var render = function() {
                 name: "model",
                 rawName: "v-model",
                 value: _vm.password,
-                expression: "password"
-              }
+                expression: "password",
+              },
             ],
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2",
             attrs: {
               type: "password",
               placeholder: "Enter password",
-              required: "required"
+              required: "required",
             },
             domProps: { value: _vm.password },
             on: {
-              input: function($event) {
+              input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
                 _vm.password = $event.target.value
-              }
-            }
+              },
+            },
           }),
           _vm._v(" "),
-          _c("submit", { staticClass: "w-full p-4", attrs: { text: "Next" } })
+          _c("submit", { staticClass: "w-full p-4", attrs: { text: "Next" } }),
         ],
         1
       ),
@@ -617,8 +617,8 @@ var render = function() {
       _c("p", [
         _vm._v(
           "\n        Great! Looks like you have an account! Please enter your password to complete login.\n    "
-        )
-      ])
+        ),
+      ]),
     ]
   )
 }
@@ -640,7 +640,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -648,11 +648,11 @@ var render = function() {
     "form",
     {
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.register()
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -663,7 +663,7 @@ var render = function() {
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2",
             attrs: { type: "email", required: "required", readonly: "" },
-            domProps: { value: _vm.email }
+            domProps: { value: _vm.email },
           }),
           _vm._v(" "),
           _c("input", {
@@ -672,28 +672,28 @@ var render = function() {
                 name: "model",
                 rawName: "v-model",
                 value: _vm.emailConfirmation,
-                expression: "emailConfirmation"
-              }
+                expression: "emailConfirmation",
+              },
             ],
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2",
             attrs: {
               type: "email",
               placeholder: "Confirm email",
-              required: "required"
+              required: "required",
             },
             domProps: { value: _vm.emailConfirmation },
             on: {
-              input: function($event) {
+              input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
                 _vm.emailConfirmation = $event.target.value
-              }
-            }
+              },
+            },
           }),
           _vm._v(" "),
-          _c("submit", { staticClass: "w-full p-4", attrs: { text: "Next" } })
+          _c("submit", { staticClass: "w-full p-4", attrs: { text: "Next" } }),
         ],
         1
       ),
@@ -701,8 +701,8 @@ var render = function() {
       _c("p", [
         _vm._v(
           "\n        We couldn't find that email address. To register, please confirm your email. We'll send you a login code to confirm your email.\n        Once completed, if you wish, you can configure your account to use a password instead.\n    "
-        )
-      ])
+        ),
+      ]),
     ]
   )
 }
@@ -724,7 +724,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -732,11 +732,11 @@ var render = function() {
     "form",
     {
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.submitCode()
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -749,31 +749,31 @@ var render = function() {
                 name: "model",
                 rawName: "v-model",
                 value: _vm.code,
-                expression: "code"
-              }
+                expression: "code",
+              },
             ],
             staticClass:
               "input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg",
             attrs: {
               type: "text",
               placeholder: "Enter your authentication code",
-              required: "required"
+              required: "required",
             },
             domProps: { value: _vm.code },
             on: {
-              input: function($event) {
+              input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
                 _vm.code = $event.target.value
-              }
-            }
+              },
+            },
           }),
           _vm._v(" "),
           _c("submit", {
             staticClass: "w-2/3 p-4 rounded-l-none rounded-r-lg",
-            attrs: { text: "Next" }
-          })
+            attrs: { text: "Next" },
+          }),
         ],
         1
       ),
@@ -781,8 +781,8 @@ var render = function() {
       _c("p", [
         _vm._v(
           "Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above."
-        )
-      ])
+        ),
+      ]),
     ]
   )
 }

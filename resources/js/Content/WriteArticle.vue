@@ -87,10 +87,10 @@
 
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import MarkdownEditor from 'vue-simplemde';
-    import Strings from '../Utilities/Strings';
-    import Cardable from '../CardDatabase/Cardable';
+    import Strings from '../Utilities/Strings.js';
+    import Cardable from '../CardDatabase/Cardable.js';
 
     export default {
         components: { Crumbs, HeaderTitle, MarkdownEditor },

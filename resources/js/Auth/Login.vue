@@ -21,11 +21,11 @@
 
 <script>
     import { mapActions } from 'vuex';
-    import CheckEmail from "./Login/CheckEmail";
+    import CheckEmail from "./Login/CheckEmail.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Register from "./Login/Register";
-    import ValidateCode from "./Login/ValidateCode";
-    import EnterPassword from "./Login/EnterPassword";
+    import Register from "./Login/Register.vue";
+    import ValidateCode from "./Login/ValidateCode.vue";
+    import EnterPassword from "./Login/EnterPassword.vue";
 
     export default {
         components: {CheckEmail, EnterPassword, HeaderTitle, Register, ValidateCode},

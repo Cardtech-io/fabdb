@@ -13,8 +13,8 @@
 </template>
 
 <script>
-    import Icon from '../Components/Icon';
-    import AdvancedCardSearch from "../CardDatabase/AdvancedCardSearch";
+    import Icon from '../Components/Icon.vue';
+    import AdvancedCardSearch from "../CardDatabase/AdvancedCardSearch.vue";
 
     export default {
         components: {Icon},

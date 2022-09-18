@@ -43,9 +43,9 @@
 </template>
 
 <script>
-    import Advertisement from "./Components/Advertisement";
-    import Icon from "./Components/Icon";
-    import Strings from './Utilities/Strings';
+    import Advertisement from "./Components/Advertisement.vue";
+    import Icon from "./Components/Icon.vue";
+    import Strings from './Utilities/Strings.js';
 
     export default {
         mixins: [Strings],

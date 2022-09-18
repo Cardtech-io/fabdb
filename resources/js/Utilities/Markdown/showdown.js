@@ -1,8 +1,8 @@
 import showdown from 'showdown';
-import Classes from './Classes';
-import Blockquote from "./Blockquote";
-import Cards from "./Cards";
-import Decks from "./Decks";
+import Classes from './Classes.js';
+import Blockquote from "./Blockquote.js";
+import Cards from "./Cards.js";
+import Decks from "./Decks.js";
 
 let converter = new showdown.Converter({extensions: [Cards, Decks, ...Classes, Blockquote]});
 

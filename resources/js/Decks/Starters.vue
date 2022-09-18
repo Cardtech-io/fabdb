@@ -19,12 +19,12 @@
 </template>
 
 <script>
-    import Breadcrumbs from "../Components/Breadcrumbs";
-    import Deck from "./Deck";
-    import HeaderTitle from "../Components/HeaderTitle";
-    import LazyLoader from "../Components/LazyLoader";
-    import Models from "../Utilities/Models";
-    import StarterDeck from "./StarterDeck";
+    import Breadcrumbs from "../Components/Breadcrumbs.vue";
+    import Deck from "./Deck.js";
+    import HeaderTitle from "../Components/HeaderTitle.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
+    import Models from "../Utilities/Models.js";
+    import StarterDeck from "./StarterDeck.vue";
 
     export default {
         components: {Breadcrumbs, HeaderTitle, StarterDeck},

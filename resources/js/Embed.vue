@@ -34,10 +34,10 @@
 <script>
     import axios from 'axios';
 
-    import CardImage from "./CardDatabase/CardImage";
-    import Cardable from "./CardDatabase/Cardable";
-    import DeckCard from "./Decks/DeckCard";
-    import Viewable from "./DeckBuilder/Viewable";
+    import CardImage from "./CardDatabase/CardImage.vue";
+    import Cardable from "./CardDatabase/Cardable.js";
+    import DeckCard from "./Decks/DeckCard.vue";
+    import Viewable from "./DeckBuilder/Viewable.js";
 
     export default {
         components: {CardImage, DeckCard},

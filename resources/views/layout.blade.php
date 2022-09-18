@@ -12,7 +12,7 @@ if ($user) {
 $settings = compile_settings();
 $lang = compile_lang();
 $theme = $user ? object_get($user, 'theme', 'default') : 'default';
-$jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
+$jsFile = $view === 'embed' ? 'resources/js/embed.js' : 'resources/js/app.js';
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -24,7 +24,7 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#4285f4">
 
-        <link rel="stylesheet" href="{{ fab_asset('css/fabdb.css') }}">
+        @vite('resources/js/app.js')
 
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -62,7 +62,6 @@ $jsFile = $view === 'embed' ? '/js/embed.js' : '/js/app.js';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
-        <script src="{{ fab_asset($jsFile) }}"></script>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">¡
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
     </body>

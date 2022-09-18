@@ -33,11 +33,11 @@
     import axios from 'axios';
 
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Imagery from "../Utilities/Imagery";
-    import LazyLoader from '../Components/LazyLoader';
-    import Strings from '../Utilities/Strings';
-    import Models from "../Utilities/Models";
-    import Article from "./Article";
+    import Imagery from "../Utilities/Imagery.js";
+    import LazyLoader from '../Components/LazyLoader.js';
+    import Strings from '../Utilities/Strings.js';
+    import Models from "../Utilities/Models.js";
+    import Article from "./Article.vue";
 
     export default {
         mixins: [Imagery, Strings],

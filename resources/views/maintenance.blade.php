@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset(mix('/css/fabdb.css')) }}">
+    @vite(['resources/css/fabdb.css'])
     <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">

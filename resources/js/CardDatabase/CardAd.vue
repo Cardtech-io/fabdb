@@ -10,8 +10,8 @@
 <script>
     import axios from 'axios';
     import {mapGetters} from 'vuex';
-    import Price from "../Components/Price";
-    import Carding from "../Utilities/Carding";
+    import Price from "../Components/Price.vue";
+    import Carding from "../Utilities/Carding.js";
 
     export default {
         props: {

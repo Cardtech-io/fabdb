@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import Interactive from "./Interactive";
+    import Interactive from "./Interactive.vue";
 
     export default {
         props: {

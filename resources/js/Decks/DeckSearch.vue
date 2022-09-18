@@ -41,7 +41,7 @@
     import axios from 'axios';
     import { mapActions, mapState } from 'vuex';
 
-    import Submit from "../Components/Form/Submit";
+    import Submit from "../Components/Form/Submit.vue";
 
     export default {
         components: {Submit},

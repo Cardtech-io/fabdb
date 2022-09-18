@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -115,18 +115,18 @@ var render = function() {
     [
       _c("header-title", {
         staticClass: "text-center",
-        attrs: { title: "The fabled cards of Flesh & Blood" }
+        attrs: { title: "The fabled cards of Flesh & Blood" },
       }),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "sm:mx-4 mt-4 sm:mt-0" },
-        _vm._l(_vm.cards, function(card) {
+        _vm._l(_vm.cards, function (card) {
           return _c(
             "div",
             {
               staticClass:
-                "w-full mb-8 p-4 sm:pr-0 bg-semi-black rounded-xl sm:flex"
+                "w-full mb-8 p-4 sm:pr-0 bg-semi-black rounded-xl sm:flex",
             },
             [
               _c(
@@ -139,13 +139,13 @@ var render = function() {
                       attrs: {
                         to: {
                           name: "cards.view",
-                          params: { identifier: card.identifier }
-                        }
-                      }
+                          params: { identifier: card.identifier },
+                        },
+                      },
                     },
                     [_c("card-image", { attrs: { card: card } })],
                     1
-                  )
+                  ),
                 ],
                 1
               ),
@@ -155,7 +155,7 @@ var render = function() {
                   "h1",
                   {
                     staticClass:
-                      "font-serif uppercase text-4xl sm:text-6xl sm:pl-8"
+                      "font-serif uppercase text-4xl sm:text-6xl sm:pl-8",
                   },
                   [_vm._v(_vm._s(card.name))]
                 ),
@@ -164,27 +164,29 @@ var render = function() {
                   "p",
                   {
                     staticClass:
-                      "bg-semi-black font-serif text-gray-300 -mx-4 sm:mx-0 italic p-4 sm:px-8 mb-4"
+                      "bg-semi-black font-serif text-gray-300 -mx-4 sm:mx-0 italic p-4 sm:px-8 mb-4",
                   },
                   [_vm._v("'" + _vm._s(card.flavour))]
                 ),
                 _vm._v(" "),
                 _c("p", {
                   staticClass: "sm:px-8",
-                  domProps: { innerHTML: _vm._s(_vm.prettyText(card.text)) }
+                  domProps: { innerHTML: _vm._s(_vm.prettyText(card.text)) },
                 }),
                 _vm._v(" "),
                 _c("p", {
                   staticClass:
                     "sm:mt-8 sm:mb-4 sm:px-8 pl-4 sm:pl-12 text-gray-400 text-base",
-                  domProps: { innerHTML: _vm._s(_vm.prettyText(card.comments)) }
-                })
-              ])
+                  domProps: {
+                    innerHTML: _vm._s(_vm.prettyText(card.comments)),
+                  },
+                }),
+              ]),
             ]
           )
         }),
         0
-      )
+      ),
     ],
     1
   )

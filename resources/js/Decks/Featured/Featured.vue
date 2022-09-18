@@ -26,8 +26,8 @@
 </template>
 
 <script>
-    import DeckOfTheWeek from "./DeckOfTheWeek";
-    import LatestDecks from "./LatestDecks";
+    import DeckOfTheWeek from "./DeckOfTheWeek.vue";
+    import LatestDecks from "./LatestDecks.vue";
     import Imagery from "../../Utilities/Imagery";
 
     export default {

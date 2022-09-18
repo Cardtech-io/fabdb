@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -254,8 +254,8 @@ var render = function() {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,
           width: _vm.width,
-          height: _vm.width
-        }
+          height: _vm.width,
+        },
       })
     : _vm._e()
 }
@@ -277,7 +277,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -291,7 +291,7 @@ var render = function() {
           {
             staticClass: "block",
             class: _vm.themeClasses(),
-            attrs: { to: { name: _vm.route, params: { deck: _vm.deck.slug } } }
+            attrs: { to: { name: _vm.route, params: { deck: _vm.deck.slug } } },
           },
           [
             _c("div", { staticClass: "relative flex-none" }, [
@@ -302,8 +302,8 @@ var render = function() {
                     "radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url(" +
                     _vm.heroProfile(_vm.deck.hero, 250) +
                     ") top center",
-                  backgroundSize: "cover"
-                }
+                  backgroundSize: "cover",
+                },
               }),
               _vm._v(" "),
               _c("div", { staticClass: "absolute top-0 w-full p-2" }, [
@@ -312,7 +312,7 @@ var render = function() {
                   {
                     staticClass:
                       "text-white font-serif uppercase text-lg md:text-xl overflow-hidden",
-                    staticStyle: { "max-height": "30px" }
+                    staticStyle: { "max-height": "30px" },
                   },
                   [_vm._v(_vm._s(_vm.deck.name))]
                 ),
@@ -323,12 +323,12 @@ var render = function() {
                     [
                       _c("deck-label", {
                         staticClass: "text-xs px-2 rounded-full",
-                        attrs: { label: _vm.deck.label }
-                      })
+                        attrs: { label: _vm.deck.label },
+                      }),
                     ],
                     1
-                  )
-                ])
+                  ),
+                ]),
               ]),
               _vm._v(" "),
               _vm.deck.notes
@@ -336,7 +336,7 @@ var render = function() {
                     "div",
                     {
                       staticClass: "absolute top-0 right-0 mt-2 mr-2",
-                      attrs: { title: "Deck has notes for play." }
+                      attrs: { title: "Deck has notes for play." },
                     },
                     [
                       _c(
@@ -346,8 +346,8 @@ var render = function() {
                           attrs: {
                             xmlns: "http://www.w3.org/2000/svg",
                             viewBox: "0 0 24 24",
-                            stroke: "currentColor"
-                          }
+                            stroke: "currentColor",
+                          },
                         },
                         [
                           _c("path", {
@@ -355,12 +355,11 @@ var render = function() {
                               "stroke-linecap": "round",
                               "stroke-linejoin": "round",
                               "stroke-width": "2",
-                              d:
-                                "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                            }
-                          })
+                              d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+                            },
+                          }),
                         ]
-                      )
+                      ),
                     ]
                   )
                 : _vm._e(),
@@ -369,7 +368,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "flex absolute bottom-0 w-full justify-between p-2"
+                    "flex absolute bottom-0 w-full justify-between p-2",
                 },
                 [
                   _vm.deck.weapons.count()
@@ -377,16 +376,16 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1"
+                            "flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1",
                         },
-                        _vm._l(_vm.deck.weapons.all(), function(weapon) {
+                        _vm._l(_vm.deck.weapons.all(), function (weapon) {
                           return _c("img", {
                             staticClass: "rounded",
                             attrs: {
                               src: _vm.squareThumbUrl(weapon.image, 55),
                               width: "40",
-                              height: "40"
-                            }
+                              height: "40",
+                            },
                           })
                         }),
                         0
@@ -397,23 +396,23 @@ var render = function() {
                     "div",
                     { staticClass: "font-serif text-4xl text-white pr-1" },
                     [_vm._v(_vm._s(_vm.deck.totalCards))]
-                  )
+                  ),
                 ]
-              )
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "p-2 space-y-2" }, [
               _c("div", { staticClass: "flex justify-between" }, [
                 _c("div", [_vm._v("by " + _vm._s(_vm.deck.authorName))]),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(_vm.deck.updatedAt))])
-              ])
-            ])
+                _c("div", [_vm._v(_vm._s(_vm.deck.updatedAt))]),
+              ]),
+            ]),
           ]
-        )
+        ),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -434,7 +433,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -464,7 +463,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h

@@ -53,13 +53,13 @@
     import {mapActions, mapGetters, mapState} from 'vuex';
 
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardItem from "./CardItem";
-    import CardSearch from "./CardSearch";
-    import CardType from "./Buttons/CardType";
-    import ManagesDecks from './ManagesDecks';
+    import CardItem from "./CardItem.vue";
+    import CardSearch from "./CardSearch.vue";
+    import CardType from "./Buttons/CardType.vue";
+    import ManagesDecks from './ManagesDecks.js';
     import Paginator from '../Components/Paginator.vue';
-    import NumberedCardButtons from "./NumberedCardButtons";
-    import Viewable from './Viewable';
+    import NumberedCardButtons from "./NumberedCardButtons.vue";
+    import Viewable from './Viewable.js';
 
     export default {
         name: 'deck-builder.search-results',

@@ -5,8 +5,8 @@
 <script>
     import { mapGetters } from 'vuex';
     import Cardable from './Cardable.js';
-    import DetermineWidth from "../Components/DetermineWidth";
-    import Imagery from "../Utilities/Imagery";
+    import DetermineWidth from "../Components/DetermineWidth.js";
+    import Imagery from "../Utilities/Imagery.js";
 
     export default {
         mixins: [Cardable, Imagery, DetermineWidth],

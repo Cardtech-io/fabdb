@@ -37,10 +37,10 @@
 <script>
     import _ from 'underscore';
     import { mapGetters } from 'vuex';
-    import Carding from "../Utilities/Carding";
+    import Carding from "../Utilities/Carding.js";
     import Price from '../Components/Price.vue';
-    import SkuFinish from "./SkuFinish";
-    import Strings from '../Utilities/Strings';
+    import SkuFinish from "./SkuFinish.vue";
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         props: {

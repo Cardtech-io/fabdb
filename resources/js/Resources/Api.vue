@@ -267,9 +267,9 @@
 
 <script>
     import {component as VueCodeHighlight} from 'vue-code-highlight';
-    import ApiToken from "../Auth/ApiToken";
-    import Breadcrumbs from "../Components/Breadcrumbs";
-    import HeaderTitle from "../Components/HeaderTitle";
+    import ApiToken from "../Auth/ApiToken.vue";
+    import Breadcrumbs from "../Components/Breadcrumbs.vue";
+    import HeaderTitle from "../Components/HeaderTitle.vue";
 
     export default {
         components: {ApiToken, Breadcrumbs, HeaderTitle, VueCodeHighlight},

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import Colour from "../DeckBuilder/Colour";
+    import Colour from "../DeckBuilder/Colour.vue";
 
     export default {
         props: {

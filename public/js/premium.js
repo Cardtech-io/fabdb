@@ -72,7 +72,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -88,8 +88,8 @@ var render = function() {
             { staticClass: "flex-1" },
             [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
             1
-          )
-        ])
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
@@ -103,7 +103,7 @@ var render = function() {
           _c("p", { staticClass: "my-4" }, [
             _vm._v(
               "\n                Some features on FaB DB are available only to our patrons, supporters who have helped FaB DB\n                grow and be built upon day after day. These features are a reward to our loyal supporters, whom\n                without their support, FaB DB couldn't be what it is today.\n            "
-            )
+            ),
           ]),
           _vm._v(" "),
           _c(
@@ -118,12 +118,12 @@ var render = function() {
                 { staticClass: "link", attrs: { to: "/support" } },
                 [_vm._v("become a supporter")]
               ),
-              _vm._v(" from just $3/month.\n            ")
+              _vm._v(" from just $3/month.\n            "),
             ],
             1
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ],
     1
   )

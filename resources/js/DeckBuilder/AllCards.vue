@@ -72,22 +72,21 @@
     import {mapActions, mapGetters, mapState} from 'vuex';
 
     import FormButton from '../Components/Form/Button.vue';
-    import Cardable from '../CardDatabase/Cardable';
-    import CardImage from '../CardDatabase/CardImage';
-    import CardItemSection from "./CardItemSection";
-    import Cards from './Cards';
-    import Chevron from "./Buttons/Chevron";
-    import DeckCurves from "./DeckCurves";
-    import General from "./Metrics/General";
-    import Groupable from "./Groupable";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import CardImage from '../CardDatabase/CardImage.vue';
+    import CardItemSection from "./CardItemSection.vue";
+    import Chevron from "./Buttons/Chevron.vue";
+    import DeckCurves from "./DeckCurves.js";
+    import General from "./Metrics/General.vue";
+    import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
-    import HeroSelector from "../Components/HeroSelector";
-    import ManagesDecks from './ManagesDecks';
-    import MasonryContainer from "./MasonryContainer";
-    import Totals from "./Metrics/Totals";
-    import Viewable from './Viewable';
-    import Redrawable from "./Redrawable";
-    import Strings from "../Utilities/Strings";
+    import HeroSelector from "../Components/HeroSelector.vue";
+    import ManagesDecks from './ManagesDecks.js';
+    import MasonryContainer from "./MasonryContainer.vue";
+    import Totals from "./Metrics/Totals.vue";
+    import Viewable from './Viewable.js';
+    import Redrawable from "./Redrawable.js";
+    import Strings from "../Utilities/Strings.js";
 
     export default {
         props: ['collection'],

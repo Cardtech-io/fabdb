@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -203,28 +203,28 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.rulings, function(ruling) {
+      _vm._l(_vm.rulings, function (ruling) {
         return _c("li", {
           staticClass:
             "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4",
-          domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) }
+          domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) },
         })
       }),
       0
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h2", { staticClass: "border-b border-gray-500" }, [
       _c("div", { staticClass: "flex-1 py-2 uppercase font-serif" }, [
-        _vm._v("\n            Rulings, Clarifications, Erratas.etc.\n        ")
-      ])
+        _vm._v("\n            Rulings, Clarifications, Erratas.etc.\n        "),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -243,7 +243,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -254,8 +254,8 @@ var render = function() {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,
           width: _vm.width,
-          height: _vm.width
-        }
+          height: _vm.width,
+        },
       })
     : _vm._e()
 }
@@ -277,7 +277,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -289,9 +289,9 @@ var render = function() {
           name: "show",
           rawName: "v-show",
           value: _vm.active,
-          expression: "active"
-        }
-      ]
+          expression: "active",
+        },
+      ],
     },
     [_vm._t("default")],
     2
@@ -315,7 +315,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -324,23 +324,23 @@ var render = function() {
       "div",
       { staticClass: "flex space-x-1" },
       [
-        _vm._l(_vm.tabs, function(tab, index) {
+        _vm._l(_vm.tabs, function (tab, index) {
           return _c(
             "button",
             {
               staticClass: "flex rounded-t-lg px-4 py-2",
               class: _vm.classes(index),
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.selectTab(index)
-                }
-              }
+                },
+              },
             },
             [_vm._v(_vm._s(tab.name))]
           )
         }),
         _vm._v(" "),
-        _vm._t("right")
+        _vm._t("right"),
       ],
       2
     ),
@@ -350,7 +350,7 @@ var render = function() {
       { staticClass: "bg-gray-300 dark:bg-gray-800 p-4" },
       [_vm._t("default")],
       2
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -371,14 +371,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.resource
     ? _c("div", {
         staticClass: "inline-block rounded-lg h-2 w-2",
-        class: _vm.resourceColour(_vm.resource)
+        class: _vm.resourceColour(_vm.resource),
       })
     : _c("div", { staticClass: "inline-block h-2 w-2" })
 }

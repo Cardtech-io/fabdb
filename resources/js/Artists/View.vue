@@ -24,9 +24,9 @@
 
 <script>
     import axios from "axios";
-    import CardItem from "../CardDatabase/CardItem";
-    import Crumbs from "../Components/Crumbs";
-    import LazyLoader from "../Components/LazyLoader";
+    import CardItem from "../CardDatabase/CardItem.vue";
+    import Crumbs from "../Components/Crumbs.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
 
     export default {
         components: {CardItem, Crumbs},

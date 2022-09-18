@@ -15,10 +15,10 @@
     import _ from 'underscore';
     import { mapGetters, mapState } from 'vuex';
 
-    import Cardable from '../CardDatabase/Cardable';
+    import Cardable from '../CardDatabase/Cardable.js';
     import CardImage from '../CardDatabase/CardImage.vue';
-    import Redrawable from "../DeckBuilder/Redrawable";
-    import Viewable from "../DeckBuilder/Viewable";
+    import Redrawable from "../DeckBuilder/Redrawable.js";
+    import Viewable from "../DeckBuilder/Viewable.js";
 
     export default {
         props: ['cards', 'groupId', 'width'],

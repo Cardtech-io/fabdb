@@ -17,9 +17,9 @@
 
 <script>
     import axios from "axios";
-    import DeckItem from "../DeckItem";
+    import DeckItem from "../DeckItem.vue";
     import Models from "../../Utilities/Models";
-    import Deck from "../Deck";
+    import Deck from "../Deck.js";
 
     export default {
         props: {

@@ -49,7 +49,7 @@
     import CardItem from './CardItem.vue';
     import Paginator from '../Components/Paginator.vue';
     import SearchTips from '../CardDatabase/SearchTips.vue';
-    import Viewable from "./Viewable";
+    import Viewable from "./Viewable.js";
 
     export default {
         props: ['deck'],

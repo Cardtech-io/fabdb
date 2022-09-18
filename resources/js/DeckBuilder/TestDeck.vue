@@ -53,8 +53,8 @@
     import Crumbs from '../Components/Crumbs.vue';
     import DrawnCard from './DrawnCard.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
-    import Viewable from './Viewable';
+    import LazyLoader from '../Components/LazyLoader.js';
+    import Viewable from './Viewable.js';
 
     export default {
         components: { CardImage, Crumbs, DrawnCard, HeaderTitle },

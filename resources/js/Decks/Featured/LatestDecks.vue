@@ -30,11 +30,11 @@
 
 <script>
     import axios from "axios";
-    import DeckLabel from "../Viewing/DeckLabel";
-    import FormatLabel from "../Viewing/FormatLabel";
+    import DeckLabel from "../Viewing/DeckLabel.vue";
+    import FormatLabel from "../Viewing/FormatLabel.vue";
     import HeroAvatar from "../../Components/HeroAvatar";
     import Models from "../../Utilities/Models";
-    import Deck from "../Deck";
+    import Deck from "../Deck.js";
 
     export default {
         props: {

@@ -22,11 +22,11 @@
 </template>
 
 <script>
-    import Card from "../CardDatabase/Card";
-    import HeroSelector from "../Components/HeroSelector";
+    import Card from "../CardDatabase/Card.js";
+    import HeroSelector from "../Components/HeroSelector.vue";
     import moment from 'moment';
-    import Player from "./Player";
-    import Tracker from "../Components/Tracker";
+    import Player from "./Player.vue";
+    import Tracker from "../Components/Tracker.js";
 
     export default {
         components: {HeroSelector, Player},

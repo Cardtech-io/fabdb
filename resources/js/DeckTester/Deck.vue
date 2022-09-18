@@ -13,8 +13,8 @@
 </template>
 
 <script>
-    import Historian from "./Historian";
-    import Interactive from "./Interactive";
+    import Historian from "./Historian.vue";
+    import Interactive from "./Interactive.vue";
 
     export default {
         props: {

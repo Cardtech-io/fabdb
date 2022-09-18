@@ -37,15 +37,15 @@
 <script>
     import {mapActions, mapGetters, mapMutations, mapState} from 'vuex';
     import axios from 'axios';
-    import AddDeck from "../Decks/AddDeck";
-    import Cards from "./Cards";
-    import FilterSelector from "../Components/FilterSelector";
-    import Fullscreen from "../Components/Fullscreen";
-    import GroupingSelector from "../DeckBuilder/GroupingSelector";
-    import Imagery from "../Utilities/Imagery";
-    import Pack from "./Pack";
-    import Strings from "../Utilities/Strings";
-    import LazyLoader from "../Components/LazyLoader";
+    import AddDeck from "../Decks/AddDeck.vue";
+    import Cards from "./Cards.vue";
+    import FilterSelector from "../Components/FilterSelector.vue";
+    import Fullscreen from "../Components/Fullscreen.vue";
+    import GroupingSelector from "../DeckBuilder/GroupingSelector.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import Pack from "./Pack.vue";
+    import Strings from "../Utilities/Strings.js";
+    import LazyLoader from "../Components/LazyLoader.js";
 
     export default {
         components: {AddDeck, Cards, FilterSelector, Fullscreen, GroupingSelector, Pack},

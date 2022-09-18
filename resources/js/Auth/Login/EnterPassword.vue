@@ -17,7 +17,7 @@
     import {mapActions} from "vuex";
     import Submit from "../../Components/Form/Submit";
     import Tracker from "../../Components/Tracker";
-    import SuccessfulAuth from "./SuccessfulAuth";
+    import SuccessfulAuth from "./SuccessfulAuth.vue";
 
     export default {
         props: {

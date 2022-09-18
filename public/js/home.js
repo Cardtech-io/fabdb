@@ -12,9 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var postscribe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! postscribe */ "./node_modules/postscribe/dist/postscribe.js");
 /* harmony import */ var postscribe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(postscribe__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -214,13 +214,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.marketable
     ? _c("div", { staticClass: "mx-auto", style: _vm.style }, [
-        _c("div", { ref: "ad" })
+        _c("div", { ref: "ad" }),
       ])
     : _vm._e()
 }
@@ -242,14 +242,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     {
-      staticClass: "container px-4 sm:px-0 sm:mx-auto text-white flex flex-col"
+      staticClass: "container px-4 sm:px-0 sm:mx-auto text-white flex flex-col",
     },
     [
       _c("div", { staticClass: "my-12" }, [
@@ -265,24 +265,27 @@ var render = function() {
                 autoplay: "",
                 muted: "",
                 loop: "",
-                poster: "/img/fabdb-logo-3d.png"
+                poster: "/img/fabdb-logo-3d.png",
               },
-              domProps: { muted: true }
+              domProps: { muted: true },
             },
             [
               _c("source", {
-                attrs: { src: "/media/fabdb-logo-video.mp4", type: "video/mp4" }
-              })
+                attrs: {
+                  src: "/media/fabdb-logo-video.mp4",
+                  type: "video/mp4",
+                },
+              }),
             ]
-          )
-        ])
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100 z-0"
+            "sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100 z-0",
         },
         [
           _c(
@@ -294,7 +297,7 @@ var render = function() {
                 "a",
                 {
                   staticClass: "link",
-                  attrs: { href: "https://fabtcg.com", target: "_blank" }
+                  attrs: { href: "https://fabtcg.com", target: "_blank" },
                 },
                 [_vm._v("Flesh and Blood TCG")]
               ),
@@ -312,7 +315,7 @@ var render = function() {
                 { staticClass: "link", attrs: { to: { name: "collection" } } },
                 [_vm._v(_vm._s(_vm.lang.terms.collection_manager))]
               ),
-              _vm._v(" and more.\n        ")
+              _vm._v(" and more.\n        "),
             ],
             1
           ),
@@ -324,15 +327,15 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.keywords,
-                  expression: "keywords"
-                }
+                  expression: "keywords",
+                },
               ],
               ref: "search",
               staticClass: "input rounded-lg p-4",
               attrs: { type: "text", placeholder: "Search for a card..." },
               domProps: { value: _vm.keywords },
               on: {
-                keyup: function($event) {
+                keyup: function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
@@ -341,14 +344,14 @@ var render = function() {
                   }
                   return _vm.search()
                 },
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.keywords = $event.target.value
-                }
-              }
-            })
+                },
+              },
+            }),
           ]),
           _vm._v(" "),
           _c(
@@ -365,10 +368,10 @@ var render = function() {
                 { staticClass: "link", attrs: { to: { name: "support" } } },
                 [_vm._v("Support page")]
               ),
-              _vm._v(".\n        ")
+              _vm._v(".\n        "),
             ],
             1
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -376,7 +379,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "my-4 bg-nearly-black text-gray-300 sm:mx-auto p-2 px-4 rounded-lg flex items-center"
+            "my-4 bg-nearly-black text-gray-300 sm:mx-auto p-2 px-4 rounded-lg flex items-center",
         },
         [
           _c(
@@ -385,16 +388,15 @@ var render = function() {
             [
               _c("path", {
                 attrs: {
-                  d:
-                    "M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z"
-                }
-              })
+                  d: "M10 0s8 7.58 8 12a8 8 0 11-16 0c0-1.5.91-3.35 2.12-5.15A3 3 0 0010 6V0zM8 0a3 3 0 100 6V0z",
+                },
+              }),
             ]
           ),
           _vm._v(" "),
           _c("div", {
-            domProps: { innerHTML: _vm._s(_vm.lang.home.rathe_times) }
-          })
+            domProps: { innerHTML: _vm._s(_vm.lang.home.rathe_times) },
+          }),
         ],
         1
       ),
@@ -408,8 +410,8 @@ var render = function() {
             { attrs: { mq: "sm" } },
             [
               _c("advertisement", {
-                attrs: { width: 340, height: 340, zone: 107317 }
-              })
+                attrs: { width: 340, height: 340, zone: 107317 },
+              }),
             ],
             1
           ),
@@ -420,14 +422,14 @@ var render = function() {
             [
               _c("advertisement", {
                 staticClass: "mx-auto",
-                attrs: { width: 728, height: 90, zone: 107209 }
-              })
+                attrs: { width: 728, height: 90, zone: 107209 },
+              }),
             ],
             1
-          )
+          ),
         ],
         1
-      )
+      ),
     ]
   )
 }

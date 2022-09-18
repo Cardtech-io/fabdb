@@ -10,7 +10,7 @@
 <script>
     import {mapActions, mapState} from 'vuex';
 
-    import Icon from "../../Components/Icon";
+    import Icon from "../../Components/Icon.vue";
 
     export default {
         components: {Icon},

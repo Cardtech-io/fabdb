@@ -34,12 +34,12 @@
 </template>
 
 <script>
-    import Imagery from '../Utilities/Imagery';
-    import DeckLabel from "./Viewing/DeckLabel";
-    import FormatLabel from "./Viewing/FormatLabel";
-    import HeroAvatar from "../Components/HeroAvatar";
-    import Viewable from '../DeckBuilder/Viewable';
-    import Deck from "./Deck";
+    import Imagery from '../Utilities/Imagery.js';
+    import DeckLabel from "./Viewing/DeckLabel.vue";
+    import FormatLabel from "./Viewing/FormatLabel.vue";
+    import HeroAvatar from "../Components/HeroAvatar.vue";
+    import Viewable from '../DeckBuilder/Viewable.js';
+    import Deck from "./Deck.js";
 
     export default {
         props: {

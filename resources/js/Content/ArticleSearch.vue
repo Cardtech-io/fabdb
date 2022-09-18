@@ -13,13 +13,13 @@
 </template>
 
 <script>
-    import Article from "./Article";
-    import ArticleItem from "./ArticleItem";
-    import Imagery from "../Utilities/Imagery";
-    import LazyLoader from "../Components/LazyLoader";
-    import Models from "../Utilities/Models";
-    import Paginator from "../Components/Paginator";
-    import Strings from "../Utilities/Strings";
+    import Article from "./Article.vue";
+    import ArticleItem from "./ArticleItem.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import LazyLoader from "../Components/LazyLoader.js";
+    import Models from "../Utilities/Models.js";
+    import Paginator from "../Components/Paginator.vue";
+    import Strings from "../Utilities/Strings.js";
 
     function buildQuery(args) {
         let params = {};

@@ -20,8 +20,8 @@
 <script>
     import axios from 'axios';
     import {mapState} from 'vuex';
-    import Icon from '../Components/Icon';
-    import Viewable from "./Viewable";
+    import Icon from '../Components/Icon.vue';
+    import Viewable from "./Viewable.js";
 
     export default {
         components: {Icon},

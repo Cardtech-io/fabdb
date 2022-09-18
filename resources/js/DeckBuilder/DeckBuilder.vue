@@ -68,28 +68,28 @@
 
     import AllCards from './AllCards.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Cardable from '../CardDatabase/Cardable';
+    import Cardable from '../CardDatabase/Cardable.js';
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardSearch from "./CardSearch";
+    import CardSearch from "./CardSearch.vue";
     import DeckDetails from './DeckDetails.vue';
-    import DeckName from './DeckName';
-    import DeckTotals from "./Metrics/DeckTotals";
-    import EditDeck from "./EditDeck";
+    import DeckName from './DeckName.vue';
+    import DeckTotals from "./Metrics/DeckTotals.vue";
+    import EditDeck from "./EditDeck.vue";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import HeroSelector from "../Components/HeroSelector";
-    import Icon from '../Components/Icon';
-    import LazyLoader from '../Components/LazyLoader';
+    import HeroSelector from "../Components/HeroSelector.vue";
+    import Icon from '../Components/Icon.vue';
+    import LazyLoader from '../Components/LazyLoader.js';
     import MainDeck from './MainDeck.vue';
     import ModeSelector from './ModeSelector.vue';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
-    import Viewable from './Viewable';
-    import ViewButton from "./Buttons/View";
-    import ZoomButton from './Buttons/Zoom';
-    import ManagesDecks from "./ManagesDecks";
-    import PlayDeck from "../Decks/PlayDeck";
+    import Viewable from './Viewable.js';
+    import ViewButton from "./Buttons/View.vue";
+    import ZoomButton from './Buttons/Zoom.vue';
+    import ManagesDecks from "./ManagesDecks.js";
+    import PlayDeck from "../Decks/PlayDeck.vue";
 
     export default {
         components: {

@@ -46,18 +46,18 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import Article from './Article';
-    import Avatar from "../Identity/Avatar";
+    import Article from './Article.vue';
+    import Avatar from "../Identity/Avatar.vue";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Cardable from '../CardDatabase/Cardable';
-    import Discussion from "../Discussion/Discussion";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Discussion from "../Discussion/Discussion.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Imagery from '../Utilities/Imagery';
-    import Markdown from "../Components/Markdown";
-    import LazyLoader from '../Components/LazyLoader';
-    import Models from '../Utilities/Models';
-    import Strings from '../Utilities/Strings';
-    import Tag from './Tag';
+    import Imagery from '../Utilities/Imagery.js';
+    import Markdown from "../Components/Markdown.vue";
+    import LazyLoader from '../Components/LazyLoader.js';
+    import Models from '../Utilities/Models.js';
+    import Strings from '../Utilities/Strings.js';
+    import Tag from './Tag.vue';
 
     export default {
         components: {

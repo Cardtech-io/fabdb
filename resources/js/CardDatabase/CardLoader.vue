@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import DetermineWidth from "../Components/DetermineWidth";
+    import DetermineWidth from "../Components/DetermineWidth.js";
 
     export default {
         mixins: [DetermineWidth]

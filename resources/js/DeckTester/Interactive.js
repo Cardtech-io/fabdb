@@ -1,5 +1,5 @@
-import Historian from "./Historian";
-import Strings from "../Utilities/Strings";
+import Historian from "./Historian.vue";
+import Strings from "../Utilities/Strings.js";
 
 export default {
     mixins: [Strings],

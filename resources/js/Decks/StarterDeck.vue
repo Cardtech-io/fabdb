@@ -9,8 +9,8 @@
 </template>
 
 <script>
-    import Cardable from "../CardDatabase/Cardable";
-    import Deck from "./Deck";
+    import Cardable from "../CardDatabase/Cardable.js";
+    import Deck from "./Deck.js";
 
     export default {
         props: {

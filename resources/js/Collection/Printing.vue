@@ -25,10 +25,10 @@
     import axios from 'axios';
     import Cardable from '../CardDatabase/Cardable.js';
     import CardCount from './CardCount.vue';
-    import Icon from "../Components/Icon";
-    import RaritySymbol from "../CardDatabase/RaritySymbol";
-    import Imagery from "../Utilities/Imagery";
-    import Colour from "../DeckBuilder/Colour";
+    import Icon from "../Components/Icon.vue";
+    import RaritySymbol from "../CardDatabase/RaritySymbol.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import Colour from "../DeckBuilder/Colour.vue";
 
     export default {
         components: {

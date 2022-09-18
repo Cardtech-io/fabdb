@@ -51,12 +51,12 @@
 
 <script>
     import _ from "underscore";
-    import Deck from "./Deck";
-    import Hand from "./Hand";
-    import History from "./History";
-    import Historian from "./Historian";
-    import Stack from "./Stack";
-    import Tester from "./Tester";
+    import Deck from "./Deck.vue";
+    import Hand from "./Hand.vue";
+    import History from "./History.vue";
+    import Historian from "./Historian.js";
+    import Stack from "./Stack.vue";
+    import Tester from "./Tester.js";
 
     export default {
         name: 'deck.play',

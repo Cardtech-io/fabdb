@@ -45,9 +45,9 @@
     import DeckSearch from './DeckSearch.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
-    import Models from "../Utilities/Models";
-    import Deck from "./Deck";
-    import SimplePaginator from "../Components/SimplePaginator";
+    import Models from "../Utilities/Models.js";
+    import Deck from "./Deck.js";
+    import SimplePaginator from "../Components/SimplePaginator.vue";
 
     export default {
         components: {

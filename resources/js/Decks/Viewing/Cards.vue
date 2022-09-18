@@ -11,7 +11,7 @@
 
 <script>
     import Cards from "../../DeckBuilder/Cards";
-    import DeckCard from "../DeckCard";
+    import DeckCard from "../DeckCard.vue";
 
     export default {
         props: {

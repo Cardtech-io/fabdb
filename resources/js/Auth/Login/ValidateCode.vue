@@ -13,7 +13,7 @@
     import axios from "axios";
     import {mapActions} from "vuex";
     import Submit from "../../Components/Form/Submit";
-    import SuccessfulAuth from "./SuccessfulAuth";
+    import SuccessfulAuth from "./SuccessfulAuth.vue";
     import Tracker from "../../Components/Tracker";
 
     export default {

@@ -19,11 +19,11 @@
 </template>
 
 <script>
-    import Deck from "../Decks/Deck";
-    import DeckLabel from "../Decks/Viewing/DeckLabel";
-    import FormatLabel from "../Decks/Viewing/FormatLabel";
-    import HeroAvatar from "../Components/HeroAvatar";
-    import Models from "../Utilities/Models";
+    import Deck from "../Decks/Deck.js";
+    import DeckLabel from "../Decks/Viewing/DeckLabel.vue";
+    import FormatLabel from "../Decks/Viewing/FormatLabel.vue";
+    import HeroAvatar from "../Components/HeroAvatar.vue";
+    import Models from "../Utilities/Models.js";
 
     export default {
         props: {

@@ -98,7 +98,7 @@
     import CancelEvent from './CancelEvent.vue';
     import { Datetime } from 'vue-datetime';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import ManagePlayers from './ManagePlayers.vue';
     import Submit from '../Components/Form/Submit.vue';
     import MarkdownEditor from 'vue-simplemde';

@@ -29,7 +29,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import Avatar from '../Identity/Avatar.vue';
 
     export default {

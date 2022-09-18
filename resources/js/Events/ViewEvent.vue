@@ -52,11 +52,11 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import EventTypeIcon from './EventTypeIcon.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import PlayerEventActions from './PlayerEventActions.vue';
     import RegisteredPlayers from './RegisteredPlayers.vue';
-    import Time from '../Utilities/Time';
-    import Strings from '../Utilities/Strings';
+    import Time from '../Utilities/Time.js';
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         components: {

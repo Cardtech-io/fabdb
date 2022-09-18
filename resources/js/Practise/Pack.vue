@@ -16,9 +16,9 @@
 <script>
     import {mapState, mapActions} from 'vuex';
     import axios from "axios";
-    import CardImage from "../CardDatabase/CardImage";
-    import Imagery from "../Utilities/Imagery";
-    import Strings from "../Utilities/Strings";
+    import CardImage from "../CardDatabase/CardImage.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import Strings from "../Utilities/Strings.js";
 
     export default {
         components: {CardImage},

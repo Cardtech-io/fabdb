@@ -7,8 +7,8 @@
 <script>
     import {mapActions, mapGetters, mapState} from "vuex";
 
-    import Cardable from "../CardDatabase/Cardable";
-    import ManagesDecks from "./ManagesDecks";
+    import Cardable from "../CardDatabase/Cardable.js";
+    import ManagesDecks from "./ManagesDecks.js";
 
     export default {
         props: {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Cardable from '../CardDatabase/Cardable';
+    import Cardable from '../CardDatabase/Cardable.js';
 
     export default {
         mixins: [Cardable],

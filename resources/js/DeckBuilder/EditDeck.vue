@@ -79,22 +79,21 @@
     import {mapActions, mapGetters, mapState} from 'vuex';
 
     import FormButton from '../Components/Form/Button.vue';
-    import Cardable from '../CardDatabase/Cardable';
-    import CardContainer from "./CardContainer";
-    import CardImage from '../CardDatabase/CardImage';
-    import CardItemSection from "./CardItemSection";
-    import Cards from './Cards';
-    import Chevron from "./Buttons/Chevron";
-    import DeckCurves from "./DeckCurves";
-    import General from "./Metrics/General";
-    import Groupable from "./Groupable";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import CardContainer from "./CardContainer.vue";
+    import CardImage from '../CardDatabase/CardImage.vue';
+    import CardItemSection from "./CardItemSection.vue";
+    import Chevron from "./Buttons/Chevron.vue";
+    import DeckCurves from "./DeckCurves.js";
+    import General from "./Metrics/General.vue";
+    import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
-    import HeroSelector from "../Components/HeroSelector";
-    import ManagesDecks from './ManagesDecks';
-    import MasonryContainer from "./MasonryContainer";
-    import NumberedCardButtons from "./NumberedCardButtons";
-    import Totals from "./Metrics/Totals";
-    import Viewable from './Viewable';
+    import HeroSelector from "../Components/HeroSelector.vue";
+    import ManagesDecks from './ManagesDecks.js';
+    import MasonryContainer from "./MasonryContainer.vue";
+    import NumberedCardButtons from "./NumberedCardButtons.vue";
+    import Totals from "./Metrics/Totals.vue";
+    import Viewable from './Viewable.js';
 
     export default {
         props: ['collection'],

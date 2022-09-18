@@ -34,9 +34,9 @@
 
 <script>
     import {mapGetters} from "vuex";
-    import Icon from "../Components/Icon";
-    import Selector from "../Components/Selector";
-    import SelectorItem from "../Components/SelectorItem";
+    import Icon from "../Components/Icon.vue";
+    import Selector from "../Components/Selector.vue";
+    import SelectorItem from "../Components/SelectorItem.vue";
 
     export default {
         components: {
