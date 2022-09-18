@@ -87,14 +87,10 @@
     </div>
 </template>
 
-<style>
-    @import '~simplemde/dist/simplemde.min.css';
-</style>
-
 <script>
     import axios from 'axios';
     import {mapActions, mapGetters} from 'vuex';
-    import MarkdownEditor from 'vue-simplemde';
+    import MarkdownEditor from "../Components/MarkdownEditor.vue";
 
     export default {
         props: ['deck'],

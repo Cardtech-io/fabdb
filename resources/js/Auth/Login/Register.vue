@@ -3,7 +3,7 @@
         <div class="mb-4">
             <input type="email" class="input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2" :value="email" required="required" readonly>
             <input type="email" class="input focus:bg-white focus:border-gray-500 w-full rounded-lg p-4 mb-2" placeholder="Confirm email" v-model="emailConfirmation" required="required">
-            <submit text="Next" class="w-full p-4"></submit>
+            <submit text="Next" class="w-full p-4"/>
         </div>
 
         <p>
@@ -16,7 +16,7 @@
 <script>
     import axios from "axios";
     import {mapActions} from "vuex";
-    import Submit from "../../Components/Form/Submit";
+    import Submit from "../../Components/Form/Submit.vue";
 
     export default {
         props: {

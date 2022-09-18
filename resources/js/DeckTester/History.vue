@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import Historian from "./Historian.vue";
+    import Historian from "./Historian.js";
 
     export default {
         data: () => ({

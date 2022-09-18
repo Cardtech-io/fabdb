@@ -4,7 +4,7 @@
             <div class="flex items-center justify-between sm:border-0 sm:h-full">
                 <div class="relative overflow-visible ml-4 sm:ml-0 py-1">
                     <router-link to="/">
-                        <img src="/img/fabdb-symbol.png" width="27">
+                        <img :src="'/img/fabdb-symbol.png'" width="27">
                     </router-link>
                 </div>
                 <light-switch class="sm:hidden mr-4"/>
@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div :class="isOpen ? 'block' : 'hidden'" class="nav-items sm:flex sm:bg-transparent sm:ml-2 sm:h-full">
-                <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" :opened="openedItem" @clicked="clicked" @opened="opened"></nav-item>
+                <nav-item :item="item" v-for="item in items" :key="item.link" :active="activeItem" :opened="openedItem" @clicked="clicked" @opened="opened"/>
             </div>
             <div class="hidden sm:block ml-auto">
                 <light-switch/>

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="API Documentation"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="API Documentation"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="main-body">
             <div class="container sm:mx-auto px-4 py-8 flex">
@@ -123,7 +123,7 @@
                         <h4 class="font-bold text-lg">Card search</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="json" class="text-base dark:bg-gray-900">
+                        <vue-code-highlight language="json" class="text-base dark:bg-gray-900 overflow-hidden">
 
 <pre>
 {
@@ -205,7 +205,7 @@
                         <h4 class="font-bold text-lg">View card</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards/ARC000</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="javascript" class="text-base dark:bg-gray-900 overflow-hidden">
                             <pre>
 {
     "identifier":"ARC000",
@@ -227,7 +227,7 @@
                         <h4 class="font-bold text-lg">View deck</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /decks/{slug}</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="javascript" class="text-base dark:bg-gray-900 overflow-hidden">
                             <pre>
 {
     "slug": "NmzrmMWV",
@@ -291,6 +291,3 @@
     };
 </script>
 
-<style lang="scss">
-    @import '~vue-code-highlight/themes/prism-coy.css';
-</style>

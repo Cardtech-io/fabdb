@@ -32,7 +32,7 @@
     import axios from "axios";
     import DeckLabel from "../Viewing/DeckLabel.vue";
     import FormatLabel from "../Viewing/FormatLabel.vue";
-    import HeroAvatar from "../../Components/HeroAvatar";
+    import HeroAvatar from "../../Components/HeroAvatar.vue";
     import Models from "../../Utilities/Models";
     import Deck from "../Deck.js";
 

@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto p-4 py-8">
                 <ol v-if="events.length">
                     <event-item :event="event" v-for="event in events" :key="event.slug"/>

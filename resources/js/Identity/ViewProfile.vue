@@ -24,7 +24,7 @@
     import LazyLoader from "../Components/LazyLoader.js";
     import axios from "axios";
     import Models from "../Utilities/Models.js";
-    import User from "./User.vue";
+    import User from "./User.js";
     import Avatar from "./Avatar.vue";
     import Imagery from "../Utilities/Imagery.js";
     import ProfileNavItem from "./ProfileNavItem.vue";

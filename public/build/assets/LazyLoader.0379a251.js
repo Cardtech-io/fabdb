@@ -1,0 +1,1 @@
+const l=o=>{let e=()=>{};const t=(a,c,r)=>{o(a,n=>{e=n,r()})};return{beforeRouteEnter:t,beforeRouteUpdate:t,created:function(){e.apply(this)},watch:{$route:function(){e.apply(this)}}}};export{l as L};

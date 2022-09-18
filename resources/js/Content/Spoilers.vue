@@ -37,7 +37,7 @@
     import LazyLoader from '../Components/LazyLoader.js';
     import Strings from '../Utilities/Strings.js';
     import Models from "../Utilities/Models.js";
-    import Article from "./Article.vue";
+    import Article from "./Article.js";
 
     export default {
         mixins: [Imagery, Strings],

@@ -1,5 +1,5 @@
 <template>
-    <li class="block flex odd:bg-gray-100 hover:bg-white items-center mb-1">
+    <li class="block flex odd:bg-gray-100 hover:bg-white dark:odd:bg-gray-800 dark:hover:bg-black items-center mb-1">
         <span class="block flex-initial py-4 px-8">
             <router-link :to="eventLink">
                 <event-type-icon :type="event.type" :size="16" :title="event.type"></event-type-icon>

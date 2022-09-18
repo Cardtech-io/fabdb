@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="Profile Update"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Profile Update"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="main-body">
             <div class="container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex">

@@ -34,24 +34,24 @@
         },
 
         methods: {
-            arsenal: function() {
+            arsenal() {
                 this.$emit('arsenaled', this.card, true);
                 this.card.arsenaled = !this.card.arsenaled;
                 this.card.played = false;
                 this.card.pitched = false;
             },
 
-            pitch: function() {
+            pitch() {
                 this.card.played = false;
                 this.card.pitched = !this.card.pitched;
             },
 
-            play: function() {
+            play() {
                 this.card.pitched = false;
                 this.card.played = !this.card.played;
             },
 
-            toggleButtons: function() {
+            toggleButtons() {
                 this.showButtons = !this.showButtons;
             }
         }

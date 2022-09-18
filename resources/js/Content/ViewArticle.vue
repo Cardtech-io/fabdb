@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="Articles"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Articles"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="bg-gray-200">
             <div class="article container sm:mx-auto py-8 flow-root p-4">
@@ -46,7 +46,7 @@
 <script>
     import { mapGetters } from 'vuex';
 
-    import Article from './Article.vue';
+    import Article from './Article.js';
     import Avatar from "../Identity/Avatar.vue";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from '../CardDatabase/Cardable.js';

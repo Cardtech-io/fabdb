@@ -45,10 +45,6 @@
                 set(name) {
                     this.deck.name = name;
                 }
-            },
-
-            inputWidth() {
-                return (this.name.length * 18) + 'px'
             }
         },
 

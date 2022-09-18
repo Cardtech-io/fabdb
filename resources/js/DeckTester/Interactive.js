@@ -1,4 +1,4 @@
-import Historian from "./Historian.vue";
+import Historian from "./Historian.js";
 import Strings from "../Utilities/Strings.js";
 
 export default {

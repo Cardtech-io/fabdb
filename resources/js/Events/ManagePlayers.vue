@@ -3,7 +3,7 @@
         <h2 class="font-serif uppercase text-2xl mb-2">Registered Players</h2>
         <div v-if="event.players && event.players.length">
             <ul>
-                <li v-for="player in event.players" class="flex odd:bg-gray-100 rounded-xl mb-2 items-center hover:bg-white">
+                <li v-for="player in event.players" class="flex odd:bg-gray-100 dark:odd:bg-gray-800 rounded-xl mb-2 items-center hover:bg-white dark:hover:bg-black">
                     <div>
                         <avatar :user="player.user" :width="50" rounded="xl"></avatar>
                     </div>
@@ -21,7 +21,7 @@
                 </li>
             </ul>
         </div>
-        <div v-else class="bg-gray-100 px-4 py-2">
+        <div v-else class="bg-gray-100 dark:bg-gray-800 px-4 py-2">
             There are currently no registered players.
         </div>
     </div>
