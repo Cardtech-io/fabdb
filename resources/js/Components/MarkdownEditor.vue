@@ -1,12 +1,21 @@
 <template>
-    <div class="input py-2 px-4">
-        <editor-content :editor="editor" />
+    <div>
+        <div class="flex bg-gray-300 dark:bg-gray-500 dark:text-gray-200 rounded-t-large overflow-hidden space-x-px">
+            <editor-button :editor="editor" method="bold" class="font-bold">B</editor-button>
+            <editor-button :editor="editor" method="italic" class="italic">I</editor-button>
+            <editor-button :editor="editor" method="underline" class="underline">U</editor-button>
+        </div>
+        <div class="input rounded-b-lg focus:outline-none py-2 px-4">
+            <editor-content :editor="editor"/>
+        </div>
     </div>
 </template>
 
 <script>
 import { Editor, EditorContent } from '@tiptap/vue-2'
-import StarterKit from '@tiptap/starter-kit'
+import EditorButton from "./EditorButton.vue";
+import StarterKit from '@tiptap/starter-kit';
+import {Underline} from "@tiptap/extension-underline";
 
 export default {
     props: {
@@ -17,6 +26,7 @@ export default {
     },
 
     components: {
+        EditorButton,
         EditorContent,
     },
 
@@ -25,6 +35,7 @@ export default {
             editor: null,
         }
     },
+
     watch: {
         value(value) {
             // HTML
@@ -46,6 +57,7 @@ export default {
             content: this.value,
             extensions: [
                 StarterKit,
+                Underline,
             ],
             onUpdate: () => {
                 // HTML

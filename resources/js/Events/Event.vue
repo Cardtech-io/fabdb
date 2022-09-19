@@ -35,8 +35,8 @@
         </div>
 
         <div class="main-body">
-            <div class="container sm:mx-auto p-4 py-8 md:flex">
-                <div class="md:w-1/2 md:pr-8">
+            <div class="container sm:mx-auto p-4 py-8 md:flex md:space-x-8">
+                <div class="md:w-1/2 bg-gray-100 dark:bg-gray-800 p-4">
                     <form @submit.prevent="saveEvent">
                         <div class="w-full mb-2">
                             <label class="block font-serif uppercase tracking-wide mb-1">Event name</label>
