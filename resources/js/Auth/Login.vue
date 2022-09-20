@@ -9,10 +9,10 @@
         <div class="main-body">
             <div class="container sm:mx-auto">
                 <div class="bg-white dark:bg-gray-800 p-4 py-16">
-                    <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"></check-email>
-                    <register v-if="step === 'registration-required'" :email="email"@status-changed="updateStep"></register>
-                    <validate-code v-if="step === 'code-requested' || step === 'user-registered'" :email="email"></validate-code>
-                    <enter-password v-if="step === 'password-required'" :email="email"></enter-password>
+                    <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"/>
+                    <register v-if="step === 'registration-required'" :email="email"@status-changed="updateStep"/>
+                    <validate-code v-if="step === 'code-requested' || step === 'user-registered'" :email="email"/>
+                    <enter-password v-if="step === 'password-required'" :email="email"/>
                 </div>
             </div>
         </div>
