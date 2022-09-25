@@ -34,7 +34,7 @@ class StripHtml
                 continue;
             }
 
-            $input[$key] = strip_tags($value, ['p', 'ol', 'ul', 'h1', 'h2', 'h3', 'li']);
+            $input[$key] = strip_tags($value, ['p', 'ol', 'ul', 'h1', 'h2', 'h3', 'li' ,'u', 'strong', 'em']);
         }
 
         return $input;

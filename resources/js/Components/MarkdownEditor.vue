@@ -4,6 +4,11 @@
             <editor-button :editor="editor" method="bold" class="font-bold">B</editor-button>
             <editor-button :editor="editor" method="italic" class="italic">I</editor-button>
             <editor-button :editor="editor" method="underline" class="underline">U</editor-button>
+            <editor-button :editor="editor" method="bulletList">
+                <icon :size="5">
+                    <path fill-rule="evenodd" d="M6 4.75A.75.75 0 016.75 4h10.5a.75.75 0 010 1.5H6.75A.75.75 0 016 4.75zM6 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H6.75A.75.75 0 016 10zm0 5.25a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H6.75a.75.75 0 01-.75-.75zM1.99 4.75a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-.01zM1.99 15.25a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-.01zM1.99 10a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V10z" clip-rule="evenodd" />
+                </icon>
+            </editor-button>
         </div>
         <div class="input rounded-b-lg focus:outline-none py-2 px-4">
             <editor-content :editor="editor"/>
@@ -14,6 +19,7 @@
 <script>
 import { Editor, EditorContent } from '@tiptap/vue-2'
 import EditorButton from "./EditorButton.vue";
+import Icon from "./Icon.vue";
 import StarterKit from '@tiptap/starter-kit';
 import {Underline} from "@tiptap/extension-underline";
 
@@ -28,6 +34,7 @@ export default {
     components: {
         EditorButton,
         EditorContent,
+        Icon,
     },
 
     data() {
