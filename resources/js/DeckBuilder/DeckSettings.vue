@@ -116,7 +116,7 @@
 
                 let params = {
                     name: this.deck.name,
-                    label: this.deck.label,
+                    label: this.deck.label || '',
                     notes: this.deck.notes,
                     videoUrl: this.deck.videoUrl,
                     type: this.deck.type,

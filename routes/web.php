@@ -144,7 +144,7 @@ Route::middleware(['web'])->group(function() {
 
         // next, we look to see if we can find a card that matches the query
         $cards = $cards->findAny($request->path());
-        
+
         if ($cards->count()) {
             return redirect('cards/'.$cards[0]->identifier->raw());
         }

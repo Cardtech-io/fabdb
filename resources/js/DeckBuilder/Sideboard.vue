@@ -1,7 +1,7 @@
 <template>
     <div class="mb-40">
         <div class="hidden md:block">
-            <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'md:w-1/3' : 'md:w-1/2'"></grouped-cards>
+            <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'md:w-1/3' : 'md:w-1/2'"/>
             <div v-if="!sideboard.cards.length" class="text-center my-20 mx-10">
                 You have not yet added<br>any cards<br>to your sideboard.
             </div>
