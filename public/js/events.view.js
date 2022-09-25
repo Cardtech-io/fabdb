@@ -50,9 +50,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -105,7 +105,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       registered: this.event.registered
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), {}, {
     selectDeck: function selectDeck(deck) {
       var _this = this;
 
@@ -174,9 +174,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Identity_Avatar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Identity/Avatar.vue */ "./resources/js/Identity/Avatar.vue");
 /* harmony import */ var _Identity_Badge_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Identity/Badge.vue */ "./resources/js/Identity/Badge.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -240,9 +240,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RegisteredPlayers_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./RegisteredPlayers.vue */ "./resources/js/Events/RegisteredPlayers.vue");
 /* harmony import */ var _Utilities_Time__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Time */ "./resources/js/Utilities/Time.js");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -312,7 +312,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     RegisteredPlayers: _RegisteredPlayers_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_9__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     crumbs: function crumbs() {
       return [{
         text: 'Home',
@@ -448,7 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -457,14 +457,14 @@ var render = function() {
     {
       staticClass: "fill-current mx-auto",
       class: _vm.sizes(),
-      attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+      attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" },
     },
     [
       _vm.title
         ? _c("title", [_vm._v(_vm._s(_vm.ucfirst(_vm.title)))])
         : _vm._e(),
       _vm._v(" "),
-      _c("path", { attrs: { d: _vm.path() } })
+      _c("path", { attrs: { d: _vm.path() } }),
     ]
   )
 }
@@ -486,7 +486,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -503,11 +503,11 @@ var render = function() {
                       "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
                     attrs: { type: "button" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         $event.preventDefault()
                         return _vm.register()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n            Register for event\n        ")]
                 )
@@ -521,11 +521,11 @@ var render = function() {
                       "appearance-none bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500 disabled:opacity-50",
                     attrs: { type: "button" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         $event.preventDefault()
                         return _vm.unregister()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n            Unregister from event\n        ")]
                 )
@@ -538,11 +538,11 @@ var render = function() {
                     staticClass:
                       "appearance-none bg-blue-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-blue-500 disabled:opacity-50",
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         $event.preventDefault()
                         return _vm.showModal()
-                      }
-                    }
+                      },
+                    },
                   },
                   [_vm._v("\n            Submit a deck\n        ")]
                 )
@@ -556,7 +556,7 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "bg-red-900 text-white font-serif text-2xl uppercase py-3 px-8"
+                      "bg-red-900 text-white font-serif text-2xl uppercase py-3 px-8",
                   },
                   [_vm._v("Submit your deck")]
                 ),
@@ -564,12 +564,12 @@ var render = function() {
                 _vm.decks.length
                   ? _c(
                       "ul",
-                      _vm._l(_vm.decks, function(deck) {
+                      _vm._l(_vm.decks, function (deck) {
                         return _c(
                           "li",
                           {
                             staticClass:
-                              "even:bg-gray-200 hover:bg-white hover:cursor-pointer"
+                              "even:bg-gray-200 hover:bg-white hover:cursor-pointer",
                           },
                           [
                             _c(
@@ -578,11 +578,11 @@ var render = function() {
                                 staticClass: "block w-full px-8 py-2",
                                 attrs: { href: "" },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     $event.preventDefault()
                                     return _vm.selectDeck(deck)
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _vm._v(
@@ -591,9 +591,9 @@ var render = function() {
                                     " (" +
                                     _vm._s(deck.name) +
                                     ")\n                    "
-                                )
+                                ),
                               ]
-                            )
+                            ),
                           ]
                         )
                       }),
@@ -610,18 +610,18 @@ var render = function() {
                           "router-link",
                           {
                             staticClass: "link",
-                            attrs: { to: { name: "decks.build" } }
+                            attrs: { to: { name: "decks.build" } },
                           },
                           [_vm._v("build a deck")]
                         ),
                         _vm._v(
                           " then\n                submit it via the event page.\n            "
-                        )
+                        ),
                       ],
                       1
-                    )
+                    ),
               ]
-            )
+            ),
           ],
           1
         )
@@ -633,14 +633,14 @@ var render = function() {
               "router-link",
               {
                 staticClass: "link",
-                attrs: { to: "/login?from=" + _vm.$route.path }
+                attrs: { to: "/login?from=" + _vm.$route.path },
               },
               [_vm._v("login")]
             ),
-            _vm._v(" to register for this event.\n    ")
+            _vm._v(" to register for this event.\n    "),
           ],
           1
-        )
+        ),
   ])
 }
 var staticRenderFns = []
@@ -661,33 +661,33 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h2", { staticClass: "font-serif uppercase text-2xl mb-2" }, [
-      _vm._v("Registered Players")
+      _vm._v("Registered Players"),
     ]),
     _vm._v(" "),
     _vm.event.players && _vm.event.players.length
       ? _c("div", [
           _c(
             "ul",
-            _vm._l(_vm.event.players, function(player) {
+            _vm._l(_vm.event.players, function (player) {
               return _c(
                 "li",
                 {
                   staticClass:
-                    "flex odd:bg-gray-100 rounded-xl mb-2 items-center hover:bg-white"
+                    "flex odd:bg-gray-100 rounded-xl mb-2 items-center hover:bg-white",
                 },
                 [
                   _c(
                     "div",
                     [
                       _c("avatar", {
-                        attrs: { user: player.user, width: 50, rounded: "xl" }
-                      })
+                        attrs: { user: player.user, width: 50, rounded: "xl" },
+                      }),
                     ],
                     1
                   ),
@@ -697,7 +697,7 @@ var render = function() {
                       "\n                    " +
                         _vm._s(player.user.name) +
                         "\n                "
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   player.user.subscription
@@ -708,22 +708,22 @@ var render = function() {
                           _c("badge", {
                             attrs: {
                               subscriptionLevel: player.user.subscription,
-                              size: "small"
-                            }
-                          })
+                              size: "small",
+                            },
+                          }),
                         ],
                         1
                       )
-                    : _vm._e()
+                    : _vm._e(),
                 ]
               )
             }),
             0
-          )
+          ),
         ])
       : _c("div", { staticClass: "py-2" }, [
-          _vm._v("\n        There are currently no registered players.\n    ")
-        ])
+          _vm._v("\n        There are currently no registered players.\n    "),
+        ]),
   ])
 }
 var staticRenderFns = []
@@ -744,7 +744,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -769,30 +769,30 @@ var render = function() {
                 _c("h3", { staticClass: "font-serif uppercase text-xl" }, [
                   _vm._v(_vm._s(_vm.event.name) + " "),
                   _c("span", { staticClass: "text-gray-500" }, [
-                    _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")")
-                  ])
-                ])
+                    _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")"),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "p-2 px-4" }, [
                 _c("span", { staticClass: "font-serif uppercase" }, [
-                  _vm._v("Event fee")
+                  _vm._v("Event fee"),
                 ]),
                 _vm._v(":\n                        "),
                 _vm.event.fee
                   ? _c("span", [_vm._v("$" + _vm._s(_vm.event.fee))])
-                  : _c("span", [_vm._v("None (FREE)")])
+                  : _c("span", [_vm._v("None (FREE)")]),
               ]),
               _vm._v(" "),
               _c("li", { staticClass: "bg-gray-100 p-2 px-4" }, [
                 _c("span", { staticClass: "font-serif uppercase" }, [
-                  _vm._v("When")
+                  _vm._v("When"),
                 ]),
                 _vm._v(
                   ":\n                        " +
                     _vm._s(_vm.time.calendar(_vm.event.startsAt)) +
                     "\n                    "
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
@@ -800,8 +800,8 @@ var render = function() {
                 { staticClass: "pt-8" },
                 [_c("player-event-actions", { attrs: { event: _vm.event } })],
                 1
-              )
-            ])
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mt-8 md:mt-0 md:w-1/2" }, [
@@ -812,8 +812,8 @@ var render = function() {
                     { staticClass: "float-left mr-6 mb-2" },
                     [
                       _c("event-type-icon", {
-                        attrs: { type: _vm.event.type, size: "24" }
-                      })
+                        attrs: { type: _vm.event.type, size: "24" },
+                      }),
                     ],
                     1
                   ),
@@ -822,9 +822,9 @@ var render = function() {
                     domProps: {
                       innerHTML: _vm._s(
                         _vm.parseMarkdown(_vm.event.description)
-                      )
-                    }
-                  })
+                      ),
+                    },
+                  }),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -832,10 +832,10 @@ var render = function() {
               "div",
               [_c("registered-players", { attrs: { event: _vm.event } })],
               1
-            )
-          ])
-        ])
-      ])
+            ),
+          ]),
+        ]),
+      ]),
     ],
     1
   )
@@ -858,7 +858,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -867,8 +867,8 @@ var render = function() {
     style: { width: _vm.width + "px" },
     attrs: {
       src: _vm.imageUrl("/heroes/" + _vm.avatar + ".jpg", _vm.width),
-      alt: _vm.user.name
-    }
+      alt: _vm.user.name,
+    },
   })
 }
 var staticRenderFns = []
@@ -889,7 +889,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -897,7 +897,7 @@ var render = function() {
     "span",
     {
       staticClass: "inline-block rounded-full text-white uppercase font-serif",
-      class: _vm.classes
+      class: _vm.classes,
     },
     [_vm._v(_vm._s(_vm.ucfirst(_vm.subscriptionLevel)))]
   )

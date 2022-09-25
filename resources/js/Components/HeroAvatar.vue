@@ -3,8 +3,8 @@
 </template>
 
 <script>
-    import Imagery from "../Utilities/Imagery";
-    import Card from "../CardDatabase/Card";
+    import Imagery from "../Utilities/Imagery.js";
+    import Card from "../CardDatabase/Card.js";
 
     export default {
         mixins: [Imagery],

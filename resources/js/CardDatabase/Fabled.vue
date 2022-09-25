@@ -28,9 +28,9 @@
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import Pricing from './Pricing.vue';
-    import Strings from '../Utilities/Strings';
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         mixins: [ Cardable, Strings ],

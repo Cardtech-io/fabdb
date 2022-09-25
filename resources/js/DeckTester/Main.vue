@@ -14,13 +14,13 @@
 <script>
     import {mapGetters} from 'vuex';
 
-    import Breadcrumbs from "../Components/Breadcrumbs";
-    import Decks from "../Decks/DeckRepository";
-    import HeaderTitle from "../Components/HeaderTitle";
-    import Play from "./Play";
-    import Prepare from "./Prepare";
-    import Strings from "../Utilities/Strings";
-    import Tester from "./Tester";
+    import Breadcrumbs from "../Components/Breadcrumbs.vue";
+    import Decks from "../Decks/DeckRepository.js";
+    import HeaderTitle from "../Components/HeaderTitle.vue";
+    import Play from "./Play.vue";
+    import Prepare from "./Prepare.vue";
+    import Strings from "../Utilities/Strings.js";
+    import Tester from "./Tester.js";
 
     export default {
         components: {Breadcrumbs, HeaderTitle, Play, Prepare},

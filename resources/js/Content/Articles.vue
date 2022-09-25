@@ -59,18 +59,18 @@
 </template>
 
 <script>
-    import Article from './Article';
-    import ArticleItem from "./ArticleItem";
-    import Avatar from "../Identity/Avatar";
+    import Article from './Article.vue';
+    import ArticleItem from "./ArticleItem.vue";
+    import Avatar from "../Identity/Avatar.vue";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Imagery from '../Utilities/Imagery';
-    import LazyLoader from '../Components/LazyLoader';
-    import Mailchimp from "../Components/Mailchimp";
-    import Models from '../Utilities/Models';
+    import Imagery from '../Utilities/Imagery.js';
+    import LazyLoader from '../Components/LazyLoader.js';
+    import Mailchimp from "../Components/Mailchimp.vue";
+    import Models from '../Utilities/Models.js';
     import Paginator from '../Components/Paginator.vue';
-    import Strings from '../Utilities/Strings';
-    import Tag from './Tag';
+    import Strings from '../Utilities/Strings.js';
+    import Tag from './Tag.vue';
 
     export default {
         components: {ArticleItem, Avatar, Breadcrumbs, HeaderTitle, Mailchimp, Paginator, Tag},

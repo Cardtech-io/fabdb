@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -171,8 +171,8 @@ var render = function() {
     style: { width: _vm.width + "px" },
     attrs: {
       src: _vm.imageUrl("/heroes/" + _vm.avatar + ".jpg", _vm.width),
-      alt: _vm.user.name
-    }
+      alt: _vm.user.name,
+    },
   })
 }
 var staticRenderFns = []
@@ -193,7 +193,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -202,7 +202,7 @@ var render = function() {
     {
       staticClass: "block p-2 px-3 sm:rounded sm:mr-2",
       class: _vm.classes(),
-      attrs: { to: _vm.to }
+      attrs: { to: _vm.to },
     },
     [_vm._t("default")],
     2
@@ -226,7 +226,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -241,22 +241,22 @@ var render = function() {
           [
             _c("avatar", {
               staticClass: "mr-4",
-              attrs: { user: _vm.user, width: 100 }
-            })
+              attrs: { user: _vm.user, width: 100 },
+            }),
           ],
           1
         ),
         _vm._v(" "),
         _c("div", [
           _c("h1", { staticClass: "font-serif text-4xl uppercase mb-2" }, [
-            _vm._v(_vm._s(_vm.user.name))
+            _vm._v(_vm._s(_vm.user.name)),
           ]),
           _vm._v(" "),
           _c(
             "div",
             {
               staticClass:
-                "text-base flex bg-semi-black rounded-lg overflow-hidden sm:bg-transparent"
+                "text-base flex bg-semi-black rounded-lg overflow-hidden sm:bg-transparent",
             },
             [
               _c(
@@ -265,9 +265,9 @@ var render = function() {
                   attrs: {
                     to: {
                       name: "user.profile.decks",
-                      params: { user: _vm.$route.params.user }
-                    }
-                  }
+                      params: { user: _vm.$route.params.user },
+                    },
+                  },
                 },
                 [_vm._v("Decks")]
               ),
@@ -278,9 +278,9 @@ var render = function() {
                   attrs: {
                     to: {
                       name: "user.profile.wants",
-                      params: { user: _vm.$route.params.user }
-                    }
-                  }
+                      params: { user: _vm.$route.params.user },
+                    },
+                  },
                 },
                 [_vm._v("Want list")]
               ),
@@ -291,19 +291,19 @@ var render = function() {
                   attrs: {
                     to: {
                       name: "user.profile.trades",
-                      params: { user: _vm.$route.params.user }
-                    }
-                  }
+                      params: { user: _vm.$route.params.user },
+                    },
+                  },
                 },
                 [_vm._v("Trade list")]
-              )
+              ),
             ],
             1
-          )
-        ])
+          ),
+        ]),
       ]),
       _vm._v(" "),
-      _c("router-view", { attrs: { user: _vm.user } })
+      _c("router-view", { attrs: { user: _vm.user } }),
     ],
     1
   )
@@ -501,11 +501,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-var User =
-/*#__PURE__*/
-function () {
+var User = /*#__PURE__*/function () {
   function User(fields) {
     _classCallCheck(this, User);
 

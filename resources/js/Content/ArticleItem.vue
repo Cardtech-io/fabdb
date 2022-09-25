@@ -21,10 +21,10 @@
 </template>
 
 <script>
-    import Avatar from "../Identity/Avatar";
-    import Tag from './Tag';
-    import Imagery from "../Utilities/Imagery";
-    import Article from "./Article";
+    import Avatar from "../Identity/Avatar.vue";
+    import Tag from './Tag.vue';
+    import Imagery from "../Utilities/Imagery.js";
+    import Article from "./Article.vue";
 
     export default {
         props: {

@@ -1,5 +1,4 @@
-import marked from 'marked';
-import showdown from './Markdown/showdown';
+import showdown from './Markdown/showdown.js';
 
 export default {
     methods: {

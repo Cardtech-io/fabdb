@@ -43,8 +43,8 @@
     import axios from "axios";
     import moment from 'moment';
     import {mapGetters} from 'vuex';
-    import Format from "./Format";
-    import LazyLoader from "../Components/LazyLoader";
+    import Format from "./Format.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
 
     export default {
         components: {Format},

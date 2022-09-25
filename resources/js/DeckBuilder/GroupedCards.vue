@@ -17,13 +17,13 @@
 <script>
     import { mapGetters, mapState } from 'vuex';
 
-    import Banned from '../CardDatabase/Banned';
-    import Cardable from '../CardDatabase/Cardable';
-    import CardContainer from "./CardContainer";
+    import Banned from '../CardDatabase/Banned.vue';
+    import Cardable from '../CardDatabase/Cardable.js';
+    import CardContainer from "./CardContainer.vue";
     import CardImage from '../CardDatabase/CardImage.vue';
-    import MasonryContainer from "./MasonryContainer";
-    import Redrawable from './Redrawable';
-    import Viewable from './Viewable';
+    import MasonryContainer from "./MasonryContainer.vue";
+    import Redrawable from './Redrawable.js';
+    import Viewable from './Viewable.js';
 
     let state = {
         x: 0,

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import Collapser from "./Collapser";
+    import Collapser from "./Collapser.vue";
     import Crumbs from './Crumbs.vue';
 
     export default {

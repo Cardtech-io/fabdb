@@ -98,20 +98,20 @@
     import { mapGetters } from 'vuex';
 
     import axios from "axios";
-    import AddDeck from '../Decks/AddDeck';
-    import Collapser from "../Components/Collapser";
-    import Crumbs from "../Components/Crumbs";
-    import Deck from "../Decks/Deck";
-    import DeckItem from "../Decks/DeckItem";
-    import DeckLabel from "../Decks/Viewing/DeckLabel";
-    import DeckSearch from "../Decks/DeckSearch";
-    import LazyLoader from "../Components/LazyLoader";
-    import Models from "../Utilities/Models";
-    import Paginator from "../Components/Paginator";
-    import Sorter from "../Components/Sorter";
-    import Submit from "../Components/Form/Submit";
-    import Imagery from "../Utilities/Imagery";
-    import PlayDeck from "../Decks/PlayDeck";
+    import AddDeck from '../Decks/AddDeck.vue';
+    import Collapser from "../Components/Collapser.vue";
+    import Crumbs from "../Components/Crumbs.vue";
+    import Deck from "../Decks/Deck.js";
+    import DeckItem from "../Decks/DeckItem.vue";
+    import DeckLabel from "../Decks/Viewing/DeckLabel.vue";
+    import DeckSearch from "../Decks/DeckSearch.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
+    import Models from "../Utilities/Models.js";
+    import Paginator from "../Components/Paginator.vue";
+    import Sorter from "../Components/Sorter.vue";
+    import Submit from "../Components/Form/Submit.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import PlayDeck from "../Decks/PlayDeck.vue";
 
     export default {
         mixins: [Imagery],

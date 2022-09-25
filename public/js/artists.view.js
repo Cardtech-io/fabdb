@@ -120,7 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -128,28 +128,28 @@ var render = function() {
     _c("div", { staticClass: "container sm:mx-auto hidden sm:block" }, [
       _c("div", { staticClass: "p-4 md:py-8" }, [
         _c("h1", { staticClass: "font-serif text-white text-4xl uppercase" }, [
-          _vm._v("The artwork of " + _vm._s(_vm.artist.name))
-        ])
-      ])
+          _vm._v("The artwork of " + _vm._s(_vm.artist.name)),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
     _c(
       "div",
       {
         staticClass:
-          "flex-grow container mx-auto px-4 sm:flex sm:items-stretch mt-4 sm:mt-0"
+          "flex-grow container mx-auto px-4 sm:flex sm:items-stretch mt-4 sm:mt-0",
       },
       [
         _c(
           "div",
           {
             staticClass:
-              "mr-4 rounded-xl bg-nearly-black overflow-hidden w-full sm:w-300"
+              "mr-4 rounded-xl bg-nearly-black overflow-hidden w-full sm:w-300",
           },
           [
             _c("img", {
               staticClass: "w-full",
-              attrs: { src: _vm.artist.image, alt: "" }
+              attrs: { src: _vm.artist.image, alt: "" },
             }),
             _vm._v(" "),
             _c("p", { staticClass: "text-white p-4" }, [
@@ -157,8 +157,8 @@ var render = function() {
                 "\n                " +
                   _vm._s(_vm.artist.blurb) +
                   "\n            "
-              )
-            ])
+              ),
+            ]),
           ]
         ),
         _vm._v(" "),
@@ -166,25 +166,25 @@ var render = function() {
           "div",
           {
             staticClass:
-              "sm:w-3/4 sm:flex-grow rounded-xl overflow-hidden mt-4 sm:-mt-2"
+              "sm:w-3/4 sm:flex-grow rounded-xl overflow-hidden mt-4 sm:-mt-2",
           },
           [
             _c(
               "ul",
               { staticClass: "flow-root -mx-2" },
-              _vm._l(_vm.artist.cards, function(card) {
+              _vm._l(_vm.artist.cards, function (card) {
                 return _c("card-item", {
                   key: card.identifier,
                   staticClass: "float-left p-2 w-1/2 md:w-1/4 xl:w-1/5 mb-4",
-                  attrs: { card: card, path: "/cards" }
+                  attrs: { card: card, path: "/cards" },
                 })
               }),
               1
-            )
+            ),
           ]
-        )
+        ),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = []

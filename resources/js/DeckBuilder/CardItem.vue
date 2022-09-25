@@ -25,8 +25,8 @@
 
 <script>
     import {mapState} from 'vuex';
-    import CardButtons from "./CardButtons";
-    import Colour from "./Colour";
+    import CardButtons from "./CardButtons.vue";
+    import Colour from "./Colour.vue";
 
     export default {
         props: {

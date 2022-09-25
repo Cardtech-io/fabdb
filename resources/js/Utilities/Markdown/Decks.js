@@ -1,5 +1,3 @@
-import Carding from '../Carding';
-
 let matches = [];
 
 export default [

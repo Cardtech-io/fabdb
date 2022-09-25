@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import DeckComposition from "./DeckComposition";
+    import DeckComposition from "./DeckComposition.vue";
 
     export default {
         props: {

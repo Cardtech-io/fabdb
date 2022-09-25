@@ -1,14 +1,14 @@
 <template>
     <div>
-        <header-title title="Login / Register"></header-title>
+        <header-title title="Login / Register"/>
 
         <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto p-4">&nbsp;</div>
+            <div class="container sm:mx-auto px-4 py-2">&nbsp;</div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto">
-                <div class="bg-white p-4 pb-16">
+                <div class="bg-white dark:bg-gray-800 p-4 py-16">
                     <check-email v-if="step === 'first'" @status-changed="updateStep" @email-changed="updateEmail"></check-email>
                     <register v-if="step === 'registration-required'" :email="email"@status-changed="updateStep"></register>
                     <validate-code v-if="step === 'code-requested' || step === 'user-registered'" :email="email"></validate-code>
@@ -21,11 +21,11 @@
 
 <script>
     import { mapActions } from 'vuex';
-    import CheckEmail from "./Login/CheckEmail";
+    import CheckEmail from "./Login/CheckEmail.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Register from "./Login/Register";
-    import ValidateCode from "./Login/ValidateCode";
-    import EnterPassword from "./Login/EnterPassword";
+    import Register from "./Login/Register.vue";
+    import ValidateCode from "./Login/ValidateCode.vue";
+    import EnterPassword from "./Login/EnterPassword.vue";
 
     export default {
         components: {CheckEmail, EnterPassword, HeaderTitle, Register, ValidateCode},

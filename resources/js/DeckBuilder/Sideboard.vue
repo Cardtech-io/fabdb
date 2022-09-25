@@ -55,11 +55,11 @@
     import axios from 'axios';
     import {mapActions, mapGetters, mapState} from 'vuex';
 
-    import Cardable from '../CardDatabase/Cardable';
-    import Cards from './Cards';
-    import Colour from "./Colour";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Cards from './Cards.js';
+    import Colour from "./Colour.vue";
     import GroupedCards from './GroupedCards.vue';
-    import Viewable from './Viewable';
+    import Viewable from './Viewable.js';
 
     export default {
         name: 'deck-builder.sideboard',

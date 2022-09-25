@@ -1,4 +1,5 @@
 <?php
+
 namespace FabDB\Domain\Cards\Search;
 
 use FabDB\Library\Search\SearchFilter;

@@ -56,7 +56,7 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                     <div class="md:w-1/2 mt-4 md:mt-0">
                         <div class="space-y-4">
                             <div v-if="text" class="bg-white dark:bg-gray-800 rounded-lg">
@@ -105,24 +105,24 @@
 <script>
     import axios from 'axios';
 
-    import Advertisement from "../Components/Advertisement";
+    import Advertisement from "../Components/Advertisement.vue";
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Cardable from './Cardable.js';
     import CardImage from './CardImage.vue';
-    import CardLegality from './CardLegality';
-    import CardPrice from "./Metrics/CardPrice";
-    import CardNav from "./CardNav";
-    import Discussion from "../Discussion/Discussion";
+    import CardLegality from './CardLegality.vue';
+    import CardPrice from "./Metrics/CardPrice.vue";
+    import CardNav from "./CardNav.vue";
+    import Discussion from "../Discussion/Discussion.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Icon from "../Components/Icon";
-    import Imagery from "../Utilities/Imagery";
-    import LanguageSelector from "./LanguageSelector";
-    import LazyLoader from '../Components/LazyLoader';
-    import LegalityBanner from "./LegalityBanner";
+    import Icon from "../Components/Icon.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import LanguageSelector from "./LanguageSelector.vue";
+    import LazyLoader from '../Components/LazyLoader.js';
+    import LegalityBanner from "./LegalityBanner.vue";
     import Pricing from './Pricing.vue';
-    import RecentDecks from "../Decks/Featured/RecentDecks";
-    import Rulings from "./Rulings";
-    import Strings from '../Utilities/Strings';
+    import RecentDecks from "../Decks/Featured/RecentDecks.vue";
+    import Rulings from "./Rulings.vue";
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         mixins: [Cardable, Imagery, Strings],

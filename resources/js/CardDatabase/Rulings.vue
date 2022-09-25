@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import Strings from '../Utilities/Strings';
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         mixins: [Strings],

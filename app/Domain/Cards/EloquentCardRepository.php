@@ -241,6 +241,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         $card = $this->newQuery()
+            ->where('id', '!=', $current->id)
             ->where(function ($query) use ($current, $operator, $order) {
                 if ($current->resourceful()) {
                     $query->where(function ($query) use ($current, $operator, $order) {

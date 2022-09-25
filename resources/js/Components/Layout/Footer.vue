@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import RouteHide from "../RouteHide";
+    import RouteHide from "../RouteHide.js";
 
     export default {
         mixins: [RouteHide],

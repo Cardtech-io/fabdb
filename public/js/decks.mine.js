@@ -83,9 +83,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
 /* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
 /* harmony import */ var _Decks_PlayDeck__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Decks/PlayDeck */ "./resources/js/Decks/PlayDeck.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -309,9 +309,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -372,7 +372,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -386,11 +386,11 @@ var render = function() {
           staticClass: "link-alternate flex-0",
           attrs: { href: "" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               $event.preventDefault()
               return _vm.handler.apply(null, arguments)
-            }
-          }
+            },
+          },
         },
         [_vm._v(_vm._s(_vm.text))]
       ),
@@ -399,10 +399,9 @@ var render = function() {
         ? _c("icon", { staticClass: "flex-0", attrs: { size: 5 } }, [
             _c("path", {
               attrs: {
-                d:
-                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              }
-            })
+                d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+              },
+            }),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -410,12 +409,11 @@ var render = function() {
         ? _c("icon", { staticClass: "flex-0", attrs: { size: 5 } }, [
             _c("path", {
               attrs: {
-                d:
-                  "M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z"
-              }
-            })
+                d: "M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z",
+              },
+            }),
           ])
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -438,7 +436,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -454,26 +452,26 @@ var render = function() {
           [
             _c("crumbs", {
               staticClass: "py-4 font-serif uppercase",
-              attrs: { crumbs: _vm.crumbs }
+              attrs: { crumbs: _vm.crumbs },
             }),
             _vm._v(" "),
             _c(
               "add-deck",
               {
                 staticClass: "flex-initial ml-auto",
-                attrs: { name: "New deck" }
+                attrs: { name: "New deck" },
               },
               [
                 _c("span", { staticClass: "hidden sm:block" }, [
-                  _vm._v("New deck")
+                  _vm._v("New deck"),
                 ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "block sm:hidden" }, [_vm._v("+")])
+                _c("span", { staticClass: "block sm:hidden" }, [_vm._v("+")]),
               ]
-            )
+            ),
           ],
           1
-        )
+        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "container sm:px-4 sm:mx-auto" }, [
@@ -482,11 +480,11 @@ var render = function() {
           {
             staticClass: "main-body p-4 block sm:flex w-full",
             on: {
-              submit: function($event) {
+              submit: function ($event) {
                 $event.preventDefault()
                 return _vm.newSearch.apply(null, arguments)
-              }
-            }
+              },
+            },
           },
           [
             _c("div", { staticClass: "w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1" }, [
@@ -498,18 +496,18 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.params.class,
-                      expression: "params.class"
-                    }
+                      expression: "params.class",
+                    },
                   ],
                   staticClass:
                     "input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
                   on: {
-                    change: function($event) {
+                    change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
+                        .call($event.target.options, function (o) {
                           return o.selected
                         })
-                        .map(function(o) {
+                        .map(function (o) {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
@@ -520,22 +518,22 @@ var render = function() {
                           ? $$selectedVal
                           : $$selectedVal[0]
                       )
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Select class")
+                    _vm._v("Select class"),
                   ]),
                   _vm._v(" "),
-                  _vm._l(_vm.$settings.game.classes, function(c, k) {
+                  _vm._l(_vm.$settings.game.classes, function (c, k) {
                     return _c("option", { domProps: { value: k } }, [
-                      _vm._v(_vm._s(c))
+                      _vm._v(_vm._s(c)),
                     ])
-                  })
+                  }),
                 ],
                 2
-              )
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1" }, [
@@ -547,18 +545,18 @@ var render = function() {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.params.format,
-                      expression: "params.format"
-                    }
+                      expression: "params.format",
+                    },
                   ],
                   staticClass:
                     "input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
                   on: {
-                    change: function($event) {
+                    change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
+                        .call($event.target.options, function (o) {
                           return o.selected
                         })
-                        .map(function(o) {
+                        .map(function (o) {
                           var val = "_value" in o ? o._value : o.value
                           return val
                         })
@@ -569,23 +567,23 @@ var render = function() {
                           ? $$selectedVal
                           : $$selectedVal[0]
                       )
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "blitz" } }, [
-                    _vm._v("Blitz")
+                    _vm._v("Blitz"),
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "constructed" } }, [
-                    _vm._v("Constructed")
+                    _vm._v("Constructed"),
                   ]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "open" } }, [_vm._v("Open")])
+                  _c("option", { attrs: { value: "open" } }, [_vm._v("Open")]),
                 ]
-              )
+              ),
             ]),
             _vm._v(" "),
             _c(
@@ -594,11 +592,11 @@ var render = function() {
               [
                 _c("submit", {
                   staticClass: "w-full",
-                  attrs: { text: "Search" }
-                })
+                  attrs: { text: "Search" },
+                }),
               ],
               1
-            )
+            ),
           ]
         ),
         _vm._v(" "),
@@ -611,19 +609,19 @@ var render = function() {
                     "table",
                     {
                       staticClass:
-                        "w-full table-auto border-collapse bg-white dark:bg-gray-800"
+                        "w-full table-auto border-collapse bg-white dark:bg-gray-800",
                     },
                     [
                       _vm._m(0),
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.decks, function(deck, key) {
+                        _vm._l(_vm.decks, function (deck, key) {
                           return _c(
                             "tr",
                             {
                               staticClass:
-                                "odd:bg-gray-100 dark:odd:bg-gray-700 group hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200"
+                                "odd:bg-gray-100 dark:odd:bg-gray-700 group hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200",
                             },
                             [
                               _c(
@@ -636,9 +634,9 @@ var render = function() {
                                       attrs: {
                                         to: {
                                           name: "decks.build",
-                                          params: { deck: deck.slug }
-                                        }
-                                      }
+                                          params: { deck: deck.slug },
+                                        },
+                                      },
                                     },
                                     [
                                       deck.hero
@@ -647,8 +645,8 @@ var render = function() {
                                               src: _vm.squareThumbUrl(
                                                 deck.hero.image,
                                                 43
-                                              )
-                                            }
+                                              ),
+                                            },
                                           })
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -656,12 +654,12 @@ var render = function() {
                                         "span",
                                         {
                                           staticClass:
-                                            "block flex-grow px-4 py-2"
+                                            "block flex-grow px-4 py-2",
                                         },
                                         [_vm._v(_vm._s(deck.name))]
-                                      )
+                                      ),
                                     ]
-                                  )
+                                  ),
                                 ],
                                 1
                               ),
@@ -669,16 +667,16 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass: "p-2 px-4 hidden lg:table-cell"
+                                  staticClass: "p-2 px-4 hidden lg:table-cell",
                                 },
                                 [
                                   deck.label
                                     ? _c("deck-label", {
                                         staticClass:
                                           "text-xs rounded-full p-1 px-2",
-                                        attrs: { label: deck.label }
+                                        attrs: { label: deck.label },
                                       })
-                                    : _vm._e()
+                                    : _vm._e(),
                                 ],
                                 1
                               ),
@@ -695,13 +693,15 @@ var render = function() {
                                           attrs: {
                                             to: {
                                               name: "decks.build",
-                                              params: { deck: deck.parent.slug }
-                                            }
-                                          }
+                                              params: {
+                                                deck: deck.parent.slug,
+                                              },
+                                            },
+                                          },
                                         },
                                         [_vm._v(_vm._s(deck.parent.name))]
                                       )
-                                    : _vm._e()
+                                    : _vm._e(),
                                 ],
                                 1
                               ),
@@ -709,7 +709,7 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass: "p-2 px-4 hidden sm:table-cell"
+                                  staticClass: "p-2 px-4 hidden sm:table-cell",
                                 },
                                 [
                                   _vm._v(
@@ -720,14 +720,14 @@ var render = function() {
                                           ]
                                         : ""
                                     )
-                                  )
+                                  ),
                                 ]
                               ),
                               _vm._v(" "),
                               _c(
                                 "td",
                                 {
-                                  staticClass: "p-2 px-4 hidden md:table-cell"
+                                  staticClass: "p-2 px-4 hidden md:table-cell",
                                 },
                                 [_vm._v(_vm._s(deck.totalCards))]
                               ),
@@ -735,7 +735,7 @@ var render = function() {
                               _c(
                                 "td",
                                 {
-                                  staticClass: "p-2 px-4 hidden sm:table-cell"
+                                  staticClass: "p-2 px-4 hidden sm:table-cell",
                                 },
                                 [_vm._v(_vm._s(deck.updatedAt))]
                               ),
@@ -745,7 +745,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "flex space-x-4 justify-center items-center"
+                                      "flex space-x-4 justify-center items-center",
                                   },
                                   [
                                     _c("play-deck", { attrs: { deck: deck } }),
@@ -756,27 +756,25 @@ var render = function() {
                                         staticClass:
                                           "hover:text-gray-400 dark:hover:text-white",
                                         on: {
-                                          click: function($event) {
+                                          click: function ($event) {
                                             return _vm.copyDeck(deck)
-                                          }
-                                        }
+                                          },
+                                        },
                                       },
                                       [
                                         _c("icon", { attrs: { size: 6 } }, [
                                           _c("path", {
                                             attrs: {
-                                              d:
-                                                "M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"
-                                            }
+                                              d: "M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z",
+                                            },
                                           }),
                                           _vm._v(" "),
                                           _c("path", {
                                             attrs: {
-                                              d:
-                                                "M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"
-                                            }
-                                          })
-                                        ])
+                                              d: "M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z",
+                                            },
+                                          }),
+                                        ]),
                                       ],
                                       1
                                     ),
@@ -787,42 +785,41 @@ var render = function() {
                                         staticClass:
                                           "hover:text-gray-400 dark:hover:text-white",
                                         on: {
-                                          click: function($event) {
+                                          click: function ($event) {
                                             return _vm.removeDeck(deck, key)
-                                          }
-                                        }
+                                          },
+                                        },
                                       },
                                       [
                                         _c("icon", { attrs: { size: 6 } }, [
                                           _c("path", {
                                             attrs: {
                                               "fill-rule": "evenodd",
-                                              d:
-                                                "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
-                                              "clip-rule": "evenodd"
-                                            }
-                                          })
-                                        ])
+                                              d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
+                                              "clip-rule": "evenodd",
+                                            },
+                                          }),
+                                        ]),
                                       ],
                                       1
-                                    )
+                                    ),
                                   ],
                                   1
-                                )
-                              ])
+                                ),
+                              ]),
                             ]
                           )
                         }),
                         0
-                      )
+                      ),
                     ]
                   ),
                   _vm._v(" "),
                   _c("paginator", {
                     staticClass: "py-4",
                     attrs: { results: _vm.response },
-                    on: { "page-selected": _vm.setPage }
-                  })
+                    on: { "page-selected": _vm.setPage },
+                  }),
                 ],
                 1
               )
@@ -837,32 +834,32 @@ var render = function() {
                     { staticClass: "link", attrs: { to: "/login" } },
                     [_vm._v("register or login")]
                   ),
-                  _vm._v(".")
+                  _vm._v("."),
                 ],
                 1
-              )
-        ])
-      ])
+              ),
+        ]),
+      ]),
     ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "text-base" }, [
         _c("th", { staticClass: "p-2 px-4 font-serif uppercase text-left" }, [
-          _vm._v("Deck")
+          _vm._v("Deck"),
         ]),
         _vm._v(" "),
         _c(
           "th",
           {
             staticClass:
-              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell",
           },
           [_vm._v("Label")]
         ),
@@ -871,7 +868,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden lg:table-cell",
           },
           [_vm._v("Parent")]
         ),
@@ -880,7 +877,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell",
           },
           [_vm._v("Class")]
         ),
@@ -889,7 +886,7 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "p-2 px-4 font-serif uppercase text-left hidden md:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden md:table-cell",
           },
           [_vm._v("Cards")]
         ),
@@ -898,17 +895,17 @@ var staticRenderFns = [
           "th",
           {
             staticClass:
-              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell"
+              "p-2 px-4 font-serif uppercase text-left hidden sm:table-cell",
           },
           [_vm._v("Last updated")]
         ),
         _vm._v(" "),
         _c("th", { staticClass: "p-2 px-4 font-serif uppercase" }, [
-          _c("span", { staticClass: "hidden lg:block" }, [_vm._v("Actions")])
-        ])
-      ])
+          _c("span", { staticClass: "hidden lg:block" }, [_vm._v("Actions")]),
+        ]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -927,7 +924,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -936,11 +933,11 @@ var render = function() {
     {
       staticClass: "block text-right",
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.addDeck()
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -949,11 +946,11 @@ var render = function() {
           staticClass:
             "py-2 px-4 appearance-none rounded-lg p-2 button-primary cursor-pointer",
           class: { "button-disabled": !_vm.enabled },
-          attrs: { type: "submit", disabled: !_vm.enabled }
+          attrs: { type: "submit", disabled: !_vm.enabled },
         },
         [_vm._t("default")],
         2
-      )
+      ),
     ]
   )
 }

@@ -12,8 +12,8 @@
                 </div>
             </div>
         </div>
-        
-        <div class="bg-gray-200">
+
+        <div class="main-body">
             <div class="container sm:mx-auto p-4 py-8">
                 <ol v-if="events.length">
                     <event-item :event="event" v-for="event in events" :key="event.slug"/>
@@ -34,7 +34,7 @@
     import EventTypeIcon from './EventTypeIcon.vue';
     import EventItem from './EventItem.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
 
     export default {
         components: {

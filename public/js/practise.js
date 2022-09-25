@@ -58,9 +58,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Format__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Format */ "./resources/js/Practise/Format.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -153,7 +153,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -161,7 +161,7 @@ var render = function() {
     "div",
     {
       staticClass: "inline-block text-white rounded px-3 py-1 text-sm",
-      class: _vm.colour
+      class: _vm.colour,
     },
     [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
   )
@@ -184,7 +184,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -201,7 +201,7 @@ var render = function() {
             _c("p", { staticClass: "bg-white dark:bg-gray-800 p-4" }, [
               _vm._v(
                 "\n                    Each Limited Practise run will generate a number of packs, that can then be viewed\n                    and saved for future reference. This will allow you to test with and build decks\n                    based on the random nature of the booster packs, and even be able to practise\n                    over and over with especially bad Limited drafts.\n                "
-              )
+              ),
             ]),
             _vm._v(" "),
             _c(
@@ -216,10 +216,10 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "practise.setup",
-                        query: { format: "draft" }
+                        query: { format: "draft" },
                       },
-                      tag: "button"
-                    }
+                      tag: "button",
+                    },
                   },
                   [_vm._v("Draft practise")]
                 ),
@@ -233,11 +233,11 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "practise.setup",
-                        query: { format: "sealed" }
+                        query: { format: "sealed" },
                       },
                       disabled: !_vm.majestic,
-                      tag: "button"
-                    }
+                      tag: "button",
+                    },
                   },
                   [_vm._v("Sealed practise (Solo)")]
                 ),
@@ -251,14 +251,14 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "practise.setup",
-                        query: { format: "team-sealed" }
+                        query: { format: "team-sealed" },
                       },
                       disabled: !_vm.legendary,
-                      tag: "button"
-                    }
+                      tag: "button",
+                    },
                   },
                   [_vm._v("Sealed practise (Team)")]
-                )
+                ),
               ],
               1
             ),
@@ -266,24 +266,24 @@ var render = function() {
             _c("p", { staticClass: "p-4 italic" }, [
               _vm._v(
                 "\n                    Draft practise is open to all, whereas sealed practise is available to Majestic and Legendary supporters only.\n                "
-              )
-            ])
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _vm.practises.length
             ? _c("div", { staticClass: "w-1/2 pl-4" }, [
                 _c("h2", { staticClass: "font-serif uppercase text-xl mb-2" }, [
-                  _vm._v("Previous practise runs")
+                  _vm._v("Previous practise runs"),
                 ]),
                 _vm._v(" "),
                 _c(
                   "ul",
-                  _vm._l(_vm.practises, function(practise) {
+                  _vm._l(_vm.practises, function (practise) {
                     return _c(
                       "li",
                       {
                         staticClass:
-                          "flex odd:bg-white dark:odd:bg-gray-800 p-4"
+                          "flex odd:bg-white dark:odd:bg-gray-800 p-4",
                       },
                       [
                         _c(
@@ -297,9 +297,9 @@ var render = function() {
                                 attrs: {
                                   to: {
                                     name: "practise.view",
-                                    params: { practise: practise.slug }
-                                  }
-                                }
+                                    params: { practise: practise.slug },
+                                  },
+                                },
                               },
                               [_vm._v(_vm._s(_vm.when(practise.createdAt)))]
                             ),
@@ -307,7 +307,7 @@ var render = function() {
                               " (" +
                                 _vm._s(practise.set.name) +
                                 ")\n                        "
-                            )
+                            ),
                           ],
                           1
                         ),
@@ -316,19 +316,21 @@ var render = function() {
                           "div",
                           { staticClass: "w-1/5 text-right" },
                           [
-                            _c("format", { attrs: { format: practise.format } })
+                            _c("format", {
+                              attrs: { format: practise.format },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]
                     )
                   }),
                   0
-                )
+                ),
               ])
-            : _vm._e()
-        ])
-      ])
+            : _vm._e(),
+        ]),
+      ]),
     ],
     1
   )

@@ -26,12 +26,12 @@
 
 <script>
     import {mapActions, mapGetters} from 'vuex';
-    import AppFooter from "./Components/Layout/Footer";
+    import AppFooter from "./Components/Layout/Footer.vue";
     import CompleteProfile from './Identity/CompleteProfile.vue';
-    import HoverCard from "./DeckBuilder/HoverCard";
+    import HoverCard from "./DeckBuilder/HoverCard.vue";
     import Messages from './Components/Messages.vue';
     import Navigation from './Components/Navigation.vue';
-    import SearchHelp from "./CardDatabase/SearchHelp";
+    import SearchHelp from "./CardDatabase/SearchHelp.vue";
     import VersionHandler from './Components/VersionHandler.vue';
 
     export default {

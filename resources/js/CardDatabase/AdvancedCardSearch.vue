@@ -116,8 +116,8 @@
 
 <script>
 import _ from 'lodash';
-import Icon from '../Components/Icon';
-import Query from "../Utilities/Query";
+import Icon from '../Components/Icon.vue';
+import Query from "../Utilities/Query.js";
 
 export default {
     components: {Icon},

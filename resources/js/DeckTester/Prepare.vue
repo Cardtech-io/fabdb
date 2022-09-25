@@ -33,10 +33,10 @@
 
 <script>
     import _ from "underscore";
-    import Cards from "../DeckBuilder/Cards";
-    import Colour from "../DeckBuilder/Colour";
-    import DeckPreparer from "./DeckPreparer";
-    import Tester from "./Tester";
+    import Cards from "../DeckBuilder/Cards.js";
+    import Colour from "../DeckBuilder/Colour.vue";
+    import DeckPreparer from "./DeckPreparer.vue";
+    import Tester from "./Tester.js";
 
     export default {
         name: 'deck.prepare',

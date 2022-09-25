@@ -16,8 +16,8 @@
 </template>
 
 <script>
-    import Imagery from "../Utilities/Imagery";
-    import Strings from "../Utilities/Strings";
+    import Imagery from "../Utilities/Imagery.js";
+    import Strings from "../Utilities/Strings.js";
     import axios from "axios";
 
     export default {

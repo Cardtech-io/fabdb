@@ -38,8 +38,8 @@
     import axios from 'axios';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Cardable from './Cardable';
-    import CardImage from "./CardImage";
+    import Cardable from './Cardable.js';
+    import CardImage from "./CardImage.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
 
     export default {

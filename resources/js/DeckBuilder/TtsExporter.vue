@@ -48,12 +48,12 @@
 
 <script>
     import { mapActions } from 'vuex';
-    import Cardable from '../CardDatabase/Cardable';
-    import Deck from "../Decks/Deck";
-    import Strings from '../Utilities/Strings';
-    import Viewable from '../DeckBuilder/Viewable';
-    import ManagesDecks from "./ManagesDecks";
-    import Shareable from "../Components/Shareable";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Deck from "../Decks/Deck.js";
+    import Strings from '../Utilities/Strings.js';
+    import Viewable from '../DeckBuilder/Viewable.js';
+    import ManagesDecks from "./ManagesDecks.js";
+    import Shareable from "../Components/Shareable.js";
 
     export default {
         mixins: [Cardable, ManagesDecks, Shareable, Strings, Viewable],

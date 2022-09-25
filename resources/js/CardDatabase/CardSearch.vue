@@ -29,9 +29,9 @@
 
 <script>
     import _ from 'lodash';
-    import AdvancedCardSearch from "./AdvancedCardSearch";
-    import Icon from '../Components/Icon';
-    import Query from "../Utilities/Query";
+    import AdvancedCardSearch from "./AdvancedCardSearch.vue";
+    import Icon from '../Components/Icon.vue';
+    import Query from "../Utilities/Query.js";
 
     export default {
         props: {

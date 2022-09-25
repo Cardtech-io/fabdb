@@ -75,11 +75,11 @@
     import CardSearch from '../CardDatabase/CardSearch.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Icon from "../Components/Icon";
-    import Query from "../Utilities/Query";
+    import Icon from "../Components/Icon.vue";
+    import Query from "../Utilities/Query.js";
     import Paginator from '../Components/Paginator.vue';
-    import Printing from "./Printing";
-    import Sorter from "../Components/Sorter";
+    import Printing from "./Printing.vue";
+    import Sorter from "../Components/Sorter.vue";
 
     export default {
         components: {

@@ -224,7 +224,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -239,7 +239,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600"
+            "bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600",
         },
         [
           _c(
@@ -251,13 +251,13 @@ var render = function() {
                   useCase: "browse",
                   page: _vm.page,
                   refreshable: true,
-                  external: { per_page: _vm.per_page, order: _vm.order }
+                  external: { per_page: _vm.per_page, order: _vm.order },
                 },
-                on: { "search-completed": _vm.refreshResults }
-              })
+                on: { "search-completed": _vm.refreshResults },
+              }),
             ],
             1
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -268,19 +268,19 @@ var render = function() {
                 _c(
                   "ul",
                   { staticClass: "flow-root -mx-2 pt-16" },
-                  _vm._l(30, function(n) {
+                  _vm._l(30, function (n) {
                     return _c(
                       "li",
                       {
                         staticClass:
-                          "float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6"
+                          "float-left p-2 w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/6",
                       },
                       [_c("card-loader")],
                       1
                     )
                   }),
                   0
-                )
+                ),
               ])
             : _c("div", [
                 _vm.results && _vm.results.data
@@ -297,24 +297,24 @@ var render = function() {
                                 [
                                   _c("paginator", {
                                     attrs: { results: _vm.results },
-                                    on: { "page-selected": _vm.updatePage }
-                                  })
+                                    on: { "page-selected": _vm.updatePage },
+                                  }),
                                 ],
                                 1
                               ),
                               _vm._v(" "),
                               _c("ordering", {
-                                on: { "order-changed": _vm.updateOrder }
-                              })
+                                on: { "order-changed": _vm.updateOrder },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c(
                           "ul",
                           { staticClass: "flow-root -mx-2" },
-                          _vm._l(_vm.results.data, function(card) {
+                          _vm._l(_vm.results.data, function (card) {
                             return _c("card-item", {
                               key: card.identifier,
                               staticClass:
@@ -322,8 +322,8 @@ var render = function() {
                               attrs: {
                                 card: card,
                                 view: _vm.view,
-                                path: "/cards"
-                              }
+                                path: "/cards",
+                              },
                             })
                           }),
                           1
@@ -335,17 +335,17 @@ var render = function() {
                           [
                             _c("paginator", {
                               attrs: { results: _vm.results },
-                              on: { "page-selected": _vm.updatePage }
-                            })
+                              on: { "page-selected": _vm.updatePage },
+                            }),
                           ],
                           1
-                        )
-                      ])
+                        ),
+                      ]),
                     ])
-                  : _vm._e()
-              ])
-        ])
-      ])
+                  : _vm._e(),
+              ]),
+        ]),
+      ]),
     ],
     1
   )
@@ -368,7 +368,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -380,8 +380,8 @@ var render = function() {
       alt: "Loader image",
       title: "Loader image",
       width: _vm.requiredWidth,
-      height: _vm.requiredHeight
-    }
+      height: _vm.requiredHeight,
+    },
   })
 }
 var staticRenderFns = []
@@ -402,7 +402,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -415,13 +415,13 @@ var render = function() {
         class: {
           "bg-white dark:bg-gray-600": _vm.isOpen,
           "bg-gray-200 dark:bg-gray-800": !_vm.isOpen,
-          "z-75": _vm.isOpen
+          "z-75": _vm.isOpen,
         },
         on: {
-          click: function($event) {
+          click: function ($event) {
             _vm.isOpen = !_vm.isOpen
-          }
-        }
+          },
+        },
       },
       [
         _c(
@@ -432,8 +432,8 @@ var render = function() {
               xmlns: "http://www.w3.org/2000/svg",
               fill: "none",
               viewBox: "0 0 24 24",
-              stroke: "currentColor"
-            }
+              stroke: "currentColor",
+            },
           },
           [
             _c("path", {
@@ -441,11 +441,11 @@ var render = function() {
                 "stroke-linecap": "round",
                 "stroke-linejoin": "round",
                 "stroke-width": "2",
-                d: "M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
-              }
-            })
+                d: "M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12",
+              },
+            }),
           ]
-        )
+        ),
       ]
     ),
     _vm._v(" "),
@@ -455,10 +455,10 @@ var render = function() {
             "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
           attrs: { type: "button" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               _vm.isOpen = false
-            }
-          }
+            },
+          },
         })
       : _vm._e(),
     _vm._v(" "),
@@ -468,9 +468,9 @@ var render = function() {
           {
             staticClass:
               "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg",
-            staticStyle: { width: "150px" }
+            staticStyle: { width: "150px" },
           },
-          _vm._l(_vm.options, function(order, option) {
+          _vm._l(_vm.options, function (order, option) {
             return _c(
               "button",
               {
@@ -481,17 +481,17 @@ var render = function() {
                     ? "bg-blue-400 text-white"
                     : "hover:bg-blue-400 hover:text-white",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.select(option)
-                  }
-                }
+                  },
+                },
               },
               [_c("span", [_vm._v(_vm._s(order.name))])]
             )
           }),
           0
         )
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []

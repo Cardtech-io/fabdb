@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import Interactive from "./Interactive";
+    import Interactive from "./Interactive.js";
 
     export default {
         props: {

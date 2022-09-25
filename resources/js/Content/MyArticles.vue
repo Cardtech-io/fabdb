@@ -54,7 +54,7 @@
 <script>
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
+    import LazyLoader from '../Components/LazyLoader.js';
     import Paginator from '../Components/Paginator.vue';
     import { mapGetters } from 'vuex';
 

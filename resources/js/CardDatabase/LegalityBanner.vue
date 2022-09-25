@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Legality from "./Legality/Legality";
+import Legality from "./Legality/Legality.vue";
 
 export default {
     props: {

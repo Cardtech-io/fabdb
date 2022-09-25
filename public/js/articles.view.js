@@ -81,9 +81,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 /* harmony import */ var _Tag__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Tag */ "./resources/js/Content/Tag.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -155,7 +155,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Tag: _Tag__WEBPACK_IMPORTED_MODULE_12__["default"]
   },
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_4__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_11__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_7__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     crumbs: function crumbs() {
       return [{
         text: 'Home',
@@ -231,7 +231,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -255,7 +255,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -266,9 +266,9 @@ var render = function() {
       attrs: {
         to: {
           name: "articles.tag",
-          params: { tag: _vm.kebabCase(_vm.ucfirst(_vm.tag.trim())) }
-        }
-      }
+          params: { tag: _vm.kebabCase(_vm.ucfirst(_vm.tag.trim())) },
+        },
+      },
     },
     [_vm._v("\n    " + _vm._s(_vm.ucfirst(_vm.tag.trim())) + "\n")]
   )
@@ -291,7 +291,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -311,19 +311,19 @@ var render = function() {
               "div",
               [
                 _c("h1", { staticClass: "text-4xl uppercase font-serif" }, [
-                  _vm._v(_vm._s(_vm.article.title))
+                  _vm._v(_vm._s(_vm.article.title)),
                 ]),
                 _vm._v(" "),
                 _vm.article.tags
                   ? _c(
                       "div",
                       { staticClass: "mb-4" },
-                      _vm._l(_vm.article.tags.split(","), function(tag) {
+                      _vm._l(_vm.article.tags.split(","), function (tag) {
                         return _vm.article.tags
                           ? _c("tag", {
                               key: tag,
                               staticClass: "bg-gray-400 text-gray-600 text-sm",
-                              attrs: { tag: tag }
+                              attrs: { tag: tag },
                             })
                           : _vm._e()
                       }),
@@ -344,12 +344,12 @@ var render = function() {
                           attrs: {
                             to: {
                               name: "articles.author",
-                              params: { author: _vm.article.author.slug }
-                            }
-                          }
+                              params: { author: _vm.article.author.slug },
+                            },
+                          },
                         },
                         [_vm._v(_vm._s(_vm.article.author.name))]
-                      )
+                      ),
                     ],
                     1
                   ),
@@ -357,13 +357,13 @@ var render = function() {
                   _c("span", { staticClass: "text-gray-500" }, [_vm._v("on")]),
                   _vm._v(" "),
                   _c("span", { staticClass: "text-gray-600" }, [
-                    _vm._v(_vm._s(_vm.article.published))
-                  ])
+                    _vm._v(_vm._s(_vm.article.published)),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("markdown", {
-                  attrs: { content: _vm.parseMarkdown(_vm.article.content) }
-                })
+                  attrs: { content: _vm.parseMarkdown(_vm.article.content) },
+                }),
               ],
               1
             ),
@@ -374,7 +374,7 @@ var render = function() {
                     "div",
                     {
                       staticClass:
-                        "float-left rounded-r-full bg-gray-200 mr-4 mb-4"
+                        "float-left rounded-r-full bg-gray-200 mr-4 mb-4",
                     },
                     [
                       _c(
@@ -383,17 +383,17 @@ var render = function() {
                           attrs: {
                             to: {
                               name: "articles.author",
-                              params: { author: _vm.article.author.slug }
-                            }
-                          }
+                              params: { author: _vm.article.author.slug },
+                            },
+                          },
                         },
                         [
                           _c("avatar", {
-                            attrs: { user: _vm.article.author, width: 150 }
-                          })
+                            attrs: { user: _vm.article.author, width: 150 },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ],
                     1
                   ),
@@ -412,19 +412,19 @@ var render = function() {
                               attrs: {
                                 to: {
                                   name: "articles.author",
-                                  params: { author: _vm.article.author.slug }
-                                }
-                              }
+                                  params: { author: _vm.article.author.slug },
+                                },
+                              },
                             },
                             [_vm._v(_vm._s(_vm.article.author.name))]
-                          )
+                          ),
                         ],
                         1
                       ),
                       _vm._v(" "),
-                      _c("div", [_vm._v(_vm._s(_vm.article.author.blurb))])
+                      _c("div", [_vm._v(_vm._s(_vm.article.author.blurb))]),
                     ]
-                  )
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -442,7 +442,7 @@ var render = function() {
                           { staticClass: "link", attrs: { to: _vm.prev.link } },
                           [_vm._v("Previously: " + _vm._s(_vm.prev.title))]
                         )
-                      : _vm._e()
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -457,10 +457,10 @@ var render = function() {
                           { staticClass: "link", attrs: { to: _vm.next.link } },
                           [_vm._v("Next up: " + _vm._s(_vm.next.title))]
                         )
-                      : _vm._e()
+                      : _vm._e(),
                   ],
                   1
-                )
+                ),
               ]
             ),
             _vm._v(" "),
@@ -469,14 +469,14 @@ var render = function() {
               { staticClass: "border-t border-gray-400" },
               [
                 _c("discussion", {
-                  attrs: { type: "article", id: _vm.article.slug }
-                })
+                  attrs: { type: "article", id: _vm.article.slug },
+                }),
               ],
               1
-            )
+            ),
           ]
-        )
-      ])
+        ),
+      ]),
     ],
     1
   )
@@ -571,13 +571,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
-var Article =
-/*#__PURE__*/
-function () {
+var Article = /*#__PURE__*/function () {
   function Article(fields) {
     _classCallCheck(this, Article);
 
@@ -585,11 +583,6 @@ function () {
   }
 
   _createClass(Article, [{
-    key: "valid",
-    value: function valid() {
-      return !!this.fields;
-    }
-  }, {
     key: "author",
     get: function get() {
       return this.fields.author;
@@ -638,6 +631,11 @@ function () {
     key: "link",
     get: function get() {
       return '/articles/' + _Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__["default"].methods.kebabCase(this.title) + '/' + this.slug;
+    }
+  }, {
+    key: "valid",
+    value: function valid() {
+      return !!this.fields;
     }
   }]);
 

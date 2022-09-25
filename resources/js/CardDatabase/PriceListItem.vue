@@ -20,9 +20,9 @@
 <script>
     import Cardable from './Cardable.js';
     import PriceMovement from '../Components/PriceMovement.vue';
-    import RaritySymbol from "./RaritySymbol";
-    import SkuFinish from "./SkuFinish";
-    import Strings from '../Utilities/Strings';
+    import RaritySymbol from "./RaritySymbol.vue";
+    import SkuFinish from "./SkuFinish.vue";
+    import Strings from '../Utilities/Strings.js';
 
     export default {
         mixins: [Cardable, Strings],

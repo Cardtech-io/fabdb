@@ -2,7 +2,7 @@
     <form @submit.prevent="checkEmail()">
         <div class="flex mb-4">
             <input type="email" class="input focus:bg-white focus:border-gray-500 w-3/4 p-4 rounded-l-lg" placeholder="Email address" v-model="email" required="required">
-            <submit text="Next" class="w-1/4 p-4 rounded-l-none rounded-r-lg"></submit>
+            <submit text="Next" class="w-1/4 p-4 rounded-l-none rounded-r-lg"/>
         </div>
 
         <p>
@@ -15,7 +15,7 @@
 <script>
     import {mapActions} from "vuex";
     import axios from "axios";
-    import Submit from "../../Components/Form/Submit";
+    import Submit from "../../Components/Form/Submit.vue";
 
     export default {
         components: {

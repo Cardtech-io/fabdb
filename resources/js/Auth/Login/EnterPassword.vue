@@ -15,9 +15,9 @@
 <script>
     import axios from "axios";
     import {mapActions} from "vuex";
-    import Submit from "../../Components/Form/Submit";
-    import Tracker from "../../Components/Tracker";
-    import SuccessfulAuth from "./SuccessfulAuth";
+    import Submit from "../../Components/Form/Submit.vue";
+    import Tracker from "../../Components/Tracker.js";
+    import SuccessfulAuth from "./SuccessfulAuth.js";
 
     export default {
         props: {

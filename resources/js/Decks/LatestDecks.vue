@@ -8,10 +8,9 @@
 
 <script>
     import axios from "axios";
-    import DeckItem from "./DeckItem";
-    import LazyLoader from "../Components/LazyLoader";
-    import Models from "../Utilities/Models";
-    import Deck from "./Deck";
+    import DeckItem from "./DeckItem.vue";
+    import Models from "../Utilities/Models.js";
+    import Deck from "./Deck.js";
 
     export default {
         components: {DeckItem},

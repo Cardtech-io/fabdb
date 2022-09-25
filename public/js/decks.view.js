@@ -278,10 +278,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../Components/Shareable */ "./resources/js/Components/Shareable.js");
 /* harmony import */ var _Components_Tabs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../Components/Tabs */ "./resources/js/Components/Tabs.vue");
 /* harmony import */ var _Components_TabItem__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../Components/TabItem */ "./resources/js/Components/TabItem.vue");
+<<<<<<< HEAD
 /* harmony import */ var _Metrics_MetricsPerformance__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../Metrics/MetricsPerformance */ "./resources/js/Decks/Metrics/MetricsPerformance.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+=======
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+>>>>>>> master
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -455,7 +459,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Tabs: _Components_Tabs__WEBPACK_IMPORTED_MODULE_23__["default"],
     Votes: _Voting_Votes_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     cards: function cards() {
       return this.deck.cards || [];
     },
@@ -490,7 +494,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       tab: 'composition'
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), {}, {
     copyDeck: function copyDeck() {
       var _this = this;
 
@@ -585,7 +589,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -596,7 +600,7 @@ var render = function() {
       _vm.card.stats.resource || !_vm.collapse
         ? _c("colour", {
             staticClass: "mr-2",
-            attrs: { resource: _vm.card.stats.resource }
+            attrs: { resource: _vm.card.stats.resource },
           })
         : _vm._e(),
       _vm._v(" "),
@@ -608,23 +612,23 @@ var render = function() {
               name: "preview-card",
               rawName: "v-preview-card",
               value: { stack: [_vm.card], index: 0 },
-              expression: "{stack: [card], index: 0}"
+              expression: "{stack: [card], index: 0}",
             },
             {
               name: "hover-card",
               rawName: "v-hover-card",
               value: _vm.card,
-              expression: "card"
-            }
+              expression: "card",
+            },
           ],
-          staticClass: "cursor-help help-underline"
+          staticClass: "cursor-help help-underline",
         },
         [_vm._v(_vm._s(_vm.card.name))]
       ),
       _vm._v(" "),
       _vm.total()
         ? _c("span", { staticClass: "ml-1" }, [
-            _vm._v("(" + _vm._s(_vm.total()) + ")")
+            _vm._v("(" + _vm._s(_vm.total()) + ")"),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -633,31 +637,30 @@ var render = function() {
             "div",
             {
               staticClass: "flex items-center ml-auto",
-              attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
+              attrs: { title: _vm.card.sideboardTotal + " in sideboard" },
             },
             [
               _c("icon", { attrs: { size: 4 } }, [
                 _c("path", {
-                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" },
                 }),
                 _vm._v(" "),
                 _c("path", {
                   attrs: {
                     "fill-rule": "evenodd",
-                    d:
-                      "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                    "clip-rule": "evenodd"
-                  }
-                })
+                    d: "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                    "clip-rule": "evenodd",
+                  },
+                }),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-              ])
+                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")"),
+              ]),
             ],
             1
           )
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -732,34 +735,34 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h3", { staticClass: "py-2 px-4 font-serif uppercase text-2xl" }, [
-      _vm._v(_vm._s(_vm.heading) + " (" + _vm._s(_vm.cards.total()) + ")")
+      _vm._v(_vm._s(_vm.heading) + " (" + _vm._s(_vm.cards.total()) + ")"),
     ]),
     _vm._v(" "),
     _c(
       "ol",
-      _vm._l(_vm.cards, function(card, index) {
+      _vm._l(_vm.cards, function (card, index) {
         return _c(
           "li",
           {
             staticClass:
-              "p-2 pl-4 odd:bg-gray-100 even:bg-gray-200 dark:odd:bg-gray-700 dark:even:bg-gray-600"
+              "p-2 pl-4 odd:bg-gray-100 even:bg-gray-200 dark:odd:bg-gray-700 dark:even:bg-gray-600",
           },
           [
             _c("deck-card", {
-              attrs: { card: card, collapse: true, "use-router": false }
-            })
+              attrs: { card: card, collapse: true, "use-router": false },
+            }),
           ],
           1
         )
       }),
       0
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -780,7 +783,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -810,7 +813,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -823,8 +826,8 @@ var render = function() {
       frameborder: "0",
       allow:
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-      allowfullscreen: ""
-    }
+      allowfullscreen: "",
+    },
   })
 }
 var staticRenderFns = []
@@ -845,7 +848,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -855,7 +858,7 @@ var render = function() {
           "div",
           [
             _c("header-title", {
-              attrs: { title: _vm.deck.name + " (" + _vm.deck.hero.name + ")" }
+              attrs: { title: _vm.deck.name + " (" + _vm.deck.hero.name + ")" },
             }),
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
@@ -874,6 +877,7 @@ var render = function() {
                           _vm._s(_vm.deck.cards.total()) +
                           " Cards in deck  \n                    "
                       ),
+<<<<<<< HEAD
                       _c("span", { staticClass: "hidden md:inline" }, [
                         _vm._v(
                           "\n                        (\n                        "
@@ -927,6 +931,56 @@ var render = function() {
                   )
                 ]
               )
+=======
+                      _c("span", {
+                        staticClass: "inline-block rounded-lg h-2 w-2",
+                        class: _vm.resourceColour(3),
+                      }),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.deck.cards.colouredCount("blue")) +
+                          "  \n                        "
+                      ),
+                      _c("span", {
+                        staticClass: "inline-block rounded-lg h-2 w-2",
+                        class: _vm.resourceColour(2),
+                      }),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.deck.cards.colouredCount("yellow")) +
+                          "  \n                        "
+                      ),
+                      _c("span", {
+                        staticClass: "inline-block rounded-lg h-2 w-2",
+                        class: _vm.resourceColour(1),
+                      }),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.deck.cards.colouredCount("red")) +
+                          "\n                        )\n                    "
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "text-right mt-2" },
+                  [
+                    _c("votes", {
+                      attrs: {
+                        size: 5,
+                        total: _vm.deck.fields.totalVotes,
+                        voted: _vm.deck.fields.myVote,
+                        voteable: "deck",
+                        foreign: _vm.deck.slug,
+                      },
+                    }),
+                  ],
+                  1
+                ),
+              ]),
+>>>>>>> master
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "main-body" }, [
@@ -1021,8 +1075,13 @@ var render = function() {
                       _vm.deck.label
                         ? _c("deck-label", {
                             staticClass:
+<<<<<<< HEAD
                               "block w-full py-2 text-center rounded-lg",
                             attrs: { label: _vm.deck.label }
+=======
+                              "block w-full py-2 text-center rounded-lg mt-4",
+                            attrs: { label: _vm.deck.label },
+>>>>>>> master
                           })
                         : _vm._e(),
                       _vm._v(" "),
@@ -1030,14 +1089,18 @@ var render = function() {
                         "div",
                         {
                           staticClass:
+<<<<<<< HEAD
                             "rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden"
+=======
+                            "mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden",
+>>>>>>> master
                         },
                         [
                           _c(
                             "h3",
                             {
                               staticClass:
-                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4"
+                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4",
                             },
                             [_vm._v("Basic stats")]
                           ),
@@ -1053,7 +1116,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.deck.other.attackActions().total()
                                       )
-                                  )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("li", { staticClass: "block py-1 w-full" }, [
@@ -1062,7 +1125,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.deck.other.attackReactions().total()
                                       )
-                                  )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("li", { staticClass: "block py-1 w-full" }, [
@@ -1073,8 +1136,8 @@ var render = function() {
                                           .defenseReactions()
                                           .total()
                                       )
-                                  )
-                                ])
+                                  ),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("deck-curves", {
@@ -1083,8 +1146,8 @@ var render = function() {
                                 attrs: {
                                   cards: _vm.deck.other.withCost(),
                                   stat: "cost",
-                                  strategy: "total"
-                                }
+                                  strategy: "total",
+                                },
                               }),
                               _vm._v(" "),
                               _c("deck-curves", {
@@ -1092,14 +1155,14 @@ var render = function() {
                                 attrs: {
                                   cards: _vm.deck.other.withResource(),
                                   stat: "resource",
-                                  strategy: "total"
-                                }
-                              })
+                                  strategy: "total",
+                                },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]
-                      )
+                      ),
                     ],
                     1
                   ),
@@ -1110,6 +1173,173 @@ var render = function() {
                     [
                       _c(
                         "tabs",
+<<<<<<< HEAD
+=======
+                        {
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "right",
+                                fn: function () {
+                                  return [
+                                    _c(
+                                      "ul",
+                                      {
+                                        staticClass:
+                                          "flex items-center text-sm space-x-1 md:space-x-2",
+                                      },
+                                      [
+                                        _c(
+                                          "li",
+                                          { staticClass: "pl-1 md:mb-1" },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "flex items-center w-full sm:w-auto button-primary rounded-full px-2 py-1",
+                                                attrs: {
+                                                  href: _vm.buyLink(_vm.deck),
+                                                  target: "_blank",
+                                                  title: "Buy from TCG Player",
+                                                },
+                                              },
+                                              [
+                                                _c(
+                                                  "icon",
+                                                  { attrs: { size: 4 } },
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d: "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z",
+                                                      },
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("path", {
+                                                      attrs: {
+                                                        "fill-rule": "evenodd",
+                                                        d: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+                                                        "clip-rule": "evenodd",
+                                                      },
+                                                    }),
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "ml-1 hidden sm:inline",
+                                                  },
+                                                  [_vm._v("Buy")]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("li", { staticClass: "md:mb-1" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "sm:flex items-center w-full button-primary rounded-full px-2 py-1",
+                                              attrs: {
+                                                title: "Copy deck to my decks",
+                                              },
+                                              on: { click: _vm.copyDeck },
+                                            },
+                                            [
+                                              _c(
+                                                "icon",
+                                                { attrs: { size: 4 } },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "ml-2 hidden sm:block",
+                                                },
+                                                [_vm._v("Copy to my decks")]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("li", { staticClass: "md:mb-1" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "sm:flex items-center w-full button-primary rounded-full px-2 py-1",
+                                              attrs: {
+                                                title: "Copy deck to clipboard",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  _vm.copyToClipboard(
+                                                    _vm.shareDeckViaText(
+                                                      _vm.deck
+                                                    ),
+                                                    "Deck build copied to clipboard."
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "icon",
+                                                { attrs: { size: 4 } },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z",
+                                                    },
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "ml-1 hidden sm:block",
+                                                },
+                                                [_vm._v("Copy to clipboard")]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]),
+                                      ]
+                                    ),
+                                  ]
+                                },
+                                proxy: true,
+                              },
+                            ],
+                            null,
+                            false,
+                            3609526426
+                          ),
+                        },
+>>>>>>> master
                         [
                           _c("tab-item", { attrs: { name: "Deck" } }, [
                             _vm.deck.notes || _vm.deck.videoUrl
@@ -1118,7 +1348,7 @@ var render = function() {
                                     "div",
                                     {
                                       staticClass:
-                                        "w-full md:w-2/3 md:pl-4 md:pr-8"
+                                        "w-full md:w-2/3 md:pl-4 md:pr-8",
                                     },
                                     [
                                       _vm.deck.videoUrl
@@ -1128,9 +1358,9 @@ var render = function() {
                                             [
                                               _c("deck-video", {
                                                 attrs: {
-                                                  url: _vm.deck.videoUrl
-                                                }
-                                              })
+                                                  url: _vm.deck.videoUrl,
+                                                },
+                                              }),
                                             ],
                                             1
                                           )
@@ -1147,8 +1377,8 @@ var render = function() {
                                                     ""
                                                   )
                                                 )
-                                              )
-                                            }
+                                              ),
+                                            },
                                           })
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -1156,19 +1386,19 @@ var render = function() {
                                         "div",
                                         {
                                           staticClass:
-                                            "border-t border-gray-400 mt-4"
+                                            "border-t border-gray-400 mt-4",
                                         },
                                         [
                                           _c("discussion", {
                                             staticClass: "pb-8",
                                             attrs: {
                                               type: "deck",
-                                              id: _vm.deck.slug
-                                            }
-                                          })
+                                              id: _vm.deck.slug,
+                                            },
+                                          }),
                                         ],
                                         1
-                                      )
+                                      ),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -1181,8 +1411,8 @@ var render = function() {
                                             staticClass: "mb-8",
                                             attrs: {
                                               cards: _vm.deck.weapons,
-                                              heading: "Weapons"
-                                            }
+                                              heading: "Weapons",
+                                            },
                                           })
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -1191,8 +1421,8 @@ var render = function() {
                                             staticClass: "mb-8",
                                             attrs: {
                                               cards: _vm.deck.equipment,
-                                              heading: "Equipment"
-                                            }
+                                              heading: "Equipment",
+                                            },
                                           })
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -1200,20 +1430,20 @@ var render = function() {
                                         ? _c("cards", {
                                             attrs: {
                                               cards: _vm.deck.other,
-                                              heading: "Main deck"
-                                            }
+                                              heading: "Main deck",
+                                            },
                                           })
-                                        : _vm._e()
+                                        : _vm._e(),
                                     ],
                                     1
-                                  )
+                                  ),
                                 ])
                               : _c("div", { staticClass: "md:flex" }, [
                                   _c(
                                     "div",
                                     {
                                       staticClass: "w-full md:w-1/3",
-                                      class: { "pr-4": !_vm.deck.notes }
+                                      class: { "pr-4": !_vm.deck.notes },
                                     },
                                     [
                                       _vm.deck.weapons.total()
@@ -1221,8 +1451,8 @@ var render = function() {
                                             staticClass: "mb-8",
                                             attrs: {
                                               cards: _vm.deck.weapons,
-                                              heading: "Weapons"
-                                            }
+                                              heading: "Weapons",
+                                            },
                                           })
                                         : _vm._e(),
                                       _vm._v(" "),
@@ -1231,10 +1461,10 @@ var render = function() {
                                             staticClass: "mb-8",
                                             attrs: {
                                               cards: _vm.deck.equipment,
-                                              heading: "Equipment"
-                                            }
+                                              heading: "Equipment",
+                                            },
                                           })
-                                        : _vm._e()
+                                        : _vm._e(),
                                     ],
                                     1
                                   ),
@@ -1247,14 +1477,14 @@ var render = function() {
                                         ? _c("cards", {
                                             attrs: {
                                               cards: _vm.deck.other,
-                                              heading: "Main deck"
-                                            }
+                                              heading: "Main deck",
+                                            },
                                           })
-                                        : _vm._e()
+                                        : _vm._e(),
                                     ],
                                     1
-                                  )
-                                ])
+                                  ),
+                                ]),
                           ]),
                           _vm._v(" "),
                           _c(
@@ -1272,16 +1502,18 @@ var render = function() {
                             "tab-item",
                             { attrs: { name: "Rulings" } },
                             [
-                              _c("rulings", { attrs: { rulings: _vm.rulings } })
+                              _c("rulings", {
+                                attrs: { rulings: _vm.rulings },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ],
                         1
-                      )
+                      ),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 !_vm.deck.notes
@@ -1291,14 +1523,14 @@ var render = function() {
                       [
                         _c("discussion", {
                           staticClass: "pb-8",
-                          attrs: { type: "deck", id: _vm.deck.slug }
-                        })
+                          attrs: { type: "deck", id: _vm.deck.slug },
+                        }),
                       ],
                       1
                     )
-                  : _vm._e()
-              ])
-            ])
+                  : _vm._e(),
+              ]),
+            ]),
           ],
           1
         )
@@ -1309,14 +1541,14 @@ var render = function() {
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(0),
           ],
           1
-        )
+        ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1324,10 +1556,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
         _vm._v(
           "\n                This deck is not yet ready for viewing or sharing, possibly because it's missing some required configuration.\n            "
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 

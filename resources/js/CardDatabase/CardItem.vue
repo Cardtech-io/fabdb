@@ -35,10 +35,10 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import CardImage from './CardImage';
-    import CardLegality from './CardLegality';
-    import Icon from "../Components/Icon";
-    import RarityText from "./RarityText";
+    import CardImage from './CardImage.vue';
+    import CardLegality from './CardLegality.vue';
+    import Icon from "../Components/Icon.vue";
+    import RarityText from "./RarityText.vue";
 
     export default {
         components: {CardImage, CardLegality, Icon, RarityText},

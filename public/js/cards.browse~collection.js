@@ -14,9 +14,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdvancedCardSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedCardSearch */ "./resources/js/CardDatabase/AdvancedCardSearch.vue");
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Utilities_Query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Query */ "./resources/js/Utilities/Query.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -78,11 +78,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mixins: [_Utilities_Query__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
-    var base = _objectSpread({}, this.external, {
+    var base = _objectSpread(_objectSpread({}, this.external), {}, {
       keywords: ''
     });
 
-    var params = _objectSpread({}, base, {}, this.fromQuery(this.exceptParams('per_page', 'page')));
+    var params = _objectSpread(_objectSpread({}, base), this.fromQuery(this.exceptParams('per_page', 'page')));
 
     return {
       params: params,
@@ -120,7 +120,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     search: function search() {
       var _this = this;
 
-      var params = this.combineParams(_objectSpread({}, this.params, {
+      var params = this.combineParams(_objectSpread(_objectSpread({}, this.params), {}, {
         'use-case': this.useCase
       }, this.$route.query));
       var path = this.useCase === 'collection' ? 'collection' : 'cards';
@@ -263,7 +263,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -272,11 +272,11 @@ var render = function() {
       "form",
       {
         on: {
-          submit: function($event) {
+          submit: function ($event) {
             $event.preventDefault()
             return _vm.newSearch.apply(null, arguments)
-          }
-        }
+          },
+        },
       },
       [
         _c("div", { staticClass: "flex w-full px-4 md:px-0" }, [
@@ -284,7 +284,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-3/4 relative pr-1 flex bg-gray-200 dark:bg-gray-900 focus:bg-gray-700 focus:border-gray-500 rounded-lg mr-2 items-center"
+                "w-3/4 relative pr-1 flex bg-gray-200 dark:bg-gray-900 focus:bg-gray-700 focus:border-gray-500 rounded-lg mr-2 items-center",
             },
             [
               _c(
@@ -294,17 +294,17 @@ var render = function() {
                     "flex-initial ml-2 bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       $event.preventDefault()
                       return _vm.$modal.show("search-help")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("span", { staticClass: "hidden sm:inline" }, [
-                    _vm._v("SYNTAX")
+                    _vm._v("SYNTAX"),
                   ]),
-                  _vm._v(" HELP\n                ")
+                  _vm._v(" HELP\n                "),
                 ]
               ),
               _vm._v(" "),
@@ -315,24 +315,23 @@ var render = function() {
                       staticClass: "flex-initial ml-1 text-red-500",
                       attrs: { type: "button" },
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           $event.preventDefault()
                           _vm.params.keywords = ""
                           _vm.newSearch()
-                        }
-                      }
+                        },
+                      },
                     },
                     [
                       _c("icon", { attrs: { size: 6 } }, [
                         _c("path", {
                           attrs: {
                             "fill-rule": "evenodd",
-                            d:
-                              "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
-                            "clip-rule": "evenodd"
-                          }
-                        })
-                      ])
+                            d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+                            "clip-rule": "evenodd",
+                          },
+                        }),
+                      ]),
                     ],
                     1
                   )
@@ -344,8 +343,8 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.params.keywords,
-                    expression: "params.keywords"
-                  }
+                    expression: "params.keywords",
+                  },
                 ],
                 staticClass:
                   "flex-1 bg-transparent outline-none py-2 dark:text-gray-300",
@@ -353,13 +352,13 @@ var render = function() {
                 attrs: { type: "text", placeholder: "Search..." },
                 domProps: { value: _vm.params.keywords },
                 on: {
-                  input: function($event) {
+                  input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
                     _vm.$set(_vm.params, "keywords", $event.target.value)
-                  }
-                }
+                  },
+                },
               }),
               _vm._v(" "),
               _c(
@@ -369,37 +368,36 @@ var render = function() {
                     "absolute right-0 text-black dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-100 mr-1",
                   attrs: { type: "button" },
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       $event.preventDefault()
                       return _vm.showAdvancedSearch.apply(null, arguments)
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("icon", { attrs: { size: 7 } }, [
                     _c("path", {
                       attrs: {
                         "fill-rule": "evenodd",
-                        d:
-                          "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
-                        "clip-rule": "evenodd"
-                      }
-                    })
-                  ])
+                        d: "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
+                        "clip-rule": "evenodd",
+                      },
+                    }),
+                  ]),
                 ],
                 1
-              )
+              ),
             ]
           ),
           _vm._v(" "),
-          _vm._m(0)
-        ])
+          _vm._m(0),
+        ]),
       ]
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -407,10 +405,10 @@ var staticRenderFns = [
       _c("input", {
         staticClass:
           "w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none",
-        attrs: { type: "submit", value: "Search" }
-      })
+        attrs: { type: "submit", value: "Search" },
+      }),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -429,7 +427,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -442,11 +440,11 @@ var render = function() {
             class: _vm.disabled(_vm.data.current_page == 1),
             attrs: { href: "" },
             on: {
-              click: function($event) {
+              click: function ($event) {
                 $event.preventDefault()
                 return _vm.previous.apply(null, arguments)
-              }
-            }
+              },
+            },
           },
           [_vm._v("<")]
         ),
@@ -454,7 +452,7 @@ var render = function() {
         _c(
           "span",
           { staticClass: "inline-block rounded overflow-hidden" },
-          _vm._l(_vm.pageRange, function(n) {
+          _vm._l(_vm.pageRange, function (n) {
             return _c(
               "a",
               {
@@ -463,11 +461,11 @@ var render = function() {
                 class: _vm.active(n),
                 attrs: { href: "" },
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     $event.preventDefault()
                     return _vm.select(n)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v(_vm._s(n))]
             )
@@ -482,14 +480,14 @@ var render = function() {
             class: _vm.disabled(_vm.data.current_page >= _vm.data.last_page),
             attrs: { href: "" },
             on: {
-              click: function($event) {
+              click: function ($event) {
                 $event.preventDefault()
                 return _vm.next.apply(null, arguments)
-              }
-            }
+              },
+            },
           },
           [_vm._v(">")]
-        )
+        ),
       ])
     : _vm._e()
 }

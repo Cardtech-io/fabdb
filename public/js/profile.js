@@ -109,9 +109,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -272,7 +272,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user', 'subscribed']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user', 'subscribed'])), {}, {
     email: {
       get: function get() {
         return this.user.email;
@@ -391,7 +391,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       saving: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage', 'addValidationMessages']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage', 'addValidationMessages'])), {}, {
     save: function save() {
       var _this = this;
 
@@ -450,7 +450,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -459,8 +459,8 @@ var render = function() {
     style: { width: _vm.width + "px" },
     attrs: {
       src: _vm.imageUrl("/heroes/" + _vm.avatar + ".jpg", _vm.width),
-      alt: _vm.user.name
-    }
+      alt: _vm.user.name,
+    },
   })
 }
 var staticRenderFns = []
@@ -481,7 +481,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -489,7 +489,7 @@ var render = function() {
     "span",
     {
       staticClass: "inline-block rounded-full text-white uppercase font-serif",
-      class: _vm.classes
+      class: _vm.classes,
     },
     [_vm._v(_vm._s(_vm.ucfirst(_vm.subscriptionLevel)))]
   )
@@ -512,7 +512,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -528,7 +528,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex"
+              "container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex",
           },
           [
             _c("div", { staticClass: "md:w-1/2 md:pr-8" }, [
@@ -536,11 +536,11 @@ var render = function() {
                 "form",
                 {
                   on: {
-                    submit: function($event) {
+                    submit: function ($event) {
                       $event.preventDefault()
                       return _vm.save.apply(null, arguments)
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("div", { staticClass: "w-full flex items-center" }, [
@@ -549,10 +549,12 @@ var render = function() {
                         "div",
                         { staticClass: "rounded-xl overflow-hidden" },
                         [
-                          _c("avatar", { attrs: { user: _vm.user, width: 80 } })
+                          _c("avatar", {
+                            attrs: { user: _vm.user, width: 80 },
+                          }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-auto" }, [
@@ -560,7 +562,7 @@ var render = function() {
                         "label",
                         {
                           staticClass:
-                            "block font-serif uppercase tracking-wide mb-1"
+                            "block font-serif uppercase tracking-wide mb-1",
                         },
                         [_vm._v("Avatar (Patrons only)")]
                       ),
@@ -573,44 +575,44 @@ var render = function() {
                               name: "model",
                               rawName: "v-model",
                               value: _vm.avatar,
-                              expression: "avatar"
-                            }
+                              expression: "avatar",
+                            },
                           ],
                           staticClass:
                             "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto",
                           attrs: { disabled: !_vm.subscribed },
                           on: {
-                            change: function($event) {
+                            change: function ($event) {
                               var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
+                                .call($event.target.options, function (o) {
                                   return o.selected
                                 })
-                                .map(function(o) {
+                                .map(function (o) {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
                               _vm.avatar = $event.target.multiple
                                 ? $$selectedVal
                                 : $$selectedVal[0]
-                            }
-                          }
+                            },
+                          },
                         },
                         [
                           _c("option", { attrs: { value: "bauble" } }, [
-                            _vm._v("Bauble")
+                            _vm._v("Bauble"),
                           ]),
                           _vm._v(" "),
-                          _vm._l(_vm.heroes, function(hero) {
+                          _vm._l(_vm.heroes, function (hero) {
                             return _c(
                               "option",
                               { domProps: { value: hero.avatar() } },
                               [_vm._v(_vm._s(hero.name))]
                             )
-                          })
+                          }),
                         ],
                         2
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4" }, [
@@ -618,7 +620,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Email address")]
                     ),
@@ -629,22 +631,22 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.email,
-                          expression: "email"
-                        }
+                          expression: "email",
+                        },
                       ],
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                       attrs: { type: "email", required: "required" },
                       domProps: { value: _vm.email },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.email = $event.target.value
-                        }
-                      }
-                    })
+                        },
+                      },
+                    }),
                   ]),
                   _vm._v(" "),
                   !_vm.changePassword
@@ -654,10 +656,10 @@ var render = function() {
                           staticClass:
                             "button-secondary text-sm py-3 px-4 mt-4 rounded-lg",
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               _vm.changePassword = true
-                            }
-                          }
+                            },
+                          },
                         },
                         [_vm._v("I'd like to add or change my password")]
                       )
@@ -674,7 +676,7 @@ var render = function() {
                                   "label",
                                   {
                                     staticClass:
-                                      "block font-serif uppercase tracking-wide mb-1"
+                                      "block font-serif uppercase tracking-wide mb-1",
                                   },
                                   [_vm._v("Old password")]
                                 ),
@@ -685,22 +687,22 @@ var render = function() {
                                       name: "model",
                                       rawName: "v-model",
                                       value: _vm.oldPassword,
-                                      expression: "oldPassword"
-                                    }
+                                      expression: "oldPassword",
+                                    },
                                   ],
                                   staticClass:
                                     "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                                   attrs: { type: "password" },
                                   domProps: { value: _vm.oldPassword },
                                   on: {
-                                    input: function($event) {
+                                    input: function ($event) {
                                       if ($event.target.composing) {
                                         return
                                       }
                                       _vm.oldPassword = $event.target.value
-                                    }
-                                  }
-                                })
+                                    },
+                                  },
+                                }),
                               ])
                             : _vm._e(),
                           _vm._v(" "),
@@ -709,7 +711,7 @@ var render = function() {
                               "label",
                               {
                                 staticClass:
-                                  "block font-serif uppercase tracking-wide mb-1"
+                                  "block font-serif uppercase tracking-wide mb-1",
                               },
                               [_vm._v("New password")]
                             ),
@@ -720,22 +722,22 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.newPassword,
-                                  expression: "newPassword"
-                                }
+                                  expression: "newPassword",
+                                },
                               ],
                               staticClass:
                                 "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                               attrs: { type: "password" },
                               domProps: { value: _vm.newPassword },
                               on: {
-                                input: function($event) {
+                                input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
                                   _vm.newPassword = $event.target.value
-                                }
-                              }
-                            })
+                                },
+                              },
+                            }),
                           ]),
                           _vm._v(" "),
                           _vm.newPassword
@@ -744,7 +746,7 @@ var render = function() {
                                   "label",
                                   {
                                     staticClass:
-                                      "block font-serif uppercase tracking-wide mb-1"
+                                      "block font-serif uppercase tracking-wide mb-1",
                                   },
                                   [_vm._v("Confirm password")]
                                 ),
@@ -755,25 +757,25 @@ var render = function() {
                                       name: "model",
                                       rawName: "v-model",
                                       value: _vm.newPasswordConfirmation,
-                                      expression: "newPasswordConfirmation"
-                                    }
+                                      expression: "newPasswordConfirmation",
+                                    },
                                   ],
                                   staticClass:
                                     "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                                   attrs: { type: "password" },
                                   domProps: {
-                                    value: _vm.newPasswordConfirmation
+                                    value: _vm.newPasswordConfirmation,
                                   },
                                   on: {
-                                    input: function($event) {
+                                    input: function ($event) {
                                       if ($event.target.composing) {
                                         return
                                       }
                                       _vm.newPasswordConfirmation =
                                         $event.target.value
-                                    }
-                                  }
-                                })
+                                    },
+                                  },
+                                }),
                               ])
                             : _vm._e(),
                           _vm._v(" "),
@@ -781,14 +783,14 @@ var render = function() {
                             "p",
                             {
                               staticClass:
-                                "border border-blue-500 text-blue-500 p-2 rounded-lg text-sm mt-4"
+                                "border border-blue-500 text-blue-500 p-2 rounded-lg text-sm mt-4",
                             },
                             [
                               _vm._v(
                                 "At FaB DB we take security seriously. Your password must be at least 8 characters long, and consist of at least 1 non-alpha character (!?<>.,)"
-                              )
+                              ),
                             ]
-                          )
+                          ),
                         ]
                       )
                     : _vm._e(),
@@ -798,7 +800,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Name")]
                     ),
@@ -809,22 +811,22 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.name,
-                          expression: "name"
-                        }
+                          expression: "name",
+                        },
                       ],
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                       attrs: { type: "text" },
                       domProps: { value: _vm.name },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.name = $event.target.value
-                        }
-                      }
-                    })
+                        },
+                      },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4" }, [
@@ -832,7 +834,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("GEM player ID")]
                     ),
@@ -843,22 +845,22 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.gemId,
-                          expression: "gemId"
-                        }
+                          expression: "gemId",
+                        },
                       ],
                       staticClass:
                         "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                       attrs: { type: "text" },
                       domProps: { value: _vm.gemId },
                       on: {
-                        input: function($event) {
+                        input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.gemId = $event.target.value
-                        }
-                      }
-                    })
+                        },
+                      },
+                    }),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4" }, [
@@ -866,7 +868,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Preferred currency")]
                     ),
@@ -879,46 +881,46 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.currency,
-                            expression: "currency"
-                          }
+                            expression: "currency",
+                          },
                         ],
                         staticClass:
                           "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                         attrs: { required: "required" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
+                              .call($event.target.options, function (o) {
                                 return o.selected
                               })
-                              .map(function(o) {
+                              .map(function (o) {
                                 var val = "_value" in o ? o._value : o.value
                                 return val
                               })
                             _vm.currency = $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("option", { attrs: { value: "AUD" } }, [
-                          _vm._v("AUD")
+                          _vm._v("AUD"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "CAD" } }, [
-                          _vm._v("CAD")
+                          _vm._v("CAD"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "NZD" } }, [
-                          _vm._v("NZD")
+                          _vm._v("NZD"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "USD" } }, [
-                          _vm._v("USD")
-                        ])
+                          _vm._v("USD"),
+                        ]),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -932,7 +934,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Theme")]
                     ),
@@ -945,70 +947,72 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.theme,
-                            expression: "theme"
-                          }
+                            expression: "theme",
+                          },
                         ],
                         staticClass:
                           "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                         attrs: { required: "required" },
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
+                              .call($event.target.options, function (o) {
                                 return o.selected
                               })
-                              .map(function(o) {
+                              .map(function (o) {
                                 var val = "_value" in o ? o._value : o.value
                                 return val
                               })
                             _vm.theme = $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("option", { attrs: { value: "default" } }, [
-                          _vm._v("Default")
+                          _vm._v("Default"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "aria" } }, [
-                          _vm._v("Aria")
+                          _vm._v("Aria"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "demonastery" } }, [
-                          _vm._v("Demonastery")
+                          _vm._v("Demonastery"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "library" } }, [
-                          _vm._v("Library")
+                          _vm._v("Library"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "monarch" } }, [
-                          _vm._v("Monarch")
+                          _vm._v("Monarch"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "skies" } }, [
-                          _vm._v("Skies")
+                          _vm._v("Skies"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "savage-lands" } }, [
-                          _vm._v("Savage Lands")
+                          _vm._v("Savage Lands"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "tales" } }, [
-                          _vm._v("Tales of Aria")
+                          _vm._v("Tales of Aria"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "the-pits" } }, [
-                          _vm._v("The Pits")
+                          _vm._v("The Pits"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "battle" } }, [
-                          _vm._v("Battle at the Peak (Patreon supporters only)")
-                        ])
+                          _vm._v(
+                            "Battle at the Peak (Patreon supporters only)"
+                          ),
+                        ]),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "w-full mt-4 mb-4" }, [
@@ -1016,7 +1020,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Card borders")]
                     ),
@@ -1029,37 +1033,37 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.view,
-                            expression: "view"
-                          }
+                            expression: "view",
+                          },
                         ],
                         staticClass:
                           "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
+                              .call($event.target.options, function (o) {
                                 return o.selected
                               })
-                              .map(function(o) {
+                              .map(function (o) {
                                 var val = "_value" in o ? o._value : o.value
                                 return val
                               })
                             _vm.view = $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("option", { attrs: { value: "borderless" } }, [
-                          _vm._v("Borderless")
+                          _vm._v("Borderless"),
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "bordered" } }, [
-                          _vm._v("Bordered")
-                        ])
+                          _vm._v("Bordered"),
+                        ]),
                       ]
-                    )
+                    ),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -1073,7 +1077,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1"
+                          "block font-serif uppercase tracking-wide mb-1",
                       },
                       [_vm._v("Cards required until no longer needed")]
                     ),
@@ -1086,50 +1090,50 @@ var render = function() {
                             name: "model",
                             rawName: "v-model",
                             value: _vm.need,
-                            expression: "need"
-                          }
+                            expression: "need",
+                          },
                         ],
                         staticClass:
                           "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                         on: {
-                          change: function($event) {
+                          change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
+                              .call($event.target.options, function (o) {
                                 return o.selected
                               })
-                              .map(function(o) {
+                              .map(function (o) {
                                 var val = "_value" in o ? o._value : o.value
                                 return val
                               })
                             _vm.need = $event.target.multiple
                               ? $$selectedVal
                               : $$selectedVal[0]
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
                         _vm._v(" "),
-                        _c("option", { attrs: { value: "3" } }, [_vm._v("3")])
+                        _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
                       ]
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-sm mt-2" }, [
                       _vm._v(
                         '\n                            When managing your collection, the default minimum cards required to satisfy the "need"\n                            metric, is 1. For example, setting this to 2, means the manager will continue to show\n                            those cards until you have 2 in your collection.\n                        '
-                      )
-                    ])
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("submit", {
                     staticClass: "mt-8",
-                    attrs: { text: "Save", disabled: _vm.saving }
-                  })
+                    attrs: { text: "Save", disabled: _vm.saving },
+                  }),
                 ],
                 1
-              )
+              ),
             ]),
             _vm._v(" "),
             _c(
@@ -1144,15 +1148,15 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "user.profile.decks",
-                        params: { user: _vm.slug }
-                      }
-                    }
+                        params: { user: _vm.slug },
+                      },
+                    },
                   },
                   [_vm._v("View your public profile")]
                 ),
                 _vm._v(" "),
                 _c("h2", { staticClass: "text-xl font-serif uppercase mb-2" }, [
-                  _vm._v("Your membership level")
+                  _vm._v("Your membership level"),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "mb-8" }, [
@@ -1162,9 +1166,9 @@ var render = function() {
                         [
                           _c("badge", {
                             attrs: {
-                              "subscription-level": _vm.user.subscription
-                            }
-                          })
+                              "subscription-level": _vm.user.subscription,
+                            },
+                          }),
                         ],
                         1
                       )
@@ -1174,52 +1178,52 @@ var render = function() {
                           "a",
                           {
                             staticClass: "link",
-                            attrs: { href: "https://www.patreon.com/fabdb" }
+                            attrs: { href: "https://www.patreon.com/fabdb" },
                           },
                           [_vm._v("support us on Patreon.")]
-                        )
-                      ])
+                        ),
+                      ]),
                 ]),
                 _vm._v(" "),
                 _c("h2", { staticClass: "text-xl font-serif uppercase" }, [
-                  _vm._v("What data do we collect?")
+                  _vm._v("What data do we collect?"),
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "my-4" }, [
                   _vm._v(
                     "At fabdb.net, we endeavour to collect as little information about you as possible."
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "my-4" }, [
                   _vm._v(
                     "Some details, such as email address, are absolutely essential. Not for marketing, but\n                    purely for identification purposes and application notifications."
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
                     "Other details, like name, gem id.etc. are only required if you use certain features. You will be\n                    prompted for these if and when that occurs."
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
                     "Currency will preferentially display stores and item listings that sell products in your preferred currency."
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "my-4" }, [
                   _vm._v(
                     "Name for example, is only needed if you participate within the community, providing feedback and\n                    starting threads.etc. Your gem ID is only needed when you export your decks to PDF format, which\n                    can be handed in at tournaments. If you like, your gem ID does not need to be saved, and instead\n                    will be asked when generating a PDF. When asked for in this manner, your gem ID is not saved in\n                    our database."
-                  )
-                ])
+                  ),
+                ]),
               ],
               1
-            )
+            ),
           ]
-        )
-      ])
+        ),
+      ]),
     ],
     1
   )
@@ -1244,11 +1248,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-var Card =
-/*#__PURE__*/
-function () {
+var Card = /*#__PURE__*/function () {
   function Card(fields) {
     _classCallCheck(this, Card);
 
@@ -1256,22 +1258,6 @@ function () {
   }
 
   _createClass(Card, [{
-    key: "avatar",
-    value: function avatar() {
-      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
-
-      if (this.young()) {
-        return name + '-blitz';
-      }
-
-      return name;
-    }
-  }, {
-    key: "young",
-    value: function young() {
-      return this.fields.subType === 'young';
-    }
-  }, {
     key: "name",
     get: function get() {
       return this.fields.name;
@@ -1305,6 +1291,22 @@ function () {
     key: "total",
     get: function get() {
       return this.fields.total;
+    }
+  }, {
+    key: "avatar",
+    value: function avatar() {
+      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
+
+      if (this.young()) {
+        return name + '-blitz';
+      }
+
+      return name;
+    }
+  }, {
+    key: "young",
+    value: function young() {
+      return this.fields.subType === 'young';
     }
   }]);
 

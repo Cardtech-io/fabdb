@@ -6,8 +6,8 @@
 
 <script>
     import {mapState} from 'vuex';
-    import Cards from "../DeckBuilder/Cards";
-    import GroupedCards from "./GroupedCards";
+    import Cards from "../DeckBuilder/Cards.js";
+    import GroupedCards from "./GroupedCards.vue";
 
     export default {
         components: {GroupedCards},

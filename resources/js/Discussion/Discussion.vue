@@ -13,11 +13,11 @@
 <script>
     import axios from 'axios';
 
-    import CommentCount from "./CommentCount";
+    import CommentCount from "./CommentCount.vue";
     import CommentModel from './Comment.js';
     import Comment from "./Comment.vue";
-    import Models from "../Utilities/Models";
-    import Respond from "./Respond";
+    import Models from "../Utilities/Models.js";
+    import Respond from "./Respond.vue";
 
     export default {
         props: {

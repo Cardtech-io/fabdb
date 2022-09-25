@@ -19,9 +19,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -110,7 +110,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   mixins: [_CardDatabase_Cardable_js__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     name: {
       get: function get() {
         return this.user.name;
@@ -156,7 +156,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       format: 'pdf'
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('session', ['setUserParam'])), {}, {
     requestExport: function requestExport() {
       var _this = this;
 
@@ -197,7 +197,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -213,8 +213,8 @@ var render = function() {
             { staticClass: "flex-1" },
             [_c("crumbs", { attrs: { crumbs: _vm.crumbs } })],
             1
-          )
-        ])
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
@@ -222,7 +222,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "container sm:mx-auto border-b border-gray-400 mb-8"
+              staticClass: "container sm:mx-auto border-b border-gray-400 mb-8",
             },
             [
               _vm.hero
@@ -235,10 +235,10 @@ var render = function() {
                           " (" +
                           _vm._s(_vm.deck.name) +
                           ")"
-                      )
+                      ),
                     ]
                   )
-                : _vm._e()
+                : _vm._e(),
             ]
           ),
           _vm._v(" "),
@@ -250,12 +250,12 @@ var render = function() {
                       "p",
                       {
                         staticClass:
-                          "mb-4 p-4 bg-blue-500 rounded-lg text-white"
+                          "mb-4 p-4 bg-blue-500 rounded-lg text-white",
                       },
                       [
                         _vm._v(
                           "\n                            The information collected below is not saved, but is required for your PDF as part of\n                            the tournament pack export. We will email you your export once it's been generated.\n                        "
-                        )
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -263,11 +263,11 @@ var render = function() {
                       "form",
                       {
                         on: {
-                          submit: function($event) {
+                          submit: function ($event) {
                             $event.preventDefault()
                             return _vm.requestExport.apply(null, arguments)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _c("div", { staticClass: "w-full mt-4" }, [
@@ -275,7 +275,7 @@ var render = function() {
                             "label",
                             {
                               staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
+                                "block font-serif uppercase tracking-wide mb-1",
                             },
                             [_vm._v("Name")]
                           ),
@@ -286,22 +286,22 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.name,
-                                expression: "name"
-                              }
+                                expression: "name",
+                              },
                             ],
                             staticClass:
                               "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                             attrs: { type: "text" },
                             domProps: { value: _vm.name },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.name = $event.target.value
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "w-full mt-4" }, [
@@ -309,7 +309,7 @@ var render = function() {
                             "label",
                             {
                               staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
+                                "block font-serif uppercase tracking-wide mb-1",
                             },
                             [_vm._v("GEM player ID")]
                           ),
@@ -320,22 +320,22 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.gemId,
-                                expression: "gemId"
-                              }
+                                expression: "gemId",
+                              },
                             ],
                             staticClass:
                               "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                             attrs: { type: "text" },
                             domProps: { value: _vm.gemId },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.gemId = $event.target.value
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "w-full mt-4" }, [
@@ -343,7 +343,7 @@ var render = function() {
                             "label",
                             {
                               staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
+                                "block font-serif uppercase tracking-wide mb-1",
                             },
                             [_vm._v("Event")]
                           ),
@@ -354,22 +354,22 @@ var render = function() {
                                 name: "model",
                                 rawName: "v-model",
                                 value: _vm.event,
-                                expression: "event"
-                              }
+                                expression: "event",
+                              },
                             ],
                             staticClass:
                               "input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
                             attrs: { type: "text" },
                             domProps: { value: _vm.event },
                             on: {
-                              input: function($event) {
+                              input: function ($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
                                 _vm.event = $event.target.value
-                              }
-                            }
-                          })
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "w-full mt-4" }, [
@@ -377,7 +377,7 @@ var render = function() {
                             "label",
                             {
                               staticClass:
-                                "block font-serif uppercase tracking-wide mb-1"
+                                "block font-serif uppercase tracking-wide mb-1",
                             },
                             [_vm._v("Export format")]
                           ),
@@ -386,7 +386,7 @@ var render = function() {
                             "label",
                             {
                               staticClass: "block",
-                              attrs: { fpr: "pdf-export" }
+                              attrs: { fpr: "pdf-export" },
                             },
                             [
                               _c("input", {
@@ -395,8 +395,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.format,
-                                    expression: "format"
-                                  }
+                                    expression: "format",
+                                  },
                                 ],
                                 staticClass:
                                   "focus:bg-white focus:border-gray-500",
@@ -404,21 +404,21 @@ var render = function() {
                                   type: "radio",
                                   name: "format",
                                   value: "pdf",
-                                  id: "pdf-export"
+                                  id: "pdf-export",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.format, "pdf")
+                                  checked: _vm._q(_vm.format, "pdf"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     _vm.format = "pdf"
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c("span", { staticClass: "ml-4" }, [
-                                _vm._v("PDF")
-                              ])
+                                _vm._v("PDF"),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
@@ -426,7 +426,7 @@ var render = function() {
                             "label",
                             {
                               staticClass: "block mt-2",
-                              attrs: { for: "zip-export" }
+                              attrs: { for: "zip-export" },
                             },
                             [
                               _c("input", {
@@ -435,8 +435,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.format,
-                                    expression: "format"
-                                  }
+                                    expression: "format",
+                                  },
                                 ],
                                 staticClass:
                                   "focus:bg-white focus:border-gray-500",
@@ -444,40 +444,40 @@ var render = function() {
                                   type: "radio",
                                   name: "format",
                                   value: "zip",
-                                  id: "zip-export"
+                                  id: "zip-export",
                                 },
                                 domProps: {
-                                  checked: _vm._q(_vm.format, "zip")
+                                  checked: _vm._q(_vm.format, "zip"),
                                 },
                                 on: {
-                                  change: function($event) {
+                                  change: function ($event) {
                                     _vm.format = "zip"
-                                  }
-                                }
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c("span", { staticClass: "ml-4" }, [
-                                _vm._v("ZIP")
-                              ])
+                                _vm._v("ZIP"),
+                              ]),
                             ]
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("submit", {
                           staticClass: "mt-8",
-                          attrs: { text: "Export" }
-                        })
+                          attrs: { text: "Export" },
+                        }),
                       ],
                       1
-                    )
+                    ),
                   ])
                 : _c("div", [
                     _c("p", [
                       _vm._v(
                         "Your deck export has been requested, and shall arrived at your email inbox in a few moments."
-                      )
-                    ])
-                  ])
+                      ),
+                    ]),
+                  ]),
             ]),
             _vm._v(" "),
             _c(
@@ -485,10 +485,10 @@ var render = function() {
               { staticClass: "hidden md:block md:w-1/3" },
               [_c("card-image", { attrs: { card: _vm.hero } })],
               1
-            )
-          ])
-        ])
-      ])
+            ),
+          ]),
+        ]),
+      ]),
     ],
     1
   )

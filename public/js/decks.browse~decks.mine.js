@@ -13,9 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -76,7 +76,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       heroes: []
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deckSearch', ['params']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deckSearch', ['params'])), {}, {
     format: {
       get: function get() {
         return this.params.format || 'constructed';
@@ -122,7 +122,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setCursor', 'updateParam']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deckSearch', ['setCursor', 'updateParam'])), {}, {
     active: function active(field) {
       if (this.params[field]) {
         return 'shadow-activeNumber';
@@ -194,7 +194,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -203,11 +203,11 @@ var render = function() {
     {
       staticClass: "px-4 md:px-0 block flex flex-wrap w-full",
       on: {
-        submit: function($event) {
+        submit: function ($event) {
           $event.preventDefault()
           return _vm.newSearch.apply(null, arguments)
-        }
-      }
+        },
+      },
     },
     [
       _c(
@@ -222,39 +222,39 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.hero,
-                  expression: "hero"
-                }
+                  expression: "hero",
+                },
               ],
               staticClass:
                 "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
               class: _vm.active("hero"),
               on: {
-                change: function($event) {
+                change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
+                    .call($event.target.options, function (o) {
                       return o.selected
                     })
-                    .map(function(o) {
+                    .map(function (o) {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
                   _vm.hero = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
-                }
-              }
+                },
+              },
             },
             [
               _c("option", { attrs: { value: "" } }, [_vm._v("Select hero")]),
               _vm._v(" "),
-              _vm._l(_vm.heroes, function(hero) {
+              _vm._l(_vm.heroes, function (hero) {
                 return _c("option", { domProps: { value: hero.name } }, [
-                  _vm._v(_vm._s(hero.name))
+                  _vm._v(_vm._s(hero.name)),
                 ])
-              })
+              }),
             ],
             2
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -270,39 +270,39 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.format,
-                  expression: "format"
-                }
+                  expression: "format",
+                },
               ],
               staticClass:
                 "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
               class: _vm.active("format"),
               on: {
-                change: function($event) {
+                change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
+                    .call($event.target.options, function (o) {
                       return o.selected
                     })
-                    .map(function(o) {
+                    .map(function (o) {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
                   _vm.format = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
-                }
-              }
+                },
+              },
             },
             [
               _c("option", { attrs: { value: "" } }, [_vm._v("Format")]),
               _vm._v(" "),
-              _vm._l(_vm.$settings.game.decks.formats, function(name, format) {
+              _vm._l(_vm.$settings.game.decks.formats, function (name, format) {
                 return _c("option", { domProps: { value: format } }, [
-                  _vm._v(_vm._s(name))
+                  _vm._v(_vm._s(name)),
                 ])
-              })
+              }),
             ],
             2
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -318,43 +318,43 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.label,
-                  expression: "label"
-                }
+                  expression: "label",
+                },
               ],
               staticClass:
                 "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
               class: _vm.active("label"),
               on: {
-                change: function($event) {
+                change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
+                    .call($event.target.options, function (o) {
                       return o.selected
                     })
-                    .map(function(o) {
+                    .map(function (o) {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
                   _vm.label = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
-                }
-              }
+                },
+              },
             },
             [
               _c("option", { attrs: { value: "" } }, [_vm._v("Label")]),
               _vm._v(" "),
               _c("option", { attrs: { value: "tournament" } }, [
-                _vm._v("Tournament")
+                _vm._v("Tournament"),
               ]),
               _vm._v(" "),
-              _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
+              _vm._l(_vm.$settings.game.decks.labels, function (name, label) {
                 return _c("option", { domProps: { value: label } }, [
-                  _vm._v(_vm._s(name))
+                  _vm._v(_vm._s(name)),
                 ])
-              })
+              }),
             ],
             2
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -370,27 +370,27 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.order,
-                  expression: "order"
-                }
+                  expression: "order",
+                },
               ],
               staticClass:
                 "input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg",
               class: _vm.active("order"),
               on: {
-                change: function($event) {
+                change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
+                    .call($event.target.options, function (o) {
                       return o.selected
                     })
-                    .map(function(o) {
+                    .map(function (o) {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
                   _vm.order = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
-                }
-              }
+                },
+              },
             },
             [
               _c("option", { attrs: { value: "" } }, [_vm._v("Order")]),
@@ -398,14 +398,14 @@ var render = function() {
               _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
               _vm._v(" "),
               _c("option", { attrs: { value: "popular-all" } }, [
-                _vm._v("Popular (All time)")
+                _vm._v("Popular (All time)"),
               ]),
               _vm._v(" "),
               _c("option", { attrs: { value: "popular-7" } }, [
-                _vm._v("Popular (Last 7 days)")
-              ])
+                _vm._v("Popular (Last 7 days)"),
+              ]),
             ]
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -414,7 +414,7 @@ var render = function() {
         { staticClass: "w-full md:w-1/6" },
         [_c("submit", { staticClass: "w-full", attrs: { text: "Search" } })],
         1
-      )
+      ),
     ]
   )
 }

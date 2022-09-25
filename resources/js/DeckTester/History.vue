@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import Historian from "./Historian";
+    import Historian from "./Historian.js";
 
     export default {
         data: () => ({

@@ -3,7 +3,7 @@ require('./bootstrap');
 import Vue from 'vue';
 
 import Embed from './Embed.vue';
-import store from './Store/Application';
+import store from './Store/Application.vue';
 
 Vue.prototype.$settings = window.settings;
 Vue.prototype.$eventHub = new Vue;

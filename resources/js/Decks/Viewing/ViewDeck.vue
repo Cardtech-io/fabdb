@@ -1,8 +1,8 @@
 <template>
     <div>
         <div v-if="deck && deck.hero">
-            <header-title :title="deck.name + ' (' + deck.hero.name + ')'"></header-title>
-            <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+            <header-title :title="deck.name + ' (' + deck.hero.name + ')'"/>
+            <breadcrumbs :crumbs="crumbs"/>
 
             <div class="bg-white dark:bg-gray-800">
                 <div class="container sm:mx-auto px-4 flex items-center">
@@ -129,28 +129,28 @@
     import _ from 'lodash';
 
     import Breadcrumbs from '../../Components/Breadcrumbs.vue';
-    import Cardable from '../../CardDatabase/Cardable';
-    import Cards from "./Cards";
+    import Cardable from '../../CardDatabase/Cardable.js';
+    import Cards from "./Cards.vue";
     import DeckCurves from "../../DeckBuilder/DeckCurves";
-    import DeckLabel from "./DeckLabel";
-    import DeckVideo from './DeckVideo';
-    import Discussion from "../../Discussion/Discussion";
+    import DeckLabel from "./DeckLabel.vue";
+    import DeckVideo from './DeckVideo.vue';
+    import Discussion from "../../Discussion/Discussion.vue";
     import HeaderTitle from '../../Components/HeaderTitle.vue';
-    import HeroAvatar from "../../Components/HeroAvatar";
+    import HeroAvatar from "../../Components/HeroAvatar.vue";
     import Imagery from "../../Utilities/Imagery";
-    import Icon from '../../Components/Icon';
+    import Icon from '../../Components/Icon.vue';
     import LazyLoader from '../../Components/LazyLoader';
     import Respond from '../../Discussion/Respond.vue';
-    import Rulings from "../../CardDatabase/Rulings";
+    import Rulings from "../../CardDatabase/Rulings.vue";
     import Votes from '../../Voting/Votes.vue';
     import Models from "../../Utilities/Models";
     import Deck from "../Deck";
     import Strings from "../../Utilities/Strings";
     import Viewable from "../../DeckBuilder/Viewable";
     import Shareable from "../../Components/Shareable";
-    import Tabs from "../../Components/Tabs";
-    import TabItem from "../../Components/TabItem";
-    import MetricsPerformance from "../Metrics/MetricsPerformance";
+    import MetricsPerformance from "../Metrics/MetricsPerformance.vue";
+    import Tabs from "../../Components/Tabs.vue";
+    import TabItem from "../../Components/TabItem.vue";
 
     export default {
         mixins: [Cardable, Shareable, Imagery, Strings, Viewable],

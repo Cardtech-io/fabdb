@@ -49,13 +49,13 @@
     import _ from 'lodash';
 
     import CardItem from './CardItem.vue';
-    import CardLoader from "./CardLoader";
+    import CardLoader from "./CardLoader.vue";
     import CardSearch from './CardSearch.vue';
-    import Collapser from "../Components/Collapser";
+    import Collapser from "../Components/Collapser.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Ordering from "./Ordering";
+    import Ordering from "./Ordering.vue";
     import Paginator from '../Components/Paginator.vue';
-    import Query from "../Utilities/Query";
+    import Query from "../Utilities/Query.js";
 
     export default {
         components: {

@@ -12,11 +12,11 @@
     import axios from 'axios';
     import {mapActions, mapGetters, mapState} from 'vuex';
 
-    import Cardable from '../CardDatabase/Cardable';
-    import Cards from './Cards';
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Cards from './Cards.js';
     import GroupedCards from './GroupedCards.vue';
-    import Redrawable from './Redrawable';
-    import Viewable from './Viewable';
+    import Redrawable from './Redrawable.js';
+    import Viewable from './Viewable.js';
 
     export default {
         props: ['collection'],

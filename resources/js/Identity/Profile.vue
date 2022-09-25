@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="Profile Update"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Profile Update"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="main-body">
             <div class="container sm:mx-auto bg-white dark:bg-gray-800 py-8 px-8 md:flex">
@@ -144,11 +144,11 @@
     import Avatar from './Avatar.vue';
     import Badge from './Badge.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Card from "../CardDatabase/Card";
+    import Card from "../CardDatabase/Card.js";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from "../Components/LazyLoader";
-    import Models from "../Utilities/Models";
-    import Submit from "../Components/Form/Submit";
+    import LazyLoader from "../Components/LazyLoader.js";
+    import Models from "../Utilities/Models.js";
+    import Submit from "../Components/Form/Submit.vue";
 
     export default {
         components: { Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },

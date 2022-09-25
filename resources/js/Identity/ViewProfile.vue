@@ -19,15 +19,15 @@
 </template>
 
 <script>
-    import Breadcrumbs from "../Components/Breadcrumbs";
-    import HeaderTitle from "../Components/HeaderTitle";
-    import LazyLoader from "../Components/LazyLoader";
+    import Breadcrumbs from "../Components/Breadcrumbs.vue";
+    import HeaderTitle from "../Components/HeaderTitle.vue";
+    import LazyLoader from "../Components/LazyLoader.js";
     import axios from "axios";
-    import Models from "../Utilities/Models";
-    import User from "./User";
-    import Avatar from "./Avatar";
-    import Imagery from "../Utilities/Imagery";
-    import ProfileNavItem from "./ProfileNavItem";
+    import Models from "../Utilities/Models.js";
+    import User from "./User.js";
+    import Avatar from "./Avatar.vue";
+    import Imagery from "../Utilities/Imagery.js";
+    import ProfileNavItem from "./ProfileNavItem.vue";
 
     export default {
         components: {

@@ -15,17 +15,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Price_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Price.vue */ "./resources/js/Components/Price.vue");
 /* harmony import */ var _SkuFinish__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SkuFinish */ "./resources/js/CardDatabase/SkuFinish.vue");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -89,7 +93,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       listings: []
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     currencies: function currencies() {
       var reduced = this.listings.reduce(function (carry, listing) {
         carry.push(listing.currency);
@@ -151,7 +155,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -164,7 +168,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "flex-1 px-4 py-2 uppercase font-serif text-white text-base"
+              "flex-1 px-4 py-2 uppercase font-serif text-white text-base",
           },
           [_vm._v("\n            Pricing\n        ")]
         ),
@@ -181,38 +185,38 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.currency,
-                    expression: "currency"
-                  }
+                    expression: "currency",
+                  },
                 ],
                 staticClass:
                   "w-full appearance-none outline-none leading-tight h-full p-2 px-4 bg-gray-800 text-white text-sm",
                 attrs: { dir: "rtl" },
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
                     _vm.currency = $event.target.multiple
                       ? $$selectedVal
                       : $$selectedVal[0]
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("option", { attrs: { value: "all" } }, [
-                  _vm._v("Currency - All")
+                  _vm._v("Currency - All"),
                 ]),
                 _vm._v(" "),
-                _vm._l(_vm.currencies, function(c) {
+                _vm._l(_vm.currencies, function (c) {
                   return _c("option", { domProps: { value: c } }, [
-                    _vm._v(_vm._s(c))
+                    _vm._v(_vm._s(c)),
                   ])
-                })
+                }),
               ],
               2
             ),
@@ -223,20 +227,19 @@ var render = function() {
                 staticClass: "fill-current ml-2 h-6 absolute z-100 text-white",
                 attrs: {
                   xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 20 20"
-                }
+                  viewBox: "0 0 20 20",
+                },
               },
               [
                 _c("path", {
                   attrs: {
-                    d:
-                      "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  }
-                })
+                    d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+                  },
+                }),
               ]
-            )
+            ),
           ]
-        )
+        ),
       ]
     ),
     _vm._v(" "),
@@ -244,7 +247,7 @@ var render = function() {
       ? _c(
           "ul",
           { staticClass: "text-base" },
-          _vm._l(_vm.filtered, function(listing) {
+          _vm._l(_vm.filtered, function (listing) {
             return _c("li", { staticClass: "flex odd:bg-white" }, [
               _c(
                 "div",
@@ -261,9 +264,9 @@ var render = function() {
                     attrs: {
                       amount: listing.price,
                       currency: _vm.useCurrency(listing),
-                      showCurrency: _vm.currency == "all"
-                    }
-                  })
+                      showCurrency: _vm.currency == "all",
+                    },
+                  }),
                 ],
                 1
               ),
@@ -276,15 +279,15 @@ var render = function() {
                         staticClass: "link-alternate",
                         attrs: {
                           href: _vm.listingUrl(listing),
-                          target: "_blank"
-                        }
+                          target: "_blank",
+                        },
                       },
                       [_vm._v(_vm._s(listing.name))]
                     )
                   : _c("span", { staticClass: "text-gray-500" }, [
-                      _vm._v(_vm._s(listing.name))
-                    ])
-              ])
+                      _vm._v(_vm._s(listing.name)),
+                    ]),
+              ]),
             ])
           }),
           0
@@ -292,8 +295,8 @@ var render = function() {
       : _c("div", { staticClass: "bg-white p-4 rounded-b-lg" }, [
           _vm._v(
             "\n        There are currently no listings or none that match the selected criteria.\n    "
-          )
-        ])
+          ),
+        ]),
   ])
 }
 var staticRenderFns = []

@@ -51,16 +51,16 @@
 
     import CardImage from '../CardDatabase/CardImage.vue';
     import DeckSettings from './DeckSettings.vue';
-    import ManagesDecks from './ManagesDecks';
-    import Rulings from '../CardDatabase/Rulings';
+    import ManagesDecks from './ManagesDecks.js';
+    import Rulings from '../CardDatabase/Rulings.vue';
     import Stat from './Metrics/Stat.vue';
-    import Totals from "./Metrics/Totals";
-    import General from "./Metrics/General";
+    import Totals from "./Metrics/Totals.vue";
+    import General from "./Metrics/General.vue";
     import TtsExporter from './TtsExporter.vue';
-    import Viewable from './Viewable';
+    import Viewable from './Viewable.js';
     import _ from "lodash";
-    import TabItem from "../Components/TabItem";
-    import Tabs from "../Components/Tabs";
+    import TabItem from "../Components/TabItem.vue";
+    import Tabs from "../Components/Tabs.vue";
 
     export default {
         mixins: [ManagesDecks, Viewable],

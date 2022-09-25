@@ -37,10 +37,10 @@
 <script>
     import axios from "axios";
     import Models from "../../Utilities/Models";
-    import Deck from "../Deck";
-    import DeckLabel from "../Viewing/DeckLabel";
-    import FormatLabel from "../Viewing/FormatLabel";
-    import FormatIcon from "../Viewing/FormatIcon";
+    import Deck from "../Deck.js";
+    import DeckLabel from "../Viewing/DeckLabel.vue";
+    import FormatLabel from "../Viewing/FormatLabel.vue";
+    import FormatIcon from "../Viewing/FormatIcon.vue";
 
     export default {
         components: {DeckLabel, FormatIcon, FormatLabel},

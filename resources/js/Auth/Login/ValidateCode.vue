@@ -2,7 +2,7 @@
     <form @submit.prevent="submitCode()">
         <div class="flex mb-8">
             <input type="text" class="input focus:bg-white focus:border-gray-500 w-2/3 p-4 rounded-l-lg" placeholder="Enter your authentication code" v-model="code" required="required">
-            <submit text="Next" class="w-2/3 p-4 rounded-l-none rounded-r-lg"></submit>
+            <submit text="Next" class="w-2/3 p-4 rounded-l-none rounded-r-lg"/>
         </div>
 
         <p>Great! Now a one-time code will be emailed to you. When it arrives, copy and paste the code into the form above.</p>
@@ -12,7 +12,7 @@
 <script>
     import axios from "axios";
     import {mapActions} from "vuex";
-    import Submit from "../../Components/Form/Submit";
+    import Submit from "../../Components/Form/Submit.vue";
     import SuccessfulAuth from "./SuccessfulAuth";
     import Tracker from "../../Components/Tracker";
 
