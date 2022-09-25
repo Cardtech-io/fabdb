@@ -74,3 +74,38 @@ export default {
     },
 }
 </script>
+
+<style lang="css">
+/* Basic editor styles */
+.ProseMirror > * + * {
+    margin-top: 0.75em;
+}
+
+.ProseMirror ul, .ProseMirror ol {
+    padding: 0 1rem;
+}
+
+.ProseMirror h1 {
+    @apply text-4xl;
+}
+
+.ProseMirror h2 {
+    @apply text-2xl;
+}
+
+.ProseMirror h3 {
+    @apply text-xl;
+}
+.ProseMirror h4 {
+    @apply text-lg;
+}
+
+.ProseMirror hr {
+    margin: 1rem 0;
+}
+
+.ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0D0D0D, 0.1);
+}
+</style>

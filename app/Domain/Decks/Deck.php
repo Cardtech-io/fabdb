@@ -211,11 +211,11 @@ class Deck extends Model
         $this->cardBack = $cardBack;
 
         $this->raise(new DeckSettingsSaved(
-            $this->id, 
-            $name, 
-            $label, 
-            $format, 
-            $visibility, 
+            $this->id,
+            $name,
+            $label,
+            $format,
+            $visibility,
             $cardBack
         ));
     }

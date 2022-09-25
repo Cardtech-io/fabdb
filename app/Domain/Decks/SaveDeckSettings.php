@@ -10,7 +10,7 @@ class SaveDeckSettings
     public function __construct(
         private int $deckId,
         private string $name,
-        private string $label, 
+        private string $label,
         private string $notes,
         private string $videoUrl,
         private string $format,
@@ -25,13 +25,13 @@ class SaveDeckSettings
         $deck = $decks->find($this->deckId);
 
         $deck->saveSettings(
-            $this->name, 
-            $this->label, 
-            $this->notes, 
+            $this->name,
+            $this->label,
+            $this->notes,
             $this->videoUrl,
-            $this->format, 
-            $this->limitToCollection, 
-            $this->visibility, 
+            $this->format,
+            $this->limitToCollection,
+            $this->visibility,
             $this->cardBack
         );
 
