@@ -2,7 +2,7 @@
     <div class="text-base">
         <header-title>
             <template v-slot:title>
-                <deck-name :name="deck.name" :hero="hero"></deck-name>
+                <deck-name :name="deck.name" :hero="hero"/>
             </template>
         </header-title>
 
@@ -12,13 +12,11 @@
             <div class="bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center p-4" :class="topAreaClasses">
-                            <div class="flex-auto">
-                                <deck-totals/>
+                        <div class="flex items-center justify-between p-4" :class="topAreaClasses">
+                            <div class="flex items-center">
+                                <mode-selector class="w-auto"/>
+                                <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
                             </div>
-
-                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
-                            <mode-selector class="w-auto"/>
 
                             <div class="px-2 lg:px-1 flex space-x-2">
                                 <play-deck :deck="deck"/>

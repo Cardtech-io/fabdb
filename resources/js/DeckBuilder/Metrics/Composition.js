@@ -45,21 +45,18 @@ export default {
                 labels: labels,
                 datasets: [{
                     data: Object.values(values),
-                    backgroundColor: Object.values(this.colours(values)),
-                    borderColor: 'rgba(0, 0, 0, 0)',
-                    spacing: 4
+                    backgroundColor: Object.values(this.colours(values))
                 }]
             };
-
-
 
             this.renderChart(chartData, {
                 legend: {
                     display: true,
                     labels: {
+                        boxWidth: 16,
                         fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
                     },
-                    position: this.$mq === 'sm' ? 'top' : 'right'
+                    position: this.$mq === 'sm' ? 'top' : 'right',
                 },
                 responsive: true,
                 maintainAspectRatio: false
@@ -68,16 +65,10 @@ export default {
 
         values(cards) {
             // Groups by card type, then reduces to total number of that type in data set.
-            return _(cards.all())
+            return _(cards.filter(card => card.type !== 'hero').all())
                 .groupBy(card => this.prettyType(card.type, card.subType))
                 .mapValues(cards => cards.reduce((carry, card) => carry + card.total, 0))
                 .value();
-        }
-    },
-
-    watch: {
-        cards(cards) {
-            this.update(cards);
         }
     },
 

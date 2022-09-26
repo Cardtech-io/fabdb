@@ -1,13 +1,12 @@
 <template>
     <div class="md:flex w-full md:space-x-4 md:flex-wrap">
-        <div class="md:w-1/4 mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden h-200 flex flex-col items-center justify-center p-4">
-            <h1 class="text-8xl text-center">{{ cards.total() }}</h1>
+        <tile class="w-full md:w-1/4">
+            <h1 class="text-8xl text-center font-bold">{{ total }}</h1>
             <span class="text-center">cards</span>
-        </div>
-
-        <div class="md:w-1/2 bg-gray-100 dark:bg-gray-700 p-2 md:p-4 rounded-lg h-200">
-            <composition :cards="cards" class="w-full h-180"/>
-        </div>
+        </tile>
+        <tile class="w-full md:w-1/2 px-4">
+            <composition :cards="cards" class="w-full h-200 md:h-180"/>
+        </tile>
 
 <!--        <div class="md:w-1/3">-->
 <!--            <h3 class="font-serif uppercase text-2xl">Totals</h3>-->
@@ -41,12 +40,13 @@
     import Composition from "../../DeckBuilder/Metrics/Composition.js";
     import General from "../../DeckBuilder/Metrics/General.vue";
     import Stat from "../../DeckBuilder/Metrics/Stat.vue";
+    import Tile from "../../DeckBuilder/Metrics/Tile.vue";
     import Totals from "../../DeckBuilder/Metrics/Totals.vue";
     import Viewable from "../../DeckBuilder/Viewable.js";
     import Cards from "../../DeckBuilder/Cards";
 
     export default {
-        components: {Composition, General, Totals, Stat},
+        components: {Composition, General, Tile, Totals, Stat},
         mixins: [Viewable],
 
         computed: {
@@ -54,6 +54,10 @@
 
             cards() {
                 return new Cards(this.deck.cards);
+            },
+
+            total() {
+                return this.deck.format === 'constructed' ? this.cards.total() - 1 : this.cards.total();
             },
 
             offenseRating() {

@@ -18,9 +18,9 @@ export default {
                         {title: 'Other', cards: this.other},
                     ] : [
                         {title: 'Hero', cards: new Cards([this.cards.hero()])},
+                        {title: 'Deck', cards: this.cards.other()},
                         {title: 'Weapons', cards: this.cards.weapons()},
                         {title: 'Equipment', cards: this.cards.equipment()},
-                        {title: 'Other', cards: this.cards.other()},
                     ];
                 case 'cost':
                     var cards = this.cards.group(card => card.stats.cost);

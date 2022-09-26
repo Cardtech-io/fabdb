@@ -187,6 +187,10 @@ export default class Cards {
         }, 0);
     }
 
+    deckTotal(format) {
+        return format === 'constructed' ? this.total() - 1 : this.total();
+    }
+
     count() {
         return this.cards.length;
     }
@@ -229,6 +233,8 @@ export default class Cards {
                 this.cards.splice(key, 1);
             }
         }
+
+        return this;
     }
 
     all() {

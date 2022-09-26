@@ -37,7 +37,7 @@
                             <card-container v-for="card in section.cards" :key="card.identifier" class="transition-all duration-300 float-left">
                                 <div class="my-4 mx-2">
                                     <card-image :card="card" :width="300" v-preview-card="{stack: [card], index: 0}" class="cursor-help" :class="{'shadow-error': (!card.ownedTotal || card.ownedTotal < card.total) && deck.limitToCollection === 2}"/>
-                                    <numbered-card-buttons :card="card" class="w-full mx-auto rounded mt-1"></numbered-card-buttons>
+                                    <numbered-card-buttons :card="card" class="w-full mx-auto rounded mt-1"/>
                                 </div>
                             </card-container>
                         </div>
