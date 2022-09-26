@@ -128,12 +128,24 @@ export default class Cards {
         return new Cards(_.sortBy(cards, card => { return card.stats.resource }));
     }
 
+    deck() {
+        return this.other();
+    }
+
     withCost() {
         return this.other().filter(card => !isNaN(card.stats.cost));
     }
 
     withResource() {
         return this.other().filter(card => !isNaN(card.stats.resource));
+    }
+
+    withDefense() {
+        return this.other().filter(card => !isNaN(card.stats.defense));
+    }
+
+    withPower() {
+        return this.deck().filter(card => !isNaN(card.stats.attack));
     }
 
     sort() {
