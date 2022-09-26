@@ -1,7 +1,12 @@
 <template>
-    <div class="flex w-full">
-        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-            <composition :cards="cards" class="h-140 sm:h-200"/>
+    <div class="md:flex w-full md:space-x-4 md:flex-wrap">
+        <div class="md:w-1/4 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden h-140 sm:h-200">
+            <h2 class="font-serif text-lg font-bold border-b border-gray-200 dark:border-gray-900 px-4 py-1">Total cards</h2>
+            <div class="text-8xl p-4 text-center">{{ cards.total() }}</div>
+        </div>
+
+        <div class="md:w-1/2 bg-gray-100 dark:bg-gray-700 p-2 md:p-4 rounded-lg h-140 sm:h-200">
+            <composition :cards="cards" class="w-full h-140 sm:h-160"/>
         </div>
 
 <!--        <div class="md:w-1/3">-->
@@ -32,7 +37,6 @@
 </template>
 
 <script>
-    import {Doughnut} from "vue-chartjs";
     import {mapState} from "vuex";
     import Composition from "../../DeckBuilder/Metrics/Composition.js";
     import General from "../../DeckBuilder/Metrics/General.vue";
@@ -42,7 +46,7 @@
     import Cards from "../../DeckBuilder/Cards";
 
     export default {
-        components: {Composition, Doughnut, General, Totals, Stat},
+        components: {Composition, General, Totals, Stat},
         mixins: [Viewable],
 
         computed: {
