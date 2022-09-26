@@ -33,7 +33,7 @@
                             <chevron :open="sectionOpen(section.title)" class="mr-2"></chevron>
                             {{ section.title }} ({{section.cards.total()}})
                         </h2>
-                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
+                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"/>
                     </div>
                 </div>
             </div>
