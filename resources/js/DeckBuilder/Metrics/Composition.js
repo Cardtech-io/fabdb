@@ -51,13 +51,15 @@ export default {
                 }]
             };
 
+
+
             this.renderChart(chartData, {
                 legend: {
                     display: true,
                     labels: {
                         fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
                     },
-                    position: 'right',
+                    position: this.$mq === 'sm' ? 'top' : 'right'
                 },
                 responsive: true,
                 maintainAspectRatio: false

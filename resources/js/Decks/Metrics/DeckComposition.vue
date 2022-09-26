@@ -1,12 +1,12 @@
 <template>
     <div class="md:flex w-full md:space-x-4 md:flex-wrap">
-        <div class="md:w-1/4 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden h-140 sm:h-200">
-            <h2 class="font-serif text-lg font-bold border-b border-gray-200 dark:border-gray-900 px-4 py-1">Total cards</h2>
-            <div class="text-8xl p-4 text-center">{{ cards.total() }}</div>
+        <div class="md:w-1/4 mb-4 bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden h-200 flex flex-col items-center justify-center p-4">
+            <h1 class="text-8xl text-center">{{ cards.total() }}</h1>
+            <span class="text-center">cards</span>
         </div>
 
-        <div class="md:w-1/2 bg-gray-100 dark:bg-gray-700 p-2 md:p-4 rounded-lg h-140 sm:h-200">
-            <composition :cards="cards" class="w-full h-140 sm:h-160"/>
+        <div class="md:w-1/2 bg-gray-100 dark:bg-gray-700 p-2 md:p-4 rounded-lg h-200">
+            <composition :cards="cards" class="w-full h-180"/>
         </div>
 
 <!--        <div class="md:w-1/3">-->
