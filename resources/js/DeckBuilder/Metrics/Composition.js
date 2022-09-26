@@ -52,11 +52,12 @@ export default {
             };
 
             this.renderChart(chartData, {
-                options: {
-                    legend: {
-                        display: false,
-                        position: 'left',
-                    }
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
+                    },
+                    position: 'right',
                 },
                 responsive: true,
                 maintainAspectRatio: false
