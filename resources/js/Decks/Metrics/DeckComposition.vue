@@ -1,7 +1,7 @@
 <template>
     <div class="flex w-full">
-        <div class="w-1/4">
-            <composition :cards="cards" class="mb-4 h-140 sm:h-160"/>
+        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+            <composition :cards="cards" class="h-140 sm:h-200"/>
         </div>
 
 <!--        <div class="md:w-1/3">-->

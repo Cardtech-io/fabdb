@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tabs>
+        <tabs class="w-full">
             <tab-item name="Composition">
                 <deck-composition/>
             </tab-item>
