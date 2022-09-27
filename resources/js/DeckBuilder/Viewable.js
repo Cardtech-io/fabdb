@@ -78,7 +78,7 @@ export default {
             });
 
             // Sort by pitch
-            return _.sortBy(cards, card => { return card.stats.resource });
+            return _.sortBy(cards, card => { return card.stats ? card.stats.resource : 0 });
         },
 
         totalOther() {

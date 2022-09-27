@@ -1,17 +1,17 @@
 <template>
     <div>
         <ol class="mt-2">
-            <stat :value="totalCards" text="Cards" position="top"></stat>
-            <stat :value="totalClass" text="Class"></stat>
-            <stat :value="totalGeneric" text="Generic" position="bottom"></stat>
+            <stat :value="cards.total()" text="Cards" position="top"/>
+            <stat :value="cards.forClass().total()" text="Class"/>
+            <stat :value="cards.forGeneric().total()" text="Generic" position="bottom"/>
         </ol>
 
         <ol class="mt-4 text-base">
-            <stat :value="totalActions" text="Actions" position="top"></stat>
-            <stat :value="totalAttackActions" text="Att. actions"></stat>
-            <stat :value="totalAttackReactions" text="Att. reactions"></stat>
-            <stat :value="totalDefenseReactions" text="Def. reactions"></stat>
-            <stat :value="totalInstants" text="Instants" position="bottom"></stat>
+            <stat :value="cards.nonAttackActions().total()" text="Non-att. actions" position="top"/>
+            <stat :value="cards.attackActions().total()" text="Att. actions"/>
+            <stat :value="cards.attackReactions().total()" text="Att. reactions"/>
+            <stat :value="cards.defenseReactions().total()" text="Def. reactions"/>
+            <stat :value="cards.instants().total()" text="Instants" position="bottom"/>
         </ol>
     </div>
 </template>
@@ -20,13 +20,17 @@
     import {mapState} from 'vuex';
     import Stat from "./Stat.vue";
     import Viewable from "../Viewable.js";
+    import Cards from "../Cards";
 
     export default {
-        mixins: [Viewable],
         components: {Stat},
 
         computed: {
-            ...mapState('deck', ['cards']),
+            ...mapState('deck', ['deck']),
+
+            cards() {
+                return new Cards(this.deck.cards);
+            }
         }
     }
 </script>
