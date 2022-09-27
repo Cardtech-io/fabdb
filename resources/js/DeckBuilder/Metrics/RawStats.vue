@@ -2,7 +2,7 @@
     <div class="md:flex">
         <div class="md:w-1/3">
             <h3 class="font-serif uppercase text-2xl">Totals</h3>
-            <totals :cards="cards"/>
+            <totals :cards="cards" :deck="deck"/>
         </div>
 
         <div class="mt-4 md:mt-0 md:w-1/3 md:mx-4">

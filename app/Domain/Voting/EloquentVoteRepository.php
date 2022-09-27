@@ -24,11 +24,9 @@ class EloquentVoteRepository extends EloquentRepository implements VoteRepositor
             ->get();
     }
 
-    public function cast(int $userId, string $type, int $foreignId, string $direction)
+    public function cast(int $userId, string $type, int $foreignId)
     {
-        DB::transaction(function() use ($userId, $type, $foreignId, $direction) {
-            $value = $direction == 'up' ? 1 : -1;
-
+        DB::transaction(function() use ($userId, $type, $foreignId) {
             $vote = $this->newQuery()
                 ->where('voteable_type', $type)
                 ->where('voteable_id', $foreignId)
@@ -36,17 +34,11 @@ class EloquentVoteRepository extends EloquentRepository implements VoteRepositor
                 ->first();
 
             if ($vote) {
-                // Resetting the vote
-                if ($value == $vote->value) {
-                    $vote->delete();
-                    $vote->voteable->decrementVotes();
-                } else {
-                    $vote->value = $value;
-                    $vote->save();
-                    $vote->voteable->incrementVotes();
-                }
+                $vote->voteable->decrementVotes();
+                $vote->forceDelete();
             } else {
-                Vote::create(['voteable_type' => $type, 'voteable_id' => $foreignId, 'user_id' => $userId, 'value' => $value]);
+                $vote = Vote::create(['voteable_type' => $type, 'voteable_id' => $foreignId, 'user_id' => $userId, 'value' => 1]);
+                $vote->voteable->incrementVotes();
             }
         });
     }

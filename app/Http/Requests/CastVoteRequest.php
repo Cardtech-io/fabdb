@@ -9,8 +9,7 @@ class CastVoteRequest extends FormRequest
     {
         return [
             'foreign' => 'required',
-            'type' => 'required',
-            'direction' => 'required',
+            'type' => 'required'
         ];
     }
 }

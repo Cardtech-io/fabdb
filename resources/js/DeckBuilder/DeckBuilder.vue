@@ -15,7 +15,7 @@
                         <div class="flex items-center justify-between p-4" :class="topAreaClasses">
                             <div class="flex items-center">
                                 <mode-selector class="w-auto"/>
-                                <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
+                                <grouping-selector v-show="['all', 'search'].indexOf(mode) !== -1" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
                                 <play-deck :deck="deck"/>
                             </div>
 

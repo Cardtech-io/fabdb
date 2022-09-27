@@ -2,7 +2,7 @@
     <div>
         <div class="md:flex md:space-x-4 w-full mb-4 space-y-4 md:space-y-0">
             <tile class="w-full md:w-1/4" title="Total cards">
-                <h1 class="text-12xl text-center font-bold leading-none my-4 md:-mt-4">{{ cards.total() }}</h1>
+                <h1 class="text-12xl text-center font-bold leading-none my-4 md:-mt-4">{{ cards.deckTotal(deck.format) }}</h1>
             </tile>
             <tile class="w-full md:w-1/2" title="Deck composition">
                 <composition :deck="deck" :cards="cards" class="w-full h-200 md:h-180 p-2"/>

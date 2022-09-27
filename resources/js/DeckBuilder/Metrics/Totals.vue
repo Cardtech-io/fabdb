@@ -1,7 +1,7 @@
 <template>
     <div>
         <ol class="mt-2">
-            <stat :value="cards.total()" text="Cards" position="top"/>
+            <stat :value="cards.deckTotal(deck.format)" text="Cards" position="top"/>
             <stat :value="cards.forClass().total()" text="Class"/>
             <stat :value="cards.forGeneric().total()" text="Generic" position="bottom"/>
         </ol>
@@ -27,6 +27,10 @@
             cards: {
                 required: true,
                 type: Cards
+            },
+            deck: {
+                required: true,
+                type: Object
             }
         }
     }

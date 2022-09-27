@@ -16,8 +16,7 @@ class VoteController extends Controller
         $this->dispatchNow(new CastVote(
             $request->user()->id,
             $type,
-            $foreignId,
-            $request->get('direction')
+            $foreignId
         ));
     }
 }
