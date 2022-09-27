@@ -1,4 +1,4 @@
-import {Bar, mixins} from 'vue-chartjs';
+import {Bar} from 'vue-chartjs';
 import _ from 'lodash';
 
 export default {
