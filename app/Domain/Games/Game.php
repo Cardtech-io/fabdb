@@ -36,7 +36,7 @@ final class Game extends Model
 
         return $game;
     }
-    
+
     public function saveResult($result)
     {
         $this->result = $result;

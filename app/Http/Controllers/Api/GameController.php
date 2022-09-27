@@ -15,15 +15,13 @@ class GameController extends Controller
         $deck = $decks->bySlug($request->deck);
         $user = $request->get('user');
 
-        if ($user) {
-            $user = $users->bySlug($user);
-        }
+        $userId = $user ? $users->bySlug($user)->id : null;
 
         $this->dispatch(new SaveGameResults(
             'fabtcg_online',
             $request->get('gameId'),
             $deck->id,
-            $user?->id,
+            $userId,
             $request->opposingHeroId(),
             $request->get('firstPlayer'),
             $request->get('turns'),

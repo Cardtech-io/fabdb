@@ -15,6 +15,7 @@ class ApiAuthentication
     public function handle($request, \Closure $next)
     {
         $token = str_replace('Bearer ', '', $request->header('Authorization'));
+
         $user = $this->users->findByApiToken($token);
 
         info('Game result request user: ['.$user->id.']');
