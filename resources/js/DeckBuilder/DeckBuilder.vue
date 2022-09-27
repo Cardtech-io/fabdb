@@ -49,7 +49,7 @@
                             <edit-deck v-show="mode === 'search'" :collection="cards"/>
                             <deck-details v-if="mode === 'details'"/>
                             <main-deck v-show="mode === 'sideboard'" :collection="cards"/>
-                            <metrics-performance v-show="mode === 'metrics'" :deck="deck"/>
+                            <metrics-performance v-show="mode === 'metrics'" :deck="deck" class="p-4"/>
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">

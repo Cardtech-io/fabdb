@@ -17,8 +17,8 @@ export default {
                         {title: 'Loadout', cards: this.loadout},
                         {title: 'Other', cards: this.other},
                     ] : [
-                        {title: 'Hero', cards: new Cards([this.cards.hero()])},
                         {title: 'Deck', cards: this.cards.other()},
+                        {title: 'Hero', cards: new Cards([this.cards.hero()])},
                         {title: 'Weapons', cards: this.cards.weapons()},
                         {title: 'Equipment', cards: this.cards.equipment()},
                     ];

@@ -9,9 +9,6 @@
                 <tab-item name="Settings">
                     <deck-settings :deck="deck"/>
                 </tab-item>
-                <tab-item name="Metrics" class="md:flex md:space-x-4">
-                    <metrics-performance/>
-                </tab-item>
                 <tab-item name="Rulings">
                     <rulings :rulings="rulings"/>
                 </tab-item>

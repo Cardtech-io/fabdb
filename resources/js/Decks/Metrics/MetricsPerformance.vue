@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full p-4">
+    <div class="w-full">
         <tabs>
             <tab-item name="Composition">
                 <deck-composition :deck="deck" :cards="cards"/>
