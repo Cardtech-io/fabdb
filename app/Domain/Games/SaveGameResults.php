@@ -14,7 +14,7 @@ class SaveGameResults
         private int $opposingHeroId,
         private int $first,
         private int $turns,
-        private string $result,
+        private $result,
         private array $results
     ) {}
 

@@ -742,25 +742,25 @@
       "resources/js/app.js"
     ]
   },
+  "resources/js/LifeCounter/Main.css": {
+    "file": "assets/Main.afc7d64f.css",
+    "src": "resources/js/LifeCounter/Main.css"
+  },
   "resources/js/Practise/Draft.css": {
     "file": "assets/Draft.f06fe441.css",
     "src": "resources/js/Practise/Draft.css"
+  },
+  "resources/js/DeckBuilder/DeckBuilder.css": {
+    "file": "assets/DeckBuilder.6ea2fde4.css",
+    "src": "resources/js/DeckBuilder/DeckBuilder.css"
   },
   "MarkdownEditor.css": {
     "file": "assets/MarkdownEditor.97170244.css",
     "src": "MarkdownEditor.css"
   },
-  "resources/js/LifeCounter/Main.css": {
-    "file": "assets/Main.afc7d64f.css",
-    "src": "resources/js/LifeCounter/Main.css"
-  },
   "resources/js/DeckTester/Main.css": {
     "file": "assets/Main.e3b0c442.css",
     "src": "resources/js/DeckTester/Main.css"
-  },
-  "resources/js/DeckBuilder/DeckBuilder.css": {
-    "file": "assets/DeckBuilder.6ea2fde4.css",
-    "src": "resources/js/DeckBuilder/DeckBuilder.css"
   },
   "resources/js/app.css": {
     "file": "assets/app.536022ca.css",
