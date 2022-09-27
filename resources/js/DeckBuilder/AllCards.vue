@@ -17,7 +17,7 @@
                     <div class="hidden md:block">
                         <div class="mx-2 my-4">
                             <h3 class="font-serif uppercase text-lg">Totals</h3>
-                            <totals class="mt-2" :cards="cards"/>
+                            <totals class="mt-2" :cards="cards" :deck="deck"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
