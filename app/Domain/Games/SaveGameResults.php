@@ -28,8 +28,8 @@ class SaveGameResults
         // Now we setup and save the game's result
         $games->transaction(function() use ($games, $cardResults) {
             $game = Game::setup($this->deckId, $this->userId, $this->opposingHeroId, $this->source, $this->gameId, $this->first, $this->turns);
-            $games->save($game);
             $game->saveResult($this->result);
+            $games->save($game);
             $games->saveResults($game, $cardResults);
         });
     }
