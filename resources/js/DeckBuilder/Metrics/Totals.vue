@@ -17,19 +17,16 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex';
     import Stat from "./Stat.vue";
-    import Viewable from "../Viewable.js";
     import Cards from "../Cards";
 
     export default {
         components: {Stat},
 
-        computed: {
-            ...mapState('deck', ['deck']),
-
-            cards() {
-                return new Cards(this.deck.cards);
+        props: {
+            cards: {
+                required: true,
+                type: Cards
             }
         }
     }

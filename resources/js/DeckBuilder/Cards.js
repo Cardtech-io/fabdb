@@ -157,19 +157,19 @@ export default class Cards {
     }
 
     withCost() {
-        return this.other().filter(card => !isNaN(card.stats.cost));
+        return this.other().filter(card => card.stats && !isNaN(card.stats.cost));
     }
 
     withResource() {
-        return this.other().filter(card => !isNaN(card.stats.resource));
+        return this.other().filter(card => card.stats && !isNaN(card.stats.resource));
     }
 
     withDefense() {
-        return this.other().filter(card => !isNaN(card.stats.defense));
+        return this.other().filter(card => card.stats && !isNaN(card.stats.defense));
     }
 
     withPower() {
-        return this.deck().filter(card => !isNaN(card.stats.attack));
+        return this.deck().filter(card => card.stats && !isNaN(card.stats.attack));
     }
 
     sort() {

@@ -6,6 +6,11 @@ export default {
     extends: Doughnut,
 
     props: {
+        deck: {
+            required: true,
+            type: Object
+        },
+
         cards: {
             required: true,
             type: Object
@@ -65,7 +70,7 @@ export default {
 
         values(cards) {
             // Groups by card type, then reduces to total number of that type in data set.
-            return _(cards.filter(card => card.type !== 'hero').all())
+            return _(cards.deck().all())
                 .groupBy(card => this.prettyType(card.type, card.subType))
                 .mapValues(cards => cards.reduce((carry, card) => carry + card.total, 0))
                 .value();

@@ -70,7 +70,7 @@ export default {
                         borderWidth: 2,
                         borderRadius: 5,
                         data: _.values(values),
-                        barPercentage: 0.8,
+                        barPercentage: 0.6,
                     }
                 ],
             };

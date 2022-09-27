@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="deck && deck.hero">
+        <div v-if="deck && deck.cards && deck.hero">
             <header-title :title="deck.name + ' (' + deck.hero.name + ')'"/>
             <breadcrumbs :crumbs="crumbs"/>
 

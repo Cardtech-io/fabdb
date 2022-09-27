@@ -2,12 +2,12 @@
     <div class="md:flex">
         <div class="md:w-1/3">
             <h3 class="font-serif uppercase text-2xl">Totals</h3>
-            <totals/>
+            <totals :cards="cards"/>
         </div>
 
         <div class="mt-4 md:mt-0 md:w-1/3 md:mx-4">
             <h3 class="font-serif uppercase text-2xl">General</h3>
-            <general/>
+            <general :cards="cards"/>
         </div>
 
         <div class="mt-4 md:mt-0 md:w-1/3 md:mx-4">
@@ -31,19 +31,24 @@
 import Totals from "./Totals.vue";
 import Stat from "./Stat.vue";
 import General from "./General.vue";
-import {mapState} from "vuex";
 import Cards from "../Cards";
 
 export default {
     components: {General, Stat, Totals},
 
-    computed: {
-        ...mapState('deck', ['deck']),
-
-        cards() {
-            return new Cards(this.deck.cards);
+    props: {
+        deck: {
+            required: true,
+            type: Object,
         },
 
+        cards: {
+            required: true,
+            type: Cards
+        }
+    },
+
+    computed: {
         total() {
             return this.deck.format === 'constructed' ? this.cards.total() - 1 : this.cards.total();
         },

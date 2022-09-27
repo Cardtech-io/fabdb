@@ -49,6 +49,7 @@
                             <edit-deck v-show="mode === 'search'" :collection="cards"/>
                             <deck-details v-if="mode === 'details'"/>
                             <main-deck v-show="mode === 'sideboard'" :collection="cards"/>
+                            <metrics-performance v-show="mode === 'metrics'" :deck="deck"/>
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
@@ -80,6 +81,7 @@
     import Icon from '../Components/Icon.vue';
     import LazyLoader from '../Components/LazyLoader.js';
     import MainDeck from './MainDeck.vue';
+    import MetricsPerformance from "../Decks/Metrics/MetricsPerformance.vue";
     import ModeSelector from './ModeSelector.vue';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
@@ -95,17 +97,18 @@
             Breadcrumbs,
             CardImage,
             CardSearch,
+            DeckDetails,
             DeckName,
             DeckTotals,
             EditDeck,
             FullscreenButton,
             GroupingSelector,
+            HeaderTitle,
             HeroSelector,
             Icon,
             MainDeck,
-            DeckDetails,
+            MetricsPerformance,
             ModeSelector,
-            HeaderTitle,
             PlayDeck,
             SearchResults,
             Sideboard,

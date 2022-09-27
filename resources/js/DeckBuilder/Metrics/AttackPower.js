@@ -37,7 +37,8 @@ export default {
                 labels: labels,
                 datasets: [{
                     data: Object.values(values),
-                    backgroundColor: Object.values(this.colours(Object.values(values)))
+                    backgroundColor: Object.values(this.colours(Object.values(values))),
+                    barPercentage: 0.6,
                 }]
             };
 

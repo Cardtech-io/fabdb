@@ -14,30 +14,6 @@ export default {
             return (_.reduce(this.blocks, (total, card) => { return total + card.stats.defense * card.total; }, 0) / this.totalBlocks).toFixed(1);
         },
 
-        averageCost() {
-            const totalCost = this.other.reduce((total, card) => {
-                if (card.stats.cost && !isNaN(card.stats.cost)) {
-                    return total + card.stats.cost * card.total;
-                }
-
-                return total;
-            }, 0);
-
-            return (this.totalOther ? (totalCost / this.totalOther) : 0).toFixed(2);
-        },
-
-        averagePitch() {
-            const totalPitch = this.other.reduce((total, card) => {
-                if (card.stats.resource) {
-                    return total + (card.stats.resource * card.total);
-                }
-
-                return total + 0;
-            }, 0);
-
-            return (this.totalOther ? (totalPitch / this.totalOther) : 0).toFixed(2)
-        },
-
         hero() {
             if (!this.cards) {
                 return;
