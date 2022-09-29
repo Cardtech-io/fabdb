@@ -5,7 +5,7 @@
                 <deck-composition :deck="deck" :cards="cards"/>
             </tab-item>
             <tab-item name="Performance">
-
+                <performance :deck="deck"></performance>
             </tab-item>
             <tab-item name="Raw">
                 <raw-stats :deck="deck" :cards="cards"/>
@@ -20,15 +20,16 @@
     import TabItem from "../../Components/TabItem.vue";
     import Tabs from "../../Components/Tabs.vue";
     import Cards from "../../DeckBuilder/Cards";
+    import Performance from "./Performance.vue";
 
     export default {
-        components: {DeckComposition, RawStats, TabItem, Tabs},
+        components: {DeckComposition, RawStats, TabItem, Tabs, Performance},
 
         props: {
             deck: {
                 required: true,
                 type: Object,
-            }
+            },
         },
 
         computed: {

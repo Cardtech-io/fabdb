@@ -15,6 +15,8 @@ use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Domain\Decks\SetDeckCardTotal;
+use FabDB\Domain\Games\EloquentGameRepository;
+use FabDB\Domain\Games\Game;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
@@ -138,5 +140,10 @@ class DeckController extends Controller
             $request->get('visibility', $request->deck->visibility),
             (int) $request->get('cardBack', $request->deck->cardBack)
         ));
+    }
+
+    public function overallWinRate(Deck $deck, EloquentGameRepository $games){
+        return $games->overallWinRate($deck);
+
     }
 }
