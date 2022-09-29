@@ -22,9 +22,9 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
     public function overallWinRate(Deck $deck) {
         $games = $this->model()->select('result')->where('deck_id', $deck->id)->get();
 
-        return [
+        return response()->json([
             'total_games' => count($games),
             'won' => $games->where('result', 1)->count()
-        ];
+        ]);
     }
 }
