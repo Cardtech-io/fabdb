@@ -5,6 +5,7 @@ namespace FabDB\Domain\Games;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class EloquentGameRepository extends EloquentRepository implements GameRepository
 {
@@ -44,6 +45,36 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
             'won' => [number_format($wonFirst * 100 / $allGames, 2), number_format($wonSecond * 100 / $allGames, 2)],
             'lost' => [number_format($lostFirst * 100 / $allGames, 2), number_format($lostSecond * 100 / $allGames, 2)],
             'either' => [number_format($wonFirst * 100 / ($wonFirst + $lostFirst)), number_format($wonSecond * 100 / ($wonSecond + $lostSecond), 2)]
+        ];
+    }
+
+    public function winRateByClass(int $deckId, int $limit, ?int $userId)
+    {
+        $query = $this->newQuery()
+            ->select('games.first', 'games.result', 'cards.class')
+            ->join('cards', 'cards.id', 'games.opposing_hero_id')
+            ->where('deck_id', $deckId)
+            ->orderBy('games.id', 'desc');
+
+        if ($userId) {
+            $query = $query->whereUserId($userId);
+        }
+
+        $games = $query
+            ->limit($limit)
+            ->get();
+
+        $data = $games->groupBy('class');
+
+        $data = $data->map(function(Collection $games) {
+            return number_format($games->reduce(fn($carry, Game $game) => $carry + $game->result, 0) / $games->count(), 2) * 100;
+        });
+
+        $total = $games->count();
+
+        return [
+            'total' => $total,
+            'data' => $data
         ];
     }
 }

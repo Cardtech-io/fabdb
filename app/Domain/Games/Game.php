@@ -13,6 +13,11 @@ final class Game extends Model
         return $this->belongsTo(Deck::class);
     }
 
+    public function opposingHero()
+    {
+        return $this->belongsTo(Card::class, 'id', 'hero_id');
+    }
+
     public function cards()
     {
         return $this->hasManyThrough(Card::class, GameCard::class);

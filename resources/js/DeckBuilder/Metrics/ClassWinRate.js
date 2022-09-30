@@ -14,25 +14,11 @@ export default {
     methods: {
         update(data) {
             let chartData = {
-                labels: ["Went first", "Went second"],
-
+                labels: Object.keys(data.data),
                 datasets: [
                     {
-                        type: "line",
-                        label: "Either",
-                        borderColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                        data: data.either,
-                        fill: false
-                    },
-                    {
-                        label: "Won",
-                        backgroundColor: "rgb(20 184 166)",
-                        data: data.won
-                    },
-                    {
-                        label: "Lost",
-                        backgroundColor: "rgb(249 115 22)",
-                        data: data.lost
+                        label: "Class",
+                        data: Object.values(data.data)
                     }
                 ]
             };
@@ -49,7 +35,7 @@ export default {
         },
         getData(deck) {
             axios
-                .get("/games/overall-win-rate?deck="+deck)
+                .get("/games/class-win-rate?deck="+deck)
                 .then((response) => {
                     this.update(response.data);
                 });
