@@ -25,6 +25,7 @@ export default {
                         type: "line",
                         label: "Either",
                         borderColor: "green",
+                        backgroundColor: 'transparent',
                         data: either
                     },
                     {

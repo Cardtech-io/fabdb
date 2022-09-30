@@ -33,15 +33,17 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
 
         $games = $games->orderBy('created_at', 'desc')->limit($gameLimit)->get();
 
+        $allGames = $games->count();
+
         $wonFirst = $games->where('first', 1)->where('result', 1)->count();
-        $lostFirst = -$games->where('first', 1)->where('result', 0)->count();
+        $lostFirst = $games->where('first', 1)->where('result', 0)->count();
         $wonSecond = $games->where('first', 0)->where('result', 1)->count();
-        $lostSecond = -$games->where('first', 0)->where('result', 0)->count();
+        $lostSecond = $games->where('first', 0)->where('result', 0)->count();
 
         return [
-            'first' => [$wonFirst, $lostFirst],
-            'second' => [$wonSecond, $lostSecond],
-            'either' => [$wonFirst + $wonSecond, $lostFirst + $lostSecond]
+            'first' => [number_format($wonFirst*100/$allGames,2), number_format($lostFirst*100/$allGames,2)],
+            'second' => [number_format($wonSecond*100/$allGames,2), number_format($lostSecond*100/$allGames,2)],
+            'either' => [number_format(($wonFirst + $wonSecond)*100/$allGames), number_format(($lostFirst + $lostSecond)*100/$allGames,2)]
         ];
     }
 }
