@@ -37,12 +37,12 @@ export default {
                     {
                         label: "Won",
                         backgroundColor: "rgb(20 184 166)",
-                        data: won
+                        data: won,
                     },
                     {
                         label: "Lost",
                         backgroundColor: "rgb(249 115 22)",
-                        data: lost
+                        data: lost,
                     }
                 ]
             };
@@ -54,7 +54,15 @@ export default {
                 },
                 tooltips: {
                     callbacks: {
-                        label: function (context) {
+                        // title: function(context) {
+                        //     var label = context[0].xLabel;
+                        //     return label.slice(4)
+                        // },
+                        label: function (context, data) {
+                            console.log(context)
+                            var dataset = data.datasets[0];
+                            console.log(dataset);
+                            // console.log(context)
                             return " "+context.yLabel + "%";
                         }
                     }
