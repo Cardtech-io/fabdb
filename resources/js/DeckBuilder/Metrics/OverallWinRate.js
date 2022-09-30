@@ -24,17 +24,18 @@ export default {
                     {
                         type: "line",
                         label: "Either",
-                        borderColor: "green",
-                        data: either
+                        borderColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
+                        data: either,
+                        fill: false
                     },
                     {
-                        label: "1st",
-                        backgroundColor: "blue",
+                        label: "Went 1st",
+                        backgroundColor: "rgb(20 184 166)",
                         data: first
                     },
                     {
-                        label: "2nd",
-                        backgroundColor: "red",
+                        label: "Went 2nd",
+                        backgroundColor: "rgb(249 115 22)",
                         data: second
                     }
                 ]
