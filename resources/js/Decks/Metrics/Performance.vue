@@ -11,11 +11,11 @@
                 <option value="100">All Time</option>
             </select>
         </header>
-        <div class="flex">
-            <tile class="w-full md:w-1/3" title="Win Rate">
+        <div class="md:flex md:space-x-4 w-full mb-4 space-y-4 md:space-y-0">
+            <tile class="w-full md:w-1/3" title="Overall win rate">
                 <overall-win-rate :slug="deck.slug" class="w-full h-200 md:h-180 p-2" />
             </tile>
-            <tile class="w-full md:w-2/3" title="Win Rate">
+            <tile class="w-full md:w-2/3" title="Win rate by class">
                 <class-win-rate :slug="deck.slug" class="w-full h-200 md:h-180 p-2" />
             </tile>
         </div>

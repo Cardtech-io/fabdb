@@ -1,5 +1,4 @@
 import { Bar, mixins } from "vue-chartjs";
-import _, { update } from "lodash";
 import Strings from "../../Utilities/Strings.js";
 
 export default {
@@ -14,23 +13,40 @@ export default {
     methods: {
         update(data) {
             let chartData = {
-                labels: Object.keys(data.data),
+                labels: Object.keys(data.data).map(this.ucfirst),
                 datasets: [
                     {
-                        label: "Class",
-                        data: Object.values(data.data)
+                        data: Object.values(data.data),
+                        backgroundColor: 'rgb(6 182 212)'
                     }
                 ]
             };
 
             this.renderChart(chartData, {
                 legend: {
-                    display: true,
-                    position: this.$mq === 'sm' ? 'top' : 'right',
+                    display: false,
                 },
                 responsive: true,
                 maintainAspectRatio: false,
                 fill: false,
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            steps: 10,
+                            stepValue: 10,
+                            max: 100
+                        }
+                    }]
+                },
+                tooltips: {
+                    callbacks: {
+                        label(context) {
+                            return " "+context.yLabel + "%";
+                        }
+                    }
+                },
             });
         },
         getData(deck) {

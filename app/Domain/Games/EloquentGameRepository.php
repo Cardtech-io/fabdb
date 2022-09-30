@@ -67,7 +67,7 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
         $data = $games->groupBy('class');
 
         $data = $data->map(function(Collection $games) {
-            return number_format($games->reduce(fn($carry, Game $game) => $carry + $game->result, 0) / $games->count(), 2) * 100;
+            return round(($games->reduce(fn($carry, Game $game) => $carry + $game->result, 0) / $games->count()) * 100);
         });
 
         $total = $games->count();
