@@ -116,7 +116,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/featured', 'DeckController@featured');
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
-        Route::get('deck/overall-win-rate', 'GameController@overallWinRate');
+        Route::get('games/overall-win-rate', 'GameController@overallWinRate');
     });
 
     Route::get('decks/embed/{deck}', function() {

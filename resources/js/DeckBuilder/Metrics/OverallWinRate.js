@@ -73,7 +73,7 @@ export default {
         },
         getData(deck) {
             axios
-                .get("/deck/overall-win-rate?deck="+deck)
+                .get("/games/overall-win-rate?deck="+deck)
                 .then((response) => {
                     this.update(response.data);
                 });
