@@ -44,10 +44,6 @@ export default {
             this.renderChart(chartData, {
                 legend: {
                     display: true,
-                    labels: {
-                        boxWidth: 16,
-                        fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                    },
                     position: this.$mq === 'sm' ? 'top' : 'right',
                 },
                 responsive: true,
