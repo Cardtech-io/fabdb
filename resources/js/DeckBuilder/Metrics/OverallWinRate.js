@@ -13,6 +13,16 @@ export default {
     mixins: [Strings],
     methods: {
         update(data) {
+            let wonFirst = data.wonFirst;
+            let lostFirst = data.lostFirst;
+            let wonSecond = data.wonSecond;
+            let lostSecond = data.lostSecond;
+            let allGames = data.allGames;
+
+            let won = [Math.round(wonFirst*100/allGames).toFixed(2), Math.round(wonSecond*100/allGames).toFixed(2)];
+            let lost = [Math.round(lostFirst*100/allGames).toFixed(2), Math.round(lostSecond*100/allGames).toFixed(2)];
+            let either = [Math.round(wonFirst*100/(wonFirst + lostFirst)).toFixed(2), Math.round(wonSecond*100/(wonSecond + lostSecond)).toFixed(2)];
+
             let chartData = {
 
                 labels: ["Went first", "Went second"],
@@ -21,18 +31,18 @@ export default {
                         type: "line",
                         label: "Either",
                         borderColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                        data: data.either,
-                        fill: false
+                        data: either,
+                        fill: false,
                     },
                     {
                         label: "Won",
                         backgroundColor: "rgb(20 184 166)",
-                        data: data.won
+                        data: won
                     },
                     {
                         label: "Lost",
                         backgroundColor: "rgb(249 115 22)",
-                        data: data.lost
+                        data: lost
                     }
                 ]
             };
@@ -42,15 +52,21 @@ export default {
                     display: true,
                     position: this.$mq === 'sm' ? 'top' : 'right',
                 },
+                tooltips: {
+                    callbacks: {
+                        label: function (context) {
+                            return " "+context.yLabel + "%";
+                        }
+                    }
+                },
                 responsive: true,
                 maintainAspectRatio: false,
                 fill: false,
-
             });
         },
         getData(deck) {
             axios
-                .get("/games/overall-win-rate?deck="+deck)
+                .get("/games/overall-win-rate?deck=" + deck)
                 .then((response) => {
                     this.update(response.data);
                 });
