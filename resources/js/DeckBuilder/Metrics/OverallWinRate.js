@@ -13,8 +13,8 @@ export default {
     mixins: [Strings],
     methods: {
         update(data) {
-            let first = data.first;
-            let second = data.second;
+            let won = data.won;
+            let lost = data.lost;
             let either = data.either;
 
             let chartData = {
@@ -31,12 +31,12 @@ export default {
                     {
                         label: "Won",
                         backgroundColor: "rgb(20 184 166)",
-                        data: first
+                        data: won
                     },
                     {
                         label: "Lost",
                         backgroundColor: "rgb(249 115 22)",
-                        data: second
+                        data: lost
                     }
                 ]
             };

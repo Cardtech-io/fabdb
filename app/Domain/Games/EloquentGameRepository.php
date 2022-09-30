@@ -8,7 +8,9 @@ use FabDB\Library\Model;
 
 class EloquentGameRepository extends EloquentRepository implements GameRepository
 {
-    public function __construct(private EloquentDeckRepository $decks){}
+    public function __construct(private EloquentDeckRepository $decks)
+    {
+    }
 
     protected function model(): Model
     {
@@ -17,7 +19,7 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
 
     public function saveResults(Game $game, array $cardResults)
     {
-        $cards = array_map( fn($result) => new GameCard($result), $cardResults);
+        $cards = array_map(fn ($result) => new GameCard($result), $cardResults);
         $game->gameCards()->saveMany($cards);
     }
 
@@ -25,7 +27,7 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
     {
         $deckId = $this->decks->bySlugWithCards($deck, false)->id;
 
-        $games = $this->newQuery()->select('first','result')->where('deck_id', $deckId);
+        $games = $this->newQuery()->select('first', 'result')->where('deck_id', $deckId);
 
         if ($userId) {
             $games = $games->select('user_id')->where('user_id', $userId);
@@ -41,9 +43,9 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
         $lostSecond = $games->where('first', 0)->where('result', 0)->count();
 
         return [
-            'first' => [number_format($wonFirst*100/$allGames,2), number_format($lostFirst*100/$allGames,2)],
-            'second' => [number_format($wonSecond*100/$allGames,2), number_format($lostSecond*100/$allGames,2)],
-            'either' => [number_format(($wonFirst + $wonSecond)*100/$allGames), number_format(($lostFirst + $lostSecond)*100/$allGames,2)]
+            'won' => [number_format($wonFirst * 100 / $allGames, 2), number_format($wonSecond * 100 / $allGames, 2)],
+            'lost' => [number_format($lostFirst * 100 / $allGames, 2), number_format($lostSecond * 100 / $allGames, 2)],
+            'either' => [number_format(($wonFirst + $lostFirst) * 100 / $allGames), number_format(($wonSecond + $lostSecond) * 100 / $allGames, 2)]
         ];
     }
 }
