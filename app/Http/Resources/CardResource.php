@@ -16,9 +16,9 @@ class CardResource extends JsonResource
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
         }
-        
+
         $response['buyLink'] = $this->buyLink();
-        $response['image'] = $this->alteredImage($this->resource->image, $request);
+        $response['image'] = $this->baseImage($this->resource->image);
 
         if (isset($this->resource->ownedTotal)) {
             $response['ownedTotal'] = (int) $this->resource->ownedTotal;

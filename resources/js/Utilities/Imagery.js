@@ -12,14 +12,10 @@ export default {
             return path+'&rect=90,115,400,345&crop=edges&w='+width+'&h='+width+'&fit=crop&auto=compress';
         },
 
-        heroProfile(hero, width, rounded) {
-            let url = hero.image+'&rect=90,115,400,345';
-
-            if (rounded) {
-                url += '&mask=corners&h='+width+'&corner-radius=100&fm=png';
-            }
-
-            return url;
+        heroProfile(hero, width) {
+            // this might seem  odd, but setting the height to the desired width results in a preferable cut and scaling of the original image for avatars, as they're slightly wider
+            // than they are taller due to the rect coordinates passed in to the imgix api.
+            return hero.image+'&rect=90,115,400,345&h='+width+'&fm=png';
         },
 
         cardImageFromSku(sku, width) {

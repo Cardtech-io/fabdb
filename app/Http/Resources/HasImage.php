@@ -14,6 +14,11 @@ trait HasImage
         return $this->url("/{$image}?w=400&fit=clip&auto=compress&auto=compress,format");
     }
 
+    protected function baseImage($image)
+    {
+        return $this->url("/$image?auto=compress,format");
+    }
+
     protected function alteredImage($image, $request)
     {
         $width = $request->get('width', 400);

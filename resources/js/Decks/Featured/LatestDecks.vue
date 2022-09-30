@@ -1,6 +1,6 @@
 <template>
     <section class="rounded-lg overflow-hidden" v-if="decks">
-        <header class="flex items-center py-2 px-4  text-white" :class="color">
+        <header class="flex items-center py-2 px-4 text-white" :class="color">
             <h2 class="font-serif text-xl uppercase">{{title}}</h2>
             <router-link :to="{name: 'decks.browse', query: queryParams()}" class="block flex items-center ml-auto rounded py-1 px-2 text-base" :class="buttonColors()">
                 See more
@@ -9,8 +9,8 @@
                 </icon>
             </router-link>
         </header>
-        <div class="bg-gray-200 rounded-b-lg">
-            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white px-4 py-2" :key="deck.slug">
+        <div class="bg-gray-200 dark:bg-gray-900 rounded-b-lg">
+            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white dark:hover:bg-gray-800 px-4 py-2" :key="deck.slug">
                 <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"/>
                 <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"/>
                 <div class="ml-2">

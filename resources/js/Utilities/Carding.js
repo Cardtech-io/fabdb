@@ -17,7 +17,7 @@ export default {
             return this.cropImage(path);
         }
 
-        return path;
+        return path + '&w=400';
     },
 
     cropImage(url) {

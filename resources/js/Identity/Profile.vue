@@ -9,8 +9,8 @@
                     <form @submit.prevent="save">
                         <div class="w-full flex items-center">
                             <div class="mr-4">
-                                <div class="rounded-xl overflow-hidden">
-                                    <avatar :user="user" :width="80"></avatar>
+                                <div class="rounded-lg overflow-hidden">
+                                    <hero-avatar :hero="avatar"/>
                                 </div>
                             </div>
 
@@ -18,7 +18,7 @@
                                 <label class="block font-serif uppercase tracking-wide mb-1">Avatar (Patrons only)</label>
                                 <select v-model="avatar" class="input focus:bg-white focus:border-gray-500 py-3 px-4 rounded-lg flex-auto" :disabled="!subscribed">
                                     <option value="bauble">Bauble</option>
-                                    <option :value="hero.avatar()" v-for="hero in heroes">{{ hero.name }}</option>
+                                    <option :value="hero" v-for="hero in heroes">{{ hero.name }}</option>
                                 </select>
                             </div>
                         </div>
@@ -146,12 +146,13 @@
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Card from "../CardDatabase/Card.js";
     import HeaderTitle from '../Components/HeaderTitle.vue';
+    import HeroAvatar from "../Components/HeroAvatar.vue";
     import LazyLoader from "../Components/LazyLoader.js";
     import Models from "../Utilities/Models.js";
     import Submit from "../Components/Form/Submit.vue";
 
     export default {
-        components: { Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },
+        components: {HeroAvatar, Avatar, Badge, Breadcrumbs, HeaderTitle, Submit },
 
         computed: {
             ...mapGetters('session', ['user', 'subscribed']),

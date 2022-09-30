@@ -1,5 +1,5 @@
 <template>
-    <img :src="heroProfile(hero, width)" :alt="name" :class="classes()" :width="width" :height="width" v-if="hero">
+    <div :style="{backgroundImage: 'url('+heroProfile(hero, width)+')'}" class="background-cover" :class="classes()"></div>
 </template>
 
 <script>
@@ -30,7 +30,11 @@
 
         methods: {
             classes() {
-                return this.rounded ? 'rounded-full' : '';
+                return [
+                    'w-'+this.width,
+                    'h-'+this.width,
+                    this.rounded ? 'rounded-full' : ''
+                ];
             }
         }
     };
