@@ -48,24 +48,6 @@ export default {
                 },
                 responsive: true,
                 maintainAspectRatio: false,
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                        },
-                        gridLines: {
-                            display: false
-                        },
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                            stepSize: 10,
-                            suggestedMin: 0,
-                            display: false
-                        }
-                    }]
-                }
             });
         },
 
