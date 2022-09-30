@@ -15,7 +15,7 @@ final class Game extends Model
 
     public function opposingHero()
     {
-        return $this->belongsTo(Card::class, 'id', 'hero_id');
+        return $this->belongsTo(Card::class, 'opposing_hero_id', 'id');
     }
 
     public function cards()

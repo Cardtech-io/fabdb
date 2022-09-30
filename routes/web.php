@@ -119,6 +119,9 @@ Route::middleware(['web'])->group(function() {
 
         Route::get('games/overall-win-rate', 'GameController@overallWinRate');
         Route::get('games/class-win-rate', 'GameController@classWinRate');
+        Route::get('games/hero-win-rate', 'GameController@heroWinRate');
+        Route::get('games/win-rate', 'GameController@winRate');
+        Route::get('games/card-stats', 'GameController@cardStats');
     });
 
     Route::get('decks/embed/{deck}', function() {

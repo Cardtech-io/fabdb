@@ -23,4 +23,39 @@ class GameController extends Controller
             $request->get('user_id')
         ));
     }
+
+    public function heroWinRate(Request $request, GameRepository $games, DeckRepository $decks)
+    {
+        $deck = $decks->bySlug($request->get('deck'));
+
+        return response()->json($games->winRateByHero(
+            $deck->id,
+            $request->get('games', 100),
+            $request->get('user_id')
+        ));
+    }
+
+    public function winRate(Request $request, GameRepository $games, DeckRepository $decks)
+    {
+        $deck = $decks->bySlug($request->get('deck'));
+
+        return response()->json($games->winRate(
+                $deck->id,
+                $request->get('games', 100),
+                $request->get('user')
+            )
+        );
+    }
+
+    public function cardStats(Request $request, GameRepository $games, DeckRepository $decks)
+    {
+        $deck = $decks->bySlug($request->get('deck'));
+
+        return response()->json($games->cardStats(
+            $deck->id,
+            $request->get('games', 100),
+            $request->get('user')
+        )
+        );
+    }
 }
