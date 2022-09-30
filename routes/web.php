@@ -124,7 +124,7 @@ Route::middleware(['web'])->group(function() {
             ->view('layout');
     })->name('decks.embed');
 
-    Route::get('deck/{deck}/overall-win-rate', 'DeckController@overallWinRate');
+    Route::get('deck/overall-win-rate', 'DeckController@overallWinRate');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
     Route::fallback(function(Request $request, CardRepository $cards) {

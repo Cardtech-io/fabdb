@@ -2,7 +2,7 @@
 
 namespace FabDB\Domain\Games;
 
-use FabDB\Domain\Decks\Deck;
+use FabDB\Domain\Decks\EloquentDeckRepository;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 
@@ -19,12 +19,28 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
         $game->gameCards()->saveMany($cards);
     }
 
-    public function overallWinRate(Deck $deck) {
-        $games = $this->model()->select('result')->where('deck_id', $deck->id)->get();
+    public function overallWinRate(string $deck, ?int $userId, ?int $gameLimit = 100): array
+    {
+        $decks = app(EloquentDeckRepository::class);
+        $deckId = $decks->bySlugWithCards($deck, false)->id;
 
-        return response()->json([
-            'total_games' => count($games),
-            'won' => $games->where('result', 1)->count()
-        ]);
+        $games = $this->newQuery()->select('first','result')->where('deck_id', $deckId);
+
+        if ($userId) {
+            $games = $games->select('user_id')->where('user_id', $userId);
+        }
+
+        $games = $games->limit($gameLimit)->get();
+
+        $wonFirst = $games->where('first', 1)->where('result', 1)->count();
+        $lostFirst = -$games->where('first', 1)->where('result', 0)->count();
+        $wonSecond = $games->where('first', 0)->where('result', 1)->count();
+        $lostSecond = -$games->where('first', 0)->where('result', 0)->count();
+
+        return [
+            'first' => [$wonFirst, $lostFirst],
+            'second' => [$wonSecond, $lostSecond],
+            'either' => [$wonFirst + $wonSecond, $lostFirst + $lostSecond]
+        ];
     }
 }

@@ -1,9 +1,9 @@
-import { Pie, mixins } from "vue-chartjs";
-import _ from "lodash";
+import { Bar, mixins } from "vue-chartjs";
+import _, { update } from "lodash";
 import Strings from "../../Utilities/Strings.js";
 
 export default {
-    extends: Pie,
+    extends: Bar,
     props: {
         slug: {
             required: true,
@@ -13,16 +13,31 @@ export default {
     mixins: [Strings],
     methods: {
         update(data) {
-            let wins = data.won;
-            let totalGames = data.total_games;
+            let first = data.first;
+            let second = data.second;
+            let either = data.either;
 
             let chartData = {
-                labels: ['wins', 'losses'],
 
-                datasets: [{
-                    data: [(wins*100)/totalGames, ((totalGames-wins)*100)/totalGames],
-                    backgroundColor: ['red', 'blue']
-                }]
+                labels: ["Wins", "Losses"],
+                datasets: [
+                    {
+                        type: "line",
+                        label: "Either",
+                        borderColor: "green",
+                        data: either
+                    },
+                    {
+                        label: "1st",
+                        backgroundColor: "blue",
+                        data: first
+                    },
+                    {
+                        label: "2nd",
+                        backgroundColor: "red",
+                        data: second
+                    }
+                ]
             };
 
             this.renderChart(chartData, {
@@ -36,11 +51,30 @@ export default {
                 },
                 responsive: true,
                 maintainAspectRatio: false,
+                fill: false,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
+                            stepSize: 5,
+                            suggestedMin: 0,
+                            display: false
+                        }
+                    }]
+                }
             });
         },
         getData(deck) {
             axios
-                .get("https://fab.test/deck/" + deck + "/overall-win-rate")
+                .get("https://"+window.location.host+"/deck/overall-win-rate?deck="+deck)
                 .then((response) => {
                     this.update(response.data);
                 });

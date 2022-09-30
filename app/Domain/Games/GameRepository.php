@@ -9,5 +9,5 @@ interface GameRepository extends Repository
 {
     public function saveResults(Game $game, array $cardResults);
 
-    public function overallWinRate(Deck $deck);
+    public function overallWinRate(string $deck, ?int $userId, ?int $gameLimit);
 }
