@@ -31,7 +31,7 @@
 import Totals from "./Totals.vue";
 import Stat from "./Stat.vue";
 import General from "./General.vue";
-import Cards from "../Cards";
+import Cards from "../../DeckBuilder/Cards";
 
 export default {
     components: {General, Stat, Totals},

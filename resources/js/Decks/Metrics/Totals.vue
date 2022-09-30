@@ -18,7 +18,7 @@
 
 <script>
     import Stat from "./Stat.vue";
-    import Cards from "../Cards";
+    import Cards from "../../DeckBuilder/Cards";
 
     export default {
         components: {Stat},

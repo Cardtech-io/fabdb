@@ -85,14 +85,14 @@
     import CardItemSection from "./CardItemSection.vue";
     import Chevron from "./Buttons/Chevron.vue";
     import DeckCurves from "./DeckCurves.js";
-    import General from "./Metrics/General.vue";
+    import General from "../Decks/Metrics/General.vue";
     import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "../Components/HeroSelector.vue";
     import ManagesDecks from './ManagesDecks.js';
     import MasonryContainer from "./MasonryContainer.vue";
     import NumberedCardButtons from "./NumberedCardButtons.vue";
-    import Totals from "./Metrics/Totals.vue";
+    import Totals from "../Decks/Metrics/Totals.vue";
     import Viewable from './Viewable.js';
 
     export default {

@@ -27,9 +27,9 @@
     import DeckSettings from './DeckSettings.vue';
     import ManagesDecks from './ManagesDecks.js';
     import Rulings from '../CardDatabase/Rulings.vue';
-    import Stat from './Metrics/Stat.vue';
-    import Totals from "./Metrics/Totals.vue";
-    import General from "./Metrics/General.vue";
+    import Stat from '../Decks/Metrics/Stat.vue';
+    import Totals from "../Decks/Metrics/Totals.vue";
+    import General from "../Decks/Metrics/General.vue";
     import MetricsPerformance from "../Decks/Metrics/MetricsPerformance.vue";
     import TabItem from "../Components/TabItem.vue";
     import Tabs from "../Components/Tabs.vue";

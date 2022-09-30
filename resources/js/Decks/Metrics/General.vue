@@ -16,8 +16,8 @@
 
 <script>
     import Stat from "./Stat.vue";
-    import Viewable from "../Viewable.js";
-    import Cards from "../Cards";
+    import Viewable from "../../DeckBuilder/Viewable.js";
+    import Cards from "../../DeckBuilder/Cards";
 
     export default {
         mixins: [Viewable],

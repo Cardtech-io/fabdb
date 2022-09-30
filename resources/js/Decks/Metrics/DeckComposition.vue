@@ -27,15 +27,15 @@
 </template>
 
 <script>
-    import AttackPower from "../../DeckBuilder/Metrics/AttackPower.js";
+    import AttackPower from "./AttackPower.js";
     import Cards from "../../DeckBuilder/Cards.js";
-    import Composition from "../../DeckBuilder/Metrics/Composition.js";
+    import Composition from "./Composition.js";
     import DeckCurves from "../../DeckBuilder/DeckCurves.js";
-    import Defense from "../../DeckBuilder/Metrics/Defense.js";
-    import General from "../../DeckBuilder/Metrics/General.vue";
-    import Stat from "../../DeckBuilder/Metrics/Stat.vue";
-    import Tile from "../../DeckBuilder/Metrics/Tile.vue";
-    import Totals from "../../DeckBuilder/Metrics/Totals.vue";
+    import Defense from "./Defense.js";
+    import General from "./General.vue";
+    import Stat from "./Stat.vue";
+    import Tile from "./Tile.vue";
+    import Totals from "./Totals.vue";
     import Viewable from "../../DeckBuilder/Viewable.js";
 
     export default {

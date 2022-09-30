@@ -40,12 +40,12 @@
 </template>
 <script>
 // import WinRate from "../../DeckBuilder/Metrics/WinRate.js";
-import Tile from "../../DeckBuilder/Metrics/Tile.vue";
-import CardStats from "../../DeckBuilder/Metrics/CardStats.vue";
-import ClassWinRate from "../../DeckBuilder/Metrics/ClassWinRate.js";
-import HeroWinRate from "../../DeckBuilder/Metrics/HeroWinRate.js";
-import OverallWinRate from "../../DeckBuilder/Metrics/OverallWinRate.js";
-import WinRate from "../../DeckBuilder/Metrics/WinRate.vue";
+import Tile from "./Tile.vue";
+import CardStats from "./CardStats.vue";
+import ClassWinRate from "./ClassWinRate.js";
+import HeroWinRate from "./HeroWinRate.js";
+import OverallWinRate from "./OverallWinRate.js";
+import WinRate from "./WinRate.vue";
 
 export default {
     components: {CardStats, ClassWinRate, HeroWinRate, OverallWinRate, Tile, WinRate},

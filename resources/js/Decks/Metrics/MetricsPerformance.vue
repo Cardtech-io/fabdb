@@ -16,7 +16,7 @@
 
 <script>
     import DeckComposition from "./DeckComposition.vue";
-    import RawStats from "../../DeckBuilder/Metrics/RawStats.vue";
+    import RawStats from "./RawStats.vue";
     import TabItem from "../../Components/TabItem.vue";
     import Tabs from "../../Components/Tabs.vue";
     import Cards from "../../DeckBuilder/Cards";

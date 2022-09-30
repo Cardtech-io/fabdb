@@ -72,7 +72,7 @@
     import CardSearch from "./CardSearch.vue";
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName.vue';
-    import DeckTotals from "./Metrics/DeckTotals.vue";
+    import DeckTotals from "../Decks/Metrics/DeckTotals.vue";
     import EditDeck from "./EditDeck.vue";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
