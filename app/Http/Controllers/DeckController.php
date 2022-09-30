@@ -15,10 +15,6 @@ use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
 use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Domain\Decks\SetDeckCardTotal;
-use FabDB\Domain\Games\EloquentGameRepository;
-use FabDB\Domain\Games\Game;
-use FabDB\Domain\Users\EloquentUserRepository;
-use FabDB\Domain\Users\UserRepository;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\AddCardToSideboardRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
@@ -144,7 +140,4 @@ class DeckController extends Controller
         ));
     }
 
-    public function overallWinRate(Request $request, EloquentGameRepository $games){
-        return response()->json($games->overallWinRate($request->deck, $request->user_id ?? null, $request->games ?? null));
-    }
 }

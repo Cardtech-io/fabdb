@@ -116,6 +116,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/featured', 'DeckController@featured');
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
+        Route::get('deck/overall-win-rate', 'GameController@overallWinRate');
     });
 
     Route::get('decks/embed/{deck}', function() {
@@ -123,8 +124,6 @@ Route::middleware(['web'])->group(function() {
             ->header('Access-Control-Allow-Origin', '*')
             ->view('layout');
     })->name('decks.embed');
-
-    Route::get('deck/overall-win-rate', 'DeckController@overallWinRate');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
     Route::fallback(function(Request $request, CardRepository $cards) {

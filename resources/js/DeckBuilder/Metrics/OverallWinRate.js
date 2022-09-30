@@ -64,9 +64,8 @@ export default {
                     yAxes: [{
                         ticks: {
                             fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                            stepSize: 5,
+                            stepSize: 20,
                             suggestedMin: 0,
-                            display: false
                         }
                     }]
                 }
@@ -74,7 +73,7 @@ export default {
         },
         getData(deck) {
             axios
-                .get("https://"+window.location.host+"/deck/overall-win-rate?deck="+deck)
+                .get("/deck/overall-win-rate?deck="+deck)
                 .then((response) => {
                     this.update(response.data);
                 });
