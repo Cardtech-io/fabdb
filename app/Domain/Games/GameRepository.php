@@ -2,7 +2,6 @@
 
 namespace FabDB\Domain\Games;
 
-
 use FabDB\Library\Repository;
 
 interface GameRepository extends Repository

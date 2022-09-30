@@ -2,15 +2,13 @@
 
 namespace FabDB\Domain\Games;
 
-use FabDB\Domain\Decks\EloquentDeckRepository;
+use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
 
 class EloquentGameRepository extends EloquentRepository implements GameRepository
 {
-    public function __construct(private EloquentDeckRepository $decks)
-    {
-    }
+    public function __construct(private DeckRepository $decks) {}
 
     protected function model(): Model
     {
@@ -45,7 +43,7 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
         return [
             'won' => [number_format($wonFirst * 100 / $allGames, 2), number_format($wonSecond * 100 / $allGames, 2)],
             'lost' => [number_format($lostFirst * 100 / $allGames, 2), number_format($lostSecond * 100 / $allGames, 2)],
-            'either' => [number_format(($wonFirst + $lostFirst) * 100 / $allGames), number_format(($wonSecond + $lostSecond) * 100 / $allGames, 2)]
+            'either' => [number_format($wonFirst * 100 / ($wonFirst + $lostFirst)), number_format($wonSecond * 100 / ($wonSecond + $lostSecond), 2)]
         ];
     }
 }
