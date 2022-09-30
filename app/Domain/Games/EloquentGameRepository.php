@@ -8,7 +8,7 @@ use FabDB\Library\Model;
 
 class EloquentGameRepository extends EloquentRepository implements GameRepository
 {
-    public function __construct(public EloquentDeckRepository $decks){}
+    public function __construct(private EloquentDeckRepository $decks){}
 
     protected function model(): Model
     {
@@ -39,7 +39,9 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
         $lostSecond = -$games->where('first', 0)->where('result', 0)->count();
 
         return [
-            'first' => [$wonFirst, $lostFirst], 'second' => [$wonSecond, $lostSecond], 'either' => [$wonFirst + $wonSecond, $lostFirst + $lostSecond]
+            'first' => [$wonFirst, $lostFirst],
+            'second' => [$wonSecond, $lostSecond],
+            'either' => [$wonFirst + $wonSecond, $lostFirst + $lostSecond]
         ];
     }
 }
