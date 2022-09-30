@@ -13,10 +13,6 @@ export default {
     mixins: [Strings],
     methods: {
         update(data) {
-            let won = data.won;
-            let lost = data.lost;
-            let either = data.either;
-
             let chartData = {
 
                 labels: ["Went first", "Went second"],
@@ -25,18 +21,18 @@ export default {
                         type: "line",
                         label: "Either",
                         borderColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                        data: either,
+                        data: data.either,
                         fill: false
                     },
                     {
                         label: "Won",
                         backgroundColor: "rgb(20 184 166)",
-                        data: won
+                        data: data.won
                     },
                     {
                         label: "Lost",
                         backgroundColor: "rgb(249 115 22)",
-                        data: lost
+                        data: data.lost
                     }
                 ]
             };
