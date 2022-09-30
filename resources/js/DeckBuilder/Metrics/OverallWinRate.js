@@ -19,7 +19,7 @@ export default {
 
             let chartData = {
 
-                labels: ["Wins", "Losses"],
+                labels: ["Went first", "Went second"],
                 datasets: [
                     {
                         type: "line",
@@ -29,12 +29,12 @@ export default {
                         fill: false
                     },
                     {
-                        label: "Went 1st",
+                        label: "Won",
                         backgroundColor: "rgb(20 184 166)",
                         data: first
                     },
                     {
-                        label: "Went 2nd",
+                        label: "Lost",
                         backgroundColor: "rgb(249 115 22)",
                         data: second
                     }
