@@ -66,9 +66,6 @@ export default {
                     {
                         label: label,
                         backgroundColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
-                        borderColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
-                        borderWidth: 2,
-                        borderRadius: 5,
                         data: _.values(values),
                         barPercentage: 0.6,
                     }
@@ -85,18 +82,7 @@ export default {
                 fill: false,
                 scales: {
                     xAxes: [{
-                        ticks: {
-                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                        },
                         gridLines: {
-                            display: false
-                        },
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            fontColor: localStorage.getItem('darkMode') === 'true' ? 'white' : 'black',
-                            stepSize: 10,
-                            suggestedMin: 0,
                             display: false
                         }
                     }]

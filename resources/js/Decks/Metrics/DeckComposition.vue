@@ -8,16 +8,16 @@
                 <composition :deck="deck" :cards="cards" class="w-full h-200 md:h-180 p-2"/>
             </tile>
             <tile class="w-full md:w-1/4" title="Cost curve">
-                <deck-curves :cards="cards" stat="cost" strategy="total" class="w-full h-200 md:h-180"/>
+                <deck-curves :cards="cards" stat="cost" strategy="total" class="w-full h-200 md:h-180 p-2"/>
             </tile>
         </div>
 
         <div class="md:flex md:space-x-4 w-full mb-4 space-y-4 md:space-y-0">
             <tile class="w-full md:w-1/3" title="Pitch curve">
-                <deck-curves :cards="cards.withResource()" stat="resource" strategy="total" class="w-full h-200 md:h-180"/>
+                <deck-curves :cards="cards.withResource()" stat="resource" strategy="total" class="w-full h-200 md:h-180 p-2"/>
             </tile>
             <tile class="w-full md:w-1/3" title="Offensive potential">
-                <attack-power :cards="cards.withPower()" class="w-full h-200 md:h-180"/>
+                <attack-power :cards="cards.withPower()" class="w-full h-200 md:h-180 p-2"/>
             </tile>
             <tile class="w-full md:w-1/3" title="Defensive capabilities">
                 <defense :cards="cards.withDefense()" class="w-full h-200 md:h-180 p-2"/>
