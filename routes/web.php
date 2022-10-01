@@ -12,6 +12,7 @@
 */
 
 use FabDB\Domain\Cards\CardRepository;
+use FabDB\Http\Middleware\GameStats;
 use Illuminate\Http\Request;
 
 Route::get('sitemap', 'SitemapController@view');
@@ -117,11 +118,13 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
 
-        Route::get('games/overall-win-rate', 'GameController@overallWinRate');
-        Route::get('games/class-win-rate', 'GameController@classWinRate');
-        Route::get('games/hero-win-rate', 'GameController@heroWinRate');
-        Route::get('games/win-rate', 'GameController@winRate');
-        Route::get('games/card-stats', 'GameController@cardStats');
+        Route::middleware([GameStats::class])->group(function() {
+            Route::get('games/overall-win-rate', 'GameController@overallWinRate');
+            Route::get('games/class-win-rate', 'GameController@classWinRate');
+            Route::get('games/hero-win-rate', 'GameController@heroWinRate');
+            Route::get('games/win-rate', 'GameController@winRate');
+            Route::get('games/card-stats', 'GameController@cardStats');
+        });
     });
 
     Route::get('decks/embed/{deck}', function() {

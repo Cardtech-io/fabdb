@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import Stats from "./Stats";
+
 export default {
     props: {
         slug: {
@@ -36,18 +38,16 @@ export default {
         stats: []
     }),
 
-    methods: {
-        getData(deck) {
-            axios
-                .get("/games/card-stats?deck=" + deck)
-                .then((response) => {
-                    this.stats = response.data;
-                });
-        }
-    },
+    mixins: [Stats],
 
-    mounted() {
-        this.getData(this.slug);
+    methods: {
+        update(data) {
+            this.stats = data;
+        },
+
+        endpoint() {
+            return '/games/card-stats';
+        }
     }
 }
 </script>

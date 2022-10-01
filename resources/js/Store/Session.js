@@ -7,15 +7,15 @@ export default {
     },
 
     mutations: {
-        setSession: function(state, { session }) {
+        setSession(state, { session }) {
             state.session = session;
         },
 
-        setUser: function(state, { user }) {
+        setUser(state, { user }) {
             state.session.user = user;
         },
 
-        setUserParam: function(state, { param, value }) {
+        setUserParam(state, { param, value }) {
             state.session.user[param] = value;
         },
 

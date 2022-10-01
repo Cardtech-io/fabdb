@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class EloquentGameRepository extends EloquentRepository implements GameRepository
 {
-    public function __construct(private DeckRepository $decks)
-    {
-    }
-
     protected function model(): Model
     {
         return new Game;
@@ -23,40 +19,31 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
     public function saveResults(Game $game, array $cardResults)
     {
         $cards = array_map(fn($result) => new GameCard($result), $cardResults);
+
         $game->gameCards()->saveMany($cards);
     }
 
-    public function overallWinRate(string $deck, ?int $userId, ?int $gameLimit): array
+    public function overallWinRate(int $deckId, int $gameLimit, ?int $userId): array
     {
-        $deckId = $this->decks->bySlugWithCards($deck, false)->id;
-
-        $games = $this->newQuery()->select('first', 'result')->where('deck_id', $deckId);
-
-        if ($userId) {
-            $games = $games->select('user_id')->where('user_id', $userId);
-        }
-
-        $games = $games->orderBy('created_at', 'desc');
-
-        if($gameLimit){
-            $games = $games->limit($gameLimit);
-        }
+        $games = $this->newQuery()
+            ->select('first', 'result')
+            ->where('deck_id', $deckId)
+            ->when($userId, fn($query) => $query->where('user_id', $userId))
+            ->when($gameLimit, fn($query) => $query->limit($gameLimit))
+            ->orderBy('id', 'desc');
 
         $games = $games->get();
 
-        $allGames = $games->count();
-
+        $totalFirst = $games->where('first', 1)->count();
+        $totalSecond = $games->where('first', 0)->count();
         $wonFirst = $games->where('first', 1)->where('result', 1)->count();
-        $lostFirst = $games->where('first', 1)->where('result', 0)->count();
         $wonSecond = $games->where('first', 0)->where('result', 1)->count();
-        $lostSecond = $games->where('first', 0)->where('result', 0)->count();
 
         return [
+            'totalFirst' => $totalFirst,
+            'totalSecond' => $totalSecond,
             'wonFirst' => $wonFirst,
-            'lostFirst' => $lostFirst,
             'wonSecond' => $wonSecond,
-            'lostSecond' => $lostSecond,
-            'allGames' => $allGames
         ];
     }
 

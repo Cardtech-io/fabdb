@@ -1,5 +1,5 @@
 import { Bar, mixins } from "vue-chartjs";
-import _, { update } from "lodash";
+import Stats from "./Stats";
 import Strings from "../../Utilities/Strings.js";
 
 export default {
@@ -10,18 +10,27 @@ export default {
             type: String
         }
     },
-    mixins: [Strings],
+    mixins: [Stats, Strings],
     methods: {
-        update(data) {
-            let wonFirst = data.wonFirst;
-            let lostFirst = data.lostFirst;
-            let wonSecond = data.wonSecond;
-            let lostSecond = data.lostSecond;
-            let allGames = data.allGames;
+        calcAvg(value, total) {
+            return Math.round(((value / total) * 100) * 1e1) / 1e1;
+        },
 
-            let won = [Math.round(wonFirst*100/allGames).toFixed(2), Math.round(wonSecond*100/allGames).toFixed(2)];
-            let lost = [Math.round(lostFirst*100/allGames).toFixed(2), Math.round(lostSecond*100/allGames).toFixed(2)];
-            let either = [Math.round(wonFirst*100/(wonFirst + lostFirst)).toFixed(2), Math.round(wonSecond*100/(wonSecond + lostSecond)).toFixed(2)];
+        update(data) {
+            let won = [
+                this.calcAvg(data.wonFirst, data.totalFirst),
+                this.calcAvg(data.wonSecond, data.totalSecond)
+            ];
+
+            let lost = [
+                this.calcAvg(data.totalFirst - data.wonFirst, data.totalFirst),
+                this.calcAvg(data.totalSecond - data.wonSecond, data.totalSecond)
+            ];
+
+            let either = [
+                (won[0] + won[1]) / 2,
+                (lost[0] + lost[1]) / 2
+            ];
 
             let chartData = {
                 labels: ["Went first", "Went second"],
@@ -52,17 +61,20 @@ export default {
                     display: true,
                     position: this.$mq === 'sm' ? 'top' : 'right',
                 },
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            steps: 10,
+                            stepValue: 10,
+                            max: 100
+                        }
+                    }]
+                },
                 tooltips: {
                     callbacks: {
-                        // title: function(context) {
-                        //     var label = context[0].xLabel;
-                        //     return label.slice(4)
-                        // },
-                        label: function (context, data) {
-                            console.log(context)
-                            var dataset = data.datasets[0];
-                            console.log(dataset);
-                            // console.log(context)
+                        label(context) {
                             return " "+context.yLabel + "%";
                         }
                     }
@@ -72,16 +84,9 @@ export default {
                 fill: false,
             });
         },
-        getData(deck) {
-            axios
-                .get("/games/overall-win-rate?deck=" + deck)
-                .then((response) => {
-                    this.update(response.data);
-                });
-        },
-    },
 
-    mounted() {
-        this.getData(this.slug);
-    },
+        endpoint() {
+            return '/games/overall-win-rate';
+        }
+    }
 };

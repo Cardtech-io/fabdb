@@ -24,6 +24,10 @@
 <script>
     export default {
         props: {
+            default: {
+
+            },
+
             layout: {
                 type: String,
                 default: 'text'
@@ -42,13 +46,18 @@
             return {
                 isOpen: false,
                 options: [],
-                selected: null,
+                selected: this.default,
             };
         },
 
         methods: {
+            close() {
+                this.isOpen = false;
+            },
+
             select(value) {
                 this.selected = value;
+                this.close();
             }
         }
     };

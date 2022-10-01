@@ -1,5 +1,6 @@
 import { Bar, mixins } from "vue-chartjs";
 import Strings from "../../Utilities/Strings.js";
+import Stats from "./Stats";
 
 export default {
     extends: Bar,
@@ -9,10 +10,9 @@ export default {
             type: String
         }
     },
-    mixins: [Strings],
+    mixins: [Stats, Strings],
     methods: {
         update(data) {
-            console.log(data);
             let chartData = {
                 labels: Object.values(data.data).map(hero => hero.hero.name.split(',')[0]),
                 datasets: [
@@ -50,16 +50,9 @@ export default {
                 },
             });
         },
-        getData(deck) {
-            axios
-                .get("/games/hero-win-rate?deck="+deck)
-                .then((response) => {
-                    this.update(response.data);
-                });
-        },
-    },
 
-    mounted() {
-        this.getData(this.slug);
-    },
+        endpoint() {
+            return '/games/hero-win-rate';
+        }
+    }
 };

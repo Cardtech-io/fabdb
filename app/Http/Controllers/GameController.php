@@ -2,7 +2,6 @@
 
 namespace FabDB\Http\Controllers;
 
-use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Games\GameRepository;
 use Illuminate\Http\Request;
 
@@ -10,52 +9,47 @@ class GameController extends Controller
 {
     public function overallWinRate(Request $request, GameRepository $games)
     {
-        return response()->json($games->overallWinRate($request->get('deck'), $request->get('user_id'), $request->get('games') ?? 100));
+        return response()->json($games->overallWinRate(
+            $request->deckId,
+            $request->get('window', 100),
+            $request->userId
+        ));
     }
 
-    public function classWinRate(Request $request, GameRepository $games, DeckRepository $decks)
+    public function classWinRate(Request $request, GameRepository $games)
     {
-        $deck = $decks->bySlug($request->get('deck'));
-
         return response()->json($games->winRateByClass(
-            $deck->id,
-            $request->get('games', 100),
-            $request->get('user_id')
+            $request->deckId,
+            $request->get('window', 100),
+            $request->userId
         ));
     }
 
-    public function heroWinRate(Request $request, GameRepository $games, DeckRepository $decks)
+    public function heroWinRate(Request $request, GameRepository $games)
     {
-        $deck = $decks->bySlug($request->get('deck'));
-
         return response()->json($games->winRateByHero(
-            $deck->id,
-            $request->get('games', 100),
-            $request->get('user_id')
+            $request->deckId,
+            $request->get('window', 100),
+            $request->userId
         ));
     }
 
-    public function winRate(Request $request, GameRepository $games, DeckRepository $decks)
+    public function winRate(Request $request, GameRepository $games)
     {
-        $deck = $decks->bySlug($request->get('deck'));
-
         return response()->json($games->winRate(
-                $deck->id,
-                $request->get('games', 100),
-                $request->get('user')
+                $request->deckId,
+                $request->get('window', 100),
+                $request->userId
             )
         );
     }
 
-    public function cardStats(Request $request, GameRepository $games, DeckRepository $decks)
+    public function cardStats(Request $request, GameRepository $games)
     {
-        $deck = $decks->bySlug($request->get('deck'));
-
         return response()->json($games->cardStats(
-            $deck->id,
-            $request->get('games', 100),
-            $request->get('user')
-        )
-        );
+            $request->deckId,
+            $request->get('window', 100),
+            $request->userId
+        ));
     }
 }
