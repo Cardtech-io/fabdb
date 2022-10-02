@@ -48,6 +48,14 @@ export default {
                 },
                 responsive: true,
                 maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             });
         },
 

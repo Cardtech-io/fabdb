@@ -85,6 +85,12 @@ export default {
                         gridLines: {
                             display: false
                         }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                        }
                     }]
                 }
             });
