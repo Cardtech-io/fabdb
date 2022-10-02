@@ -57,6 +57,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    cards: {
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeckComposition__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckComposition */ "./resources/js/Decks/Metrics/DeckComposition.vue");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    deck: {
+      required: true
+    }
+  },
+  components: {
+    DeckComposition: _DeckComposition__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Cards.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Cards.vue?vue&type=script&lang=js& ***!
@@ -223,7 +278,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../Components/Shareable */ "./resources/js/Components/Shareable.js");
 /* harmony import */ var _Components_Tabs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../Components/Tabs */ "./resources/js/Components/Tabs.vue");
 /* harmony import */ var _Components_TabItem__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../Components/TabItem */ "./resources/js/Components/TabItem.vue");
+<<<<<<< HEAD
+/* harmony import */ var _Metrics_MetricsPerformance__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../Metrics/MetricsPerformance */ "./resources/js/Decks/Metrics/MetricsPerformance.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+=======
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+>>>>>>> master
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
@@ -354,15 +414,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -400,6 +452,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
     HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_11__["default"],
     Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_13__["default"],
+    MetricsPerformance: _Metrics_MetricsPerformance__WEBPACK_IMPORTED_MODULE_25__["default"],
     Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
     Rulings: _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_16__["default"],
     TabItem: _Components_TabItem__WEBPACK_IMPORTED_MODULE_24__["default"],
@@ -619,6 +672,58 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [_c("deck-composition", { attrs: { cards: _vm.deck.cards } })],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Cards.vue?vue&type=template&id=4afe6e1e&":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Cards.vue?vue&type=template&id=4afe6e1e& ***!
@@ -759,20 +864,74 @@ var render = function () {
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
             _c("div", { staticClass: "bg-white dark:bg-gray-800" }, [
-              _c("div", { staticClass: "container sm:mx-auto px-4 flex" }, [
-                _c(
-                  "div",
-                  { staticClass: "flex-1 font-serif uppercase py-4 md:px-0" },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.deck.cards.total()) +
-                        " Cards in deck  \n                    "
-                    ),
-                    _c("span", { staticClass: "hidden md:inline" }, [
+              _c(
+                "div",
+                { staticClass: "container sm:mx-auto px-4 flex items-center" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "flex-1 font-serif uppercase py-4 md:px-0" },
+                    [
                       _vm._v(
-                        "\n                        (\n                        "
+                        "\n                    " +
+                          _vm._s(_vm.deck.cards.total()) +
+                          " Cards in deck  \n                    "
                       ),
+<<<<<<< HEAD
+                      _c("span", { staticClass: "hidden md:inline" }, [
+                        _vm._v(
+                          "\n                        (\n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(3)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("blue")) +
+                            "  \n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(2)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("yellow")) +
+                            "  \n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(1)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("red")) +
+                            "\n                        )\n                    "
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-right mt-2" },
+                    [
+                      _c("votes", {
+                        attrs: {
+                          size: 6,
+                          total: _vm.deck.fields.totalVotes,
+                          voted: _vm.deck.fields.myVote,
+                          voteable: "deck",
+                          foreign: _vm.deck.slug
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+=======
                       _c("span", {
                         staticClass: "inline-block rounded-lg h-2 w-2",
                         class: _vm.resourceColour(3),
@@ -821,6 +980,7 @@ var render = function () {
                   1
                 ),
               ]),
+>>>>>>> master
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "main-body" }, [
@@ -828,15 +988,100 @@ var render = function () {
                 _c("div", { staticClass: "md:flex md:pt-0" }, [
                   _c(
                     "div",
-                    { staticClass: "py-4 md:pr-4 md:w-1/4" },
+                    { staticClass: "py-4 md:pr-4 md:w-1/4 space-y-4" },
                     [
-                      _c("card-image", { attrs: { card: _vm.deck.hero } }),
+                      _c(
+                        "div",
+                        [
+                          _c("card-image", {
+                            staticClass: "relative z-25",
+                            attrs: { card: _vm.deck.hero }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "relative flex rounded-b-xl overflow-hidden space-x-px -mt-8 z-0"
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "flex w-1/2 items-center justify-center button-primary rounded-l-xl px-2 pb-2 pt-10",
+                                  attrs: {
+                                    href: _vm.buyLink(_vm.deck),
+                                    target: "_blank",
+                                    title: "Buy from TCG Player"
+                                  }
+                                },
+                                [
+                                  _c("icon", { attrs: { size: 4 } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "ml-1" }, [
+                                    _vm._v("Buy deck")
+                                  ])
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "flex w-1/2 items-center justify-center button-primary rounded-r-xl px-2 pb-2 pt-10",
+                                  attrs: { title: "Copy deck to my decks" },
+                                  on: { click: _vm.copyDeck }
+                                },
+                                [
+                                  _c("icon", { attrs: { size: 4 } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "ml-2" }, [
+                                    _vm._v("Copy deck")
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _vm.deck.label
                         ? _c("deck-label", {
                             staticClass:
+<<<<<<< HEAD
+                              "block w-full py-2 text-center rounded-lg",
+                            attrs: { label: _vm.deck.label }
+=======
                               "block w-full py-2 text-center rounded-lg mt-4",
                             attrs: { label: _vm.deck.label },
+>>>>>>> master
                           })
                         : _vm._e(),
                       _vm._v(" "),
@@ -844,7 +1089,11 @@ var render = function () {
                         "div",
                         {
                           staticClass:
+<<<<<<< HEAD
+                            "rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden"
+=======
                             "mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden",
+>>>>>>> master
                         },
                         [
                           _c(
@@ -924,6 +1173,8 @@ var render = function () {
                     [
                       _c(
                         "tabs",
+<<<<<<< HEAD
+=======
                         {
                           scopedSlots: _vm._u(
                             [
@@ -1088,8 +1339,9 @@ var render = function () {
                             3609526426
                           ),
                         },
+>>>>>>> master
                         [
-                          _c("tab-item", { attrs: { name: "Composition" } }, [
+                          _c("tab-item", { attrs: { name: "Deck" } }, [
                             _vm.deck.notes || _vm.deck.videoUrl
                               ? _c("div", { staticClass: "md:flex" }, [
                                   _c(
@@ -1237,6 +1489,17 @@ var render = function () {
                           _vm._v(" "),
                           _c(
                             "tab-item",
+                            { attrs: { name: "Metrics & Performance" } },
+                            [
+                              _c("metrics-performance", {
+                                attrs: { deck: _vm.deck }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "tab-item",
                             { attrs: { name: "Rulings" } },
                             [
                               _c("rulings", {
@@ -1368,6 +1631,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckCard_vue_vue_type_template_id_42fa73c8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckCard_vue_vue_type_template_id_42fa73c8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckComposition.vue?vue&type=template&id=bba8a83c& */ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&");
+/* harmony import */ var _DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckComposition.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Metrics/DeckComposition.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckComposition.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckComposition.vue?vue&type=template&id=bba8a83c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& */ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&");
+/* harmony import */ var _MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MetricsPerformance.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "b2216b48",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Metrics/MetricsPerformance.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MetricsPerformance.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

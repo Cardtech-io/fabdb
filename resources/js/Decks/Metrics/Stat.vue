@@ -1,7 +1,7 @@
 <template>
     <li class="block w-full flex mb-px space-x-px">
-        <div class="w-3/4 bg-white dark:bg-gray-700 p-2" :class="{ 'rounded-tl-lg': top(), 'rounded-bl-lg': bottom() }">{{ text }}</div>
-        <div class="w-1/4 bg-white dark:bg-gray-700 py-2 text-center" :class="{ 'rounded-tr-lg': top(), 'rounded-br-lg': bottom() }">{{ value }}</div>
+        <div class="w-3/4 bg-gray-200 dark:bg-gray-700 p-2 py-1" :class="{ 'rounded-tl-lg': top(), 'rounded-bl-lg': bottom() }">{{ text }}</div>
+        <div class="w-1/4 bg-gray-200 dark:bg-gray-700 py-1 text-center" :class="{ 'rounded-tr-lg': top(), 'rounded-br-lg': bottom() }">{{ value }}</div>
     </li>
 </template>
 
@@ -10,11 +10,11 @@
         props: ['text', 'value', 'position'],
 
         methods: {
-            bottom: function() {
+            bottom() {
                 return this.position === 'bottom' || this.position === 'both';
             },
 
-            top: function() {
+            top() {
                 return this.position === 'top' || this.position === 'both';
             }
         }

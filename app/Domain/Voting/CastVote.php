@@ -23,16 +23,15 @@ class CastVote
      */
     private $userId;
 
-    public function __construct(int $userId, string $type, int $foreignId, string $direction)
+    public function __construct(int $userId, string $type, int $foreignId)
     {
         $this->userId = $userId;
         $this->type = $type;
         $this->foreignId = $foreignId;
-        $this->direction = $direction;
     }
 
     public function handle(VoteRepository $votes)
     {
-        $votes->cast($this->userId, $this->type, $this->foreignId, $this->direction);
+        $votes->cast($this->userId, $this->type, $this->foreignId);
     }
 }

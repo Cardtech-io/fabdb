@@ -139,4 +139,5 @@ class DeckController extends Controller
             (int) $request->get('cardBack', $request->deck->cardBack)
         ));
     }
+
 }

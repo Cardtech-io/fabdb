@@ -1,4 +1,4 @@
-import {Bar, mixins} from 'vue-chartjs';
+import {Bar} from 'vue-chartjs';
 import _ from 'lodash';
 
 export default {
@@ -65,9 +65,7 @@ export default {
                 datasets: [
                     {
                         label: label,
-                        backgroundColor: colours.map(colour => 'rgba(' + colour + ', 0.6)'),
-                        borderColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
-                        borderWidth: 1,
+                        backgroundColor: colours.map(colour => 'rgba(' + colour + ', 1)'),
                         data: _.values(values),
                         barPercentage: 0.6,
                     }
@@ -76,7 +74,7 @@ export default {
 
             this.renderChart(chartData, {
                 legend: {
-                    display: true,
+                    display: false,
                     position: 'bottom',
                 },
                 responsive: true,
@@ -86,12 +84,6 @@ export default {
                     xAxes: [{
                         gridLines: {
                             display: false
-                        },
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            stepSize: 10,
-                            suggestedMin: 0
                         }
                     }]
                 }
@@ -122,3 +114,4 @@ export default {
         this.update(this.cards);
     }
 };
+

@@ -20,8 +20,7 @@ interface VoteRepository extends Repository
      * @param int $userId
      * @param string $type
      * @param int $foreignId
-     * @param string $direction
      * @return mixed
      */
-    public function cast(int $userId, string $type, int $foreignId, string $direction);
+    public function cast(int $userId, string $type, int $foreignId);
 }

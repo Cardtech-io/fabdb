@@ -206,8 +206,13 @@ var render = function () {
       _vm._l(_vm.rulings, function (ruling) {
         return _c("li", {
           staticClass:
+<<<<<<< HEAD
+            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-sm md:text-base sm:-pl-4",
+          domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) }
+=======
             "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4",
           domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) },
+>>>>>>> master
         })
       }),
       0
@@ -328,7 +333,7 @@ var render = function () {
           return _c(
             "button",
             {
-              staticClass: "flex rounded-t-lg px-4 py-2",
+              staticClass: "flex rounded-t-lg px-4 py-2 text-sm md:text-base",
               class: _vm.classes(index),
               on: {
                 click: function ($event) {
@@ -865,19 +870,20 @@ __webpack_require__.r(__webpack_exports__);
         datasets: [{
           label: label,
           backgroundColor: colours.map(function (colour) {
-            return 'rgba(' + colour + ', 0.6)';
+            return 'rgba(' + colour + ', 0.8)';
           }),
           borderColor: colours.map(function (colour) {
             return 'rgba(' + colour + ', 1)';
           }),
-          borderWidth: 1,
+          borderWidth: 2,
+          borderRadius: 5,
           data: lodash__WEBPACK_IMPORTED_MODULE_1___default.a.values(values),
-          barPercentage: 0.6
+          barPercentage: 0.7
         }]
       };
       this.renderChart(chartData, {
         legend: {
-          display: true,
+          display: false,
           position: 'bottom'
         },
         responsive: true,
@@ -892,7 +898,8 @@ __webpack_require__.r(__webpack_exports__);
           yAxes: [{
             ticks: {
               stepSize: 10,
-              suggestedMin: 0
+              suggestedMin: 0,
+              display: false
             }
           }]
         }

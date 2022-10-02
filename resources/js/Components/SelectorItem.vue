@@ -19,6 +19,7 @@
         methods: {
             select() {
                 this.$parent.select(this.value);
+                this.$emit('item-selected', this.value);
             }
         }
     }

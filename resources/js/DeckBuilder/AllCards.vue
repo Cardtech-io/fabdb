@@ -17,13 +17,13 @@
                     <div class="hidden md:block">
                         <div class="mx-2 my-4">
                             <h3 class="font-serif uppercase text-lg">Totals</h3>
-                            <totals class="mt-2"/>
+                            <totals class="mt-2" :cards="cards" :deck="deck"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2">
                             <h3 class="font-serif uppercase text-lg">General</h3>
-                            <general class="mt-2"/>
+                            <general class="mt-2" :cards="cards"/>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <chevron :open="sectionOpen(section.title)" class="mr-2"></chevron>
                             {{ section.title }} ({{section.cards.total()}})
                         </h2>
-                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
+                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"/>
                     </div>
                 </div>
             </div>
@@ -77,13 +77,13 @@
     import CardItemSection from "./CardItemSection.vue";
     import Chevron from "./Buttons/Chevron.vue";
     import DeckCurves from "./DeckCurves.js";
-    import General from "./Metrics/General.vue";
+    import General from "../Decks/Metrics/General.vue";
     import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "../Components/HeroSelector.vue";
     import ManagesDecks from './ManagesDecks.js';
     import MasonryContainer from "./MasonryContainer.vue";
-    import Totals from "./Metrics/Totals.vue";
+    import Totals from "../Decks/Metrics/Totals.vue";
     import Viewable from './Viewable.js';
     import Redrawable from "./Redrawable.js";
     import Strings from "../Utilities/Strings.js";

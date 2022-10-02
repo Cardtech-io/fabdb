@@ -2,7 +2,7 @@
     <div class="text-base">
         <header-title>
             <template v-slot:title>
-                <deck-name :name="deck.name" :hero="hero"></deck-name>
+                <deck-name :name="deck.name" :hero="hero"/>
             </template>
         </header-title>
 
@@ -12,16 +12,14 @@
             <div class="bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center p-4" :class="topAreaClasses">
-                            <div class="flex-auto">
-                                <deck-totals/>
+                        <div class="flex items-center justify-between p-4" :class="topAreaClasses">
+                            <div class="flex items-center">
+                                <mode-selector class="w-auto"/>
+                                <grouping-selector v-show="['all', 'search'].indexOf(mode) !== -1" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
+                                <play-deck :deck="deck"/>
                             </div>
 
-                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
-                            <mode-selector class="w-auto"/>
-
                             <div class="px-2 lg:px-1 flex space-x-2">
-                                <play-deck :deck="deck"/>
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <view-button/>
@@ -42,20 +40,21 @@
                             <hero-selector @hero-selected="setHero" :deck="deck"/>
                         </div>
                         <div v-else class="h-full">
-                            <div v-show="mode === 'all'">
+                            <div v-if="mode === 'all'">
                                 <div>
                                     <all-cards :collection="cards" class="hidden sm:block"/>
                                     <edit-deck :collection="cards" class="sm:hidden"/>
                                 </div>
                             </div>
-                            <edit-deck v-show="mode === 'search'" :collection="cards"/>
+                            <edit-deck v-if="mode === 'search'" :collection="cards"/>
                             <deck-details v-if="mode === 'details'"/>
-                            <main-deck v-show="mode === 'sideboard'" :collection="cards"/>
+                            <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
+                            <metrics-performance v-show="mode === 'metrics'" :deck="deck" class="p-4"/>
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
                         <search-results v-show="mode === 'search'" @search-completed="scrollTop"/>
-                        <sideboard v-show="mode === 'sideboard'" :collection="sideboard"/>
+                        <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
                     </div>
                 </div>
             </div>
@@ -73,7 +72,7 @@
     import CardSearch from "./CardSearch.vue";
     import DeckDetails from './DeckDetails.vue';
     import DeckName from './DeckName.vue';
-    import DeckTotals from "./Metrics/DeckTotals.vue";
+    import DeckTotals from "../Decks/Metrics/DeckTotals.vue";
     import EditDeck from "./EditDeck.vue";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
@@ -82,6 +81,7 @@
     import Icon from '../Components/Icon.vue';
     import LazyLoader from '../Components/LazyLoader.js';
     import MainDeck from './MainDeck.vue';
+    import MetricsPerformance from "../Decks/Metrics/MetricsPerformance.vue";
     import ModeSelector from './ModeSelector.vue';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
@@ -97,17 +97,18 @@
             Breadcrumbs,
             CardImage,
             CardSearch,
+            DeckDetails,
             DeckName,
             DeckTotals,
             EditDeck,
             FullscreenButton,
             GroupingSelector,
+            HeaderTitle,
             HeroSelector,
             Icon,
             MainDeck,
-            DeckDetails,
+            MetricsPerformance,
             ModeSelector,
-            HeaderTitle,
             PlayDeck,
             SearchResults,
             Sideboard,

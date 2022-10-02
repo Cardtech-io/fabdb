@@ -17,13 +17,13 @@
                     <div class="hidden md:block">
                         <div class="mx-2 my-4">
                             <h3 class="font-serif uppercase text-lg">Totals</h3>
-                            <totals class="mt-2"/>
+                            <totals :cards="cards" class="mt-2" :deck="deck"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2">
                             <h3 class="font-serif uppercase text-lg">General</h3>
-                            <general class="mt-2"/>
+                            <general :cards="cards" class="mt-2"/>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             <card-container v-for="card in section.cards" :key="card.identifier" class="transition-all duration-300 float-left">
                                 <div class="my-4 mx-2">
                                     <card-image :card="card" :width="300" v-preview-card="{stack: [card], index: 0}" class="cursor-help" :class="{'shadow-error': (!card.ownedTotal || card.ownedTotal < card.total) && deck.limitToCollection === 2}"/>
-                                    <numbered-card-buttons :card="card" class="w-full mx-auto rounded mt-1"></numbered-card-buttons>
+                                    <numbered-card-buttons :card="card" class="w-full mx-auto rounded mt-1"/>
                                 </div>
                             </card-container>
                         </div>
@@ -85,14 +85,14 @@
     import CardItemSection from "./CardItemSection.vue";
     import Chevron from "./Buttons/Chevron.vue";
     import DeckCurves from "./DeckCurves.js";
-    import General from "./Metrics/General.vue";
+    import General from "../Decks/Metrics/General.vue";
     import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
     import HeroSelector from "../Components/HeroSelector.vue";
     import ManagesDecks from './ManagesDecks.js';
     import MasonryContainer from "./MasonryContainer.vue";
     import NumberedCardButtons from "./NumberedCardButtons.vue";
-    import Totals from "./Metrics/Totals.vue";
+    import Totals from "../Decks/Metrics/Totals.vue";
     import Viewable from './Viewable.js';
 
     export default {

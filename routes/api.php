@@ -31,3 +31,5 @@ Route::middleware(['api.auth'])->group(function() {
 Route::fallback(function() {
     return redirect(config('app.url').'/resources/api');
 });
+
+

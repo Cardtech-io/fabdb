@@ -7,7 +7,7 @@
         </h2>
 
         <ul>
-            <li v-for="ruling in rulings" class="border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4" v-html="minimalMarkdown(ruling)"></li>
+            <li v-for="ruling in rulings" class="border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-sm md:text-base sm:-pl-4" v-html="minimalMarkdown(ruling)"></li>
         </ul>
     </div>
 </template>

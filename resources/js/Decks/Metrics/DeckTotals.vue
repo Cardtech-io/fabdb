@@ -39,7 +39,7 @@
 
 <script>
     import {mapState} from 'vuex';
-    import Cards from "../Cards.js";
+    import Cards from "../../DeckBuilder/Cards.js";
 
     export default {
         computed: {
