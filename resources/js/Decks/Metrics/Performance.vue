@@ -83,6 +83,13 @@ export default {
 
     created() {
         this.setDeck({deck: this.deck.slug});
+
+        if (this.deck.mine) {
+            this.setView({view: 'me'});
+        }
+        else {
+            this.setView({view: 'community'});
+        }
     }
 };
 </script>

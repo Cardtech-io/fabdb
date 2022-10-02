@@ -25,7 +25,12 @@ export default {
         },
 
         update(response) {
-            this.winRate = ((response.won / response.total) * 100).toFixed(1);
+            if (response.total) {
+                this.winRate = ((response.won / response.total) * 100).toFixed(1);
+            }
+            else {
+                this.winRate = response.total;
+            }
         }
     }
 }
