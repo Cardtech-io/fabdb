@@ -16,12 +16,12 @@ class Params extends Collection implements Htmlable
                 new Klass,
                 new CardType,
                 new SubType,
-                new Rarity,
                 new Talent,
-                new Power,
-                new Defense,
+                new Rarity,
                 new Pitch,
                 new Cost,
+                new Defense,
+                new Power,
             ];
         }
         parent::__construct($items);

@@ -3,7 +3,7 @@
 
     <x-slot:description>
         <p>Find cards with a given attack or power value using <span class="example">a=</span>,
-            <span class="example">attack=</span>, <span class="example">p=</span>, <span class="example">pow=</span> or
+            <span class="example">attack=</span>, <span class="example">pow=</span> or
             <span class="example">power=</span> parameters.
         </p>
     </x-slot:description>
