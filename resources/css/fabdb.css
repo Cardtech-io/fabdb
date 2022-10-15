@@ -449,3 +449,12 @@ button, button:focus {
 .ProseMirror:focus {
     outline: none;
 }
+
+.example {
+    @apply text-blue-600;
+    @apply font-bold;
+}
+
+.dark .example {
+    @apply text-blue-400;
+}

@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\PrintingRepository;
+use FabDB\Domain\Cards\Search\Params\Params;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Cards\SuggestCorrection;
 use FabDB\Domain\Decks\DeckRepository;
@@ -93,5 +94,10 @@ class CardController extends Controller
             $request->get('text'),
             $request->get('comment', ''),
         ));
+    }
+
+    public function syntax(Params $params)
+    {
+        return view('components.search.syntax', compact('params'));
     }
 }

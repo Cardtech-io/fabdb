@@ -33,6 +33,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards', 'CardController@list');
         Route::get('cards/fabled', 'CardController@fabled');
         Route::get('cards/heroes', 'CardController@heroes');
+        Route::get('cards/syntax', 'CardController@syntax');
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
         Route::get('cards/for-packs', 'CardController@forPacks');
