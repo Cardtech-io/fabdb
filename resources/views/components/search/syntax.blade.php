@@ -1,3 +1,3 @@
-<div class="space-y-4">
+<div class="space-y-8">
     {!! $params->toHtml() !!}
 </div>
