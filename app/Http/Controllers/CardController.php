@@ -4,6 +4,7 @@ namespace FabDB\Http\Controllers;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Cards\Boosters\Packs;
 use FabDB\Domain\Cards\PrintingRepository;
+use FabDB\Domain\Cards\Search\Params\Param;
 use FabDB\Domain\Cards\Search\Params\Params;
 use FabDB\Domain\Cards\Set;
 use FabDB\Domain\Cards\SuggestCorrection;
@@ -98,6 +99,13 @@ class CardController extends Controller
 
     public function syntax(Params $params)
     {
+        $params = $params->sort(function(Param $param1, Param $param2) {
+            if ($param1->title() == $param2->title()) {
+                return 0;
+            }
+            return ($param1->title() < $param2->title()) ? -1 : 1;
+        });
+
         return view('components.search.syntax', compact('params'));
     }
 }

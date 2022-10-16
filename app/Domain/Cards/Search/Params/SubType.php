@@ -16,6 +16,6 @@ class SubType extends Param
 
     public function title(): string
     {
-        return 'Card type';
+        return 'Card subtype';
     }
 }

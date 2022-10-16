@@ -22,6 +22,7 @@ class Params extends Collection implements Htmlable
                 new Cost,
                 new Defense,
                 new Power,
+                new Artist,
             ];
         }
         parent::__construct($items);
