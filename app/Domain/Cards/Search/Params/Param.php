@@ -11,22 +11,32 @@ abstract class Param implements Htmlable
     use MultiArrayFormats;
 
     /**
+     * Inversion of operators when inversion is set to true.
+     *
+     * @var string[]
+     */
+    private $operators = [
+        '=' => '!=',
+        '>' => '<',
+        '<' => '>'
+    ];
+
+    /**
      * Returns an operator based on whether an inversion of logic is required. The operators
      * default to =/!=, but can be called to support LIKE/NOT LIKE.etc.
      *
      * @param bool $invert
      * @param string $truthy
-     * @param string $falsey
      * @return mixed|string
      */
-    protected function operator(bool $invert, string $truthy = '=', string $falsey = '!='): string
+    protected function operator(bool $invert, string $operator = '='): string
     {
-        return $invert ? $falsey : $truthy;
+        return $invert ? $this->operators[$operator] : $operator;
     }
 
     abstract public function handles(string $filter): bool;
 
-    abstract public function applyTo($query, string $operator, $value, bool $invert);
+    abstract public function applyTo($query, $operator, $value, bool $invert);
 
     abstract public function title(): string;
 

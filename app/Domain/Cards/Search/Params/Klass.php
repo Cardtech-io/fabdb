@@ -9,7 +9,7 @@ class Klass extends Param
         return in_array($filter, ['c', 'class']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $classes = $this->toArray($value);
 

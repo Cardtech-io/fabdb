@@ -1,8 +1,17 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use Illuminate\Support\Str;
+
 trait Identifiable
 {
+    /**
+     * Operators are used to identify terms/clauses as being programmatic in nature (power users stuff!)
+     *
+     * @var string[]
+     */
+    private $operators = ['=', '>', '<'];
+
     protected function matchesIdentifier(string $keywords)
     {
         $keywords = preg_split('/[\s,]+/', $keywords);
@@ -26,5 +35,16 @@ trait Identifiable
     private function pattern()
     {
         return '/^(U-)?([a-z]{3})?[0-9]{3}(-(CF|RF|GF))?$/i';
+    }
+
+    /**
+     * Determines whether or not a user is using programmatic keywords (scryfall-like).
+     *
+     * @param string $keywords
+     * @return bool
+     */
+    private function isProgrammatic(string $keywords): bool
+    {
+        return Str::contains($keywords, $this->operators) || Str::contains($keywords, '!');
     }
 }

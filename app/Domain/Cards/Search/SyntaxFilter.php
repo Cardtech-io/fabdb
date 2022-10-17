@@ -4,12 +4,13 @@ namespace FabDB\Domain\Cards\Search;
 use FabDB\Domain\Cards\Search\Params\Params;
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class SyntaxFilter implements SearchFilter
 {
-    private $operators = ['=', '>', '<'];
+    use Identifiable;
 
     public function applies(array $input)
     {
@@ -25,48 +26,36 @@ class SyntaxFilter implements SearchFilter
         }
     }
 
-    /**
-     * Determines whether or not a user is using programmatic keywords (scryfall-like).
-     *
-     * @param string $keywords
-     * @return bool
-     */
-    private function isProgrammatic(string $keywords): bool
-    {
-        return Str::contains($keywords, $this->operators);
-    }
-
     private function filter(string $keywords): array
     {
         $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
 
         return array_filter($keywords, function($keyword) {
-            return Str::contains($keyword, $this->operators);
+            return Str::contains($keyword, $this->operators) || Str::startsWith($keyword, '!');
         });
     }
 
-    private function apply(Builder $query, string $terms)
+    private function apply(Builder $query, string $term)
     {
-        $match = preg_match('/<=|>=/', $terms, $operator);
+        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9]+))?/i', $term, $parts);
 
-        if (!$match) {
-            preg_match('/[=<>]/', $terms, $operator);
-        }
+        if (!$match) return;
 
-        list($clause, $value) =  explode($operator[0], $terms);
-        if (is_null($clause) || is_null($value)) {
+        $invert = $parts[1];
+        $clause = strtolower($parts[2]);
+
+        // The following 2 values may be omitted completely if they're looking for a simple inversion, such as !cost  (all cards with no cost value)
+        $operator = Arr::get($parts, 4);
+        $value = Arr::get($parts, 5);
+
+        if (empty($clause)) {
             return;
         }
 
-        $clause = strtolower($clause);
-        $rawClause = str_replace('!', '', $clause);
-
         // Param objects will handle the query modification themselves
         foreach ($this->params() as $param) {
-            if ($param->handles($rawClause)) {
-                $invert = str_starts_with($clause, '!');
-
-                $param->applyTo($query, $operator[0], $value, $invert);
+            if ($param->handles($clause)) {
+                $param->applyTo($query, $operator, $value, $invert);
             }
         }
     }

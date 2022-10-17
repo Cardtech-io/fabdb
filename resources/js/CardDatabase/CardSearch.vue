@@ -2,7 +2,7 @@
     <div class="text-base pb-4">
         <form @submit.prevent="newSearch">
             <div class="flex w-full px-4 md:px-0">
-                <div class="w-3/4 relative pr-1 flex bg-gray-200 dark:bg-gray-900 focus:bg-gray-700 focus:border-gray-500 rounded-lg mr-2 items-center">
+                <div class="w-3/4 sm:w-4/5 relative pr-1 flex bg-gray-200 dark:bg-gray-900 focus:bg-gray-700 focus:border-gray-500 rounded-lg mr-2 items-center">
                     <button type="button" class="flex-initial ml-2 bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase" @click.prevent="$modal.show('search-help')">
                         <span class="hidden sm:inline">SYNTAX</span> HELP
                     </button>
@@ -19,7 +19,7 @@
                     </button>
                 </div>
 
-                <div class="w-1/4">
+                <div class="w-1/4 sm:w-1/5">
                     <input type="submit" value="Search" class="w-full button-primary rounded-lg py-3 px-2 sm:px-4 leading-tight focus:outline-none">
                 </div>
             </div>

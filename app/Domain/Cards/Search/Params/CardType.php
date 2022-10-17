@@ -9,7 +9,7 @@ class CardType extends Param
         return in_array($filter, ['t', 'type']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $query->where('cards.type', $this->operator($invert), $value);
     }

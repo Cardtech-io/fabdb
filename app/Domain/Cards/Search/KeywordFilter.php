@@ -11,7 +11,10 @@ class KeywordFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['keywords']) && !empty($input['keywords']) && !$this->matchesIdentifier($input['keywords']) && $this->hasKeywords($input['keywords']);
+        return isset($input['keywords']) && !empty($input['keywords']) &&
+            !$this->isProgrammatic($input['keywords']) &&
+            !$this->matchesIdentifier($input['keywords']) &&
+            $this->hasKeywords($input['keywords']);
     }
 
     public function applyTo(Builder $query, array $input)

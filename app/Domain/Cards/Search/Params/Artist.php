@@ -11,7 +11,7 @@ class Artist extends Param
         return in_array($filter, ['artist']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $artist = app(ArtistRepository::class)->searchByName($value);
 

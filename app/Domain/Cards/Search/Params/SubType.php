@@ -9,7 +9,7 @@ class SubType extends Param
         return in_array($filter, ['st', 'subtype']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $query->where('cards.sub_type', $this->operator($invert), $value);
     }

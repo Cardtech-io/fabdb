@@ -11,11 +11,11 @@ class Set extends Param
         return in_array($filter, ['s', 'set']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $query->join(DB::raw('printings ps'), function($join) use ($value, $invert) {
             $join->on('ps.card_id', 'cards.id');
-            $join->where('ps.sku', $this->operator($invert, 'LIKE', 'NOT LIKE'), $value.'%');
+            $join->where('ps.sku', $this->operator($invert, 'LIKE'), $value.'%');
         });
     }
 

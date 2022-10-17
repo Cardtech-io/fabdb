@@ -9,7 +9,7 @@ class Rarity extends Param
         return in_array($filter, ['r', 'rarity']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $query->where('cards.rarity', $this->operator($invert), $value);
     }

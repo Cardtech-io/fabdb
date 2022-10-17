@@ -22,6 +22,8 @@ class Params extends Collection implements Htmlable
                 new Cost,
                 new Defense,
                 new Power,
+                new Life,
+                new Intellect,
                 new Artist,
             ];
         }

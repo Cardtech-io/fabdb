@@ -9,7 +9,7 @@ class Talent extends Param
         return in_array($filter, ['ta', 'talent']);
     }
 
-    public function applyTo($query, string $operator, $value, bool $invert)
+    public function applyTo($query, $operator, $value, bool $invert)
     {
         $talents = $this->toArray($value);
 

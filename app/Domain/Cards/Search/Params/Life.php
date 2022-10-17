@@ -2,22 +2,22 @@
 
 namespace FabDB\Domain\Cards\Search\Params;
 
-class Power extends Param
+class Life extends Param
 {
     use StatParam;
 
     public function handles(string $filter): bool
     {
-        return in_array($filter, ['a', 'attack', 'pow', 'power']);
+        return in_array($filter, ['l', 'life']);
     }
 
     public function title(): string
     {
-        return 'Power';
+        return 'Life';
     }
 
     protected function stat(): string
     {
-        return 'attack';
+        return 'life';
     }
 }
