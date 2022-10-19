@@ -25,6 +25,7 @@ class DeckResource extends JsonResource
         $response['parent'] = new DeckResource($this->whenLoaded('parent'));
         $response['sideboard'] = SideboardResource::collection($this->whenLoaded('sideboard'));
         $response['mine'] = $this->resource->userId === object_get(auth()->user(), 'id');
+        $response['versions'] = self::collection($this->whenLoaded('versions'));
 
         return $response;
     }

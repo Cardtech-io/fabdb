@@ -19,7 +19,10 @@
                         <div v-if="deck.weapons.count()" class="flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1">
                             <img :src="squareThumbUrl(weapon.image, 55)" v-for="weapon in deck.weapons.all()" width="40" height="40" class="rounded">
                         </div>
-                        <div class="font-serif text-4xl text-white pr-1">{{ deck.totalCards }}</div>
+                        <div class="flex space-x-1 font-serif items-end text-white pr-1">
+                            <span v-if="deck.version > 1" class="mb-1">[V.{{deck.version}}]</span>
+                            <span class="text-4xl">{{ deck.totalCards }}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="p-2 space-y-2">

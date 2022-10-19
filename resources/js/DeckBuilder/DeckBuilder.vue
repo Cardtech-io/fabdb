@@ -1,5 +1,5 @@
 <template>
-    <div class="text-base">
+    <div>
         <header-title>
             <template v-slot:title>
                 <deck-name :name="deck.name" :hero="hero"/>
@@ -12,14 +12,15 @@
             <div class="bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center justify-between p-4" :class="topAreaClasses">
-                            <div class="flex items-center">
+                        <div class="flex items-center justify-between p-2 lg:p-4" :class="topAreaClasses">
+                            <div class="flex flex-1 items-center space-x-2">
+                                <version :deck="deck"/>
                                 <mode-selector class="w-auto"/>
                                 <grouping-selector v-show="['all', 'search'].indexOf(mode) !== -1" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
                                 <play-deck :deck="deck"/>
                             </div>
 
-                            <div class="px-2 lg:px-1 flex space-x-2">
+                            <div class="lg:px-1 flex space-x-2">
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <view-button/>
@@ -90,6 +91,7 @@
     import ZoomButton from './Buttons/Zoom.vue';
     import ManagesDecks from "./ManagesDecks.js";
     import PlayDeck from "../Decks/PlayDeck.vue";
+    import Version from "./Version.vue";
 
     export default {
         components: {
@@ -112,6 +114,7 @@
             PlayDeck,
             SearchResults,
             Sideboard,
+            Version,
             ViewButton,
             ZoomButton
         },

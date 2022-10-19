@@ -1,5 +1,5 @@
 <template>
-    <div class="relative text-sm xl:text-base">
+    <div class="relative text-sm">
         <button class="relative flex items-center overflow-hidden rounded-lg hover:bg-white dark:hover:bg-gray-600 leading-none px-2" @click="isOpen = !isOpen" :class="{ 'bg-white dark:bg-gray-600': isOpen, 'bg-gray-200 dark:bg-black': !isOpen, 'z-75': isOpen }" style="width: 150px">
             <span class="py-2">Grouping</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 fill-current ml-auto" :class="{'transform rotate-180': isOpen}">
@@ -10,7 +10,7 @@
         <button type="button" class="fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2" @click="isOpen = false" v-if="isOpen"></button>
 
         <div class="w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg" v-if="isOpen">
-            <button v-for="(text, option) in options" class="w-full text-base text-left px-4 py-1" :class="option === grouping ? 'bg-blue-400 text-white' : 'hover:bg-blue-400 hover:text-white'" @click="select(option)">{{ text }}</button>
+            <button v-for="(text, option) in options" class="w-full text-left px-4 py-1" :class="option === grouping ? 'bg-blue-400 text-white' : 'hover:bg-blue-400 hover:text-white'" @click="select(option)">{{ text }}</button>
         </div>
     </div>
 </template>

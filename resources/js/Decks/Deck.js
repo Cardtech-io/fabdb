@@ -11,6 +11,10 @@ export default class Deck extends Model {
         return this.fields.name;
     }
 
+    get version() {
+        return this.fields.version;
+    }
+
     get parent() {
         if (this.fields.parent) {
             return new Deck(this.fields.parent);

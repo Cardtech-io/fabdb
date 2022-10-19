@@ -11,7 +11,7 @@
                 </add-deck>
             </div>
         </div>
-        <div class="container sm:px-4 sm:mx-auto">
+        <div class="container sm:px-2 sm:mx-auto">
             <form class="main-body p-4 block sm:flex w-full" @submit.prevent="newSearch">
                 <div class="w-full mb-1 sm:mb-0 sm:w-1/3 sm:pr-1">
                     <select v-model="params.class" class="input focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg">
@@ -38,35 +38,39 @@
                 <div v-if="user">
                     <table class="w-full table-auto border-collapse bg-white dark:bg-gray-800">
                         <thead>
-                            <tr class="text-base">
-                                <th class="p-2 px-4 font-serif uppercase text-left">Deck</th>
-                                <th class="p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Label</th>
-                                <th class="p-2 px-4 font-serif uppercase text-left hidden lg:table-cell">Parent</th>
-                                <th class="p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Class</th>
-                                <th class="p-2 px-4 font-serif uppercase text-left hidden md:table-cell">Cards</th>
-                                <th class="p-2 px-4 font-serif uppercase text-left hidden sm:table-cell">Last updated</th>
-                                <th class="p-2 px-4 font-serif uppercase"><span class="hidden lg:block">Actions</span></th>
+                            <tr class="text-sm">
+                                <th class="p-1 font-serif uppercase text-left font-normal">Deck</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal">Version</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal hidden lg:table-cell">Label</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal hidden lg:table-cell">Parent</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal hidden sm:table-cell">Class</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal hidden md:table-cell">Cards</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left font-normal hidden sm:table-cell">Updated</th>
+                                <th class="p-1 px-2 font-serif uppercase text-left">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="odd:bg-gray-100 dark:odd:bg-gray-700 group hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200" v-for="(deck, key) in decks">
-                                <td>
-                                    <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block flex items-center">
-                                        <img :src="squareThumbUrl(deck.hero.image, 43)" v-if="deck.hero"/>
-                                        <span class="block flex-grow px-4 py-2">{{deck.name}}</span>
+                                <td class="text-sm lg:text-base">
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.slug}}" class="block flex items-center h-full">
+                                        <img :src="squareThumbUrl(deck.hero.image, 50)" v-if="deck.hero"/>
+                                        <div class="px-2 flex-grow">
+                                            <span class="block flex-grow">{{deck.name}}</span>
+                                        </div>
                                     </router-link>
                                 </td>
-                                <td class="p-2 px-4 hidden lg:table-cell">
+                                <td class="p-1 px-2">V.{{deck.version}}</td>
+                                <td class="p-1 px-2 hidden lg:table-cell">
                                     <deck-label :label="deck.label" v-if="deck.label" class="text-xs rounded-full p-1 px-2"/>
                                 </td>
                                 <td class="hidden lg:table-cell">
-                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block w-full p-2 px-4" v-if="deck.parent">{{deck.parent.name}}</router-link>
+                                    <router-link :to="{name: 'decks.build', params: {deck: deck.parent.slug}}" class="block w-full p-1 px-4" v-if="deck.parent">{{deck.parent.name}}</router-link>
                                 </td>
-                                <td class="p-2 px-4 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
-                                <td class="p-2 px-4 hidden md:table-cell">{{deck.totalCards}}</td>
-                                <td class="p-2 px-4 hidden sm:table-cell">{{deck.updatedAt}}</td>
-                                <td class="p-2 px-4">
-                                    <div class="flex space-x-4 justify-center items-center">
+                                <td class="p-1 px-2 hidden sm:table-cell">{{deck.hero ? $settings.game.classes[deck.hero.class] : ''}}</td>
+                                <td class="p-1 px-2 hidden md:table-cell">{{deck.totalCards}}</td>
+                                <td class="p-1 px-2 hidden sm:table-cell">{{deck.updatedAt}}</td>
+                                <td class="p-1 px-2">
+                                    <div class="flex space-x-1 items-center">
                                         <play-deck :deck="deck"/>
 
                                         <button @click="copyDeck(deck)" class="hover:text-gray-400 dark:hover:text-white">

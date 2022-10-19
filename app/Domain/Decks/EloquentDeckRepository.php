@@ -13,6 +13,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class EloquentDeckRepository extends EloquentRepository implements DeckRepository
 {
@@ -26,7 +27,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     public function forUser(int $userId, array $params = []): LengthAwarePaginator
     {
         $query = $this->newQuery()
-            ->select('decks.id', 'decks.hero_id', 'decks.parent_id', 'decks.slug', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'decks.updated_at')
+            ->select('decks.id', 'decks.hero_id', 'decks.parent_id', 'decks.slug', 'decks.version', 'decks.label', 'decks.user_id', 'decks.name', 'decks.format', 'decks.updated_at')
             ->with(['hero', 'user', 'parent'])
             ->withCardCount()
             ->whereUserId($userId)
@@ -57,6 +58,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
     {
         $query = $this->newQuery()->select('decks.*');
         $query = $this->slugQuery($query, $slug);
+        $query->with(['versions']);
 
         if ($includeCards) {
             $query->with(['cards' => function($query) {
@@ -187,6 +189,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             'decks.user_id',
             'decks.hero_id',
             'decks.name',
+            'decks.version',
             'decks.notes',
             'decks.video_url',
             'decks.label',
@@ -301,10 +304,15 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }, 3);
     }
 
-    public function copy(string $deckSlug, int $userId): Deck
+    public function copy(Deck $deck, int $userId, bool $bumpVersion = false): Deck
     {
-        $deck = $this->bySlugWithCards($deckSlug, true);
         $newDeck = $deck->copy($userId);
+
+        if ($bumpVersion) {
+            $newDeck->bumpVersion($deck->versionId);
+            $newDeck->name = Str::replace(' (copy)', '', $newDeck->name);
+        }
+
         $this->save($newDeck);
 
         $inserts = $deck->cards->map(function($card) use ($newDeck) {

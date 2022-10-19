@@ -94,6 +94,7 @@ Route::middleware(['web'])->group(function() {
             Route::post('decks/copy', 'DeckController@copy');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');
+            Route::post('decks/{deck}/version', 'DeckController@newVersion');
             Route::post('decks/{deck}/sideboard', 'DeckController@addToSideboard');
             Route::delete('decks/{deck}/sideboard/{card}', 'DeckController@removeFromSideboard');
             Route::put('decks/{deck}/{card}', 'DeckController@setCardTotal');
