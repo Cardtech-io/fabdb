@@ -11,7 +11,7 @@
                             <div>
                                 <card-image :card="deck.hero" class="relative z-10"/>
 
-                                <div class="relative flex rounded-b-xl overflow-hidden space-x-px -mt-8 z-0">
+                                <div class="relative flex rounded-b-xl overflow-hidden space-x-px -mt-8 z-0 text-sm">
                                     <a :href="buyLink(deck)" class="flex flex-1 items-center justify-center button-primary rounded-l-xl px-2 pb-2 pt-10" target="_blank" title="Buy from TCG Player">
                                         <icon :size="4">
                                             <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
@@ -29,8 +29,10 @@
                                 </div>
                             </div>
 
-                            <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg" v-if="deck.label"/>
-                            <format-label :format="deck.format" class="block w-full py-2 text-center rounded-lg" v-if="deck.format"/>
+                            <div class="space-y-1">
+                                <deck-label :label="deck.label" class="block w-full py-2 text-center rounded-lg" v-if="deck.label"/>
+                                <format-label :format="deck.format" class="block w-full py-2 text-center rounded-lg" v-if="deck.format"/>
+                            </div>
 
                             <div class="rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden">
                                 <div class="flex justify-between items-center bg-white dark:bg-gray-700 p-2 px-4">

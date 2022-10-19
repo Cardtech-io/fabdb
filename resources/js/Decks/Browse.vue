@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="Browse decks"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Browse decks"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">
@@ -28,7 +28,7 @@
                             <simple-paginator :results="results" @cursor-selected="updateCursor"/>
                         </div>
                     </div>
-                    <div class="md:w-2/3 rounded-lg p-2 bg-blue-200 text-center text-base mx-auto">
+                    <div class="md:w-2/3 rounded-lg p-2 bg-blue-200 dark:bg-blue-800 text-center text-base mx-auto">
                         Don't see your deck in the list above? Be sure to set your deck's visibility to <span class="font-bold">public</span>.
                     </div>
                 </div>
@@ -41,12 +41,13 @@
     import { mapActions } from 'vuex';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
+    import Deck from "./Deck.js";
     import DeckItem from './DeckItem.vue';
     import DeckSearch from './DeckSearch.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
     import Models from "../Utilities/Models.js";
-    import Deck from "./Deck.js";
+    import Query from "../Utilities/Query";
     import SimplePaginator from "../Components/SimplePaginator.vue";
 
     export default {
@@ -58,6 +59,8 @@
             HeaderTitle,
             Paginator
         },
+
+        mixins: [Query],
 
         computed: {
             decks() {
