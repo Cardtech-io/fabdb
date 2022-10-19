@@ -312,6 +312,9 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
             $newDeck->bumpVersion($deck->versionId);
             $newDeck->name = Str::replace(' (copy)', '', $newDeck->name);
         }
+        else {
+            $newDeck->version = 1;
+        }
 
         $this->save($newDeck);
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex space-x-1">
+        <div class="flex items-center space-x-1">
             <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="selectTab(index)" v-for="(tab, index) in tabs" :class="classes(index)">{{tab.name}}</button>
             <slot name="right"></slot>
         </div>

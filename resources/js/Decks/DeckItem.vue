@@ -20,7 +20,7 @@
                             <img :src="squareThumbUrl(weapon.image, 55)" v-for="weapon in deck.weapons.all()" width="40" height="40" class="rounded">
                         </div>
                         <div class="flex space-x-1 font-serif items-end text-white pr-1">
-                            <span v-if="deck.version > 1" class="mb-1">[V.{{deck.version}}]</span>
+                            <span v-if="deck.version > 1" class="mb-1 text-lg">[V.{{deck.version}}]</span>
                             <span class="text-4xl">{{ deck.totalCards }}</span>
                         </div>
                     </div>
