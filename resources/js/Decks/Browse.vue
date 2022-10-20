@@ -5,7 +5,7 @@
 
         <div class="bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">
-                <deck-search @search-completed="refreshResults"/>
+                <deck-search/>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import deckSearch from "../Store/DeckSearch.js"
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
     import Deck from "./Deck.js";
@@ -47,7 +47,6 @@
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
     import Models from "../Utilities/Models.js";
-    import Query from "../Utilities/Query";
     import SimplePaginator from "../Components/SimplePaginator.vue";
 
     export default {
@@ -60,11 +59,17 @@
             Paginator
         },
 
-        mixins: [Query],
-
         computed: {
             decks() {
                 return results.decks;
+            }
+        },
+
+        setup() {
+            const store = deckSearch()
+
+            return {
+                params: store.params,
             }
         },
 
@@ -89,15 +94,25 @@
         },
 
         methods: {
-            ...mapActions('deckSearch', ['updateParam']),
-
             refreshResults(results) {
                 this.results = results;
                 this.results.data = Models.hydrateMany(results.data, Deck);
             },
 
-            updateCursor(cursor) {
-                this.updateParam({ key: 'cursor', value: cursor });
+            search(params) {
+                axios.get(url, { params }).then(response => {
+                    this.refreshResults(response.data);
+                });
+            }
+        },
+
+        created() {
+            console.log(this.$route.query)
+        },
+
+        watch: {
+            '$route.query'(query) {
+                console.log(query);
             }
         }
     };

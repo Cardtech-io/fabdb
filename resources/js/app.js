@@ -2,8 +2,9 @@ import './bootstrap';
 import '../css/fabdb.css';
 import Vue from 'vue';
 
-import VueClipboard from 'vue-clipboard2';
+import { createPinia, PiniaVuePlugin } from 'pinia'
 import { VueMasonryPlugin } from 'vue-masonry';
+import VueClipboard from 'vue-clipboard2';
 import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
 import VueMq from 'vue-mq'
@@ -71,6 +72,7 @@ Vue.component('modal', {
     }
 });
 
+Vue.use(PiniaVuePlugin)
 Vue.use(VueClipboard);
 Vue.use(VueMeta);
 Vue.use(VueMasonryPlugin);
@@ -79,8 +81,11 @@ Vue.prototype.$settings = window.settings;
 Vue.prototype.$eventHub = new Vue;
 Vue.prototype.lang = JSON.parse(atob(window.lang));
 
+const pinia = createPinia()
+
 App.router = router;
 App.store = store;
+App.pinia = pinia;
 
 config(router);
 
