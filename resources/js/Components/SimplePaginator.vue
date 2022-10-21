@@ -6,8 +6,11 @@
 </template>
 
 <script>
+    import Search from "./Search";
+
     export default {
         props: ['results'],
+        extends: Search,
 
         computed: {
             data() {
@@ -34,8 +37,8 @@
 
             selectPage(cursor) {
                 cursor = cursor.replace('/?cursor=', '');
-
-                this.$emit('cursor-selected', cursor);
+                this.params.cursor = cursor;
+                this.requestSearch();
             }
         }
     };

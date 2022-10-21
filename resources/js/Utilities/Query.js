@@ -22,16 +22,26 @@ export default {
             });
         },
 
-        updateQuery(params) {
-            let query = this.buildQuery(params);
+        async updateQuery(params) {
+            let query = this.buildQuery(this.filterParams(params));
 
-            this.$router.push({
+            await this.$router.push({
                 query: query
             }).catch(e => {});
         },
 
+        filterParams(params) {
+            let filtered = {};
+
+            for (let i in params) {
+                if (params[i]) filtered[i] = params[i]
+            }
+
+            return filtered;
+        },
+
         combineParams(params) {
-            return { ...this.clone(this.$route.query), ...params};
+            return {...params};
         },
 
         clone(query) {

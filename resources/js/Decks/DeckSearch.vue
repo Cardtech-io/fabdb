@@ -1,5 +1,5 @@
 <template>
-    <form class="px-4 md:px-0 block flex flex-wrap w-full" @submit.prevent="newSearch">
+    <form class="px-4 md:px-0 block flex flex-wrap w-full" @submit.prevent="requestSearch">
         <div class="w-full sm:w-1/2 md:w-2/6 sm:pb-1 md:pb-0 sm:pr-1">
             <select v-model="params.hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg">
                 <option value="">Select hero</option>
@@ -39,14 +39,12 @@
 
 <script>
     import axios from 'axios';
-    import { mapActions, mapState } from 'vuex';
-    import deckSearch from "../Store/DeckSearch";
     import Submit from "../Components/Form/Submit.vue";
-    import Query from "../Utilities/Query";
+    import Search from "../Components/Search";
 
     export default {
         components: {Submit},
-        mixins: [Query],
+        extends: Search,
 
         props: {
             mine: {
@@ -55,62 +53,14 @@
             }
         },
 
-        data() {
-            return {
-                heroes: []
-            }
-        },
-
-        setup() {
-            const store = deckSearch()
-
-            return {
-                params: store.params,
-            }
-        },
-
-        methods: {
-            ...mapActions('deckSearch', ['setCursor', 'updateParam']),
-
-            search() {
-                this.updateQuery(this.params);
-                // const params = {
-                //     hero: this.hero,
-                //     order: this.order,
-                //     label: this.label,
-                //     format: this.format
-                // };
-                //
-                // if (this.params.cursor) {
-                //     params.cursor = this.params.cursor;
-                // }
-                // if (this.params.page) {
-                //     params.page = this.params.page;
-                // }
-                //
-                // let url = this.mine ? '/decks/mine' : '/decks';
-                //
-                // if (!this.mine) {
-                //     params.include = 'weapons';
-                // }
-                //
-                // axios.get(url, { params: params }).then(response => {
-                //     this.$emit('search-completed', response.data);
-                // }).catch(error => {});
-            },
-
-            newSearch() {
-                // this.setCursor({ cursor: null });
-                this.search();
-            },
-        },
+        data: () => ({
+            heroes: []
+        }),
 
         created() {
-            this.params = this.$route.query;
-
             axios.get('/cards/heroes').then(response => {
                 this.heroes = response.data;
             });
-        },
+        }
     };
 </script>
