@@ -37,7 +37,7 @@
 
             selectPage(cursor) {
                 cursor = cursor.replace('/?cursor=', '');
-                this.params.cursor = cursor;
+                this.cursor = cursor;
                 this.requestSearch();
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <form class="px-4 md:px-0 block flex flex-wrap w-full" @submit.prevent="requestSearch">
+    <form class="px-4 md:px-0 block flex flex-wrap w-full" @submit.prevent="newSearch">
         <div class="w-full sm:w-1/2 md:w-2/6 sm:pb-1 md:pb-0 sm:pr-1">
             <select v-model="params.hero" class="input appearance-none outline-none focus:bg-white focus:border-gray-500 py-2 px-4 rounded-lg">
                 <option value="">Select hero</option>

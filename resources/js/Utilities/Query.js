@@ -23,7 +23,7 @@ export default {
         },
 
         async updateQuery(params) {
-            let query = this.buildQuery(this.filterParams(params));
+            let query = this.filterParams(params);
 
             await this.$router.push({
                 query: query

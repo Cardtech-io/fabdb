@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex items-center space-x-1">
-            <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="selectTab(index)" v-for="(tab, index) in tabs" :class="classes(index)">{{tab.name}}</button>
+            <button class="flex rounded-t px-4 py-2 text-sm md:text-base" @click="selectTab(index)" v-for="(tab, index) in tabs" :class="classes(index)">{{tab.name}}</button>
             <slot name="right"></slot>
         </div>
         <div class="flex bg-gray-300 dark:bg-gray-800 p-2 md:p-4 w-full">

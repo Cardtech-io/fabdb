@@ -9,8 +9,12 @@ export default {
     },
 
     methods: {
-        requestSearch() {
+        newSearch() {
             this.cursor = '';
+            this.requestSearch();
+        },
+
+        requestSearch() {
             this.$emit('search-requested');
         }
     }

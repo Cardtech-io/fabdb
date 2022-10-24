@@ -11,6 +11,9 @@
 
         <div class="main-body">
             <div class="container sm:mx-auto px-4">
+                <div class="flex items-center space-x-1">
+                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes(index)">{{tab.name}}</button>
+                </div>
                 <div v-if="results && results.data" class="pb-8">
                     <div class="flow-root py-4">
                         <ul class="flow-root sm:-mx-4">
@@ -48,6 +51,8 @@
     import Models from "../Utilities/Models.js";
     import Search from "../Components/Search";
     import SimplePaginator from "../Components/SimplePaginator.vue";
+    import TabItem from "../Components/TabItem.vue";
+    import Tabs from "../Components/Tabs.vue";
 
     export default {
         components: {
@@ -56,7 +61,9 @@
             DeckItem,
             DeckSearch,
             HeaderTitle,
-            Paginator
+            Paginator,
+            TabItem,
+            Tabs,
         },
 
         extends: Search,
@@ -74,7 +81,7 @@
 
         metaInfo() {
             return {
-                title: 'Flesh &amp; Blood deck lists',
+                title: 'Flesh & Blood deck lists',
                 meta: [
                     { vmid: 'description', name: 'description', content: 'Browse Flesh & Blood deck lists, their cards, and various metrics for each.' }
                 ]
@@ -82,6 +89,14 @@
         },
 
         methods: {
+            classes(index) {
+                if (this.active === index) {
+                    return 'relative bg-gray-300 dark:bg-gray-800 -bottom-1px text-gray-800 dark:text-gray-300';
+                }
+
+                return 'bg-gray-200 dark:bg-black hover:bg-white dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300';
+            },
+
             refreshResults(results) {
                 this.results = results;
                 this.results.data = Models.hydrateMany(results.data, Deck);
@@ -94,7 +109,9 @@
             },
 
             searchRequested() {
-                this.updateQuery(this.params);
+                let params = {...this.params, cursor: this.cursor};
+
+                this.updateQuery(params);
                 this.search(this.params);
             }
         },

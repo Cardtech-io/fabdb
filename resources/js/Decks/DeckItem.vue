@@ -16,7 +16,7 @@
                         </svg>
                     </div>
                     <div class="flex absolute bottom-0 w-full justify-between p-2">
-                        <div v-if="deck.weapons.count()" class="flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1">
+                        <div v-if="deck.weapons.count()" class="flex items-center bg-nearly-white dark:bg-gray-300 rounded-lg p-0.5 space-x-1">
                             <img :src="squareThumbUrl(weapon.image, 55)" v-for="weapon in deck.weapons.all()" width="40" height="40" class="rounded">
                         </div>
                         <div class="flex space-x-1 font-serif items-end text-white pr-1">
