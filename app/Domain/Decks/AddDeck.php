@@ -31,6 +31,10 @@ class AddDeck implements Loggable
 
         $decks->save($this->deck);
 
+        $this->deck->versionId = $this->deck->id;
+
+        $decks->save($this->deck);
+
         $this->dispatch($this->deck->releaseEvents());
     }
 

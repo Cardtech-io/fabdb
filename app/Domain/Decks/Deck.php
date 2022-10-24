@@ -28,16 +28,6 @@ class Deck extends Model
 
     protected $hidden = ['id', 'user_id', 'hero_id'];
 
-    public static function boot()
-    {
-        parent::boot();
-        
-        self::created(function($model){
-            $model->versionId = $model->id;
-            $model->save();
-        });
-    }
-
     public function hero()
     {
         return $this->belongsTo(Card::class, 'hero_id');

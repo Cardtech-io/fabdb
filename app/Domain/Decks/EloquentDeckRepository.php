@@ -318,6 +318,11 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         $this->save($newDeck);
 
+        if (!$bumpVersion) {
+            $newDeck->versionId = $newDeck->id;
+            $this->save($newDeck);
+        }
+
         $inserts = $deck->cards->map(function($card) use ($newDeck) {
             return ['deck_id' => $newDeck->id, 'card_id' => $card->id, 'total' => $card->pivot->total];
         })->toArray();
