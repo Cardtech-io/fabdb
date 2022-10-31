@@ -5,7 +5,7 @@
         <div class="fixed flex items-center justify-center h-full w-full z-100">
             <div class="p-4 rounded-xl overflow-hidden min-w-1/2 m-4 space-y-8 -mt-24">
                 <img src="@/images/fabdb-logo-3d.png" alt="" style="max-width: 470px" class="w-250 mx-auto">
-                <transition name="fade" mode="out-in">  
+                <transition name="fade" mode="out-in">
                     <div v-for="(s, i) in stages" v-if="i === stage" v-html="s" :key="'stage'+i" class="font-serif uppercase text-lg text-center text-gray-300"></div>
                 </transition>
             </div>
@@ -28,7 +28,7 @@ export default {
 
     computed: {
         classes() {
-            return this.visible ? 'opacity-100' : 'opacity-0';
+            return this.visible ? 'opacity-100' : 'opacity-0 hidden';
         }
     },
 
