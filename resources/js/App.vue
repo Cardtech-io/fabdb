@@ -17,6 +17,7 @@
         <complete-profile/>
         <version-handler/>
         <hover-card/>
+        <spoiler/>
 
         <modal name="search-help" :adaptive="true" :dialog="true" :scrollable="true" height="auto" classes="bg-gray-100 dark:bg-gray-800 rounded-xl relative z-50">
             <search-help/>
@@ -32,6 +33,7 @@
     import Messages from './Components/Messages.vue';
     import Navigation from './Components/Navigation.vue';
     import SearchHelp from "./CardDatabase/SearchHelp.vue";
+    import Spoiler from "./Components/Spoiler.vue";
     import VersionHandler from './Components/VersionHandler.vue';
 
     export default {
@@ -42,6 +44,7 @@
             Messages,
             Navigation,
             SearchHelp,
+            Spoiler,
             VersionHandler
         },
 
