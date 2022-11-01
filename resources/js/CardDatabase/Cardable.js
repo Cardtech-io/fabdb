@@ -1,4 +1,4 @@
-import Carding from "../Utilities/Carding";
+import Carding from "../Utilities/Carding.js";
 
 export default {
     computed: {

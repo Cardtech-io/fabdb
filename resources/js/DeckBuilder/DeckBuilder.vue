@@ -1,40 +1,40 @@
 <template>
-    <div class="text-base" v-touch:swipe.left="swipeLeft" v-touch:swipe.right="swipeRight">
+    <div>
         <header-title>
             <template v-slot:title>
-                <deck-name :name="deck.name" :hero="hero"></deck-name>
+                <deck-name :name="deck.name" :hero="hero"/>
             </template>
         </header-title>
 
         <breadcrumbs :crumbs="crumbs"/>
 
         <div :class="fullScreenClasses">
-            <div class="bg-white">
+            <div class="bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600">
                 <div :class="containers">
                     <div class="flex">
-                        <div class="flex items-center p-4" :class="topAreaClasses">
-                            <div class="flex-auto">
-                                <deck-totals/>
+                        <div class="flex items-center justify-between p-2 lg:p-4" :class="topAreaClasses">
+                            <div class="flex flex-1 items-center space-x-2">
+                                <version :deck="deck"/>
+                                <mode-selector class="w-auto"/>
+                                <grouping-selector v-show="['all', 'search'].indexOf(mode) !== -1" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
+                                <play-deck :deck="deck"/>
                             </div>
 
-                            <grouping-selector v-if="mode !== 'details'" class="mr-2 hidden md:block" :grouping="grouping" @selected="updateGrouping" :options="{'default': 'Default', pitch: 'Pitch', cost: 'Cost', type: 'Type'}"/>
-                            <mode-selector class="w-auto"/>
-
-                            <div class="px-2 lg:px-1 flex">
+                            <div class="lg:px-1 flex space-x-2">
                                 <zoom-button :zoom="zoom" action="in" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <zoom-button :zoom="zoom" action="out" :fullScreen="fullScreen" class="hidden md:block"/>
                                 <view-button/>
                                 <fullscreen-button :full-screen="fullScreen" :toggle="toggleFullScreen"/>
                             </div>
                         </div>
-                        <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300': !this.fullScreen}}">
+                        <div v-if="mode === 'search'" class="flex items-center" :class="{...sidebarClasses, ...{'px-0 pr-4': this.fullScreen, 'border-l border-gray-300 dark:border-gray-600': !this.fullScreen}}">
                             <card-search class="flex bg-gray-800 rounded-lg w-full overflow-hidden" :class="{ 'focus:bg-white focus:border-gray-500': !fullScreen }"/>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-200 h-full relative">
+            <div class="main-body h-full relative">
                 <div class="flex h-full" :class="containers">
                     <div class="h-full overflow-y-auto" :class="mainAreaClasses">
                         <div v-if="!hero" class="h-full">
@@ -50,10 +50,11 @@
                             <edit-deck v-if="mode === 'search'" :collection="cards"/>
                             <deck-details v-if="mode === 'details'"/>
                             <main-deck v-if="mode === 'sideboard'" :collection="cards"/>
+                            <metrics-performance v-show="mode === 'metrics'" :deck="deck" class="p-4"/>
                         </div>
                     </div>
-                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300" ref="searchResults">
-                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"/>
+                    <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
+                        <search-results v-show="mode === 'search'" @search-completed="scrollTop"/>
                         <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
                     </div>
                 </div>
@@ -67,27 +68,30 @@
 
     import AllCards from './AllCards.vue';
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Cardable from '../CardDatabase/Cardable';
+    import Cardable from '../CardDatabase/Cardable.js';
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardSearch from "./CardSearch";
+    import CardSearch from "./CardSearch.vue";
     import DeckDetails from './DeckDetails.vue';
-    import DeckName from './DeckName';
-    import DeckTotals from "./Metrics/DeckTotals";
-    import EditDeck from "./EditDeck";
+    import DeckName from './DeckName.vue';
+    import DeckTotals from "../Decks/Metrics/DeckTotals.vue";
+    import EditDeck from "./EditDeck.vue";
     import GroupingSelector from './GroupingSelector.vue';
     import FullscreenButton from '../Components/Fullscreen.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import HeroSelector from "../Components/HeroSelector";
-    import Icon from '../Components/Icon';
-    import LazyLoader from '../Components/LazyLoader';
+    import HeroSelector from "../Components/HeroSelector.vue";
+    import Icon from '../Components/Icon.vue';
+    import LazyLoader from '../Components/LazyLoader.js';
     import MainDeck from './MainDeck.vue';
+    import MetricsPerformance from "../Decks/Metrics/MetricsPerformance.vue";
     import ModeSelector from './ModeSelector.vue';
     import SearchResults from './SearchResults.vue';
     import Sideboard from './Sideboard.vue';
-    import Viewable from './Viewable';
-    import ViewButton from "./Buttons/View";
-    import ZoomButton from './Buttons/Zoom';
-    import ManagesDecks from "./ManagesDecks";
+    import Viewable from './Viewable.js';
+    import ViewButton from "./Buttons/View.vue";
+    import ZoomButton from './Buttons/Zoom.vue';
+    import ManagesDecks from "./ManagesDecks.js";
+    import PlayDeck from "../Decks/PlayDeck.vue";
+    import Version from "./Version.vue";
 
     export default {
         components: {
@@ -95,19 +99,22 @@
             Breadcrumbs,
             CardImage,
             CardSearch,
+            DeckDetails,
             DeckName,
             DeckTotals,
             EditDeck,
             FullscreenButton,
             GroupingSelector,
+            HeaderTitle,
             HeroSelector,
             Icon,
             MainDeck,
-            DeckDetails,
+            MetricsPerformance,
             ModeSelector,
-            HeaderTitle,
+            PlayDeck,
             SearchResults,
             Sideboard,
+            Version,
             ViewButton,
             ZoomButton
         },
@@ -178,14 +185,6 @@
             scrollTop() {
                 this.$refs.searchResults.scrollTop = 0;
                 window.scrollTo({top: 0});
-            },
-
-            swipeLeft() {
-                this.changeMode(this.currentSwipeMode() + 1);
-            },
-
-            swipeRight() {
-                this.changeMode(this.currentSwipeMode() - 1);
             },
 
             changeMode(newMode) {

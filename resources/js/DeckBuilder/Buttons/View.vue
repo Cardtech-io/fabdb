@@ -1,5 +1,5 @@
 <template>
-    <button class="block mr-2 sm:mr-4" @click="toggleView" :disabled="inactive" :class="{ 'text-gray-500': inactive, 'link-alternate': !inactive }">
+    <button class="block" @click="toggleView" :disabled="inactive" :class="{ 'text-gray-500': inactive, 'link-alternate': !inactive }">
         <icon :size="6">
             <path d="M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z" v-if="view === 'text'"/>
             <path d="M1 1h18v2H1V1zm0 8h18v2H1V9zm0 8h18v2H1v-2zM1 5h12v2H1V5zm0 8h12v2H1v-2z" v-else/>
@@ -10,7 +10,7 @@
 <script>
     import {mapActions, mapState} from 'vuex';
 
-    import Icon from "../../Components/Icon";
+    import Icon from "../../Components/Icon.vue";
 
     export default {
         components: {Icon},

@@ -15,14 +15,14 @@
                     @click.native="send(i, 'hand', 'graveyard')"
                     class="relative z-25"
                 />
-                <div class="transition duration-300 absolute top-0 bottom-0 w-full bg-gray-200 rounded-card" :class="classes(i)"></div>
+                <div class="transition duration-300 absolute top-0 bottom-0 w-full bg-gray-200 dark:bg-gray-900 rounded-card" :class="classes(i)"></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Interactive from "./Interactive";
+    import Interactive from "./Interactive.js";
 
     export default {
         props: {

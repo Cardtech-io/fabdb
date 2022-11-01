@@ -1,7 +1,6 @@
 <?php
 namespace FabDB\Http\Controllers;
 
-use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use FabDB\Domain\Cards\Card;
 use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Decks\AddCardToDeck;
@@ -11,6 +10,8 @@ use FabDB\Domain\Decks\CopyDeckObserver;
 use FabDB\Domain\Decks\Deck;
 use FabDB\Domain\Decks\DeckRepository;
 use FabDB\Domain\Decks\CopyDeck;
+use FabDB\Domain\Decks\DeckVersion;
+use FabDB\Domain\Decks\NewVersionObserver;
 use FabDB\Domain\Decks\RemoveCardFromDeck;
 use FabDB\Domain\Decks\RemoveCardFromSideboard;
 use FabDB\Domain\Decks\RemoveDeck;
@@ -18,6 +19,7 @@ use FabDB\Domain\Decks\SaveDeckSettings;
 use FabDB\Domain\Decks\SetDeckCardTotal;
 use FabDB\Http\Requests\AddCardToDeckRequest;
 use FabDB\Http\Requests\AddCardToSideboardRequest;
+use FabDB\Http\Requests\NewDeckVersionRequest;
 use FabDB\Http\Requests\RemoveCardFromDeckRequest;
 use FabDB\Http\Requests\RemoveDeckRequest;
 use FabDB\Http\Requests\SaveDeckSettingsRequest;
@@ -133,10 +135,23 @@ class DeckController extends Controller
             $request->get('name', $request->deck->name),
             $request->get('label', $request->deck->label),
             $request->get('notes', object_get($request, 'deck.notes', '')),
+            $request->get('videoUrl', object_get($request, 'deck.videoUrl', '')),
             $request->get('format', $request->deck->format),
             (int) $request->get('limitToCollection', $request->deck->limitToCollection),
             $request->get('visibility', $request->deck->visibility),
             (int) $request->get('cardBack', $request->deck->cardBack)
         ));
+    }
+
+    public function newVersion(NewDeckVersionRequest $request)
+    {
+        $observer = new NewVersionObserver;
+
+        $this->dispatchNow(new DeckVersion(
+            $observer,
+            $request->deck->id
+        ));
+
+        return $observer->slug();
     }
 }

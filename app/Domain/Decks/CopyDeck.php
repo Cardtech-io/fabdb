@@ -34,7 +34,8 @@ class CopyDeck implements Loggable
 
     public function handle(DeckRepository $decks)
     {
-        $newDeck = $decks->copy($this->deckSlug, $this->userId);
+        $deck = $decks->bySlug($this->deckSlug);
+        $newDeck = $decks->copy($deck, $this->userId);
 
         $this->observer->deckWasCopied($this->deckSlug, $newDeck->slug);
 

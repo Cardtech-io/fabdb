@@ -2,7 +2,7 @@
     <div>
         <header-title title="Privacy policy"></header-title>
 
-        <div class="bg-red-900 text-white font-serif uppercase">
+        <div class="crumbs text-white font-serif uppercase">
             <div class="container sm:mx-auto p-4 flex">
                 <div class="flex-1">
                     <crumbs :crumbs="crumbs"></crumbs>
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto py-8 px-4">
                 <h2 class="text-4xl font-serif mb-4 uppercase sm:hidden">Privacy Policy</h2>
                 <p class="my-4">

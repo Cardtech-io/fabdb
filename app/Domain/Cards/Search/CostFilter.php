@@ -16,6 +16,6 @@ class CostFilter implements SearchFilter
     {
         $operator = $input['cost'] == '4' ? '>=' : '=';
 
-        $query->where("stats->cost", $operator, $input['cost']);
+        $query->where("stats->cost", $operator, (int) $input['cost']);
     }
 }

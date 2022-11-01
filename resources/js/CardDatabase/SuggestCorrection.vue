@@ -52,7 +52,7 @@
 <script>
     import {mapActions} from 'vuex';
     import axios from 'axios';
-    import Submit from "../Components/Form/Submit";
+    import Submit from "../Components/Form/Submit.vue";
 
     export default {
         components: {

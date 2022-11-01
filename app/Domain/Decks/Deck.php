@@ -33,6 +33,11 @@ class Deck extends Model
         return $this->belongsTo(Card::class, 'hero_id');
     }
 
+    public function versions()
+    {
+        return $this->hasMany(Deck::class, 'version_id', 'version_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -40,7 +45,7 @@ class Deck extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Deck::class);
+        return $this->belongsTo(Deck::class)->where('parent_id' , '!=', 'id');
     }
 
     public function practise()
@@ -192,6 +197,7 @@ class Deck extends Model
         string $name,
         string $label,
         string $notes,
+        string $videoUrl,
         string $format,
         int $limitToCollection,
         string $visibility,
@@ -202,20 +208,28 @@ class Deck extends Model
         $this->timestamps = false;
         $this->name = $name;
         $this->notes = $notes;
+        $this->videoUrl = $videoUrl;
         $this->label = $label;
         $this->format = $format;
         $this->limitToCollection = $limitToCollection;
         $this->visibility = $visibility;
         $this->cardBack = $cardBack;
 
-        $this->raise(new DeckSettingsSaved($this->id, $name, $label, $format, $visibility, $cardBack));
+        $this->raise(new DeckSettingsSaved(
+            $this->id,
+            $name,
+            $label,
+            $format,
+            $visibility,
+            $cardBack
+        ));
     }
 
-    public function copy(int $userId)
+    public function copy(int $userId, string $name = null)
     {
         $name = $this->name;
 
-        if (!Str::contains($name, '(copy)')) {
+        if (is_null($name) && !Str::contains($name, '(copy)')) {
             $name .= ' (copy)';
         }
 
@@ -225,6 +239,7 @@ class Deck extends Model
         $deck->name = $name;
         $deck->notes = $this->notes;
         $deck->userId = $userId;
+        $deck->version = $this->version;
         $deck->format = $this->format;
         $deck->visibility = 'private';
 
@@ -238,5 +253,11 @@ class Deck extends Model
         $domain = config('services.imgix.domain');
 
         return "https://$domain/cards/backs/card-back-{$this->cardBack}.png";
+    }
+
+    public function bumpVersion(int $fromDeckId)
+    {
+        $this->versionId = $fromDeckId;
+        $this->version = $this->version + 1;
     }
 }

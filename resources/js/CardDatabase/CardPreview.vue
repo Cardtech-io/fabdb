@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="flex justify-between bg-gray-100 p-2 px-4">
+        <header class="flex justify-between bg-gray-100 dark:bg-gray-700 p-2 px-4">
             <h2 class="font-serif uppercase text-lg">{{card.name}}</h2>
             <button class="absolute top-0 right-0 mr-2 mt-2" @click="$modal.hideAll()">
                 <icon :size="6">
@@ -8,7 +8,7 @@
                 </icon>
             </button>
         </header>
-        <section class="p-4">
+        <section class="p-4 dark:bg-gray-900">
             <div class="flex flex-col sm:flex-row sm:space-x-4">
                 <div class="sm:w-2/5">
                     <button @click="$modal.hideAll()">
@@ -18,7 +18,7 @@
                 <div class="sm:w-3/5">
                     <div v-html="prettyText(card.text)"></div>
                     <div class="flex space-x-6 my-4">
-                        <div v-for="(value, stat) in card.stats" class="flex items-center bg-white space-x-2 py-2" v-if="!isNaN(value)">
+                        <div v-for="(value, stat) in card.stats" class="flex items-center space-x-2 py-2" v-if="!isNaN(value)">
                             <div>
                                 <img :src="statToImagePath(stat, value)" :alt="sentenceCase(stat)" class="h-6" :title="sentenceCase(stat)">
                             </div>
@@ -27,8 +27,8 @@
                     </div>
                     <div class="flex text-sm space-x-1">
                         <tcg-player :buy-link="card.buyLink" class="w-1/2"/>
-                        <a :href="'/cards/'+card.identifier" target="_blank" class="w-1/2 flex justify-end items-center text-right space-x-2 bg-gray-50 hover:bg-white border border-gray-400 hover:border-black rounded p-2 py-1">
-                            <span>View card</span>
+                        <a :href="'/cards/'+card.identifier" target="_blank" class="w-1/2 flex items-center justify-end bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600 border border-gray-400 hover:border-black dark:hover:border-gray-200 rounded p-2 py-1">
+                            <span class="mr-1">View card</span>
                             <icon :size="5">
                                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                                 <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
@@ -57,8 +57,8 @@
 </template>
 
 <script>
-    import Imagery from "../Utilities/Imagery";
-    import Strings from "../Utilities/Strings";
+    import Imagery from "../Utilities/Imagery.js";
+    import Strings from "../Utilities/Strings.js";
 
     export default {
         mixins: [Imagery, Strings],

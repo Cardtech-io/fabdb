@@ -44,15 +44,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
      */
     private $cache;
 
-    /**
-     * @var Banned
-     */
-    private $banned;
-
-    public function __construct(Repository $cache, Banned $banned)
+    public function __construct(Repository $cache)
     {
         $this->cache = $cache;
-        $this->banned = $banned;
     }
 
     protected function model(): Model
@@ -247,6 +241,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         }
 
         $card = $this->newQuery()
+            ->where('id', '!=', $current->id)
             ->where(function ($query) use ($current, $operator, $order) {
                 if ($current->resourceful()) {
                     $query->where(function ($query) use ($current, $operator, $order) {
@@ -411,8 +406,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         return $this->newQuery()
             ->join('printings', 'printings.card_id', 'cards.id')
-            ->where('printings.sku', 'like', $set->raw() . '%')
-            ->whereNotIn('cards.identifier', $this->banned->blitz())
+            ->where('printings.sku', 'like', $set->raw().'%')
+            ->whereRaw("JSON_EXTRACT(cards.legality, '\$.blitz') IS NULL")
             ->select([
                 'cards.id',
                 'cards.identifier',
@@ -468,5 +463,47 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->whereNotNull('legality')
             ->select('id', 'legality')
             ->get();
+    }
+
+    public function findAny(string $text)
+    {
+        return $this->newQuery()->whereFullText('search_text', $text)->limit(10)->get();
+    }
+
+    public function getAllIdsByIdentifiers(array $identifiers): array
+    {
+        return $this->newQuery()
+            ->select('cards.id', 'cards.identifier')
+            ->join('printings', function($join) use ($identifiers) {
+                $join->on('printings.card_id', 'printings.id');
+                $join->whereIn('printings.sku', $identifiers);
+            })
+            ->get()
+            ->keyBy('id')
+            ->pluck('identifier')
+            ->toArray();
+    }
+
+    public function getAllIdsByCardNumbers(array $numbers): array
+    {
+        return $this->newQuery()
+            ->select('cards.id', 'printings.number')
+            ->join('printings', function($join) {
+                $join->on('printings.card_id', 'cards.id');
+            })
+            ->whereIn('printings.number', $numbers)
+            ->get()
+            ->keyBy('id')
+            ->mapWithKeys(fn($result) => [$result['number'] => $result['id']])
+            ->toArray();
+    }
+
+    public function getFirstByNumber(string $number)
+    {
+        return $this->newQuery()
+            ->select('cards.id')
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.number', $number)
+            ->first();
     }
 }

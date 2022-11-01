@@ -37,7 +37,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Icon */ "./resources/js/Components/Icon.vue");
 //
 //
 //
@@ -58,6 +58,9 @@ __webpack_require__.r(__webpack_exports__);
       type: Boolean,
       required: true
     }
+  },
+  components: {
+    Icon: _Icon__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -153,96 +156,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Paginator.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Paginator.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['results'],
-  computed: {
-    data: function data() {
-      if (this.results.meta) {
-        return this.results.meta;
-      } else {
-        return this.results;
-      }
-    },
-    pageRange: function pageRange() {
-      var rangeLimit = 6;
-      var currentPage = this.data.current_page;
-      var lastPage = this.data.last_page;
-      var first = currentPage - 3;
-
-      if (first + rangeLimit > lastPage) {
-        first = lastPage - rangeLimit;
-      }
-
-      if (first < 1) {
-        first = 1;
-      }
-
-      var last = first + rangeLimit;
-
-      if (last > lastPage) {
-        last = lastPage;
-      }
-
-      var range = [];
-
-      for (var i = first; i <= last; i++) {
-        range.push(i);
-      }
-
-      return range;
-    }
-  },
-  methods: {
-    active: function active(n) {
-      return {
-        'button-secondary': this.data.current_page === n
-      };
-    },
-    disabled: function disabled(_disabled) {
-      if (_disabled) {
-        return 'hidden';
-      } else {
-        return 'button-secondary';
-      }
-    },
-    select: function select(page) {
-      this.selectPage(page);
-    },
-    next: function next() {
-      if (this.data.current_page >= this.data.last_page) return;
-      this.selectPage(this.data.current_page + 1);
-    },
-    previous: function previous() {
-      if (this.results.current_page <= 1) return;
-      this.selectPage(this.data.current_page - 1);
-    },
-    selectPage: function selectPage(page) {
-      this.$emit('page-selected', page);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/AllCards.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/AllCards.vue?vue&type=script&lang=js& ***!
@@ -270,9 +183,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -379,12 +292,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_13__["default"],
     Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen']), {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'grouping', 'mode', 'sections', 'view', 'zoom'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen'])), {}, {
     other: function other() {
       return this.cards.other();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'toggleSection'])), {}, {
     addToDeck: function addToDeck(card) {
       var _this = this;
 
@@ -500,9 +413,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Icon */ "./resources/js/Components/Icon.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -521,7 +434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode', 'view']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode', 'view'])), {}, {
     inactive: function inactive() {
       return this.mode === 'details';
     }
@@ -541,9 +454,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -559,7 +472,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['minZoom', 'maxZoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'mode', 'view', 'zoom']), {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['minZoom', 'maxZoom'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['fullScreen', 'mode', 'view', 'zoom'])), {}, {
     // Returns true if the button is activeNumber
     inactive: function inactive() {
       if (this.mode === 'details' || this.view === 'text') return true;
@@ -571,7 +484,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.zoom >= this.maxZoom;
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['zoomIn', 'zoomOut']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['zoomIn', 'zoomOut'])), {}, {
     setZoom: function setZoom() {
       var action = this.action === 'in' ? 'zoomIn' : 'zoomOut';
       this[action]();
@@ -593,9 +506,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -640,8 +553,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_1__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'removeCard', 'setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'removeCard', 'setCardTotal'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     addCardToDeck: function addCardToDeck() {
       var _this = this;
 
@@ -678,9 +591,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -693,7 +606,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['width'],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['zoom']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['zoom'])), {}, {
     cardClasses: function cardClasses() {
       return this.width || 'w-1/2 sm:w-1/' + (this.cardWidth - 2) + ' sm:w-1/' + (this.cardWidth - 1) + '  md:w-1/' + this.cardWidth;
     },
@@ -718,9 +631,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardButtons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardButtons */ "./resources/js/DeckBuilder/CardButtons.vue");
 /* harmony import */ var _Colour__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Colour */ "./resources/js/DeckBuilder/Colour.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -773,7 +686,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     CardButtons: _CardButtons__WEBPACK_IMPORTED_MODULE_1__["default"],
     Colour: _Colour__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'mode']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'mode'])), {}, {
     total: function total() {
       var _this = this;
 
@@ -886,7 +799,7 @@ __webpack_require__.r(__webpack_exports__);
         query: this.params
       }, {
         adaptive: true,
-        classes: ['rounded-lg'],
+        classes: ['rounded-lg', 'bg-white', 'dark:bg-gray-800'],
         scrollable: true,
         height: 'auto',
         maxHeight: 300
@@ -942,9 +855,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_View__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Buttons/View */ "./resources/js/DeckBuilder/Buttons/View.vue");
 /* harmony import */ var _Buttons_Zoom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Buttons/Zoom */ "./resources/js/DeckBuilder/Buttons/Zoom.vue");
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+/* harmony import */ var _Decks_PlayDeck__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../Decks/PlayDeck */ "./resources/js/Decks/PlayDeck.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1012,6 +926,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 
@@ -1053,6 +969,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DeckDetails: _DeckDetails_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     ModeSelector: _ModeSelector_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    PlayDeck: _Decks_PlayDeck__WEBPACK_IMPORTED_MODULE_24__["default"],
     SearchResults: _SearchResults_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
     Sideboard: _Sideboard_vue__WEBPACK_IMPORTED_MODULE_19__["default"],
     ViewButton: _Buttons_View__WEBPACK_IMPORTED_MODULE_21__["default"],
@@ -1067,7 +984,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pad: 17
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['cards']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sideboard', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('cardSearch', ['params']), {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['cards'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sideboard', 'view', 'zoom'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('cardSearch', ['params'])), {}, {
     containers: function containers() {
       if (!this.fullScreen) {
         return 'container sm:mx-auto';
@@ -1101,7 +1018,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }];
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setDeck', 'setMode', 'setZoom', 'setGrouping', 'toggleFullScreen'])), {}, {
     setHero: function setHero(hero, type) {
       this.addCard({
         card: hero
@@ -1117,12 +1034,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       window.scrollTo({
         top: 0
       });
-    },
-    swipeLeft: function swipeLeft() {
-      this.changeMode(this.currentSwipeMode() + 1);
-    },
-    swipeRight: function swipeRight() {
-      this.changeMode(this.currentSwipeMode() - 1);
     },
     changeMode: function changeMode(newMode) {
       if (newMode >= 0 && newMode <= 2) {
@@ -1190,9 +1101,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+/* harmony import */ var _Components_TabItem__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/TabItem */ "./resources/js/Components/TabItem.vue");
+/* harmony import */ var _Components_Tabs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/Tabs */ "./resources/js/Components/Tabs.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1244,16 +1157,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 
@@ -1273,6 +1178,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     General: _Metrics_General__WEBPACK_IMPORTED_MODULE_7__["default"],
     Rulings: _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_4__["default"],
     Stat: _Metrics_Stat_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    TabItem: _Components_TabItem__WEBPACK_IMPORTED_MODULE_11__["default"],
+    Tabs: _Components_Tabs__WEBPACK_IMPORTED_MODULE_12__["default"],
     Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_6__["default"],
     TtsExporter: _TtsExporter_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
@@ -1281,7 +1188,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       tab: 'settings'
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck'])), {}, {
     offenseRating: function offenseRating() {
       return (((this.totalAttackActions + this.totalAttackReactions) / this.totalCards).toFixed(2) * 100).toFixed(0) + '%';
     },
@@ -1290,9 +1197,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     rulings: function rulings() {
       var rulings = lodash__WEBPACK_IMPORTED_MODULE_10___default.a.flatten(this.cards.map(function (card) {
-        return lodash__WEBPACK_IMPORTED_MODULE_10___default.a.flatten(card.rulings.map(function (ruling) {
+        return lodash__WEBPACK_IMPORTED_MODULE_10___default.a.flatten(card.rulings && card.rulings.length ? card.rulings.map(function (ruling) {
           return ruling.description;
-        }));
+        }) : []);
       }));
 
       return lodash__WEBPACK_IMPORTED_MODULE_10___default.a.uniq(rulings);
@@ -1317,9 +1224,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1357,7 +1264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       original: null
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['deck']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['deck'])), {}, {
     name: {
       get: function get() {
         return this.deck.name;
@@ -1418,12 +1325,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue_simplemde__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-simplemde */ "./node_modules/vue-simplemde/src/index.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1525,7 +1438,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), {}, {
     saveDeckSettings: function saveDeckSettings() {
       var _this = this;
 
@@ -1535,6 +1448,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         name: this.deck.name,
         label: this.deck.label,
         notes: this.deck.notes,
+        videoUrl: this.deck.videoUrl,
         type: this.deck.type,
         format: this.deck.format,
         limitToCollection: this.deck.limitToCollection,
@@ -1582,9 +1496,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
 /* harmony import */ var _Metrics_Totals__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Metrics/Totals */ "./resources/js/DeckBuilder/Metrics/Totals.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1700,12 +1614,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_15__["default"],
     Totals: _Metrics_Totals__WEBPACK_IMPORTED_MODULE_16__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'fullScreen', 'grouping', 'mode', 'sections', 'view', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen']), {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'filters', 'fullScreen', 'grouping', 'mode', 'sections', 'view', 'zoom'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['sectionOpen'])), {}, {
     other: function other() {
       return this.cards.other();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'removeFromSideBoard', 'toggleSection']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setMode', 'removeCard', 'removeFromSideBoard', 'toggleSection'])), {}, {
     filter: function filter(cards) {
       return cards.applyFilters(this.filters);
     },
@@ -1740,9 +1654,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MasonryContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MasonryContainer */ "./resources/js/DeckBuilder/MasonryContainer.vue");
 /* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1783,7 +1697,7 @@ var state = {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     MasonryContainer: _MasonryContainer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'fullScreen', 'grouping', 'mode', 'sections', 'zoom'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     cardWidth: function cardWidth() {
       var widths = [3, 4, 5, 6, 7, 8];
       return widths[this.zoom];
@@ -1910,9 +1824,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
 /* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1947,8 +1861,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.updateMainDeck();
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['deck', 'filters', 'sideboard']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('session', ['user'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['addToSideboard']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('deck', ['deck', 'filters', 'sideboard'])), Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('session', ['user'])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('deck', ['addToSideboard'])), {}, {
     add: function add(card) {
       this.addToSideboard({
         card: card
@@ -2009,9 +1923,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Redrawable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Redrawable */ "./resources/js/DeckBuilder/Redrawable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2064,9 +1978,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Cards */ "./resources/js/DeckBuilder/Cards.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2112,7 +2026,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'sideboard']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'sideboard'])), {}, {
     maxCards: function maxCards() {
       return this.deck.format === 'blitz' ? 53 : 81;
     },
@@ -2148,9 +2062,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Stat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Stat */ "./resources/js/DeckBuilder/Metrics/Stat.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2225,9 +2139,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _Stat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Stat */ "./resources/js/DeckBuilder/Metrics/Stat.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2272,9 +2186,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2316,7 +2230,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       isOpen: false
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('deck', ['requiresSideboard']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['mode'])), {}, {
     modes: function modes() {
       return {
         all: {
@@ -2338,12 +2252,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setMode']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setMode'])), {}, {
     classes: function classes(view) {
       return {
         'button-disabled': this.mode === view,
-        'button-secondary': this.mode !== view,
-        'hidden md:flex': view === 'sideboard'
+        'button-secondary': this.mode !== view
       };
     },
     select: function select(mode) {
@@ -2371,9 +2284,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDatabase/Cardable */ "./resources/js/CardDatabase/Cardable.js");
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2394,9 +2307,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_1__["default"], _ManagesDecks__WEBPACK_IMPORTED_MODULE_2__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['deck', 'cards', 'fullScreen', 'view'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     background: function background() {
-      return 'bg-white hover:bg-secondary hover:text-white';
+      return 'bg-white hover:bg-secondary hover:text-white dark:bg-gray-700 dark:hover:bg-gray-500';
     },
     cardCount: function cardCount() {
       var _this = this;
@@ -2407,10 +2320,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return cards[0] ? cards[0].total : 0;
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['setCardTotal'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     active: function active(count) {
       if (this.cardCount === count) {
-        return 'bg-gray-100 text-gray-400';
+        return 'bg-gray-100 text-gray-400 dark:bg-gray-700 dark:text-gray-500';
       }
 
       return this.background;
@@ -2453,9 +2366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
 /* harmony import */ var _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./NumberedCardButtons */ "./resources/js/DeckBuilder/NumberedCardButtons.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2520,6 +2433,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'deck-builder.search-results',
   mixins: [_ManagesDecks__WEBPACK_IMPORTED_MODULE_5__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_8__["default"]],
   components: {
     CardImage: _CardDatabase_CardImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2529,7 +2443,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     NumberedCardButtons: _NumberedCardButtons__WEBPACK_IMPORTED_MODULE_7__["default"],
     Paginator: _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'fullScreen', 'view']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('deck', ['cards', 'deck', 'fullScreen', 'view'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     classes: function classes() {
       return {
         'xl:w-1/3': this.fullScreen
@@ -2549,7 +2463,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setCardTotal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('deck', ['addCard', 'setCardTotal'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     addToDeck: function addToDeck(card) {
       var _this = this;
 
@@ -2568,7 +2482,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.page = page;
 
-      var params = _objectSpread({}, this.params, {
+      var params = _objectSpread(_objectSpread({}, this.params), {}, {
         deck: this.deck.slug,
         hero: this.hero ? this.hero.identifier : '',
         page: page
@@ -2619,7 +2533,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this3 = this;
 
     this.$eventHub.$on('search-requested', function (params) {
-      _this3.params = _objectSpread({}, _this3.params, {}, params);
+      _this3.params = _objectSpread(_objectSpread({}, _this3.params), params);
 
       _this3.search(1);
     });
@@ -2654,9 +2568,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Colour__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Colour */ "./resources/js/DeckBuilder/Colour.vue");
 /* harmony import */ var _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GroupedCards.vue */ "./resources/js/DeckBuilder/GroupedCards.vue");
 /* harmony import */ var _Viewable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2721,18 +2635,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'deck-builder.sideboard',
   props: ['collection'],
   mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_2__["default"], _Viewable__WEBPACK_IMPORTED_MODULE_6__["default"]],
   components: {
     Colour: _Colour__WEBPACK_IMPORTED_MODULE_4__["default"],
     GroupedCards: _GroupedCards_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['cards', 'deck', 'fullScreen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])('deck', ['cards', 'deck', 'fullScreen'])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     sideboard: function sideboard() {
       return new _Cards__WEBPACK_IMPORTED_MODULE_3__["default"](this.collection).hydrate();
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['addToSideboard', 'removeFromSideBoard']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('deck', ['addToSideboard', 'removeFromSideBoard'])), {}, {
     add: function add(card) {
       if (card.total - this.sideboardCardTotal(card) <= 0) return;
       this.addToSideboard({
@@ -2784,9 +2699,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
 /* harmony import */ var _ManagesDecks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ManagesDecks */ "./resources/js/DeckBuilder/ManagesDecks.js");
 /* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Shareable */ "./resources/js/Components/Shareable.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2861,7 +2776,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       exporting: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     exportToTTS: function exportToTTS() {
       var _this = this;
 
@@ -2876,10 +2791,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2914,15 +2829,15 @@ exports.push([module.i, ".tooltip[data-v-5a7b68df] {\n  left: -5px;\n}\n.tooltip
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DeckSettings.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -2985,7 +2900,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -2994,7 +2909,7 @@ var render = function() {
     {
       staticClass:
         "absolute w-full bg-red-600 text-white text-base text-center py-2 z-50 -mt-2",
-      staticStyle: { bottom: "40.35%" }
+      staticStyle: { bottom: "40.35%" },
     },
     [_vm._v("\n    Banned\n")]
   )
@@ -3017,7 +2932,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3027,10 +2942,10 @@ var render = function() {
       staticClass:
         "appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500",
       on: {
-        click: function($event) {
+        click: function ($event) {
           return _vm.handleClick()
-        }
-      }
+        },
+      },
     },
     [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
   )
@@ -3053,7 +2968,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3062,36 +2977,28 @@ var render = function() {
     {
       staticClass: "block link-alternate",
       on: {
-        click: function($event) {
+        click: function ($event) {
           $event.preventDefault()
           return _vm.toggle.apply(null, arguments)
-        }
-      }
+        },
+      },
     },
     [
-      _c(
-        "svg",
-        {
-          staticClass: "fill-current h-6",
-          attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
-        },
-        [
-          !_vm.fullScreen
-            ? _c("path", {
-                attrs: {
-                  d:
-                    "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z"
-                }
-              })
-            : _c("path", {
-                attrs: {
-                  d:
-                    "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
-                }
-              })
-        ]
-      )
-    ]
+      _c("icon", { attrs: { size: 6 } }, [
+        !_vm.fullScreen
+          ? _c("path", {
+              attrs: {
+                d: "M2.8 15.8L0 13v7h7l-2.8-2.8 4.34-4.32-1.42-1.42L2.8 15.8zM17.2 4.2L20 7V0h-7l2.8 2.8-4.34 4.32 1.42 1.42L17.2 4.2zm-1.4 13L13 20h7v-7l-2.8 2.8-4.32-4.34-1.42 1.42 4.33 4.33zM4.2 2.8L7 0H0v7l2.8-2.8 4.32 4.34 1.42-1.42L4.2 2.8z",
+              },
+            })
+          : _c("path", {
+              attrs: {
+                d: "M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z",
+              },
+            }),
+      ]),
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -3112,14 +3019,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "ol",
     { staticClass: "flex flex-wrap my-8" },
-    _vm._l(_vm.heroes, function(hero) {
+    _vm._l(_vm.heroes, function (hero) {
       return _c(
         "li",
         { staticClass: "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 mb-8" },
@@ -3129,42 +3036,42 @@ var render = function() {
             {
               staticClass: "block cursor-pointer mx-auto",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   $event.preventDefault()
                   return _vm.selectHero(hero)
-                }
-              }
+                },
+              },
             },
             [
               _c("hero-avatar", {
-                attrs: { hero: hero, name: hero.name, width: 150 }
+                attrs: { hero: hero, name: hero.name, width: 150 },
               }),
               _vm._v(" "),
               _c("div", { staticClass: "flex -mt-5" }, [
                 _c("div", { staticClass: "w-1/2 flex justify-end mr-2" }, [
                   _c("span", { staticClass: "text-lg" }, [
-                    _vm._v(_vm._s(hero.stats.intellect))
+                    _vm._v(_vm._s(hero.stats.intellect)),
                   ]),
                   _vm._v(" "),
                   _c("img", {
                     staticClass:
                       "block h-10 ml-1 border-2 border-gray-200 rounded-full",
-                    attrs: { src: "/img/intellect.png" }
-                  })
+                    attrs: { src: "/img/intellect.png" },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-1/2 flex ml-2 " }, [
                   _c("img", {
                     staticClass:
                       "block h-10 mr-1 border-2 border-gray-200 rounded-full",
-                    attrs: { src: "/img/life.png" }
+                    attrs: { src: "/img/life.png" },
                   }),
                   _vm._v(" "),
                   _c("span", { staticClass: "text-lg" }, [
-                    _vm._v(_vm._s(hero.stats.life))
-                  ])
-                ])
-              ])
+                    _vm._v(_vm._s(hero.stats.life)),
+                  ]),
+                ]),
+              ]),
             ],
             1
           ),
@@ -3174,101 +3081,19 @@ var render = function() {
             {
               staticClass:
                 "mt-4 text-center font-serif uppercase text-lg overflow-hidden",
-              staticStyle: { "max-height": "20px" }
+              staticStyle: { "max-height": "20px" },
             },
             [_vm._v(_vm._s(hero.name))]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2 text-center" }, [
-            _vm._v(_vm._s(_vm.type(hero)))
-          ])
+            _vm._v(_vm._s(_vm.type(hero))),
+          ]),
         ]
       )
     }),
     0
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54& ***!
-  \************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.data
-    ? _c("div", { staticClass: "flex text-sm justify-center" }, [
-        _c(
-          "a",
-          {
-            staticClass: "inline-block rounded p-2 mr-1",
-            class: _vm.disabled(_vm.data.current_page == 1),
-            attrs: { href: "" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.previous.apply(null, arguments)
-              }
-            }
-          },
-          [_vm._v("<")]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "inline-block rounded overflow-hidden" },
-          _vm._l(_vm.pageRange, function(n) {
-            return _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block sm:rounded p-2 sm:mr-1 button-primary",
-                class: _vm.active(n),
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.select(n)
-                  }
-                }
-              },
-              [_vm._v(_vm._s(n))]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "inline-block rounded p-2 ml-1 sm:ml-0",
-            class: _vm.disabled(_vm.data.current_page >= _vm.data.last_page),
-            attrs: { href: "" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.next.apply(null, arguments)
-              }
-            }
-          },
-          [_vm._v(">")]
-        )
-      ])
-    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3288,7 +3113,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3305,13 +3130,13 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none"
+                          "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none",
                       },
                       [
                         _c("card-image", {
                           staticClass: "mb-4",
-                          attrs: { card: _vm.cards.hero() }
-                        })
+                          attrs: { card: _vm.cards.hero() },
+                        }),
                       ],
                       1
                     ),
@@ -3319,21 +3144,24 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "w-1/2 md:w-auto float-left md:float-none"
+                        staticClass: "w-1/2 md:w-auto float-left md:float-none",
                       },
                       [
                         _c(
                           "div",
-                          { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4" },
+                          {
+                            staticClass:
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4",
+                          },
                           [
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
                               attrs: {
                                 cards: _vm.cards.other().withCost(),
                                 stat: "cost",
-                                strategy: "total"
-                              }
-                            })
+                                strategy: "total",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -3342,7 +3170,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 mt-4",
                           },
                           [
                             _c("deck-curves", {
@@ -3350,12 +3178,12 @@ var render = function() {
                               attrs: {
                                 cards: _vm.cards.other().withResource(),
                                 stat: "resource",
-                                strategy: "total"
-                              }
-                            })
+                                strategy: "total",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -3370,10 +3198,10 @@ var render = function() {
                             [_vm._v("Totals")]
                           ),
                           _vm._v(" "),
-                          _c("totals", { staticClass: "mt-2" })
+                          _c("totals", { staticClass: "mt-2" }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "hidden md:block" }, [
@@ -3387,18 +3215,18 @@ var render = function() {
                             [_vm._v("General")]
                           ),
                           _vm._v(" "),
-                          _c("general", { staticClass: "mt-2" })
+                          _c("general", { staticClass: "mt-2" }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "flex-1" },
-                  _vm._l(_vm.availableSections, function(section) {
+                  _vm._l(_vm.availableSections, function (section) {
                     return section.cards.count()
                       ? _c(
                           "div",
@@ -3409,22 +3237,22 @@ var render = function() {
                                 staticClass:
                                   "block flex cursor-pointer font-serif uppercase text-lg mx-4",
                                 class: {
-                                  "mb-4": !_vm.sectionOpen(section.title)
+                                  "mb-4": !_vm.sectionOpen(section.title),
                                 },
                                 on: {
-                                  click: function($event) {
+                                  click: function ($event) {
                                     return _vm.toggleSection({
-                                      section: section.title
+                                      section: section.title,
                                     })
-                                  }
-                                }
+                                  },
+                                },
                               },
                               [
                                 _c("chevron", {
                                   staticClass: "mr-2",
                                   attrs: {
-                                    open: _vm.sectionOpen(section.title)
-                                  }
+                                    open: _vm.sectionOpen(section.title),
+                                  },
                                 }),
                                 _vm._v(
                                   "\n                        " +
@@ -3432,7 +3260,7 @@ var render = function() {
                                     " (" +
                                     _vm._s(section.cards.total()) +
                                     ")\n                    "
-                                )
+                                ),
                               ],
                               1
                             ),
@@ -3443,8 +3271,8 @@ var render = function() {
                                   name: "show",
                                   rawName: "v-show",
                                   value: _vm.sectionOpen(section.title),
-                                  expression: "sectionOpen(section.title)"
-                                }
+                                  expression: "sectionOpen(section.title)",
+                                },
                               ],
                               key: _vm.kebabCase(section.title),
                               attrs: {
@@ -3453,16 +3281,16 @@ var render = function() {
                                 action:
                                   _vm.mode === "search"
                                     ? _vm.removeFromDeck
-                                    : false
-                              }
-                            })
+                                    : false,
+                              },
+                            }),
                           ],
                           1
                         )
                       : _vm._e()
                   }),
                   0
-                )
+                ),
               ])
             : _c(
                 "div",
@@ -3479,13 +3307,13 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "link-alternate",
-                      attrs: { to: "/support" }
+                      attrs: { to: "/support" },
                     },
                     [_vm._v("Upgrade to access the gallery mode feature.")]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
         ])
       : _c("div", { staticClass: "lg:flex m-4" }, [
           _c(
@@ -3494,22 +3322,25 @@ var render = function() {
             [
               _c("card-image", {
                 staticClass: "mb-4",
-                attrs: { card: _vm.cards.hero() }
+                attrs: { card: _vm.cards.hero() },
               }),
               _vm._v(" "),
               _c("div", [
                 _c(
                   "div",
-                  { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2" },
+                  {
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2",
+                  },
                   [
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
                       attrs: {
                         cards: _vm.cards.other().withCost(),
                         stat: "cost",
-                        strategy: "total"
-                      }
-                    })
+                        strategy: "total",
+                      },
+                    }),
                   ],
                   1
                 ),
@@ -3517,7 +3348,8 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4",
                   },
                   [
                     _c("deck-curves", {
@@ -3525,13 +3357,13 @@ var render = function() {
                       attrs: {
                         cards: _vm.cards.other().withResource(),
                         stat: "resource",
-                        strategy: "total"
-                      }
-                    })
+                        strategy: "total",
+                      },
+                    }),
                   ],
                   1
-                )
-              ])
+                ),
+              ]),
             ],
             1
           ),
@@ -3544,9 +3376,9 @@ var render = function() {
                 "masonry-container",
                 {
                   staticClass: "sm:flex sm:flex-wrap",
-                  attrs: { "container-id": "text-sections" }
+                  attrs: { "container-id": "text-sections" },
                 },
-                _vm._l(_vm.availableSections, function(section) {
+                _vm._l(_vm.availableSections, function (section) {
                   return section.cards.count()
                     ? _c(
                         "div",
@@ -3555,20 +3387,20 @@ var render = function() {
                           _c("card-item-section", {
                             attrs: {
                               cards: section.cards,
-                              title: section.title
-                            }
-                          })
+                              title: section.title,
+                            },
+                          }),
                         ],
                         1
                       )
                     : _vm._e()
                 }),
                 0
-              )
+              ),
             ],
             1
-          )
-        ])
+          ),
+        ]),
   ])
 }
 var staticRenderFns = []
@@ -3589,18 +3421,19 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "button",
     {
-      staticClass: "flex-1 border-r border-gray-200 py-2 px-1 md:px-2",
+      staticClass:
+        "flex-1 border-r border-gray-200 dark:border-gray-600 py-2 px-1 md:px-2",
       class: _vm.isSelected(_vm.type)
-        ? "bg-gray-800 text-white"
+        ? "bg-gray-800 dark:bg-gray-600 text-white"
         : "hover:bg-secondary hover:text-white",
-      attrs: { title: _vm.text() }
+      attrs: { title: _vm.text() },
     },
     [
       _c(
@@ -3608,7 +3441,7 @@ var render = function() {
         { staticClass: "mx-auto", attrs: { size: 6, box: 24 } },
         [_vm._t("default")],
         2
-      )
+      ),
     ],
     1
   )
@@ -3631,7 +3464,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3639,16 +3472,14 @@ var render = function() {
     _vm.open
       ? _c("path", {
           attrs: {
-            d:
-              "M20 10a10 10 0 11-20 0 10 10 0 0120 0zM10 2a8 8 0 100 16 8 8 0 000-16zm-.7 10.54L5.75 9l1.41-1.41L10 10.4l2.83-2.82L14.24 9 10 13.24l-.7-.7z"
-          }
+            d: "M20 10a10 10 0 11-20 0 10 10 0 0120 0zM10 2a8 8 0 100 16 8 8 0 000-16zm-.7 10.54L5.75 9l1.41-1.41L10 10.4l2.83-2.82L14.24 9 10 13.24l-.7-.7z",
+          },
         })
       : _c("path", {
           attrs: {
-            d:
-              "M0 10a10 10 0 1120 0 10 10 0 01-20 0zm10 8a8 8 0 100-16 8 8 0 000 16zm.7-10.54L14.25 11l-1.41 1.41L10 9.6l-2.83 2.8L5.76 11 10 6.76l.7.7z"
-          }
-        })
+            d: "M0 10a10 10 0 1120 0 10 10 0 01-20 0zm10 8a8 8 0 100-16 8 8 0 000 16zm.7-10.54L14.25 11l-1.41 1.41L10 9.6l-2.83 2.8L5.76 11 10 6.76l.7.7z",
+          },
+        }),
   ])
 }
 var staticRenderFns = []
@@ -3669,34 +3500,32 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "button",
     {
-      staticClass: "block mr-2 sm:mr-4",
+      staticClass: "block",
       class: { "text-gray-500": _vm.inactive, "link-alternate": !_vm.inactive },
       attrs: { disabled: _vm.inactive },
-      on: { click: _vm.toggleView }
+      on: { click: _vm.toggleView },
     },
     [
       _c("icon", { attrs: { size: 6 } }, [
         _vm.view === "text"
           ? _c("path", {
               attrs: {
-                d:
-                  "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z"
-              }
+                d: "M0 0h9v9H0V0zm2 2v5h5V2H2zm-2 9h9v9H0v-9zm2 2v5h5v-5H2zm9-13h9v9h-9V0zm2 2v5h5V2h-5zm-2 9h9v9h-9v-9zm2 2v5h5v-5h-5z",
+              },
             })
           : _c("path", {
               attrs: {
-                d:
-                  "M1 1h18v2H1V1zm0 8h18v2H1V9zm0 8h18v2H1v-2zM1 5h12v2H1V5zm0 8h12v2H1v-2z"
-              }
-            })
-      ])
+                d: "M1 1h18v2H1V1zm0 8h18v2H1V9zm0 8h18v2H1v-2zM1 5h12v2H1V5zm0 8h12v2H1v-2z",
+              },
+            }),
+      ]),
     ],
     1
   )
@@ -3719,17 +3548,17 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "button",
     {
-      staticClass: "block mr-2 sm:mr-4",
+      staticClass: "block",
       class: { "text-gray-500": _vm.inactive, "link-alternate": !_vm.inactive },
       attrs: { disabled: _vm.inactive },
-      on: { click: _vm.setZoom }
+      on: { click: _vm.setZoom },
     },
     [
       _c("icon", { attrs: { size: 6 } }, [
@@ -3737,18 +3566,16 @@ var render = function() {
           ? _c("path", {
               attrs: {
                 "fill-rule": "evenodd",
-                d:
-                  "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z"
-              }
+                d: "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM7 7V5h2v2h2v2H9v2H7V9H5V7h2z",
+              },
             })
           : _c("path", {
               attrs: {
                 "fill-rule": "evenodd",
-                d:
-                  "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z"
-              }
-            })
-      ])
+                d: "M12.9 14.32a8 8 0 111.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 108 2a6 6 0 000 12zM5 7h6v2H5V7z",
+              },
+            }),
+      ]),
     ],
     1
   )
@@ -3771,7 +3598,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3782,33 +3609,34 @@ var render = function() {
       class:
         _vm.$parent.layout === "horizontal"
           ? "space-x-px"
-          : "flex-col flex-col-reverse"
+          : "flex-col flex-col-reverse",
     },
     [
       _c(
         "button",
         {
-          staticClass: "bg-white",
+          staticClass: "bg-white dark:bg-gray-800",
           class: {
-            "hover:bg-secondary hover:text-white": _vm.total > 0,
-            "bg-gray-100 text-gray-300": _vm.total === 0,
+            "hover:bg-secondary hover:text-white dark:hover:bg-gray-600":
+              _vm.total > 0,
+            "bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600":
+              _vm.total === 0,
             "w-full h-1/2": _vm.$parent.layout === "vertical",
-            "w-1/2": _vm.$parent.layout === "horizontal"
+            "w-1/2": _vm.$parent.layout === "horizontal",
           },
           attrs: { disabled: _vm.total === 0 },
-          on: { click: _vm.removeCardFromDeck }
+          on: { click: _vm.removeCardFromDeck },
         },
         [
           _c("icon", { staticClass: "mx-auto", attrs: { size: 4 } }, [
             _c("path", {
               attrs: {
                 "fill-rule": "evenodd",
-                d:
-                  "M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z",
-                "clip-rule": "evenodd"
-              }
-            })
-          ])
+                d: "M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z",
+                "clip-rule": "evenodd",
+              },
+            }),
+          ]),
         ],
         1
       ),
@@ -3816,30 +3644,31 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "bg-white",
+          staticClass: "bg-white dark:bg-gray-800",
           class: {
-            "hover:bg-secondary hover:text-white": _vm.total < _vm.maxAvailable,
-            "bg-gray-100 text-gray-300": _vm.total >= _vm.maxAvailable,
+            "hover:bg-secondary hover:text-white dark:hover:bg-gray-600":
+              _vm.total < _vm.maxAvailable,
+            "bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600":
+              _vm.total >= _vm.maxAvailable,
             "w-full h-1/2": _vm.$parent.layout === "vertical",
-            "w-1/2": _vm.$parent.layout === "horizontal"
+            "w-1/2": _vm.$parent.layout === "horizontal",
           },
           attrs: { disabled: _vm.total >= _vm.maxAvailable },
-          on: { click: _vm.addCardToDeck }
+          on: { click: _vm.addCardToDeck },
         },
         [
           _c("icon", { staticClass: "mx-auto", attrs: { size: 4 } }, [
             _c("path", {
               attrs: {
                 "fill-rule": "evenodd",
-                d:
-                  "M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z",
-                "clip-rule": "evenodd"
-              }
-            })
-          ])
+                d: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z",
+                "clip-rule": "evenodd",
+              },
+            }),
+          ]),
         ],
         1
-      )
+      ),
     ]
   )
 }
@@ -3861,7 +3690,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3885,7 +3714,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3898,8 +3727,8 @@ var render = function() {
         "opacity-50 text-black":
           _vm.applySoftLimit &&
           (!_vm.card.ownedTotal || _vm.card.ownedTotal < _vm.total) &&
-          _vm.deck.limitToCollection === 2
-      }
+          _vm.deck.limitToCollection === 2,
+      },
     },
     [
       _c("card-buttons", {
@@ -3907,21 +3736,22 @@ var render = function() {
           "block sm:hidden": _vm.mode === "all",
           block: _vm.mode !== "all",
           "w-1/10": _vm.layout === "vertical",
-          "w-1/5": _vm.layout === "horizontal"
+          "w-1/5": _vm.layout === "horizontal",
         },
-        attrs: { card: _vm.card, total: _vm.total }
+        attrs: { card: _vm.card, total: _vm.total },
       }),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "pl-4 p-2 ml-1px bg-white cursor-default",
+          staticClass:
+            "pl-4 p-2 ml-1px bg-white dark:bg-gray-800 cursor-default",
           class: {
             "w-3/5 sm:w-4/5": _vm.mode === "all",
             "w-3/5": _vm.mode !== "all",
             "w-7/10": _vm.layout === "vertical",
-            "w-3/5": _vm.layout === "horizontal"
-          }
+            "w-3/5": _vm.layout === "horizontal",
+          },
         },
         [
           _c(
@@ -3930,7 +3760,7 @@ var render = function() {
             [
               _c("colour", {
                 staticClass: "mr-2",
-                attrs: { resource: _vm.card.stats.resource }
+                attrs: { resource: _vm.card.stats.resource },
               }),
               _vm._v(" "),
               _c(
@@ -3941,29 +3771,34 @@ var render = function() {
                       name: "preview-card",
                       rawName: "v-preview-card",
                       value: { stack: [_vm.card], index: 0 },
-                      expression: "{stack: [card], index: 0}"
+                      expression: "{stack: [card], index: 0}",
                     },
                     {
                       name: "hover-card",
                       rawName: "v-hover-card",
                       value: _vm.card,
-                      expression: "card"
-                    }
+                      expression: "card",
+                    },
                   ],
                   staticClass:
-                    "cursor-help help-underline whitespace-nowrap overflow-hidden"
+                    "cursor-help help-underline whitespace-nowrap overflow-hidden",
                 },
                 [_vm._v(_vm._s(_vm.card.name))]
-              )
+              ),
             ],
             1
-          )
+          ),
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-1/5 text-center bg-white py-2 ml-1px" }, [
-        _vm._v("\n        " + _vm._s(_vm.total) + "\n    ")
-      ])
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-1/5 text-center bg-white dark:bg-gray-800 py-2 ml-1px",
+        },
+        [_vm._v("\n        " + _vm._s(_vm.total) + "\n    ")]
+      ),
     ],
     1
   )
@@ -3986,7 +3821,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -3997,19 +3832,21 @@ var render = function() {
           { staticClass: "mb-8" },
           [
             _c("h3", { staticClass: "pb-2 font-serif uppercase text-xl" }, [
-              _vm._v(_vm._s(_vm.title) + " (" + _vm._s(_vm.cards.total()) + ")")
+              _vm._v(
+                _vm._s(_vm.title) + " (" + _vm._s(_vm.cards.total()) + ")"
+              ),
             ]),
             _vm._v(" "),
-            _vm._l(_vm.cards, function(card) {
+            _vm._l(_vm.cards, function (card) {
               return _c("card-item", {
                 key: card.identifier,
                 attrs: {
                   card: card,
                   "apply-soft-limit": true,
-                  layout: "vertical"
-                }
+                  layout: "vertical",
+                },
               })
-            })
+            }),
           ],
           2
         )
@@ -4021,20 +3858,20 @@ var render = function() {
           { staticClass: "mb-8" },
           [
             _c("h3", { staticClass: "pb-2 font-serif uppercase text-xl" }, [
-              _vm._v(_vm._s(_vm.title))
+              _vm._v(_vm._s(_vm.title)),
             ]),
             _vm._v(" "),
             _c("card-item", {
               attrs: {
                 card: _vm.card,
                 "apply-soft-limit": true,
-                layout: "vertical"
-              }
-            })
+                layout: "vertical",
+              },
+            }),
           ],
           1
         )
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []
@@ -4055,7 +3892,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4067,11 +3904,11 @@ var render = function() {
           "flex-initial bg-primary hover:bg-secondary text-white rounded p-1 px-2 text-xs uppercase",
         attrs: { type: "button" },
         on: {
-          click: function($event) {
+          click: function ($event) {
             $event.preventDefault()
             return _vm.$modal.show("search-help")
-          }
-        }
+          },
+        },
       },
       [_vm._v("\n        SYNTAX HELP\n    ")]
     ),
@@ -4082,8 +3919,8 @@ var render = function() {
           name: "model",
           rawName: "v-model",
           value: _vm.params.keywords,
-          expression: "params.keywords"
-        }
+          expression: "params.keywords",
+        },
       ],
       ref: "nameSearch",
       staticClass:
@@ -4093,7 +3930,7 @@ var render = function() {
       on: {
         keyup: [
           _vm.delayedSearch,
-          function($event) {
+          function ($event) {
             if (
               !$event.type.indexOf("key") &&
               _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
@@ -4101,37 +3938,36 @@ var render = function() {
               return null
             }
             return _vm.finishSearch.apply(null, arguments)
-          }
+          },
         ],
-        input: function($event) {
+        input: function ($event) {
           if ($event.target.composing) {
             return
           }
           _vm.$set(_vm.params, "keywords", $event.target.value)
-        }
-      }
+        },
+      },
     }),
     _vm._v(" "),
     _c(
       "button",
       {
         staticClass: "button-primary text-xs px-2",
-        on: { click: _vm.showAdvancedSearch }
+        on: { click: _vm.showAdvancedSearch },
       },
       [
         _c("icon", { attrs: { size: 6 } }, [
           _c("path", {
             attrs: {
               "fill-rule": "evenodd",
-              d:
-                "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
-              "clip-rule": "evenodd"
-            }
-          })
-        ])
+              d: "M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z",
+              "clip-rule": "evenodd",
+            },
+          }),
+        ]),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -4152,158 +3988,149 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      directives: [
-        {
-          name: "touch",
-          rawName: "v-touch:swipe.left",
-          value: _vm.swipeLeft,
-          expression: "swipeLeft",
-          arg: "swipe",
-          modifiers: { left: true }
-        },
-        {
-          name: "touch",
-          rawName: "v-touch:swipe.right",
-          value: _vm.swipeRight,
-          expression: "swipeRight",
-          arg: "swipe",
-          modifiers: { right: true }
-        }
-      ],
-      staticClass: "text-base"
-    },
+    { staticClass: "text-base" },
     [
       _c("header-title", {
         scopedSlots: _vm._u([
           {
             key: "title",
-            fn: function() {
+            fn: function () {
               return [
                 _c("deck-name", {
-                  attrs: { name: _vm.deck.name, hero: _vm.hero }
-                })
+                  attrs: { name: _vm.deck.name, hero: _vm.hero },
+                }),
               ]
             },
-            proxy: true
-          }
-        ])
+            proxy: true,
+          },
+        ]),
       }),
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
       _c("div", { class: _vm.fullScreenClasses }, [
-        _c("div", { staticClass: "bg-white" }, [
-          _c("div", { class: _vm.containers }, [
-            _c("div", { staticClass: "flex" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "flex items-center p-4",
-                  class: _vm.topAreaClasses
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "flex-auto" },
-                    [_c("deck-totals")],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm.mode !== "details"
-                    ? _c("grouping-selector", {
-                        staticClass: "mr-2 hidden md:block",
-                        attrs: {
-                          grouping: _vm.grouping,
-                          options: {
-                            default: "Default",
-                            pitch: "Pitch",
-                            cost: "Cost",
-                            type: "Type"
-                          }
-                        },
-                        on: { selected: _vm.updateGrouping }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("mode-selector", { staticClass: "w-auto" }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "px-2 lg:px-1 flex" },
-                    [
-                      _c("zoom-button", {
-                        staticClass: "hidden md:block",
-                        attrs: {
-                          zoom: _vm.zoom,
-                          action: "in",
-                          fullScreen: _vm.fullScreen
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("zoom-button", {
-                        staticClass: "hidden md:block",
-                        attrs: {
-                          zoom: _vm.zoom,
-                          action: "out",
-                          fullScreen: _vm.fullScreen
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("view-button"),
-                      _vm._v(" "),
-                      _c("fullscreen-button", {
-                        attrs: {
-                          "full-screen": _vm.fullScreen,
-                          toggle: _vm.toggleFullScreen
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.mode === "search"
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "flex items-center",
-                      class: Object.assign({}, _vm.sidebarClasses, {
-                        "px-0 pr-4": this.fullScreen,
-                        "border-l border-gray-300": !this.fullScreen
-                      })
-                    },
-                    [
-                      _c("card-search", {
-                        staticClass:
-                          "flex bg-gray-800 rounded-lg w-full overflow-hidden",
-                        class: {
-                          "focus:bg-white focus:border-gray-500": !_vm.fullScreen
-                        }
-                      })
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ])
-          ])
-        ]),
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-white dark:bg-gray-800 border-b-4 border-gray-300 dark:border-gray-600",
+          },
+          [
+            _c("div", { class: _vm.containers }, [
+              _c("div", { staticClass: "flex" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "flex items-center p-4",
+                    class: _vm.topAreaClasses,
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "flex-auto" },
+                      [_c("deck-totals")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.mode !== "details"
+                      ? _c("grouping-selector", {
+                          staticClass: "mr-2 hidden md:block",
+                          attrs: {
+                            grouping: _vm.grouping,
+                            options: {
+                              default: "Default",
+                              pitch: "Pitch",
+                              cost: "Cost",
+                              type: "Type",
+                            },
+                          },
+                          on: { selected: _vm.updateGrouping },
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("mode-selector", { staticClass: "w-auto" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "px-2 lg:px-1 flex space-x-2" },
+                      [
+                        _c("play-deck", { attrs: { deck: _vm.deck } }),
+                        _vm._v(" "),
+                        _c("zoom-button", {
+                          staticClass: "hidden md:block",
+                          attrs: {
+                            zoom: _vm.zoom,
+                            action: "in",
+                            fullScreen: _vm.fullScreen,
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("zoom-button", {
+                          staticClass: "hidden md:block",
+                          attrs: {
+                            zoom: _vm.zoom,
+                            action: "out",
+                            fullScreen: _vm.fullScreen,
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("view-button"),
+                        _vm._v(" "),
+                        _c("fullscreen-button", {
+                          attrs: {
+                            "full-screen": _vm.fullScreen,
+                            toggle: _vm.toggleFullScreen,
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.mode === "search"
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "flex items-center",
+                        class: Object.assign({}, _vm.sidebarClasses, {
+                          "px-0 pr-4": this.fullScreen,
+                          "border-l border-gray-300 dark:border-gray-600":
+                            !this.fullScreen,
+                        }),
+                      },
+                      [
+                        _c("card-search", {
+                          staticClass:
+                            "flex bg-gray-800 rounded-lg w-full overflow-hidden",
+                          class: {
+                            "focus:bg-white focus:border-gray-500":
+                              !_vm.fullScreen,
+                          },
+                        }),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+              ]),
+            ]),
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-gray-200 h-full relative" }, [
+        _c("div", { staticClass: "main-body h-full relative" }, [
           _c("div", { staticClass: "flex h-full", class: _vm.containers }, [
             _c(
               "div",
               {
                 staticClass: "h-full overflow-y-auto",
-                class: _vm.mainAreaClasses
+                class: _vm.mainAreaClasses,
               },
               [
                 !_vm.hero
@@ -4313,8 +4140,8 @@ var render = function() {
                       [
                         _c("hero-selector", {
                           attrs: { deck: _vm.deck },
-                          on: { "hero-selected": _vm.setHero }
-                        })
+                          on: { "hero-selected": _vm.setHero },
+                        }),
                       ],
                       1
                     )
@@ -4322,42 +4149,65 @@ var render = function() {
                       "div",
                       { staticClass: "h-full" },
                       [
-                        _vm.mode === "all"
-                          ? _c("div", [
-                              _c(
-                                "div",
-                                [
-                                  _c("all-cards", {
-                                    staticClass: "hidden sm:block",
-                                    attrs: { collection: _vm.cards }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("edit-deck", {
-                                    staticClass: "sm:hidden",
-                                    attrs: { collection: _vm.cards }
-                                  })
-                                ],
-                                1
-                              )
-                            ])
-                          : _vm._e(),
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.mode === "all",
+                                expression: "mode === 'all'",
+                              },
+                            ],
+                          },
+                          [
+                            _c(
+                              "div",
+                              [
+                                _c("all-cards", {
+                                  staticClass: "hidden sm:block",
+                                  attrs: { collection: _vm.cards },
+                                }),
+                                _vm._v(" "),
+                                _c("edit-deck", {
+                                  staticClass: "sm:hidden",
+                                  attrs: { collection: _vm.cards },
+                                }),
+                              ],
+                              1
+                            ),
+                          ]
+                        ),
                         _vm._v(" "),
-                        _vm.mode === "search"
-                          ? _c("edit-deck", {
-                              attrs: { collection: _vm.cards }
-                            })
-                          : _vm._e(),
+                        _c("edit-deck", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.mode === "search",
+                              expression: "mode === 'search'",
+                            },
+                          ],
+                          attrs: { collection: _vm.cards },
+                        }),
                         _vm._v(" "),
                         _vm.mode === "details" ? _c("deck-details") : _vm._e(),
                         _vm._v(" "),
-                        _vm.mode === "sideboard"
-                          ? _c("main-deck", {
-                              attrs: { collection: _vm.cards }
-                            })
-                          : _vm._e()
+                        _c("main-deck", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.mode === "sideboard",
+                              expression: "mode === 'sideboard'",
+                            },
+                          ],
+                          attrs: { collection: _vm.cards },
+                        }),
                       ],
                       1
-                    )
+                    ),
               ]
             ),
             _vm._v(" "),
@@ -4367,27 +4217,39 @@ var render = function() {
                   {
                     ref: "searchResults",
                     staticClass:
-                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 border-l border-gray-300"
+                      "w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600",
                   },
                   [
-                    _vm.mode === "search"
-                      ? _c("search-results", {
-                          on: { "search-completed": _vm.scrollTop }
-                        })
-                      : _vm._e(),
+                    _c("search-results", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.mode === "search",
+                          expression: "mode === 'search'",
+                        },
+                      ],
+                      on: { "search-completed": _vm.scrollTop },
+                    }),
                     _vm._v(" "),
-                    _vm.mode === "sideboard"
-                      ? _c("sideboard", {
-                          attrs: { collection: _vm.sideboard }
-                        })
-                      : _vm._e()
+                    _c("sideboard", {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.mode === "sideboard",
+                          expression: "mode === 'sideboard'",
+                        },
+                      ],
+                      attrs: { collection: _vm.sideboard },
+                    }),
                   ],
                   1
                 )
-              : _vm._e()
-          ])
-        ])
-      ])
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
     ],
     1
   )
@@ -4410,7 +4272,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4422,139 +4284,56 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "w-full lg:w-3/4" }, [
-      _c(
-        "ul",
-        {
-          staticClass:
-            "block border-b border-gray-400 font-serif uppercase flow-root text-sm sm:text-base"
-        },
-        [
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
+    _c(
+      "div",
+      { staticClass: "w-full lg:w-3/4" },
+      [
+        _c(
+          "tabs",
+          [
             _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "settings"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "settings"
-                  }
-                }
-              },
-              [_vm._v("Settings")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
+              "tab-item",
+              { attrs: { name: "Settings" } },
+              [_c("deck-settings", { attrs: { deck: _vm.deck } })],
+              1
+            ),
+            _vm._v(" "),
             _c(
-              "a",
+              "tab-item",
               {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "metrics"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "metrics"
-                  }
-                }
+                staticClass: "md:flex md:space-x-4",
+                attrs: { name: "Metrics" },
               },
-              [_vm._v("Metrics")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "rulings"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "rulings"
-                  }
-                }
-              },
-              [_vm._v("Rulings")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "float-left mr-1 sm:mr-4" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block p-2 sm:px-4 pt-2 pb-1 border border-b-0 border-gray-400 rounded-t-lg",
-                class:
-                  _vm.tab === "export"
-                    ? "relative -bottom-1px bg-gray-200"
-                    : "bg-gray-300 hover:bg-gray-100",
-                attrs: { href: "" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.tab = "export"
-                  }
-                }
-              },
-              [_vm._v("Export")]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "bg-gray-200 border border-t-0 border-gray-400 px-4" },
-        [
-          _vm.tab == "metrics"
-            ? _c("div", { staticClass: "sm:flex pt-8" }, [
+              [
                 _c(
                   "div",
-                  { staticClass: "sm:w-1/3 sm:mr-4" },
+                  { staticClass: "md:w-1/3" },
                   [
                     _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
-                      _vm._v("Totals")
+                      _vm._v("Totals"),
                     ]),
                     _vm._v(" "),
-                    _c("totals")
+                    _c("totals"),
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "mt-4 sm:mt-0 sm:w-1/3 sm:mx-4" },
+                  { staticClass: "mt-4 md:mt-0 md:w-1/3 md:mx-4" },
                   [
                     _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
-                      _vm._v("General")
+                      _vm._v("General"),
                     ]),
                     _vm._v(" "),
-                    _c("general")
+                    _c("general"),
                   ],
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "mt-4 sm:mt-0 sm:w-1/3 sm:mx-4" }, [
+                _c("div", { staticClass: "mt-4 md:mt-0 md:w-1/3 md:mx-4" }, [
                   _c("h3", { staticClass: "font-serif uppercase text-2xl" }, [
-                    _vm._v("Offensive")
+                    _vm._v("Offensive"),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -4565,24 +4344,24 @@ var render = function() {
                         attrs: {
                           value: _vm.offenseRating,
                           text: "Rating",
-                          position: "top"
-                        }
+                          position: "top",
+                        },
                       }),
                       _vm._v(" "),
                       _c("stat", {
                         attrs: {
                           value: _vm.averageAttack,
-                          text: "Average attack"
-                        }
+                          text: "Average attack",
+                        },
                       }),
                       _vm._v(" "),
                       _c("stat", {
                         attrs: {
                           value: _vm.attacksPerHand,
                           text: "Attacks per hand",
-                          position: "bottom"
-                        }
-                      })
+                          position: "bottom",
+                        },
+                      }),
                     ],
                     1
                   ),
@@ -4590,7 +4369,7 @@ var render = function() {
                   _c(
                     "h3",
                     {
-                      staticClass: "font-serif uppercase text-2xl mt-4 sm:mt-8"
+                      staticClass: "font-serif uppercase text-2xl mt-4 md:mt-8",
                     },
                     [_vm._v("Defensive")]
                   ),
@@ -4603,48 +4382,43 @@ var render = function() {
                         attrs: {
                           value: _vm.defenseRating,
                           text: "Rating",
-                          position: "top"
-                        }
+                          position: "top",
+                        },
                       }),
                       _vm._v(" "),
                       _c("stat", {
                         attrs: {
                           value: _vm.averageBlock,
                           text: "Average block",
-                          position: "bottom"
-                        }
-                      })
+                          position: "bottom",
+                        },
+                      }),
                     ],
                     1
-                  )
-                ])
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab == "rulings"
-            ? _c(
-                "div",
-                { staticClass: "sm:flex pt-8" },
-                [_c("rulings", { attrs: { rulings: _vm.rulings } })],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab == "settings"
-            ? _c("div", [_c("deck-settings", { attrs: { deck: _vm.deck } })], 1)
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tab === "export"
-            ? _c(
-                "div",
-                { staticClass: "py-8" },
-                [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
-                1
-              )
-            : _vm._e()
-        ]
-      )
-    ])
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "tab-item",
+              { attrs: { name: "Rulings" } },
+              [_c("rulings", { attrs: { rulings: _vm.rulings } })],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "tab-item",
+              { attrs: { name: "Export" } },
+              [_c("tts-exporter", { attrs: { deck: _vm.deck } })],
+              1
+            ),
+          ],
+          1
+        ),
+      ],
+      1
+    ),
   ])
 }
 var staticRenderFns = []
@@ -4665,7 +4439,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4676,7 +4450,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "font-serif cursor-pointer text-gray-600 hover:text-white"
+                "font-serif cursor-pointer text-gray-600 hover:text-white",
             },
             [
               _c(
@@ -4685,18 +4459,18 @@ var render = function() {
                   staticClass:
                     "bg-transparent outline-none inline w-auto text-white",
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.edit()
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _vm._v(_vm._s(_vm.name)),
                   _vm.hero
                     ? _c("span", { staticClass: "text-white" }, [
-                        _vm._v(" (" + _vm._s(_vm.hero.name) + ")")
+                        _vm._v(" (" + _vm._s(_vm.hero.name) + ")"),
                       ])
-                    : _vm._e()
+                    : _vm._e(),
                 ]
               ),
               _vm._v(" "),
@@ -4704,10 +4478,10 @@ var render = function() {
                 "button",
                 {
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.edit()
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c(
@@ -4716,15 +4490,14 @@ var render = function() {
                     [
                       _c("path", {
                         attrs: {
-                          d:
-                            "M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"
-                        }
-                      })
+                          d: "M12.3 3.7l4 4L4 20H0v-4L12.3 3.7zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z",
+                        },
+                      }),
                     ]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
             ]
           )
         : _c(
@@ -4732,7 +4505,7 @@ var render = function() {
             {
               staticClass: "block flex items-center",
               on: {
-                keyup: function($event) {
+                keyup: function ($event) {
                   if (
                     !$event.type.indexOf("key") &&
                     _vm._k(
@@ -4747,11 +4520,11 @@ var render = function() {
                   }
                   return _vm.cancel()
                 },
-                submit: function($event) {
+                submit: function ($event) {
                   $event.preventDefault()
                   return _vm.save()
-                }
-              }
+                },
+              },
             },
             [
               _c("input", {
@@ -4760,8 +4533,8 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.name,
-                    expression: "name"
-                  }
+                    expression: "name",
+                  },
                 ],
                 ref: "name",
                 staticClass:
@@ -4769,29 +4542,29 @@ var render = function() {
                 attrs: { size: "40" },
                 domProps: { value: _vm.name },
                 on: {
-                  blur: function($event) {
+                  blur: function ($event) {
                     return _vm.possibleCancel()
                   },
-                  input: function($event) {
+                  input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
                     _vm.name = $event.target.value
-                  }
-                }
+                  },
+                },
               }),
               _vm._v(" "),
               _c(
                 "button",
                 {
                   staticClass: "button-primary text-2xl px-4 py-3 rounded-r-lg",
-                  attrs: { type: "submit" }
+                  attrs: { type: "submit" },
                 },
                 [_vm._v("Save")]
-              )
+              ),
             ]
-          )
-    ])
+          ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -4812,7 +4585,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -4823,11 +4596,11 @@ var render = function() {
         {
           staticClass: "block",
           on: {
-            submit: function($event) {
+            submit: function ($event) {
               $event.preventDefault()
               return _vm.saveDeckSettings.apply(null, arguments)
-            }
-          }
+            },
+          },
         },
         [
           _c("div", { staticClass: "w-full mb-4" }, [
@@ -4843,22 +4616,21 @@ var render = function() {
                   name: "model",
                   rawName: "v-model",
                   value: _vm.deck.name,
-                  expression: "deck.name"
-                }
+                  expression: "deck.name",
+                },
               ],
-              staticClass:
-                "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+              staticClass: "input py-3 px-4 rounded-lg",
               attrs: { type: "text", maxlength: "25", required: "" },
               domProps: { value: _vm.deck.name },
               on: {
-                input: function($event) {
+                input: function ($event) {
                   if ($event.target.composing) {
                     return
                   }
                   _vm.$set(_vm.deck, "name", $event.target.value)
-                }
-              }
-            })
+                },
+              },
+            }),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "w-full mb-4" }, [
@@ -4876,19 +4648,18 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.deck.label,
-                    expression: "deck.label"
-                  }
+                    expression: "deck.label",
+                  },
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 attrs: { type: "text" },
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
@@ -4897,20 +4668,50 @@ var render = function() {
                       "label",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("option", { attrs: { value: "" } }, [_vm._v("None")]),
                 _vm._v(" "),
-                _vm._l(_vm.$settings.game.decks.labels, function(name, label) {
+                _vm._l(_vm.$settings.game.decks.labels, function (name, label) {
                   return _c("option", { domProps: { value: label } }, [
-                    _vm._v(_vm._s(name))
+                    _vm._v(_vm._s(name)),
                   ])
-                })
+                }),
               ],
               2
-            )
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mb-4" }, [
+            _c(
+              "label",
+              { staticClass: "block font-serif uppercase tracking-wide mb-1" },
+              [_vm._v("Video")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.deck.videoUrl,
+                  expression: "deck.videoUrl",
+                },
+              ],
+              staticClass: "input py-3 px-4 rounded-lg",
+              attrs: { type: "text" },
+              domProps: { value: _vm.deck.videoUrl },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.deck, "videoUrl", $event.target.value)
+                },
+              },
+            }),
           ]),
           _vm._v(" "),
           _c(
@@ -4920,7 +4721,7 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass: "block font-serif uppercase tracking-wide mb-1"
+                  staticClass: "block font-serif uppercase tracking-wide mb-1",
                 },
                 [_vm._v("Notes")]
               ),
@@ -4936,18 +4737,18 @@ var render = function() {
                       "quote",
                       "|",
                       "unordered-list",
-                      "ordered-list"
-                    ]
-                  }
+                      "ordered-list",
+                    ],
+                  },
                 },
                 model: {
                   value: _vm.deck.notes,
-                  callback: function($$v) {
+                  callback: function ($$v) {
                     _vm.$set(_vm.deck, "notes", $$v)
                   },
-                  expression: "deck.notes"
-                }
-              })
+                  expression: "deck.notes",
+                },
+              }),
             ],
             1
           ),
@@ -4957,7 +4758,8 @@ var render = function() {
                 _c(
                   "label",
                   {
-                    staticClass: "block font-serif uppercase tracking-wide mb-1"
+                    staticClass:
+                      "block font-serif uppercase tracking-wide mb-1",
                   },
                   [_vm._v("Deck format")]
                 ),
@@ -4970,18 +4772,17 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.deck.format,
-                        expression: "deck.format"
-                      }
+                        expression: "deck.format",
+                      },
                     ],
-                    staticClass:
-                      "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                    staticClass: "input py-3 px-4 rounded-lg",
                     on: {
-                      change: function($event) {
+                      change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
+                          .call($event.target.options, function (o) {
                             return o.selected
                           })
-                          .map(function(o) {
+                          .map(function (o) {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
@@ -4992,19 +4793,19 @@ var render = function() {
                             ? $$selectedVal
                             : $$selectedVal[0]
                         )
-                      }
-                    }
+                      },
+                    },
                   },
-                  _vm._l(_vm.$settings.game.decks.formats, function(
-                    name,
-                    format
-                  ) {
-                    return _c("option", { domProps: { value: format } }, [
-                      _vm._v(_vm._s(name))
-                    ])
-                  }),
+                  _vm._l(
+                    _vm.$settings.game.decks.formats,
+                    function (name, format) {
+                      return _c("option", { domProps: { value: format } }, [
+                        _vm._v(_vm._s(name)),
+                      ])
+                    }
+                  ),
                   0
-                )
+                ),
               ])
             : _vm._e(),
           _vm._v(" "),
@@ -5023,18 +4824,17 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.deck.limitToCollection,
-                    expression: "deck.limitToCollection"
-                  }
+                    expression: "deck.limitToCollection",
+                  },
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
@@ -5043,19 +4843,21 @@ var render = function() {
                       "limitToCollection",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("option", { domProps: { value: 0 } }, [_vm._v("No")]),
                 _vm._v(" "),
                 _c("option", { domProps: { value: 1 } }, [
-                  _vm._v("Hard limit")
+                  _vm._v("Hard limit"),
                 ]),
                 _vm._v(" "),
-                _c("option", { domProps: { value: 2 } }, [_vm._v("Soft limit")])
+                _c("option", { domProps: { value: 2 } }, [
+                  _vm._v("Soft limit"),
+                ]),
               ]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "w-full mb-4" }, [
@@ -5073,18 +4875,17 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.deck.visibility,
-                    expression: "deck.visibility"
-                  }
+                    expression: "deck.visibility",
+                  },
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
@@ -5093,17 +4894,19 @@ var render = function() {
                       "visibility",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("option", { attrs: { value: "private" } }, [
-                  _vm._v("Private")
+                  _vm._v("Private"),
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "public" } }, [_vm._v("Public")])
+                _c("option", { attrs: { value: "public" } }, [
+                  _vm._v("Public"),
+                ]),
               ]
-            )
+            ),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "w-full" }, [
@@ -5121,19 +4924,18 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.deck.cardBack,
-                    expression: "deck.cardBack"
-                  }
+                    expression: "deck.cardBack",
+                  },
                 ],
-                staticClass:
-                  "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input py-3 px-4 rounded-lg",
                 attrs: { disabled: !_vm.user.subscription },
                 on: {
-                  change: function($event) {
+                  change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
+                      .call($event.target.options, function (o) {
                         return o.selected
                       })
-                      .map(function(o) {
+                      .map(function (o) {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
@@ -5142,8 +4944,8 @@ var render = function() {
                       "cardBack",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("option", { attrs: { value: "1" } }, [_vm._v("Original")]),
@@ -5153,20 +4955,22 @@ var render = function() {
                 _c("option", { attrs: { value: "3" } }, [_vm._v("Light")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "4" } }, [
-                  _vm._v("Old fashioned")
+                  _vm._v("Old fashioned"),
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "5" } }, [
-                  _vm._v("Parchment Gold")
+                  _vm._v("Parchment Gold"),
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "6" } }, [
-                  _vm._v("Parchment Classic")
+                  _vm._v("Parchment Classic"),
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "7" } }, [_vm._v("Reds")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "8" } }, [_vm._v("White Cream")])
+                _c("option", { attrs: { value: "8" } }, [
+                  _vm._v("White Cream"),
+                ]),
               ]
             ),
             _vm._v(" "),
@@ -5175,7 +4979,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "border border-t-0 border-gray-300 text-sm rounded-lg p-3"
+                      "border border-t-0 border-gray-300 text-sm rounded-lg p-3",
                   },
                   [
                     _vm._v(
@@ -5193,73 +4997,79 @@ var render = function() {
                         staticClass: "link",
                         attrs: {
                           href: "https://patreon.com/fabdb",
-                          target: "_blank"
-                        }
+                          target: "_blank",
+                        },
                       },
                       [_vm._v("Memberships start as low as $3/month.")]
-                    )
+                    ),
                   ],
                   1
                 )
-              : _vm._e()
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c("input", {
             staticClass:
               "appearance-none block w-full rounded-lg py-3 px-4 button-primary mt-8",
             class: _vm.saving ? "disabled" : "",
-            attrs: { type: "submit", value: "Save" }
-          })
+            attrs: { type: "submit", value: "Save" },
+          }),
         ]
-      )
+      ),
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(0),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-8 md:w-1/2 md:mt-0 text-base" }, [
       _c("p", { staticClass: "my-4" }, [
-        _vm._v("With the various deck settings you can change several values:")
+        _vm._v("With the various deck settings you can change several values:"),
       ]),
       _vm._v(" "),
       _c("ul", { staticClass: "list-disc ml-8" }, [
         _c("li", [
           _vm._v(
+            "Video: Embed a decktech video on your deck page. Currently only supports YouTube."
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
             "Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups."
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("li", [
           _vm._v(
             "Deck format: Whether your deck is for blitz/UPF or constructed play."
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("li", [
           _vm._v(
             "Limit to collection: Select soft if you just want missing cards highlighted. Select the hard limit if you do not want missing cards to show up in search at all. The former is better for purchase planning, the latter is better for tournament preparaation."
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("li", [
           _vm._v(
             "Deck visibility: This is whether or not the deck is available in the public directory. If not, you can still share the deck as normal for those that have the link."
-          )
+          ),
         ]),
         _vm._v(" "),
         _c("li", [
           _vm._v(
             "The card back: When exporting the deck for use in Tabletop Simulator, you can select from one of 8 card backs. This is a premium feature available to supporters only."
-          )
-        ])
-      ])
+          ),
+        ]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -5278,7 +5088,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5295,13 +5105,13 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none"
+                          "w-1/2 md:w-auto pr-4 md:p-0 float-left md:float-none",
                       },
                       [
                         _c("card-image", {
                           staticClass: "mb-4",
-                          attrs: { card: _vm.cards.hero() }
-                        })
+                          attrs: { card: _vm.cards.hero() },
+                        }),
                       ],
                       1
                     ),
@@ -5309,21 +5119,24 @@ var render = function() {
                     _c(
                       "div",
                       {
-                        staticClass: "w-1/2 md:w-auto float-left md:float-none"
+                        staticClass: "w-1/2 md:w-auto float-left md:float-none",
                       },
                       [
                         _c(
                           "div",
-                          { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4" },
+                          {
+                            staticClass:
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4",
+                          },
                           [
                             _c("deck-curves", {
                               staticClass: "mb-4 h-140 sm:h-160",
                               attrs: {
                                 cards: _vm.cards.other().withCost(),
                                 stat: "cost",
-                                strategy: "total"
-                              }
-                            })
+                                strategy: "total",
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -5332,7 +5145,7 @@ var render = function() {
                           "div",
                           {
                             staticClass:
-                              "bg-white rounded-lg pl-2 pr-4 pt-4 mt-4"
+                              "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 mt-4",
                           },
                           [
                             _c("deck-curves", {
@@ -5340,12 +5153,12 @@ var render = function() {
                               attrs: {
                                 cards: _vm.cards.other().withResource(),
                                 stat: "resource",
-                                strategy: "total"
-                              }
-                            })
+                                strategy: "total",
+                              },
+                            }),
                           ],
                           1
-                        )
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -5360,10 +5173,10 @@ var render = function() {
                             [_vm._v("Totals")]
                           ),
                           _vm._v(" "),
-                          _c("totals", { staticClass: "mt-2" })
+                          _c("totals", { staticClass: "mt-2" }),
                         ],
                         1
-                      )
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "hidden md:block" }, [
@@ -5377,18 +5190,18 @@ var render = function() {
                             [_vm._v("General")]
                           ),
                           _vm._v(" "),
-                          _c("general", { staticClass: "mt-2" })
+                          _c("general", { staticClass: "mt-2" }),
                         ],
                         1
-                      )
-                    ])
+                      ),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "flex-1" },
-                  _vm._l(_vm.availableSections, function(section) {
+                  _vm._l(_vm.availableSections, function (section) {
                     return section.cards.count()
                       ? _c("div", { staticClass: "flow-root mt-4 md:m-0" }, [
                           _c(
@@ -5397,20 +5210,20 @@ var render = function() {
                               staticClass:
                                 "block flex cursor-pointer font-serif uppercase text-lg mx-4",
                               class: {
-                                "mb-4": !_vm.sectionOpen(section.title)
+                                "mb-4": !_vm.sectionOpen(section.title),
                               },
                               on: {
-                                click: function($event) {
+                                click: function ($event) {
                                   return _vm.toggleSection({
-                                    section: section.title
+                                    section: section.title,
                                   })
-                                }
-                              }
+                                },
+                              },
                             },
                             [
                               _c("chevron", {
                                 staticClass: "mr-2",
-                                attrs: { open: _vm.sectionOpen(section.title) }
+                                attrs: { open: _vm.sectionOpen(section.title) },
                               }),
                               _vm._v(
                                 "\n                        " +
@@ -5418,7 +5231,7 @@ var render = function() {
                                   " (" +
                                   _vm._s(section.cards.total()) +
                                   ")\n                    "
-                              )
+                              ),
                             ],
                             1
                           ),
@@ -5426,13 +5239,13 @@ var render = function() {
                           _c(
                             "div",
                             { staticClass: "flow-root mt-4 md:m-0" },
-                            _vm._l(section.cards, function(card) {
+                            _vm._l(section.cards, function (card) {
                               return _c(
                                 "card-container",
                                 {
                                   key: card.identifier,
                                   staticClass:
-                                    "transition-all duration-300 float-left"
+                                    "transition-all duration-300 float-left",
                                 },
                                 [
                                   _c(
@@ -5446,37 +5259,37 @@ var render = function() {
                                             rawName: "v-preview-card",
                                             value: { stack: [card], index: 0 },
                                             expression:
-                                              "{stack: [card], index: 0}"
-                                          }
+                                              "{stack: [card], index: 0}",
+                                          },
                                         ],
                                         staticClass: "cursor-help",
                                         class: {
                                           "shadow-error":
                                             (!card.ownedTotal ||
                                               card.ownedTotal < card.total) &&
-                                            _vm.deck.limitToCollection === 2
+                                            _vm.deck.limitToCollection === 2,
                                         },
-                                        attrs: { card: card, width: 300 }
+                                        attrs: { card: card, width: 300 },
                                       }),
                                       _vm._v(" "),
                                       _c("numbered-card-buttons", {
                                         staticClass:
                                           "w-full mx-auto rounded mt-1",
-                                        attrs: { card: card }
-                                      })
+                                        attrs: { card: card },
+                                      }),
                                     ],
                                     1
-                                  )
+                                  ),
                                 ]
                               )
                             }),
                             1
-                          )
+                          ),
                         ])
                       : _vm._e()
                   }),
                   0
-                )
+                ),
               ])
             : _c(
                 "div",
@@ -5493,13 +5306,13 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "link-alternate",
-                      attrs: { to: "/support" }
+                      attrs: { to: "/support" },
                     },
                     [_vm._v("Upgrade to access the gallery mode feature.")]
-                  )
+                  ),
                 ],
                 1
-              )
+              ),
         ])
       : _c("div", { staticClass: "lg:flex m-4 sm:mr-0" }, [
           _c(
@@ -5508,22 +5321,25 @@ var render = function() {
             [
               _c("card-image", {
                 staticClass: "mb-4",
-                attrs: { card: _vm.cards.hero() }
+                attrs: { card: _vm.cards.hero() },
               }),
               _vm._v(" "),
               _c("div", [
                 _c(
                   "div",
-                  { staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2" },
+                  {
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2",
+                  },
                   [
                     _c("deck-curves", {
                       staticClass: "mb-4 h-140 sm:h-160",
                       attrs: {
                         cards: _vm.cards.other().withCost(),
                         stat: "cost",
-                        strategy: "total"
-                      }
-                    })
+                        strategy: "total",
+                      },
+                    }),
                   ],
                   1
                 ),
@@ -5531,7 +5347,8 @@ var render = function() {
                 _c(
                   "div",
                   {
-                    staticClass: "bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4"
+                    staticClass:
+                      "bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4",
                   },
                   [
                     _c("deck-curves", {
@@ -5539,13 +5356,13 @@ var render = function() {
                       attrs: {
                         cards: _vm.cards.other().withResource(),
                         stat: "resource",
-                        strategy: "total"
-                      }
-                    })
+                        strategy: "total",
+                      },
+                    }),
                   ],
                   1
-                )
-              ])
+                ),
+              ]),
             ],
             1
           ),
@@ -5558,36 +5375,36 @@ var render = function() {
                 "masonry-container",
                 {
                   staticClass: "sm:flex sm:flex-wrap",
-                  attrs: { containerId: "text-sections" }
+                  attrs: { containerId: "text-sections" },
                 },
-                _vm._l(_vm.availableSections, function(section) {
+                _vm._l(_vm.availableSections, function (section) {
                   return section.cards.count()
                     ? _c(
                         "div",
                         {
                           directives: [
-                            { name: "masonry-tile", rawName: "v-masonry-tile" }
+                            { name: "masonry-tile", rawName: "v-masonry-tile" },
                           ],
-                          staticClass: "w-full sm:w-1/2 sm:pr-8"
+                          staticClass: "w-full sm:w-1/2 sm:pr-8",
                         },
                         [
                           _c("card-item-section", {
                             attrs: {
                               cards: section.cards,
-                              title: section.title
-                            }
-                          })
+                              title: section.title,
+                            },
+                          }),
                         ],
                         1
                       )
                     : _vm._e()
                 }),
                 0
-              )
+              ),
             ],
             1
-          )
-        ])
+          ),
+        ]),
   ])
 }
 var staticRenderFns = []
@@ -5608,21 +5425,21 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "masonry-container",
     { staticClass: "pb-2 mx-2", attrs: { containerId: _vm.groupId } },
-    _vm._l(_vm.groupedCards, function(group) {
+    _vm._l(_vm.groupedCards, function (group) {
       return _c(
         "card-container",
         {
           directives: [{ name: "masonry-tile", rawName: "v-masonry-tile" }],
           key: group[0].identifier,
           staticClass: "rounded-card",
-          attrs: { width: _vm.width }
+          attrs: { width: _vm.width },
         },
         [
           _c(
@@ -5632,15 +5449,15 @@ var render = function() {
               _c("img", {
                 staticClass: "block w-full invisible",
                 style: _vm.margin(group.length),
-                attrs: { src: group[0].image }
+                attrs: { src: group[0].image },
               }),
               _vm._v(" "),
-              _vm._l(group, function(card, i) {
+              _vm._l(group, function (card, i) {
                 return _c(
                   "div",
                   {
                     staticClass: "relative rounded-card w-full",
-                    style: _vm.styles(i)
+                    style: _vm.styles(i),
                   },
                   [
                     _c("card-image", {
@@ -5648,27 +5465,27 @@ var render = function() {
                       attrs: {
                         card: card,
                         width: 350,
-                        clickHandler: _vm.action || false
-                      }
+                        clickHandler: _vm.action || false,
+                      },
                     }),
                     _vm._v(" "),
                     _vm.showOverlay(card)
                       ? _c("div", {
                           staticClass:
-                            " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25"
+                            " absolute top-0 bottom-0 w-full opacity-50 rounded-card bg-gray-200 z-25",
                         })
                       : _vm._e(),
                     _vm._v(" "),
-                    card.banned ? _c("banned") : _vm._e()
+                    card.banned ? _c("banned") : _vm._e(),
                   ],
                   1
                 )
-              })
+              }),
             ],
             2
           ),
           _vm._v(" "),
-          _vm._t("default")
+          _vm._t("default"),
         ],
         2
       )
@@ -5694,49 +5511,49 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative font-serif" }, [
+  return _c("div", { staticClass: "relative text-sm xl:text-base" }, [
     _c(
       "button",
       {
         staticClass:
-          "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+          "relative flex items-center overflow-hidden rounded-lg hover:bg-white dark:hover:bg-gray-600 leading-none px-2",
         class: {
-          "border-gray-500": _vm.isOpen,
-          "bg-white": _vm.isOpen,
-          "bg-gray-200": !_vm.isOpen,
-          "z-75": _vm.isOpen
+          "bg-white dark:bg-gray-600": _vm.isOpen,
+          "bg-gray-200 dark:bg-black": !_vm.isOpen,
+          "z-75": _vm.isOpen,
         },
         staticStyle: { width: "150px" },
         on: {
-          click: function($event) {
+          click: function ($event) {
             _vm.isOpen = !_vm.isOpen
-          }
-        }
+          },
+        },
       },
       [
-        _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-          _vm._v("Grouping")
-        ]),
+        _c("span", { staticClass: "py-2" }, [_vm._v("Grouping")]),
         _vm._v(" "),
         _c(
           "svg",
           {
-            staticClass: "inline-block h-5 w-5 fill-current ml-auto",
-            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+            staticClass: "h-6 fill-current ml-auto",
+            class: { "transform rotate-180": _vm.isOpen },
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 20 20",
+            },
           },
           [
             _c("path", {
               attrs: {
-                d:
-                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              }
-            })
+                d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+              },
+            }),
           ]
-        )
+        ),
       ]
     ),
     _vm._v(" "),
@@ -5746,10 +5563,10 @@ var render = function() {
             "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
           attrs: { type: "button" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               _vm.isOpen = false
-            }
-          }
+            },
+          },
         })
       : _vm._e(),
     _vm._v(" "),
@@ -5758,29 +5575,29 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+              "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg",
           },
-          _vm._l(_vm.options, function(text, option) {
+          _vm._l(_vm.options, function (text, option) {
             return _c(
               "button",
               {
-                staticClass: "w-full text-base text-left px-4 py-1 uppercase",
+                staticClass: "w-full text-base text-left px-4 py-1",
                 class:
                   option === _vm.grouping
                     ? "bg-blue-400 text-white"
                     : "hover:bg-blue-400 hover:text-white",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.select(option)
-                  }
-                }
+                  },
+                },
               },
               [_vm._v(_vm._s(text))]
             )
           }),
           0
         )
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []
@@ -5801,7 +5618,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5813,14 +5630,14 @@ var render = function() {
             attrs: {
               cards: _vm.mainDeck,
               "group-id": "maindeck",
-              action: _vm.add
-            }
+              action: _vm.add,
+            },
           })
         : _c("div", { staticClass: "text-center my-20" }, [
             _vm._v(
               "\n        There are no cards available yet in your main deck. Go to search, and then add cards to your deck from there.\n    "
-            )
-          ])
+            ),
+          ]),
     ],
     1
   )
@@ -5843,7 +5660,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5854,8 +5671,8 @@ var render = function() {
       attrs: {
         "destroy-delay": "2000",
         containerId: _vm.containerId,
-        "transition-duration": "0.3s"
-      }
+        "transition-duration": "0.3s",
+      },
     },
     [_vm._t("default")],
     2
@@ -5879,7 +5696,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -5892,15 +5709,15 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [
                     _vm._v(
                       _vm._s(
                         _vm.totalMainDeck - 1 < 0 ? 0 : _vm.totalMainDeck - 1
                       )
-                    )
+                    ),
                   ]
                 ),
                 _vm._v(" "),
@@ -5908,14 +5725,14 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Main deck")]
-                )
+                ),
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "font-serif uppercase text-xl" }, [
-                _vm._v("/")
+              _c("span", { staticClass: "font-serif uppercase" }, [
+                _vm._v("/"),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "cursor-help group relative" }, [
@@ -5923,8 +5740,8 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [_vm._v(_vm._s(_vm.totalSideboard))]
                 ),
@@ -5933,14 +5750,14 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Sideboard")]
-                )
+                ),
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "font-serif uppercase text-xl" }, [
-                _vm._v("/")
+              _c("span", { staticClass: "font-serif uppercase" }, [
+                _vm._v("/"),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "cursor-help group relative" }, [
@@ -5948,8 +5765,8 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [_vm._v(_vm._s(_vm.maxCards - 1))]
                 ),
@@ -5958,11 +5775,11 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Max cards")]
-                )
-              ])
+                ),
+              ]),
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -5973,8 +5790,8 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [_vm._v(_vm._s(_vm.totalMainDeck - 1))]
                 ),
@@ -5983,14 +5800,14 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Main deck")]
-                )
+                ),
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "font-serif uppercase text-xl" }, [
-                _vm._v("/")
+              _c("span", { staticClass: "font-serif uppercase" }, [
+                _vm._v("/"),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "cursor-help group relative" }, [
@@ -5998,8 +5815,8 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [_vm._v(_vm._s(_vm.maxCards - 1))]
                 ),
@@ -6008,11 +5825,11 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Max cards")]
-                )
-              ])
+                ),
+              ]),
             ])
           : _vm._e(),
         _vm._v(" "),
@@ -6023,8 +5840,8 @@ var render = function() {
                   "h2",
                   {
                     staticClass:
-                      "font-serif uppercase text-xl border-b border-dotted border-gray-500",
-                    class: { "text-red-500": _vm.totalCards > _vm.maxCards }
+                      "font-serif uppercase border-b border-dotted border-gray-500",
+                    class: { "text-red-500": _vm.totalCards > _vm.maxCards },
                   },
                   [_vm._v(_vm._s(_vm.totalMainDeck - 1))]
                 ),
@@ -6033,13 +5850,13 @@ var render = function() {
                   "span",
                   {
                     staticClass:
-                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap"
+                      "tooltip transition-all delay-200 absolute block opacity-0 group-hover:opacity-100 bg-black text-white py-1 px-3 z-25 rounded text-xs mt-2 whitespace-nowrap",
                   },
                   [_vm._v("Main deck")]
-                )
-              ])
+                ),
+              ]),
             ])
-          : _vm._e()
+          : _vm._e(),
       ])
     : _vm._e()
 }
@@ -6061,7 +5878,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6071,7 +5888,7 @@ var render = function() {
       { staticClass: "mt-2 text-base" },
       [
         _c("stat", {
-          attrs: { value: _vm.averageCost, text: "Avg cost", position: "top" }
+          attrs: { value: _vm.averageCost, text: "Avg cost", position: "top" },
         }),
         _vm._v(" "),
         _c("stat", { attrs: { value: _vm.averagePitch, text: "Avg pitch" } }),
@@ -6092,12 +5909,12 @@ var render = function() {
           attrs: {
             value: _vm.costCount(3),
             text: "Cost 3+",
-            position: "bottom"
-          }
-        })
+            position: "bottom",
+          },
+        }),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -6118,7 +5935,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6126,8 +5943,8 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-3/4 bg-white p-2",
-        class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() }
+        staticClass: "w-3/4 bg-white dark:bg-gray-700 p-2",
+        class: { "rounded-tl-lg": _vm.top(), "rounded-bl-lg": _vm.bottom() },
       },
       [_vm._v(_vm._s(_vm.text))]
     ),
@@ -6135,11 +5952,11 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "w-1/4 bg-white py-2 text-center",
-        class: { "rounded-tr-lg": _vm.top(), "rounded-br-lg": _vm.bottom() }
+        staticClass: "w-1/4 bg-white dark:bg-gray-700 py-2 text-center",
+        class: { "rounded-tr-lg": _vm.top(), "rounded-br-lg": _vm.bottom() },
       },
       [_vm._v(_vm._s(_vm.value))]
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -6160,7 +5977,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6170,7 +5987,7 @@ var render = function() {
       { staticClass: "mt-2" },
       [
         _c("stat", {
-          attrs: { value: _vm.totalCards, text: "Cards", position: "top" }
+          attrs: { value: _vm.totalCards, text: "Cards", position: "top" },
         }),
         _vm._v(" "),
         _c("stat", { attrs: { value: _vm.totalClass, text: "Class" } }),
@@ -6179,9 +5996,9 @@ var render = function() {
           attrs: {
             value: _vm.totalGeneric,
             text: "Generic",
-            position: "bottom"
-          }
-        })
+            position: "bottom",
+          },
+        }),
       ],
       1
     ),
@@ -6191,31 +6008,31 @@ var render = function() {
       { staticClass: "mt-4 text-base" },
       [
         _c("stat", {
-          attrs: { value: _vm.totalActions, text: "Actions", position: "top" }
+          attrs: { value: _vm.totalActions, text: "Actions", position: "top" },
         }),
         _vm._v(" "),
         _c("stat", {
-          attrs: { value: _vm.totalAttackActions, text: "Att. actions" }
+          attrs: { value: _vm.totalAttackActions, text: "Att. actions" },
         }),
         _vm._v(" "),
         _c("stat", {
-          attrs: { value: _vm.totalAttackReactions, text: "Att. reactions" }
+          attrs: { value: _vm.totalAttackReactions, text: "Att. reactions" },
         }),
         _vm._v(" "),
         _c("stat", {
-          attrs: { value: _vm.totalDefenseReactions, text: "Def. reactions" }
+          attrs: { value: _vm.totalDefenseReactions, text: "Def. reactions" },
         }),
         _vm._v(" "),
         _c("stat", {
           attrs: {
             value: _vm.totalInstants,
             text: "Instants",
-            position: "bottom"
-          }
-        })
+            position: "bottom",
+          },
+        }),
       ],
       1
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -6236,7 +6053,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6244,31 +6061,29 @@ var render = function() {
     _c(
       "div",
       { staticClass: "hidden lg:flex rounded-lg overflow-hidden mr-2 text-sm" },
-      _vm._l(_vm.modes, function(mode, view) {
-        return view !== "sideboard" || _vm.requiresSideboard
-          ? _c(
-              "button",
-              {
-                staticClass: "flex-grow flex items-center space-x-2 px-3 py-2",
-                class: _vm.classes(view),
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    return _vm.select(view)
-                  }
-                }
+      _vm._l(_vm.modes, function (mode, view) {
+        return _c(
+          "button",
+          {
+            staticClass: "flex-grow flex items-center space-x-2 px-3",
+            class: _vm.classes(view),
+            attrs: { type: "button" },
+            on: {
+              click: function ($event) {
+                return _vm.select(view)
               },
-              [
-                _c("icon", {
-                  attrs: { size: 5 },
-                  domProps: { innerHTML: _vm._s(mode.icon) }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(mode.name))])
-              ],
-              1
-            )
-          : _vm._e()
+            },
+          },
+          [
+            _c("icon", {
+              attrs: { size: 5 },
+              domProps: { innerHTML: _vm._s(mode.icon) },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "py-2" }, [_vm._v(_vm._s(mode.name))]),
+          ],
+          1
+        )
       }),
       0
     ),
@@ -6278,23 +6093,23 @@ var render = function() {
         "button",
         {
           staticClass:
-            "relative flex items-center text-left border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white hover:border-gray-500",
+            "relative flex items-center text-left text-base font-serif rounded-lg px-4 py-1 uppercase hover:bg-white dark:hover:bg-gray-600",
           class: {
-            "border-gray-500": _vm.isOpen,
+            "bg-white dark:bg-gray-600": _vm.isOpen,
             "bg-white": _vm.isOpen,
-            "bg-gray-200": !_vm.isOpen,
-            "z-75": _vm.isOpen
+            "bg-gray-200 dark:bg-black": !_vm.isOpen,
+            "z-75": _vm.isOpen,
           },
           staticStyle: { width: "150px" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               _vm.isOpen = !_vm.isOpen
-            }
-          }
+            },
+          },
         },
         [
           _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
-            _vm._v(_vm._s(_vm.modes[_vm.mode].name))
+            _vm._v(_vm._s(_vm.modes[_vm.mode].name)),
           ]),
           _vm._v(" "),
           _c(
@@ -6303,18 +6118,17 @@ var render = function() {
               staticClass: "inline-block h-5 w-5 fill-current ml-auto",
               attrs: {
                 xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
+                viewBox: "0 0 20 20",
+              },
             },
             [
               _c("path", {
                 attrs: {
-                  d:
-                    "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                }
-              })
+                  d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+                },
+              }),
             ]
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -6324,10 +6138,10 @@ var render = function() {
               "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
             attrs: { type: "button" },
             on: {
-              click: function($event) {
+              click: function ($event) {
                 _vm.isOpen = false
-              }
-            }
+              },
+            },
           })
         : _vm._e(),
       _vm._v(" "),
@@ -6336,9 +6150,9 @@ var render = function() {
             "div",
             {
               staticClass:
-                "w-full absolute right-0 rounded-lg bg-white z-100 overflow-hidden mt-2 border border-gray-500"
+                "w-full absolute right-0 rounded-lg bg-white dark:bg-gray-800 z-100 overflow-hidden mt-2 shadow-lg",
             },
-            _vm._l(_vm.modes, function(mode, option) {
+            _vm._l(_vm.modes, function (mode, option) {
               return _c(
                 "button",
                 {
@@ -6349,26 +6163,26 @@ var render = function() {
                       ? "bg-blue-400 text-white"
                       : "hover:bg-blue-400 hover:text-white",
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.select(option)
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("icon", {
                     attrs: { size: 5 },
-                    domProps: { innerHTML: _vm._s(mode.icon) }
+                    domProps: { innerHTML: _vm._s(mode.icon) },
                   }),
                   _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(mode.name))])
+                  _c("span", [_vm._v(_vm._s(mode.name))]),
                 ],
                 1
               )
             }),
             0
           )
-        : _vm._e()
-    ])
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -6389,23 +6203,23 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     { staticClass: "flex space-x-px overflow-hidden" },
-    _vm._l(_vm.maxAvailable + 1, function(n, i) {
+    _vm._l(_vm.maxAvailable + 1, function (n, i) {
       return _c(
         "button",
         {
           class: _vm.classes(i),
           on: {
-            click: function($event) {
+            click: function ($event) {
               return _vm.setTotal(i)
-            }
-          }
+            },
+          },
         },
         [_vm._v(_vm._s(i))]
       )
@@ -6431,7 +6245,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6442,12 +6256,12 @@ var render = function() {
       _c("card-search", { staticClass: "md:hidden flex" }),
       _vm._v(" "),
       _c("div", { staticClass: "flow-root" }, [
-        _c("div", { staticClass: "text-base pr-0 bg-white" }, [
+        _c("div", { staticClass: "text-base pr-0 bg-white dark:bg-gray-800" }, [
           _c(
             "div",
             {
               staticClass:
-                "w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200"
+                "w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200 dark:border-gray-600",
             },
             [
               _c(
@@ -6455,19 +6269,18 @@ var render = function() {
                 {
                   attrs: { type: "", selected: _vm.params.cardType },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
                       fill: "currentColor",
-                      d:
-                        "M21 13H14.4L19.1 17.7L17.7 19.1L13 14.4V21H11V14.3L6.3 19L4.9 17.6L9.4 13H3V11H9.6L4.9 6.3L6.3 4.9L11 9.6V3H13V9.4L17.6 4.8L19 6.3L14.3 11H21V13Z"
-                    }
-                  })
+                      d: "M21 13H14.4L19.1 17.7L17.7 19.1L13 14.4V21H11V14.3L6.3 19L4.9 17.6L9.4 13H3V11H9.6L4.9 6.3L6.3 4.9L11 9.6V3H13V9.4L17.6 4.8L19 6.3L14.3 11H21V13Z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6476,18 +6289,17 @@ var render = function() {
                 {
                   attrs: { type: "weapon", selected: _vm.params.cardType },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("weapon")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
-                      d:
-                        "M12 2l10 6c0 4-2 6-6 7l-3-5-4-4 3-4M4.11 19.84l-1.99-1.51L9.19 9 11 10.81l-6.89 9.03z"
-                    }
-                  })
+                      d: "M12 2l10 6c0 4-2 6-6 7l-3-5-4-4 3-4M4.11 19.84l-1.99-1.51L9.19 9 11 10.81l-6.89 9.03z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6496,18 +6308,17 @@ var render = function() {
                 {
                   attrs: { type: "equipment", selected: _vm.params.cardType },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("equipment")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
-                      d:
-                        "M12 4a3.5 3.5 0 00-3.5 3.5h2A1.5 1.5 0 0112 6a1.5 1.5 0 011.5 1.5A1.5 1.5 0 0112 9c-.55 0-1 .45-1 1v1.75L2.4 18.2A1 1 0 003 20h18a1 1 0 00.6-1.8L13 11.75v-.9a3.5 3.5 0 002.5-3.35A3.5 3.5 0 0012 4m0 9.5l6 4.5H6z"
-                    }
-                  })
+                      d: "M12 4a3.5 3.5 0 00-3.5 3.5h2A1.5 1.5 0 0112 6a1.5 1.5 0 011.5 1.5A1.5 1.5 0 0112 9c-.55 0-1 .45-1 1v1.75L2.4 18.2A1 1 0 003 20h18a1 1 0 00.6-1.8L13 11.75v-.9a3.5 3.5 0 002.5-3.35A3.5 3.5 0 0012 4m0 9.5l6 4.5H6z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6516,10 +6327,10 @@ var render = function() {
                 {
                   attrs: { type: "instant", selected: _vm.params.cardType },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("instant")
-                    }
-                  }
+                    },
+                  },
                 },
                 [_c("path", { attrs: { d: "M11 15H6l7-14v8h5l-7 14v-8z" } })]
               ),
@@ -6529,19 +6340,18 @@ var render = function() {
                 {
                   attrs: { type: "item", selected: _vm.params.cardType },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("item")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
                       fill: "currentColor",
-                      d:
-                        "M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6M13,16L14.34,14.66L16.27,18H7.73L10.39,13.39L13,16M12.5,12A0.5,0.5 0 0,1 13,12.5A0.5,0.5 0 0,1 12.5,13A0.5,0.5 0 0,1 12,12.5A0.5,0.5 0 0,1 12.5,12Z"
-                    }
-                  })
+                      d: "M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6M13,16L14.34,14.66L16.27,18H7.73L10.39,13.39L13,16M12.5,12A0.5,0.5 0 0,1 13,12.5A0.5,0.5 0 0,1 12.5,13A0.5,0.5 0 0,1 12,12.5A0.5,0.5 0 0,1 12.5,12Z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6550,22 +6360,21 @@ var render = function() {
                 {
                   attrs: {
                     type: "non-attack action",
-                    selected: _vm.params.cardType
+                    selected: _vm.params.cardType,
                   },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("non-attack action")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
                       fill: "currentColor",
-                      d:
-                        "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z"
-                    }
-                  })
+                      d: "M17.8,20C17.4,21.2 16.3,22 15,22H5C3.3,22 2,20.7 2,19V18H5L14.2,18C14.6,19.2 15.7,20 17,20H17.8M19,2C20.7,2 22,3.3 22,5V6H20V5C20,4.4 19.6,4 19,4C18.4,4 18,4.4 18,5V18H17C16.4,18 16,17.6 16,17V16H5V5C5,3.3 6.3,2 8,2H19M8,6V8H15V6H8M8,10V12H14V10H8Z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6574,22 +6383,21 @@ var render = function() {
                 {
                   attrs: {
                     type: "attack action",
-                    selected: _vm.params.cardType
+                    selected: _vm.params.cardType,
                   },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("attack action")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
                       fill: "currentColor",
-                      d:
-                        "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z"
-                    }
-                  })
+                      d: "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6598,21 +6406,20 @@ var render = function() {
                 {
                   attrs: {
                     type: "attack reaction",
-                    selected: _vm.params.cardType
+                    selected: _vm.params.cardType,
                   },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("attack reaction")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
-                      d:
-                        "M6.2 2.44l11.9 11.9 2.12-2.12 1.41 1.41-2.47 2.47 3.18 3.18c.39.39.39 1.02 0 1.41l-.71.71a.996.996 0 01-1.41 0L17 18.23l-2.44 2.47-1.41-1.41 2.12-2.12-11.9-11.9V2.44H6.2M15.89 10l4.74-4.74V2.44H17.8l-4.74 4.74L15.89 10m-4.95 5l-2.83-2.87-2.21 2.21-2.12-2.12-1.41 1.41 2.47 2.47-3.18 3.19a.996.996 0 000 1.41l.71.71c.39.39 1.02.39 1.41 0L7 18.23l2.44 2.47 1.41-1.41-2.12-2.12L10.94 15z"
-                    }
-                  })
+                      d: "M6.2 2.44l11.9 11.9 2.12-2.12 1.41 1.41-2.47 2.47 3.18 3.18c.39.39.39 1.02 0 1.41l-.71.71a.996.996 0 01-1.41 0L17 18.23l-2.44 2.47-1.41-1.41 2.12-2.12-11.9-11.9V2.44H6.2M15.89 10l4.74-4.74V2.44H17.8l-4.74 4.74L15.89 10m-4.95 5l-2.83-2.87-2.21 2.21-2.12-2.12-1.41 1.41 2.47 2.47-3.18 3.19a.996.996 0 000 1.41l.71.71c.39.39 1.02.39 1.41 0L7 18.23l2.44 2.47 1.41-1.41-2.12-2.12L10.94 15z",
+                    },
+                  }),
                 ]
               ),
               _vm._v(" "),
@@ -6621,32 +6428,31 @@ var render = function() {
                 {
                   attrs: {
                     type: "defense reaction",
-                    selected: _vm.params.cardType
+                    selected: _vm.params.cardType,
                   },
                   nativeOn: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.selectCardType("defense reaction")
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c("path", {
                     attrs: {
                       fill: "currentColor",
-                      d:
-                        "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z"
-                    }
-                  })
+                      d: "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
+                    },
+                  }),
                 ]
-              )
+              ),
             ],
             1
-          )
+          ),
         ]),
         _vm._v(" "),
         _c(
           "div",
-          _vm._l(_vm.results.data, function(card) {
+          _vm._l(_vm.results.data, function (card) {
             return _c(
               "div",
               [
@@ -6657,7 +6463,7 @@ var render = function() {
                         staticClass:
                           "w-1/2 float-left mt-4 overflow-hidden px-2 sm:px-4",
                         class: _vm.classes,
-                        staticStyle: { "max-width": "350px" }
+                        staticStyle: { "max-width": "350px" },
                       },
                       [
                         _c("card-image", {
@@ -6666,37 +6472,37 @@ var render = function() {
                               name: "preview-card",
                               rawName: "v-preview-card",
                               value: { stack: [card], index: 0 },
-                              expression: "{stack: [card], index: 0}"
-                            }
+                              expression: "{stack: [card], index: 0}",
+                            },
                           ],
                           staticClass: "cursor-help",
-                          attrs: { card: card, width: 300 }
+                          attrs: { card: card, width: 300 },
                         }),
                         _vm._v(" "),
                         _c("numbered-card-buttons", {
                           staticClass:
                             "w-full mx-auto rounded sm:rounded-lg mt-1",
-                          attrs: { card: card }
-                        })
+                          attrs: { card: card },
+                        }),
                       ],
                       1
                     )
                   : _c("card-item", {
-                      attrs: { card: card, layout: "horizontal" }
-                    })
+                      attrs: { card: card, layout: "horizontal" },
+                    }),
               ],
               1
             )
           }),
           0
-        )
+        ),
       ]),
       _vm._v(" "),
       _c("paginator", {
         staticClass: "mt-4",
         attrs: { results: _vm.results },
-        on: { "page-selected": _vm.updatePage }
-      })
+        on: { "page-selected": _vm.updatePage },
+      }),
     ],
     1
   )
@@ -6719,7 +6525,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6733,8 +6539,8 @@ var render = function() {
             cards: _vm.sideboard,
             "group-id": "sideboard",
             action: _vm.remove,
-            width: _vm.fullScreen ? "md:w-1/3" : "md:w-1/2"
-          }
+            width: _vm.fullScreen ? "md:w-1/3" : "md:w-1/2",
+          },
         }),
         _vm._v(" "),
         !_vm.sideboard.cards.length
@@ -6743,9 +6549,9 @@ var render = function() {
               _c("br"),
               _vm._v("any cards"),
               _c("br"),
-              _vm._v("to your sideboard.\n        ")
+              _vm._v("to your sideboard.\n        "),
             ])
-          : _vm._e()
+          : _vm._e(),
       ],
       1
     ),
@@ -6759,7 +6565,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.cards, function(card) {
+            _vm._l(_vm.cards, function (card) {
               return _c("tr", [
                 _c("td", [
                   _c(
@@ -6768,10 +6574,10 @@ var render = function() {
                       staticClass:
                         "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.add(card)
-                        }
-                      }
+                        },
+                      },
                     },
                     [
                       _c("span", [
@@ -6779,22 +6585,21 @@ var render = function() {
                           "\n                                " +
                             _vm._s(card.total - _vm.sideboardCardTotal(card)) +
                             "\n                            "
-                        )
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("icon", { attrs: { size: 5 } }, [
                         _c("path", {
                           attrs: {
                             "fill-rule": "evenodd",
-                            d:
-                              "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-                            "clip-rule": "evenodd"
-                          }
-                        })
-                      ])
+                            d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                            "clip-rule": "evenodd",
+                          },
+                        }),
+                      ]),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("td", [
@@ -6804,7 +6609,7 @@ var render = function() {
                     [
                       _c("colour", {
                         staticClass: "mr-2",
-                        attrs: { resource: card.stats.resource }
+                        attrs: { resource: card.stats.resource },
                       }),
                       _vm._v(" "),
                       _c(
@@ -6813,16 +6618,16 @@ var render = function() {
                           staticClass:
                             "cursor-help whitespace-nowrap overflow-hidden",
                           on: {
-                            click: function($event) {
+                            click: function ($event) {
                               return _vm.setHover(card)
-                            }
-                          }
+                            },
+                          },
                         },
                         [_vm._v(_vm._s(card.name))]
-                      )
+                      ),
                     ],
                     1
-                  )
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("td", [
@@ -6832,21 +6637,20 @@ var render = function() {
                       staticClass:
                         "w-full flex items-center justify-center bg-white hover:bg-primary hover:text-white p-2",
                       on: {
-                        click: function($event) {
+                        click: function ($event) {
                           return _vm.remove(card)
-                        }
-                      }
+                        },
+                      },
                     },
                     [
                       _c("icon", { attrs: { size: 5 } }, [
                         _c("path", {
                           attrs: {
                             "fill-rule": "evenodd",
-                            d:
-                              "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z",
-                            "clip-rule": "evenodd"
-                          }
-                        })
+                            d: "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z",
+                            "clip-rule": "evenodd",
+                          },
+                        }),
                       ]),
                       _vm._v(" "),
                       _c("span", [
@@ -6854,42 +6658,42 @@ var render = function() {
                           "\n                                " +
                             _vm._s(_vm.sideboardCardTotal(card)) +
                             "\n                            "
-                        )
-                      ])
+                        ),
+                      ]),
                     ],
                     1
-                  )
-                ])
+                  ),
+                ]),
               ])
             }),
             0
-          )
+          ),
         ]
-      )
-    ])
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "text-white" }, [
         _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
-          _vm._v("Deck")
+          _vm._v("Deck"),
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "p-2 bg-gray-800 text-left" }, [
-          _vm._v("Card")
+          _vm._v("Card"),
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "w-1/5 sm:w-1/10 p-2 bg-gray-800" }, [
-          _vm._v("Sideboard")
-        ])
-      ])
+          _vm._v("Sideboard"),
+        ]),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -6908,7 +6712,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -6920,14 +6724,14 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: { href: "" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               $event.preventDefault()
               return _vm.copyShareURL.apply(null, arguments)
-            }
-          }
+            },
+          },
         },
         [
           _c(
@@ -6937,22 +6741,23 @@ var render = function() {
               _c("icon", { attrs: { size: 14 } }, [
                 _c("path", {
                   attrs: {
-                    d:
-                      "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"
-                  }
-                })
-              ])
+                    d: "M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z",
+                  },
+                }),
+              ]),
             ],
             1
           ),
           _vm._v(" "),
           _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-            _vm._v("Link to deck")
+            _vm._v("Link to deck"),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-base" }, [
-            _vm._v("Copies your publicly-accessible deck URL to the clipboard.")
-          ])
+            _vm._v(
+              "Copies your publicly-accessible deck URL to the clipboard."
+            ),
+          ]),
         ]
       ),
       _vm._v(" "),
@@ -6960,14 +6765,14 @@ var render = function() {
         "a",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: { href: "" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               $event.preventDefault()
               return _vm.shareDeckViaText(_vm.shareDeck)
-            }
-          }
+            },
+          },
         },
         [
           _c(
@@ -6976,57 +6781,60 @@ var render = function() {
             [
               _c("icon", { attrs: { size: 14 } }, [
                 _c("path", {
-                  attrs: { d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" }
+                  attrs: { d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" },
                 }),
                 _vm._v(" "),
                 _c("path", {
                   attrs: {
-                    d:
-                      "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-                  }
-                })
-              ])
+                    d: "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z",
+                  },
+                }),
+              ]),
             ],
             1
           ),
           _vm._v(" "),
           _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-            _vm._v("Copy text")
+            _vm._v("Copy text"),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-base" }, [
-            _vm._v("Looking to share your deck build as text? Click here.")
-          ])
+            _vm._v("Looking to share your deck build as text? Click here."),
+          ]),
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "flow-root p-4 bg-white rounded-lg" }, [
-        _c(
-          "div",
-          { staticClass: "float-left mr-4" },
-          [
-            _c("icon", { attrs: { size: 14 } }, [
-              _c("path", { attrs: { d: "M4 4l12 6-12 6z" } })
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-          _vm._v("Table Top Simulator")
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]),
+      _c(
+        "div",
+        { staticClass: "flow-root p-4 bg-white dark:bg-gray-600 rounded-lg" },
+        [
+          _c(
+            "div",
+            { staticClass: "float-left mr-4" },
+            [
+              _c("icon", { attrs: { size: 14 } }, [
+                _c("path", { attrs: { d: "M4 4l12 6-12 6z" } }),
+              ]),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
+            _vm._v("Table Top Simulator"),
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
       _vm._v(" "),
       _c(
         "router-link",
         {
           staticClass:
-            "block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white",
+            "block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white",
           attrs: {
-            to: { name: "decks.export", params: { deck: _vm.deck.slug } }
-          }
+            to: { name: "decks.export", params: { deck: _vm.deck.slug } },
+          },
         },
         [
           _c(
@@ -7036,30 +6844,29 @@ var render = function() {
               _c("icon", { attrs: { size: 14 } }, [
                 _c("path", {
                   attrs: {
-                    d:
-                      "M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"
-                  }
-                })
-              ])
+                    d: "M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z",
+                  },
+                }),
+              ]),
             ],
             1
           ),
           _vm._v(" "),
           _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
-            _vm._v("Tournament Pack")
+            _vm._v("Tournament Pack"),
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-base" }, [
-            _vm._v("For tournaments and leagues. All-in-one ZIP file.")
-          ])
+            _vm._v("For tournaments and leagues. All-in-one ZIP file."),
+          ]),
         ]
-      )
+      ),
     ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -7072,16 +6879,15 @@ var staticRenderFns = [
         {
           staticClass: "link-alternate",
           attrs: {
-            href:
-              "https://steamcommunity.com/sharedfiles/filedetails/?id=2191845555",
-            target: "_blank"
-          }
+            href: "https://steamcommunity.com/sharedfiles/filedetails/?id=2191845555",
+            target: "_blank",
+          },
         },
         [_vm._v("OSC mod")]
       ),
-      _vm._v("\n            and import your deck directly :)")
+      _vm._v("\n            and import your deck directly :)"),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -7344,110 +7150,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroSelector_vue_vue_type_template_id_0a1e4544___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeroSelector_vue_vue_type_template_id_0a1e4544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/Components/LazyLoader.js":
-/*!***********************************************!*\
-  !*** ./resources/js/Components/LazyLoader.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (loadData) {
-  var loaderCallback = function loaderCallback() {};
-
-  var loadRoute = function loadRoute(to, from, next) {
-    loadData(to, function (callback) {
-      loaderCallback = callback;
-      next();
-    });
-  };
-
-  return {
-    beforeRouteEnter: loadRoute,
-    beforeRouteUpdate: loadRoute,
-    created: function created() {
-      loaderCallback.apply(this);
-    },
-    watch: {
-      '$route': function $route() {
-        loaderCallback.apply(this);
-      }
-    }
-  };
-});
-
-/***/ }),
-
-/***/ "./resources/js/Components/Paginator.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/Components/Paginator.vue ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Paginator.vue?vue&type=template&id=4d98dc54& */ "./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54&");
-/* harmony import */ var _Paginator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Paginator.vue?vue&type=script&lang=js& */ "./resources/js/Components/Paginator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Paginator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/Components/Paginator.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/Components/Paginator.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/Components/Paginator.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Paginator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Paginator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54& ***!
-  \******************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Paginator.vue?vue&type=template&id=4d98dc54& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Components/Paginator.vue?vue&type=template&id=4d98dc54&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paginator_vue_vue_type_template_id_4d98dc54___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -8361,7 +8063,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DeckSettings_vue_vue_type_template_id_6538b332___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckSettings.vue?vue&type=template&id=6538b332& */ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=template&id=6538b332&");
 /* harmony import */ var _DeckSettings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckSettings.vue?vue&type=script&lang=js& */ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeckSettings.vue?vue&type=style&index=0&lang=css& */ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& */ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -8403,19 +8105,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************/
+/***/ "./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DeckSettings.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/DeckSettings.vue?vue&type=style&index=0&id=6538b332&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckSettings_vue_vue_type_style_index_0_id_6538b332_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
@@ -9064,7 +8766,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckTotals.vue?vue&type=style&index=0&id=5a7b68df&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/DeckBuilder/Metrics/DeckTotals.vue?vue&type=style&index=0&id=5a7b68df&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckTotals_vue_vue_type_style_index_0_id_5a7b68df_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
 
 /***/ }),
 

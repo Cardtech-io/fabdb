@@ -1,28 +1,15 @@
 <template>
     <div>
-        <header-title title="Browse cards"></header-title>
+        <header-title title="Browse cards"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
-        <div class="crumbs font-serif uppercase">
-            <div class="container sm:mx-auto px-4 flex">
-                <ul class="flex space-x-4 md:space-x-8">
-                    <li class="border-b-4 border-white" v-for="set in sets" :class="isActive(set.id)">
-                        <a href="" class="block text-center py-4" @click.prevent="switchSet(set.id)">
-                            <span class="md:hidden">{{set.id ? set.id : 'All'}}</span>
-                            <span class="hidden md:inline">{{set.name}}</span>
-                        </a>
-                    </li>
-                </ul>
-                <collapser/>
-            </div>
-        </div>
-
-        <div class="bg-white pt-4 border-b-4 border-gray-300">
+        <div class="bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">
                 <card-search useCase="browse" @search-completed="refreshResults" :page="page" :refreshable="true" :external="{ per_page: per_page, order: order }"/>
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4">
                 <div v-if="firstLoad">
                     <ul class="flow-root -mx-2 pt-16">
@@ -62,13 +49,13 @@
     import _ from 'lodash';
 
     import CardItem from './CardItem.vue';
-    import CardLoader from "./CardLoader";
+    import CardLoader from "./CardLoader.vue";
     import CardSearch from './CardSearch.vue';
-    import Collapser from "../Components/Collapser";
+    import Collapser from "../Components/Collapser.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Ordering from "./Ordering";
+    import Ordering from "./Ordering.vue";
     import Paginator from '../Components/Paginator.vue';
-    import Query from "../Utilities/Query";
+    import Query from "../Utilities/Query.js";
 
     export default {
         components: {
@@ -85,18 +72,21 @@
 
         computed: {
             setDescription: function() {
-                return 'Browse the Flesh & Blood card list for the set, "' + this.sets[this.set] + '".';
+                return 'Browse the entire Flesh & Blood card catalogue at FaB DB.';
             }
         },
 
         data() {
             return {
+                crumbs: [
+                    { text: 'Home', link: '/' },
+                    { text: 'Cards' }
+                ],
                 firstLoad: true,
                 order: 'sku',
                 page: Number(this.$route.query.page) || 1,
                 per_page: 30,
                 results: {},
-                sets: this.filterSets(),
                 set: this.$route.query.set || '',
                 view: 'gallery'
             }
@@ -112,13 +102,6 @@
         },
 
         methods: {
-            isActive(set) {
-                return {
-                    'border-white': this.set === set,
-                    'border-crumbs': this.set !== set
-                }
-            },
-
             refreshResults(results) {
                 this.results = results;
                 this.firstLoad = false;
@@ -128,23 +111,8 @@
                 this.updateQuery({page: 1, order});
             },
 
-            filterSets() {
-                let sets = _.sortBy(_.filter(this.$settings.game.sets, setting => {
-                    return setting.browseable;
-                }), 'released');
-
-                sets.unshift({ id: '', name: 'All cards'});
-
-                return sets;
-            },
-
             updatePage(page) {
                 this.updateQuery({page});
-            },
-
-            switchSet(set) {
-                this.set = set;
-                this.updateQuery({page: 1, set});
             }
         }
     };

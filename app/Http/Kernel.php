@@ -1,6 +1,7 @@
 <?php
 namespace FabDB\Http;
 
+use FabDB\Http\Middleware\ApiAuthentication;
 use FabDB\Http\Middleware\LogRequests;
 use FabDB\Library\OomBootstrapper;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -22,7 +23,7 @@ class Kernel extends HttpKernel
         \FabDB\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \FabDB\Http\Middleware\TrimStrings::class,
-        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+//        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Fruitcake\Cors\HandleCors::class,
     ];
 
@@ -58,6 +59,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'api.auth' => ApiAuthentication::class,
         'auth' => \FabDB\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

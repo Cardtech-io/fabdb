@@ -3,19 +3,21 @@
         <header-title title="Browse decks"></header-title>
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-white py-4 border-b-4 border-gray-300">
+        <div class="bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">
                 <deck-search @search-completed="refreshResults"/>
             </div>
         </div>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4">
                 <div v-if="results && results.data" class="pb-8">
                     <div class="flow-root py-4">
                         <ul class="flow-root sm:-mx-4">
                             <div v-if="results.data.length" class="flex flex-wrap">
-                                <deck-item v-for="deck in results.data" :deck="deck" :key="deck.slug" theme="light"/>
+                                <div class="w-full md:w-1/3 lg:w-1/5 md:px-2" v-for="deck in results.data">
+                                    <deck-item :deck="deck" :key="deck.slug" theme="light"/>
+                                </div>
                             </div>
                             <div class="text-center py-8" v-else>
                                 There are no decks that match your search criteria.
@@ -43,9 +45,9 @@
     import DeckSearch from './DeckSearch.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
     import Paginator from '../Components/Paginator.vue';
-    import Models from "../Utilities/Models";
-    import Deck from "./Deck";
-    import SimplePaginator from "../Components/SimplePaginator";
+    import Models from "../Utilities/Models.js";
+    import Deck from "./Deck.js";
+    import SimplePaginator from "../Components/SimplePaginator.vue";
 
     export default {
         components: {

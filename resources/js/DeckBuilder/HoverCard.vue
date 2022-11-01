@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import CardImage from "../CardDatabase/CardImage";
+    import CardImage from "../CardDatabase/CardImage.vue";
 
     export default {
         components: { CardImage },

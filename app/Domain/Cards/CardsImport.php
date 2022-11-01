@@ -7,13 +7,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Maatwebsite\Excel\Concerns\Importable;
-use Maatwebsite\Excel\Concerns\ToCollection;
-use Maatwebsite\Excel\Concerns\WithBatchInserts;
-use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
-use Maatwebsite\Excel\Concerns\WithConditionalSheets;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class CardsImport
 {
@@ -35,24 +28,29 @@ class CardsImport
             if (!Arr::get($row, 'uid')) continue;
 
             if (strpos($row['uid'], 'XXX') === 0) {
-                $this->log("Tricky card, ignoring [{$row['uid']}]");
+                $this->log('warn', "Tricky card, ignoring [{$row['uid']}]");
                 continue;
             }
 
             $stats = $this->stats($row);
 
-            $this->identifier = Identifier::fromName($row['Card Name']);
+            $this->identifier = Identifier::fromLSS($row);
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
             if ($this->withImages) {
+                if (!$row['Product Image']) {
+                    $this->log('error', 'Image path missing.');
+                    continue;
+                }
+
                 $this->copyImage($row);
             }
 
             $sku = new Sku($row['uid']);
 
             if (!$this->printsOnly) {
-                $this->log("Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
-
+                $this->log('info', "Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
+                
                 $card = Card::register(
                     $this->identifier,
                     $row['Card Name'],
@@ -66,27 +64,27 @@ class CardsImport
                 );
             } else {
                 $card = Card::whereIdentifier($this->identifier)->first();
-
+                
                 if (!$card) {
-                    $this->log("Card not found for identifier [{$this->identifier->raw()}]");
+                    $this->log('error', "Card not found for identifier [{$this->identifier->raw()}]");
                     continue;
                 }
             }
-
-            $this->log("Registering print for sku [{$row['uid']}]");
-
+            
             $printing = Printing::where('sku', $sku)->first();
-
+            
             if ($printing && !$this->command->option('skip-existing')) {
+                $this->log('info', "Registering print for sku [{$row['uid']}]");
+
                 $this->createOrUpdatePrinting($card, $sku, $row);
 
-                $this->log("Updated print [$printing->id] for sku [{$row['uid']}]");
+                $this->log('info', "Updated print [$printing->id] for sku [{$row['uid']}]");
             }
 
             if (!$printing) {
                 $printing = $this->createOrUpdatePrinting($card, $sku, $row);
 
-                $this->log("Registered print [$printing->id] for sku [{$row['uid']}]");
+                $this->log('info', "Registered print [$printing->id] for sku [{$row['uid']}]");
             }
         }
     }
@@ -145,14 +143,14 @@ class CardsImport
         $path = $this->imagePath($row);
 
         if (!Storage::disk('do')->exists($path)) {
-            $this->log("Copying image for [{$row['uid']}] from [{$row['Product Image']}] to [$path]");
+            $this->log('info', "Copying image from [{$row['Product Image']}] to [$path]");
             try {
                 Storage::disk('do')->put($path, file_get_contents($row['Product Image']));
             } catch (ErrorException $e) {
                 $this->log("Error copying image for [{$row['uid']}] from [{$row['Product Image']}]: Missing file.");
             }
         } else {
-            $this->log("Image already exists for [{$row['uid']}] at [$path]");
+            $this->log('warn', "Image already exists at [$path]");
         }
     }
 
@@ -168,9 +166,9 @@ class CardsImport
         }, array_flip(self::AVAILABLE_SHEETS));
     }
 
-    private function log(string $message)
+    private function log(string $type, string $message)
     {
-        $this->command->info("[{$this->identifier->raw()}] {$message}");
+        $this->command->{$type}("[{$this->identifier->raw()}] {$message}");
     }
 
     /**

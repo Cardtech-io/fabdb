@@ -74,9 +74,9 @@
     import CardImage from '../CardDatabase/CardImage.vue';
     import Crumbs from '../Components/Crumbs.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import LazyLoader from '../Components/LazyLoader';
-    import Submit from "../Components/Form/Submit";
-    import Viewable from './Viewable';
+    import LazyLoader from '../Components/LazyLoader.js';
+    import Submit from "../Components/Form/Submit.vue";
+    import Viewable from './Viewable.js';
 
     export default {
         components: {

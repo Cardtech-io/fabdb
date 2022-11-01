@@ -31,6 +31,30 @@ export default class Cards {
         }));
     }
 
+    averageAttack() {
+        return (this.attackActions().reduce((total, card) => total + (card.stats.attack * card.total), 0) / this.attackActions().total()).toFixed(1);
+    }
+
+    averageBlock() {
+        return (this.withDefense().reduce((total, card) => total + card.stats.defense * card.total, 0) / this.withDefense().total()).toFixed(1);
+    }
+
+    attacksPerHand() {
+        return (this.attackActions().total() / (this.deck().total() / 4)).toFixed(1);
+    }
+
+    forClass() {
+        return this.filter(card => {
+            return card.class !== null && card.class !== 'generic';
+        });
+    }
+
+    forGeneric() {
+        return this.filter(card => {
+            return card.class === 'generic';
+        });
+    }
+
     isAction(card) {
         return card.keywords.includes('action') && !card.keywords.includes('attack');
     }
@@ -125,15 +149,27 @@ export default class Cards {
         });
 
         // Sort by pitch
-        return new Cards(_.sortBy(cards, card => { return card.stats.resource }));
+        return new Cards(_.sortBy(cards, card => card.stats ? card.stats.resource : 0 ));
+    }
+
+    deck() {
+        return this.other();
     }
 
     withCost() {
-        return this.other().filter(card => !isNaN(card.stats.cost));
+        return this.other().filter(card => card.stats && !isNaN(card.stats.cost));
     }
 
     withResource() {
-        return this.other().filter(card => !isNaN(card.stats.resource));
+        return this.other().filter(card => card.stats && !isNaN(card.stats.resource));
+    }
+
+    withDefense() {
+        return this.other().filter(card => card.stats && !isNaN(card.stats.defense));
+    }
+
+    withPower() {
+        return this.deck().filter(card => card.stats && !isNaN(card.stats.attack));
     }
 
     sort() {
@@ -187,6 +223,10 @@ export default class Cards {
         }, 0);
     }
 
+    deckTotal(format) {
+        return format === 'constructed' ? this.total() - 1 : this.total();
+    }
+
     count() {
         return this.cards.length;
     }
@@ -229,6 +269,8 @@ export default class Cards {
                 this.cards.splice(key, 1);
             }
         }
+
+        return this;
     }
 
     all() {

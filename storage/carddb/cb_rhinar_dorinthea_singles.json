@@ -46,7 +46,11 @@
     {
         "uid": "RVD007",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD003.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD007.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Chief Ruk'utan",
         "Finish": "Regular",
         "Class": "Brute",
@@ -68,7 +72,11 @@
     {
         "uid": "RVD003",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD004.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD003.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Bone Vizier",
         "Finish": "Rainbow Foil",
         "Class": "Brute",
@@ -90,7 +98,11 @@
     {
         "uid": "RVD004",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD005.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD004.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -112,7 +124,11 @@
     {
         "uid": "RVD005",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD006.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD005.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Ironhide Gauntlet",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -134,7 +150,11 @@
     {
         "uid": "RVD006",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD007.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD006.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Ironhide Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -640,7 +660,11 @@
     {
         "uid": "DVR007",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR003.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR007.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Hala Goldenhelm",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -662,7 +686,11 @@
     {
         "uid": "DVR003",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR004.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR003.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Ironrot Helm",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -684,7 +712,11 @@
     {
         "uid": "DVR004",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR005.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR004.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -706,7 +738,11 @@
     {
         "uid": "DVR005",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR006.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR005.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Gallantry Gold",
         "Finish": "Rainbow Foil",
         "Class": "Warrior",
@@ -728,7 +764,11 @@
     {
         "uid": "DVR006",
         "Brand": "Flesh and Blood",
+<<<<<<< HEAD
+        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR007.width-450.png",
+=======
         "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR006.width-450.png",
+>>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
         "Card Name": "Ironrot Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",

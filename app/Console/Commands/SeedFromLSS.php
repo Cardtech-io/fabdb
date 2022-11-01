@@ -43,7 +43,7 @@ class SeedFromLSS extends Command
     private function import(\Closure $callback)
     {
         $import = new CardsImport($this, $this->option('with-images'), $this->option('prints-only'));
-
+        
         $callback($import);
     }
 

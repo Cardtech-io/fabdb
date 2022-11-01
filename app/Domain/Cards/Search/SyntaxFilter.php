@@ -1,14 +1,16 @@
 <?php
 namespace FabDB\Domain\Cards\Search;
 
+use FabDB\Domain\Cards\Search\Params\Params;
 use FabDB\Library\Search\SearchFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class SyntaxFilter implements SearchFilter
 {
-    private $operators = ['=', '>', '<'];
+    use Identifiable;
 
     public function applies(array $input)
     {
@@ -24,76 +26,42 @@ class SyntaxFilter implements SearchFilter
         }
     }
 
-    /**
-     * Determines whether or not a user is using programmatic keywords (scryfall-like).
-     *
-     * @param string $keywords
-     * @return bool
-     */
-    private function isProgrammatic(string $keywords): bool
-    {
-        return Str::contains($keywords, $this->operators);
-    }
-
     private function filter(string $keywords): array
     {
-        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', str_replace(',', '', $keywords));
+        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
 
         return array_filter($keywords, function($keyword) {
-            return Str::contains($keyword, $this->operators);
+            return Str::contains($keyword, $this->operators) || Str::startsWith($keyword, '!');
         });
     }
 
-    private function apply(Builder $query, string $terms)
+    private function apply(Builder $query, string $term)
     {
-        $match = preg_match('/<=|>=/', $terms, $operator);
+        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9]+))?/i', $term, $parts);
 
-        if (!$match) {
-            preg_match('/[\=\<\>]/', $terms, $operator);
-        }
+        if (!$match) return;
 
-        list($filter, $value) =  explode($operator[0], $terms);
+        $invert = $parts[1];
+        $clause = strtolower($parts[2]);
 
-        $values = array_filter(preg_split('/\s*/', str_replace('"', '', $value)));
-        $value = array_pop($values);
+        // The following 2 values may be omitted completely if they're looking for a simple inversion, such as !cost  (all cards with no cost value)
+        $operator = Arr::get($parts, 4);
+        $value = Arr::get($parts, 5);
 
-        if (is_null($filter) || is_null($value)) {
+        if (empty($clause)) {
             return;
         }
 
-        switch (strtolower($filter)) {
-            case 'a':
-            case 'attack':
-            case 'power':
-                $query->where("stats->attack", $operator[0], DB::raw($value[0]));
-                break;
-            // class
-            case 'c':
-            case 'class':
-                $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$value[0]') IS NOT NULL");
-                break;
-            case 'd':
-            case 'defense':
-                $query->where("stats->defense", $operator[0], $value[0]);
-                break;
-            // Card type
-            case 't':
-            case 'type':
-                foreach ($value as $part) {
-                    $query->whereRaw("JSON_SEARCH(cards.keywords, 'one', '$part') IS NOT NULL");
-                }
-                break;
-            case 'r':
-            case 'rarity':
-                $query->where('cards.rarity', $value[0]);
-                break;
-            case 'p':
-            case 'pitch':
-                $query->where("stats->resource", $operator[0], $value[0]);
-                break;
-            case 'co':
-            case 'cost':
-                $query->where("stats->cost", $operator[0], $value[0]);
+        // Param objects will handle the query modification themselves
+        foreach ($this->params() as $param) {
+            if ($param->handles($clause)) {
+                $param->applyTo($query, $operator, $value, $invert);
+            }
         }
+    }
+
+    private function params(): Collection
+    {
+        return new Params;
     }
 }

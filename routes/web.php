@@ -11,6 +11,8 @@
 |
 */
 
+use FabDB\Domain\Cards\CardRepository;
+use FabDB\Http\Middleware\GameStats;
 use Illuminate\Http\Request;
 
 Route::get('sitemap', 'SitemapController@view');
@@ -31,6 +33,7 @@ Route::middleware(['web'])->group(function() {
         Route::get('cards', 'CardController@list');
         Route::get('cards/fabled', 'CardController@fabled');
         Route::get('cards/heroes', 'CardController@heroes');
+        Route::get('cards/syntax', 'CardController@syntax');
         Route::get('cards/build', 'CardController@build');
         Route::get('cards/ads/{identifier}', 'CardController@ad');
         Route::get('cards/for-packs', 'CardController@forPacks');
@@ -51,6 +54,7 @@ Route::middleware(['web'])->group(function() {
         Route::post('auth/check-email', 'AuthController@checkEmail');
         Route::post('auth/validate', 'AuthController@validateCode');
         Route::post('auth/register', 'AuthController@register');
+        Route::post('auth/api-key', 'AuthController@generateApiKey');
         Route::post('auth/password', 'AuthController@validatePassword');
         Route::delete('auth/session', 'AuthController@logout');
 
@@ -90,6 +94,7 @@ Route::middleware(['web'])->group(function() {
             Route::post('decks/copy', 'DeckController@copy');
             Route::post('decks/{deck}', 'DeckController@addCard');
             Route::put('decks/{deck}/settings', 'DeckController@saveSettings');
+            Route::post('decks/{deck}/version', 'DeckController@newVersion');
             Route::post('decks/{deck}/sideboard', 'DeckController@addToSideboard');
             Route::delete('decks/{deck}/sideboard/{card}', 'DeckController@removeFromSideboard');
             Route::put('decks/{deck}/{card}', 'DeckController@setCardTotal');
@@ -114,6 +119,14 @@ Route::middleware(['web'])->group(function() {
         Route::get('decks/featured', 'DeckController@featured');
         Route::get('decks/latest', 'DeckController@latest');
         Route::get('decks/{deck}', 'DeckController@view');
+
+        Route::middleware([GameStats::class])->group(function() {
+            Route::get('games/overall-win-rate', 'GameController@overallWinRate');
+            Route::get('games/class-win-rate', 'GameController@classWinRate');
+            Route::get('games/hero-win-rate', 'GameController@heroWinRate');
+            Route::get('games/win-rate', 'GameController@winRate');
+            Route::get('games/card-stats', 'GameController@cardStats');
+        });
     });
 
     Route::get('decks/embed/{deck}', function() {
@@ -123,7 +136,7 @@ Route::middleware(['web'])->group(function() {
     })->name('decks.embed');
 
     // This is our 404 route. We only want to support routes that actually have a client-facing path.
-    Route::fallback(function(Request $request) {
+    Route::fallback(function(Request $request, CardRepository $cards) {
         function pathMatches(string $path) {
             foreach (config('spa.client') as $pattern) {
                 $pattern = str_replace('/', '\/', $pattern);
@@ -138,6 +151,13 @@ Route::middleware(['web'])->group(function() {
 
         if (!$request->wantsJson() && pathMatches($request->path())) {
             return response()->view('layout');
+        }
+
+        // next, we look to see if we can find a card that matches the query
+        $cards = $cards->findAny($request->path());
+
+        if ($cards->count()) {
+            return redirect('cards/'.$cards[0]->identifier->raw());
         }
 
         abort(404);

@@ -1,5 +1,3 @@
-import Carding from '../Carding';
-
 let matches = [];
 let lastAlignment = 'left';
 let alignmentClasses = {

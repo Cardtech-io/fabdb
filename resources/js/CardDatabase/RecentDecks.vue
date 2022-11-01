@@ -1,7 +1,7 @@
 <template>
     <div class="mb-4">
         <h2 class="text-lg uppercase font-serif mb-4">Latest decks including {{card.name}}</h2>
-        <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-gray-100 pr-4 mb-2 rounded-full" :key="deck.slug">
+        <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-gray-100 pr-4 mb-2 rounded-full overflow-hidden" :key="deck.slug">
             <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"></hero-avatar>
             <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"></hero-avatar>
             <div class="ml-2">
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-    import Deck from "../Decks/Deck";
-    import DeckLabel from "../Decks/Viewing/DeckLabel";
-    import FormatLabel from "../Decks/Viewing/FormatLabel";
-    import HeroAvatar from "../Components/HeroAvatar";
-    import Models from "../Utilities/Models";
+    import Deck from "../Decks/Deck.js";
+    import DeckLabel from "../Decks/Viewing/DeckLabel.vue";
+    import FormatLabel from "../Decks/Viewing/FormatLabel.vue";
+    import HeroAvatar from "../Components/HeroAvatar.vue";
+    import Models from "../Utilities/Models.js";
 
     export default {
         props: {

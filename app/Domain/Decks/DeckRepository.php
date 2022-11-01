@@ -24,7 +24,7 @@ interface DeckRepository extends Repository
 
     public function latest(array $params);
 
-    public function copy(string $deckSlug, int $userId): Deck;
+    public function copy(Deck $deck, int $userId, bool $bumpVersion = false): Deck;
 
     public function starters(): Collection;
 

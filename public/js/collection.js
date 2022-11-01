@@ -138,9 +138,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Paginator_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Paginator.vue */ "./resources/js/Components/Paginator.vue");
 /* harmony import */ var _Printing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Printing */ "./resources/js/Collection/Printing.vue");
 /* harmony import */ var _Components_Sorter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Components/Sorter */ "./resources/js/Components/Sorter.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -529,7 +529,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -538,7 +538,7 @@ var render = function() {
     {
       staticClass:
         "py-2 w-1/3 rounded sm:hover:bg-secondary active:bg-primary sm:hover:text-white",
-      on: { click: _vm.add }
+      on: { click: _vm.add },
     },
     [_vm._v("+")]
   )
@@ -561,7 +561,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -571,7 +571,7 @@ var render = function() {
     [
       _c("remove", {
         attrs: { sku: _vm.printing.sku.sku, count: _vm.total },
-        on: { "card-removed": _vm.decrement }
+        on: { "card-removed": _vm.decrement },
       }),
       _vm._v(" "),
       _c("div", { staticClass: "w-1/3" }, [
@@ -581,28 +581,28 @@ var render = function() {
               name: "model",
               rawName: "v-model",
               value: _vm.total,
-              expression: "total"
-            }
+              expression: "total",
+            },
           ],
           staticClass:
-            "w-full bg-white text-center outline-none focus:bg-white p-2",
+            "w-full bg-white dark:bg-gray-900 text-center outline-none focus:bg-white p-2",
           attrs: { type: "text", tabindex: _vm.index },
           domProps: { value: _vm.total },
           on: {
-            input: function($event) {
+            input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.total = $event.target.value
-            }
-          }
-        })
+            },
+          },
+        }),
       ]),
       _vm._v(" "),
       _c("add", {
         attrs: { sku: _vm.printing.sku.sku, count: _vm.total },
-        on: { "card-added": _vm.increment }
-      })
+        on: { "card-added": _vm.increment },
+      }),
     ],
     1
   )
@@ -625,7 +625,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -646,10 +646,10 @@ var render = function() {
                   staticClass: "p-2 px-4 rounded-t-lg mr-1",
                   class: _vm.tabClasses("all"),
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.filter("all")
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("All")]
               ),
@@ -660,10 +660,10 @@ var render = function() {
                   staticClass: "p-2 px-4 rounded-t-lg mr-1",
                   class: _vm.tabClasses("have"),
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.filter("have")
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("Have")]
               ),
@@ -674,13 +674,13 @@ var render = function() {
                   staticClass: "p-2 px-4 rounded-t-lg mr-1",
                   class: _vm.tabClasses("need"),
                   on: {
-                    click: function($event) {
+                    click: function ($event) {
                       return _vm.filter("need")
-                    }
-                  }
+                    },
+                  },
                 },
                 [_vm._v("Need")]
-              )
+              ),
             ]),
             _vm._v(" "),
             _c(
@@ -694,13 +694,13 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "user.profile.wants",
-                        params: { user: _vm.user.slug }
-                      }
-                    }
+                        params: { user: _vm.user.slug },
+                      },
+                    },
                   },
                   [
                     _c("span", { staticClass: "hidden sm:inline" }, [
-                      _vm._v("My want/trade list")
+                      _vm._v("My want/trade list"),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -708,47 +708,53 @@ var render = function() {
                       { staticClass: "sm:hidden -mt-1", attrs: { size: 8 } },
                       [
                         _c("path", {
-                          attrs: { d: "M10 12a2 2 0 100-4 2 2 0 000 4z" }
+                          attrs: { d: "M10 12a2 2 0 100-4 2 2 0 000 4z" },
                         }),
                         _vm._v(" "),
                         _c("path", {
                           attrs: {
                             "fill-rule": "evenodd",
-                            d:
-                              "M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z",
-                            "clip-rule": "evenodd"
-                          }
-                        })
+                            d: "M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z",
+                            "clip-rule": "evenodd",
+                          },
+                        }),
                       ]
-                    )
+                    ),
                   ],
                   1
-                )
+                ),
               ],
               1
-            )
+            ),
           ]
-        )
+        ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-white pt-4 border-b-4 border-gray-300" }, [
-        _c(
-          "div",
-          { staticClass: "container sm:mx-auto sm:px-4" },
-          [
-            _c("card-search", {
-              attrs: {
-                "use-case": "collection",
-                external: Object.assign({}, { per_page: 15 }, _vm.search)
-              },
-              on: { "search-completed": _vm.refreshResults }
-            })
-          ],
-          1
-        )
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-white dark:bg-gray-800 pt-4 border-b-4 border-gray-300 dark:border-gray-600",
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container sm:mx-auto sm:px-4" },
+            [
+              _c("card-search", {
+                attrs: {
+                  "use-case": "collection",
+                  external: Object.assign({}, { per_page: 15 }, _vm.search),
+                },
+                on: { "search-completed": _vm.refreshResults },
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200 pb-8 text-sm sm:text-base" }, [
+      _c("div", { staticClass: "main-body pb-8 text-sm sm:text-base" }, [
         _c("div", { staticClass: "container sm:mx-auto" }, [
           _vm.results && _vm.results.data
             ? _c("div", { staticClass: "sm:px-4" }, [
@@ -758,8 +764,8 @@ var render = function() {
                   [
                     _c("paginator", {
                       attrs: { results: _vm.results },
-                      on: { "page-selected": _vm.updatePage }
-                    })
+                      on: { "page-selected": _vm.updatePage },
+                    }),
                   ],
                   1
                 ),
@@ -768,7 +774,7 @@ var render = function() {
                   "table",
                   {
                     staticClass:
-                      "w-full bg-white space-x-4 p-1 border-b-2 border-gray-300"
+                      "w-full bg-white dark:bg-gray-800 space-x-4 p-1 border-b-2 border-gray-300 dark:border-gray-600",
                   },
                   [
                     _c("thead", [
@@ -786,8 +792,8 @@ var render = function() {
                                   text: "Name",
                                   order: _vm.search.order,
                                   direction: _vm.search.direction,
-                                  clicked: _vm.sort
-                                }
+                                  clicked: _vm.sort,
+                                },
                               }),
                               _vm._v(" "),
                               _c("span", [_vm._v("\\")]),
@@ -798,12 +804,12 @@ var render = function() {
                                   text: "Sku",
                                   order: _vm.search.order,
                                   direction: _vm.search.direction,
-                                  clicked: _vm.sort
-                                }
-                              })
+                                  clicked: _vm.sort,
+                                },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]),
                         _vm._v(" "),
                         _c(
@@ -823,9 +829,9 @@ var render = function() {
                                 text: "Rarity",
                                 order: _vm.search.order,
                                 direction: _vm.search.direction,
-                                clicked: _vm.sort
-                              }
-                            })
+                                clicked: _vm.sort,
+                              },
+                            }),
                           ],
                           1
                         ),
@@ -846,20 +852,20 @@ var render = function() {
                           "td",
                           { staticClass: "w-1/10 md:w-1/20 text-center" },
                           [_vm._v("Want")]
-                        )
-                      ])
+                        ),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.results.data, function(printing) {
+                      _vm._l(_vm.results.data, function (printing) {
                         return _c("printing", {
                           key: printing.sku.sku,
-                          attrs: { printing: printing }
+                          attrs: { printing: printing },
                         })
                       }),
                       1
-                    )
+                    ),
                   ]
                 ),
                 _vm._v(" "),
@@ -869,26 +875,26 @@ var render = function() {
                   [
                     _c("paginator", {
                       attrs: { results: _vm.results },
-                      on: { "page-selected": _vm.updatePage }
-                    })
+                      on: { "page-selected": _vm.updatePage },
+                    }),
                   ],
                   1
-                )
+                ),
               ])
-            : _vm._e()
-        ])
-      ])
+            : _vm._e(),
+        ]),
+      ]),
     ],
     1
   )
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", {}, [_c("div", { staticStyle: { width: "50px" } })])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -907,7 +913,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -915,7 +921,7 @@ var render = function() {
     "tr",
     {
       staticClass:
-        "odd:bg-gray-100 hover:bg-gray-300 group hover:font-bold items-center p-1"
+        "odd:bg-gray-100 hover:bg-gray-300 dark:odd:bg-gray-700 group dark:hover:bg-gray-600 hover:font-bold items-center p-1",
     },
     [
       _c("td", { attrs: { width: "50" } }, [
@@ -925,12 +931,12 @@ var render = function() {
               name: "preview-card",
               rawName: "v-preview-card",
               value: { stack: [_vm.printing.card], index: 0 },
-              expression: "{stack: [printing.card], index: 0}"
-            }
+              expression: "{stack: [printing.card], index: 0}",
+            },
           ],
           staticClass: "rounded-card cursor-help",
-          attrs: { src: _vm.cardImageFromSku(_vm.printing.sku.sku, 50) }
-        })
+          attrs: { src: _vm.cardImageFromSku(_vm.printing.sku.sku, 50) },
+        }),
       ]),
       _vm._v(" "),
       _c(
@@ -949,19 +955,19 @@ var render = function() {
                       name: "preview-card",
                       rawName: "v-preview-card",
                       value: { stack: [_vm.printing.card], index: 0 },
-                      expression: "{stack: [printing.card], index: 0}"
-                    }
+                      expression: "{stack: [printing.card], index: 0}",
+                    },
                   ],
-                  staticClass: "font-bold cursor-help help-underline"
+                  staticClass: "font-bold cursor-help help-underline",
                 },
                 [_vm._v(_vm._s(_vm.printing.card.name))]
               ),
               _vm._v(" "),
               _vm.printing.card.stats.resource
                 ? _c("colour", {
-                    attrs: { resource: _vm.printing.card.stats.resource }
+                    attrs: { resource: _vm.printing.card.stats.resource },
                   })
-                : _vm._e()
+                : _vm._e(),
             ],
             1
           ),
@@ -971,13 +977,13 @@ var render = function() {
             "\n        " +
               _vm._s(_vm.englishFinish(_vm.printing.sku.finish)) +
               "\n    "
-          )
+          ),
         ],
         1
       ),
       _vm._v(" "),
       _c("td", { staticClass: "hidden md:table-cell w-1/10" }, [
-        _vm._v(_vm._s(_vm.printing.sku.set.name))
+        _vm._v(_vm._s(_vm.printing.sku.set.name)),
       ]),
       _vm._v(" "),
       _c(
@@ -1001,8 +1007,8 @@ var render = function() {
               name: "model",
               rawName: "v-model",
               value: _vm.printing.trade,
-              expression: "printing.trade"
-            }
+              expression: "printing.trade",
+            },
           ],
           staticClass:
             "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
@@ -1010,13 +1016,13 @@ var render = function() {
           domProps: {
             checked: Array.isArray(_vm.printing.trade)
               ? _vm._i(_vm.printing.trade, null) > -1
-              : _vm.printing.trade
+              : _vm.printing.trade,
           },
           on: {
-            click: function($event) {
+            click: function ($event) {
               return _vm.toggle(_vm.printing, "trade")
             },
-            change: function($event) {
+            change: function ($event) {
               var $$a = _vm.printing.trade,
                 $$el = $event.target,
                 $$c = $$el.checked ? true : false
@@ -1036,9 +1042,9 @@ var render = function() {
               } else {
                 _vm.$set(_vm.printing, "trade", $$c)
               }
-            }
-          }
-        })
+            },
+          },
+        }),
       ]),
       _vm._v(" "),
       _c("td", { staticClass: "w-1/10 md:w-1/20 text-center" }, [
@@ -1048,8 +1054,8 @@ var render = function() {
               name: "model",
               rawName: "v-model",
               value: _vm.printing.want,
-              expression: "printing.want"
-            }
+              expression: "printing.want",
+            },
           ],
           staticClass:
             "form-checkbox h-5 w-5 text-green-500 focus:outline-none",
@@ -1057,13 +1063,13 @@ var render = function() {
           domProps: {
             checked: Array.isArray(_vm.printing.want)
               ? _vm._i(_vm.printing.want, null) > -1
-              : _vm.printing.want
+              : _vm.printing.want,
           },
           on: {
-            click: function($event) {
+            click: function ($event) {
               return _vm.toggle(_vm.printing, "want")
             },
-            change: function($event) {
+            change: function ($event) {
               var $$a = _vm.printing.want,
                 $$el = $event.target,
                 $$c = $$el.checked ? true : false
@@ -1083,10 +1089,10 @@ var render = function() {
               } else {
                 _vm.$set(_vm.printing, "want", $$c)
               }
-            }
-          }
-        })
-      ])
+            },
+          },
+        }),
+      ]),
     ]
   )
 }
@@ -1108,7 +1114,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1119,10 +1125,10 @@ var render = function() {
       class: {
         "sm:hover:bg-secondary active:bg-primary sm:hover:text-white":
           _vm.count > 0,
-        "text-gray-400": _vm.count === 0
+        "text-gray-400": _vm.count === 0,
       },
       attrs: { disabled: _vm.disabled },
-      on: { click: _vm.remove }
+      on: { click: _vm.remove },
     },
     [_vm._v("-")]
   )
@@ -1145,7 +1151,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1159,11 +1165,11 @@ var render = function() {
           staticClass: "link-alternate flex-0",
           attrs: { href: "" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               $event.preventDefault()
               return _vm.handler.apply(null, arguments)
-            }
-          }
+            },
+          },
         },
         [_vm._v(_vm._s(_vm.text))]
       ),
@@ -1172,10 +1178,9 @@ var render = function() {
         ? _c("icon", { staticClass: "flex-0", attrs: { size: 5 } }, [
             _c("path", {
               attrs: {
-                d:
-                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              }
-            })
+                d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+              },
+            }),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -1183,12 +1188,11 @@ var render = function() {
         ? _c("icon", { staticClass: "flex-0", attrs: { size: 5 } }, [
             _c("path", {
               attrs: {
-                d:
-                  "M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z"
-              }
-            })
+                d: "M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z",
+              },
+            }),
           ])
-        : _vm._e()
+        : _vm._e(),
     ],
     1
   )
@@ -1211,14 +1215,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.resource
     ? _c("div", {
         staticClass: "inline-block rounded-lg h-2 w-2",
-        class: _vm.resourceColour(_vm.resource)
+        class: _vm.resourceColour(_vm.resource),
       })
     : _c("div", { staticClass: "inline-block h-2 w-2" })
 }

@@ -1,6 +1,6 @@
 <template>
     <section class="rounded-lg overflow-hidden" v-if="decks">
-        <header class="flex items-center py-2 px-4  text-white" :class="color">
+        <header class="flex items-center py-2 px-4 text-white" :class="color">
             <h2 class="font-serif text-xl uppercase">{{title}}</h2>
             <router-link :to="{name: 'decks.browse', query: queryParams()}" class="block flex items-center ml-auto rounded py-1 px-2 text-base" :class="buttonColors()">
                 See more
@@ -9,12 +9,12 @@
                 </icon>
             </router-link>
         </header>
-        <div class="bg-gray-200 rounded-b-lg">
-            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white px-4 py-2" :key="deck.slug">
+        <div class="bg-gray-200 dark:bg-gray-900 rounded-b-lg">
+            <router-link :to="{name: 'decks.view', params: {deck: deck.slug}}" v-for="deck in decks" class="flex items-center hover:bg-white dark:hover:bg-gray-700 px-4 py-2" :key="deck.slug">
                 <hero-avatar :hero="deck.hero" width="90" class="hidden sm:block"/>
                 <hero-avatar :hero="deck.hero" width="80" class="sm:hidden"/>
                 <div class="ml-2">
-                    <h3 class="font-serif text-lg uppercase">{{deck.name}}</h3>
+                    <h3 class="font-serif text-lg uppercase h-8 overflow-hidden">{{deck.name}}</h3>
                     <p class="text-base">by {{deck.authorName}}</p>
                     <deck-label :label="deck.label" class="mr-1 text-xs px-2 sm:py-1 rounded-full"/>
                     <format-label :format="deck.format" class="mr-2 text-xs px-2 sm:py-1 rounded-full"/>
@@ -30,11 +30,11 @@
 
 <script>
     import axios from "axios";
-    import DeckLabel from "../Viewing/DeckLabel";
-    import FormatLabel from "../Viewing/FormatLabel";
-    import HeroAvatar from "../../Components/HeroAvatar";
+    import DeckLabel from "../Viewing/DeckLabel.vue";
+    import FormatLabel from "../Viewing/FormatLabel.vue";
+    import HeroAvatar from "../../Components/HeroAvatar.vue";
     import Models from "../../Utilities/Models";
-    import Deck from "../Deck";
+    import Deck from "../Deck.js";
 
     export default {
         props: {

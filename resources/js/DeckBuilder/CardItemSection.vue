@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import CardItem from "./CardItem";
+    import CardItem from "./CardItem.vue";
 
     export default {
         props: ['cards', 'card', 'title'],

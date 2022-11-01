@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import Avatar from "../Identity/Avatar";
+    import Avatar from "../Identity/Avatar.vue";
     import Badge from '../Identity/Badge.vue';
     import Votes from '../Voting/Votes.vue';
 

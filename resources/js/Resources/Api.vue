@@ -1,13 +1,14 @@
 <template>
     <div>
-        <header-title title="API Documentation"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="API Documentation"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4 py-8 flex">
                 <div class="w-1/4">
                     <ul class="mr-4">
                         <li class="mb-2"><h2 class="text-xl font-serif uppercase">Getting started</h2></li>
+                        <li class="mb-1"><a href="#authentication" class="block p-2 px-4 button-secondary">Authentication</a></li>
                         <li class="mb-1"><a href="#requests" class="block p-2 px-4 button-secondary">Requests</a></li>
                         <li class="mb-1"><a href="#formats" class="block p-2 px-4 button-secondary">Formats</a></li>
                         <li class="mb-1"><a href="#throttling" class="block p-2 px-4 button-secondary">Throttling</a></li>
@@ -17,7 +18,7 @@
                     </ul>
                 </div>
                 <div class="w-3/4">
-                    <div class="bg-white p-4">
+                    <div class="bg-white dark:bg-gray-800 p-4">
                         <h2 class="font-serif uppercase text-2xl">Getting started</h2>
                         <p class="my-4">
                             The FaB DB API provides a public interface for access to card and deck information entered into
@@ -31,13 +32,55 @@
                             have documented.
                         </p>
 
+                        <a name="authentication"></a>
+                        <h3 class="font-serif uppercase text-xl">Authentication</h3>
+                        <p class="my-4">
+                            In order to authenticate with the FaB DB API, you must have an API key. Your key consists of
+                            a public API token and an associated API secret. The token is provided alongside all requests
+                            you make to FaB DB's API. The secret, as its name suggests, is a secret token that you store
+                            on your server and is used to sign all requests. You can generate your API key, and its
+                            associated token and secret on this very page.
+                        </p>
+
+                        <api-token/>
+
+                        <p class="my-4">
+                            To authenticate, all requests must contain a header called "Authorization", ie:
+                        </p>
+
+                        <vue-code-highlight language="text" class="text-base">
+<pre>
+    Authorization: Bearer YOURTOKENHERE
+</pre>
+                        </vue-code-highlight>
+
+                        <p class="my-4">
+                            Each request must also be signed using your secret token. To do this, include one parameter in your query string/post data: time. Time must be a unix timestamp.
+                        </p>
+                        <p class="my-4">
+                            Once that is done, you must hash the query string using the sha512 algorithm, using your
+                            secret token as a prefix, wo it would look like this: THISISYOURSECRET1662853301
+                            which will result in the following:
+                        </p>
+
+                        <vue-code-highlight language="text" class="text-base">
+<pre>
+    https://api.fabdb.net/cards?time=1662853301&hash=c5392d43c8f45e6e961ddf66dcfa36770a9964ad9e8feedd3e903d5d905821ae97e7de5578b09eb1bec008ef4731b457c525dc8d24b32ccfb086230c00e590b3
+</pre>
+                        </vue-code-highlight>
+
+                        <p class="my-4">
+                            On the FaB DB side, we then deconstruct this request, ensure that the hash matches the
+                            provided token and then either allow or deny the request.
+                        </p>
+                        <p class="my-4">
+                            <span class="italic">Note: your secret is securely stored and encrypted on the FaB DB servers.</span>
+                        </p>
+
                         <a name="requests"></a>
                         <h3 class="font-serif uppercase text-xl">Requests</h3>
                         <p class="my-4">
                             All requests made to the API must be made securely (https) to: {{ domain }}.
-                        </p>
-                        <p class="my-4">
-                            No authentication is required.
                         </p>
 
                         <a name="formats"></a>
@@ -47,7 +90,7 @@
                             The default response is JSON, with both XML and CSV available when you set the accepted content
                             type as part of your requests headers, eg:
                         </p>
-                        <p class="my-4 font-mono bg-gray-300 p-4">
+                        <p class="my-4 font-mono bg-gray-300 dark:bg-gray-900 p-4">
                             Accept: application/json<br>
                             Accept: application/xml<br>
                             Accept: text/csv
@@ -80,7 +123,7 @@
                         <h4 class="font-bold text-lg">Card search</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="json" class="text-base">
+                        <vue-code-highlight language="json" class="text-base dark:bg-gray-900 overflow-hidden">
 
 <pre>
 {
@@ -104,7 +147,7 @@
 }</pre>
                         </vue-code-highlight>
                         <table class="my-4 w-full border-collapse border border-gray-500 text-base">
-                            <thead class="font-bold bg-gray-100">
+                            <thead class="font-bold bg-gray-100 dark:bg-gray-900">
                                 <th class="text-left p-2 border border-gray-400">Parameter</th>
                                 <th class="text-left p-2 border border-gray-400">Description</th>
                                 <th class="text-left p-2 border border-gray-400">Options</th>
@@ -162,7 +205,7 @@
                         <h4 class="font-bold text-lg">View card</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /cards/ARC000</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="javascript" class="text-base dark:bg-gray-900 overflow-hidden">
                             <pre>
 {
     "identifier":"ARC000",
@@ -184,7 +227,7 @@
                         <h4 class="font-bold text-lg">View deck</h4>
                         <p class="my-4 font-mono border border-gray-300 p-4">GET /decks/{slug}</p>
                         <p class="my-4">Example response:</p>
-                        <vue-code-highlight language="javascript" class="text-base">
+                        <vue-code-highlight language="javascript" class="text-base dark:bg-gray-900 overflow-hidden">
                             <pre>
 {
     "slug": "NmzrmMWV",
@@ -223,13 +266,13 @@
 </template>
 
 <script>
-    import { component as VueCodeHighlight } from 'vue-code-highlight';
-
-    import Breadcrumbs from "../Components/Breadcrumbs";
-    import HeaderTitle from "../Components/HeaderTitle";
+    import {component as VueCodeHighlight} from 'vue-code-highlight';
+    import ApiToken from "../Auth/ApiToken.vue";
+    import Breadcrumbs from "../Components/Breadcrumbs.vue";
+    import HeaderTitle from "../Components/HeaderTitle.vue";
 
     export default {
-        components: { Breadcrumbs, HeaderTitle, VueCodeHighlight },
+        components: {ApiToken, Breadcrumbs, HeaderTitle, VueCodeHighlight},
 
         computed: {
             domain() {
@@ -248,6 +291,3 @@
     };
 </script>
 
-<style lang="scss">
-    @import '~vue-code-highlight/themes/prism-coy.css';
-</style>

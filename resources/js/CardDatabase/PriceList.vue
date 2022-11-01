@@ -65,11 +65,11 @@
 
     import CurrencySelector from '../Components/CurrencySelector.vue';
     import HeaderTitle from '../Components/HeaderTitle.vue';
-    import Icon from "../Components/Icon";
+    import Icon from "../Components/Icon.vue";
     import Paginator from '../Components/Paginator.vue';
     import PriceListItem from './PriceListItem.vue';
     import SearchTips from './SearchTips.vue';
-    import Sorter from "../Components/Sorter";
+    import Sorter from "../Components/Sorter.vue";
     import _ from "lodash";
 
     export default {

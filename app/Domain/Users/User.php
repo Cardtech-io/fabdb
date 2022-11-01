@@ -8,6 +8,8 @@ use FabDB\Library\Sluggable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class User extends Model implements Authenticatable
@@ -40,6 +42,7 @@ class User extends Model implements Authenticatable
         'id',
         'email',
         'password',
+        'api_secret',
         'created_at',
         'updated_at',
         'token'
@@ -170,5 +173,21 @@ class User extends Model implements Authenticatable
     public function patron(): bool
     {
         return in_array($this->subscription, ['supporter', 'majestic', 'legendary', 'fabled']);
+    }
+
+    public function setApiKey(string $token, string $secret)
+    {
+        $this->apiToken = $token;
+        $this->apiSecret = $secret;
+    }
+
+    public function setApiSecretAttribute(string $secret)
+    {
+        $this->attributes['api_secret'] = Crypt::encryptString($secret);
+    }
+
+    public function getApiSecretAttribute(string $secret)
+    {
+        return Crypt::decryptString($secret);
     }
 }

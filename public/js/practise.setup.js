@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -98,24 +98,27 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
           { staticClass: "w-auto flex justify-center items-start py-8" },
-          _vm._l(_vm.sets(), function(set) {
+          _vm._l(_vm.sets(), function (set) {
             return _c(
               "div",
-              { staticClass: "booster mx-4 hover:bg-white p-4 rounded-lg" },
+              {
+                staticClass:
+                  "booster mx-4 hover:bg-white dark:hover:bg-gray-700 p-4 rounded-lg",
+              },
               [
                 _c(
                   "button",
                   {
                     staticClass: "block link-alternate",
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.setup(set.id)
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("img", {
@@ -125,17 +128,17 @@ var render = function() {
                           180
                         ),
                         alt: set.name,
-                        title: set.name
-                      }
-                    })
+                        title: set.name,
+                      },
+                    }),
                   ]
-                )
+                ),
               ]
             )
           }),
           0
-        )
-      ])
+        ),
+      ]),
     ],
     1
   )

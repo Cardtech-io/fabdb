@@ -4,15 +4,20 @@
             <form @submit.prevent="saveDeckSettings" class="block">
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Name</label>
-                    <input type="text" v-model="deck.name" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" maxlength="25" required>
+                    <input type="text" v-model="deck.name" class="input py-3 px-4 rounded-lg" maxlength="25" required>
                 </div>
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Label</label>
-                    <select type="text" v-model="deck.label" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select type="text" v-model="deck.label" class="input py-3 px-4 rounded-lg">
                         <option value="">None</option>
                         <option v-for="(name, label) in $settings.game.decks.labels" :value="label">{{name}}</option>
                     </select>
+                </div>
+
+                <div class="w-full mb-4">
+                    <label class="block font-serif uppercase tracking-wide mb-1">Video</label>
+                    <input type="text" v-model="deck.videoUrl" class="input py-3 px-4 rounded-lg">
                 </div>
 
                 <div class="w-full mb-4">
@@ -22,14 +27,14 @@
 
                 <div class="w-full mb-4" v-if="!deck.practiseId">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck format</label>
-                    <select v-model="deck.format" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.format" class="input py-3 px-4 rounded-lg">
                         <option v-for="(name, format) in $settings.game.decks.formats" :value="format">{{name}}</option>
                     </select>
                 </div>
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Limit cards to collection</label>
-                    <select v-model="deck.limitToCollection" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.limitToCollection" class="input py-3 px-4 rounded-lg">
                         <option :value="0">No</option>
                         <option :value="1">Hard limit</option>
                         <option :value="2">Soft limit</option>
@@ -38,7 +43,7 @@
 
                 <div class="w-full mb-4">
                     <label class="block font-serif uppercase tracking-wide mb-1">Deck visibility</label>
-                    <select v-model="deck.visibility" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
+                    <select v-model="deck.visibility" class="input py-3 px-4 rounded-lg">
                         <option value="private">Private</option>
                         <option value="public">Public</option>
                     </select>
@@ -46,7 +51,7 @@
 
                 <div class="w-full">
                     <label class="block font-serif uppercase tracking-wide mb-1">Card back</label>
-                    <select v-model="deck.cardBack" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg" :disabled="!user.subscription">
+                    <select v-model="deck.cardBack" class="input py-3 px-4 rounded-lg" :disabled="!user.subscription">
                         <option value="1">Original</option>
                         <option value="2">Worn</option>
                         <option value="3">Light</option>
@@ -71,6 +76,7 @@
             <p class="my-4">With the various deck settings you can change several values:</p>
 
             <ul class="list-disc ml-8">
+                <li>Video: Embed a decktech video on your deck page. Currently only supports YouTube.</li>
                 <li>Notes: Go into detail as to how the deck performs, combos to look for and good/bad matchups.</li>
                 <li>Deck format: Whether your deck is for blitz/UPF or constructed play.</li>
                 <li>Limit to collection: Select soft if you just want missing cards highlighted. Select the hard limit if you do not want missing cards to show up in search at all. The former is better for purchase planning, the latter is better for tournament preparaation.</li>
@@ -81,14 +87,10 @@
     </div>
 </template>
 
-<style>
-    @import '~simplemde/dist/simplemde.min.css';
-</style>
-
 <script>
     import axios from 'axios';
     import {mapActions, mapGetters} from 'vuex';
-    import MarkdownEditor from 'vue-simplemde';
+    import MarkdownEditor from "../Components/MarkdownEditor.vue";
 
     export default {
         props: ['deck'],
@@ -114,8 +116,9 @@
 
                 let params = {
                     name: this.deck.name,
-                    label: this.deck.label,
+                    label: this.deck.label || '',
                     notes: this.deck.notes,
+                    videoUrl: this.deck.videoUrl,
                     type: this.deck.type,
                     format: this.deck.format,
                     limitToCollection: this.deck.limitToCollection,

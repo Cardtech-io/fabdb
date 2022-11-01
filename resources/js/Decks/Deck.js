@@ -1,6 +1,6 @@
-import Cards from "../DeckBuilder/Cards";
-import Card from "../CardDatabase/Card";
-import Model from "../Utilities/Model";
+import Cards from "../DeckBuilder/Cards.js";
+import Card from "../CardDatabase/Card.js";
+import Model from "../Utilities/Model.js";
 
 export default class Deck extends Model {
     get avatar() {
@@ -9,6 +9,10 @@ export default class Deck extends Model {
 
     get name() {
         return this.fields.name;
+    }
+
+    get version() {
+        return this.fields.version;
     }
 
     get parent() {
@@ -43,6 +47,10 @@ export default class Deck extends Model {
 
     get notes() {
         return this.fields.notes;
+    }
+
+    get videoUrl() {
+        return this.fields.videoUrl;
     }
 
     get cards() {

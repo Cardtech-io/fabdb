@@ -11,10 +11,8 @@ export default{
 
             let text = this.shareLine('Deck build - via https://fabdb.net :') +
                 this.shareLine('') +
-                this.shareLine(this.deck.name) +
+                this.shareLine(this.deck.name + ' ('+deck.hero.name+')') +
                 this.shareLine('') +
-                this.shareLine('Class: ' + this.ucfirst(deck.hero.class)) +
-                this.shareLine('Hero: ' + deck.hero.name) +
                 this.shareLine('Weapons: ' + weapons) +
                 this.shareLine('Equipment: ' + equipment) +
                 this.shareLine('');
@@ -23,12 +21,17 @@ export default{
 
             for (let i in other.all()) {
                 let card = other.all()[i];
+                let cardText = '[' + card.total + '] ' + card.name;
 
-                text = text + this.shareLine('(' + card.total + ') ' + card.name + ' (' + this.colourToText(card.stats.resource) + ')');
+                if (!isNaN(card.stats.resource)) {
+                    cardText = cardText + ' (' + this.ucfirst(this.colourToText(card.stats.resource)) + ')';
+                }
+
+                text = text + this.shareLine(cardText);
             }
 
             text = text + this.shareLine('');
-            text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug + '/');
+            text = text + this.shareLine('See the full deck at: https://fabdb.net/decks/' + this.deck.slug);
 
             this.copyToClipboard(text, 'Deck build copied to clipboard.');
         },

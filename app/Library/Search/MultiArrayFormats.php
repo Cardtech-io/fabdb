@@ -11,7 +11,7 @@ trait MultiArrayFormats
      * @param mixed $input
      * @return array
      */
-    private function toArray($input): array
+    protected function toArray($input): array
     {
         return is_array($input) ? $input : Arr::flatten([explode(',', strtolower($input))]);
     }

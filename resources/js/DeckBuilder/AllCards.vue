@@ -7,23 +7,23 @@
                         <card-image :card="cards.hero()" class="mb-4"/>
                     </div>
                     <div class="w-1/2 md:w-auto float-left md:float-none">
-                        <div class="bg-white rounded-lg pl-2 pr-4 pt-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4">
                             <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"/>
                         </div>
-                        <div class="bg-white rounded-lg pl-2 pr-4 pt-4 mt-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 mt-4">
                             <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2 my-4">
                             <h3 class="font-serif uppercase text-lg">Totals</h3>
-                            <totals class="mt-2"/>
+                            <totals class="mt-2" :cards="cards" :deck="deck"/>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="mx-2">
                             <h3 class="font-serif uppercase text-lg">General</h3>
-                            <general class="mt-2"/>
+                            <general class="mt-2" :cards="cards"/>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <chevron :open="sectionOpen(section.title)" class="mr-2"></chevron>
                             {{ section.title }} ({{section.cards.total()}})
                         </h2>
-                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"></grouped-cards>
+                        <grouped-cards :cards="section.cards.hydrate()" :group-id="kebabCase(section.title)" :key="kebabCase(section.title)" :action="mode === 'search' ? removeFromDeck : false" v-show="sectionOpen(section.title)"/>
                     </div>
                 </div>
             </div>
@@ -49,10 +49,10 @@
             <div class="hidden lg:block md:mr-8 max-w-250">
                 <card-image :card="cards.hero()" class="mb-4"/>
                 <div>
-                    <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2">
                         <deck-curves :cards="cards.other().withCost()" stat="cost" strategy="total" class="mb-4 h-140 sm:h-160"/>
                     </div>
-                    <div class="bg-white rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg pl-2 pr-4 pt-4 pb-2 mt-4">
                         <deck-curves :cards="cards.other().withResource()" stat="resource" strategy="total" class="mb-4 h-140 sm:h-160"/>
                     </div>
                 </div>
@@ -72,22 +72,21 @@
     import {mapActions, mapGetters, mapState} from 'vuex';
 
     import FormButton from '../Components/Form/Button.vue';
-    import Cardable from '../CardDatabase/Cardable';
-    import CardImage from '../CardDatabase/CardImage';
-    import CardItemSection from "./CardItemSection";
-    import Cards from './Cards';
-    import Chevron from "./Buttons/Chevron";
-    import DeckCurves from "./DeckCurves";
-    import General from "./Metrics/General";
-    import Groupable from "./Groupable";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import CardImage from '../CardDatabase/CardImage.vue';
+    import CardItemSection from "./CardItemSection.vue";
+    import Chevron from "./Buttons/Chevron.vue";
+    import DeckCurves from "./DeckCurves.js";
+    import General from "../Decks/Metrics/General.vue";
+    import Groupable from "./Groupable.js";
     import GroupedCards from './GroupedCards.vue';
-    import HeroSelector from "../Components/HeroSelector";
-    import ManagesDecks from './ManagesDecks';
-    import MasonryContainer from "./MasonryContainer";
-    import Totals from "./Metrics/Totals";
-    import Viewable from './Viewable';
-    import Redrawable from "./Redrawable";
-    import Strings from "../Utilities/Strings";
+    import HeroSelector from "../Components/HeroSelector.vue";
+    import ManagesDecks from './ManagesDecks.js';
+    import MasonryContainer from "./MasonryContainer.vue";
+    import Totals from "../Decks/Metrics/Totals.vue";
+    import Viewable from './Viewable.js';
+    import Redrawable from "./Redrawable.js";
+    import Strings from "../Utilities/Strings.js";
 
     export default {
         props: ['collection'],

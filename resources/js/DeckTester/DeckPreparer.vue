@@ -1,7 +1,7 @@
 <template>
-    <div class="rounded-xl border border-gray-400 p-4 pb-3">
+    <div class="rounded border border-gray-400 p-4 pb-3">
         <div v-if="stack.total()">
-            <div v-for="card in stack" @click="handler(card)" class="group flex items-center bg-gray-300 hover:bg-gray-100 overflow-auto rounded-lg text-base mb-1 cursor-pointer">
+            <div v-for="card in stack" @click="handler(card)" class="group flex items-center bg-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 overflow-auto rounded-lg text-base mb-1 cursor-pointer">
                 <div class="pl-4" v-if="$slots.left">
                     <icon :size="5" class="group-hover:text-gray-500">
                         <slot name="left"></slot>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import Colour from "../DeckBuilder/Colour";
+    import Colour from "../DeckBuilder/Colour.vue";
 
     export default {
         props: {

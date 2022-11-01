@@ -6,7 +6,7 @@
 
 <script>
     import {mapState} from "vuex";
-    import Redrawable from "./Redrawable";
+    import Redrawable from "./Redrawable.js";
 
     export default {
         props: {

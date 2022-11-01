@@ -7,8 +7,8 @@
 <script>
     import {mapActions, mapGetters, mapState} from "vuex";
 
-    import Cardable from "../CardDatabase/Cardable";
-    import ManagesDecks from "./ManagesDecks";
+    import Cardable from "../CardDatabase/Cardable.js";
+    import ManagesDecks from "./ManagesDecks.js";
 
     export default {
         props: {
@@ -25,7 +25,7 @@
             ...mapGetters('session', ['user']),
 
             background() {
-                return 'bg-white hover:bg-secondary hover:text-white';
+                return 'bg-white hover:bg-secondary hover:text-white dark:bg-gray-700 dark:hover:bg-gray-500';
             },
 
             cardCount() {
@@ -43,7 +43,7 @@
 
             active(count) {
                 if (this.cardCount === count) {
-                    return 'bg-gray-100 text-gray-400';
+                    return 'bg-gray-100 text-gray-400 dark:bg-gray-700 dark:text-gray-500';
                 }
 
                 return this.background;

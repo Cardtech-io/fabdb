@@ -1,9 +1,9 @@
 <template>
-    <div class="md:px-2 w-full md:w-1/3 lg:w-1/5 my-2 text-sm">
+    <div class="my-2 text-sm">
         <div class="rounded-lg overflow-hidden">
             <router-link :to="{ name: route, params: { deck: deck.slug } }" class="block" :class="themeClasses()">
                 <div class="relative flex-none">
-                    <div class="h-140 md:h-200" :style="{background: 'radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url('+heroProfile(deck.hero, 250)+') top center'}"></div>
+                    <div class="h-140 md:h-200" :style="{background: 'radial-gradient(transparent, rgba(0, 0, 0, 0.5)), url('+heroProfile(deck.hero, 250)+') top center', backgroundSize: 'cover'}"></div>
                     <div class="absolute top-0 w-full p-2">
                         <h3 class="text-white font-serif uppercase text-lg md:text-xl overflow-hidden" style="max-height: 30px">{{ deck.name }}</h3>
                         <div class="text-xs space-y-1">
@@ -19,7 +19,10 @@
                         <div v-if="deck.weapons.count()" class="flex items-center bg-nearly-white rounded-lg p-0.5 space-x-1">
                             <img :src="squareThumbUrl(weapon.image, 55)" v-for="weapon in deck.weapons.all()" width="40" height="40" class="rounded">
                         </div>
-                        <div class="font-serif text-4xl text-white pr-1">{{ deck.totalCards }}</div>
+                        <div class="flex space-x-1 font-serif items-end text-white pr-1">
+                            <span v-if="deck.version > 1" class="mb-1 text-lg">[V.{{deck.version}}]</span>
+                            <span class="text-4xl">{{ deck.totalCards }}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="p-2 space-y-2">
@@ -34,12 +37,12 @@
 </template>
 
 <script>
-    import Imagery from '../Utilities/Imagery';
-    import DeckLabel from "./Viewing/DeckLabel";
-    import FormatLabel from "./Viewing/FormatLabel";
-    import HeroAvatar from "../Components/HeroAvatar";
-    import Viewable from '../DeckBuilder/Viewable';
-    import Deck from "./Deck";
+    import Imagery from '../Utilities/Imagery.js';
+    import DeckLabel from "./Viewing/DeckLabel.vue";
+    import FormatLabel from "./Viewing/FormatLabel.vue";
+    import HeroAvatar from "../Components/HeroAvatar.vue";
+    import Viewable from '../DeckBuilder/Viewable.js';
+    import Deck from "./Deck.js";
 
     export default {
         props: {
@@ -67,7 +70,7 @@
 
         methods: {
             themeClasses() {
-                return this.theme === 'light' ? 'bg-gray-100 hover:bg-white' : 'bg-semi-black hover:bg-black';
+                return this.theme === 'light' ? 'bg-gray-100 hover:bg-white dark:bg-gray-700 dark:hover:bg-gray-600' : 'bg-semi-black hover:bg-black';
             }
         }
     };

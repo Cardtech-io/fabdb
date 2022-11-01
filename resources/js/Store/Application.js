@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import deck from './Deck';
-import draft from './Draft';
-import messages from './Messages';
-import cardSearch from './Search';
-import deckSearch from './Search';
-import session from './Session';
+import deck from './Deck.js';
+import draft from './Draft.js';
+import messages from './Messages.js';
+import cardSearch from './Search.js';
+import deckSearch from './Search.js';
+import performance from './Performance';
+import session from './Session.js';
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
         deck,
         draft,
         messages,
+        performance,
         session
     }
 });

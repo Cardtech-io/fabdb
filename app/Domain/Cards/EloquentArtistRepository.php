@@ -18,4 +18,11 @@ class EloquentArtistRepository extends EloquentRepository implements ArtistRepos
     {
         return new Artist;
     }
+
+    public function searchByName(string $searchTerm): ?Artist
+    {
+        return $this->newQuery()
+            ->where('name', 'LIKE', "%$searchTerm%")
+            ->first();
+    }
 }

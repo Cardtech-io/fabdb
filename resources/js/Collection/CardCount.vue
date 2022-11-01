@@ -2,7 +2,7 @@
     <div class="flex items-center mx-auto">
         <remove :sku="printing.sku.sku" :count="total" @card-removed="decrement"></remove>
         <div class="w-1/3">
-            <input type="text" v-model="total" class="w-full bg-white text-center outline-none focus:bg-white p-2" :tabindex="index">
+            <input type="text" v-model="total" class="w-full bg-white dark:bg-gray-900 text-center outline-none focus:bg-white p-2" :tabindex="index">
         </div>
         <add :sku="printing.sku.sku" :count="total" @card-added="increment"></add>
     </div>

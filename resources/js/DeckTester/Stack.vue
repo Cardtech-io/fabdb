@@ -19,12 +19,12 @@
                 </div>
             </div>
         </div>
-        <div class="bg-gray-300 font-serif text-xl uppercase rounded-card h-full pt-32 text-center" v-else>{{name}}</div>
+        <div class="bg-gray-300 dark:bg-gray-800 font-serif text-xl uppercase rounded-card h-full pt-32 text-center" v-else>{{name}}</div>
     </div>
 </template>
 
 <script>
-    import Interactive from "./Interactive";
+    import Interactive from "./Interactive.js";
 
     export default {
         props: {

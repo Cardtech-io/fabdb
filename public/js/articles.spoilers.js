@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -127,16 +127,16 @@ var render = function() {
     [
       _c("header-title", {
         staticClass: "text-center",
-        attrs: { title: "Monarch Spoilers" }
+        attrs: { title: "Monarch Spoilers" },
       }),
       _vm._v(" "),
-      _vm._l(_vm.upcoming, function(article) {
+      _vm._l(_vm.upcoming, function (article) {
         return _vm.upcoming
           ? _c(
               "div",
               {
                 staticClass:
-                  "bg-semi-black rounded-xl mx-4 p-4 mt-8 sm:mt-0 text-center font-serif text-4xl"
+                  "bg-semi-black rounded-xl mx-4 p-4 mt-8 sm:mt-0 text-center font-serif text-4xl",
               },
               [
                 _c("countdown", {
@@ -145,7 +145,7 @@ var render = function() {
                     [
                       {
                         key: "process",
-                        fn: function(ref) {
+                        fn: function (ref) {
                           var timeObj = ref.timeObj
                           return _c("span", {}, [
                             timeObj.d > 0
@@ -162,15 +162,15 @@ var render = function() {
                             _vm._v(" "),
                             timeObj.s
                               ? _c("span", [_vm._v(_vm._s(timeObj.s))])
-                              : _vm._e()
+                              : _vm._e(),
                           ])
-                        }
-                      }
+                        },
+                      },
                     ],
                     null,
                     true
-                  )
-                })
+                  ),
+                }),
               ],
               1
             )
@@ -181,7 +181,7 @@ var render = function() {
         ? _c(
             "div",
             { staticClass: "my-8 mx-4" },
-            _vm._l(_vm.articles.data, function(article) {
+            _vm._l(_vm.articles.data, function (article) {
               return _c(
                 "div",
                 { staticClass: "flex bg-semi-black rounded-xl p-4" },
@@ -190,7 +190,8 @@ var render = function() {
                     _c(
                       "h1",
                       {
-                        staticClass: "font-serif uppercase text-4xl sm:text-6xl"
+                        staticClass:
+                          "font-serif uppercase text-4xl sm:text-6xl",
                       },
                       [_vm._v(_vm._s(article.title))]
                     ),
@@ -200,16 +201,16 @@ var render = function() {
                     _c("img", {
                       staticClass:
                         "relative rounded-lg float-right m-8 mr-0 z-50 max-w-full",
-                      attrs: { src: _vm.thumbUrl(article.image, 450) }
+                      attrs: { src: _vm.thumbUrl(article.image, 450) },
                     }),
                     _vm._v(" "),
                     _c("div", {
                       staticClass: "mt-8",
                       domProps: {
-                        innerHTML: _vm._s(_vm.prettyText(article.content))
-                      }
-                    })
-                  ])
+                        innerHTML: _vm._s(_vm.prettyText(article.content)),
+                      },
+                    }),
+                  ]),
                 ]
               )
             }),
@@ -217,9 +218,9 @@ var render = function() {
           )
         : _c("div", [
             _c("p", { staticClass: "my-8 text-center" }, [
-              _vm._v("Ah-ah! Not yet! Maybe come back tomorrow? ;)")
-            ])
-          ])
+              _vm._v("Ah-ah! Not yet! Maybe come back tomorrow? ;)"),
+            ]),
+          ]),
     ],
     2
   )
@@ -280,13 +281,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
-var Article =
-/*#__PURE__*/
-function () {
+var Article = /*#__PURE__*/function () {
   function Article(fields) {
     _classCallCheck(this, Article);
 
@@ -294,11 +293,6 @@ function () {
   }
 
   _createClass(Article, [{
-    key: "valid",
-    value: function valid() {
-      return !!this.fields;
-    }
-  }, {
     key: "author",
     get: function get() {
       return this.fields.author;
@@ -347,6 +341,11 @@ function () {
     key: "link",
     get: function get() {
       return '/articles/' + _Utilities_Strings__WEBPACK_IMPORTED_MODULE_0__["default"].methods.kebabCase(this.title) + '/' + this.slug;
+    }
+  }, {
+    key: "valid",
+    value: function valid() {
+      return !!this.fields;
     }
   }]);
 

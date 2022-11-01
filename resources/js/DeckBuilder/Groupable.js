@@ -1,4 +1,4 @@
-import Cards from "./Cards";
+import Cards from "./Cards.js";
 
 export default {
     computed: {
@@ -17,10 +17,10 @@ export default {
                         {title: 'Loadout', cards: this.loadout},
                         {title: 'Other', cards: this.other},
                     ] : [
+                        {title: 'Deck', cards: this.cards.other()},
                         {title: 'Hero', cards: new Cards([this.cards.hero()])},
                         {title: 'Weapons', cards: this.cards.weapons()},
                         {title: 'Equipment', cards: this.cards.equipment()},
-                        {title: 'Other', cards: this.cards.other()},
                     ];
                 case 'cost':
                     var cards = this.cards.group(card => card.stats.cost);

@@ -1,20 +1,17 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.4",
+        "@vitejs/plugin-basic-ssl": "^0.1.2",
+        "@vitejs/plugin-vue2": "^2.0.0",
         "autoprefixer": "^9.8.8",
         "axios": "^0.21.4",
         "cross-env": "^5.1",
-        "laravel-mix": "^4.0.7",
+        "laravel-vite-plugin": "^0.6.0",
         "lodash": "^4.17.21",
         "moment-locales-webpack-plugin": "^1.2.0",
         "postcss": "^7.0.39",
@@ -22,10 +19,13 @@
         "sass": "^1.45.2",
         "sass-loader": "^7.1.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+        "vite": "^3.1.2",
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
-        "request": "^2.88.2",
+        "@tiptap/extension-underline": "^2.0.0-beta.195",
+        "@tiptap/starter-kit": "^2.0.0-beta.195",
+        "@tiptap/vue-2": "^2.0.0-beta.195",
         "chart.js": "^2.9.4",
         "jquery": "^3.6.0",
         "luxon": "^1.28.0",
@@ -33,11 +33,12 @@
         "moment": "^2.29.1",
         "nprogress": "^0.2.0",
         "postscribe": "^2.0.8",
+        "request": "^2.88.2",
         "requests": "^0.3.0",
         "showdown": "^1.9.1",
         "tailwindcss-transitions": "^2.2.0",
         "underscore": "^1.13.2",
-        "vue": "^2.6.14",
+        "vue": "^2.7.0",
         "vue-awesome-countdown": "^1.1.4",
         "vue-chartjs": "^3.5.1",
         "vue-clipboard2": "^0.3.3",
@@ -49,9 +50,6 @@
         "vue-mq": "^1.0.1",
         "vue-router": "^3.5.3",
         "vue-script-component": "^0.1.7",
-        "vue-simplemde": "1.0.4",
-        "vue2-touch-events": "^2.3.2",
-        "vuedraggable": "^4.1.0",
         "vuex": "^3.6.2",
         "weekstart": "^1.1.0"
     }

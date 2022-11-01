@@ -1,12 +1,12 @@
 <template>
-    <router-link :to="'/cards/' + to" class="w-1/2 appearance-none block w-full mt-2 rounded-lg py-3 px-4" :disabled="to" :class="classes">
-        {{ text }}
+    <router-link :to="'/cards/' + to" class="w-1/2 appearance-none block w-full py-2 px-4" :disabled="to" :class="classes">
+        <slot></slot>
     </router-link>
 </template>
 
 <script>
     export default {
-        props: ['text', 'to'],
+        props: ['to'],
 
         computed: {
             classes() {

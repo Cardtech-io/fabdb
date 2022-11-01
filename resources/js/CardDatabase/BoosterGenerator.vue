@@ -4,7 +4,7 @@
 
         <breadcrumbs :crumbs="crumbs"></breadcrumbs>
 
-        <div class="bg-gray-200">
+        <div class="main-body">
             <div class="container sm:mx-auto px-4 py-8 sm:flow-root">
                 <div class="sm:w-1/2 sm:pl-8 sm:float-right">
                     <p>This tool is just for a little bit of fun. Generate a pack, check your cards, see if you can find
@@ -13,9 +13,8 @@
 
                     <form @submit.prevent="generatePack" class="block mt-4">
                         <label class="block font-serif uppercase tracking-wide mb-1">Set</label>
-                        <select v-model="set" class="input-white focus:border-gray-500 py-3 px-4 rounded-lg">
-                            <option value="arc">Arcane Rising</option>
-                            <option value="wtr">Welcome to Rathe</option>
+                        <select v-model="set" class="input py-3 px-4 rounded-lg">
+                            <option :value="set.id" v-for="set in sets()">{{set.name}}</option>
                         </select>
 
                         <div class="mb-4">
@@ -39,8 +38,8 @@
     import axios from 'axios';
 
     import Breadcrumbs from '../Components/Breadcrumbs.vue';
-    import Cardable from './Cardable';
-    import CardImage from "./CardImage";
+    import Cardable from './Cardable.js';
+    import CardImage from "./CardImage.vue";
     import HeaderTitle from '../Components/HeaderTitle.vue';
 
     export default {
@@ -61,7 +60,7 @@
         },
 
         methods: {
-            generatePack: function() {
+            generatePack() {
                 this.disabled = true;
 
                 axios.get('/packs/generate', { params: { set: this.set } }).then(response => {
@@ -73,14 +72,18 @@
                 }, 1000);
             },
 
-            height: function(card) {
+            height(card) {
                 return {
                     'h-12': this.viewing != card,
                     'h-50': this.viewing == card
                 }
             },
 
-            toggle: function(card) {
+            sets() {
+                return Object.values(this.$settings.game.sets).filter(set => set.draftable === true);
+            },
+
+            toggle(card) {
                 if (this.viewing != card) {
                     this.viewing = card;
                 } else {

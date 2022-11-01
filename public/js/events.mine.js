@@ -41,9 +41,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EventTypeIcon_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EventTypeIcon.vue */ "./resources/js/Events/EventTypeIcon.vue");
 /* harmony import */ var _Utilities_Time__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Utilities/Time */ "./resources/js/Utilities/Time.js");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -96,7 +96,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   props: ['event'],
   mixins: [_Utilities_Strings__WEBPACK_IMPORTED_MODULE_3__["default"]],
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     eventLink: function eventLink() {
       var routeName = this.event.manager.slug == this.user.slug ? 'events.edit' : 'events.view';
       return {
@@ -122,7 +122,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       time: _Utilities_Time__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     copyShareURL: function copyShareURL() {
       var route = {
         name: 'events.view',
@@ -197,9 +197,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EventItem_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EventItem.vue */ "./resources/js/Events/EventItem.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -280,7 +280,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -290,10 +290,10 @@ var render = function() {
       staticClass:
         "appearance-none block w-full bg-red-700 text-white rounded-lg py-3 px-4 leading-tight focus:outline-none hover:bg-red-500",
       on: {
-        click: function($event) {
+        click: function ($event) {
           return _vm.handleClick()
-        }
-      }
+        },
+      },
     },
     [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
   )
@@ -316,14 +316,15 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "li",
     {
-      staticClass: "block flex odd:bg-gray-100 hover:bg-white items-center mb-1"
+      staticClass:
+        "block flex odd:bg-gray-100 hover:bg-white items-center mb-1",
     },
     [
       _c(
@@ -335,11 +336,15 @@ var render = function() {
             { attrs: { to: _vm.eventLink } },
             [
               _c("event-type-icon", {
-                attrs: { type: _vm.event.type, size: 16, title: _vm.event.type }
-              })
+                attrs: {
+                  type: _vm.event.type,
+                  size: 16,
+                  title: _vm.event.type,
+                },
+              }),
             ],
             1
-          )
+          ),
         ],
         1
       ),
@@ -352,8 +357,8 @@ var render = function() {
             _c("h2", { staticClass: "font-serif uppercase text-xl" }, [
               _vm._v(_vm._s(_vm.event.name) + " "),
               _c("span", { staticClass: "text-gray-500" }, [
-                _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")")
-              ])
+                _vm._v("(" + _vm._s(_vm.ucfirst(_vm.event.type)) + ")"),
+              ]),
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "text-base" }, [
@@ -365,22 +370,22 @@ var render = function() {
               _c("span", { staticClass: "font-bold ml-2" }, [
                 _vm.event.fee
                   ? _c("span", [_vm._v("$" + _vm._s(_vm.event.fee))])
-                  : _c("span", [_vm._v("FREE")])
-              ])
+                  : _c("span", [_vm._v("FREE")]),
+              ]),
             ]),
             _vm._v(" "),
             _vm.manager
               ? _c("p", { staticClass: "text-sm text-blue-700" }, [
-                  _vm._v("You are managing this event.")
+                  _vm._v("You are managing this event."),
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.registered
               ? _c("p", { staticClass: "text-sm text-green-700" }, [
-                  _vm._v("You are participating in this event.")
+                  _vm._v("You are participating in this event."),
                 ])
-              : _vm._e()
-          ])
+              : _vm._e(),
+          ]),
         ],
         1
       ),
@@ -393,11 +398,11 @@ var render = function() {
                 "text-center py-6 px-8 flex-initial border-l border-gray-200 link",
               attrs: { href: "" },
               on: {
-                click: function($event) {
+                click: function ($event) {
                   $event.preventDefault()
                   return _vm.copyShareURL()
-                }
-              }
+                },
+              },
             },
             [
               _c(
@@ -406,20 +411,19 @@ var render = function() {
                   staticClass: "fill-current w-6 h-6",
                   attrs: {
                     xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20"
-                  }
+                    viewBox: "0 0 20 20",
+                  },
                 },
                 [
                   _c("title", [_vm._v("Share event")]),
                   _vm._v(" "),
                   _c("path", {
                     attrs: {
-                      d:
-                        "M4 10c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-8zm2 0v8h8v-8h-2V8H8v2H6zm3-6.17V16h2V3.83l3.07 3.07 1.42-1.41L10 0l-.7.7-4.8 4.8 1.42 1.4L9 3.84z"
-                    }
-                  })
+                      d: "M4 10c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2v-8zm2 0v8h8v-8h-2V8H8v2H6zm3-6.17V16h2V3.83l3.07 3.07 1.42-1.41L10 0l-.7.7-4.8 4.8 1.42 1.4L9 3.84z",
+                    },
+                  }),
                 ]
-              )
+              ),
             ]
           )
         : _vm._e(),
@@ -428,7 +432,7 @@ var render = function() {
         "span",
         {
           staticClass:
-            "text-center py-6 px-8 flex-initial border-l border-gray-200 flex items-center"
+            "text-center py-6 px-8 flex-initial border-l border-gray-200 flex items-center",
         },
         [
           _c(
@@ -437,24 +441,23 @@ var render = function() {
               staticClass: "inline-block fill-current w-6 h-6",
               attrs: {
                 xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 20 20"
-              }
+                viewBox: "0 0 20 20",
+              },
             },
             [
               _c("path", {
                 attrs: {
-                  d:
-                    "M5 5a5 5 0 0110 0v2A5 5 0 015 7V5zM0 16.68A19.9 19.9 0 0110 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"
-                }
-              })
+                  d: "M5 5a5 5 0 0110 0v2A5 5 0 015 7V5zM0 16.68A19.9 19.9 0 0110 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z",
+                },
+              }),
             ]
           ),
           _vm._v(" "),
           _c("span", { staticClass: "text-2xl ml-2" }, [
-            _vm._v(_vm._s(_vm.event.playerCount))
-          ])
+            _vm._v(_vm._s(_vm.event.playerCount)),
+          ]),
         ]
-      )
+      ),
     ]
   )
 }
@@ -476,7 +479,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -485,14 +488,14 @@ var render = function() {
     {
       staticClass: "fill-current mx-auto",
       class: _vm.sizes(),
-      attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+      attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" },
     },
     [
       _vm.title
         ? _c("title", [_vm._v(_vm._s(_vm.ucfirst(_vm.title)))])
         : _vm._e(),
       _vm._v(" "),
-      _c("path", { attrs: { d: _vm.path() } })
+      _c("path", { attrs: { d: _vm.path() } }),
     ]
   )
 }
@@ -514,7 +517,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -524,7 +527,7 @@ var render = function() {
       _c("header-title", { attrs: { title: "My events" } }),
       _vm._v(" "),
       _c("div", { staticClass: "crumbs font-serif uppercase" }, [
-        _c("div", { staticClass: "container sm:mx-auto p-4 flex" }, [
+        _c("div", { staticClass: "container px-4 py-2 sm:mx-auto flex" }, [
           _c(
             "div",
             { staticClass: "flex-auto" },
@@ -536,20 +539,20 @@ var render = function() {
             "div",
             { staticClass: "text-right flex-auto" },
             [
-              _vm.user.role == "owner" || _vm.user.role == "editor"
+              _vm.user.subscription
                 ? _c(
                     "router-link",
                     {
                       staticClass: "rounded-full py-2 px-4 button-primary",
-                      attrs: { to: { name: "events.start" } }
+                      attrs: { to: { name: "events.start" } },
                     },
                     [_vm._v("Schedule an event")]
                   )
-                : _vm._e()
+                : _vm._e(),
             ],
             1
-          )
-        ])
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bg-gray-200" }, [
@@ -557,10 +560,10 @@ var render = function() {
           _vm.events.length
             ? _c(
                 "ol",
-                _vm._l(_vm.events, function(event) {
+                _vm._l(_vm.events, function (event) {
                   return _c("event-item", {
                     key: event.slug,
-                    attrs: { event: event }
+                    attrs: { event: event },
                   })
                 }),
                 1
@@ -568,10 +571,10 @@ var render = function() {
             : _c("div", [
                 _vm._v(
                   "\n                You have not yet registered any events. To register one, click the button top-right.\n            "
-                )
-              ])
-        ])
-      ])
+                ),
+              ]),
+        ]),
+      ]),
     ],
     1
   )

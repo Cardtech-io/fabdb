@@ -1,7 +1,11 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-    darkMode: 'media',
+    darkMode: 'class',
+
+    corePlugins: {
+        container: false
+    },
 
     purge: {
         content: [
@@ -130,7 +134,9 @@ module.exports = {
                 '1/10': '10%',
                 '140': '140px',
                 '160': '160px',
+                '180': '180px',
                 '200': '200px',
+                '220': '220px',
             },
 
             inset: {
@@ -218,8 +224,8 @@ module.exports = {
     },
 
     variants: {
-        backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus'],
-        borderColor: ['responsive', 'hover', 'focus'],
+        backgroundColor: ['responsive', 'odd', 'even', 'hover', 'focus', 'dark'],
+        borderColor: ['responsive', 'hover', 'focus', 'dark'],
         borderRadius: ['responsive', 'first', 'last'],
         borderWidth: ['responsive', 'last', 'focus'],
         display: ['hover', 'group-hover', 'responsive'],
@@ -227,7 +233,7 @@ module.exports = {
         margin: ['responsive', 'odd', 'even'],
         opacity: ['disabled', 'hover', 'group-hover'],
         padding: ['responsive', 'even'],
-        textColor: ['responsive', 'hover', 'group-hover'],
+        textColor: ['responsive', 'hover', 'group-hover', 'dark'],
         zIndex: ['responsive', 'hover']
     },
 
@@ -242,6 +248,29 @@ module.exports = {
                     'backdrop-filter': 'blur(2px)'
                 }
             });
-        })
+        }),
+
+        function ({ addComponents }) {
+            addComponents({
+                '.container': {
+                    maxWidth: '100%',
+                    '@screen sm': {
+                        maxWidth: '100%',
+                    },
+                    '@screen md': {
+                        maxWidth: '100%',
+                    },
+                    '@screen lg': {
+                        maxWidth: '100%',
+                    },
+                    '@screen xl': {
+                        maxWidth: '100%',
+                    },
+                    '@screen 2xl': {
+                        maxWidth: '1536px',
+                    },
+                }
+            })
+        }
     ]
 };

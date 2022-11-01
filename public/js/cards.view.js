@@ -65,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['text', 'to'],
+  props: ['to'],
   computed: {
     classes: function classes() {
       return this.to ? 'button-primary' : 'button-disabled';
@@ -245,73 +245,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Decks_Deck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Decks/Deck */ "./resources/js/Decks/Deck.js");
-/* harmony import */ var _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Decks/Viewing/DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
-/* harmony import */ var _Decks_Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Decks/Viewing/FormatLabel */ "./resources/js/Decks/Viewing/FormatLabel.vue");
-/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
-/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Utilities/Models */ "./resources/js/Utilities/Models.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    card: {
-      required: true,
-      type: Object
-    }
-  },
-  components: {
-    DeckLabel: _Decks_Viewing_DeckLabel__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FormatLabel: _Decks_Viewing_FormatLabel__WEBPACK_IMPORTED_MODULE_2__["default"],
-    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_3__["default"]
-  },
-  data: function data() {
-    return {
-      decks: []
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/decks?card=' + this.card.identifier + '&per_page=5').then(function (response) {
-      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_4__["default"].hydrateMany(response.data.data, _Decks_Deck__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/Rulings.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/Rulings.vue?vue&type=script&lang=js& ***!
@@ -364,13 +297,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CardNav */ "./resources/js/CardDatabase/CardNav.vue");
 /* harmony import */ var _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Discussion/Discussion */ "./resources/js/Discussion/Discussion.vue");
 /* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
-/* harmony import */ var _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./LanguageSelector */ "./resources/js/CardDatabase/LanguageSelector.vue");
-/* harmony import */ var _Decks_Featured_LatestDecks__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Decks/Featured/LatestDecks */ "./resources/js/Decks/Featured/LatestDecks.vue");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _LanguageSelector__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./LanguageSelector */ "./resources/js/CardDatabase/LanguageSelector.vue");
 /* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
 /* harmony import */ var _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./LegalityBanner */ "./resources/js/CardDatabase/LegalityBanner.vue");
 /* harmony import */ var _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Pricing.vue */ "./resources/js/CardDatabase/Pricing.vue");
-/* harmony import */ var _RecentDecks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./RecentDecks */ "./resources/js/CardDatabase/RecentDecks.vue");
+/* harmony import */ var _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../Decks/Featured/RecentDecks */ "./resources/js/Decks/Featured/RecentDecks.vue");
 /* harmony import */ var _Rulings__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Rulings */ "./resources/js/CardDatabase/Rulings.vue");
 /* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
 //
@@ -462,6 +395,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -482,7 +430,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_10__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__["default"]],
+  mixins: [_Cardable_js__WEBPACK_IMPORTED_MODULE_3__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_18__["default"]],
   components: {
     CardLegality: _CardLegality__WEBPACK_IMPORTED_MODULE_5__["default"],
     Advertisement: _Components_Advertisement__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -492,11 +440,11 @@ __webpack_require__.r(__webpack_exports__);
     CardNav: _CardNav__WEBPACK_IMPORTED_MODULE_7__["default"],
     Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__["default"],
     HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    LanguageSelector: _LanguageSelector__WEBPACK_IMPORTED_MODULE_11__["default"],
-    LatestDecks: _Decks_Featured_LatestDecks__WEBPACK_IMPORTED_MODULE_12__["default"],
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_10__["default"],
+    LanguageSelector: _LanguageSelector__WEBPACK_IMPORTED_MODULE_12__["default"],
     LegalityBanner: _LegalityBanner__WEBPACK_IMPORTED_MODULE_14__["default"],
     Pricing: _Pricing_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
-    RecentDecks: _RecentDecks__WEBPACK_IMPORTED_MODULE_16__["default"],
+    RecentDecks: _Decks_Featured_RecentDecks__WEBPACK_IMPORTED_MODULE_16__["default"],
     Rulings: _Rulings__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
   computed: {
@@ -650,9 +598,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var postscribe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! postscribe */ "./node_modules/postscribe/dist/postscribe.js");
 /* harmony import */ var postscribe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(postscribe__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -723,6 +671,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DeckItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DeckItem */ "./resources/js/Decks/DeckItem.vue");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Deck */ "./resources/js/Decks/Deck.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    card: {
+      type: Object
+    }
+  },
+  components: {
+    DeckItem: _DeckItem__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      decks: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/latest?per_page=3&card=' + this.card.identifier + '&include=weapons').then(function (response) {
+      _this.decks = _Utilities_Models__WEBPACK_IMPORTED_MODULE_2__["default"].hydrateMany(response.data.data, _Deck__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/CardLegality.vue?vue&type=template&id=6786685b&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/CardLegality.vue?vue&type=template&id=6786685b& ***!
@@ -734,10 +742,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _vm.card.legality
     ? _c(
         "div",
@@ -750,6 +759,17 @@ var render = function() {
         [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
       )
     : _vm._e()
+=======
+  return _c(
+    "div",
+    {
+      staticClass: "absolute w-full text-white text-center py-2 z-50 -mt-2",
+      class: _vm.colour(),
+      staticStyle: { bottom: "40%" },
+    },
+    [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
+  )
+>>>>>>> master
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -769,19 +789,19 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "router-link",
     {
-      staticClass:
-        "w-1/2 appearance-none block w-full mt-2 rounded-lg py-3 px-4",
+      staticClass: "w-1/2 appearance-none block w-full py-2 px-4",
       class: _vm.classes,
-      attrs: { to: "/cards/" + _vm.to, disabled: _vm.to }
+      attrs: { to: "/cards/" + _vm.to, disabled: _vm.to },
     },
-    [_vm._v("\n    " + _vm._s(_vm.text) + "\n")]
+    [_vm._t("default")],
+    2
   )
 }
 var staticRenderFns = []
@@ -802,7 +822,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -814,34 +834,36 @@ var render = function() {
           "w-full relative flex items-center text-left bg-white border border-gray-200 text-base font-serif rounded-lg px-4 py-1 uppercase hover:border-gray-500",
         class: { "border-gray-500 z-75": _vm.isOpen },
         on: {
-          click: function($event) {
+          click: function ($event) {
             _vm.isOpen = !_vm.isOpen
-          }
-        }
+          },
+        },
       },
       [
         _c("span", { staticClass: "inline-block mr-1 flex-1" }, [
           _vm._v("Language "),
           _vm.selected
             ? _c("span", [_vm._v("(" + _vm._s(_vm.selected.name) + ")")])
-            : _vm._e()
+            : _vm._e(),
         ]),
         _vm._v(" "),
         _c(
           "svg",
           {
             staticClass: "inline-block h-5 w-5 fill-current ml-auto",
-            attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 20 20",
+            },
           },
           [
             _c("path", {
               attrs: {
-                d:
-                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              }
-            })
+                d: "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z",
+              },
+            }),
           ]
-        )
+        ),
       ]
     ),
     _vm._v(" "),
@@ -851,10 +873,10 @@ var render = function() {
             "fixed top-0 right-0 bottom-0 left-0 bg-red z-50 bg-black opacity-25 w-full h-full cursor-default backdrop-blur-2",
           attrs: { type: "button" },
           on: {
-            click: function($event) {
+            click: function ($event) {
               _vm.isOpen = false
-            }
-          }
+            },
+          },
         })
       : _vm._e(),
     _vm._v(" "),
@@ -863,9 +885,9 @@ var render = function() {
           "div",
           {
             staticClass:
-              "w-full absolute left-0 rounded-lg bg-white z-100 overflow-hidden mt-1 border border-gray-500"
+              "w-full absolute left-0 rounded-lg bg-white z-100 overflow-hidden mt-1 border border-gray-500",
           },
-          _vm._l(_vm.languages, function(language) {
+          _vm._l(_vm.languages, function (language) {
             return _c(
               "button",
               {
@@ -876,15 +898,15 @@ var render = function() {
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white",
                 on: {
-                  click: function($event) {
+                  click: function ($event) {
                     return _vm.select(language)
-                  }
-                }
+                  },
+                },
               },
               [
                 _c("icon", {
                   attrs: { size: 5, box: 128 },
-                  domProps: { innerHTML: _vm._s(language.icon) }
+                  domProps: { innerHTML: _vm._s(language.icon) },
                 }),
                 _vm._v(" "),
                 _c("span", [
@@ -892,15 +914,15 @@ var render = function() {
                     "\n                " +
                       _vm._s(language.name) +
                       "\n            "
-                  )
-                ])
+                  ),
+                ]),
               ],
               1
             )
           }),
           0
         )
-      : _vm._e()
+      : _vm._e(),
   ])
 }
 var staticRenderFns = []
@@ -921,22 +943,27 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
     {
-      staticClass: "rounded-lg overflow-hidden text-sm text-center text-white"
+      staticClass: "rounded-lg overflow-hidden text-sm text-center text-white",
     },
+<<<<<<< HEAD
     _vm._l(Object.keys(_vm.formats), function(format) {
       return _vm.card.legality && _vm.card.legality[format]
+=======
+    _vm._l(Object.keys(_vm.formats), function (format) {
+      return _vm.card.legality[format]
+>>>>>>> master
         ? _c(
             "div",
             {
               staticClass: "py-1 px-4",
-              class: _vm.colours[_vm.card.legality[format]]
+              class: _vm.colours[_vm.card.legality[format]],
             },
             [
               _vm._v(
@@ -945,7 +972,7 @@ var render = function() {
                   " in " +
                   _vm._s(format) +
                   ".\n    "
-              )
+              ),
             ]
           )
         : _vm._e()
@@ -971,7 +998,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -980,106 +1007,10 @@ var render = function() {
     [
       _c("card-price-chart", {
         staticStyle: { height: "200px" },
-        attrs: { card: _vm.card }
-      })
+        attrs: { card: _vm.card },
+      }),
     ],
     1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "mb-4" },
-    [
-      _c("h2", { staticClass: "text-lg uppercase font-serif mb-4" }, [
-        _vm._v("Latest decks including " + _vm._s(_vm.card.name))
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.decks, function(deck) {
-        return _c(
-          "router-link",
-          {
-            key: deck.slug,
-            staticClass:
-              "flex items-center hover:bg-gray-100 pr-4 mb-2 rounded-full",
-            attrs: { to: { name: "decks.view", params: { deck: deck.slug } } }
-          },
-          [
-            _c("hero-avatar", {
-              staticClass: "hidden sm:block",
-              attrs: { hero: deck.hero, width: "90" }
-            }),
-            _vm._v(" "),
-            _c("hero-avatar", {
-              staticClass: "sm:hidden",
-              attrs: { hero: deck.hero, width: "80" }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ml-2" },
-              [
-                _c("h3", { staticClass: "font-serif text-lg uppercase" }, [
-                  _vm._v(_vm._s(deck.name))
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-base" }, [
-                  _vm._v("by " + _vm._s(deck.authorName))
-                ]),
-                _vm._v(" "),
-                _c("deck-label", {
-                  staticClass: "mr-1 text-xs px-2 sm:py-1 rounded-full",
-                  attrs: { label: deck.label }
-                }),
-                _vm._v(" "),
-                _c("format-label", {
-                  staticClass: "mr-2 text-xs px-2 sm:py-1 rounded-full",
-                  attrs: { format: deck.format }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex-none font-serif text-center ml-auto" },
-              [
-                _c("div", { staticClass: "text-4xl" }, [
-                  _vm._v(_vm._s(deck.totalCards))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-gray-400 text-base ml-1" }, [
-                  _vm._v("cards")
-                ])
-              ]
-            )
-          ],
-          1
-        )
-      })
-    ],
-    2
   )
 }
 var staticRenderFns = []
@@ -1100,7 +1031,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1109,28 +1040,33 @@ var render = function() {
     _vm._v(" "),
     _c(
       "ul",
-      _vm._l(_vm.rulings, function(ruling) {
+      _vm._l(_vm.rulings, function (ruling) {
         return _c("li", {
           staticClass:
-            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4",
+<<<<<<< HEAD
+            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-sm md:text-base sm:-pl-4",
           domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) }
+=======
+            "border-b border-gray-400 last:border-0 pr-4 sm:pr-2 text-base sm:-pl-4",
+          domProps: { innerHTML: _vm._s(_vm.minimalMarkdown(ruling)) },
+>>>>>>> master
         })
       }),
       0
-    )
+    ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("h2", { staticClass: "border-b border-gray-500" }, [
       _c("div", { staticClass: "flex-1 py-2 uppercase font-serif" }, [
-        _vm._v("\n            Rulings, Clarifications, Erratas.etc.\n        ")
-      ])
+        _vm._v("\n            Rulings, Clarifications, Erratas.etc.\n        "),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1149,7 +1085,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -1160,15 +1096,15 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
-          { staticClass: "container sm:mx-auto pt-0 pb-8 md:py-8" },
+          { staticClass: "container sm:mx-auto pt-0 pb-8" },
           [
-            _c("div", { staticClass: "flow-root" }, [
+            _c("div", { staticClass: "md:flex md:space-x-8 p-4" }, [
               _c(
                 "div",
-                { staticClass: "md:w-1/4 md:float-left p-4 md:py-0" },
+                { staticClass: "md:w-1/4" },
                 [
                   _c(
                     "div",
@@ -1176,24 +1112,68 @@ var render = function() {
                     [
                       _c("card-image", { attrs: { card: _vm.card } }),
                       _vm._v(" "),
-                      _c("card-legality", { attrs: { card: _vm.card } })
+                      _c("card-legality", { attrs: { card: _vm.card } }),
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "flex mt-2" },
+                    { staticClass: "flex mt-2 space-x-px" },
                     [
-                      _c("card-nav", {
-                        staticClass: "mr-1",
-                        attrs: { to: _vm.card.prev, text: "Previous" }
-                      }),
+                      _c(
+                        "card-nav",
+                        {
+                          staticClass:
+                            "flex items-center space-x-2 rounded-l-lg",
+                          attrs: { to: _vm.card.prev, text: "Previous" },
+                        },
+                        [
+                          _c("icon", { attrs: { size: 5 } }, [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "\n                                Previous\n                            "
+                            ),
+                          ]),
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
-                      _c("card-nav", {
-                        staticClass: "ml-1 text-right",
-                        attrs: { to: _vm.card.next, text: "Next" }
-                      })
+                      _c(
+                        "card-nav",
+                        {
+                          staticClass:
+                            "flex items-center justify-end space-x-2 rounded-r-lg text-right",
+                          attrs: { to: _vm.card.next, text: "Next" },
+                        },
+                        [
+                          _c("span", [
+                            _vm._v(
+                              "\n                                Next\n                            "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("icon", { attrs: { size: 5 } }, [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]),
+                        ],
+                        1
+                      ),
                     ],
                     1
                   ),
@@ -1204,253 +1184,253 @@ var render = function() {
                     [_vm._v("Printings")]
                   ),
                   _vm._v(" "),
-                  _vm._l(_vm.card.printings, function(printing) {
+                  _vm._l(_vm.card.printings, function (printing) {
                     return _c(
                       "button",
                       {
                         staticClass:
-                          "inline-block text-sm text-white px-1 mr-1 rounded-sm",
+                          "block w-full py-1 px-2 text-sm text-white mb-1 rounded-sm",
                         class: _vm.printingClasses(printing),
                         attrs: { title: printing.finish },
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.selectPrinting(printing)
-                          }
-                        }
+                          },
+                        },
                       },
                       [
                         _vm._v(
                           "\n                        " +
                             _vm._s(printing.sku.sku) +
                             "\n                    "
-                        )
+                        ),
                       ]
                     )
                   }),
                   _vm._v(" "),
                   _c("advertisement", {
                     staticClass: "mt-4",
-                    attrs: { width: 340, height: 340, zone: 107318 }
+                    attrs: { width: 340, height: 340, zone: 107318 },
                   }),
                   _vm._v(" "),
                   _c("ul", { staticClass: "pt-4 text-base" }, [
                     _vm.card.artist
-                      ? _c("li", { staticClass: "flex odd:bg-white" }, [
-                          _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                            _vm._v("Artist")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "w-2/3 p-2 px-4" },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link-alternate",
-                                  attrs: {
-                                    to: {
-                                      name: "artists.view",
-                                      params: { artist: _vm.card.artist.slug }
-                                    }
-                                  }
-                                },
-                                [_vm._v(_vm._s(_vm.card.artist.name))]
-                              )
-                            ],
-                            1
-                          )
-                        ])
+                      ? _c(
+                          "li",
+                          {
+                            staticClass:
+                              "flex odd:bg-white dark:odd:bg-gray-700",
+                          },
+                          [
+                            _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                              _vm._v("Artist"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "w-2/3 p-2 px-4" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link-alternate",
+                                    attrs: {
+                                      to: {
+                                        name: "artists.view",
+                                        params: {
+                                          artist: _vm.card.artist.slug,
+                                        },
+                                      },
+                                    },
+                                  },
+                                  [_vm._v(_vm._s(_vm.card.artist.name))]
+                                ),
+                              ],
+                              1
+                            ),
+                          ]
+                        )
                       : _vm._e(),
                     _vm._v(" "),
-                    _c("li", { staticClass: "flex odd:bg-white" }, [
-                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                        _vm._v("Rarity")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-2/3 p-2 px-4" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "link-alternate",
-                              attrs: {
-                                to: {
-                                  name: "cards.browse",
-                                  query: {
-                                    rarity: _vm.card.rarity.toLowerCase()
-                                  }
-                                }
-                              }
-                            },
-                            [_vm._v(_vm._s(_vm.rarity))]
-                          )
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "flex odd:bg-white" }, [
-                      _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
-                        _vm._v("Keywords")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-2/3 p-2 px-4" },
-                        _vm._l(_vm.card.keywords, function(keyword, index) {
-                          return _c(
-                            "span",
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "link-alternate",
-                                  attrs: {
-                                    to: "/cards/browse?keywords=" + keyword
-                                  }
+                    _c(
+                      "li",
+                      { staticClass: "flex odd:bg-white dark:odd:bg-gray-700" },
+                      [
+                        _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                          _vm._v("Rarity"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-2/3 p-2 px-4" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "link-alternate",
+                                attrs: {
+                                  to: {
+                                    name: "cards.browse",
+                                    query: {
+                                      rarity: _vm.card.rarity.toLowerCase(),
+                                    },
+                                  },
                                 },
-                                [_vm._v(_vm._s(keyword))]
-                              ),
-                              index < _vm.card.keywords.length - 1
-                                ? _c("span", [_vm._v(", ")])
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    ])
-                  ])
+                              },
+                              [_vm._v(_vm._s(_vm.rarity))]
+                            ),
+                          ],
+                          1
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "flex odd:bg-white dark:odd:bg-gray-700" },
+                      [
+                        _c("div", { staticClass: "w-1/3 p-2 px-4" }, [
+                          _vm._v("Keywords"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "w-2/3 p-2 px-4" },
+                          _vm._l(_vm.card.keywords, function (keyword, index) {
+                            return _c(
+                              "span",
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "link-alternate",
+                                    attrs: {
+                                      to: "/cards/browse?keywords=" + keyword,
+                                    },
+                                  },
+                                  [_vm._v(_vm._s(keyword))]
+                                ),
+                                index < _vm.card.keywords.length - 1
+                                  ? _c("span", [_vm._v(", ")])
+                                  : _vm._e(),
+                              ],
+                              1
+                            )
+                          }),
+                          0
+                        ),
+                      ]
+                    ),
+                  ]),
                 ],
                 2
               ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "md:w-3/4 md:float-right sm:px-4 md:flex" },
+                { staticClass: "md:w-1/2 mt-4 md:mt-0" },
                 [
                   _c(
                     "div",
-                    { staticClass: "md:w-1/2" },
+                    { staticClass: "space-y-4" },
                     [
-                      _c(
-                        "div",
-                        { staticClass: "p-4 pt-0 sm:p-0 space-y-4" },
-                        [
-                          _vm.text
-                            ? _c(
-                                "div",
-                                {
-                                  staticClass: "bg-white text-black rounded-lg"
-                                },
-                                [
-                                  _c("div", {
-                                    staticClass: "px-4 py-px",
-                                    domProps: {
-                                      innerHTML: _vm._s(
-                                        _vm.prettyText(_vm.text)
-                                      )
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _vm.flavour
-                                    ? _c(
-                                        "div",
-                                        {
-                                          staticClass:
-                                            "italic border-t border-gray-200 p-4 text-gray-600"
-                                        },
-                                        [_vm._v(_vm._s(_vm.flavour))]
-                                      )
-                                    : _vm._e()
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
+                      _vm.text
+                        ? _c(
                             "div",
                             {
                               staticClass:
-                                "inline-block flex rounded-lg overflow-hidden space-x-px"
+                                "bg-white dark:bg-gray-800 rounded-lg",
                             },
-                            _vm._l(_vm.card.stats, function(value, stat) {
-                              return !isNaN(value)
+                            [
+                              _c("div", {
+                                staticClass: "px-4 py-px",
+                                domProps: {
+                                  innerHTML: _vm._s(_vm.prettyText(_vm.text)),
+                                },
+                              }),
+                              _vm._v(" "),
+                              _vm.flavour
                                 ? _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "flex justify-center items-center flex-grow bg-white space-x-2 py-2"
+                                        "italic border-t border-gray-200 dark:border-gray-900 p-4",
                                     },
-                                    [
-                                      _c("div", {}, [
-                                        _c("img", {
-                                          staticClass: "h-6",
-                                          attrs: {
-                                            src: _vm.statToImagePath(
-                                              stat,
-                                              value
-                                            ),
-                                            alt: _vm.sentenceCase(stat)
-                                          }
-                                        })
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "text-xl" }, [
-                                        _vm._v(_vm._s(value))
-                                      ])
-                                    ]
+                                    [_vm._v(_vm._s(_vm.flavour))]
                                   )
-                                : _vm._e()
-                            }),
-                            0
-                          ),
-                          _vm._v(" "),
-                          _c("legality-banner", {
-                            staticClass: "my-4",
-                            attrs: { card: _vm.card }
-                          }),
-                          _vm._v(" "),
-                          _c("article", [
-                            _c("p", { staticClass: "my-4 italic" }, [
-                              _c("strong", [
-                                _vm._v('"' + _vm._s(_vm.card.name) + '"')
-                              ]),
-                              _vm._v(" is a trading card from the "),
-                              _c("strong", [
-                                _vm._v(
-                                  '"' +
-                                    _vm._s(
-                                      _vm.setToString(
-                                        _vm.setFromIdentifier(
-                                          _vm.card.printings[0].sku.sku
-                                        )
-                                      )
-                                    ) +
-                                    '"'
-                                )
-                              ]),
-                              _vm._v(" set of the trading card game, "),
-                              _c("strong", [_vm._v("Flesh & Blood.")])
-                            ])
-                          ])
-                        ],
-                        1
+                                : _vm._e(),
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "inline-block flex rounded-lg overflow-hidden space-x-px",
+                        },
+                        _vm._l(_vm.card.stats, function (value, stat) {
+                          return !isNaN(value)
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "flex justify-center items-center flex-grow bg-white dark:bg-gray-800 space-x-2 py-2",
+                                },
+                                [
+                                  _c("div", {}, [
+                                    _c("img", {
+                                      staticClass: "h-6",
+                                      attrs: {
+                                        src: _vm.statToImagePath(stat, value),
+                                        alt: _vm.sentenceCase(stat),
+                                      },
+                                    }),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "text-xl" }, [
+                                    _vm._v(_vm._s(value)),
+                                  ]),
+                                ]
+                              )
+                            : _vm._e()
+                        }),
+                        0
                       ),
                       _vm._v(" "),
-                      _vm.rulings.length
-                        ? _c("rulings", {
-                            staticClass: "px-4 sm:px-0",
-                            attrs: { rulings: _vm.rulings }
-                          })
-                        : _vm._e()
+                      _c("legality-banner", {
+                        staticClass: "my-4",
+                        attrs: { card: _vm.card },
+                      }),
+                      _vm._v(" "),
+                      _c("article", [
+                        _c("p", { staticClass: "my-4 italic" }, [
+                          _c("strong", [
+                            _vm._v('"' + _vm._s(_vm.card.name) + '"'),
+                          ]),
+                          _vm._v(" is a trading card from the "),
+                          _c("strong", [
+                            _vm._v(
+                              '"' +
+                                _vm._s(
+                                  _vm.setToString(
+                                    _vm.setFromIdentifier(
+                                      _vm.card.printings[0].sku.sku
+                                    )
+                                  )
+                                ) +
+                                '"'
+                            ),
+                          ]),
+                          _vm._v(" set of the trading card game, "),
+                          _c("strong", [_vm._v("Flesh & Blood.")]),
+                        ]),
+                      ]),
                     ],
                     1
                   ),
                   _vm._v(" "),
+<<<<<<< HEAD
                   _c(
                     "div",
                     { staticClass: "md:w-1/2 md:ml-8" },
@@ -1469,24 +1449,50 @@ var render = function() {
                           color: "bg-black",
                           query: "card=" + _vm.card.identifier
                         }
+=======
+                  _vm.rulings.length
+                    ? _c("rulings", {
+                        staticClass: "px-4 sm:px-0",
+                        attrs: { rulings: _vm.rulings },
+>>>>>>> master
                       })
-                    ],
-                    1
-                  )
-                ]
-              )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "text-gray-500 mt-4" }),
+                  _vm._v(" "),
+                  _c("discussion", {
+                    staticClass: "md:block",
+                    attrs: { type: "card", id: _vm.card.identifier },
+                  }),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "md:w-1/4 mt-4 md:mt-0" },
+                [
+                  _c("tcg-player", { attrs: { "buy-link": _vm.card.buyLink } }),
+                  _vm._v(" "),
+                  _c("recent-decks", {
+                    staticClass: "mt-4",
+                    attrs: { card: _vm.card },
+                  }),
+                ],
+                1
+              ),
             ]),
             _vm._v(" "),
             _c("hr", { staticClass: "text-gray-500 mt-4" }),
             _vm._v(" "),
             _c("discussion", {
-              staticClass: "mx-4",
-              attrs: { type: "card", id: _vm.card.identifier }
-            })
+              staticClass: "mx-4 md:hidden",
+              attrs: { type: "card", id: _vm.card.identifier },
+            }),
           ],
           1
-        )
-      ])
+        ),
+      ]),
     ],
     1
   )
@@ -1509,13 +1515,99 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.marketable
     ? _c("div", { staticClass: "mx-auto", style: _vm.style }, [
-        _c("div", { ref: "ad" })
+        _c("div", { ref: "ad" }),
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.decks
+    ? _c("section", [
+        _c(
+          "header",
+          {
+            staticClass:
+              "flex items-center py-2 px-4 rounded-lg overflow-hidden bg-black text-white",
+          },
+          [
+            _c("h2", { staticClass: "font-serif text-xl uppercase" }, [
+              _vm._v("Recent decks"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass:
+                  "block flex items-center ml-auto rounded py-1 px-2 text-base button-primary",
+                attrs: {
+                  to: {
+                    name: "decks.browse",
+                    query: "card=" + this.card.identifier,
+                  },
+                },
+              },
+              [
+                _vm._v("\n            See more\n            "),
+                _c(
+                  "icon",
+                  { staticClass: "inline-block", attrs: { size: 5 } },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                        "clip-rule": "evenodd",
+                      },
+                    }),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-gray-200 dark:bg-transparent rounded-b-lg overflow-hidden",
+          },
+          _vm._l(_vm.decks, function (deck) {
+            return _c("deck-item", {
+              key: deck.slug,
+              attrs: { deck: deck, theme: "light" },
+            })
+          }),
+          1
+        ),
       ])
     : _vm._e()
 }
@@ -1936,9 +2028,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1994,75 +2086,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
   }
 });
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/RecentDecks.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=template&id=3ffc762e& */ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&");
-/* harmony import */ var _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=script&lang=js& */ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/CardDatabase/RecentDecks.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e& ***!
-  \**********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=template&id=3ffc762e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/CardDatabase/RecentDecks.vue?vue&type=template&id=3ffc762e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_3ffc762e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 
@@ -2268,6 +2291,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Advertisement_vue_vue_type_template_id_2fc7116c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Advertisement_vue_vue_type_template_id_2fc7116c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=template&id=68402291& */ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&");
+/* harmony import */ var _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentDecks.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Featured/RecentDecks.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentDecks.vue?vue&type=template&id=68402291& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Featured/RecentDecks.vue?vue&type=template&id=68402291&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentDecks_vue_vue_type_template_id_68402291___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

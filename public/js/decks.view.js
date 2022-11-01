@@ -57,6 +57,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    cards: {
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeckComposition__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckComposition */ "./resources/js/Decks/Metrics/DeckComposition.vue");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    deck: {
+      required: true
+    }
+  },
+  components: {
+    DeckComposition: _DeckComposition__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/Cards.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/Cards.vue?vue&type=script&lang=js& ***!
@@ -153,6 +208,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    url: {
+      required: true,
+      type: String
+    }
+  },
+  data: function data() {
+    var params = new URLSearchParams('?' + this.url.split('?')[1]);
+    var hasEmbed = this.url.indexOf('embed') !== -1;
+    var actualUrl = hasEmbed ? this.url : 'https://www.youtube.com/embed/' + params.get('v');
+    return {
+      actualUrl: actualUrl
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/ViewDeck.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/ViewDeck.vue?vue&type=script&lang=js& ***!
@@ -172,23 +261,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Cards__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Cards */ "./resources/js/Decks/Viewing/Cards.vue");
 /* harmony import */ var _DeckBuilder_DeckCurves__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../DeckBuilder/DeckCurves */ "./resources/js/DeckBuilder/DeckCurves.js");
 /* harmony import */ var _DeckLabel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeckLabel */ "./resources/js/Decks/Viewing/DeckLabel.vue");
-/* harmony import */ var _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Discussion/Discussion */ "./resources/js/Discussion/Discussion.vue");
-/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
-/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
-/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
-/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../Components/Icon */ "./resources/js/Components/Icon.vue");
-/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
-/* harmony import */ var _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../Discussion/Respond.vue */ "./resources/js/Discussion/Respond.vue");
-/* harmony import */ var _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../CardDatabase/Rulings */ "./resources/js/CardDatabase/Rulings.vue");
-/* harmony import */ var _Voting_Votes_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../Voting/Votes.vue */ "./resources/js/Voting/Votes.vue");
-/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../Utilities/Models */ "./resources/js/Utilities/Models.js");
-/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Deck */ "./resources/js/Decks/Deck.js");
-/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
-/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
-/* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../Components/Shareable */ "./resources/js/Components/Shareable.js");
+/* harmony import */ var _DeckVideo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DeckVideo */ "./resources/js/Decks/Viewing/DeckVideo.vue");
+/* harmony import */ var _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Discussion/Discussion */ "./resources/js/Discussion/Discussion.vue");
+/* harmony import */ var _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../Components/HeaderTitle.vue */ "./resources/js/Components/HeaderTitle.vue");
+/* harmony import */ var _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../Components/HeroAvatar */ "./resources/js/Components/HeroAvatar.vue");
+/* harmony import */ var _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../Utilities/Imagery */ "./resources/js/Utilities/Imagery.js");
+/* harmony import */ var _Components_Icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../Components/Icon */ "./resources/js/Components/Icon.vue");
+/* harmony import */ var _Components_LazyLoader__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../Components/LazyLoader */ "./resources/js/Components/LazyLoader.js");
+/* harmony import */ var _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../Discussion/Respond.vue */ "./resources/js/Discussion/Respond.vue");
+/* harmony import */ var _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../CardDatabase/Rulings */ "./resources/js/CardDatabase/Rulings.vue");
+/* harmony import */ var _Voting_Votes_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../Voting/Votes.vue */ "./resources/js/Voting/Votes.vue");
+/* harmony import */ var _Utilities_Models__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../Utilities/Models */ "./resources/js/Utilities/Models.js");
+/* harmony import */ var _Deck__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../Deck */ "./resources/js/Decks/Deck.js");
+/* harmony import */ var _Utilities_Strings__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../Utilities/Strings */ "./resources/js/Utilities/Strings.js");
+/* harmony import */ var _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../DeckBuilder/Viewable */ "./resources/js/DeckBuilder/Viewable.js");
+/* harmony import */ var _Components_Shareable__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../Components/Shareable */ "./resources/js/Components/Shareable.js");
+/* harmony import */ var _Components_Tabs__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../Components/Tabs */ "./resources/js/Components/Tabs.vue");
+/* harmony import */ var _Components_TabItem__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../Components/TabItem */ "./resources/js/Components/TabItem.vue");
+<<<<<<< HEAD
+/* harmony import */ var _Metrics_MetricsPerformance__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../Metrics/MetricsPerformance */ "./resources/js/Decks/Metrics/MetricsPerformance.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+=======
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+>>>>>>> master
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -317,13 +414,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 
 
 
@@ -347,21 +441,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_4__["default"], _Components_Shareable__WEBPACK_IMPORTED_MODULE_21__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_11__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_19__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_20__["default"]],
+  mixins: [_CardDatabase_Cardable__WEBPACK_IMPORTED_MODULE_4__["default"], _Components_Shareable__WEBPACK_IMPORTED_MODULE_22__["default"], _Utilities_Imagery__WEBPACK_IMPORTED_MODULE_12__["default"], _Utilities_Strings__WEBPACK_IMPORTED_MODULE_20__["default"], _DeckBuilder_Viewable__WEBPACK_IMPORTED_MODULE_21__["default"]],
   components: {
     Breadcrumbs: _Components_Breadcrumbs_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Cards: _Cards__WEBPACK_IMPORTED_MODULE_5__["default"],
     DeckCurves: _DeckBuilder_DeckCurves__WEBPACK_IMPORTED_MODULE_6__["default"],
     DeckLabel: _DeckLabel__WEBPACK_IMPORTED_MODULE_7__["default"],
-    Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_8__["default"],
-    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_10__["default"],
-    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_12__["default"],
-    Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
-    Rulings: _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_15__["default"],
-    Votes: _Voting_Votes_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    DeckVideo: _DeckVideo__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Discussion: _Discussion_Discussion__WEBPACK_IMPORTED_MODULE_9__["default"],
+    HeaderTitle: _Components_HeaderTitle_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    HeroAvatar: _Components_HeroAvatar__WEBPACK_IMPORTED_MODULE_11__["default"],
+    Icon: _Components_Icon__WEBPACK_IMPORTED_MODULE_13__["default"],
+    MetricsPerformance: _Metrics_MetricsPerformance__WEBPACK_IMPORTED_MODULE_25__["default"],
+    Respond: _Discussion_Respond_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    Rulings: _CardDatabase_Rulings__WEBPACK_IMPORTED_MODULE_16__["default"],
+    TabItem: _Components_TabItem__WEBPACK_IMPORTED_MODULE_24__["default"],
+    Tabs: _Components_Tabs__WEBPACK_IMPORTED_MODULE_23__["default"],
+    Votes: _Voting_Votes_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('session', ['user'])), {}, {
     cards: function cards() {
       return this.deck.cards || [];
     },
@@ -396,7 +494,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       tab: 'composition'
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('messages', ['addMessage'])), {}, {
     copyDeck: function copyDeck() {
       var _this = this;
 
@@ -415,13 +513,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         });
       });
-    },
-    tabClasses: function tabClasses(tab) {
-      if (this.tab === tab) {
-        return 'relative bg-gray-200 -bottom-1px text-gray-800';
-      }
-
-      return 'bg-gray-200 hover:bg-white text-gray-600';
     }
   }),
   metaInfo: function metaInfo() {
@@ -476,10 +567,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       meta: meta
     };
   },
-  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_13__["default"])(function (to, callback) {
+  "extends": Object(_Components_LazyLoader__WEBPACK_IMPORTED_MODULE_14__["default"])(function (to, callback) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/decks/' + to.params.deck).then(function (response) {
       callback(function () {
-        this.deck = _Utilities_Models__WEBPACK_IMPORTED_MODULE_17__["default"].hydrate(response.data, _Deck__WEBPACK_IMPORTED_MODULE_18__["default"]);
+        this.deck = _Utilities_Models__WEBPACK_IMPORTED_MODULE_18__["default"].hydrate(response.data, _Deck__WEBPACK_IMPORTED_MODULE_19__["default"]);
       });
     });
   })
@@ -498,17 +589,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "flex items-center" },
     [
       _vm.card.stats.resource || !_vm.collapse
         ? _c("colour", {
             staticClass: "mr-2",
-            attrs: { resource: _vm.card.stats.resource }
+            attrs: { resource: _vm.card.stats.resource },
           })
         : _vm._e(),
       _vm._v(" "),
@@ -520,23 +612,23 @@ var render = function() {
               name: "preview-card",
               rawName: "v-preview-card",
               value: { stack: [_vm.card], index: 0 },
-              expression: "{stack: [card], index: 0}"
+              expression: "{stack: [card], index: 0}",
             },
             {
               name: "hover-card",
               rawName: "v-hover-card",
               value: _vm.card,
-              expression: "card"
-            }
+              expression: "card",
+            },
           ],
-          staticClass: "cursor-help help-underline"
+          staticClass: "cursor-help help-underline",
         },
         [_vm._v(_vm._s(_vm.card.name))]
       ),
       _vm._v(" "),
       _vm.total()
         ? _c("span", { staticClass: "ml-1" }, [
-            _vm._v("(" + _vm._s(_vm.total()) + ")")
+            _vm._v("(" + _vm._s(_vm.total()) + ")"),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -545,32 +637,83 @@ var render = function() {
             "div",
             {
               staticClass: "flex items-center ml-auto",
-              attrs: { title: _vm.card.sideboardTotal + " in sideboard" }
+              attrs: { title: _vm.card.sideboardTotal + " in sideboard" },
             },
             [
               _c("icon", { attrs: { size: 4 } }, [
                 _c("path", {
-                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" }
+                  attrs: { d: "M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" },
                 }),
                 _vm._v(" "),
                 _c("path", {
                   attrs: {
                     "fill-rule": "evenodd",
-                    d:
-                      "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
-                    "clip-rule": "evenodd"
-                  }
-                })
+                    d: "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z",
+                    "clip-rule": "evenodd",
+                  },
+                }),
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "ml-1" }, [
-                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")")
-              ])
+              _c("div", { staticClass: "ml-1" }, [
+                _vm._v("(" + _vm._s(_vm.card.sideboardTotal) + ")"),
+              ]),
             ],
             1
           )
-        : _vm._e()
+        : _vm._e(),
     ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [_c("deck-composition", { attrs: { cards: _vm.deck.cards } })],
     1
   )
 }
@@ -592,31 +735,34 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("h3", { staticClass: "py-2 px-4 font-serif uppercase text-2xl" }, [
-      _vm._v(_vm._s(_vm.heading) + " (" + _vm._s(_vm.cards.total()) + ")")
+      _vm._v(_vm._s(_vm.heading) + " (" + _vm._s(_vm.cards.total()) + ")"),
     ]),
     _vm._v(" "),
     _c(
       "ol",
-      _vm._l(_vm.cards, function(card, index) {
+      _vm._l(_vm.cards, function (card, index) {
         return _c(
           "li",
-          { staticClass: "p-2 pl-4 odd:bg-gray-100" },
+          {
+            staticClass:
+              "p-2 pl-4 odd:bg-gray-100 even:bg-gray-200 dark:odd:bg-gray-700 dark:even:bg-gray-600",
+          },
           [
             _c("deck-card", {
-              attrs: { card: card, collapse: true, "use-router": false }
-            })
+              attrs: { card: card, collapse: true, "use-router": false },
+            }),
           ],
           1
         )
       }),
       0
-    )
+    ),
   ])
 }
 var staticRenderFns = []
@@ -637,7 +783,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -648,6 +794,41 @@ var render = function() {
         [_vm._v(_vm._s(_vm.name()))]
       )
     : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("iframe", {
+    staticClass: "w-full",
+    attrs: {
+      src: _vm.actualUrl,
+      height: "400",
+      title: "YouTube video player",
+      frameborder: "0",
+      allow:
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+      allowfullscreen: "",
+    },
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -667,7 +848,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -677,29 +858,83 @@ var render = function() {
           "div",
           [
             _c("header-title", {
-              attrs: { title: _vm.deck.name + " (" + _vm.deck.hero.name + ")" }
+              attrs: { title: _vm.deck.name + " (" + _vm.deck.hero.name + ")" },
             }),
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
-            _c("div", { staticClass: "bg-white" }, [
-              _c("div", { staticClass: "container sm:mx-auto px-4 flex" }, [
-                _c(
-                  "div",
-                  { staticClass: "flex-1 font-serif uppercase py-4 md:px-0" },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.deck.cards.total()) +
-                        " Cards in deck  \n                    "
-                    ),
-                    _c("span", { staticClass: "hidden md:inline" }, [
+            _c("div", { staticClass: "bg-white dark:bg-gray-800" }, [
+              _c(
+                "div",
+                { staticClass: "container sm:mx-auto px-4 flex items-center" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "flex-1 font-serif uppercase py-4 md:px-0" },
+                    [
                       _vm._v(
-                        "\n                        (\n                        "
+                        "\n                    " +
+                          _vm._s(_vm.deck.cards.total()) +
+                          " Cards in deck  \n                    "
                       ),
+<<<<<<< HEAD
+                      _c("span", { staticClass: "hidden md:inline" }, [
+                        _vm._v(
+                          "\n                        (\n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(3)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("blue")) +
+                            "  \n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(2)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("yellow")) +
+                            "  \n                        "
+                        ),
+                        _c("span", {
+                          staticClass: "inline-block rounded-lg h-2 w-2",
+                          class: _vm.resourceColour(1)
+                        }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.deck.cards.colouredCount("red")) +
+                            "\n                        )\n                    "
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-right mt-2" },
+                    [
+                      _c("votes", {
+                        attrs: {
+                          size: 6,
+                          total: _vm.deck.fields.totalVotes,
+                          voted: _vm.deck.fields.myVote,
+                          voteable: "deck",
+                          foreign: _vm.deck.slug
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+=======
                       _c("span", {
                         staticClass: "inline-block rounded-lg h-2 w-2",
-                        class: _vm.resourceColour(3)
+                        class: _vm.resourceColour(3),
                       }),
                       _vm._v(
                         " " +
@@ -708,7 +943,7 @@ var render = function() {
                       ),
                       _c("span", {
                         staticClass: "inline-block rounded-lg h-2 w-2",
-                        class: _vm.resourceColour(2)
+                        class: _vm.resourceColour(2),
                       }),
                       _vm._v(
                         " " +
@@ -717,14 +952,14 @@ var render = function() {
                       ),
                       _c("span", {
                         staticClass: "inline-block rounded-lg h-2 w-2",
-                        class: _vm.resourceColour(1)
+                        class: _vm.resourceColour(1),
                       }),
                       _vm._v(
                         " " +
                           _vm._s(_vm.deck.cards.colouredCount("red")) +
                           "\n                        )\n                    "
-                      )
-                    ])
+                      ),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
@@ -734,33 +969,119 @@ var render = function() {
                   [
                     _c("votes", {
                       attrs: {
-                        size: 6,
+                        size: 5,
                         total: _vm.deck.fields.totalVotes,
                         voted: _vm.deck.fields.myVote,
                         voteable: "deck",
-                        foreign: _vm.deck.slug
-                      }
-                    })
+                        foreign: _vm.deck.slug,
+                      },
+                    }),
                   ],
                   1
-                )
-              ])
+                ),
+              ]),
+>>>>>>> master
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "bg-gray-200" }, [
+            _c("div", { staticClass: "main-body" }, [
               _c("div", { staticClass: "container sm:mx-auto px-4" }, [
                 _c("div", { staticClass: "md:flex md:pt-0" }, [
                   _c(
                     "div",
-                    { staticClass: "py-4 md:pr-4 md:w-1/4" },
+                    { staticClass: "py-4 md:pr-4 md:w-1/4 space-y-4" },
                     [
-                      _c("card-image", { attrs: { card: _vm.deck.hero } }),
+                      _c(
+                        "div",
+                        [
+                          _c("card-image", {
+                            staticClass: "relative z-25",
+                            attrs: { card: _vm.deck.hero }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "relative flex rounded-b-xl overflow-hidden space-x-px -mt-8 z-0"
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "flex w-1/2 items-center justify-center button-primary rounded-l-xl px-2 pb-2 pt-10",
+                                  attrs: {
+                                    href: _vm.buyLink(_vm.deck),
+                                    target: "_blank",
+                                    title: "Buy from TCG Player"
+                                  }
+                                },
+                                [
+                                  _c("icon", { attrs: { size: 4 } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+                                        "clip-rule": "evenodd"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "ml-1" }, [
+                                    _vm._v("Buy deck")
+                                  ])
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "flex w-1/2 items-center justify-center button-primary rounded-r-xl px-2 pb-2 pt-10",
+                                  attrs: { title: "Copy deck to my decks" },
+                                  on: { click: _vm.copyDeck }
+                                },
+                                [
+                                  _c("icon", { attrs: { size: 4 } }, [
+                                    _c("path", {
+                                      attrs: {
+                                        d:
+                                          "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
+                                      }
+                                    })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", { staticClass: "ml-2" }, [
+                                    _vm._v("Copy deck")
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _vm.deck.label
                         ? _c("deck-label", {
                             staticClass:
-                              "block w-full py-2 text-center rounded-lg mt-4",
+<<<<<<< HEAD
+                              "block w-full py-2 text-center rounded-lg",
                             attrs: { label: _vm.deck.label }
+=======
+                              "block w-full py-2 text-center rounded-lg mt-4",
+                            attrs: { label: _vm.deck.label },
+>>>>>>> master
                           })
                         : _vm._e(),
                       _vm._v(" "),
@@ -768,16 +1089,20 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "mt-4 rounded-lg bg-gray-100 overflow-hidden"
+<<<<<<< HEAD
+                            "rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden"
+=======
+                            "mt-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden",
+>>>>>>> master
                         },
                         [
                           _c(
                             "h3",
                             {
                               staticClass:
-                                "font-serif uppercase text-2xl mb-2 bg-white p-2 px-4"
+                                "font-serif uppercase text-xl mb-2 bg-white dark:bg-gray-700 p-2 px-4",
                             },
-                            [_vm._v("Deck stats")]
+                            [_vm._v("Basic stats")]
                           ),
                           _vm._v(" "),
                           _c(
@@ -791,7 +1116,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.deck.other.attackActions().total()
                                       )
-                                  )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("li", { staticClass: "block py-1 w-full" }, [
@@ -800,7 +1125,7 @@ var render = function() {
                                       _vm._s(
                                         _vm.deck.other.attackReactions().total()
                                       )
-                                  )
+                                  ),
                                 ]),
                                 _vm._v(" "),
                                 _c("li", { staticClass: "block py-1 w-full" }, [
@@ -811,8 +1136,8 @@ var render = function() {
                                           .defenseReactions()
                                           .total()
                                       )
-                                  )
-                                ])
+                                  ),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("deck-curves", {
@@ -821,8 +1146,8 @@ var render = function() {
                                 attrs: {
                                   cards: _vm.deck.other.withCost(),
                                   stat: "cost",
-                                  strategy: "total"
-                                }
+                                  strategy: "total",
+                                },
                               }),
                               _vm._v(" "),
                               _c("deck-curves", {
@@ -830,314 +1155,365 @@ var render = function() {
                                 attrs: {
                                   cards: _vm.deck.other.withResource(),
                                   stat: "resource",
-                                  strategy: "total"
-                                }
-                              })
+                                  strategy: "total",
+                                },
+                              }),
                             ],
                             1
-                          )
+                          ),
                         ]
-                      )
+                      ),
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "w-full md:w-3/4 md:py-4" }, [
-                    _c(
-                      "ul",
-                      {
-                        staticClass:
-                          "flex items-center border-b border-gray-400 text-sm md:text-base space-x-1 md:space-x-2"
-                      },
-                      [
-                        _c("li", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
-                              class: _vm.tabClasses("composition"),
-                              on: {
-                                click: function($event) {
-                                  _vm.tab = "composition"
-                                }
-                              }
-                            },
-                            [_vm._v("Composition")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "border border-b-0 border-gray-400 rounded-t-lg px-4 py-2",
-                              class: _vm.tabClasses("rulings"),
-                              on: {
-                                click: function($event) {
-                                  _vm.tab = "rulings"
-                                }
-                              }
-                            },
-                            [_vm._v("Rulings")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "pl-1 md:mb-1" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "flex items-center w-full sm:w-auto button-primary rounded-full px-4 py-1 md:py-2",
-                              attrs: {
-                                href: _vm.buyLink(_vm.deck),
-                                target: "_blank",
-                                title: "Buy from TCG Player"
-                              }
-                            },
+                  _c(
+                    "div",
+                    { staticClass: "w-full md:w-3/4 md:py-4" },
+                    [
+                      _c(
+                        "tabs",
+<<<<<<< HEAD
+=======
+                        {
+                          scopedSlots: _vm._u(
                             [
-                              _c("icon", { attrs: { size: 4 } }, [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
-                                    "clip-rule": "evenodd"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "ml-1 hidden sm:inline" },
-                                [_vm._v("Buy deck")]
-                              )
-                            ],
-                            1
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "md:mb-1" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "sm:flex items-center w-full button-primary rounded-full px-4 py-1 md:py-2",
-                              attrs: { title: "Copy deck to my decks" },
-                              on: { click: _vm.copyDeck }
-                            },
-                            [
-                              _c("icon", { attrs: { size: 4 } }, [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "ml-2 hidden sm:block" },
-                                [_vm._v("Copy to my decks")]
-                              )
-                            ],
-                            1
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "md:mb-1" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "sm:flex items-center w-full button-primary rounded-full px-4 py-1 md:py-2",
-                              attrs: { title: "Copy deck to clipboard" },
-                              on: {
-                                click: function($event) {
-                                  _vm.copyToClipboard(
-                                    _vm.shareDeckViaText(_vm.deck),
-                                    "Deck build copied to clipboard."
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("icon", { attrs: { size: 4 } }, [
-                                _c("path", {
-                                  attrs: {
-                                    d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "ml-1 hidden sm:block" },
-                                [_vm._v("Copy to clipboard")]
-                              )
-                            ],
-                            1
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm.tab === "composition"
-                      ? _c("div", { staticClass: "bg-gray-200 py-4" }, [
-                          _vm.deck.notes
-                            ? _c("div", { staticClass: "md:flex" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "w-full md:w-2/3 md:pl-4 md:pr-8"
-                                  },
-                                  [
-                                    _c("div", {
-                                      staticClass: "mb-8",
-                                      domProps: {
-                                        innerHTML: _vm._s(
-                                          _vm.minimalMarkdown(
-                                            _vm.deck.notes.replace(
-                                              /(?:https?|ftp):\/\/[\n\S]+/g,
-                                              ""
-                                            )
-                                          )
-                                        )
-                                      }
-                                    }),
-                                    _vm._v(" "),
+                              {
+                                key: "right",
+                                fn: function () {
+                                  return [
                                     _c(
-                                      "div",
+                                      "ul",
                                       {
                                         staticClass:
-                                          "border-t border-gray-400 mt-4"
+                                          "flex items-center text-sm space-x-1 md:space-x-2",
                                       },
                                       [
-                                        _c("discussion", {
-                                          staticClass: "pb-8",
-                                          attrs: {
-                                            type: "deck",
-                                            id: _vm.deck.slug
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
+                                        _c(
+                                          "li",
+                                          { staticClass: "pl-1 md:mb-1" },
+                                          [
+                                            _c(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "flex items-center w-full sm:w-auto button-primary rounded-full px-2 py-1",
+                                                attrs: {
+                                                  href: _vm.buyLink(_vm.deck),
+                                                  target: "_blank",
+                                                  title: "Buy from TCG Player",
+                                                },
+                                              },
+                                              [
+                                                _c(
+                                                  "icon",
+                                                  { attrs: { size: 4 } },
+                                                  [
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d: "M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z",
+                                                      },
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("path", {
+                                                      attrs: {
+                                                        "fill-rule": "evenodd",
+                                                        d: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z",
+                                                        "clip-rule": "evenodd",
+                                                      },
+                                                    }),
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "ml-1 hidden sm:inline",
+                                                  },
+                                                  [_vm._v("Buy")]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("li", { staticClass: "md:mb-1" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "sm:flex items-center w-full button-primary rounded-full px-2 py-1",
+                                              attrs: {
+                                                title: "Copy deck to my decks",
+                                              },
+                                              on: { click: _vm.copyDeck },
+                                            },
+                                            [
+                                              _c(
+                                                "icon",
+                                                { attrs: { size: 4 } },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M6 6V2c0-1.1.9-2 2-2h10a2 2 0 012 2v10a2 2 0 01-2 2h-4v4a2 2 0 01-2 2H2a2 2 0 01-2-2V8c0-1.1.9-2 2-2h4zm2 0h4a2 2 0 012 2v4h4V2H8v4zM2 8v10h10V8H2z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "ml-2 hidden sm:block",
+                                                },
+                                                [_vm._v("Copy to my decks")]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("li", { staticClass: "md:mb-1" }, [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "sm:flex items-center w-full button-primary rounded-full px-2 py-1",
+                                              attrs: {
+                                                title: "Copy deck to clipboard",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  _vm.copyToClipboard(
+                                                    _vm.shareDeckViaText(
+                                                      _vm.deck
+                                                    ),
+                                                    "Deck build copied to clipboard."
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _c(
+                                                "icon",
+                                                { attrs: { size: 4 } },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M8 2a1 1 0 000 2h2a1 1 0 100-2H8z",
+                                                    },
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c("path", {
+                                                    attrs: {
+                                                      d: "M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z",
+                                                    },
+                                                  }),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "ml-1 hidden sm:block",
+                                                },
+                                                [_vm._v("Copy to clipboard")]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]),
+                                      ]
+                                    ),
                                   ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "w-full md:w-1/3" },
-                                  [
-                                    _vm.deck.weapons.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.weapons,
-                                            heading: "Weapons"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.equipment.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.equipment,
-                                            heading: "Equipment"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.other.total()
-                                      ? _c("cards", {
-                                          attrs: {
-                                            cards: _vm.deck.other,
-                                            heading: "Other"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              ])
-                            : _c("div", { staticClass: "md:flex" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "w-full md:w-1/3",
-                                    class: { "pr-4": !_vm.deck.notes }
-                                  },
-                                  [
-                                    _vm.deck.weapons.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.weapons,
-                                            heading: "Weapons"
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.deck.equipment.total()
-                                      ? _c("cards", {
-                                          staticClass: "mb-8",
-                                          attrs: {
-                                            cards: _vm.deck.equipment,
-                                            heading: "Equipment"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "w-full md:w-1/3" },
-                                  [
-                                    _vm.deck.other.total()
-                                      ? _c("cards", {
-                                          attrs: {
-                                            cards: _vm.deck.other,
-                                            heading: "Other"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              ])
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.tab == "rulings"
-                      ? _c(
-                          "div",
-                          { staticClass: "md:pl-4 bg-gray-200 py-2" },
-                          [_c("rulings", { attrs: { rulings: _vm.rulings } })],
-                          1
-                        )
-                      : _vm._e()
-                  ])
+                                },
+                                proxy: true,
+                              },
+                            ],
+                            null,
+                            false,
+                            3609526426
+                          ),
+                        },
+>>>>>>> master
+                        [
+                          _c("tab-item", { attrs: { name: "Deck" } }, [
+                            _vm.deck.notes || _vm.deck.videoUrl
+                              ? _c("div", { staticClass: "md:flex" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "w-full md:w-2/3 md:pl-4 md:pr-8",
+                                    },
+                                    [
+                                      _vm.deck.videoUrl
+                                        ? _c(
+                                            "div",
+                                            { staticClass: "mb-8" },
+                                            [
+                                              _c("deck-video", {
+                                                attrs: {
+                                                  url: _vm.deck.videoUrl,
+                                                },
+                                              }),
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.notes
+                                        ? _c("div", {
+                                            staticClass: "mb-8",
+                                            domProps: {
+                                              innerHTML: _vm._s(
+                                                _vm.minimalMarkdown(
+                                                  _vm.deck.notes.replace(
+                                                    /(?:https?|ftp):\/\/[\n\S]+/g,
+                                                    ""
+                                                  )
+                                                )
+                                              ),
+                                            },
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "border-t border-gray-400 mt-4",
+                                        },
+                                        [
+                                          _c("discussion", {
+                                            staticClass: "pb-8",
+                                            attrs: {
+                                              type: "deck",
+                                              id: _vm.deck.slug,
+                                            },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "w-full md:w-1/3" },
+                                    [
+                                      _vm.deck.weapons.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.weapons,
+                                              heading: "Weapons",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.equipment.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.equipment,
+                                              heading: "Equipment",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.other.total()
+                                        ? _c("cards", {
+                                            attrs: {
+                                              cards: _vm.deck.other,
+                                              heading: "Main deck",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                    ],
+                                    1
+                                  ),
+                                ])
+                              : _c("div", { staticClass: "md:flex" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "w-full md:w-1/3",
+                                      class: { "pr-4": !_vm.deck.notes },
+                                    },
+                                    [
+                                      _vm.deck.weapons.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.weapons,
+                                              heading: "Weapons",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _vm.deck.equipment.total()
+                                        ? _c("cards", {
+                                            staticClass: "mb-8",
+                                            attrs: {
+                                              cards: _vm.deck.equipment,
+                                              heading: "Equipment",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "w-full md:w-1/3" },
+                                    [
+                                      _vm.deck.other.total()
+                                        ? _c("cards", {
+                                            attrs: {
+                                              cards: _vm.deck.other,
+                                              heading: "Main deck",
+                                            },
+                                          })
+                                        : _vm._e(),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "tab-item",
+                            { attrs: { name: "Metrics & Performance" } },
+                            [
+                              _c("metrics-performance", {
+                                attrs: { deck: _vm.deck }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "tab-item",
+                            { attrs: { name: "Rulings" } },
+                            [
+                              _c("rulings", {
+                                attrs: { rulings: _vm.rulings },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
                 ]),
                 _vm._v(" "),
                 !_vm.deck.notes
@@ -1147,14 +1523,14 @@ var render = function() {
                       [
                         _c("discussion", {
                           staticClass: "pb-8",
-                          attrs: { type: "deck", id: _vm.deck.slug }
-                        })
+                          attrs: { type: "deck", id: _vm.deck.slug },
+                        }),
                       ],
                       1
                     )
-                  : _vm._e()
-              ])
-            ])
+                  : _vm._e(),
+              ]),
+            ]),
           ],
           1
         )
@@ -1165,14 +1541,14 @@ var render = function() {
             _vm._v(" "),
             _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
             _vm._v(" "),
-            _vm._m(0)
+            _vm._m(0),
           ],
           1
-        )
+        ),
   ])
 }
 var staticRenderFns = [
-  function() {
+  function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
@@ -1180,10 +1556,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "container sm:mx-auto py-8 px-4" }, [
         _vm._v(
           "\n                This deck is not yet ready for viewing or sharing, possibly because it's missing some required configuration.\n            "
-        )
-      ])
+        ),
+      ]),
     ])
-  }
+  },
 ]
 render._withStripped = true
 
@@ -1255,6 +1631,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckCard_vue_vue_type_template_id_42fa73c8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckCard_vue_vue_type_template_id_42fa73c8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckComposition.vue?vue&type=template&id=bba8a83c& */ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&");
+/* harmony import */ var _DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckComposition.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Metrics/DeckComposition.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckComposition.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckComposition.vue?vue&type=template&id=bba8a83c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/DeckComposition.vue?vue&type=template&id=bba8a83c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckComposition_vue_vue_type_template_id_bba8a83c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& */ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&");
+/* harmony import */ var _MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MetricsPerformance.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "b2216b48",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Metrics/MetricsPerformance.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MetricsPerformance.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Metrics/MetricsPerformance.vue?vue&type=template&id=b2216b48&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricsPerformance_vue_vue_type_template_id_b2216b48_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -1393,6 +1907,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckLabel_vue_vue_type_template_id_e77cc5f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/DeckVideo.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckVideo.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeckVideo.vue?vue&type=template&id=0023d1e6& */ "./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6&");
+/* harmony import */ var _DeckVideo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeckVideo.vue?vue&type=script&lang=js& */ "./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeckVideo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Decks/Viewing/DeckVideo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckVideo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckVideo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckVideo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeckVideo.vue?vue&type=template&id=0023d1e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Decks/Viewing/DeckVideo.vue?vue&type=template&id=0023d1e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeckVideo_vue_vue_type_template_id_0023d1e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

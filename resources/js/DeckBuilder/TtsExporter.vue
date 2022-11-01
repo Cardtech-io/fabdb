@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-4">
-        <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="copyShareURL">
+        <a href="" class="block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white" @click.prevent="copyShareURL">
             <div class="float-left mr-4">
                 <icon :size="14">
                     <path d="M9.26 13a2 2 0 01.01-2.01A3 3 0 009 5H5a3 3 0 000 6h.08a6.06 6.06 0 000 2H5A5 5 0 015 3h4a5 5 0 01.26 10zm1.48-6a2 2 0 01-.01 2.01A3 3 0 0011 15h4a3 3 0 000-6h-.08a6.06 6.06 0 000-2H15a5 5 0 010 10h-4a5 5 0 01-.26-10z"/>
@@ -10,7 +10,7 @@
             <p class="text-base">Copies your publicly-accessible deck URL to the clipboard.</p>
         </a>
 
-        <a href="" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white" @click.prevent="shareDeckViaText(shareDeck)">
+        <a href="" class="block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white" @click.prevent="shareDeckViaText(shareDeck)">
             <div class="float-left mr-4">
                 <icon :size="14">
                     <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
@@ -21,7 +21,7 @@
             <p class="text-base">Looking to share your deck build as text? Click here.</p>
         </a>
 
-        <div class="flow-root p-4 bg-white rounded-lg">
+        <div class="flow-root p-4 bg-white dark:bg-gray-600 rounded-lg">
             <div class="float-left mr-4">
                 <icon :size="14">
                     <path d="M4 4l12 6-12 6z"/>
@@ -34,7 +34,7 @@
                 and import your deck directly :)</p>
         </div>
 
-        <router-link :to="{name: 'decks.export', params: {deck: deck.slug}}" class="block flow-root p-4 bg-white rounded-lg hover:bg-blue-700 hover:text-white">
+        <router-link :to="{name: 'decks.export', params: {deck: deck.slug}}" class="block flow-root p-4 bg-white dark:bg-gray-600 rounded-lg hover:bg-secondary dark:hover:bg-secondary hover:text-white">
             <div class="float-left mr-4">
                 <icon :size="14">
                     <path d="M0 4c0-1.1.9-2 2-2h7l2 2h7a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2 2v10h16V6H2z"/>
@@ -48,12 +48,12 @@
 
 <script>
     import { mapActions } from 'vuex';
-    import Cardable from '../CardDatabase/Cardable';
-    import Deck from "../Decks/Deck";
-    import Strings from '../Utilities/Strings';
-    import Viewable from '../DeckBuilder/Viewable';
-    import ManagesDecks from "./ManagesDecks";
-    import Shareable from "../Components/Shareable";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Deck from "../Decks/Deck.js";
+    import Strings from '../Utilities/Strings.js';
+    import Viewable from '../DeckBuilder/Viewable.js';
+    import ManagesDecks from "./ManagesDecks.js";
+    import Shareable from "../Components/Shareable.js";
 
     export default {
         mixins: [Cardable, ManagesDecks, Shareable, Strings, Viewable],

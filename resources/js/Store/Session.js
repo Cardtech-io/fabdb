@@ -7,16 +7,24 @@ export default {
     },
 
     mutations: {
-        setSession: function(state, { session }) {
+        setSession(state, { session }) {
             state.session = session;
         },
 
-        setUser: function(state, { user }) {
+        setUser(state, { user }) {
             state.session.user = user;
         },
 
-        setUserParam: function(state, { param, value }) {
+        setUserParam(state, { param, value }) {
             state.session.user[param] = value;
+        },
+
+        setApiToken(state, {token}) {
+            state.session.user.apiToken = token;
+        },
+
+        setApiSecret(state, {secret}) {
+            state.session.user.apiSecret = secret;
         }
     },
 
@@ -39,12 +47,17 @@ export default {
             }
         },
 
-        setUser: function({ commit }, { user }) {
+        setUser({ commit }, { user }) {
             commit('setUser', { user });
         },
 
-        setUserParam: function({ commit }, { param, value }) {
+        setUserParam({ commit }, { param, value }) {
             commit('setUserParam', { param, value });
+        },
+
+        setApiKey({commit}, {token, secret}) {
+            commit('setApiToken', {token});
+            commit('setApiSecret', {secret});
         }
     },
 

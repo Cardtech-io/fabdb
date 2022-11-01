@@ -1,6 +1,6 @@
 <template>
     <div>
-        <grouped-cards :cards="mainDeck" group-id="maindeck" :action="add" v-if="mainDeck.cards.length"></grouped-cards>
+        <grouped-cards :cards="mainDeck" group-id="maindeck" :action="add" v-if="mainDeck.cards.length"/>
         <div v-else class="text-center my-20">
             There are no cards available yet in your main deck. Go to search, and then add cards to your deck from there.
         </div>
@@ -12,11 +12,11 @@
     import axios from 'axios';
     import {mapActions, mapGetters, mapState} from 'vuex';
 
-    import Cardable from '../CardDatabase/Cardable';
-    import Cards from './Cards';
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Cards from './Cards.js';
     import GroupedCards from './GroupedCards.vue';
-    import Redrawable from './Redrawable';
-    import Viewable from './Viewable';
+    import Redrawable from './Redrawable.js';
+    import Viewable from './Viewable.js';
 
     export default {
         props: ['collection'],
@@ -41,7 +41,7 @@
         methods: {
             ...mapActions('deck', ['addToSideboard']),
 
-            add: function(card) {
+            add(card) {
                 this.addToSideboard({ card });
                 this.updateMainDeck();
                 this.addRemote(card);
@@ -53,6 +53,8 @@
 
             updateMainDeck() {
                 let cards = new Cards(_.cloneDeep(this.collection));
+
+                cards.remove(cards.hero());
 
                 this.sideboard.forEach(card => {
                     for (let i = 0; i < card.total; i++) {
@@ -66,7 +68,7 @@
                 if (this.filters.length) {
                     mainDeck = (new Cards(cards.all())).applyFilters(this.filters);
                 } else {
-                    mainDeck = new Cards([cards.hero()]);
+                    mainDeck = new Cards([]);
 
                     mainDeck = mainDeck.concat(cards.weapons());
                     mainDeck = mainDeck.concat(cards.equipment());

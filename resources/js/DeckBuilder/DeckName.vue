@@ -20,8 +20,8 @@
 <script>
     import axios from 'axios';
     import {mapState} from 'vuex';
-    import Icon from '../Components/Icon';
-    import Viewable from "./Viewable";
+    import Icon from '../Components/Icon.vue';
+    import Viewable from "./Viewable.js";
 
     export default {
         components: {Icon},
@@ -45,10 +45,6 @@
                 set(name) {
                     this.deck.name = name;
                 }
-            },
-
-            inputWidth() {
-                return (this.name.length * 18) + 'px'
             }
         },
 

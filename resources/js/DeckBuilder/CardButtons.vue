@@ -1,8 +1,8 @@
 <template>
     <div class="flex overflow-hidden items-stretch" :class="$parent.layout === 'horizontal' ? 'space-x-px' : 'flex-col flex-col-reverse'">
-        <button class="bg-white" :class="{
-                'hover:bg-secondary hover:text-white': total > 0,
-                'bg-gray-100 text-gray-300': total === 0,
+        <button class="bg-white dark:bg-gray-800" :class="{
+                'hover:bg-secondary hover:text-white dark:hover:bg-gray-600': total > 0,
+                'bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600': total === 0,
                 'w-full h-1/2': $parent.layout === 'vertical',
                 'w-1/2': $parent.layout === 'horizontal'
             }"
@@ -11,9 +11,9 @@
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
             </icon>
         </button>
-        <button class="bg-white" :class="{
-                'hover:bg-secondary hover:text-white': total < maxAvailable,
-                'bg-gray-100 text-gray-300': total >= maxAvailable,
+        <button class="bg-white dark:bg-gray-800" :class="{
+                'hover:bg-secondary hover:text-white dark:hover:bg-gray-600': total < maxAvailable,
+                'bg-gray-100 text-gray-300 dark:bg-gray-800 dark:text-gray-600': total >= maxAvailable,
                 'w-full h-1/2': $parent.layout === 'vertical',
                 'w-1/2': $parent.layout === 'horizontal'
             }" @click="addCardToDeck" :disabled="total >= maxAvailable">
@@ -27,8 +27,8 @@
 <script>
     import {mapActions, mapGetters, mapState} from "vuex";
 
-    import ManagesDecks from "./ManagesDecks";
-    import Cardable from "../CardDatabase/Cardable";
+    import ManagesDecks from "./ManagesDecks.js";
+    import Cardable from "../CardDatabase/Cardable.js";
 
     export default {
         props: {

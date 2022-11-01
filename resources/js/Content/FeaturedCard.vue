@@ -11,7 +11,7 @@
 </template>
 
 <script>
-    import Cardable from '../CardDatabase/Cardable';
+    import Cardable from '../CardDatabase/Cardable.js';
     import CardImage from '../CardDatabase/CardImage.vue';
 
     export default {

@@ -1,5 +1,5 @@
-import Models from "../Utilities/Models";
-import Deck from "./Deck";
+import Models from "../Utilities/Models.js";
+import Deck from "./Deck.js";
 
 export default {
     find(slug) {

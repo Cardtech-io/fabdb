@@ -2,8 +2,8 @@
     <div class="mb-40 flow-root">
         <card-search class="md:hidden flex"/>
         <div class="flow-root">
-            <div class="text-base pr-0 bg-white">
-                <div class="w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200">
+            <div class="text-base pr-0 bg-white dark:bg-gray-800">
+                <div class="w-full flex -mt-1px text-center border border-l-0 border-r-0 border-gray-200 dark:border-gray-600">
                     <card-type type="" :selected="params.cardType" @click.native="selectCardType('')">
                         <path fill="currentColor" d="M21 13H14.4L19.1 17.7L17.7 19.1L13 14.4V21H11V14.3L6.3 19L4.9 17.6L9.4 13H3V11H9.6L4.9 6.3L6.3 4.9L11 9.6V3H13V9.4L17.6 4.8L19 6.3L14.3 11H21V13Z" />
                     </card-type>
@@ -53,15 +53,16 @@
     import {mapActions, mapGetters, mapState} from 'vuex';
 
     import CardImage from '../CardDatabase/CardImage.vue';
-    import CardItem from "./CardItem";
-    import CardSearch from "./CardSearch";
-    import CardType from "./Buttons/CardType";
-    import ManagesDecks from './ManagesDecks';
+    import CardItem from "./CardItem.vue";
+    import CardSearch from "./CardSearch.vue";
+    import CardType from "./Buttons/CardType.vue";
+    import ManagesDecks from './ManagesDecks.js';
     import Paginator from '../Components/Paginator.vue';
-    import NumberedCardButtons from "./NumberedCardButtons";
-    import Viewable from './Viewable';
+    import NumberedCardButtons from "./NumberedCardButtons.vue";
+    import Viewable from './Viewable.js';
 
     export default {
+        name: 'deck-builder.search-results',
         mixins: [ManagesDecks, Viewable],
 
         components: {

@@ -12,6 +12,24 @@ interface CardRepository extends Repository
 
     public function findByIdentifier(string $identifier, int $userId = null);
 
+    public function getFirstByNumber(string $number);
+
+    /**
+     * Will return a collection of card IDs based on the card slugs/identifiers.
+     *
+     * @param array $identifiers
+     * @return array
+     */
+    public function getAllIdsByIdentifiers(array $identifiers): array;
+
+    /**
+     * Will return a collection of card IDs based on the card skus.
+     *
+     * @param array $numbers
+     * @return array
+     */
+    public function getAllIdsByCardNumbers(array $numbers): array;
+
     /**
      * View a specific card, and retrieve the previous/next card ids, as well.
      *
@@ -96,4 +114,12 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function getIdByIdentifierOrText(string $identifier);
+
+    /**
+     * Will attempt to find any card by using its search text field based on the string provided, and will return the first result.
+     *
+     * @param string $text
+     * @return mixed
+     */
+    public function findAny(string $text);
 }

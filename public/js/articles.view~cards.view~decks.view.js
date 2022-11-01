@@ -153,9 +153,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Form/Submit */ "./resources/js/Components/Form/Submit.vue");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -186,7 +186,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     Submit: _Components_Form_Submit__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user']), {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('session', ['user'])), {}, {
     name: {
       get: function get() {
         return this.user.name;
@@ -207,7 +207,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       saving: false
     };
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('session', ['setUserParam']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage']), {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('session', ['setUserParam'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('messages', ['addMessage'])), {}, {
     save: function save() {
       var _this = this;
 
@@ -348,7 +348,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -365,7 +364,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    classes: function classes() {
+    classes: function classes() {},
+    sizes: function sizes() {
       return ['h-' + this.size];
     }
   },
@@ -484,7 +484,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -496,8 +496,8 @@ var render = function() {
         [
           _c("avatar", {
             staticClass: "rounded-br-none",
-            attrs: { user: _vm.comment.author, width: 80 }
-          })
+            attrs: { user: _vm.comment.author, width: 80 },
+          }),
         ],
         1
       ),
@@ -513,9 +513,9 @@ var render = function() {
               voted: _vm.comment.myVote,
               voteable: "comment",
               foreign: _vm.comment.slug,
-              layout: "vertical"
-            }
-          })
+              layout: "vertical",
+            },
+          }),
         ],
         1
       ),
@@ -527,33 +527,33 @@ var render = function() {
             { staticClass: "flex items-center" },
             [
               _c("span", { staticClass: "mr-4 font-bold" }, [
-                _vm._v(_vm._s(_vm.comment.name))
+                _vm._v(_vm._s(_vm.comment.name)),
               ]),
               _vm._v(" "),
               _vm.comment.subscription
                 ? _c("badge", {
                     attrs: {
                       "subscription-level": _vm.comment.subscription,
-                      size: "small"
-                    }
+                      size: "small",
+                    },
                   })
-                : _vm._e()
+                : _vm._e(),
             ],
             1
           ),
           _vm._v(" "),
           _c("div", { staticClass: "text-gray-500 text-sm text-right" }, [
-            _vm._v(_vm._s(_vm.comment.createdAt))
-          ])
+            _vm._v(_vm._s(_vm.comment.createdAt)),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mt-2" }, [
-          _vm._v(_vm._s(_vm.comment.content))
-        ])
-      ])
+          _vm._v(_vm._s(_vm.comment.content)),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
-    _c("hr", { staticClass: "text-gray-500" })
+    _c("hr", { staticClass: "text-gray-500" }),
   ])
 }
 var staticRenderFns = []
@@ -574,12 +574,12 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h2", { staticClass: "font-serif uppercase text-lg mt-4" }, [
-    _vm._v(_vm._s(_vm.comments ? _vm.comments.length : 0) + " comments.")
+    _vm._v(_vm._s(_vm.comments ? _vm.comments.length : 0) + " comments."),
   ])
 }
 var staticRenderFns = []
@@ -600,7 +600,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -612,10 +612,10 @@ var render = function() {
       _vm.comments.length
         ? _c(
             "div",
-            _vm._l(_vm.comments, function(comment) {
+            _vm._l(_vm.comments, function (comment) {
               return _c("comment", {
                 key: comment.slug,
-                attrs: { comment: comment }
+                attrs: { comment: comment },
               })
             }),
             1
@@ -625,8 +625,8 @@ var render = function() {
       _c("respond", {
         staticClass: "mt-8",
         attrs: { type: _vm.type, foreign: _vm.id },
-        on: { "comment-posted": _vm.addComment }
-      })
+        on: { "comment-posted": _vm.addComment },
+      }),
     ],
     1
   )
@@ -649,7 +649,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -659,11 +659,11 @@ var render = function() {
           "form",
           {
             on: {
-              submit: function($event) {
+              submit: function ($event) {
                 $event.preventDefault()
                 return _vm.save.apply(null, arguments)
-              }
-            }
+              },
+            },
           },
           [
             !_vm.user.name || _vm.nameRequiresSaving
@@ -674,22 +674,22 @@ var render = function() {
                         name: "model",
                         rawName: "v-model",
                         value: _vm.name,
-                        expression: "name"
-                      }
+                        expression: "name",
+                      },
                     ],
                     staticClass:
-                      "input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      "input focus:border-gray-500 py-3 px-4 rounded-lg",
                     attrs: { type: "text", placeholder: "Name", required: "" },
                     domProps: { value: _vm.name },
                     on: {
-                      input: function($event) {
+                      input: function ($event) {
                         if ($event.target.composing) {
                           return
                         }
                         _vm.name = $event.target.value
-                      }
-                    }
-                  })
+                      },
+                    },
+                  }),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -700,32 +700,31 @@ var render = function() {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.content,
-                    expression: "content"
-                  }
+                    expression: "content",
+                  },
                 ],
-                staticClass:
-                  "input-white bg-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                staticClass: "input focus:border-gray-500 py-3 px-4 rounded-lg",
                 attrs: {
                   type: "text",
                   rows: "4",
-                  placeholder: "Type here to comment on this " + _vm.type + "."
+                  placeholder: "Type here to comment on this " + _vm.type + ".",
                 },
                 domProps: { value: _vm.content },
                 on: {
-                  input: function($event) {
+                  input: function ($event) {
                     if ($event.target.composing) {
                       return
                     }
                     _vm.content = $event.target.value
-                  }
-                }
-              })
+                  },
+                },
+              }),
             ]),
             _vm._v(" "),
             _c("submit", {
-              staticClass: "mt-2",
-              attrs: { text: "Comment", disabled: _vm.saving }
-            })
+              staticClass: "w-full sm:w-auto mt-2 mx-auto",
+              attrs: { text: "Comment", disabled: _vm.saving },
+            }),
           ],
           1
         )
@@ -738,14 +737,14 @@ var render = function() {
               "router-link",
               {
                 staticClass: "link",
-                attrs: { to: "/login/?from=" + _vm.$route.path }
+                attrs: { to: "/login/?from=" + _vm.$route.path },
               },
               [_vm._v("logged in")]
             ),
-            _vm._v(" to participate in discussions.\n    ")
+            _vm._v(" to participate in discussions.\n    "),
           ],
           1
-        )
+        ),
   ])
 }
 var staticRenderFns = []
@@ -766,7 +765,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -775,8 +774,8 @@ var render = function() {
     style: { width: _vm.width + "px" },
     attrs: {
       src: _vm.imageUrl("/heroes/" + _vm.avatar + ".jpg", _vm.width),
-      alt: _vm.user.name
-    }
+      alt: _vm.user.name,
+    },
   })
 }
 var staticRenderFns = []
@@ -797,7 +796,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -805,7 +804,7 @@ var render = function() {
     "span",
     {
       staticClass: "inline-block rounded-full text-white uppercase font-serif",
-      class: _vm.classes
+      class: _vm.classes,
     },
     [_vm._v(_vm._s(_vm.ucfirst(_vm.subscriptionLevel)))]
   )
@@ -828,44 +827,56 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "button",
     {
-      staticClass: "text-gray-400 hover:text-gray-800",
+      staticClass: "text-gray-400 hover:text-gray-800 dark:hover:text-white",
+      class: _vm.classes,
       on: {
-        click: function($event) {
+        click: function ($event) {
           return _vm.vote()
-        }
-      }
+        },
+      },
     },
     [
       _c(
         "svg",
         {
           staticClass: "fill-current",
-          class: _vm.classes,
+<<<<<<< HEAD
+          class: _vm.sizes,
           attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z"
+            }
+          })
+=======
+          class: _vm.classes,
+          attrs: { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20" },
         },
         [
           _vm.direction === "up"
             ? _c("path", {
                 attrs: {
-                  d:
-                    "M11 0h1v3l3 7v8a2 2 0 01-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 012-2h7V2a2 2 0 012-2zm6 10h3v10h-3V10z"
-                }
+                  d: "M11 0h1v3l3 7v8a2 2 0 01-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 012-2h7V2a2 2 0 012-2zm6 10h3v10h-3V10z",
+                },
               })
             : _c("path", {
                 attrs: {
-                  d:
-                    "M11 20a2 2 0 01-2-2v-6H2a2 2 0 01-2-2V8l2.3-6.12A3.11 3.11 0 015 0h8a2 2 0 012 2v8l-3 7v3h-1zm6-10V0h3v10h-3z"
-                }
-              })
+                  d: "M11 20a2 2 0 01-2-2v-6H2a2 2 0 01-2-2V8l2.3-6.12A3.11 3.11 0 015 0h8a2 2 0 012 2v8l-3 7v3h-1zm6-10V0h3v10h-3z",
+                },
+              }),
+>>>>>>> master
         ]
-      )
+      ),
     ]
   )
 }
@@ -887,16 +898,57 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
+  return _c(
+    "div",
+    { class: { "flex items-center": _vm.layout !== "vertical" } },
+    [
+      _vm.layout !== "vertical"
+        ? _c("div", { staticClass: "text-xl mr-2 mt-1" }, [
+            _vm.total && _vm.total > 0
+              ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
+              : _vm._e()
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mt-1", class: { flex: _vm.layout !== "vertical" } },
+        [
+          _c(
+            "div",
+            [
+              _c("vote", {
+                class: { "text-gray-800": _vm.voteState === 1 },
+                attrs: { size: _vm.size, direction: "up" },
+                on: { voted: _vm.handleVote }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.layout === "vertical"
+            ? _c("div", { staticClass: "text-center -mt-1" }, [
+                _vm.total && _vm.total > 0
+                  ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]
+      )
+    ]
+  )
+=======
   return _c("div", { class: { flex: _vm.layout !== "vertical" } }, [
     _vm.layout !== "vertical"
       ? _c("div", { staticClass: "text-xl mr-2 mt-1" }, [
           _vm.total && _vm.total > 0
             ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
-            : _vm._e()
+            : _vm._e(),
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -910,8 +962,8 @@ var render = function() {
             _c("vote", {
               class: { "text-gray-800": _vm.voteState === 1 },
               attrs: { size: _vm.size, direction: "up" },
-              on: { voted: _vm.handleVote }
-            })
+              on: { voted: _vm.handleVote },
+            }),
           ],
           1
         ),
@@ -920,12 +972,13 @@ var render = function() {
           ? _c("div", { staticClass: "text-center -mt-1" }, [
               _vm.total && _vm.total > 0
                 ? _c("span", [_vm._v(_vm._s(_vm.actualTotal))])
-                : _vm._e()
+                : _vm._e(),
             ])
-          : _vm._e()
+          : _vm._e(),
       ]
-    )
+    ),
   ])
+>>>>>>> master
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -984,13 +1037,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
-var Comment =
-/*#__PURE__*/
-function () {
+var Comment = /*#__PURE__*/function () {
   function Comment(fields) {
     _classCallCheck(this, Comment);
 

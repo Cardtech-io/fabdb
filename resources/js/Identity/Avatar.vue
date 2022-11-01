@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Imagery from '../Utilities/Imagery';
+    import Imagery from '../Utilities/Imagery.js';
 
     export default {
         mixins: [Imagery],

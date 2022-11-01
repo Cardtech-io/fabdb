@@ -51,7 +51,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -100,6 +99,11 @@ __webpack_require__.r(__webpack_exports__);
         'h-50': this.viewing == card
       };
     },
+    sets: function sets() {
+      return Object.values(this.$settings.game.sets).filter(function (set) {
+        return set.draftable === true;
+      });
+    },
     toggle: function toggle(card) {
       if (this.viewing != card) {
         this.viewing = card;
@@ -123,7 +127,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -134,7 +138,7 @@ var render = function() {
       _vm._v(" "),
       _c("breadcrumbs", { attrs: { crumbs: _vm.crumbs } }),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-gray-200" }, [
+      _c("div", { staticClass: "main-body" }, [
         _c(
           "div",
           { staticClass: "container sm:mx-auto px-4 py-8 sm:flow-root" },
@@ -143,7 +147,7 @@ var render = function() {
               _c("p", [
                 _vm._v(
                   "This tool is just for a little bit of fun. Generate a pack, check your cards, see if you can find\n                a Heart of Fyendal! I've tried to make this as close and accurate as possible to a real booster pack\n                in terms of rarities and chances. Let me know if you think something is off."
-                )
+                ),
               ]),
               _vm._v(" "),
               _c(
@@ -151,18 +155,18 @@ var render = function() {
                 {
                   staticClass: "block mt-4",
                   on: {
-                    submit: function($event) {
+                    submit: function ($event) {
                       $event.preventDefault()
                       return _vm.generatePack.apply(null, arguments)
-                    }
-                  }
+                    },
+                  },
                 },
                 [
                   _c(
                     "label",
                     {
                       staticClass:
-                        "block font-serif uppercase tracking-wide mb-1"
+                        "block font-serif uppercase tracking-wide mb-1",
                     },
                     [_vm._v("Set")]
                   ),
@@ -175,36 +179,32 @@ var render = function() {
                           name: "model",
                           rawName: "v-model",
                           value: _vm.set,
-                          expression: "set"
-                        }
+                          expression: "set",
+                        },
                       ],
-                      staticClass:
-                        "input-white focus:border-gray-500 py-3 px-4 rounded-lg",
+                      staticClass: "input py-3 px-4 rounded-lg",
                       on: {
-                        change: function($event) {
+                        change: function ($event) {
                           var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
+                            .call($event.target.options, function (o) {
                               return o.selected
                             })
-                            .map(function(o) {
+                            .map(function (o) {
                               var val = "_value" in o ? o._value : o.value
                               return val
                             })
                           _vm.set = $event.target.multiple
                             ? $$selectedVal
                             : $$selectedVal[0]
-                        }
-                      }
+                        },
+                      },
                     },
-                    [
-                      _c("option", { attrs: { value: "arc" } }, [
-                        _vm._v("Arcane Rising")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "wtr" } }, [
-                        _vm._v("Welcome to Rathe")
+                    _vm._l(_vm.sets(), function (set) {
+                      return _c("option", { domProps: { value: set.id } }, [
+                        _vm._v(_vm._s(set.name)),
                       ])
-                    ]
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "mb-4" }, [
@@ -212,7 +212,7 @@ var render = function() {
                       "label",
                       {
                         staticClass:
-                          "block font-serif uppercase tracking-wide mb-1 text-sm"
+                          "block font-serif uppercase tracking-wide mb-1 text-sm",
                       },
                       [_vm._v(" ")]
                     ),
@@ -223,18 +223,18 @@ var render = function() {
                       attrs: {
                         type: "submit",
                         value: "Generate pack",
-                        disabled: _vm.disabled
-                      }
-                    })
-                  ])
+                        disabled: _vm.disabled,
+                      },
+                    }),
+                  ]),
                 ]
-              )
+              ),
             ]),
             _vm._v(" "),
             _c(
               "div",
               { staticClass: "sm:w-1/2 sm:float-left" },
-              _vm._l(_vm.cards, function(card) {
+              _vm._l(_vm.cards, function (card) {
                 return _c(
                   "div",
                   {
@@ -243,25 +243,25 @@ var render = function() {
                     class: _vm.height(card),
                     staticStyle: { "max-width": "350px" },
                     on: {
-                      click: function($event) {
+                      click: function ($event) {
                         return _vm.toggle(card)
-                      }
-                    }
+                      },
+                    },
                   },
                   [
                     _c("card-image", {
                       staticStyle: { "max-width": "350px" },
-                      attrs: { card: card, width: 350 }
-                    })
+                      attrs: { card: card, width: 350 },
+                    }),
                   ],
                   1
                 )
               }),
               0
-            )
+            ),
           ]
-        )
-      ])
+        ),
+      ]),
     ],
     1
   )

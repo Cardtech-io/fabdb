@@ -461,7 +461,7 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -472,8 +472,8 @@ var render = function() {
           src: _vm.heroProfile(_vm.hero, _vm.width),
           alt: _vm.name,
           width: _vm.width,
-          height: _vm.width
-        }
+          height: _vm.width,
+        },
       })
     : _vm._e()
 }
@@ -495,14 +495,14 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "ol",
     { staticClass: "flex flex-wrap my-8" },
-    _vm._l(_vm.heroes, function(hero) {
+    _vm._l(_vm.heroes, function (hero) {
       return _c(
         "li",
         { staticClass: "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 mb-8" },
@@ -512,42 +512,42 @@ var render = function() {
             {
               staticClass: "block cursor-pointer mx-auto",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   $event.preventDefault()
                   return _vm.selectHero(hero)
-                }
-              }
+                },
+              },
             },
             [
               _c("hero-avatar", {
-                attrs: { hero: hero, name: hero.name, width: 150 }
+                attrs: { hero: hero, name: hero.name, width: 150 },
               }),
               _vm._v(" "),
               _c("div", { staticClass: "flex -mt-5" }, [
                 _c("div", { staticClass: "w-1/2 flex justify-end mr-2" }, [
                   _c("span", { staticClass: "text-lg" }, [
-                    _vm._v(_vm._s(hero.stats.intellect))
+                    _vm._v(_vm._s(hero.stats.intellect)),
                   ]),
                   _vm._v(" "),
                   _c("img", {
                     staticClass:
                       "block h-10 ml-1 border-2 border-gray-200 rounded-full",
-                    attrs: { src: "/img/intellect.png" }
-                  })
+                    attrs: { src: "/img/intellect.png" },
+                  }),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-1/2 flex ml-2 " }, [
                   _c("img", {
                     staticClass:
                       "block h-10 mr-1 border-2 border-gray-200 rounded-full",
-                    attrs: { src: "/img/life.png" }
+                    attrs: { src: "/img/life.png" },
                   }),
                   _vm._v(" "),
                   _c("span", { staticClass: "text-lg" }, [
-                    _vm._v(_vm._s(hero.stats.life))
-                  ])
-                ])
-              ])
+                    _vm._v(_vm._s(hero.stats.life)),
+                  ]),
+                ]),
+              ]),
             ],
             1
           ),
@@ -557,14 +557,14 @@ var render = function() {
             {
               staticClass:
                 "mt-4 text-center font-serif uppercase text-lg overflow-hidden",
-              staticStyle: { "max-height": "20px" }
+              staticStyle: { "max-height": "20px" },
             },
             [_vm._v(_vm._s(hero.name))]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "mt-2 text-center" }, [
-            _vm._v(_vm._s(_vm.type(hero)))
-          ])
+            _vm._v(_vm._s(_vm.type(hero))),
+          ]),
         ]
       )
     }),
@@ -589,7 +589,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -599,16 +599,16 @@ var render = function() {
       staticClass:
         "flex flex-col text-center items-center my-1 focus-none mr-3",
       on: {
-        click: function($event) {
+        click: function ($event) {
           return _vm.pitch()
-        }
-      }
+        },
+      },
     },
     [
       _c("img", {
         staticClass: "rounded-full",
         class: _vm.resourceClass,
-        attrs: { src: "/img/resource.png", width: "58" }
+        attrs: { src: "/img/resource.png", width: "58" },
       }),
       _vm._v(" "),
       _c(
@@ -618,10 +618,10 @@ var render = function() {
           class:
             _vm.player.resource === _vm.resource
               ? "text-blue-500"
-              : "text-gray-300"
+              : "text-gray-300",
         },
         [_vm._v(_vm._s(_vm.resource))]
-      )
+      ),
     ]
   )
 }
@@ -643,7 +643,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -651,7 +651,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "no-dtz fixed top-0 right-0 bottom-0 left-0 flex flex-col overflow-y-scroll bg-semi-black"
+        "no-dtz fixed top-0 right-0 bottom-0 left-0 flex flex-col overflow-y-scroll bg-semi-black",
     },
     [
       _vm.requirePlayers
@@ -672,20 +672,20 @@ var render = function() {
                       {
                         staticClass: "button-primary ml-auto py-3 px-4 rounded",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.skip()
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("Skip")]
                     )
-                  : _vm._e()
+                  : _vm._e(),
               ]),
               _vm._v(" "),
               _c("hero-selector", {
                 staticClass: "text-gray-300 shadow-lg",
-                on: { "hero-selected": _vm.newPlayer }
-              })
+                on: { "hero-selected": _vm.newPlayer },
+              }),
             ],
             1
           )
@@ -699,9 +699,9 @@ var render = function() {
                       staticClass: "transform rotate-180",
                       attrs: {
                         player: _vm.secondPlayer,
-                        players: _vm.players.length
+                        players: _vm.players.length,
                       },
-                      on: { "player-destroyed": _vm.logEvent }
+                      on: { "player-destroyed": _vm.logEvent },
                     })
                   : _vm._e(),
                 _vm._v(" "),
@@ -715,10 +715,10 @@ var render = function() {
                         staticClass:
                           "button-primary py-3 px-4 pb-2 font-serif uppercase rounded-l-lg",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.reset()
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("Reset")]
                     ),
@@ -729,10 +729,10 @@ var render = function() {
                         staticClass:
                           "button-primary py-3 px-4 pb-2 font-serif uppercase",
                         on: {
-                          click: function($event) {
+                          click: function ($event) {
                             return _vm.chooseHeroes()
-                          }
-                        }
+                          },
+                        },
                       },
                       [_vm._v("Heroes")]
                     ),
@@ -742,10 +742,10 @@ var render = function() {
                       {
                         staticClass:
                           "button-secondary py-3 px-4 pb-2 font-serif uppercase rounded-r-lg",
-                        attrs: { to: { name: "home" } }
+                        attrs: { to: { name: "home" } },
                       },
                       [_vm._v("FaB DB")]
-                    )
+                    ),
                   ],
                   1
                 ),
@@ -753,14 +753,14 @@ var render = function() {
                 _c("player", {
                   attrs: {
                     player: _vm.firstPlayer,
-                    players: _vm.players.length
+                    players: _vm.players.length,
                   },
-                  on: { "player-destroyed": _vm.logEvent }
-                })
+                  on: { "player-destroyed": _vm.logEvent },
+                }),
               ],
               1
-            )
-          ])
+            ),
+          ]),
     ]
   )
 }
@@ -782,7 +782,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
+var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -795,10 +795,10 @@ var render = function() {
           rawName: "v-touch:moving",
           value: _vm.swipe,
           expression: "swipe",
-          arg: "moving"
-        }
+          arg: "moving",
+        },
       ],
-      staticClass: "flex-grow flex flex-col w-full "
+      staticClass: "flex-grow flex flex-col w-full ",
     },
     [
       _c(
@@ -809,8 +809,8 @@ var render = function() {
             backgroundImage:
               "url(" + _vm.heroProfile(_vm.player.hero, 160, true) + ")",
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "center 20px"
-          }
+            backgroundPosition: "center 20px",
+          },
         },
         [
           _c(
@@ -818,10 +818,10 @@ var render = function() {
             {
               staticClass: "text-white px-8 text-4xl",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.hurt()
-                }
-              }
+                },
+              },
             },
             [_vm._v("-")]
           ),
@@ -831,7 +831,7 @@ var render = function() {
             {
               staticClass: "font-serif uppercase text-12xl text-center",
               class: _vm.lifeClass,
-              staticStyle: { "text-shadow": "2px 2px 3px #000000" }
+              staticStyle: { "text-shadow": "2px 2px 3px #000000" },
             },
             [_vm._v(_vm._s(_vm.life))]
           ),
@@ -841,13 +841,13 @@ var render = function() {
             {
               staticClass: "text-white px-8 text-4xl",
               on: {
-                click: function($event) {
+                click: function ($event) {
                   return _vm.heal()
-                }
-              }
+                },
+              },
             },
             [_vm._v("+")]
-          )
+          ),
         ]
       ),
       _vm._v(" "),
@@ -861,10 +861,10 @@ var render = function() {
           _vm._v(" "),
           _c("resource", { attrs: { resource: 2, player: _vm.player } }),
           _vm._v(" "),
-          _c("resource", { attrs: { resource: 3, player: _vm.player } })
+          _c("resource", { attrs: { resource: 3, player: _vm.player } }),
         ],
         1
-      )
+      ),
     ]
   )
 }
@@ -888,11 +888,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-var Card =
-/*#__PURE__*/
-function () {
+var Card = /*#__PURE__*/function () {
   function Card(fields) {
     _classCallCheck(this, Card);
 
@@ -900,22 +898,6 @@ function () {
   }
 
   _createClass(Card, [{
-    key: "avatar",
-    value: function avatar() {
-      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
-
-      if (this.young()) {
-        return name + '-blitz';
-      }
-
-      return name;
-    }
-  }, {
-    key: "young",
-    value: function young() {
-      return this.fields.subType === 'young';
-    }
-  }, {
     key: "name",
     get: function get() {
       return this.fields.name;
@@ -949,6 +931,22 @@ function () {
     key: "total",
     get: function get() {
       return this.fields.total;
+    }
+  }, {
+    key: "avatar",
+    value: function avatar() {
+      var name = this.name.split(',')[0].toLowerCase().split(' ')[0];
+
+      if (this.young()) {
+        return name + '-blitz';
+      }
+
+      return name;
+    }
+  }, {
+    key: "young",
+    value: function young() {
+      return this.fields.subType === 'young';
     }
   }]);
 
@@ -1254,7 +1252,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Main.vue?vue&type=style&index=0&id=c94de074&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/LifeCounter/Main.vue?vue&type=style&index=0&id=c94de074&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Main_vue_vue_type_style_index_0_id_c94de074_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
 
 /***/ }),
 

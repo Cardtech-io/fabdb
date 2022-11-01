@@ -1,11 +1,11 @@
 <template>
-    <div class="absolute w-full text-white text-sm text-center py-1 z-50 -mt-2" style="bottom: 40.35%" :class="colour()" v-if="card.legality">
+    <div class="absolute w-full text-white text-center py-2 z-50 -mt-2" style="bottom: 40%" :class="colour()">
         {{ text() }}
     </div>
 </template>
 
 <script>
-    import Legality from "./Legality/Legality";
+    import Legality from "./Legality/Legality.vue";
 
     export default {
         props: {

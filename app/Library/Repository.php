@@ -14,4 +14,6 @@ interface Repository
     public function find(int $id): Model;
 
     public function bySlug(string $slug): Model;
+
+    public function transaction(\Closure $callback);
 }

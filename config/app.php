@@ -182,6 +182,7 @@ return [
         FabDB\Domain\Content\ContentServiceProvider::class,
         FabDB\Domain\Decks\DecksServiceProvider::class,
         FabDB\Domain\Events\EventsServiceProvider::class,
+        FabDB\Domain\Games\GamesServiceProvider::class,
         FabDB\Domain\Practise\PractiseServiceProvider::class,
         FabDB\Domain\Market\MarketServiceProvider::class,
         FabDB\Domain\Stores\StoresServiceProvider::class,

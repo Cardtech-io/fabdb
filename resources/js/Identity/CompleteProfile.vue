@@ -26,7 +26,7 @@
 <script>
     import axios from 'axios';
     import { mapActions, mapGetters } from 'vuex';
-    import Submit from "../Components/Form/Submit";
+    import Submit from "../Components/Form/Submit.vue";
 
     export default {
         components: {Submit},

@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b-4 border-gray-300 pb-24">
+    <div class="border-b-4 border-gray-300 dark:border-gray-600 pb-24">
         <h2 class="relative font-serif uppercase bg-secondary text-white px-4 py-2">
             Advanced search
             <button class="absolute top-0 right-0 mr-2 mt-2" @click="$modal.hideAll()">
@@ -8,11 +8,11 @@
                 </icon>
             </button>
         </h2>
-        <form @submit.prevent="newSearch" class="block p-4">
+        <form @submit.prevent="newSearch" class="bg-white dark:bg-gray-800 block p-4">
             <div class="md:flex mb-4">
                 <div class="md:w-1/5 py-2">Keyword search</div>
                 <div class="md:w-4/5">
-                    <div class="flex bg-gray-200 focus:bg-white focus:border-gray-500 rounded-lg" :class="active('keywords')">
+                    <div class="flex bg-gray-200 dark:bg-black rounded-lg" :class="active('keywords')">
                         <button type="button" class="flex-initial ml-2 link-alternate" @click.prevent="$modal.show('search-help')">
                             <icon :size="6">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
@@ -116,8 +116,8 @@
 
 <script>
 import _ from 'lodash';
-import Icon from '../Components/Icon';
-import Query from "../Utilities/Query";
+import Icon from '../Components/Icon.vue';
+import Query from "../Utilities/Query.js";
 
 export default {
     components: {Icon},

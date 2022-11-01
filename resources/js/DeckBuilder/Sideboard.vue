@@ -1,7 +1,7 @@
 <template>
     <div class="mb-40">
         <div class="hidden md:block">
-            <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'md:w-1/3' : 'md:w-1/2'"></grouped-cards>
+            <grouped-cards :cards="sideboard" group-id="sideboard" :action="remove" :width="fullScreen ? 'md:w-1/3' : 'md:w-1/2'"/>
             <div v-if="!sideboard.cards.length" class="text-center my-20 mx-10">
                 You have not yet added<br>any cards<br>to your sideboard.
             </div>
@@ -55,13 +55,14 @@
     import axios from 'axios';
     import {mapActions, mapGetters, mapState} from 'vuex';
 
-    import Cardable from '../CardDatabase/Cardable';
-    import Cards from './Cards';
-    import Colour from "./Colour";
+    import Cardable from '../CardDatabase/Cardable.js';
+    import Cards from './Cards.js';
+    import Colour from "./Colour.vue";
     import GroupedCards from './GroupedCards.vue';
-    import Viewable from './Viewable';
+    import Viewable from './Viewable.js';
 
     export default {
+        name: 'deck-builder.sideboard',
         props: ['collection'],
         mixins: [Cardable, Viewable],
         components: {Colour, GroupedCards},

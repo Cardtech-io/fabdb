@@ -2,9 +2,7 @@
     <div class="container px-4 sm:px-0 sm:mx-auto text-white flex flex-col">
         <div class="my-12">
             <div class="mx-auto">
-                <video width="470" height="176" class="w-full sm:w-auto mx-auto" style="max-width: 470px" autoplay muted loop poster="/img/fabdb-logo-3d.png">
-                    <source src="/media/fabdb-logo-video.mp4" type="video/mp4">
-                </video>
+                <img src="@/images/fabdb-logo-3d.png" alt="" style="max-width: 470px" class="w-full mx-auto">
             </div>
         </div>
         <div class="sm:mx-8 px-8 pt-4 pb-8 bg-semi-black backdrop-blur-2 rounded-xl text-center text-gray-100 z-0">
@@ -43,9 +41,9 @@
 </template>
 
 <script>
-    import Advertisement from "./Components/Advertisement";
-    import Icon from "./Components/Icon";
-    import Strings from './Utilities/Strings';
+    import Advertisement from "./Components/Advertisement.vue";
+    import Icon from "./Components/Icon.vue";
+    import Strings from './Utilities/Strings.js';
 
     export default {
         mixins: [Strings],

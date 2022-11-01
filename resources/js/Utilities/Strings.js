@@ -1,5 +1,4 @@
-import marked from 'marked';
-import showdown from './Markdown/showdown';
+import showdown from './Markdown/showdown.js';
 
 export default {
     methods: {
@@ -104,6 +103,29 @@ export default {
             return Object.keys(params)
                 .map(k => esc(k) + '=' + esc(params[k]))
                 .join('&');
+        },
+
+        prettyType(type, subType) {
+            switch (type) {
+                case 'action':
+                    switch (subType) {
+                        case 'attack':
+                            return 'Attack action';
+                        case 'item':
+                            return 'Item';
+                    }
+                    return 'Non-attack action';
+                case 'equipment':
+                    return 'Equipment';
+                case 'hero':
+                    return 'Hero';
+                case 'instant':
+                    return 'Instant';
+                case 'weapon':
+                    return 'Weapon';
+            }
+
+            return this.ucfirst(type) + ' ' + subType;
         }
     }
 };

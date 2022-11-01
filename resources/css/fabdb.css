@@ -10,10 +10,18 @@
     --button-disabled-background-color: theme("colors.gray.400");
     --button-disabled-text-color: theme("colors.white");
     --crumbs-text-color: theme('colors.white');
+    --input-background: theme('colors.gray.200');
     --link-hover-color: theme("colors.white");
     --main-text-color: theme('colors.gray.900');
+    --main-background-color: theme('colors.gray.200');
     --nav-text-color: theme('colors.white');
     --nav-hover-background-color: theme('colors.black');
+}
+
+.dark {
+    --input-background: theme('colors.black');
+    --main-background-color: theme('colors.gray.900');
+    --main-text-color: theme('colors.gray.300');
 }
 
 .theme-battle {
@@ -153,6 +161,11 @@
     color: var(--main-text-color);
 }
 
+.main-body {
+    background: var(--main-background-color);
+    color: var(--main-text-color);
+}
+
 .button-primary {
     @apply leading-none;
     @apply outline-none;
@@ -188,6 +201,7 @@
 }
 
 .crumbs {
+    @apply text-sm;
     background-color: var(--crumbs-background-color);
     color: var(--crumbs-text-color);
 }
@@ -224,7 +238,7 @@
     background: #E59B46;
 }
 
-.fabled {
+.fabled, .gold {
     background: rgb(110,76,20);
     background: linear-gradient(324deg, rgba(110,76,20,1) 0%, rgba(255,237,0,1) 24%, rgba(189,110,39,1) 50%, rgba(191,174,62,1) 79%, rgba(255,220,0,1) 100%);
 }
@@ -298,12 +312,23 @@ footer.footer .link:hover {
     @apply appearance-none;
     @apply block;
     @apply w-full;
-    @apply bg-gray-200;
     @apply text-gray-700;
     @apply border;
     @apply border-gray-200;
+    @apply focus:border-gray-400;
     @apply leading-none;
     @apply outline-none;
+
+    background: var(--input-background);
+}
+
+.dark .input {
+    @apply border-gray-600;
+    @apply text-gray-300;
+}
+
+.dark .input:focus {
+    @apply focus:border-gray-400
 }
 
 .input-white {
@@ -419,4 +444,17 @@ button, button:focus {
     /*-webkit-text-fill-color: black; !* Will override color (regardless of order) *!*/
     /*-webkit-text-stroke-width: 1px;*/
     /*-webkit-text-stroke-color: white;*/
+}
+
+.ProseMirror:focus {
+    outline: none;
+}
+
+.example {
+    @apply text-blue-600;
+    @apply font-bold;
+}
+
+.dark .example {
+    @apply text-blue-400;
 }
