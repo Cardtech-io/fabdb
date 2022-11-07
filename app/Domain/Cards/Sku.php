@@ -21,7 +21,7 @@ class Sku implements JsonSerializable
      * 6 - Card number
      * 7 - Finish (foiling.etc.)
      */
-    private const REGEX = '((U)([A-Z]+)?-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea|aa|mv|back|mvback))?';
+    private const REGEX = '((U)([A-Z]+)?-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea|aa|mv|mvl|back|mvback))?';
 
     /**
      * @var string

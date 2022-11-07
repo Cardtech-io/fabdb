@@ -38,6 +38,12 @@ return [
             'released' => '2022-06-28',
             'browseable' => false,
         ],
+        'dyn' => [
+            'id' => 'dyn',
+            'name' => 'Dynasty',
+            'released' => '2022-11-11',
+            'browseable' => true,
+        ],
         'ele' => [
             'id' => 'ele',
             'name' => 'Tales of Aria',
