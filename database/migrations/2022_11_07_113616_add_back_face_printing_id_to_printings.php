@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('printings', function (Blueprint $table) {
-            $table->unsignedBigInteger('backface_printing_id')->after('id')->nullable()->index();
+            $table->unsignedBigInteger('backface_printing_id')->after('card_id')->nullable()->index();
         });
     }
 

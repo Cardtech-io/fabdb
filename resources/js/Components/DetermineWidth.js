@@ -15,10 +15,17 @@ export default {
         },
     },
 
-    // This is for determining the size that the image needs to be to help address CLS issues :)
-    mounted() {
-        this.requiredWidth = this.$refs.image.getBoundingClientRect().width;
-        let ratio = this.requiredWidth / 546;
-        this.requiredHeight = 762 * ratio;
+    methods: {
+        calculateHeight(width) {
+            let ratio = width / 546;
+            let height = 762;
+
+            return height * ratio;
+        },
+
+        mount(ref) {
+            this.requiredWidth = ref.getBoundingClientRect().width;
+            this.requiredHeight = this.calculateHeight(this.requiredWidth)
+        }
     }
 };

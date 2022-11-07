@@ -25,6 +25,7 @@ class PrintingResource extends JsonResource
         }
 
         $response['card'] = new CardResource($this->whenLoaded('card'));
+        $response['backfacePrinting'] = new PrintingResource($this->whenLoaded('backfacePrinting'));
         $response['image'] = $this->printingImage($this->resource->sku->raw());
 
         return $response;
