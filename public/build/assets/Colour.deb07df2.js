@@ -1,0 +1,1 @@
+import{n as e,j as n}from"./app.51e2c608.js";const o={props:["resource"],mixins:[n]};var l=function(){var r=this,s=r._self._c;return r.resource?s("div",{staticClass:"inline-block rounded-lg h-2 w-2",class:r.resourceColour(r.resource)}):s("div",{staticClass:"inline-block h-2 w-2"})},c=[],a=e(o,l,c,!1,null,null,null,null);const _=a.exports;export{_ as C};
