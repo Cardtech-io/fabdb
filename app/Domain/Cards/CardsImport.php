@@ -11,11 +11,11 @@ use Illuminate\Support\Str;
 class CardsImport
 {
     private Identifier $identifier;
-    private bool $withImages;
+    private $withImages;
     private Command $command;
     private bool $printsOnly;
 
-    public function __construct(Command $command, bool $withImages, bool $printsOnly = false)
+    public function __construct(Command $command, $withImages, bool $printsOnly = false)
     {
         $this->command = $command;
         $this->withImages = $withImages;
@@ -33,28 +33,22 @@ class CardsImport
             }
 
             $stats = $this->stats($row);
+            $sku = new Sku($row['uid']);
 
             $this->identifier = Identifier::fromLSS($row);
 
             // Next, we check to see if our account has an image for the card on DO. If not, we fetch from the google API
-            if ($this->withImages) {
-                if (!$row['Product Image']) {
-                    $this->log('error', 'Image path missing.');
-                    continue;
-                }
-
-                $this->copyImage($row);
+            if ($this->withImages !== null) {
+                $this->copyImage($sku);
             }
-
-            $sku = new Sku($row['uid']);
 
             if (!$this->printsOnly) {
                 $this->log('info', "Registering card [{$row['Card Name']} using identifier [{$this->identifier->raw()}]");
-                
+
                 $card = Card::register(
                     $this->identifier,
                     $row['Card Name'],
-                    $this->imagePath($row),
+                    $this->imagePath($sku->raw()),
                     Rarity::fromLss($row['Rarity']),
                     $row['Card Effect'],
                     '',
@@ -64,15 +58,15 @@ class CardsImport
                 );
             } else {
                 $card = Card::whereIdentifier($this->identifier)->first();
-                
+
                 if (!$card) {
                     $this->log('error', "Card not found for identifier [{$this->identifier->raw()}]");
                     continue;
                 }
             }
-            
+
             $printing = Printing::where('sku', $sku)->first();
-            
+
             if ($printing && !$this->command->option('skip-existing')) {
                 $this->log('info', "Registering print for sku [{$row['uid']}]");
 
@@ -138,32 +132,21 @@ class CardsImport
         ]);
     }
 
-    private function copyImage($row)
+    private function copyImage(Sku $sku)
     {
-        $path = $this->imagePath($row);
+        $serverPath = $this->imagePath($sku->raw());
+        $localPath = base_path().'/'.$this->withImages.'/'.$sku->set()->raw().$sku->cardNumber().'.png';
 
-        if (!Storage::disk('do')->exists($path)) {
-            $this->log('info', "Copying image from [{$row['Product Image']}] to [$path]");
+        if (!Storage::disk('do')->exists($serverPath)) {
+            $this->log('info', "Copying image from [{$localPath}] to [$serverPath]");
             try {
-                Storage::disk('do')->put($path, file_get_contents($row['Product Image']));
+                Storage::disk('do')->put($serverPath, file_get_contents($localPath));
             } catch (ErrorException $e) {
-                $this->log("Error copying image for [{$row['uid']}] from [{$row['Product Image']}]: Missing file.");
+                $this->log('error', "Error copying image for [{$sku->raw()}] from [{$localPath}]: Missing file.");
             }
         } else {
-            $this->log('warn', "Image already exists at [$path]");
+            $this->log('warn', "Image already exists at [$serverPath]");
         }
-    }
-
-    public function batchSize(): int
-    {
-        return 50;
-    }
-
-    public function conditionalSheets(): array
-    {
-        return array_map(function() {
-            return $this;
-        }, array_flip(self::AVAILABLE_SHEETS));
     }
 
     private function log(string $type, string $message)
@@ -175,9 +158,9 @@ class CardsImport
      * @param $row
      * @return string
      */
-    private function imagePath($row): string
+    private function imagePath(string $uid): string
     {
-        return "cards/printings/{$row['uid']}.png";
+        return "cards/printings/{$uid}.png";
     }
 
     /**
