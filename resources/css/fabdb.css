@@ -459,3 +459,11 @@ button, button:focus {
     @apply text-blue-400;
 }
 
+.cardtech-link {
+    @apply outline-none;
+    color: var(--link-color);
+}
+
+.cardtech-link:hover {
+    color: var(--link-hover-color);
+}
