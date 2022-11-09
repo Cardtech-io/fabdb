@@ -36,4 +36,9 @@ class Printing extends Model
     {
         return $this->belongsTo(Card::class);
     }
+
+    public function cards()
+    {
+        return $this->belongsToMany(Card::class);
+    }
 }
