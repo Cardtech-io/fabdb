@@ -2,7 +2,7 @@
     {
         "uid": "RVD001",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD001.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD001.png",
         "Card Name": "Rhinar",
         "Finish": "Cold Foil",
         "Class": "Brute",
@@ -24,7 +24,7 @@
     {
         "uid": "RVD002",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD002.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD002.png",
         "Card Name": "Bone Basher",
         "Finish": "Cold Foil",
         "Class": "Brute",
@@ -46,11 +46,7 @@
     {
         "uid": "RVD007",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD003.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD007.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD003.png",
         "Card Name": "Chief Ruk'utan",
         "Finish": "Regular",
         "Class": "Brute",
@@ -72,11 +68,7 @@
     {
         "uid": "RVD003",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD004.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD003.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD004.png",
         "Card Name": "Bone Vizier",
         "Finish": "Rainbow Foil",
         "Class": "Brute",
@@ -98,11 +90,7 @@
     {
         "uid": "RVD004",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD005.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD004.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD005.png",
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -124,11 +112,7 @@
     {
         "uid": "RVD005",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD006.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD005.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD006.png",
         "Card Name": "Ironhide Gauntlet",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -150,11 +134,7 @@
     {
         "uid": "RVD006",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD007.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD006.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD007.png",
         "Card Name": "Ironhide Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -176,7 +156,7 @@
     {
         "uid": "RVD008",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD008.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD008.png",
         "Card Name": "Alpha Rampage",
         "Finish": "Regular",
         "Class": "Brute",
@@ -198,7 +178,7 @@
     {
         "uid": "RVD009",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD009.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD009.png",
         "Card Name": "Beast Mode",
         "Finish": "Regular",
         "Class": "Brute",
@@ -220,7 +200,7 @@
     {
         "uid": "RVD010",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD010.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD010.png",
         "Card Name": "Pack Hunt",
         "Finish": "Regular",
         "Class": "Brute",
@@ -242,7 +222,7 @@
     {
         "uid": "RVD011",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD011.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD011.png",
         "Card Name": "Bare Fangs",
         "Finish": "Regular",
         "Class": "Brute",
@@ -264,7 +244,7 @@
     {
         "uid": "RVD012",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD012.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD012.png",
         "Card Name": "Wild Ride",
         "Finish": "Regular",
         "Class": "Brute",
@@ -286,7 +266,7 @@
     {
         "uid": "RVD013",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD013.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD013.png",
         "Card Name": "Wrecking Ball",
         "Finish": "Regular",
         "Class": "Brute",
@@ -308,7 +288,7 @@
     {
         "uid": "RVD014",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD014.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD014.png",
         "Card Name": "Awakening Bellow",
         "Finish": "Regular",
         "Class": "Brute",
@@ -330,7 +310,7 @@
     {
         "uid": "RVD015",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD015.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD015.png",
         "Card Name": "Pack Call",
         "Finish": "Regular",
         "Class": "Brute",
@@ -352,7 +332,7 @@
     {
         "uid": "RVD016",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD016.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD016.png",
         "Card Name": "Smash Instinct",
         "Finish": "Regular",
         "Class": "Brute",
@@ -374,7 +354,7 @@
     {
         "uid": "RVD017",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD017.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD017.png",
         "Card Name": "Smash With Big Tree",
         "Finish": "Regular",
         "Class": "Brute",
@@ -396,7 +376,7 @@
     {
         "uid": "RVD018",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD018.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD018.png",
         "Card Name": "Muscle Mutt",
         "Finish": "Regular",
         "Class": "Generic",
@@ -418,7 +398,7 @@
     {
         "uid": "RVD019",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD019.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD019.png",
         "Card Name": "Raging Onslaught",
         "Finish": "Regular",
         "Class": "Generic",
@@ -440,7 +420,7 @@
     {
         "uid": "RVD020",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD020.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD020.png",
         "Card Name": "Wounded Bull",
         "Finish": "Regular",
         "Class": "Generic",
@@ -462,7 +442,7 @@
     {
         "uid": "RVD021",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD021.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD021.png",
         "Card Name": "Barraging Beatdown",
         "Finish": "Regular",
         "Class": "Brute",
@@ -484,7 +464,7 @@
     {
         "uid": "RVD022",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD022.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD022.png",
         "Card Name": "Rally the Rearguard",
         "Finish": "Regular",
         "Class": "Generic",
@@ -506,7 +486,7 @@
     {
         "uid": "RVD023",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD023.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD023.png",
         "Card Name": "Wrecker Romp",
         "Finish": "Regular",
         "Class": "Brute",
@@ -528,7 +508,7 @@
     {
         "uid": "RVD024",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD024.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD024.png",
         "Card Name": "Come to Fight",
         "Finish": "Regular",
         "Class": "Generic",
@@ -550,7 +530,7 @@
     {
         "uid": "RVD025",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD025.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD025.png",
         "Card Name": "Clearing Bellow",
         "Finish": "Regular",
         "Class": "Brute",
@@ -572,7 +552,7 @@
     {
         "uid": "RVD026",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD026.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD026.png",
         "Card Name": "Dodge",
         "Finish": "Regular",
         "Class": "Generic",
@@ -594,7 +574,7 @@
     {
         "uid": "RVD027",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/RVD027.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD027.png",
         "Card Name": "Titanium Bauble",
         "Finish": "Regular",
         "Class": "Generic",
@@ -616,7 +596,7 @@
     {
         "uid": "DVR001",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR001.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR001.png",
         "Card Name": "Dorinthea, Quicksilver Prodigy",
         "Finish": "Cold Foil",
         "Class": "Warrior",
@@ -638,7 +618,7 @@
     {
         "uid": "DVR002",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR002.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR002.png",
         "Card Name": "Dawnblade, Resplendent",
         "Finish": "Cold Foil",
         "Class": "Warrior",
@@ -660,11 +640,7 @@
     {
         "uid": "DVR007",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR003.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR007.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR003.png",
         "Card Name": "Hala Goldenhelm",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -686,11 +662,7 @@
     {
         "uid": "DVR003",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR004.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR003.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR004.png",
         "Card Name": "Ironrot Helm",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -712,11 +684,7 @@
     {
         "uid": "DVR004",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR005.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR004.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR005.png",
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -738,11 +706,7 @@
     {
         "uid": "DVR005",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR006.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR005.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR006.png",
         "Card Name": "Gallantry Gold",
         "Finish": "Rainbow Foil",
         "Class": "Warrior",
@@ -764,11 +728,7 @@
     {
         "uid": "DVR006",
         "Brand": "Flesh and Blood",
-<<<<<<< HEAD
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR007.width-450.png",
-=======
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR006.width-450.png",
->>>>>>> 36e482100944823d9e589b0e94e80cecb182a4a8
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR007.png",
         "Card Name": "Ironrot Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -790,7 +750,7 @@
     {
         "uid": "DVR008",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR008.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR008.png",
         "Card Name": "Glistening Steelblade",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -812,7 +772,7 @@
     {
         "uid": "DVR009",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR009.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR009.png",
         "Card Name": "En Garde",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -834,7 +794,7 @@
     {
         "uid": "DVR010",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR010.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR010.png",
         "Card Name": "Second Swing",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -856,7 +816,7 @@
     {
         "uid": "DVR011",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR011.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR011.png",
         "Card Name": "Warriors Valor",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -878,7 +838,7 @@
     {
         "uid": "DVR012",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR012.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR012.png",
         "Card Name": "Sharpen Steel",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -900,7 +860,7 @@
     {
         "uid": "DVR013",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR013.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR013.png",
         "Card Name": "Run Through",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -922,7 +882,7 @@
     {
         "uid": "DVR014",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR014.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR014.png",
         "Card Name": "Thrust",
         "Finish": "Regular",
         "Class": "Generic",
@@ -944,7 +904,7 @@
     {
         "uid": "DVR015",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR015.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR015.png",
         "Card Name": "In the Swing",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -966,7 +926,7 @@
     {
         "uid": "DVR016",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR016.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR016.png",
         "Card Name": "Ironsong Response",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -988,7 +948,7 @@
     {
         "uid": "DVR017",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR017.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR017.png",
         "Card Name": "Driving Blade",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -1010,7 +970,7 @@
     {
         "uid": "DVR018",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR018.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR018.png",
         "Card Name": "Slice and Dice",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -1032,7 +992,7 @@
     {
         "uid": "DVR019",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR019.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR019.png",
         "Card Name": "On a Knife Edge",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1054,7 +1014,7 @@
     {
         "uid": "DVR020",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR020.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR020.png",
         "Card Name": "Out for Blood",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -1076,7 +1036,7 @@
     {
         "uid": "DVR021",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR021.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR021.png",
         "Card Name": "Hit and Run",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -1098,7 +1058,7 @@
     {
         "uid": "DVR022",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR022.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR022.png",
         "Card Name": "Visit the Blacksmith",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1120,7 +1080,7 @@
     {
         "uid": "DVR023",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR023.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR023.png",
         "Card Name": "Blade Flash",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1142,7 +1102,7 @@
     {
         "uid": "DVR024",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR024.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR024.png",
         "Card Name": "Toughen Up",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1164,7 +1124,7 @@
     {
         "uid": "DVR025",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR025.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR025.png",
         "Card Name": "Sigil of Solace",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1186,7 +1146,7 @@
     {
         "uid": "DVR026",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR026.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR026.png",
         "Card Name": "Flock of the Featherwalkers",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1208,7 +1168,7 @@
     {
         "uid": "DVR027",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR027.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR027.png",
         "Card Name": "Titanium Bauble",
         "Finish": "Regular",
         "Class": "Generic",
@@ -1230,7 +1190,7 @@
     {
         "uid": "DVR028",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/media/images/DVR028.width-450.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR028.png",
         "Card Name": "Quicken",
         "Finish": "Regular",
         "Class": "Generic",

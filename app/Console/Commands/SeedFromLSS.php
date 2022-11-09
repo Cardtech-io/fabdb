@@ -12,7 +12,7 @@ class SeedFromLSS extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed-from-lss {imagePath?} {--prints-only} {--skip-existing}';
+    protected $signature = 'fabdb:seed-from-lss {imagePath?} {--prints-only} {--skip-existing} {--ids=}';
 
     /**
      * The console command description.
@@ -42,7 +42,7 @@ class SeedFromLSS extends Command
 
     private function import(\Closure $callback)
     {
-        $import = new LSSImport($this, $this->argument('imagePath'), $this->option('prints-only'));
+        $import = new LSSImport($this, $this->argument('imagePath'), $this->option('prints-only'), $this->option('ids'));
 
         $callback($import);
     }

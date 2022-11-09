@@ -1,28 +1,72 @@
 [
     {
-        "Product": "Uprising",
-        "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_booster_box_Fx5.width-10000.png",
+        "Product": "Dynasty - EN",
+        "Product image": "",
+        "Type": "Booster Case",
+        "SKU": "FAB2203-EN",
+        "Release Date": "11 Nov 2022",
+        "Barcodes": "4ct carton",
+        "": "09421905459877",
+        "Configuration": "10 cards per pack\n24 packs per display\n4 displays per case",
+        "Overview": "247 card set (1 Fabled, 5 Legendary, 51 Majestic, 81 Rares, 109 Commons, 14 Marvels) Designed to expand constructed play\nIncludes cards for: Brute, Guardian, Mechanologist, Ninja, Ranger, Runeblade, Warrior, Wizard, and Illusionist. Dynasty also introduces a new Class; Assassin!"
+    },
+    {
+        "Product": "Dynasty - EN",
+        "Product image": "https://storage.googleapis.com/fabmaster/media/images/dyn_mock_booster_box.width-10000.png",
         "Type": "Booster Display",
+        "SKU": "FAB2203-EN",
+        "Release Date": "12 Nov 2022",
+        "Barcodes": "display (24ct)",
+        "": "09421905459860",
+        "Configuration": "10 cards per pack\n24 packs per display\n4 displays per case",
+        "Overview": "247 card set (1 Fabled, 5 Legendary, 51 Majestic, 81 Rares, 109 Commons, 14 Marvels) Designed to expand constructed play\nIncludes cards for: Brute, Guardian, Mechanologist, Ninja, Ranger, Runeblade, Warrior, Wizard, and Illusionist. Dynasty also introduces a new Class; Assassin!"
+    },
+    {
+        "Product": "Dynasty - EN",
+        "Product image": "https://storage.googleapis.com/fabmaster/media/images/dyn_mock_boosterpack.width-10000.png",
+        "Type": "Booster Pack",
+        "SKU": "FAB2203-EN",
+        "Release Date": "13 Nov 2022",
+        "Barcodes": "single unit",
+        "": "09421905459853",
+        "Configuration": "10 cards per pack\n24 packs per display\n4 displays per case",
+        "Overview": "247 card set (1 Fabled, 5 Legendary, 51 Majestic, 81 Rares, 109 Commons, 14 Marvels) Designed to expand constructed play\nIncludes cards for: Brute, Guardian, Mechanologist, Ninja, Ranger, Runeblade, Warrior, Wizard, and Illusionist. Dynasty also introduces a new Class; Assassin!"
+    },
+    {
+        "Product": "Uprising - EN",
+        "Product image": "",
+        "Type": "Booster Case",
         "SKU": "FAB2202-EN",
         "Release Date": "24 Jun 2022",
-        "Barcodes": "Carton: \nDisplay: \n",
-        "": "09421905459846\n09421905459839\n",
+        "Barcodes": "Case",
+        "": "09421905459846",
         "Configuration": "16 cards per pack\n24 packs per display\n4 displays per case",
         "Overview": "226 card set (1 Fabled, 6 Legendary, 27 Majestic, 51 Rares, 125 Commons, 16 Tokens, ??? Marvels)\nDesigned to support sealed deck and booster draft"
     },
     {
-        "Product": "Uprising",
+        "Product": "Uprising - EN",
+        "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_booster_box_Fx5.width-10000.png",
+        "Type": "Booster Display",
+        "SKU": "FAB2202-EN",
+        "Release Date": "24 Jun 2022",
+        "Barcodes": "Display: \n",
+        "": "09421905459839\n",
+        "Configuration": "16 cards per pack\n24 packs per display\n4 displays per case",
+        "Overview": "226 card set (1 Fabled, 6 Legendary, 27 Majestic, 51 Rares, 125 Commons, 16 Tokens, ??? Marvels)\nDesigned to support sealed deck and booster draft"
+    },
+    {
+        "Product": "Uprising - EN",
         "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_booster_pack_Fx5.width-10000.png",
         "Type": "Booster Pack",
         "SKU": "FAB2202-EN",
         "Release Date": "24 Jun 2022",
         "Barcodes": "Booster:",
-        "": 9421905459822.0,
+        "": "09421905459822",
         "Configuration": "16 cards per pack",
         "Overview": "226 card set (1 Fabled, 6 Legendary, 27 Majestic, 51 Rares, 125 Commons, 16 Tokens, ??? Marvels)\nDesigned to support sealed deck and booster draft"
     },
     {
-        "Product": "Uprising Blitz Decks",
+        "Product": "Uprising Blitz Decks - EN",
         "Product image": "",
         "Type": "Blitz Deck",
         "SKU": "FAB2204-EN",
@@ -33,7 +77,7 @@
         "Overview": "Ready-to-play out of the box, Uprising Blitz Decks are crafted as an ideal product for kitchen table gaming. Each Blitz Deck includes a rainbow foil hero card, a beautiful addition to the collection of new and experienced players alike."
     },
     {
-        "Product": "Uprising Blitz Decks",
+        "Product": "Uprising Blitz Decks - EN",
         "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_blitz_display_box_01_Fx5.width-10000.png",
         "Type": "Blitz Deck",
         "SKU": "FAB2204-EN",
@@ -44,7 +88,7 @@
         "Overview": "Ready-to-play out of the box, Uprising Blitz Decks are crafted as an ideal product for kitchen table gaming. Each Blitz Deck includes a rainbow foil hero card, a beautiful addition to the collection of new and experienced players alike."
     },
     {
-        "Product": "Uprising Blitz Decks",
+        "Product": "Uprising Blitz Decks - EN",
         "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_blitz_box_dromai_Fx5.width-10000.png",
         "Type": "Blitz Deck",
         "SKU": "FAB2204-EN",
@@ -55,7 +99,7 @@
         "Overview": "Ready-to-play out of the box, Uprising Blitz Decks are crafted as an ideal product for kitchen table gaming. Each Blitz Deck includes a rainbow foil hero card, a beautiful addition to the collection of new and experienced players alike."
     },
     {
-        "Product": "Uprising Blitz Decks",
+        "Product": "Uprising Blitz Decks - EN",
         "Product image": "https://storage.googleapis.com/fabmaster/media/images/upr_mock_blitz_box_fai_Fx5.width-10000.png",
         "Type": "Blitz Deck",
         "SKU": "FAB2204-EN",

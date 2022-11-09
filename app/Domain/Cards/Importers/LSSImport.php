@@ -18,20 +18,15 @@ use function FabDB\Domain\Cards\str_starts_with;
 
 class LSSImport
 {
-    private Identifier $identifier;
-    private $withImages;
-    private Command $command;
-    private bool $printsOnly;
-
-    public function __construct(Command $command, $withImages, bool $printsOnly = false)
-    {
-        $this->command = $command;
-        $this->withImages = $withImages;
-        $this->printsOnly = $printsOnly;
-    }
+    public function __construct(private Command $command, private $withImages, private bool $printsOnly = false, private ?string $ids = null) {}
 
     public function collection(Collection $rows)
     {
+        if ($this->ids) {
+            $ids = explode(',', $this->ids);
+            $rows = $rows->filter(fn($row) => in_array($row['uid'], $ids));
+        }
+
         foreach ($rows as $row) {
             if (!Arr::get($row, 'uid')) continue;
 
@@ -147,16 +142,21 @@ class LSSImport
     private function copyImage(array $record): void
     {
         $sku = Sku::fromLSS($record['uid']);
-
         $localDir = base_path().'/'.$this->withImages;
-
         $importer = new ImageImporter($localDir, $sku, $record['back']);
+
+        if (isset($record['Product Image'])) {
+            $requiredFile = $record['Product Image'];
+        }
+        else {
+            $requiredFile = $importer->requiredFile($record['Finish']);
+        }
+
         $serverPath = $importer->serverPath();
-        $requiredFile = $importer->requiredFile($record['Finish']);
 
         if (!Storage::disk('do')->exists($serverPath)) {
             $this->log('info', "Copying image from [{$requiredFile}] to [$serverPath]");
-            
+
             Storage::disk('do')->put($serverPath, file_get_contents($requiredFile));
         } else {
             $this->log('warn', "Image already exists at [$serverPath]");
@@ -231,7 +231,12 @@ class LSSImport
         // split the row data into two records. If a given column value does not actually have two values, we
         // just use the first value. Additionally, we'll always create at least one card row as part of the split.
         foreach ($row as $column => $value) {
-            $values = explode('//', $value);
+            if (strtolower($column) !== 'product image') {
+                $values = explode('//', $value);
+            }
+            else {
+                $values = [$value];
+            }
 
             Arr::set($cards, "0.$column", trim($values[0]));
 
@@ -240,6 +245,9 @@ class LSSImport
             }
         }
 
+        if ($row['uid'] === 'HER054-CF') {
+            dd($cards);
+        }
 
         return $cards;
     }
