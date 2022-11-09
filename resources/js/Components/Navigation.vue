@@ -73,6 +73,12 @@
                     ]},
 
                     { link: '/support', text: 'Subscription' },
+
+                    { text: 'Cardtech', children: [
+                        { link: 'https://fabdb.net', text: 'FaB DB' },
+                        { link: 'https://rathetimes.com', text: 'The Rathe Times' },
+                        { link: 'https://teklolabs.com', text: 'Teklo Labs' },
+                    ]},
                 ];
 
                 if (this.user) {

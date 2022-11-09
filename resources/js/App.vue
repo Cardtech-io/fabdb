@@ -28,7 +28,6 @@
 <script>
     import {mapActions, mapGetters} from 'vuex';
     import AppFooter from "./Components/Layout/Footer.vue";
-    import CardtechHeader from "./Components/CardtechHeader.vue";
     import CompleteProfile from './Identity/CompleteProfile.vue';
     import HoverCard from "./DeckBuilder/HoverCard.vue";
     import Messages from './Components/Messages.vue';
@@ -39,7 +38,6 @@
 
     export default {
         components: {
-            CardtechHeader,
             CompleteProfile,
             AppFooter,
             HoverCard,
