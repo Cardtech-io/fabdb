@@ -35,6 +35,12 @@ class LSSImport
                 continue;
             }
 
+            // We skip any rows whereby we want to import an image, but no image exists.
+            if ($this->withImages && isset($row['Product Image']) && empty($row['Product Image'])) {
+                $this->log('warn', "Skipping [{$row['uid']}], missing image data.");
+                continue;
+            }
+
             $cards = $this->split($row);
 
             foreach ($cards as $record) {
@@ -144,20 +150,17 @@ class LSSImport
         $sku = Sku::fromLSS($record['uid']);
         $localDir = base_path().'/'.$this->withImages;
         $importer = new ImageImporter($localDir, $sku, $record['back']);
-
-        if (isset($record['Product Image'])) {
-            $requiredFile = $record['Product Image'];
-        }
-        else {
-            $requiredFile = $importer->requiredFile($record['Finish']);
-        }
-
+        $localFile = $record['Product Image'] ?? $importer->requiredFile($record['Finish']);
         $serverPath = $importer->serverPath();
 
         if (!Storage::disk('do')->exists($serverPath)) {
-            $this->log('info', "Copying image from [{$requiredFile}] to [$serverPath]");
+            $this->log('info', "Copying image from [{$localFile}] to [$serverPath]");
 
-            Storage::disk('do')->put($serverPath, file_get_contents($requiredFile));
+            try {
+                Storage::disk('do')->put($serverPath, file_get_contents($localFile));
+            } catch (ErrorException $e) {
+                $this->log('error', "Error copying image for [{$record['uid']}] from [{$localFile}]: Missing file.");
+            }
         } else {
             $this->log('warn', "Image already exists at [$serverPath]");
         }
@@ -243,10 +246,6 @@ class LSSImport
             if ($required == 2) {
                 Arr::set($cards, "1.$column", trim($values[count($values)-1]));
             }
-        }
-
-        if ($row['uid'] === 'HER054-CF') {
-            dd($cards);
         }
 
         return $cards;
