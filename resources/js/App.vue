@@ -2,7 +2,6 @@
     <div class="h-full">
         <div class="flex flex-col relative h-full">
             <!-- Header -->
-            <cardtech-header/>
             <navigation class="navigation"/>
 
             <!-- Content -->
