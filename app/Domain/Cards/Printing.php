@@ -39,6 +39,6 @@ class Printing extends Model
 
     public function cards()
     {
-        return $this->belongsToMany(Card::class);
+        return $this->belongsToMany(Card::class, 'sides')->withPivot('side');
     }
 }

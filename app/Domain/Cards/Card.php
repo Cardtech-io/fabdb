@@ -54,7 +54,7 @@ class Card extends Model
 
     public function printings()
     {
-        return $this->hasMany(Printing::class);
+        return $this->belongsToMany(Printing::class, 'sides')->withPivot('side');
     }
 
     public function variants()
