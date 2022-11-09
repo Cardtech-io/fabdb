@@ -26,8 +26,12 @@ class CardController extends Controller
 
     public function list(Request $request)
     {
+        $perPage = $request->get('per_page', 30);
+
+        if ($perPage > 30) $perPage = 30;
+
         $cards = $this->cards->search($request->user(), $request->all())
-            ->paginate($request->get('per_page', 30))
+            ->paginate($perPage)
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
