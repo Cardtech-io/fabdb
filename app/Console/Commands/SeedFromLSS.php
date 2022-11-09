@@ -1,7 +1,7 @@
 <?php
 namespace FabDB\Console\Commands;
 
-use FabDB\Domain\Cards\CardsImport;
+use FabDB\Domain\Cards\Importers\LSSImport;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +12,7 @@ class SeedFromLSS extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:seed-from-lss {imagePath} {--prints-only} {--skip-existing}';
+    protected $signature = 'fabdb:seed-from-lss {imagePath?} {--prints-only} {--skip-existing}';
 
     /**
      * The console command description.
@@ -42,7 +42,7 @@ class SeedFromLSS extends Command
 
     private function import(\Closure $callback)
     {
-        $import = new CardsImport($this, $this->argument('imagePath'), $this->option('prints-only'));
+        $import = new LSSImport($this, $this->argument('imagePath'), $this->option('prints-only'));
 
         $callback($import);
     }

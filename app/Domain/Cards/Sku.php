@@ -1,7 +1,6 @@
 <?php
 namespace FabDB\Domain\Cards;
 
-use ErrorException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use JsonSerializable;
@@ -42,6 +41,11 @@ class Sku implements JsonSerializable
         });
 
         return str_replace('!!sets!!', implode('|', $sets), self::REGEX);
+    }
+
+    public function cardId()
+    {
+        return $this->set()->raw().$this->cardNumber();
     }
 
     public function cardNumber()
