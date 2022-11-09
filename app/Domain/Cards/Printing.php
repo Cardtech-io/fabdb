@@ -24,7 +24,12 @@ class Printing extends Model
         $text = (string) $text;
         $flavour = (string) $flavour;
 
-        return static::updateOrCreate(['sku' => $sku], compact('cardId','set', 'rarity', 'edition', 'finish', 'language', 'name', 'text', 'flavour'));
+        return static::updateOrCreate(['card_id' => $cardId, 'sku' => $sku], compact('cardId', 'sku', 'set', 'rarity', 'edition', 'finish', 'language', 'name', 'text', 'flavour'));
+    }
+
+    public function backfacePrinting()
+    {
+        return $this->belongsTo(Printing::class, 'backface_printing_id');
     }
 
     public function card()

@@ -59,7 +59,7 @@ class CardController extends Controller
 
     public function view(Request $request)
     {
-        return new CardResource($this->cards->view($request->identifier, ['listings', 'listings.store', 'printings']));
+        return new CardResource($this->cards->view($request->identifier, ['listings', 'listings.store', 'printings', 'printings.backfacePrinting']));
     }
 
     public function ad(Request $request)

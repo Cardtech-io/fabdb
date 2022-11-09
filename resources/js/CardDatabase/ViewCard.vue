@@ -8,7 +8,7 @@
                 <div class="md:flex md:space-x-8 p-4">
                     <div class="md:w-1/4">
                         <div class="relative">
-                            <card-image :card="card"/>
+                            <card :printing="selected"/>
                             <card-legality :card="card"/>
                         </div>
                         <div class="flex mt-2 space-x-px">
@@ -123,6 +123,7 @@
     import RecentDecks from "../Decks/Featured/RecentDecks.vue";
     import Rulings from "./Rulings.vue";
     import Strings from '../Utilities/Strings.js';
+    import Card from "./Card.vue";
 
     export default {
         mixins: [Cardable, Imagery, Strings],
@@ -131,6 +132,7 @@
             CardLegality,
             Advertisement,
             Breadcrumbs,
+            Card,
             CardImage,
             CardPrice,
             CardNav,
