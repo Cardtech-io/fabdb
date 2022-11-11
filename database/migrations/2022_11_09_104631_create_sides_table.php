@@ -25,7 +25,7 @@ return new class extends Migration
             $table->enum('side', ['A', 'B'])->default('A');
         });
 
-        DB::insert('INSERT INTO sides (card_id, printing_id, name, text, flavour) SELECT printings.card_id, printings.id, printings.name, printings.text, printings.flavour FROM printings');
+        DB::insert("INSERT INTO sides (card_id, printing_id, name, text, flavour, side) SELECT p1.card_id, p1.id, p1.name, p1.text, p1.flavour , 'A', FROM printings p1");
         DB::update("INSERT INTO sides (card_id, printing_id, name, text, flavour, side) SELECT p2.card_id, p1.id, p2.name, p2.text, p2.flavour, 'B' FROM printings p1 JOIN printings p2 ON p2.backface_printing_id = p1.id WHERE p2.backface_printing_id IS NOT NULL");
     }
 
