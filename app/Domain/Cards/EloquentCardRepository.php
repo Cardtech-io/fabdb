@@ -80,7 +80,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         $filters = [
             new PrintingFilter,
-            new KeywordFilter,
             new SyntaxFilter,
             new IdentifierFilter,
             new IncludeOwnedCardsFilter($user),
