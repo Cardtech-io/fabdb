@@ -11,7 +11,8 @@ class KeywordFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['keywords']) && !empty($input['keywords']) &&
+        return isset($input['key
+        words']) && !empty($input['keywords']) &&
             !$this->matchesIdentifier($input['keywords']) &&
             $this->hasKeywords($input['keywords']);
     }
