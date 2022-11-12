@@ -146,7 +146,7 @@ class Card extends Model
 
     public function isHero(): bool
     {
-        return $this->type === 'hero';
+        return in_array('hero', $this->keywords);
     }
 
     public function isWeapon(): bool
@@ -198,7 +198,7 @@ class Card extends Model
     {
         return $this->isWeapon() && in_array('1h', $this->keywords);
     }
-    
+
     public function isToken()
     {
         return in_array('token', $this->keywords);
@@ -209,7 +209,7 @@ class Card extends Model
         if (is_null($value)) {
             return [];
         }
-        
+
         return json_decode($value, true);
     }
 }
