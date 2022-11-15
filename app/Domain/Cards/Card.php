@@ -21,6 +21,8 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
+        'classes' => 'array',
+        'talents' => 'array',
         'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,

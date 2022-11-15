@@ -97,7 +97,7 @@ class ExportDeckToZip
         $text = [
             $deck->name,
             '',
-            'Class: '.ucfirst($deck->hero->class),
+            'Classes: '.implode(', ', array_map(fn($class) => ucfirst($class), $deck->hero->classes)),
             'Hero: '.$deck->hero->name,
             'Weapons: '.$weapons,
             'Equipment: '.$equipment,

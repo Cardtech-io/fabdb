@@ -116,13 +116,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
             'cards.keywords',
             'cards.stats',
-            'cards.talent',
-            'cards.class',
+            'cards.talents',
+            'cards.classes',
             'cards.text',
             'cards.flavour',
             'cards.comments',
             'cards.type',
-            'cards.sub_type',
+            'cards.sub_types',
         ];
 
         $query = $this->newQuery()
@@ -306,7 +306,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         if (!$heroes) {
             $heroes = $this->newQuery()
-                ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
+                ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_types')
                 ->join('printings', 'printings.card_id', 'cards.id')
                 ->whereRaw("JSON_SEARCH(cards.keywords, 'one', 'hero')")
                 ->groupBy('cards.name')
@@ -331,8 +331,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $query->select([
             'cards.identifier',
             'cards.name',
-            'cards.class',
-            'cards.talent',
+            'cards.classes',
+            'cards.talents',
             'cards.image',
             'cards.keywords',
             'cards.stats',
@@ -410,12 +410,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.id',
                 'cards.identifier',
                 'printings.sku',
-                'cards.class',
+                'cards.classes',
                 'cards.image',
                 'cards.name',
                 'cards.rarity',
                 'cards.keywords',
-                'cards.talent',
+                'cards.talents',
             ])
             ->groupBy('cards.id')
             ->get();
@@ -431,7 +431,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->orderBy('rating', 'DESC');
 
         if ($heroAge === 'young') {
-            $query->where('sub_type', $heroAge);
+            $query->whereJsonContains('sub_types', $heroAge);
         }
 
         return $query->first();

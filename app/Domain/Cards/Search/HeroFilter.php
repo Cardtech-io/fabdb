@@ -38,18 +38,20 @@ class HeroFilter implements SearchFilter
 
         $query->where(function($query) use ($hero) {
             $query->where(function($query) use ($hero) {
-                if ($hero->isTalented()) {
-                    $talents = "'".implode("','", $hero->talents())."'";
-
-                    $query->whereRaw("(cards.class IN ('{$hero->class}', 'generic') OR cards.class IS NULL) AND (cards.talent IN ($talents) OR cards.talent IS NULL)");
-                }
-                else {
-                    $query->whereIn('cards.class', [$hero->class, 'generic']);
-                    $query->whereNull('cards.talent');
-                }
+                $classes = implode(',', $hero->classes);
+                $query->orWhereRaw("JSON_OVERLAPS(cards.classes, '[$classes]')");
+                $query->orWhereNull('cards.classes');
             });
 
-            if ($hero->class === 'shapeshifter') {
+            if ($hero->isTalented()) {
+                $query->where(function($query) use ($hero) {
+                    $talents = implode(',', $hero->talents);
+                    $query->orWhereRaw('JSON_OVERLAPS(cards.talents, "['.$talents.']"');
+                    $query->orWhereNull('cards.talents');
+                });
+            }
+
+            if (in_array('shapeshifter', $hero->classes)) {
                 $query->orWhere('cards.search_text', 'LIKE', '%specialization%');
             }
         });

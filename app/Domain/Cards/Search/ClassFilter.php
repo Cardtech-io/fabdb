@@ -31,9 +31,9 @@ class ClassFilter implements SearchFilter
         $query->where(function ($query) use ($classes) {
             foreach ($classes as $class) {
                 if ($class === 'none') {
-                    $query->whereNull("class");
+                    $query->orWhereNull("classes");
                 } else {
-                    $query->orWhere('class', $class);
+                    $query->orWhereJsonContains('classes', $class);
                 }
             }
 
