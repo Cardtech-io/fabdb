@@ -125,13 +125,15 @@ class Deck extends Model
 
         return $this->sideboard->where($column, $identifier)->first();
     }
-
+    
     public function mainKeywords()
     {
         $hero = $this->hero;
-        $keywords = array_merge($this->hero->classes, ['generic']);
+        $keywords = ['generic'];
 
         if ($hero) {
+            $keywords = array_merge($this->hero->classes, $keywords);
+
             // Be sure to include main class keyword if talented
             if ($hero->isTalented()) {
                 $keywords = array_merge($keywords, $hero->talents());
