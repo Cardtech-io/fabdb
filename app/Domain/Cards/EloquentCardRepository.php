@@ -3,11 +3,9 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
-use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\CommonerFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
 use FabDB\Domain\Cards\Search\ExactNamefilter;
-use FabDB\Domain\Cards\Search\GroupFilter;
 use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\IncludeOwnedCardsFilter;
@@ -503,5 +501,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->join('printings', 'printings.card_id', 'cards.id')
             ->where('printings.number', $number)
             ->first();
+    }
+
+    public function fabled(): Collection
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.rarity', 'F')
+            ->orderBy('printings.id')
+            ->groupBy('printings.card_id')
+            ->get();
     }
 }

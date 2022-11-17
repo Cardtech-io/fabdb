@@ -38,22 +38,33 @@ class HeroFilter implements SearchFilter
 
         $query->where(function($query) use ($hero) {
             $query->where(function($query) use ($hero) {
-                $classes = implode(',', $hero->classes);
+                $classes = '"'.implode('","', $hero->classes).'","generic"';
                 $query->orWhereRaw("JSON_OVERLAPS(cards.classes, '[$classes]')");
                 $query->orWhereNull('cards.classes');
             });
 
             if ($hero->isTalented()) {
                 $query->where(function($query) use ($hero) {
-                    $talents = implode(',', $hero->talents);
-                    $query->orWhereRaw('JSON_OVERLAPS(cards.talents, "['.$talents.']"');
+                    $talents = '"'.implode('","', $hero->talents).'"';
+                    $query->orWhereRaw("JSON_OVERLAPS(cards.talents, '[$talents]'");
                     $query->orWhereNull('cards.talents');
                 });
+            }
+            else {
+                $query->whereNull('cards.talents');
             }
 
             if (in_array('shapeshifter', $hero->classes)) {
                 $query->orWhere('cards.search_text', 'LIKE', '%specialization%');
             }
         });
+
+        // The emperor can only load red cards
+        if ('emperor-dracai-of-aesir' === $hero->identifier->raw()) {
+            $query->where(function($query) {
+                $query->whereIn('type', ['equipment', 'weapon']);
+                $query->orWhere('stats->resource', '1');
+            });
+        }
     }
 }

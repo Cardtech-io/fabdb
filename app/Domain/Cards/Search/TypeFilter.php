@@ -21,30 +21,29 @@ class TypeFilter implements SearchFilter
                 switch ($types[$i]) {
                     case 'attack action':
                         $query->orWhere(function($query) {
-                            $query->where('cards.sub_type', 'attack');
+                            $query->where('cards.type', 'action');
+                            $query->whereJsonContains('cards.sub_types', 'attack');
                         });
                         break;
                     case 'item':
-                        $query->orWhere(function($query) {
-                            $query->where('cards.sub_type', 'item');
-                        });
+                        $query->orWhereJsonContains('cards.sub_types', 'item');
                         break;
                     case 'non-attack action':
                         $query->orWhere(function($query) {
                             $query->where('cards.type', 'action');
                             $query->where(function($query) {
                                 $query->whereNull('cards.sub_type');
-                                $query->orWhereNotIn('cards.sub_type', ['attack', 'item']);
+                                $query->whereJsonNotContains('cards.sub_type', 'attack');
                             });
                         });
                         break;
                     default:
                         $splitType = explode(' ', $types[$i]);
 
-                        $query->where('cards.type', $splitType[0]); 
+                        $query->where('cards.type', $splitType[0]);
 
                         if (count($splitType) == 2) {
-                            $query->where('cards.sub_type', $splitType[1]); 
+                            $query->whereJsonContains('cards.sub_type', $splitType[1]);
                         }
 
                         break;
