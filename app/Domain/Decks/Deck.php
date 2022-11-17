@@ -129,7 +129,7 @@ class Deck extends Model
     public function mainKeywords()
     {
         $hero = $this->hero;
-        $keywords = $this->hero->classes + ['generic'];
+        $keywords = array_merge($this->hero->classes, ['generic']);
 
         if ($hero) {
             // Be sure to include main class keyword if talented
