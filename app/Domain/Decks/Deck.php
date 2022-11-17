@@ -125,7 +125,7 @@ class Deck extends Model
 
         return $this->sideboard->where($column, $identifier)->first();
     }
-    
+
     public function mainKeywords()
     {
         $hero = $this->hero;

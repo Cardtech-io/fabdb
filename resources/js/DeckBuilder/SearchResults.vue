@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <paginator :results="results" @page-selected="updatePage" class="mt-4"></paginator>
+        <paginator :results="results" @page-selected="updatePage" class="mt-4"/>
     </div>
 </template>
 
@@ -174,6 +174,10 @@
             });
 
             this.search(1);
+        },
+
+        beforeDestroy() {
+            this.$eventHub.removeEventListener('search-requested');
         },
 
         watch: {

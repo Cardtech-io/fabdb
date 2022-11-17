@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div v-if="mode === 'search' || mode === 'sideboard'" class="w-full md:w-1/3 overflow-y-auto bg-gray-200 dark:bg-gray-800 border-l border-gray-300 dark:border-gray-600" ref="searchResults">
-                        <search-results v-show="mode === 'search'" @search-completed="scrollTop"/>
+                        <search-results v-if="mode === 'search'" @search-completed="scrollTop"/>
                         <sideboard v-if="mode === 'sideboard'" :collection="sideboard"/>
                     </div>
                 </div>

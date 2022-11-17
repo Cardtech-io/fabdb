@@ -28,13 +28,13 @@ class CardTest extends TestCase
 
         $card2 = new Card(['text' => 'Essence of Earth, Ice, and Lightning (You may have Earth, Ice, and Lightning cards in your deck.)']);
 
-        $this->assertContains('shadow', $card1->talents());
-        $this->assertContains('ice', $card1->talents());
-        $this->assertContains('lightning', $card1->talents());
-        $this->assertContains('earth', $card2->talents());
-        $this->assertContains('ice', $card2->talents());
-        $this->assertContains('lightning', $card2->talents());
-        $this->assertNotContains('shadow', $card2->talents());
+        $this->assertContains('shadow', $card1->essences());
+        $this->assertContains('ice', $card1->essences());
+        $this->assertContains('lightning', $card1->essences());
+        $this->assertContains('earth', $card2->essences());
+        $this->assertContains('ice', $card2->essences());
+        $this->assertContains('lightning', $card2->essences());
+        $this->assertNotContains('shadow', $card2->essences());
 
     }
 }

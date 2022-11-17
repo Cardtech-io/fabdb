@@ -158,7 +158,7 @@ class Card extends Model
 
     public function isTalented()
     {
-        return $this->talent !== null || $this->hasEssence();
+        return $this->talents !== null || $this->hasEssence();
     }
 
     public function hasEssence()
@@ -166,15 +166,11 @@ class Card extends Model
         return (bool) preg_match('/essence of ([a-z]+)/i', $this->text);
     }
 
-    public function talents()
+    public function essences()
     {
         $paragraphs = explode("\n", $this->text);
         $parts = preg_split('/[^\w]/', strtolower($paragraphs[0]));
         $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
-
-        if ($this->talent) {
-            array_unshift($matches, $this->talent);
-        }
 
         return array_unique($matches);
     }
