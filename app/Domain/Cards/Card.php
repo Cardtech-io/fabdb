@@ -172,7 +172,7 @@ class Card extends Model
         $parts = preg_split('/[^\w]/', strtolower($paragraphs[0]));
         $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
 
-        return array_unique($matches);
+        return array_values(array_unique($matches));
     }
 
     public function utilisesTalents()
