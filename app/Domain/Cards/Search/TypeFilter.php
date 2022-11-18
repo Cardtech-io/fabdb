@@ -38,13 +38,15 @@ class TypeFilter implements SearchFilter
                         });
                         break;
                     default:
-                        $splitType = explode(' ', $types[$i]);
+                        $query->orWhere(function($query) use ($types, $i) {
+                            $splitType = explode(' ', $types[$i]);
 
-                        $query->where('cards.type', $splitType[0]);
+                            $query->where('cards.type', $splitType[0]);
 
-                        if (count($splitType) == 2) {
-                            $query->whereJsonContains('cards.sub_type', $splitType[1]);
-                        }
+                            if (count($splitType) == 2) {
+                                $query->whereJsonContains('cards.sub_type', $splitType[1]);
+                            }
+                        });
 
                         break;
                 }
