@@ -69,14 +69,16 @@ class CardTest extends TestCase
         $this->assertSame('Glint the Quicksilver', $card2->name);
     }
 
-    function test_returns_true_when_card_is_a_hero()
+    function test_returns_true_when_type_is_correct()
     {
         $card1 = new Card(['type' => 'hero']);
         $card2 = new Card(['type' => 'weapon']);
+        $card3 = new Card(['type' => 'equipment']);
 
         $this->assertTrue($card1->isHero());
         $this->assertFalse($card2->isHero());
         $this->assertTrue($card2->isWeapon());
+        $this->assertTrue($card3->isEquipment());
     }
 
     function test_return_true_when_card_is_talented()
@@ -101,6 +103,6 @@ class CardTest extends TestCase
     {
         $card = new Card(['text' => 'Essence of Earth, Ice and Lightning...', 'talents' => ['light', 'shadow']]);
 
-        $this->assertSame(['light', 'shadow', 'earth', 'ice', 'lightning'], $card->essences());
+        $this->assertSame(['light', 'shadow', 'earth', 'ice', 'lightning'], $card->utilisesTalents());
     }
 }

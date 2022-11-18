@@ -180,14 +180,9 @@ class Card extends Model
         return array_merge((array) $this->talents, (array) $this->essences());
     }
 
-    public function is1hWeapon()
-    {
-        return $this->isWeapon() && in_array('1h', $this->keywords);
-    }
-
     public function isEquipment(): bool
     {
-        return in_array('equipment', $this->keywords);
+        return $this->type === 'equipment';
     }
 
     public function isGeneric(): bool
@@ -195,11 +190,6 @@ class Card extends Model
         $classes = array_keys(config('game.classes'));
 
         return in_array('generic', $this->keywords) || !count(array_intersect($classes, $this->keywords));
-    }
-
-    public function oneHanded(): bool
-    {
-        return $this->isWeapon() && in_array('1h', $this->keywords);
     }
 
     public function isToken()
