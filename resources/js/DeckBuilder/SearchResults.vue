@@ -96,7 +96,8 @@
                 params: {
                     cardType: [''],
                     keywords: ''
-                }
+                },
+                searching: false
             }
         },
 
@@ -114,7 +115,10 @@
             },
 
             search(page) {
+                if (this.searching) return;
+
                 this.page = page;
+                this.searching = true;
 
                 let params = {
                     ...this.params,
@@ -127,6 +131,7 @@
                     this.results = response.data;
                     this.$emit('search-completed');
                     this.$eventHub.$emit('search-completed', this.results, params);
+                    this.searching = false;
                 }).catch(error => {});
             },
 

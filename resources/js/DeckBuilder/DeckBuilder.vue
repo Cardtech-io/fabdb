@@ -187,18 +187,8 @@
                 window.scrollTo({top: 0});
             },
 
-            changeMode(newMode) {
-                if (newMode >= 0 && newMode <= 2) {
-                    this.setMode({mode: this.swipeModes[newMode]});
-                }
-            },
-
             updateGrouping(grouping) {
                 this.setGrouping({grouping});
-            },
-
-            currentSwipeMode() {
-                return this.swipeModes.indexOf(this.mode);
             }
         },
 
