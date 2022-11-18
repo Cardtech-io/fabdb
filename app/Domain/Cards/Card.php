@@ -133,7 +133,7 @@ class Card extends Model
 
     public function resourceful(): bool
     {
-        return Arr::has($this->stats, 'resource');
+        return isset($this->stats) && Arr::has($this->stats, 'resource') && $this->stats['resource'] > 0;
     }
 
     public function setNameAttribute($name)
@@ -153,12 +153,12 @@ class Card extends Model
 
     public function isWeapon(): bool
     {
-        return in_array('weapon', $this->keywords);
+        return $this->type === 'weapon';
     }
 
     public function isTalented()
     {
-        return $this->talents !== null || $this->hasEssence();
+        return !empty($this->talents) || $this->hasEssence();
     }
 
     public function hasEssence()

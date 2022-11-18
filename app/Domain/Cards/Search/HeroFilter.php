@@ -45,7 +45,7 @@ class HeroFilter implements SearchFilter
 
             if ($hero->isTalented() || $hero->hasEssence()) {
                 $query->where(function($query) use ($hero) {
-                    $talents = '"'.implode('","', array_merge($hero->talents, $hero->essences())).'"';
+                    $talents = '"'.implode('","', $hero->utilisesTalents()).'"';
 
                     $query->orWhereRaw("JSON_OVERLAPS(cards.talents, '[$talents]')");
                     $query->orWhereNull('cards.talents');
