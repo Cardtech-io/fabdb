@@ -9,7 +9,7 @@ interface Repository
 
     public function delete(string $slug);
 
-    public function all(): Collection;
+    public function all(array $related = []): Collection;
 
     public function find(int $id): Model;
 

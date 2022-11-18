@@ -27,9 +27,9 @@ abstract class EloquentRepository implements Repository
             ->delete();
     }
 
-    public function all(): Collection
+    public function all(array $related = []): Collection
     {
-        return $this->newQuery()->get();
+        return $this->newQuery()->with($related)->get();
     }
 
     public function find(int $id): Model
@@ -66,7 +66,7 @@ abstract class EloquentRepository implements Repository
             }
         }
     }
-    
+
     public function transaction(\Closure $callback)
     {
         DB::transaction($callback);

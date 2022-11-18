@@ -40,6 +40,11 @@ class Card extends Model
             ->orderBy(DB::raw('RAND()'));
     }
 
+    public function cardPrices()
+    {
+        return $this->hasMany(CardPrice::class);
+    }
+
     public function currentPrice()
     {
         return $this->hasOne(CurrentPrice::class);
