@@ -89,4 +89,11 @@ class CardTest extends TestCase
         $this->assertFalse($card2->isTalented());
         $this->assertTrue($card3->isTalented());
     }
+
+    function test_talents_can_be_derived_from_essence_statement()
+    {
+        $card = new Card(['text' => 'Essence of Earth, Ice and Lightning...']);
+
+        $this->assertSame(['earth', 'ice', 'lightning'], $card->essences());
+    }
 }
