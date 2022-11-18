@@ -136,7 +136,7 @@ class Deck extends Model
 
             // Be sure to include main class keyword if talented
             if ($hero->isTalented()) {
-                $keywords = array_merge($keywords, $hero->talents);
+                $keywords = array_merge($keywords, $hero->utilisesTalents());
             }
         }
 

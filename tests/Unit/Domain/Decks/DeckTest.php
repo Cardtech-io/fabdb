@@ -62,7 +62,7 @@ class DeckTest extends TestCase
     function test_main_keywords()
     {
         $hero = $this->card('generic weapon', [
-            'class' => 'warrior',
+            'classes' => ['warrior'],
             'type' => 'hero',
             'text' => '**Essence of Ice and Lightning',
             'keywords' => ['warrior', 'hero', 'young'],

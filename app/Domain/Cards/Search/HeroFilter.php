@@ -43,9 +43,10 @@ class HeroFilter implements SearchFilter
                 $query->orWhereNull('cards.classes');
             });
 
-            if ($hero->isTalented()) {
+            if ($hero->isTalented() || $hero->hasEssence()) {
                 $query->where(function($query) use ($hero) {
-                    $talents = '"'.implode('","', $hero->talents).'"';
+                    $talents = '"'.implode('","', array_merge($hero->talents, $hero->essences())).'"';
+
                     $query->orWhereRaw("JSON_OVERLAPS(cards.talents, '[$talents]')");
                     $query->orWhereNull('cards.talents');
                 });

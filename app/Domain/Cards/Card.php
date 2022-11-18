@@ -28,7 +28,7 @@ class Card extends Model
         'rarity' => CastsRarity::class,
     ];
 
-    protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
+    protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'classes', 'talents', 'type', 'sub_types', 'stats', 'searchText'];
     protected $hidden = ['id'];
 
     public function ad()
@@ -148,7 +148,7 @@ class Card extends Model
 
     public function isHero(): bool
     {
-        return in_array('hero', $this->keywords);
+        return $this->type === 'hero';
     }
 
     public function isWeapon(): bool
@@ -173,6 +173,11 @@ class Card extends Model
         $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
 
         return array_unique($matches);
+    }
+
+    public function utilisesTalents()
+    {
+        return array_merge((array) $this->talents, (array) $this->essences());
     }
 
     public function is1hWeapon()
