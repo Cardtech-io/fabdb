@@ -18,7 +18,8 @@ abstract class Param implements Htmlable
     private $operators = [
         '=' => '!=',
         '>' => '<',
-        '<' => '>'
+        '<' => '>',
+        'LIKE' => 'NOT LIKE'
     ];
 
     /**

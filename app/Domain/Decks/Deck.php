@@ -132,12 +132,12 @@ class Deck extends Model
         $keywords = ['generic'];
 
         if ($hero) {
+            $keywords = array_merge($this->hero->classes, $keywords);
+
             // Be sure to include main class keyword if talented
             if ($hero->isTalented()) {
-                $keywords[] = $hero->talents();
+                $keywords = array_merge($keywords, $hero->utilisesTalents());
             }
-
-            $keywords[] = $hero->class;
         }
 
         return Arr::flatten($keywords);

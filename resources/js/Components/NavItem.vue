@@ -6,7 +6,10 @@
         <div class="z-50 overflow-visible sm:h-full" :class="{ 'bg-black': open }">
             <span @click="toggleChildren" class="block sm:h-full relative cursor-pointer px-4 sm:px-2 nav-item py-3 font-serif uppercase" :class="{ 'bg-black': isActive }">{{ item.text }}</span>
             <div v-if="open" class="sm:absolute bg-black py-1" style="min-width: 120px">
-                <router-link :to="child.link" class="block px-8 py-1 sm:px-4 nav-item font-serif uppercase" @click.native="clicked(child)" v-for="child in item.children" :key="child.link">{{ child.text }}</router-link>
+                <span v-for="child in item.children" :key="child.link">
+                    <router-link :to="child.link" class="block px-8 py-1 sm:px-4 nav-item font-serif uppercase" @click.native="clicked(child)" v-if="child.link.indexOf('https') === -1">{{ child.text }}</router-link>
+                    <a :href="child.link" class="block px-8 py-1 sm:px-4 nav-item font-serif uppercase" @click="clicked(child)" target="_blank" v-else>{{ child.text }}</a>
+                </span>
             </div>
         </div>
     </div>

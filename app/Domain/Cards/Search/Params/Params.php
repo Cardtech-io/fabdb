@@ -12,6 +12,7 @@ class Params extends Collection implements Htmlable
     {
         if (!$items) {
             $items = [
+                new Name,
                 new Set,
                 new Klass,
                 new CardType,
@@ -25,6 +26,7 @@ class Params extends Collection implements Htmlable
                 new Life,
                 new Intellect,
                 new Artist,
+                new Term,
             ];
         }
         parent::__construct($items);

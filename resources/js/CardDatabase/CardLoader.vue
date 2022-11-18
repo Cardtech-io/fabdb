@@ -6,6 +6,10 @@
     import DetermineWidth from "../Components/DetermineWidth.js";
 
     export default {
-        mixins: [DetermineWidth]
+        mixins: [DetermineWidth],
+
+        mounted() {
+            this.mount(this.$refs.image);
+        }
     }
 </script>

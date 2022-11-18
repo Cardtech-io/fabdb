@@ -17,10 +17,10 @@ class Talent extends Param
             foreach ($talents as $talent) {
                 if ($talent === 'none') {
                     $method = $invert ? 'whereNotNull' : 'whereNull';
-
-                    $query->{$method}('cards.talent');
+                    $query->{$method}('cards.talents');
                 } else {
-                    $query->orWhere('cards.talent', $this->operator($invert), $talent);
+                    $method = $invert ? 'whereJsonDoesntContain' : 'whereJsonContains';
+                    $query->{$method}('cards.talents', $talent);
                 }
             }
         });

@@ -122,4 +122,11 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function findAny(string $text);
+
+    /**
+     * Returns a collection of just the fabled cards of the game.
+     *
+     * @return Collection
+     */
+    public function fabled(): Collection;
 }

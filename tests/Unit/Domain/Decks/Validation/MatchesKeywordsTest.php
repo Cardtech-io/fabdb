@@ -22,7 +22,7 @@ class MatchesKeywordsTest extends TestCase
     {
         $deck = new Deck;
         $deck->setRelation('hero', $this->card('hero', [
-            'class' => 'guardian',
+            'classes' => ['guardian'],
             'type' => 'hero',
             'keywords' => ['guardian', 'hero']
         ]));
@@ -59,12 +59,12 @@ class MatchesKeywordsTest extends TestCase
 
     function test_keyword_matching_with_essence_cards()
     {
-        $hero = $this->card('Lexi', ['type' => 'hero', 'class' => 'ranger', 'text' => '**Essence of Ice and Lightning']);
+        $hero = $this->card('Lexi', ['type' => 'hero', 'classes' => ['ranger'], 'text' => '**Essence of Ice and Lightning']);
 
         $deck = new Deck;
         $deck->setRelation('hero', $hero);
 
-        $card = $this->card('weave lightning', ['keywords' => ['lightning', 'action']]);
+        $card = $this->card('weave lightning', ['keywords' => ['lightning', 'action'], 'talents' => ['lightning']]);
 
         $this->cards->shouldReceive('findByIdentifier')->with('000')->andReturn($card);
 

@@ -3,11 +3,9 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Cards\Search\BannedCardsFilter;
 use FabDB\Domain\Cards\Search\ClassFilter;
-use FabDB\Domain\Cards\Search\CollectionFilter;
 use FabDB\Domain\Cards\Search\CommonerFilter;
 use FabDB\Domain\Cards\Search\CostFilter;
 use FabDB\Domain\Cards\Search\ExactNamefilter;
-use FabDB\Domain\Cards\Search\GroupFilter;
 use FabDB\Domain\Cards\Search\HeroFilter;
 use FabDB\Domain\Cards\Search\IdentifierFilter;
 use FabDB\Domain\Cards\Search\IncludeOwnedCardsFilter;
@@ -80,7 +78,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         $filters = [
             new PrintingFilter,
-            new KeywordFilter,
             new SyntaxFilter,
             new IdentifierFilter,
             new IncludeOwnedCardsFilter($user),
@@ -117,13 +114,13 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.rarity',
             'cards.keywords',
             'cards.stats',
-            'cards.talent',
-            'cards.class',
+            'cards.talents',
+            'cards.classes',
             'cards.text',
             'cards.flavour',
             'cards.comments',
             'cards.type',
-            'cards.sub_type',
+            'cards.sub_types',
         ];
 
         $query = $this->newQuery()
@@ -307,9 +304,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         if (!$heroes) {
             $heroes = $this->newQuery()
-                ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_type')
+                ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_types')
                 ->join('printings', 'printings.card_id', 'cards.id')
-                ->whereType('hero')
+                ->whereRaw("JSON_SEARCH(cards.keywords, 'one', 'hero')")
                 ->groupBy('cards.name')
                 ->orderBy('cards.name')
                 ->get();
@@ -332,8 +329,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
         $query->select([
             'cards.identifier',
             'cards.name',
-            'cards.class',
-            'cards.talent',
+            'cards.classes',
+            'cards.talents',
             'cards.image',
             'cards.keywords',
             'cards.stats',
@@ -344,7 +341,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
 
         $filters = [
             new PrintingFilter,
-            new KeywordFilter,
             new SyntaxFilter,
             new IdentifierFilter,
             new BannedCardsFilter($this->legallyAffected(), $deck),
@@ -412,12 +408,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.id',
                 'cards.identifier',
                 'printings.sku',
-                'cards.class',
+                'cards.classes',
                 'cards.image',
                 'cards.name',
                 'cards.rarity',
                 'cards.keywords',
-                'cards.talent',
+                'cards.talents',
             ])
             ->groupBy('cards.id')
             ->get();
@@ -433,7 +429,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->orderBy('rating', 'DESC');
 
         if ($heroAge === 'young') {
-            $query->where('sub_type', $heroAge);
+            $query->whereJsonContains('sub_types', $heroAge);
         }
 
         return $query->first();
@@ -505,5 +501,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->join('printings', 'printings.card_id', 'cards.id')
             ->where('printings.number', $number)
             ->first();
+    }
+
+    public function fabled(): Collection
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.rarity', 'F')
+            ->orderBy('printings.id')
+            ->groupBy('printings.card_id')
+            ->get();
     }
 }

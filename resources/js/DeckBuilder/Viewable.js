@@ -20,7 +20,7 @@ export default {
             }
 
             return this.cards.filter(card => {
-                return card.type === 'hero';
+                return card.keywords.includes('hero');
             })[0];
         },
 

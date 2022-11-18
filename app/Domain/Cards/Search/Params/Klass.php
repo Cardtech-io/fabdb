@@ -18,9 +18,11 @@ class Klass extends Param
                 if ($class === 'none') {
                     $method = $invert ? 'whereNotNull' : 'whereNull';
 
-                    $query->{$method}('cards.class');
+                    $query->{$method}('cards.classes');
                 } else {
-                    $query->orWhere('cards.class', $this->operator($invert), $class);
+                    $method = $invert ? 'orWhereJsonDoesntContain' : 'orWhereJsonContains';
+
+                    $query->$method('cards.classes', $class);
                 }
             }
         });

@@ -24,17 +24,85 @@ class CardTest extends TestCase
     function test_talents_returns_registered_talents_and_inferred()
     {
         $card1 = new Card(['text' => '**Essence of Ice and Lightning (']);
-        $card1->talent = 'shadow';
+        $card1->talents = ['elemental'];
 
         $card2 = new Card(['text' => 'Essence of Earth, Ice, and Lightning (You may have Earth, Ice, and Lightning cards in your deck.)']);
 
-        $this->assertContains('shadow', $card1->talents());
-        $this->assertContains('ice', $card1->talents());
-        $this->assertContains('lightning', $card1->talents());
-        $this->assertContains('earth', $card2->talents());
-        $this->assertContains('ice', $card2->talents());
-        $this->assertContains('lightning', $card2->talents());
-        $this->assertNotContains('shadow', $card2->talents());
+        $this->assertContains('elemental', $card1->talents);
+        $this->assertContains('ice', $card1->essences());
+        $this->assertContains('lightning', $card1->essences());
+        $this->assertContains('earth', $card2->essences());
+        $this->assertContains('ice', $card2->essences());
+        $this->assertContains('lightning', $card2->essences());
+        $this->assertNotContains('elemental', $card2->essences());
 
+        $this->assertContains('elemental', $card1->utilisesTalents());
+        $this->assertContains('ice', $card1->utilisesTalents());
+        $this->assertContains('lightning', $card1->utilisesTalents());
+    }
+
+    function test_a_card_can_be_multiclass()
+    {
+        $card = new Card(['classes' => ['warrior', 'wizard']]);
+
+        $this->assertContains('warrior', $card->classes);
+        $this->assertContains('wizard', $card->classes);
+    }
+
+    function test_a_card_has_a_pitch_value()
+    {
+        $card1 = new Card(['stats' => ['resource' => 3]]);
+        $card2 = new Card(['stats' => ['resource' => 0]]);
+        $card3 = new Card();
+
+        $this->assertTrue($card1->resourceful());
+        $this->assertFalse($card2->resourceful());
+        $this->assertFalse($card3->resourceful());
+    }
+
+    function test_setting_card_name_removes_colour_text()
+    {
+        $card1 = new Card(['name' => 'Razor Reflex (Red)']);
+        $card2 = new Card(['name' => 'Glint the Quicksilver']);
+
+        $this->assertSame('Razor Reflex', $card1->name);
+        $this->assertSame('Glint the Quicksilver', $card2->name);
+    }
+
+    function test_returns_true_when_type_is_correct()
+    {
+        $card1 = new Card(['type' => 'hero']);
+        $card2 = new Card(['type' => 'weapon']);
+        $card3 = new Card(['type' => 'equipment']);
+
+        $this->assertTrue($card1->isHero());
+        $this->assertFalse($card2->isHero());
+        $this->assertTrue($card2->isWeapon());
+        $this->assertTrue($card3->isEquipment());
+    }
+
+    function test_return_true_when_card_is_talented()
+    {
+        $card1 = new Card(['talents' => ['draconic']]);
+        $card2 = new Card(['talents' => []]);
+        $card3 = new Card(['text' => 'Essence of Earth, Ice and Lightning...']);
+
+        $this->assertTrue($card1->isTalented());
+        $this->assertFalse($card2->isTalented());
+        $this->assertTrue($card3->isTalented());
+    }
+
+    function test_talents_can_be_derived_from_essence_statement()
+    {
+        $card = new Card(['text' => 'Essence of Earth, Ice and Lightning...']);
+
+        $this->assertSame(['earth', 'ice', 'lightning'], $card->essences());
+    }
+
+    function test_talents_can_be_taken_from_both_talents_array_and_essence_text()
+    {
+        $card = new Card(['text' => 'Essence of Earth, Ice and Lightning...', 'talents' => ['light', 'shadow']]);
+
+        $this->assertSame(['light', 'shadow', 'earth', 'ice', 'lightning'], $card->utilisesTalents());
     }
 }

@@ -46,7 +46,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         if (!empty($params['class'])) {
-            $query->where('c1.class', $params['class']);
+            $query->whereJsonContains('c1.classes', $params['class']);
         }
 
         $query->groupBy('decks.id');

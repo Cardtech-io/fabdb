@@ -38,6 +38,12 @@ return [
             'released' => '2022-06-28',
             'browseable' => false,
         ],
+        'dyn' => [
+            'id' => 'dyn',
+            'name' => 'Dynasty',
+            'released' => '2022-11-11',
+            'browseable' => true,
+        ],
         'ele' => [
             'id' => 'ele',
             'name' => 'Tales of Aria',
@@ -223,6 +229,7 @@ return [
 
     'classes' => [
         'generic' => 'Generic',
+        'assassin' => 'Assassin',
         'brute' => 'Brute',
         'guardian' => 'Guardian',
         'illusionist' => 'Illusionist',
@@ -248,9 +255,8 @@ return [
 
     'types' => [
         'action',
-        'attack',
-        'aura',
-        'defense',
+        'attack reaction',
+        'defense reaction',
         'equipment',
         'hero',
         'instant',
@@ -261,6 +267,10 @@ return [
     ],
 
     'sub_types' => [
+        '1h',
+        '2h',
+        'affliction',
+        'ally',
         'attack',
         'arms',
         'arrow',
@@ -271,21 +281,22 @@ return [
         'claw',
         'club',
         'dagger',
-        'demon ally',
+        'demon',
         'gem',
         'gun',
         'hammer',
         'head',
         'item',
+        'invocation',
         'landmark',
         'legs',
         'off-hand',
         'orb',
         'pistol',
-        'reaction',
         'scythe',
         'staff',
         'sword',
+        'trap',
         'young',
     ],
 

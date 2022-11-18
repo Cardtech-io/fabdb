@@ -1,12 +1,5 @@
 <template>
-    <div class="container sm:mx-auto hidden sm:block" v-if="!collapsed">
-        <div class="p-4 flex items-center">
-            <slot name="title">
-                <h1 class="font-serif text-white text-4xl uppercase" v-if="title">{{ title }}</h1>
-            </slot>
-            <slot name="extra"></slot>
-        </div>
-    </div>
+    <div></div>
 </template>
 
 <script>

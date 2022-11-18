@@ -51,6 +51,10 @@
             handlerProvided() {
                 return !!this.clickHandler;
             }
+        },
+
+        mounted() {
+            this.mount(this.$refs.image);
         }
     };
 </script>

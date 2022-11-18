@@ -26,8 +26,12 @@ class CardController extends Controller
 
     public function list(Request $request)
     {
+        $perPage = $request->get('per_page', 30);
+
+        if ($perPage > 30) $perPage = 30;
+
         $cards = $this->cards->search($request->user(), $request->all())
-            ->paginate($request->get('per_page', 30))
+            ->paginate($perPage)
             ->withPath('/'.$request->path())
             ->appends($request->except('page'));
 
@@ -41,12 +45,7 @@ class CardController extends Controller
 
     public function fabled()
     {
-        return CardResource::collection(collect([
-            $this->cards->findByIdentifier('heart-of-fyendal'),
-            $this->cards->findByIdentifier('eye-of-ophidia'),
-            $this->cards->findByIdentifier('arknight-shard'),
-            $this->cards->findByIdentifier('great-library-of-solana'),
-        ]));
+        return CardResource::collection($this->cards->fabled());
     }
 
     public function build(Request $request, DeckRepository $decks)
@@ -59,7 +58,7 @@ class CardController extends Controller
 
     public function view(Request $request)
     {
-        return new CardResource($this->cards->view($request->identifier, ['listings', 'listings.store', 'printings']));
+        return new CardResource($this->cards->view($request->identifier, ['listings', 'listings.store', 'printings', 'printings.backfacePrinting']));
     }
 
     public function ad(Request $request)
