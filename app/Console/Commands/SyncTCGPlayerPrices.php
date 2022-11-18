@@ -129,13 +129,11 @@ class SyncTCGPlayerPrices extends Command
         // due to cold foil, rainbow foil, standard foiling.etc. So, we only really care about the low price/market price (market preferred). So we
         // do a first pass, get the lowest of both, and then return the lowest market value if possible.
         foreach ($this->client->productPrices($productIds) as $product) {
-            if (!$product->marketPrice && !$product->lowPrice) continue;
-
-            if (is_numeric($product->lowPrice) && $product->lowPrice < Arr::get($products, "$product->productId.lowPrice", 10000)) {
+            if (is_numeric($product->lowPrice) && $product->lowPrice < Arr::get($products, "$product->productId.lowPrice", 100000)) {
                 Arr::set($products, "$product->productId.lowPrice", $product->lowPrice);
             }
 
-            if (is_numeric($product->marketPrice) && $product->marketPrice < Arr::get($products, "$product->productId.marketPrice", 10000)) {
+            if (is_numeric($product->marketPrice) && $product->marketPrice < Arr::get($products, "$product->productId.marketPrice", 100000)) {
                 Arr::set($products, "$product->productId.marketPrice", $product->marketPrice);
             }
         }

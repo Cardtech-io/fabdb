@@ -89,7 +89,7 @@
                         <discussion type="card" :id="card.identifier" class="md:block"/>
                     </div>
                     <div class="md:w-1/4 mt-4 md:mt-0">
-                        <tcg-player :buy-link="card.buyLink"/>
+                        <tcg-player :price="card.cardPrices[0]" v-if="card.cardPrices.length"/>
                         <recent-decks :card="card" class="mt-4"/>
                     </div>
                 </div>

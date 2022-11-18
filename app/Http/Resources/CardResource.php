@@ -16,7 +16,7 @@ class CardResource extends JsonResource
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
         }
-        
+
         $response['buyLink'] = $this->buyLink();
         $response['image'] = $this->alteredImage($this->resource->image, $request);
 
@@ -28,7 +28,7 @@ class CardResource extends JsonResource
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['artist'] = new ArtistResource($this->whenLoaded('artist'));
-        $response['currentPrice'] = $this->whenLoaded('currentPrice');
+        $response['cardPrices'] = $this->whenLoaded('cardPrices');
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');
