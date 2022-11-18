@@ -96,4 +96,11 @@ class CardTest extends TestCase
 
         $this->assertSame(['earth', 'ice', 'lightning'], $card->essences());
     }
+
+    function test_talents_can_be_taken_from_both_talents_array_and_essence_text()
+    {
+        $card = new Card(['text' => 'Essence of Earth, Ice and Lightning...', 'talents' => ['light', 'shadow']]);
+
+        $this->assertSame(['light', 'shadow', 'earth', 'ice', 'lightning'], $card->essences());
+    }
 }
