@@ -6,7 +6,7 @@
         </icon>
         <span class="ml-1">TCG Player</span>
         <span class="ml-auto">
-            <span>${{(price.price / 100).toFixed()}}</span>
+            <span>${{(price.price / 100).toFixed(2)}}</span>
         </span>
     </a>
 </template>

@@ -70,8 +70,8 @@ class Client
                 ]
             ]);
 
-            dd($response);
             $body = json_decode($response->getBody()->getContents());
+
             if (!$body->results) break;
 
             foreach ($body->results as $product) yield $product;

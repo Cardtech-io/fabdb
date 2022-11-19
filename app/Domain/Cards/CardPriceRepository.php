@@ -9,4 +9,6 @@ interface CardPriceRepository extends Repository
     public function forSource(string $source);
 
     public function createMany(array $cardPrices);
+
+    public function cleanup();
 }

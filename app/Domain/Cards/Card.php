@@ -45,9 +45,10 @@ class Card extends Model
         return $this->hasMany(CardPrice::class);
     }
 
+    // Points to the current price record that represents the best value
     public function currentPrice()
     {
-        return $this->hasOne(CurrentPrice::class);
+        return $this->belongsTo(CardPrice::class, 'price_id');
     }
 
     public function artist()

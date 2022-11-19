@@ -7,6 +7,11 @@ use FabDB\Library\Model;
 
 class EloquentCardPriceRepository extends EloquentRepository implements CardPriceRepository
 {
+    protected function model(): Model
+    {
+        return new CardPrice;
+    }
+
     public function forSource(string $source)
     {
         return $this->newQuery()
@@ -21,8 +26,8 @@ class EloquentCardPriceRepository extends EloquentRepository implements CardPric
         $this->model()->insert($cardPrices);
     }
 
-    protected function model(): Model
+    public function cleanup()
     {
-        return new CardPrice;
+        $this->newQuery()->whereNull('price')->delete();
     }
 }

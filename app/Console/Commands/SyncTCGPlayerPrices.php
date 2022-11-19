@@ -20,7 +20,7 @@ class SyncTCGPlayerPrices extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:sync-tcg-player {--products} {--prices} {--all}';
+    protected $signature = 'fabdb:sync-tcg-player {--products} {--prices} {--summarise} {--all}';
 
     /**
      * The console command description.
@@ -58,6 +58,10 @@ class SyncTCGPlayerPrices extends Command
             $this->syncPrices();
         }
 
+        if ($this->option('summarise') || $this->option('all')) {
+            $this->summarisePrices();
+        }
+
         return 0;
     }
 
@@ -68,6 +72,7 @@ class SyncTCGPlayerPrices extends Command
         }])->keyBy('identifier');
 
         $cardPrices = [];
+
         foreach ($this->client->products() as $product) {
             $tcgPlayerId = $product->productId;
             $identifier = Str::slug($product->name);
@@ -109,7 +114,7 @@ class SyncTCGPlayerPrices extends Command
         return !count(array_filter(
             array_filter(
                 $this->options(),
-                fn($key) => in_array($key, ['products', 'prices', 'all']),
+                fn($key) => in_array($key, ['products', 'prices', 'summarise', 'all']),
                 ARRAY_FILTER_USE_KEY
             )
         ));
@@ -129,6 +134,10 @@ class SyncTCGPlayerPrices extends Command
         // due to cold foil, rainbow foil, standard foiling.etc. So, we only really care about the low price/market price (market preferred). So we
         // do a first pass, get the lowest of both, and then return the lowest market value if possible.
         foreach ($this->client->productPrices($productIds) as $product) {
+            if (is_numeric($product->lowPrice) || is_numeric($product->marketPrice)) {
+                Arr::set($products, "$product->productId.description", $product->subTypeName);
+            }
+
             if (is_numeric($product->lowPrice) && $product->lowPrice < Arr::get($products, "$product->productId.lowPrice", 100000)) {
                 Arr::set($products, "$product->productId.lowPrice", $product->lowPrice);
             }
@@ -144,6 +153,25 @@ class SyncTCGPlayerPrices extends Command
             $cardPrice = $cardPrices[$productId];
             $cardPrice->price = $price * 100;
             $cardPrice->save();
+        }
+
+        // now we clean up the table - removing all null prices
+        $this->cardPrices->cleanup();
+    }
+
+    private function summarisePrices()
+    {
+        $cards = $this->cards->aggregatePrices();
+
+        foreach ($cards as $card) {
+            $cardPrice = $card->cardPrices->sortBy('price')->first();
+
+            if (!$cardPrice) continue;
+
+            $card->lastPrice = $card->price;
+            $card->price = $cardPrice->price;
+            $card->priceId = $cardPrice->id;
+            $card->save();
         }
     }
 }

@@ -62,11 +62,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function search(?User $user, array $input)
     {
         $query = $this->newQuery();
-        $query->with('cardPrices');
+        $query->with('currentPrice');
         $query->groupBy('cards.id');
 
         $query->select([
             'cards.id',
+            'cards.price_id',
             'cards.identifier',
             'cards.image',
             'cards.name',
@@ -74,7 +75,9 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.keywords',
             'cards.stats',
             'cards.text',
-            'cards.rarity'
+            'cards.rarity',
+            'cards.price',
+            'cards.last_price',
         ]);
 
         $filters = [
@@ -107,6 +110,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     {
         $select = [
             'cards.id',
+            'cards.price_id',
             'cards.artist_id',
             'cards.identifier',
             'cards.image',
@@ -122,10 +126,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             'cards.comments',
             'cards.type',
             'cards.sub_types',
+            'cards.price',
+            'cards.last_price',
         ];
 
         $query = $this->newQuery()
-            ->with(['artist', 'cardPrices'])
+            ->with(['artist', 'currentPrice'])
             ->whereIdentifier($identifier)
             ->select($select);
 
@@ -167,65 +173,6 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->first();
 
         return str_split($identifier, 3)[1];
-    }
-
-    public function prices(array $params)
-    {
-        $order = Arr::get($params, 'order', 'name');
-        $direction = Arr::get($params, 'direction', 'asc');
-
-        $ordering = [
-            'name' => 'name',
-            'high' => 'current_high',
-            'mean' => 'current_mean',
-            'low' => 'current_low',
-            'rarity' => 'rarity'
-        ];
-
-        $dates = PriceAverage::selectRaw('DISTINCT created_at')
-            ->orderBy('created_at', 'desc')
-            ->limit(2)
-            ->pluck('created_at')
-            ->toArray();
-
-        $query = $this->newQuery()
-            ->select(
-                'cards.id',
-                'cards.identifier',
-                'cards.name',
-                'cards.rarity',
-                'cards.stats',
-                'current.high AS current_high',
-                'current.mean AS current_mean',
-                'current.low AS current_low',
-                'previous.high AS previous_high',
-                'previous.mean AS previous_mean',
-                'previous.low AS previous_low'
-            )
-            ->join('price_averages AS current', 'current.card_id', 'cards.id')
-            ->leftJoin('price_averages AS previous', function ($join) use ($dates) {
-                $join->on('previous.card_id', 'current.card_id');
-                $join->whereRaw('previous.currency = current.currency');
-                $join->where('previous.created_at', object_get($dates, '1', $dates[0]));
-            })
-            ->where('current.currency', $params['currency'])
-            ->where('current.created_at', $dates[0])
-            ->orderBy($ordering[$order], $direction)
-            ->orderBy('cards.identifier');
-
-        if (isset($params['set']) && $params['set'] != 'all') {
-            $query->where('identifier', 'LIKE', $params['set'] . '%');
-        }
-
-        return $query;
-    }
-
-    private function nav(\Closure $exec)
-    {
-        try {
-            return $exec();
-        } catch (ModelNotFoundException $e) {
-        }
     }
 
     private function nextOrPrevCard(Card $current, $direction)
@@ -379,11 +326,12 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function findBySku(string $identifier)
     {
         $query = $this->newQuery()
-            ->with('artist', 'cardPrices')
+            ->with('artist', 'currentPrice')
             ->join('printings', 'printings.card_id', 'cards.id')
             ->where('sku', 'like', $identifier . '%')
             ->select([
                 'cards.id',
+                'cards.price_id',
                 'cards.identifier',
                 'cards.image',
                 'cards.name',
@@ -394,6 +342,8 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.text',
                 'cards.flavour',
                 'cards.comments',
+                'cards.price',
+                'cards.lastPrice',
             ]);
 
         return $query->firstOrFail();
@@ -511,6 +461,15 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->where('printings.rarity', 'F')
             ->orderBy('printings.id')
             ->groupBy('printings.card_id')
+            ->get();
+    }
+
+    public function aggregatePrices(): Collection
+    {
+        return $this->newQuery()
+            ->with('cardPrices')
+            ->join('card_prices', 'card_prices.card_id', 'cards.id')
+            ->groupBy('cards.id')
             ->get();
     }
 }
