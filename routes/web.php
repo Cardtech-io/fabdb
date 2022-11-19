@@ -77,6 +77,7 @@ Route::middleware(['web'])->group(function() {
 
             Route::get('collection', 'CollectionController@search');
             Route::post('collection', 'CollectionController@addCard');
+            Route::get('collection/total', 'CollectionController@total');
             Route::delete('collection/{printing}', 'CollectionController@removeCard');
             Route::post('collection/{printing}/{type}', 'CollectionController@toggleList');
             Route::put('collection', 'CollectionController@updateCard');

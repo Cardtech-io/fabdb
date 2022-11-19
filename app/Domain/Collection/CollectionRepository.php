@@ -28,4 +28,11 @@ interface CollectionRepository
      * @return mixed
      */
     public function lists(string $view, int $userId);
+
+    /**
+     * Returns the total value of the user's collection in cents.
+     *
+     * @param mixed $user
+     */
+    public function totalValue(mixed $user);
 }

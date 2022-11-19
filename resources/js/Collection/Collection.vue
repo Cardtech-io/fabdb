@@ -1,13 +1,14 @@
 <template>
     <div>
-        <header-title title="My Collection"></header-title>
+        <header-title title="My Collection"/>
 
         <div class="crumbs">
             <div class="container sm:mx-auto p-4 pb-0 flex items-center">
                 <div class="flex text-base">
-                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('all')" :class="tabClasses('all')">All</button>
-                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('have')" :class="tabClasses('have')">Have</button>
-                    <button class="p-2 px-4 rounded-t-lg mr-1" @click="filter('need')" :class="tabClasses('need')">Need</button>
+                    <button class="p-1 px-4 rounded-t-lg mr-1" @click="filter('all')" :class="tabClasses('all')">All</button>
+                    <button class="p-1 px-4 rounded-t-lg mr-1" @click="filter('have')" :class="tabClasses('have')">Have</button>
+                    <button class="p-1 px-4 rounded-t-lg mr-1" @click="filter('need')" :class="tabClasses('need')">Need</button>
+                    <total-value class="ml-4"/>
                 </div>
                 <div class="ml-auto">
                     <router-link :to="{name: 'user.profile.wants', params: {user: user.slug }}" class="font-serif uppercase hover:opacity-50">
@@ -27,7 +28,7 @@
             </div>
         </div>
 
-        <div class="main-body pb-8 text-sm sm:text-base">
+        <div class="main-body pb-8 text-sm">
             <div class="container sm:mx-auto">
                 <div v-if="results && results.data" class="sm:px-4">
                     <div class="mx-auto py-4">
@@ -80,6 +81,7 @@
     import Paginator from '../Components/Paginator.vue';
     import Printing from "./Printing.vue";
     import Sorter from "../Components/Sorter.vue";
+    import TotalValue from "./TotalValue.vue";
 
     export default {
         components: {
@@ -89,7 +91,8 @@
             Icon,
             HeaderTitle,
             Paginator,
-            Sorter
+            Sorter,
+            TotalValue
         },
 
         mixins: [Query],

@@ -99,6 +99,10 @@ export default class Deck extends Model {
         return this.fields.slug;
     }
 
+    get price() {
+        return this.fields.price;
+    }
+
     get updatedAt() {
         return moment(this.fields.updatedAt).utc().local().fromNow();
     }
