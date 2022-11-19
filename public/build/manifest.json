@@ -3,10 +3,6 @@
     "file": "assets/fabdb-logo-3d.2fe09525.png",
     "src": "resources/images/fabdb-logo-3d.png"
   },
-  "resources/images/card-loading.png": {
-    "file": "assets/card-loading.53edac77.png",
-    "src": "resources/images/card-loading.png"
-  },
   "resources/images/intellect.png": {
     "file": "assets/intellect.8c5f1558.png",
     "src": "resources/images/intellect.png"
@@ -14,6 +10,10 @@
   "resources/images/life.png": {
     "file": "assets/life.b370bbfe.png",
     "src": "resources/images/life.png"
+  },
+  "resources/images/card-loading.png": {
+    "file": "assets/card-loading.53edac77.png",
+    "src": "resources/images/card-loading.png"
   },
   "resources/images/resource.png": {
     "file": "assets/resource.bca42b67.png",
@@ -749,6 +749,18 @@
       "resources/js/app.js"
     ]
   },
+  "MarkdownEditor.css": {
+    "file": "assets/MarkdownEditor.97170244.css",
+    "src": "MarkdownEditor.css"
+  },
+  "resources/js/LifeCounter/Main.css": {
+    "file": "assets/Main.afc7d64f.css",
+    "src": "resources/js/LifeCounter/Main.css"
+  },
+  "resources/js/CardDatabase/ViewCard.css": {
+    "file": "assets/ViewCard.7bfa77bb.css",
+    "src": "resources/js/CardDatabase/ViewCard.css"
+  },
   "resources/js/DeckTester/Main.css": {
     "file": "assets/Main.e3b0c442.css",
     "src": "resources/js/DeckTester/Main.css"
@@ -761,21 +773,9 @@
     "file": "assets/Shareable.e3b0c442.css",
     "src": "Shareable.css"
   },
-  "resources/js/LifeCounter/Main.css": {
-    "file": "assets/Main.afc7d64f.css",
-    "src": "resources/js/LifeCounter/Main.css"
-  },
-  "MarkdownEditor.css": {
-    "file": "assets/MarkdownEditor.97170244.css",
-    "src": "MarkdownEditor.css"
-  },
   "resources/js/DeckBuilder/DeckBuilder.css": {
     "file": "assets/DeckBuilder.dbf6702d.css",
     "src": "resources/js/DeckBuilder/DeckBuilder.css"
-  },
-  "resources/js/CardDatabase/ViewCard.css": {
-    "file": "assets/ViewCard.7bfa77bb.css",
-    "src": "resources/js/CardDatabase/ViewCard.css"
   },
   "resources/js/app.css": {
     "file": "assets/app.098c98f2.css",
