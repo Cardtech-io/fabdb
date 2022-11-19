@@ -33,20 +33,12 @@ class TypeFilter implements SearchFilter
                             $query->where('cards.type', 'action');
                             $query->where(function($query) {
                                 $query->whereNull('cards.sub_type');
-                                $query->whereJsonNotContains('cards.sub_type', 'attack');
+                                $query->whereJsonNotContains('cards.sub_types', 'attack');
                             });
                         });
                         break;
                     default:
-                        $query->orWhere(function($query) use ($types, $i) {
-                            $splitType = explode(' ', $types[$i]);
-
-                            $query->where('cards.type', $splitType[0]);
-
-                            if (count($splitType) == 2) {
-                                $query->whereJsonContains('cards.sub_type', $splitType[1]);
-                            }
-                        });
+                        $query->orWhere('cards.type', $types[$i]);
 
                         break;
                 }
