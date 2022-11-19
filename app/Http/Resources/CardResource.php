@@ -11,13 +11,12 @@ class CardResource extends JsonResource
 
     public function toArray($request)
     {
-        $response = Arr::only($this->resource->toArray(), ['identifier', 'name', 'text', 'comments', 'rarity', 'flavour', 'stats', 'keywords', 'legality', 'next', 'prev', 'available', 'class', 'type', 'subType', 'talent']);
+        $response = $this->fields();
 
         if (object_get($this->resource, 'sku')) {
             $response['sku'] = new Sku($this->resource->sku);
         }
-        
-        $response['buyLink'] = $this->buyLink();
+
         $response['image'] = $this->alteredImage($this->resource->image, $request);
 
         if (isset($this->resource->ownedTotal)) {
@@ -28,6 +27,7 @@ class CardResource extends JsonResource
 
         $response['ad'] = new ListingResource($this->whenLoaded('ad'));
         $response['artist'] = new ArtistResource($this->whenLoaded('artist'));
+        $response['currentPrice'] = $this->whenLoaded('currentPrice');
         $response['printings'] = PrintingResource::collection($this->whenLoaded('printings'));
         $response['listings'] = ListingResource::collection($this->whenLoaded('listings'));
         $response['rulings'] = $this->whenLoaded('rulings');
@@ -49,8 +49,31 @@ class CardResource extends JsonResource
         }
     }
 
-    private function buyLink()
+    /**
+     * @return array
+     */
+    private function fields(): array
     {
-        return 'https://www.tcgplayer.com/search/flesh-and-blood-tcg/product?q='.$this->resource->name.'&utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
+        return Arr::only(
+            $this->resource->toArray(), [
+                'identifier',
+                'name',
+                'text',
+                'comments',
+                'rarity',
+                'flavour',
+                'stats',
+                'keywords',
+                'legality',
+                'next',
+                'prev',
+                'available',
+                'class',
+                'type',
+                'subType',
+                'talent',
+                'price',
+                'lastPrice'
+            ]);
     }
 }

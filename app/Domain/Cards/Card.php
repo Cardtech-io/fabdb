@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Domain\Comments\Comment;
+use FabDB\Domain\Market\CurrentPrice;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
@@ -37,6 +38,17 @@ class Card extends Model
             ->join('stores', 'stores.id', '=', 'listings.store_id')
             ->where('available', '>', 0)
             ->orderBy(DB::raw('RAND()'));
+    }
+
+    public function cardPrices()
+    {
+        return $this->hasMany(CardPrice::class);
+    }
+
+    // Points to the current price record that represents the best value
+    public function currentPrice()
+    {
+        return $this->belongsTo(CardPrice::class, 'price_id');
     }
 
     public function artist()

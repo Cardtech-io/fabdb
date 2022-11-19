@@ -14,6 +14,7 @@
                         <header class="mb-8">
                             <div class="font-serif uppercase text-center text-sm overflow-hidden -mb-1 text-gray-300">{{ card.name }}</div>
                             <div class="font-serif uppercase text-gray-500 text-center">{{ card.printings[0].sku.sku }}</div>
+                            <div class="font-serif uppercase text-gray-300 text-center" v-if="card.currentPrice">${{ card.currentPrice.price / 100 }}</div>
                         </header>
                         <footer class="bottom-0 flex items-center text-sm">
                             <div title="Printings available" class="flex pl-2 w-1/4">

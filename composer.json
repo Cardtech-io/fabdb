@@ -14,7 +14,7 @@
         "bugsnag/bugsnag-laravel": "^2.24",
         "doctrine/dbal": "^2.10",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^7.4",
         "kirkbushell/eloquence": "^9.0",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.11",

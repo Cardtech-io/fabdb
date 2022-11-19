@@ -37,6 +37,11 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'tcg_player' => [
+        'public_key' => env('TCGPLAYER_PUBLIC_KEY'),
+        'private_key' => env('TCGPLAYER_PRIVATE_KEY'),
+    ],
+
     'hotjar' => [
         'id' => env('HOTJAR_ID')
     ],

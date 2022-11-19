@@ -7,7 +7,11 @@
     "/js/articles.view.js": "/js/articles.view.js?id=36ed1a8e3f2015125395",
     "/js/articles.view~cards.view~decks.view.js": "/js/articles.view~cards.view~decks.view.js?id=31011cd43bae4274c0e9",
     "/js/artists.view.js": "/js/artists.view.js?id=b82c9b9d657be4fe38df",
+<<<<<<< HEAD
+    "/js/artists.view~cards.browse.js": "/js/artists.view~cards.browse.js?id=223b02f677f96d1b8d94",
+=======
     "/js/artists.view~cards.browse.js": "/js/artists.view~cards.browse.js?id=c91b02618dd37839c973",
+>>>>>>> master
     "/js/auth.login.js": "/js/auth.login.js?id=c377f72303163d9304f4",
     "/js/auth.logout.js": "/js/auth.logout.js?id=098c2a244c9887a89606",
     "/js/cards.advanced.js": "/js/cards.advanced.js?id=95f31a24f1ddb46a9069",
@@ -15,6 +19,17 @@
     "/js/cards.browse~collection.js": "/js/cards.browse~collection.js?id=241b6853d71d791f6f03",
     "/js/cards.fabled.js": "/js/cards.fabled.js?id=a7de7331cba179459742",
     "/js/cards.fabled~cards.view.js": "/js/cards.fabled~cards.view.js?id=124e42b4b3c940cf9205",
+<<<<<<< HEAD
+    "/js/cards.view.js": "/js/cards.view.js?id=8d93220aedcfaffc7009",
+    "/js/cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77.js": "/js/cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77.js?id=5d092fa19fa35f691abd",
+    "/js/cards.view~decks.featured.js": "/js/cards.view~decks.featured.js?id=a955b03cff3099cd04d6",
+    "/js/collection.js": "/js/collection.js?id=2a17a36075873ecc2598",
+    "/js/decks.browse.js": "/js/decks.browse.js?id=0e084eb30aa620381d1a",
+    "/js/decks.browse~decks.mine.js": "/js/decks.browse~decks.mine.js?id=f955f2db170725d4cb41",
+    "/js/decks.browse~decks.mine~user.profile.decks.js": "/js/decks.browse~decks.mine~user.profile.decks.js?id=8e28a1603d7df4b867b6",
+    "/js/decks.build.js": "/js/decks.build.js?id=1cf080b5976cba78171f",
+    "/js/decks.build~decks.view.js": "/js/decks.build~decks.view.js?id=6958f18969b71daa180e",
+=======
     "/js/cards.view.js": "/js/cards.view.js?id=27ac60b03de9d94a714b",
     "/js/cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77.js": "/js/cards.view~decks.browse~decks.build~decks.featured~decks.mine~decks.starters~decks.test.main~decks.v~d511ba77.js?id=e95f880cddbb0bc41d3a",
     "/js/cards.view~decks.browse~decks.mine~user.profile.decks.js": "/js/cards.view~decks.browse~decks.mine~user.profile.decks.js?id=4f338fab406995ae9124",
@@ -24,6 +39,7 @@
     "/js/decks.build.js": "/js/decks.build.js?id=c103a30555bbd15244bc",
     "/js/decks.build~decks.mine.js": "/js/decks.build~decks.mine.js?id=3c1b92a34eb5d16cfb71",
     "/js/decks.build~decks.view.js": "/js/decks.build~decks.view.js?id=34f0e8f9df53f51fcdd9",
+>>>>>>> master
     "/js/decks.export.js": "/js/decks.export.js?id=5c9c64a716fb3fd54cd5",
     "/js/decks.featured.js": "/js/decks.featured.js?id=74d0eb60109cc015fb6f",
     "/js/decks.mine.js": "/js/decks.mine.js?id=b8bd6ef6bcbb4b74f495",

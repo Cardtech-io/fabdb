@@ -51,6 +51,7 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
             new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
+            new SyntaxFilter,
             new TalentFilter,
             new TypeFilter,
             new CostFilter,

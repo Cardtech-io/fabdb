@@ -16,6 +16,7 @@ final class CardsServiceProvider extends AppServiceProvider
     protected $interfaces = [
         ArtistRepository::class => EloquentArtistRepository::class,
         CardRepository::class => EloquentCardRepository::class,
+        CardPriceRepository::class => EloquentCardPriceRepository::class,
         BoosterRepository::class => CollectionBoosterRepository::class,
         PrintingRepository::class => EloquentPrintingRepository::class,
     ];

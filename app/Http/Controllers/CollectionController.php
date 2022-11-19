@@ -88,4 +88,14 @@ class CollectionController extends Controller
             $printings->collection($request->user(), $request->all())->paginate($request->get('per_page', 25))
         );
     }
+
+    public function total(Request $request, CollectionRepository $collection)
+    {
+        return $collection->totalValue($request->user());
+
+        return cache()->remember(
+            'collection.value',
+            60*60*24,
+            fn() => $collection->totalValue($request->user()));
+    }
 }
