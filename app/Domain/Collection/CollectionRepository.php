@@ -34,5 +34,5 @@ interface CollectionRepository
      *
      * @param mixed $user
      */
-    public function totalValue(mixed $user);
+    public function totalValue(int $userId);
 }

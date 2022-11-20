@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-1">
-<!--        <span class="text-lg text-xxs px-2 bg-white rounded" :class="{'text-red-500': total < lastTotal, 'text-green-500': total > lastTotal}">-->
-<!--            {{totalValue}}-->
-<!--        </span>-->
+    <div>
+        <span class="text-lg text-xxs px-2 bg-white rounded" :class="{'text-red-500': total < lastTotal, 'text-green-500': total > lastTotal}">
+            {{totalValue}}
+        </span>
     </div>
 </template>
 
@@ -27,10 +27,10 @@ export default {
     },
 
     mounted() {
-        // axios.get('/collection/total').then(response => {
-        //     this.total = response.data.total;
-        //     this.lastTotal = response.data.lastTotal;
-        // });
+        axios.get('/collection/total').then(response => {
+            this.total = response.data.total;
+            this.lastTotal = response.data.lastTotal;
+        });
     }
 }
 </script>

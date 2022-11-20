@@ -20,7 +20,7 @@ class SyncTCGPlayerPrices extends Command
      *
      * @var string
      */
-    protected $signature = 'fabdb:sync-tcg-player {--products} {--prices} {--summarise} {--all}';
+    protected $signature = 'fabdb:sync-tcg-player {--products} {--prices} {--summarise} {--all} {--skip-cache}';
 
     /**
      * The console command description.
@@ -72,29 +72,40 @@ class SyncTCGPlayerPrices extends Command
         }])->keyBy('identifier');
 
         $cardPrices = [];
+        $products = $this->getProducts();
 
-        foreach ($this->client->products() as $product) {
+        foreach ($products as $product) {
+            $card = null;
             $tcgPlayerId = $product->productId;
-            $identifier = Str::slug($product->name);
+            $name = $this->stripWords($product->name);
+            $identifier = Str::slug($name);
 
-            $card = Arr::get($cards, $identifier);
+            // The card can be matched based on printing sku
+            if (preg_match('/([a-z]{3}[0-9]{3})/i', $name, $matches)) {
+                $card = $this->cards->getByPrintingSku($matches[1]);
+            }
+
+            if (!$card) {
+                $card = Arr::get($cards, $identifier);
+            }
 
             if (!$card) {
                 // Now we try and find a card that -looks- like it
-                $card = $cards->where(function(Card $card) use ($product) {
-                    similar_text($product->cleanName, $card->name, $percent);
+                $card = $cards->where(function(Card $card) use ($product, $name) {
+                    similar_text($name, strtolower($card->name), $percent);
 
                     return $percent > 75;
                 })->first();
             }
 
             if (!$card) {
-                $this->info('I could not find a matching card for: '.$product->cleanName);
+                $this->warn('I could not find a matching card for: '.$name);
                 continue;
             }
 
             if (!$card->cardPrices->empty()) continue;
 
+            $this->info('Match found for: '.$name.' as ['.$card->name.']');
 
             $cardPrices[] = [
                 'card_id' => $card->id,
@@ -106,7 +117,12 @@ class SyncTCGPlayerPrices extends Command
             ];
         }
 
+        $this->info('Matched '.count($cardPrices).' out of '.count($products).' products.');
+        $this->info('Creating '.count($cardPrices).' card price records...');
+
         $this->cardPrices->createMany($cardPrices);
+
+        $this->info('Done.');
     }
 
     private function noValidOptions(): bool
@@ -173,5 +189,30 @@ class SyncTCGPlayerPrices extends Command
             $card->priceId = $cardPrice->id;
             $card->save();
         }
+    }
+
+    /**
+     * @return array
+     */
+    private function getProducts(): array
+    {
+        $products = cache('tcgplayer.products', []);
+
+        if (!$this->option('skip-cache') || $products) return $products;
+
+        foreach ($this->client->products() as $product) {
+            $products[] = $product;
+        }
+
+        cache()->put('tcgplayer.products', $products, 60 * 60 * 24);
+
+        return $products;
+    }
+
+    private function stripWords($name): string
+    {
+        $words = ['marvel', 'extended art', 'alternate art', 'cold foil', 'golden', 'placeholder card'];
+
+        return str_replace($words, '', strtolower($name));
     }
 }

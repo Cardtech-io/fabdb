@@ -91,7 +91,7 @@ class CollectionController extends Controller
 
     public function total(Request $request, CollectionRepository $collection)
     {
-        return $collection->totalValue($request->user());
+        return $collection->totalValue($request->user()->id);
 
         return cache()->remember(
             'collection.value',

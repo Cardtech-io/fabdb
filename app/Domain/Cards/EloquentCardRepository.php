@@ -472,4 +472,14 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             ->groupBy('cards.id')
             ->get();
     }
+
+    public function getByPrintingSku(string $sku): ?Card
+    {
+        return $this->newQuery()
+            ->join('printings', 'printings.card_id', 'cards.id')
+            ->where('printings.sku', 'LIKE', '%'.$sku.'%')
+            ->first();
+    }
+
+
 }

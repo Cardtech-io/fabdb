@@ -128,4 +128,11 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function aggregatePrices(): Collection;
+
+    /**
+     * Returns a card based on the printing sku.
+     *
+     * @return Card|null
+     */
+    public function getByPrintingSku(string $sku): ?Card;
 }
