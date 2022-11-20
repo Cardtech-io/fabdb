@@ -170,9 +170,6 @@ class SyncTCGPlayerPrices extends Command
             $cardPrice->price = $price * 100;
             $cardPrice->save();
         }
-
-        // now we clean up the table - removing all null prices
-        $this->cardPrices->cleanup();
     }
 
     private function summarisePrices()

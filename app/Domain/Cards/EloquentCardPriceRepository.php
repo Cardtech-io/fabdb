@@ -4,6 +4,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Library\EloquentRepository;
 use FabDB\Library\Model;
+use Illuminate\Support\Arr;
 
 class EloquentCardPriceRepository extends EloquentRepository implements CardPriceRepository
 {
@@ -23,7 +24,9 @@ class EloquentCardPriceRepository extends EloquentRepository implements CardPric
 
     public function createMany(array $cardPrices)
     {
-        $this->model()->insert($cardPrices);
+        foreach ($cardPrices as $cardPrice) {
+            $this->newQuery()->updateOrCreate(Arr::only($cardPrice, ['source_id', 'source']), $cardPrice);
+        }
     }
 
     public function cleanup()
