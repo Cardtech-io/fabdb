@@ -195,7 +195,7 @@ class SyncTCGPlayerPrices extends Command
     {
         $products = cache('tcgplayer.products', []);
 
-        if (!$this->option('skip-cache') || $products) return $products;
+        if ($this->option('skip-cache') && $products) return $products;
 
         foreach ($this->client->products() as $product) {
             $products[] = $product;
