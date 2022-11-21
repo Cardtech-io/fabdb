@@ -19,6 +19,7 @@ class Params extends Collection implements Htmlable
                 new SubType,
                 new Talent,
                 new Rarity,
+                new Finish,
                 new Pitch,
                 new Cost,
                 new Defense,
