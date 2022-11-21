@@ -18,10 +18,10 @@ class ApiAuthentication
 
         $user = $this->users->findByApiToken($token);
 
-        info('Game result request user: ['.$user->id.']');
-        info('Game result request time: ['.$request->get('time').']');
-        info('Game result request hash: ['.$request->get('hash').']');
         info('Game result request token: ['.$request->header('Authorization').']');
+        info('Game result request hash: ['.$request->get('hash').']');
+        info('Game result request time: ['.$request->get('time').']');
+        info('Game result request user: ['.$user->id.']');
 
         $hash = hash('sha512', $user->apiSecret.$request->get('time'));
 
