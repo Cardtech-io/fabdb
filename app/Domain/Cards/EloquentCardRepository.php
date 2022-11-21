@@ -343,7 +343,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
                 'cards.flavour',
                 'cards.comments',
                 'cards.price',
-                'cards.lastPrice',
+                'cards.last_price',
             ]);
 
         return $query->firstOrFail();

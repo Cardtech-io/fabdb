@@ -15,7 +15,7 @@ $theme = $user ? object_get($user, 'theme', 'default') : 'default';
 $jsFile = $view === 'embed' ? 'resources/js/embed.js' : 'resources/js/app.js';
 ?>
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
     <head>
         <title>@lang('app.title')</title>
 
@@ -62,7 +62,7 @@ $jsFile = $view === 'embed' ? 'resources/js/embed.js' : 'resources/js/app.js';
             window.lang = '{!! base64_encode(json_encode($lang)) !!}';
         </script>
 
-        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">¡
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display&family=Raleway:wght@200;400&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
     </body>
 </html>
