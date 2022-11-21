@@ -177,15 +177,22 @@ class SyncTCGPlayerPrices extends Command
         $cards = $this->cards->aggregatePrices();
 
         foreach ($cards as $card) {
+            $this->info('Aggregating price for '.$card->name.'...');
+
             $cardPrice = $card->cardPrices->sortBy('price')->first();
 
-            if (!$cardPrice) continue;
+            if (!$cardPrice) {
+                $this->warn('No card price found.');
+                continue;
+            }
 
             $card->lastPrice = $card->price;
             $card->price = $cardPrice->price;
             $card->priceId = $cardPrice->id;
             $card->save();
         }
+
+        $this->info('Done.');
     }
 
     /**

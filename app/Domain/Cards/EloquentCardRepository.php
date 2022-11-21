@@ -467,6 +467,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
     public function aggregatePrices(): Collection
     {
         return $this->newQuery()
+            ->select('cards.id', 'cards.name')
             ->with('cardPrices')
             ->join('card_prices', 'card_prices.card_id', 'cards.id')
             ->groupBy('cards.id')
