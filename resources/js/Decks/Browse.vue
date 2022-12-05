@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-title title="Browse decks"></header-title>
-        <breadcrumbs :crumbs="crumbs"></breadcrumbs>
+        <header-title title="Browse decks"/>
+        <breadcrumbs :crumbs="crumbs"/>
 
         <div class="bg-white dark:bg-gray-800 py-4 border-b-4 border-gray-300 dark:border-gray-600">
             <div class="container sm:mx-auto md:px-4">

@@ -254,7 +254,7 @@ class EloquentCardRepository extends EloquentRepository implements CardRepositor
             $heroes = $this->newQuery()
                 ->select('cards.identifier', 'printings.sku', 'cards.name', 'cards.image', 'cards.keywords', 'cards.stats', 'cards.type', 'cards.sub_types')
                 ->join('printings', 'printings.card_id', 'cards.id')
-                ->whereRaw("JSON_SEARCH(cards.keywords, 'one', 'hero')")
+                ->where("cards.type", 'hero')
                 ->groupBy('cards.name')
                 ->orderBy('cards.name')
                 ->get();

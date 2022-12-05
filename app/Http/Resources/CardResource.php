@@ -70,7 +70,7 @@ class CardResource extends JsonResource
                 'available',
                 'class',
                 'type',
-                'subType',
+                'subTypes',
                 'talent',
                 'price',
                 'lastPrice'

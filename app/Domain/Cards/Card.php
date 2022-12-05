@@ -24,6 +24,7 @@ class Card extends Model
         'keywords' => 'array',
         'classes' => 'array',
         'talents' => 'array',
+        'sub_types' => 'array',
         'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,

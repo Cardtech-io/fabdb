@@ -67,7 +67,7 @@ export default {
         values(cards) {
             // Groups by card type, then reduces to total number of that type in data set.
             return _(cards.deck().all())
-                .groupBy(card => this.prettyType(card.type, card.subType))
+                .groupBy(card => this.prettyType(card.type, card.subTypes))
                 .mapValues(cards => cards.reduce((carry, card) => carry + card.total, 0))
                 .value();
         }
