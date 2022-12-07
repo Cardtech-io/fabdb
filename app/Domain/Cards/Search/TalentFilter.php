@@ -23,9 +23,9 @@ class TalentFilter implements SearchFilter
         $query->where(function ($query) use ($talents) {
             foreach ($talents as $talent) {
                 if ($talent === 'none') {
-                    $query->whereNull('cards.talent');
+                    $query->whereNull('cards.talents');
                 } else {
-                    $query->orWhere('talent', $talent);
+                    $query->orWhereJsonContains('cards.talents', $talent);
                 }
             }
         });

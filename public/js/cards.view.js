@@ -746,6 +746,20 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
+  return _vm.card.legality
+    ? _c(
+        "div",
+        {
+          staticClass:
+            "absolute w-full text-white text-sm text-center py-1 z-50 -mt-2",
+          class: _vm.colour(),
+          staticStyle: { bottom: "40.35%" }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
+      )
+    : _vm._e()
+=======
   return _c(
     "div",
     {
@@ -755,6 +769,7 @@ var render = function () {
     },
     [_vm._v("\n    " + _vm._s(_vm.text()) + "\n")]
   )
+>>>>>>> master
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -937,8 +952,13 @@ var render = function () {
     {
       staticClass: "rounded-lg overflow-hidden text-sm text-center text-white",
     },
+<<<<<<< HEAD
+    _vm._l(Object.keys(_vm.formats), function(format) {
+      return _vm.card.legality && _vm.card.legality[format]
+=======
     _vm._l(Object.keys(_vm.formats), function (format) {
       return _vm.card.legality[format]
+>>>>>>> master
         ? _c(
             "div",
             {
@@ -1410,10 +1430,31 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
+<<<<<<< HEAD
+                  _c(
+                    "div",
+                    { staticClass: "md:w-1/2 md:ml-8" },
+                    [
+                      _c("tcg-player", {
+                        attrs: {
+                          "buy-link": _vm.card.buyLink,
+                          prices: _vm.card.currentPrice
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("latest-decks", {
+                        staticClass: "mb-4 mt-4",
+                        attrs: {
+                          title: "Recent",
+                          color: "bg-black",
+                          query: "card=" + _vm.card.identifier
+                        }
+=======
                   _vm.rulings.length
                     ? _c("rulings", {
                         staticClass: "px-4 sm:px-0",
                         attrs: { rulings: _vm.rulings },
+>>>>>>> master
                       })
                     : _vm._e(),
                   _vm._v(" "),

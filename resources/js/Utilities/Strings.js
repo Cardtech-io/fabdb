@@ -105,13 +105,13 @@ export default {
                 .join('&');
         },
 
-        prettyType(type, subType) {
+        prettyType(type, subTypes) {
             switch (type) {
                 case 'action':
-                    switch (subType) {
-                        case 'attack':
+                    switch (true) {
+                        case subTypes && subTypes.includes('attack'):
                             return 'Attack action';
-                        case 'item':
+                        case  subTypes && subTypes.includes('item'):
                             return 'Item';
                     }
                     return 'Non-attack action';
@@ -125,7 +125,7 @@ export default {
                     return 'Weapon';
             }
 
-            return this.ucfirst(type) + ' ' + subType;
+            return [this.ucfirst(type)].concat(subTypes).join(' ');
         }
     }
 };

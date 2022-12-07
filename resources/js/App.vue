@@ -17,7 +17,6 @@
         <complete-profile/>
         <version-handler/>
         <hover-card/>
-        <spoiler/>
 
         <modal name="search-help" :adaptive="true" :dialog="true" :scrollable="true" height="auto" classes="bg-gray-100 dark:bg-gray-800 rounded-xl relative z-50">
             <search-help/>

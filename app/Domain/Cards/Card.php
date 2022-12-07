@@ -3,6 +3,7 @@ namespace FabDB\Domain\Cards;
 
 use FabDB\Domain\Collection\OwnedCard;
 use FabDB\Domain\Comments\Comment;
+use FabDB\Domain\Market\CurrentPrice;
 use FabDB\Domain\Stores\Listing;
 use FabDB\Domain\Voting\Voteable;
 use FabDB\Library\Casts\CastsIdentifier;
@@ -21,12 +22,15 @@ class Card extends Model
 
     protected $casts = [
         'keywords' => 'array',
+        'classes' => 'array',
+        'talents' => 'array',
+        'sub_types' => 'array',
         'stats' => CastsStats::class,
         'identifier' => CastsIdentifier::class,
         'rarity' => CastsRarity::class,
     ];
 
-    protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'stats', 'searchText'];
+    protected $fillable = ['identifier', 'cycle', 'name', 'image', 'rarity', 'text', 'flavour', 'comments', 'keywords', 'classes', 'talents', 'type', 'sub_types', 'stats', 'searchText'];
     protected $hidden = ['id'];
 
     public function ad()
@@ -35,6 +39,17 @@ class Card extends Model
             ->join('stores', 'stores.id', '=', 'listings.store_id')
             ->where('available', '>', 0)
             ->orderBy(DB::raw('RAND()'));
+    }
+
+    public function cardPrices()
+    {
+        return $this->hasMany(CardPrice::class);
+    }
+
+    // Points to the current price record that represents the best value
+    public function currentPrice()
+    {
+        return $this->belongsTo(CardPrice::class, 'price_id');
     }
 
     public function artist()
@@ -131,7 +146,7 @@ class Card extends Model
 
     public function resourceful(): bool
     {
-        return Arr::has($this->stats, 'resource');
+        return isset($this->stats) && Arr::has($this->stats, 'resource') && $this->stats['resource'] > 0;
     }
 
     public function setNameAttribute($name)
@@ -151,12 +166,12 @@ class Card extends Model
 
     public function isWeapon(): bool
     {
-        return in_array('weapon', $this->keywords);
+        return $this->type === 'weapon';
     }
 
     public function isTalented()
     {
-        return $this->talent !== null || $this->hasEssence();
+        return !empty($this->talents) || $this->hasEssence();
     }
 
     public function hasEssence()
@@ -164,27 +179,23 @@ class Card extends Model
         return (bool) preg_match('/essence of ([a-z]+)/i', $this->text);
     }
 
-    public function talents()
+    public function essences()
     {
         $paragraphs = explode("\n", $this->text);
         $parts = preg_split('/[^\w]/', strtolower($paragraphs[0]));
         $matches = array_filter($parts, fn($part) => in_array($part, array_keys(config('game.talents'))));
 
-        if ($this->talent) {
-            array_unshift($matches, $this->talent);
-        }
-
-        return array_unique($matches);
+        return array_values(array_unique($matches));
     }
 
-    public function is1hWeapon()
+    public function utilisesTalents()
     {
-        return $this->isWeapon() && in_array('1h', $this->keywords);
+        return array_merge((array) $this->talents, (array) $this->essences());
     }
 
     public function isEquipment(): bool
     {
-        return in_array('equipment', $this->keywords);
+        return $this->type === 'equipment';
     }
 
     public function isGeneric(): bool
@@ -194,11 +205,6 @@ class Card extends Model
         return in_array('generic', $this->keywords) || !count(array_intersect($classes, $this->keywords));
     }
 
-    public function oneHanded(): bool
-    {
-        return $this->isWeapon() && in_array('1h', $this->keywords);
-    }
-    
     public function isToken()
     {
         return in_array('token', $this->keywords);
@@ -209,7 +215,7 @@ class Card extends Model
         if (is_null($value)) {
             return [];
         }
-        
+
         return json_decode($value, true);
     }
 }

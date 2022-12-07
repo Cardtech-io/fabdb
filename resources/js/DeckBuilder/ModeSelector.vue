@@ -2,7 +2,7 @@
     <div class="text-sm">
         <!-- Desktop view -->
         <div class="hidden xl:flex rounded-lg overflow-hidden">
-            <button type="button" class="flex-grow flex items-center space-x-2 px-3" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)">
+            <button type="button" class="flex-grow flex items-center space-x-2 px-2" v-for="(mode, view) in modes" @click="select(view)" :class="classes(view)">
                 <icon :size="5" v-html="mode.icon"/>
                 <span class="py-2">{{ mode.name }}</span>
             </button>

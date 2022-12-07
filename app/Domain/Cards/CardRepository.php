@@ -57,14 +57,6 @@ interface CardRepository extends Repository
     public function getFirstIdentifier(string $set): string;
 
     /**
-     * Return a collection of cards and their prices.
-     *
-     * @param array $params
-     * @return mixed
-     */
-    public function prices(array $params);
-
-    /**
      * Finds the first card that matches the provided search conditions. This search is less feature-rich
      * than full search, but returns more in regards to the card details (similar to find).
      *
@@ -122,4 +114,25 @@ interface CardRepository extends Repository
      * @return mixed
      */
     public function findAny(string $text);
+
+    /**
+     * Returns a collection of just the fabled cards of the game.
+     *
+     * @return Collection
+     */
+    public function fabled(): Collection;
+
+    /**
+     * Goes through all cards, and min/maxes the prices for cards, setting the last known price, and the current price.
+     *
+     * @return mixed
+     */
+    public function aggregatePrices(): Collection;
+
+    /**
+     * Returns a card based on the printing sku.
+     *
+     * @return Card|null
+     */
+    public function getByPrintingSku(string $sku): ?Card;
 }

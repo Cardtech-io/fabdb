@@ -14,7 +14,7 @@ class SyntaxFilter implements SearchFilter
 
     public function applies(array $input)
     {
-        return isset($input['keywords']) && !empty($input['keywords']) && $this->isProgrammatic($input['keywords']);
+        return isset($input['keywords']) && !empty($input['keywords']);
     }
 
     public function applyTo(Builder $query, array $input)
@@ -28,16 +28,12 @@ class SyntaxFilter implements SearchFilter
 
     private function filter(string $keywords): array
     {
-        $keywords = preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
-
-        return array_filter($keywords, function($keyword) {
-            return Str::contains($keyword, $this->operators) || Str::startsWith($keyword, '!');
-        });
+        return preg_split('/\s(?=([^"]*"[^"]*")*[^"]*$)/', $keywords);
     }
 
     private function apply(Builder $query, string $term)
     {
-        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9]+))?/i', $term, $parts);
+        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9\*]+))?/i', $term, $parts);
 
         if (!$match) return;
 
@@ -56,6 +52,7 @@ class SyntaxFilter implements SearchFilter
         foreach ($this->params() as $param) {
             if ($param->handles($clause)) {
                 $param->applyTo($query, $operator, $value, $invert);
+                break;
             }
         }
     }

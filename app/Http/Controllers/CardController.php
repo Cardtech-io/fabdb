@@ -45,12 +45,7 @@ class CardController extends Controller
 
     public function fabled()
     {
-        return CardResource::collection(collect([
-            $this->cards->findByIdentifier('heart-of-fyendal'),
-            $this->cards->findByIdentifier('eye-of-ophidia'),
-            $this->cards->findByIdentifier('arknight-shard'),
-            $this->cards->findByIdentifier('great-library-of-solana'),
-        ]));
+        return CardResource::collection($this->cards->fabled());
     }
 
     public function build(Request $request, DeckRepository $decks)

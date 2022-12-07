@@ -107,4 +107,13 @@ class EloquentCollectionRepository extends EloquentRepository implements Collect
             ->where("owned_cards.$view", '>', 0)
             ->groupBy('owned_cards.printing_id');
     }
+
+    public function totalValue(int $userId)
+    {
+        return $this->newQuery()
+            ->selectRaw('SUM(owned_cards.total * cards.price) as total, SUM(owned_cards.total * cards.last_price) as last_total')
+            ->join('cards', 'cards.id', 'owned_cards.card_id')
+            ->where('owned_cards.user_id', $userId)
+            ->first();
+    }
 }

@@ -19,6 +19,10 @@ class Card {
         return this.fields.sku;
     }
 
+    get subTypes() {
+        return this.fields.subTypes ?? [];
+    }
+
     get stats() {
         return this.fields.stats;
     }
@@ -42,7 +46,7 @@ class Card {
     }
 
     young() {
-        return this.fields.subType === 'young';
+        return this.subTypes.includes('young');
     }
 }
 

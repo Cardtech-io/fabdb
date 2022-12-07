@@ -46,7 +46,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         }
 
         if (!empty($params['class'])) {
-            $query->where('c1.class', $params['class']);
+            $query->whereJsonContains('c1.classes', $params['class']);
         }
 
         $query->groupBy('decks.id');
@@ -59,6 +59,7 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
         $query = $this->newQuery()->select('decks.*');
         $query = $this->slugQuery($query, $slug);
         $query->with(['versions']);
+        $query->withPrice();
 
         if ($includeCards) {
             $query->with(['cards' => function($query) {
@@ -200,6 +201,8 @@ class EloquentDeckRepository extends EloquentRepository implements DeckRepositor
 
         // When querying for the paginator, we don't want to overload the query as it queries the entire database
         if (!$forPaginator) {
+            $query->withPrice();
+
             $filters = [
                 new DeckCardCountFilter,
                 new CardsFilter,

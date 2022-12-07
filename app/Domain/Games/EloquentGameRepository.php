@@ -50,7 +50,8 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
     public function winRateByClass(int $deckId, int $limit, ?int $userId)
     {
         $query = $this->newQuery()
-            ->select('games.first', 'games.result', 'cards.class')
+            ->with('opposingHero')
+            ->select('games.opposing_hero_id', 'games.first', 'games.result')
             ->join('cards', 'cards.id', 'games.opposing_hero_id')
             ->where('deck_id', $deckId)
             ->orderBy('games.id', 'desc');
@@ -63,9 +64,17 @@ class EloquentGameRepository extends EloquentRepository implements GameRepositor
             ->limit($limit)
             ->get();
 
-        $data = $games->groupBy('class');
+        $data = [];
 
-        $data = $data->map(function (Collection $games) {
+        foreach ($games as $game) {
+            foreach ($game->opposingHero->classes as $class) {
+                $data[$class][] = $game;
+            }
+        }
+
+        $data = collect($data)->map(function ($games) {
+            $games = collect($games);
+
             return round(($games->reduce(fn($carry, Game $game) => $carry + $game->result, 0) / $games->count()) * 100);
         });
 

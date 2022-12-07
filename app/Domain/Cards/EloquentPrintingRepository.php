@@ -48,9 +48,10 @@ class EloquentPrintingRepository extends EloquentRepository implements PrintingR
 
         $filters = [
             new CollectionFilter($user),
-            new KeywordFilter,
+            new SyntaxFilter,
             new IdentifierFilter,
             new ClassFilter,
+            new SyntaxFilter,
             new TalentFilter,
             new TypeFilter,
             new CostFilter,

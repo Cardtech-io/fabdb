@@ -11,12 +11,15 @@
 
         <div class="main-body">
             <div class="container sm:mx-auto px-4">
-                <div class="flex items-center space-x-1">
-                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes(index)">{{tab.name}}</button>
+                <div class="flex items-center space-x-1 pt-4">
+                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes('all')">All decks</button>
+                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes('tournament')">Tournament decks</button>
+                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes('mine')">My decks</button>
+                    <button class="flex rounded-t-lg px-4 py-2 text-sm md:text-base" @click="" :class="classes('mine')">Favourites</button>
                 </div>
                 <div v-if="results && results.data" class="pb-8">
                     <div class="flow-root py-4">
-                        <ul class="flow-root sm:-mx-4">
+                        <ul class="flow-root sm:-mx-2">
                             <div v-if="results.data.length" class="flex flex-wrap">
                                 <div class="w-full md:w-1/3 lg:w-1/5 md:px-2" v-for="deck in results.data">
                                     <deck-item :deck="deck" :key="deck.slug" theme="light"/>

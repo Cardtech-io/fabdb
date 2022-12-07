@@ -33,7 +33,7 @@ class DeckTest extends TestCase
 
     function test_deck_has_a_weapon()
     {
-        $card1 = $this->card('generic weapon', ['keywords' => ['generic', 'weapon']]);
+        $card1 = $this->card('generic weapon', ['keywords' => ['generic', 'weapon'], 'type' => 'weapon']);
         $card2 = $this->card('action', ['keywords' => ['action']]);
 
         $deck1 = new Deck;
@@ -62,7 +62,7 @@ class DeckTest extends TestCase
     function test_main_keywords()
     {
         $hero = $this->card('generic weapon', [
-            'class' => 'warrior',
+            'classes' => ['warrior'],
             'type' => 'hero',
             'text' => '**Essence of Ice and Lightning',
             'keywords' => ['warrior', 'hero', 'young'],

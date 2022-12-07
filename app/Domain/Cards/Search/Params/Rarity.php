@@ -11,7 +11,7 @@ class Rarity extends Param
 
     public function applyTo($query, $operator, $value, bool $invert)
     {
-        $query->where('cards.rarity', $this->operator($invert), $value);
+        $query->where('printings.rarity', $this->operator($invert), $value);
     }
 
     public function title(): string
