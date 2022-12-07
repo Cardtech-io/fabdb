@@ -11,7 +11,7 @@ class SubType extends Param
 
     public function applyTo($query, $operator, $value, bool $invert)
     {
-        $method = $invert ? 'whereJsonNotContains' : 'whereJsonContains';
+        $method = $invert ? 'whereJsonDoesntContain' : 'whereJsonContains';
 
         $query->$method('cards.sub_types', $value);
     }
