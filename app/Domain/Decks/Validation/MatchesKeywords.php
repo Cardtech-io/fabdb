@@ -54,6 +54,6 @@ class MatchesKeywords implements Rule
     {
         $hero = $this->deck->hero;
 
-        return $hero && $hero->class === 'shapeshifter' && Str::contains(strtolower($card->text), 'specialization');
+        return $hero && in_array('shapeshifter',$hero->classes) && Str::contains(strtolower($card->text), 'specialization');
     }
 }
