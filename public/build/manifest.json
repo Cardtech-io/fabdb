@@ -7,20 +7,20 @@
     "file": "assets/card-loading.53edac77.png",
     "src": "resources/images/card-loading.png"
   },
-  "resources/images/life.png": {
-    "file": "assets/life.b370bbfe.png",
-    "src": "resources/images/life.png"
-  },
   "resources/images/intellect.png": {
     "file": "assets/intellect.8c5f1558.png",
     "src": "resources/images/intellect.png"
+  },
+  "resources/images/life.png": {
+    "file": "assets/life.b370bbfe.png",
+    "src": "resources/images/life.png"
   },
   "resources/images/resource.png": {
     "file": "assets/resource.bca42b67.png",
     "src": "resources/images/resource.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app.f87a4802.js",
+    "file": "assets/app.57700140.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -28,7 +28,7 @@
       "resources/js/Home.vue",
       "resources/js/Artists/View.vue",
       "resources/js/CardDatabase/BrowseCards.vue",
-      "_AdvancedCardSearch.3971f026.js",
+      "_AdvancedCardSearch.ceb622f7.js",
       "resources/js/CardDatabase/Fabled.vue",
       "resources/js/CardDatabase/ViewCard.vue",
       "resources/js/Events/Events.vue",
@@ -69,146 +69,146 @@
     ]
   },
   "resources/js/Collection/WantTradeList.vue": {
-    "file": "assets/WantTradeList.a47389f4.js",
+    "file": "assets/WantTradeList.860e35a3.js",
     "src": "resources/js/Collection/WantTradeList.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Paginator.408881bb.js"
+      "_Paginator.cea88890.js"
     ]
   },
-  "_Paginator.408881bb.js": {
-    "file": "assets/Paginator.408881bb.js",
+  "_Paginator.cea88890.js": {
+    "file": "assets/Paginator.cea88890.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Home.vue": {
-    "file": "assets/Home.07c3b5d8.js",
+    "file": "assets/Home.5859dafe.js",
     "src": "resources/js/Home.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Advertisement.29e0667c.js",
+      "_Advertisement.27b548c1.js",
       "resources/js/app.js"
     ]
   },
-  "_Advertisement.29e0667c.js": {
-    "file": "assets/Advertisement.29e0667c.js",
+  "_Advertisement.27b548c1.js": {
+    "file": "assets/Advertisement.27b548c1.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Artists/View.vue": {
-    "file": "assets/View.7b488b88.js",
+    "file": "assets/View.196fffa9.js",
     "src": "resources/js/Artists/View.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_CardItem.5ad00ea1.js",
+      "_CardItem.102fb440.js",
       "_LazyLoader.0379a251.js",
-      "_CardLegality.c7206ca0.js"
+      "_CardLegality.69e5a16a.js"
     ]
   },
-  "_CardItem.5ad00ea1.js": {
-    "file": "assets/CardItem.5ad00ea1.js",
+  "_CardItem.102fb440.js": {
+    "file": "assets/CardItem.102fb440.js",
     "imports": [
       "resources/js/app.js",
-      "_CardLegality.c7206ca0.js"
+      "_CardLegality.69e5a16a.js"
     ]
   },
   "_LazyLoader.0379a251.js": {
     "file": "assets/LazyLoader.0379a251.js"
   },
-  "_CardLegality.c7206ca0.js": {
-    "file": "assets/CardLegality.c7206ca0.js",
+  "_CardLegality.69e5a16a.js": {
+    "file": "assets/CardLegality.69e5a16a.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/CardDatabase/BrowseCards.vue": {
-    "file": "assets/BrowseCards.6e0d5109.js",
+    "file": "assets/BrowseCards.70fa59a8.js",
     "src": "resources/js/CardDatabase/BrowseCards.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_CardItem.5ad00ea1.js",
-      "_CardSearch.58e77406.js",
-      "_Paginator.408881bb.js",
-      "_AdvancedCardSearch.3971f026.js",
-      "_CardLegality.c7206ca0.js"
+      "_CardItem.102fb440.js",
+      "_CardSearch.ea60d347.js",
+      "_Paginator.cea88890.js",
+      "_AdvancedCardSearch.ceb622f7.js",
+      "_CardLegality.69e5a16a.js"
     ],
     "assets": [
       "assets/card-loading.53edac77.png"
     ]
   },
-  "_CardSearch.58e77406.js": {
-    "file": "assets/CardSearch.58e77406.js",
+  "_CardSearch.ea60d347.js": {
+    "file": "assets/CardSearch.ea60d347.js",
     "imports": [
       "resources/js/app.js",
-      "_AdvancedCardSearch.3971f026.js"
+      "_AdvancedCardSearch.ceb622f7.js"
     ]
   },
-  "_AdvancedCardSearch.3971f026.js": {
-    "file": "assets/AdvancedCardSearch.3971f026.js",
+  "_AdvancedCardSearch.ceb622f7.js": {
+    "file": "assets/AdvancedCardSearch.ceb622f7.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/CardDatabase/Fabled.vue": {
-    "file": "assets/Fabled.9fe7dde5.js",
+    "file": "assets/Fabled.4fe88e04.js",
     "src": "resources/js/CardDatabase/Fabled.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
-      "_Pricing.3cfe8cc2.js"
+      "_Pricing.368a58c8.js"
     ]
   },
-  "_Pricing.3cfe8cc2.js": {
-    "file": "assets/Pricing.3cfe8cc2.js",
+  "_Pricing.368a58c8.js": {
+    "file": "assets/Pricing.368a58c8.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/CardDatabase/ViewCard.vue": {
-    "file": "assets/ViewCard.8c7a33a5.js",
+    "file": "assets/ViewCard.eeae4158.js",
     "src": "resources/js/CardDatabase/ViewCard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Advertisement.29e0667c.js",
-      "_CardLegality.c7206ca0.js",
-      "_Rulings.1d5791ed.js",
-      "_Discussion.8094dd75.js",
+      "_Advertisement.27b548c1.js",
+      "_CardLegality.69e5a16a.js",
+      "_Rulings.4d0faba6.js",
+      "_Discussion.c4a90601.js",
       "_LazyLoader.0379a251.js",
-      "_Pricing.3cfe8cc2.js",
-      "_DeckItem.79731ff6.js",
+      "_Pricing.368a58c8.js",
+      "_DeckItem.9acd51bd.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_Avatar.216fbd3d.js",
-      "_Badge.0ef8336b.js",
-      "_FormatLabel.8360fd81.js",
-      "_HeroAvatar.7849231a.js",
+      "_Deck.7c62098d.js",
+      "_Avatar.c18fe21a.js",
+      "_Badge.9fb41a86.js",
+      "_FormatLabel.fbe34535.js",
+      "_HeroAvatar.610230c8.js",
       "_Card.d2dc21ac.js",
-      "_Viewable.e832ea98.js",
-      "_Cards.160c0701.js"
+      "_Viewable.da3218c8.js",
+      "_Cards.aeb8de0d.js"
     ],
     "css": [
       "assets/ViewCard.7bfa77bb.css"
     ]
   },
-  "_Discussion.8094dd75.js": {
-    "file": "assets/Discussion.8094dd75.js",
+  "_Discussion.c4a90601.js": {
+    "file": "assets/Discussion.c4a90601.js",
     "imports": [
       "resources/js/app.js",
-      "_Avatar.216fbd3d.js",
-      "_Badge.0ef8336b.js",
+      "_Avatar.c18fe21a.js",
+      "_Badge.9fb41a86.js",
       "_Models.cc4dbaf5.js"
     ]
   },
-  "_Rulings.1d5791ed.js": {
-    "file": "assets/Rulings.1d5791ed.js",
+  "_Rulings.4d0faba6.js": {
+    "file": "assets/Rulings.4d0faba6.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -216,56 +216,56 @@
   "_Models.cc4dbaf5.js": {
     "file": "assets/Models.cc4dbaf5.js"
   },
-  "_DeckItem.79731ff6.js": {
-    "file": "assets/DeckItem.79731ff6.js",
+  "_DeckItem.9acd51bd.js": {
+    "file": "assets/DeckItem.9acd51bd.js",
     "imports": [
       "resources/js/app.js",
-      "_FormatLabel.8360fd81.js",
-      "_HeroAvatar.7849231a.js",
-      "_Viewable.e832ea98.js",
-      "_Deck.4e57abca.js"
+      "_FormatLabel.fbe34535.js",
+      "_HeroAvatar.610230c8.js",
+      "_Viewable.da3218c8.js",
+      "_Deck.7c62098d.js"
     ]
   },
-  "_Deck.4e57abca.js": {
-    "file": "assets/Deck.4e57abca.js",
+  "_Deck.7c62098d.js": {
+    "file": "assets/Deck.7c62098d.js",
     "imports": [
-      "_Cards.160c0701.js",
+      "_Cards.aeb8de0d.js",
       "_Card.d2dc21ac.js"
     ]
   },
-  "_Avatar.216fbd3d.js": {
-    "file": "assets/Avatar.216fbd3d.js",
+  "_Avatar.c18fe21a.js": {
+    "file": "assets/Avatar.c18fe21a.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Badge.0ef8336b.js": {
-    "file": "assets/Badge.0ef8336b.js",
+  "_Badge.9fb41a86.js": {
+    "file": "assets/Badge.9fb41a86.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_FormatLabel.8360fd81.js": {
-    "file": "assets/FormatLabel.8360fd81.js",
+  "_FormatLabel.fbe34535.js": {
+    "file": "assets/FormatLabel.fbe34535.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_HeroAvatar.7849231a.js": {
-    "file": "assets/HeroAvatar.7849231a.js",
+  "_HeroAvatar.610230c8.js": {
+    "file": "assets/HeroAvatar.610230c8.js",
     "imports": [
       "resources/js/app.js",
       "_Card.d2dc21ac.js"
     ]
   },
-  "_Viewable.e832ea98.js": {
-    "file": "assets/Viewable.e832ea98.js",
+  "_Viewable.da3218c8.js": {
+    "file": "assets/Viewable.da3218c8.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Cards.160c0701.js": {
-    "file": "assets/Cards.160c0701.js",
+  "_Cards.aeb8de0d.js": {
+    "file": "assets/Cards.aeb8de0d.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -274,41 +274,41 @@
     "file": "assets/Card.d2dc21ac.js"
   },
   "resources/js/Events/Events.vue": {
-    "file": "assets/Events.b0d3c831.js",
+    "file": "assets/Events.d35197e0.js",
     "src": "resources/js/Events/Events.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Button.8b771d52.js",
-      "_Time.7347c9c2.js",
+      "_Button.b18548d9.js",
+      "_Time.fe02a884.js",
       "_LazyLoader.0379a251.js"
     ]
   },
-  "_Button.8b771d52.js": {
-    "file": "assets/Button.8b771d52.js",
+  "_Button.b18548d9.js": {
+    "file": "assets/Button.b18548d9.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Time.7347c9c2.js": {
-    "file": "assets/Time.7347c9c2.js",
+  "_Time.fe02a884.js": {
+    "file": "assets/Time.fe02a884.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Events/Event.vue": {
-    "file": "assets/Event.f22a9eed.js",
+    "file": "assets/Event.c13d8948.js",
     "src": "resources/js/Events/Event.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
-      "_Avatar.216fbd3d.js",
-      "_MarkdownEditor.bfa7e4da.js"
+      "_Avatar.c18fe21a.js",
+      "_MarkdownEditor.0bb37cab.js"
     ]
   },
-  "_MarkdownEditor.bfa7e4da.js": {
-    "file": "assets/MarkdownEditor.bfa7e4da.js",
+  "_MarkdownEditor.0bb37cab.js": {
+    "file": "assets/MarkdownEditor.0bb37cab.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -317,19 +317,19 @@
     ]
   },
   "resources/js/Events/ViewEvent.vue": {
-    "file": "assets/ViewEvent.d467e4df.js",
+    "file": "assets/ViewEvent.34d6a486.js",
     "src": "resources/js/Events/ViewEvent.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Time.7347c9c2.js",
+      "_Time.fe02a884.js",
       "_LazyLoader.0379a251.js",
-      "_Avatar.216fbd3d.js",
-      "_Badge.0ef8336b.js"
+      "_Avatar.c18fe21a.js",
+      "_Badge.9fb41a86.js"
     ]
   },
   "resources/js/CardDatabase/BoosterGenerator.vue": {
-    "file": "assets/BoosterGenerator.0a9fc4aa.js",
+    "file": "assets/BoosterGenerator.4cecb27a.js",
     "src": "resources/js/CardDatabase/BoosterGenerator.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -337,42 +337,42 @@
     ]
   },
   "resources/js/Collection/Collection.vue": {
-    "file": "assets/Collection.c1f3260a.js",
+    "file": "assets/Collection.0d35bd44.js",
     "src": "resources/js/Collection/Collection.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_CardSearch.58e77406.js",
-      "_AdvancedCardSearch.3971f026.js",
-      "_Paginator.408881bb.js",
-      "_Colour.0fde2b0c.js",
-      "_Sorter.995e4925.js"
+      "_CardSearch.ea60d347.js",
+      "_AdvancedCardSearch.ceb622f7.js",
+      "_Paginator.cea88890.js",
+      "_Colour.dea7cd03.js",
+      "_Sorter.ea8305fe.js"
     ],
     "css": [
       "assets/Collection.e3b0c442.css"
     ]
   },
-  "_Sorter.995e4925.js": {
-    "file": "assets/Sorter.995e4925.js",
+  "_Sorter.ea8305fe.js": {
+    "file": "assets/Sorter.ea8305fe.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Colour.0fde2b0c.js": {
-    "file": "assets/Colour.0fde2b0c.js",
+  "_Colour.dea7cd03.js": {
+    "file": "assets/Colour.dea7cd03.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/LifeCounter/Main.vue": {
-    "file": "assets/Main.eddb93aa.js",
+    "file": "assets/Main.5094b77a.js",
     "src": "resources/js/LifeCounter/Main.vue",
     "isDynamicEntry": true,
     "imports": [
       "_Card.d2dc21ac.js",
-      "_HeroSelector.43028c09.js",
+      "_HeroSelector.042983dc.js",
       "resources/js/app.js",
-      "_HeroAvatar.7849231a.js",
+      "_HeroAvatar.610230c8.js",
       "_Tracker.88ce54ac.js",
       "_Models.cc4dbaf5.js"
     ],
@@ -383,11 +383,11 @@
       "assets/resource.bca42b67.png"
     ]
   },
-  "_HeroSelector.43028c09.js": {
-    "file": "assets/HeroSelector.43028c09.js",
+  "_HeroSelector.042983dc.js": {
+    "file": "assets/HeroSelector.042983dc.js",
     "imports": [
       "resources/js/app.js",
-      "_HeroAvatar.7849231a.js",
+      "_HeroAvatar.610230c8.js",
       "_Models.cc4dbaf5.js",
       "_Card.d2dc21ac.js"
     ],
@@ -400,107 +400,107 @@
     "file": "assets/Tracker.88ce54ac.js"
   },
   "resources/js/Decks/Featured/Featured.vue": {
-    "file": "assets/Featured.68afd351.js",
+    "file": "assets/Featured.26941d96.js",
     "src": "resources/js/Decks/Featured/Featured.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_FormatLabel.8360fd81.js",
-      "_HeroAvatar.7849231a.js",
-      "_Cards.160c0701.js",
+      "_Deck.7c62098d.js",
+      "_FormatLabel.fbe34535.js",
+      "_HeroAvatar.610230c8.js",
+      "_Cards.aeb8de0d.js",
       "_Card.d2dc21ac.js"
     ]
   },
   "resources/js/Decks/Browse.vue": {
-    "file": "assets/Browse.47ad57b5.js",
+    "file": "assets/Browse.a2fed89c.js",
     "src": "resources/js/Decks/Browse.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_DeckItem.79731ff6.js",
-      "_DeckSearch.3899948a.js",
-      "_Paginator.408881bb.js",
+      "_DeckItem.9acd51bd.js",
+      "_DeckSearch.c1874f3b.js",
+      "_Paginator.cea88890.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_FormatLabel.8360fd81.js",
-      "_HeroAvatar.7849231a.js",
+      "_Deck.7c62098d.js",
+      "_FormatLabel.fbe34535.js",
+      "_HeroAvatar.610230c8.js",
       "_Card.d2dc21ac.js",
-      "_Viewable.e832ea98.js",
-      "_Cards.160c0701.js"
+      "_Viewable.da3218c8.js",
+      "_Cards.aeb8de0d.js"
     ]
   },
-  "_DeckSearch.3899948a.js": {
-    "file": "assets/DeckSearch.3899948a.js",
+  "_DeckSearch.c1874f3b.js": {
+    "file": "assets/DeckSearch.c1874f3b.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/DeckBuilder/ListDecks.vue": {
-    "file": "assets/ListDecks.6484ddae.js",
+    "file": "assets/ListDecks.fe9941b8.js",
     "src": "resources/js/DeckBuilder/ListDecks.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AddDeck.8cd27dfd.js",
-      "_Deck.4e57abca.js",
-      "_DeckItem.79731ff6.js",
-      "_FormatLabel.8360fd81.js",
-      "_DeckSearch.3899948a.js",
+      "_AddDeck.aee7afb1.js",
+      "_Deck.7c62098d.js",
+      "_DeckItem.9acd51bd.js",
+      "_FormatLabel.fbe34535.js",
+      "_DeckSearch.c1874f3b.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js",
-      "_Paginator.408881bb.js",
-      "_Sorter.995e4925.js",
-      "_PlayDeck.cfee1919.js",
-      "_Cards.160c0701.js",
+      "_Paginator.cea88890.js",
+      "_Sorter.ea8305fe.js",
+      "_PlayDeck.192c116c.js",
+      "_Cards.aeb8de0d.js",
       "_Card.d2dc21ac.js",
-      "_HeroAvatar.7849231a.js",
-      "_Viewable.e832ea98.js",
-      "_SelectorItem.6147d259.js"
+      "_HeroAvatar.610230c8.js",
+      "_Viewable.da3218c8.js",
+      "_SelectorItem.23951327.js"
     ]
   },
-  "_AddDeck.8cd27dfd.js": {
-    "file": "assets/AddDeck.8cd27dfd.js",
+  "_AddDeck.aee7afb1.js": {
+    "file": "assets/AddDeck.aee7afb1.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_PlayDeck.cfee1919.js": {
-    "file": "assets/PlayDeck.cfee1919.js",
+  "_PlayDeck.192c116c.js": {
+    "file": "assets/PlayDeck.192c116c.js",
     "imports": [
       "resources/js/app.js",
-      "_SelectorItem.6147d259.js"
+      "_SelectorItem.23951327.js"
     ]
   },
-  "_SelectorItem.6147d259.js": {
-    "file": "assets/SelectorItem.6147d259.js",
+  "_SelectorItem.23951327.js": {
+    "file": "assets/SelectorItem.23951327.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/DeckBuilder/DeckBuilder.vue": {
-    "file": "assets/DeckBuilder.37c0ed14.js",
+    "file": "assets/DeckBuilder.74f91bde.js",
     "src": "resources/js/DeckBuilder/DeckBuilder.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Button.8b771d52.js",
-      "_Colour.0fde2b0c.js",
-      "_Shareable.ce792565.js",
-      "_Cards.160c0701.js",
-      "_Fullscreen.ae925e54.js",
-      "_Viewable.e832ea98.js",
-      "_HeroSelector.43028c09.js",
-      "_AdvancedCardSearch.3971f026.js",
-      "_MarkdownEditor.bfa7e4da.js",
-      "_Rulings.1d5791ed.js",
-      "_Deck.4e57abca.js",
+      "_Button.b18548d9.js",
+      "_Colour.dea7cd03.js",
+      "_Shareable.493d3581.js",
+      "_Cards.aeb8de0d.js",
+      "_Fullscreen.1796c9f7.js",
+      "_Viewable.da3218c8.js",
+      "_HeroSelector.042983dc.js",
+      "_AdvancedCardSearch.ceb622f7.js",
+      "_MarkdownEditor.0bb37cab.js",
+      "_Rulings.4d0faba6.js",
+      "_Deck.7c62098d.js",
       "_LazyLoader.0379a251.js",
-      "_Paginator.408881bb.js",
-      "_PlayDeck.cfee1919.js",
-      "_SelectorItem.6147d259.js",
-      "_HeroAvatar.7849231a.js",
+      "_Paginator.cea88890.js",
+      "_PlayDeck.192c116c.js",
+      "_SelectorItem.23951327.js",
+      "_HeroAvatar.610230c8.js",
       "_Card.d2dc21ac.js",
       "_Models.cc4dbaf5.js"
     ],
@@ -508,45 +508,45 @@
       "assets/DeckBuilder.dbf6702d.css"
     ]
   },
-  "_Fullscreen.ae925e54.js": {
-    "file": "assets/Fullscreen.ae925e54.js",
+  "_Fullscreen.1796c9f7.js": {
+    "file": "assets/Fullscreen.1796c9f7.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Shareable.ce792565.js": {
-    "file": "assets/Shareable.ce792565.js",
+  "_Shareable.493d3581.js": {
+    "file": "assets/Shareable.493d3581.js",
     "imports": [
-      "_Rulings.1d5791ed.js",
+      "_Rulings.4d0faba6.js",
       "resources/js/app.js",
-      "_Cards.160c0701.js",
-      "_Viewable.e832ea98.js",
-      "_SelectorItem.6147d259.js"
+      "_Cards.aeb8de0d.js",
+      "_Viewable.da3218c8.js",
+      "_SelectorItem.23951327.js"
     ],
     "css": [
       "assets/Shareable.e3b0c442.css"
     ]
   },
   "resources/js/DeckBuilder/TestDeck.vue": {
-    "file": "assets/TestDeck.98cc9e8b.js",
+    "file": "assets/TestDeck.e4c72053.js",
     "src": "resources/js/DeckBuilder/TestDeck.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
-      "_Viewable.e832ea98.js"
+      "_Viewable.da3218c8.js"
     ]
   },
   "resources/js/DeckTester/Main.vue": {
-    "file": "assets/Main.4775ef6b.js",
+    "file": "assets/Main.f8d8d1b1.js",
     "src": "resources/js/DeckTester/Main.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_Cards.160c0701.js",
-      "_Colour.0fde2b0c.js",
+      "_Deck.7c62098d.js",
+      "_Cards.aeb8de0d.js",
+      "_Colour.dea7cd03.js",
       "_Card.d2dc21ac.js"
     ],
     "css": [
@@ -554,84 +554,84 @@
     ]
   },
   "resources/js/DeckBuilder/ExportDeck.vue": {
-    "file": "assets/ExportDeck.85841a5b.js",
+    "file": "assets/ExportDeck.6d225f39.js",
     "src": "resources/js/DeckBuilder/ExportDeck.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
-      "_Viewable.e832ea98.js"
+      "_Viewable.da3218c8.js"
     ]
   },
   "resources/js/Decks/Starters.vue": {
-    "file": "assets/Starters.435548de.js",
+    "file": "assets/Starters.a335bdc4.js",
     "src": "resources/js/Decks/Starters.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Deck.4e57abca.js",
+      "_Deck.7c62098d.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js",
-      "_Cards.160c0701.js",
+      "_Cards.aeb8de0d.js",
       "_Card.d2dc21ac.js"
     ]
   },
   "resources/js/Decks/Viewing/ViewDeck.vue": {
-    "file": "assets/ViewDeck.81545b70.js",
+    "file": "assets/ViewDeck.1d27aff9.js",
     "src": "resources/js/Decks/Viewing/ViewDeck.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Cards.160c0701.js",
-      "_Colour.0fde2b0c.js",
-      "_Shareable.ce792565.js",
-      "_FormatLabel.8360fd81.js",
-      "_Discussion.8094dd75.js",
-      "_HeroAvatar.7849231a.js",
+      "_Cards.aeb8de0d.js",
+      "_Colour.dea7cd03.js",
+      "_Shareable.493d3581.js",
+      "_FormatLabel.fbe34535.js",
+      "_Discussion.c4a90601.js",
+      "_HeroAvatar.610230c8.js",
       "_LazyLoader.0379a251.js",
-      "_Rulings.1d5791ed.js",
+      "_Rulings.4d0faba6.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_Viewable.e832ea98.js",
-      "_SelectorItem.6147d259.js",
-      "_Avatar.216fbd3d.js",
-      "_Badge.0ef8336b.js",
+      "_Deck.7c62098d.js",
+      "_Viewable.da3218c8.js",
+      "_SelectorItem.23951327.js",
+      "_Avatar.c18fe21a.js",
+      "_Badge.9fb41a86.js",
       "_Card.d2dc21ac.js"
     ]
   },
   "resources/js/Content/Spoilers.vue": {
-    "file": "assets/Spoilers.94755b3f.js",
+    "file": "assets/Spoilers.0e61d3b2.js",
     "src": "resources/js/Content/Spoilers.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js",
-      "_Article.88553f96.js"
+      "_Article.1a2dfab3.js"
     ]
   },
-  "_Article.88553f96.js": {
-    "file": "assets/Article.88553f96.js",
+  "_Article.1a2dfab3.js": {
+    "file": "assets/Article.1a2dfab3.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Content/ViewArticle.vue": {
-    "file": "assets/ViewArticle.ea4bfc5f.js",
+    "file": "assets/ViewArticle.671b0aeb.js",
     "src": "resources/js/Content/ViewArticle.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Article.88553f96.js",
-      "_Avatar.216fbd3d.js",
-      "_Discussion.8094dd75.js",
+      "_Article.1a2dfab3.js",
+      "_Avatar.c18fe21a.js",
+      "_Discussion.c4a90601.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js",
-      "_Badge.0ef8336b.js"
+      "_Badge.9fb41a86.js"
     ]
   },
   "resources/js/Practise/Index.vue": {
-    "file": "assets/Index.4b791e43.js",
+    "file": "assets/Index.acabb65a.js",
     "src": "resources/js/Practise/Index.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -640,7 +640,7 @@
     ]
   },
   "resources/js/Practise/Setup.vue": {
-    "file": "assets/Setup.c72466e9.js",
+    "file": "assets/Setup.9a8cf901.js",
     "src": "resources/js/Practise/Setup.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -648,15 +648,15 @@
     ]
   },
   "resources/js/Practise/Draft.vue": {
-    "file": "assets/Draft.8a0ef3a0.js",
+    "file": "assets/Draft.231e1fa2.js",
     "src": "resources/js/Practise/Draft.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_AddDeck.8cd27dfd.js",
-      "_Cards.160c0701.js",
-      "_Fullscreen.ae925e54.js",
-      "_Viewable.e832ea98.js",
+      "_AddDeck.aee7afb1.js",
+      "_Cards.aeb8de0d.js",
+      "_Fullscreen.1796c9f7.js",
+      "_Viewable.da3218c8.js",
       "_LazyLoader.0379a251.js"
     ],
     "css": [
@@ -664,7 +664,7 @@
     ]
   },
   "resources/js/Auth/Login.vue": {
-    "file": "assets/Login.fbd09d8a.js",
+    "file": "assets/Login.c8f1a6d5.js",
     "src": "resources/js/Auth/Login.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -673,7 +673,7 @@
     ]
   },
   "resources/js/Auth/Logout.vue": {
-    "file": "assets/Logout.76eb65b0.js",
+    "file": "assets/Logout.302db67f.js",
     "src": "resources/js/Auth/Logout.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -681,7 +681,7 @@
     ]
   },
   "resources/js/Support.vue": {
-    "file": "assets/Support.59f9b162.js",
+    "file": "assets/Support.13d1a2e2.js",
     "src": "resources/js/Support.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -689,20 +689,20 @@
     ]
   },
   "resources/js/Identity/Profile.vue": {
-    "file": "assets/Profile.d06d3107.js",
+    "file": "assets/Profile.ecf73dd7.js",
     "src": "resources/js/Identity/Profile.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Avatar.216fbd3d.js",
-      "_Badge.0ef8336b.js",
+      "_Avatar.c18fe21a.js",
+      "_Badge.9fb41a86.js",
       "_Card.d2dc21ac.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js"
     ]
   },
   "resources/js/Privacy.vue": {
-    "file": "assets/Privacy.e7563035.js",
+    "file": "assets/Privacy.f40a3786.js",
     "src": "resources/js/Privacy.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -710,7 +710,7 @@
     ]
   },
   "resources/js/Premium.vue": {
-    "file": "assets/Premium.c7b94080.js",
+    "file": "assets/Premium.a5c5134b.js",
     "src": "resources/js/Premium.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -718,34 +718,34 @@
     ]
   },
   "resources/js/Identity/ViewProfile.vue": {
-    "file": "assets/ViewProfile.b1a38fb1.js",
+    "file": "assets/ViewProfile.8fcd1293.js",
     "src": "resources/js/Identity/ViewProfile.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "_LazyLoader.0379a251.js",
       "_Models.cc4dbaf5.js",
-      "_Avatar.216fbd3d.js"
+      "_Avatar.c18fe21a.js"
     ]
   },
   "resources/js/Decks/LatestDecks.vue": {
-    "file": "assets/LatestDecks.6ea66291.js",
+    "file": "assets/LatestDecks.3889fc52.js",
     "src": "resources/js/Decks/LatestDecks.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_DeckItem.79731ff6.js",
+      "_DeckItem.9acd51bd.js",
       "_Models.cc4dbaf5.js",
-      "_Deck.4e57abca.js",
-      "_FormatLabel.8360fd81.js",
-      "_HeroAvatar.7849231a.js",
+      "_Deck.7c62098d.js",
+      "_FormatLabel.fbe34535.js",
+      "_HeroAvatar.610230c8.js",
       "_Card.d2dc21ac.js",
-      "_Viewable.e832ea98.js",
-      "_Cards.160c0701.js"
+      "_Viewable.da3218c8.js",
+      "_Cards.aeb8de0d.js"
     ]
   },
   "resources/js/Resources/Api.vue": {
-    "file": "assets/Api.72c3a7f8.js",
+    "file": "assets/Api.66c48c77.js",
     "src": "resources/js/Resources/Api.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -756,25 +756,9 @@
     "file": "assets/Collection.e3b0c442.css",
     "src": "resources/js/Collection/Collection.css"
   },
-  "resources/js/Practise/Draft.css": {
-    "file": "assets/Draft.f06fe441.css",
-    "src": "resources/js/Practise/Draft.css"
-  },
-  "resources/js/LifeCounter/Main.css": {
-    "file": "assets/Main.afc7d64f.css",
-    "src": "resources/js/LifeCounter/Main.css"
-  },
   "resources/js/DeckBuilder/DeckBuilder.css": {
     "file": "assets/DeckBuilder.dbf6702d.css",
     "src": "resources/js/DeckBuilder/DeckBuilder.css"
-  },
-  "resources/js/DeckTester/Main.css": {
-    "file": "assets/Main.e3b0c442.css",
-    "src": "resources/js/DeckTester/Main.css"
-  },
-  "Shareable.css": {
-    "file": "assets/Shareable.e3b0c442.css",
-    "src": "Shareable.css"
   },
   "MarkdownEditor.css": {
     "file": "assets/MarkdownEditor.97170244.css",
@@ -783,6 +767,22 @@
   "resources/js/CardDatabase/ViewCard.css": {
     "file": "assets/ViewCard.7bfa77bb.css",
     "src": "resources/js/CardDatabase/ViewCard.css"
+  },
+  "resources/js/Practise/Draft.css": {
+    "file": "assets/Draft.f06fe441.css",
+    "src": "resources/js/Practise/Draft.css"
+  },
+  "Shareable.css": {
+    "file": "assets/Shareable.e3b0c442.css",
+    "src": "Shareable.css"
+  },
+  "resources/js/DeckTester/Main.css": {
+    "file": "assets/Main.e3b0c442.css",
+    "src": "resources/js/DeckTester/Main.css"
+  },
+  "resources/js/LifeCounter/Main.css": {
+    "file": "assets/Main.afc7d64f.css",
+    "src": "resources/js/LifeCounter/Main.css"
   },
   "resources/js/app.css": {
     "file": "assets/app.d559837f.css",

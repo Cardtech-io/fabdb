@@ -72,7 +72,7 @@
                 let description = encodeURIComponent('Testing '+this.deck.name);
                 let visibility = this.deck.visiblity ? this.deck.visibility : 'public';
 
-                return `https://www.fleshandbloodonline.com/FaBOnline2/CreateGame.php?fabdb=${fabDeckUrl}&user=${this.user.slug}&gameDescription=${description}&format=${this.deck.format}&visibility=${visibility}`;
+                return `https://www.fleshandbloodonline.com/game/CreateGame.php?fabdb=${fabDeckUrl}&user=${this.user.slug}&gameDescription=${description}&format=${this.deck.format}&visibility=${visibility}`;
             },
 
             feltTableUrl() {
