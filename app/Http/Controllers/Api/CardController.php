@@ -2,7 +2,7 @@
 namespace FabDB\Http\Controllers\Api;
 
 use FabDB\Domain\Cards\CardRepository;
-use FabDB\Http\Resources\CardResource;
+use FabDB\Http\Resources\Api\CardResource;
 use Illuminate\Http\Request;
 
 class CardController extends \FabDB\Http\Controllers\CardController
