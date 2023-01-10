@@ -33,7 +33,7 @@
     --button-secondary-hover-background-color: theme("colors.blue.700");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.500");
-    --link-hover-color: theme("colors.blue.700");
+    --link-hover-color: theme("colors.blue.400");
     --crumbs-background-color: theme('colors.blue.900');
     --nav-hover-text-color: theme('colors.blue.400');
 }
@@ -47,7 +47,7 @@
     --button-secondary-hover-background-color: theme("colors.gray.500");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.300");
-    --link-hover-color: theme("colors.gray.500");
+    --link-hover-color: theme("colors.gray.200");
     --crumbs-background-color: theme('colors.yellow.700');
     --nav-hover-text-color: theme('colors.yellow.400');
 }
@@ -61,7 +61,7 @@
     --button-secondary-hover-background-color: theme("colors.red.700");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.red.500");
-    --link-hover-color: theme("colors.red.700");
+    --link-hover-color: theme("colors.red.400");
     --crumbs-background-color: theme('colors.red.900');
     --nav-hover-text-color: theme('colors.red.400');
 }
@@ -75,7 +75,7 @@
     --button-secondary-hover-background-color: theme("colors.orange.600");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.orange.400");
-    --link-hover-color: theme("colors.orange.600");
+    --link-hover-color: theme("colors.orange.300");
     --crumbs-background-color: theme('colors.orange.800');
     --nav-hover-text-color: theme('colors.orange.400');
 }
@@ -89,7 +89,7 @@
     --button-secondary-hover-background-color: theme("colors.blue.600");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.400");
-    --link-hover-color: theme("colors.blue.600");
+    --link-hover-color: theme("colors.blue.300");
     --crumbs-background-color: theme('colors.blue.800');
     --nav-hover-text-color: theme('colors.blue.400');
 }
@@ -103,7 +103,7 @@
     --button-secondary-hover-background-color: theme("colors.blue.700");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.400");
-    --link-hover-color: theme("colors.blue.700");
+    --link-hover-color: theme("colors.blue.300");
     --crumbs-background-color: theme('colors.orange.900');
     --nav-hover-text-color: theme('colors.blue.400');
 }
@@ -117,7 +117,7 @@
     --button-secondary-hover-background-color: theme("colors.blue.700");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.green.500");
-    --link-hover-color: theme("colors.blue.700");
+    --link-hover-color: theme("colors.blue.400");
     --crumbs-background-color: theme('colors.green.800');
     --nav-hover-text-color: theme('colors.green.400');
 }
@@ -131,7 +131,7 @@
     --button-secondary-hover-background-color: theme("colors.teal.500");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.teal.500");
-    --link-hover-color: theme("colors.teal.500");
+    --link-hover-color: theme("colors.teal.400");
     --crumbs-background-color: theme('colors.indigo.900');
     --nav-hover-text-color: theme('colors.indigo.400');
 }
@@ -145,7 +145,7 @@
     --button-secondary-hover-background-color: theme("colors.blue.500");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.blue.400");
-    --link-hover-color: theme("colors.blue.500");
+    --link-hover-color: theme("colors.blue.300");
     --crumbs-background-color: theme('colors.teal.900');
     --nav-hover-text-color: theme('colors.blue.400');
 }
@@ -159,7 +159,7 @@
     --button-secondary-hover-background-color: theme("colors.orange.700");
     --button-secondary-text-color: theme("colors.white");
     --link-color: theme("colors.orange.400");
-    --link-hover-color: theme("colors.orange.700");
+    --link-hover-color: theme("colors.orange.300");
     --crumbs-background-color: theme('colors.orange.900');
     --nav-hover-text-color: theme('colors.orange.400');
 }
