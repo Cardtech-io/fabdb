@@ -9,30 +9,30 @@
             </div>
         </template>
         <template v-slot:items="slotProps">
-            <selector-item value="test" :selected="slotProps.selected" class="dark">
-                <a :href="fabOnlineUrl()" target="_blank" class="flex items-center space-x-1">
+            <selector-item value="test" :selected="slotProps.selected">
+                <a :href="fabOnlineUrl()" target="_blank" class="flex items-center text-black space-x-1 text-black dark:text-white">
                     <icon :size="4">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                     </icon>
                     <span>Play on Talishar</span>
                 </a>
             </selector-item>
-            <selector-item value="test" :selected="slotProps.selected" class="dark">
-                <a :href="feltTableUrl()" target="_blank" class="flex items-center space-x-1">
+            <selector-item value="test" :selected="slotProps.selected">
+                <a :href="feltTableUrl()" target="_blank" class="flex items-center space-x-1 text-black dark:text-white">
                     <icon :size="4">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                     </icon>
                     <span>Play on Felt Table</span>
                 </a>
             </selector-item>
-            <selector-item value="test" :selected="slotProps.selected" class="dark">
-                <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="flex items-center space-x-1 lg:hidden">
+            <selector-item value="test" :selected="slotProps.selected">
+                <router-link :to="{name: 'decks.test', params: {deck: deck.slug}}" class="flex items-center space-x-1 lg:hidden text-black dark:text-white">
                     <icon :size="4">
                         <path d="M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z" />
                     </icon>
                     <span>Deck tester</span>
                 </router-link>
-                <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="items-center space-x-1 hidden lg:flex">
+                <router-link :to="{name: 'decks.test.prepare', params: {deck: deck.slug}}" class="items-center space-x-1 hidden lg:flex text-black dark:text-white">
                     <icon :size="4">
                         <path d="M12.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM17.75 4a.75.75 0 00-.75.75v10.5c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V4.75a.75.75 0 00-.75-.75h-.5zM3.288 4.819A1.5 1.5 0 001 6.095v7.81a1.5 1.5 0 002.288 1.277l6.323-3.906a1.5 1.5 0 000-2.552L3.288 4.819z" />
                     </icon>
@@ -69,8 +69,7 @@
         methods: {
             fabOnlineUrl() {
                 let fabDeckUrl = encodeURIComponent('https://fabdb.net/decks/build/'+this.deck.slug);
-                let randomSlug = Math.random().toString(36).slice(2);
-                let description = encodeURIComponent('FabDB-'+randomSlug);
+                let description = encodeURIComponent('FabDB-'+this.deck.slug);
                 let visibility = this.deck.visiblity ? this.deck.visibility : 'public';
 
                 return `https://www.fleshandbloodonline.com/game/CreateGame.php?fabdb=${fabDeckUrl}&user=${this.user.slug}&gameDescription=${description}&format=${this.deck.format}&visibility=${visibility}`;

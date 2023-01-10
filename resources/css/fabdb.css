@@ -341,16 +341,6 @@ footer.footer .link:hover {
     @apply focus:border-gray-400
 }
 
-.playdeck .dark span,
-.playdeck .dark svg{
-    color: #000;
-}
-
-.playdeck .dark:hover span, 
-.playdeck .dark:hover svg{
-    color: white;
-}
-
 .input-white {
     @apply appearance-none;
     @apply block;
