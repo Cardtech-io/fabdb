@@ -1,5 +1,5 @@
 <template>
-    <selector :width="170" layout="icon" class="playdeck">
+    <selector :width="170" layout="icon">
         <template #title>
             <div class="flex space-x-1 link">
                 <icon :size="6">
