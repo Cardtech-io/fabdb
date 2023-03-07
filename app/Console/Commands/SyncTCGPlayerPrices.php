@@ -9,9 +9,13 @@ use FabDB\Domain\Cards\CardRepository;
 use FabDB\Domain\Market\PriceAverage;
 use FabDB\Domain\Market\PriceAveragesRepository;
 use FabDB\Library\TCGPlayer\Client;
+use FabDB\Mail\MarketUpdate;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SyncTCGPlayerPrices extends Command
 {
@@ -163,12 +167,21 @@ class SyncTCGPlayerPrices extends Command
             if (is_numeric($product->marketPrice) && $product->marketPrice < Arr::get($products, "$product->productId.marketPrice", 100000)) {
                 Arr::set($products, "$product->productId.marketPrice", $product->marketPrice);
             }
+
+            if ($cardPrices[$product->productId]->card) {
+                Arr::set($products, "$product->productId.card", $cardPrices[$product->productId]->card->name);
+            }
+            else {
+                Arr::set($products, "$product->productId.card", '');
+            }
         }
+
+        $this->sendCSV($products);
 
         foreach ($products as $productId => $prices) {
             $this->info("Updating price for {$productId}...");
 
-            $price = $prices['marketPrice'] ?? $prices['lowPrice'];
+            $price = Arr::get($prices, 'marketPrice') ?? Arr::get($prices, 'lowPrice');
 
             $cardPrice = $cardPrices[$productId];
             $cardPrice->price = $price * 100;
@@ -222,5 +235,48 @@ class SyncTCGPlayerPrices extends Command
         $words = ['marvel', 'extended art', 'alternate art', 'cold foil', 'golden', 'placeholder card'];
 
         return str_replace($words, '', strtolower($name));
+    }
+
+    private function storeCSV(array $csvData)
+    {
+        $csv = array_map(fn($row) => implode(',', $row), $csvData);
+
+        Storage::put('market-pricing.csv', implode("\n", $csv));
+    }
+
+    /**
+     * Sends a CSV of the tcg player data to the required email addresses.
+     *
+     * @param array $products
+     * @return void
+     */
+    private function sendCSV(array $products): void
+    {
+        $csvData = [[
+            'Product ID',
+            'Card',
+            'Description',
+            'Low price',
+            'Market price',
+        ]];
+
+        foreach ($products as $productId => $product) {
+            $csvData[] = [
+                $productId,
+                '"'.Arr::get($product, 'card').'"',
+                '"'.Arr::get($product, 'description').'"',
+                Arr::get($product, 'lowPrice'),
+                Arr::get($product, 'marketPrice'),
+            ];
+        }
+
+        $this->storeCSV($csvData);
+
+        $recipients = [
+            'torm3nt@gmail.com',
+            'john@flukeandbox.shop',
+        ];
+
+        Mail::to($recipients)->send(new MarketUpdate);
     }
 }
