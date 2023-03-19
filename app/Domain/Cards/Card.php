@@ -106,10 +106,13 @@ class Card extends Model
         return new Cards($models);
     }
 
-    public static function register(Identifier $identifier, string $name, string $image, Rarity $rarity, $text, $flavour, $comments, array $keywords, array $stats): Card
+    public static function register(Identifier $identifier, string $name, string $image, Rarity $rarity, $text, $flavour, $comments, array $keywords, $type, array $stats): Card
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
         $card = static::whereIdentifier($identifier->raw())->first();
+        $sub_types = array_unique(array_values(array_intersect($keywords, config('game.sub_types'))));
+        $talents = array_values(array_intersect($keywords, array_keys(config('game.talents'))));
+        $classes = array_values(array_intersect($keywords, array_keys(config('game.classes'))));
 
         if ($card) {
             $card->name = $name;
@@ -120,6 +123,10 @@ class Card extends Model
 
             if (count($keywords)) {
                 $card->keywords = $keywords;
+                $card->type = $type;
+                $card->subTypes = $sub_types;
+                $card->talents = $talents;
+                $card->classes = $classes;
             }
 
             if ($stats) {
@@ -128,7 +135,7 @@ class Card extends Model
 
             $card->save();
         } else {
-            $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'text', 'keywords', 'stats', 'searchText'));
+            $card = static::create(compact( 'name', 'identifier', 'image', 'rarity', 'text', 'keywords', 'type', 'sub_types', 'talents', 'classes', 'stats', 'searchText'));
         }
 
         return $card;

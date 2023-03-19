@@ -66,6 +66,7 @@ class LSSImport
                         '',
                         '',
                         $this->keywords($record),
+                        Str::lower($record['Card Type']),
                         $stats
                     );
                 } else {
@@ -104,10 +105,14 @@ class LSSImport
      */
     private function keywords($row)
     {
-        return $this->weaponParts($row, Arr::flatten([
-            explode(' ', Str::lower($row['Class'])),
-            explode(' ', Str::lower($row['Card Type']))
-        ]));
+        $pattern = '/[\s\/]+/';
+        $keywords = Arr::flatten([
+            preg_split($pattern, Str::lower($row['Class'])),
+            preg_split($pattern, Str::lower($row['Card Type'])),
+            preg_split($pattern, Str::lower($row['Card Sub-type'])),
+        ]);
+
+        return $this->weaponParts($row, $keywords);
     }
 
     private function weaponParts($row, array $keywords)

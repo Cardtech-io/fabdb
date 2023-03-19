@@ -100,6 +100,13 @@ return [
             'released' => '2021-09-24',
             'browseable' => false
         ],
+        'out' => [
+            'id' => 'out',
+            'name' => 'Outsiders',
+            'released' => '2022-01-22',
+            'browseable' => true,
+            'draftable' => true,
+        ],
         'psm' => [
             'id' => 'psm',
             'name' => 'Prism Hero Deck',
