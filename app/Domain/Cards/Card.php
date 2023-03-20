@@ -110,7 +110,7 @@ class Card extends Model
     {
         $searchText = "$identifier $name $text ".implode(' ', $keywords);
         $card = static::whereIdentifier($identifier->raw())->first();
-        $sub_types = array_unique(array_values(array_intersect($keywords, config('game.sub_types'))));
+        $sub_types = array_values(array_unique(array_intersect($keywords, config('game.sub_types'))));
         $talents = array_values(array_intersect($keywords, array_keys(config('game.talents'))));
         $classes = array_values(array_intersect($keywords, array_keys(config('game.classes'))));
 
