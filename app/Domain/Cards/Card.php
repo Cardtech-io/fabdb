@@ -114,6 +114,10 @@ class Card extends Model
         $talents = array_values(array_intersect($keywords, array_keys(config('game.talents'))));
         $classes = array_values(array_intersect($keywords, array_keys(config('game.classes'))));
 
+        if (empty($sub_types)) $sub_types = null;
+        if (empty($talents)) $talents = null;
+        if (empty($classes)) $classes = null;
+
         if ($card) {
             $card->name = $name;
 

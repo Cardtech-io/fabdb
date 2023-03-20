@@ -132,7 +132,7 @@ class LSSImport
             $keywords[] = $weapon;
             $keywords[] = $size;
         } elseif (!empty($possibleWeapon)) {
-            $keywords[] = Str::lower($possibleWeapon);
+            $keywords[] = Str::lower($possibleWeapon = preg_replace('/[\(\)]/i', '', $possibleWeapon));
         }
 
         return $keywords;

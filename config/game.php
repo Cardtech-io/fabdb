@@ -237,6 +237,7 @@ return [
     'classes' => [
         'generic' => 'Generic',
         'assassin' => 'Assassin',
+        'bard' => 'Bard',
         'brute' => 'Brute',
         'guardian' => 'Guardian',
         'illusionist' => 'Illusionist',
