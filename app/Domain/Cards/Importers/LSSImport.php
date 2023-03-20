@@ -106,33 +106,15 @@ class LSSImport
     private function keywords($row)
     {
         $pattern = '/[\s\/]+/';
+
         $keywords = Arr::flatten([
             preg_split($pattern, Str::lower($row['Class'])),
             preg_split($pattern, Str::lower($row['Card Type'])),
             preg_split($pattern, Str::lower($row['Card Sub-type'])),
         ]);
 
-        return $this->weaponParts($row, $keywords);
-    }
-
-    private function weaponParts($row, array $keywords)
-    {
-        // If the string contains brackets, it's a weapon - format as we require
-        $possibleWeapon = $row['Card Sub-type'];
-
-        if (Str::contains($possibleWeapon, ['(', ')'])) {
-            $possibleWeapon = preg_replace('/[\(\)]/i', '', $possibleWeapon);
-            $possibleWeapon = explode(' ', Str::lower($possibleWeapon));
-
-            // Now we're splitting the weapon and size into separate keywords. Weapons may in
-            // future may have spaces, hence this weird-looking operation below.
-            $size = array_pop($possibleWeapon);
-            $weapon = implode(' ', $possibleWeapon);
-
-            $keywords[] = $weapon;
-            $keywords[] = $size;
-        } elseif (!empty($possibleWeapon)) {
-            $keywords[] = Str::lower($possibleWeapon = preg_replace('/[\(\)]/i', '', $possibleWeapon));
+        foreach ($keywords as &$keyword) {
+            $keyword = Str::lower(preg_replace('/[\(\)]/i', '', $keyword));
         }
 
         return $keywords;
