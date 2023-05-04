@@ -33,7 +33,7 @@ class SyntaxFilter implements SearchFilter
 
     private function apply(Builder $query, string $term)
     {
-        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9\*]+))?/i', $term, $parts);
+        $match = preg_match('/(!)?([a-z]+)((<=|>=|[=<>])([a-z0-9\*\s"]+))?/i', $term, $parts);
 
         if (!$match) return;
 
@@ -42,7 +42,7 @@ class SyntaxFilter implements SearchFilter
 
         // The following 2 values may be omitted completely if they're looking for a simple inversion, such as !cost  (all cards with no cost value)
         $operator = Arr::get($parts, 4);
-        $value = Arr::get($parts, 5);
+        $value = str_replace('"', '', Arr::get($parts, 5));
 
         if (empty($clause)) {
             return;
