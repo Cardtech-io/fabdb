@@ -22,9 +22,9 @@ class Finish extends Param
         'extended art' =>' ea'
     ];
 
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['f', 'finish']);
+        return in_array($filter, ['f', 'finish']) && $operator != null;
     }
 
     public function applyTo($query, $operator, $value, bool $invert)

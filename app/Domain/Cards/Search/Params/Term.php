@@ -11,11 +11,11 @@ class Term extends Param
 
     private string $filter;
 
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
         $this->filter = $filter;
 
-        return !$this->matchesIdentifier(Request::get('keywords'));
+        return !$this->matchesIdentifier(Request::get('keywords')) && $operator == null;
     }
 
     public function applyTo($query, $operator, $value, bool $invert)

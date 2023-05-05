@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\DB;
 
 class Set extends Param
 {
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['s', 'set']);
+        return in_array($filter, ['s', 'set']) && $operator != null;
     }
 
     public function applyTo($query, $operator, $value, bool $invert)

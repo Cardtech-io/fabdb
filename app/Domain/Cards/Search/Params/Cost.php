@@ -6,7 +6,7 @@ class Cost extends Param
 {
     use StatParam;
 
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
         return in_array($filter, ['co', 'cost']);
     }

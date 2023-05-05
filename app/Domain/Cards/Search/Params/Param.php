@@ -35,7 +35,7 @@ abstract class Param implements Htmlable
         return $invert ? $this->operators[$operator] : $operator;
     }
 
-    abstract public function handles(string $filter): bool;
+    abstract public function handles(string $filter, ?string $operator): bool;
 
     abstract public function applyTo($query, $operator, $value, bool $invert);
 

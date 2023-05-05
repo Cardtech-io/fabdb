@@ -6,9 +6,9 @@ class Pitch extends Param
 {
     use StatParam;
 
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['p', 'pitch', 'resource']);
+        return in_array($filter, ['p', 'pitch', 'resource']) && $operator != null;
     }
 
     public function title(): string

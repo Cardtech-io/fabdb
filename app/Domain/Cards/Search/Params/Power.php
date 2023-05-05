@@ -6,9 +6,9 @@ class Power extends Param
 {
     use StatParam;
 
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['a', 'attack', 'pow', 'power']);
+        return in_array($filter, ['a', 'attack', 'pow', 'power']) && $operator != null;
     }
 
     public function title(): string

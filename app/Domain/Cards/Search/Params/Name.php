@@ -6,9 +6,9 @@ use Illuminate\Support\Str;
 
 class Name extends Param
 {
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['n', 'name']);
+        return in_array($filter, ['n', 'name']) && $operator != null;
     }
 
     public function applyTo($query, $operator, $value, bool $invert)

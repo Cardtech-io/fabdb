@@ -50,7 +50,7 @@ class SyntaxFilter implements SearchFilter
 
         // Param objects will handle the query modification themselves
         foreach ($this->params() as $param) {
-            if ($param->handles($clause)) {
+            if ($param->handles($clause, $operator)) {
                 $param->applyTo($query, $operator, $value, $invert);
                 break;
             }

@@ -6,9 +6,9 @@ use FabDB\Domain\Cards\ArtistRepository;
 
 class Artist extends Param
 {
-    public function handles(string $filter): bool
+    public function handles(string $filter, ?string $operator): bool
     {
-        return in_array($filter, ['artist']);
+        return in_array($filter, ['artist']) && $operator != null;
     }
 
     public function applyTo($query, $operator, $value, bool $invert)
