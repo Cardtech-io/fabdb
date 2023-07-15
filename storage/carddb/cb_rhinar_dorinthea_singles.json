@@ -46,7 +46,7 @@
     {
         "uid": "RVD007",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD003.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD007.png",
         "Card Name": "Chief Ruk'utan",
         "Finish": "Regular",
         "Class": "Brute",
@@ -68,7 +68,7 @@
     {
         "uid": "RVD003",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD004.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD003.png",
         "Card Name": "Bone Vizier",
         "Finish": "Rainbow Foil",
         "Class": "Brute",
@@ -90,7 +90,7 @@
     {
         "uid": "RVD004",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD005.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD004.png",
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -112,7 +112,7 @@
     {
         "uid": "RVD005",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD006.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD005.png",
         "Card Name": "Ironhide Gauntlet",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -134,7 +134,7 @@
     {
         "uid": "RVD006",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD007.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-RVD/EN/RVD006.png",
         "Card Name": "Ironhide Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -640,7 +640,7 @@
     {
         "uid": "DVR007",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR003.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR007.png",
         "Card Name": "Hala Goldenhelm",
         "Finish": "Regular",
         "Class": "Warrior",
@@ -662,7 +662,7 @@
     {
         "uid": "DVR003",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR004.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR003.png",
         "Card Name": "Ironrot Helm",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -684,7 +684,7 @@
     {
         "uid": "DVR004",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR005.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR004.png",
         "Card Name": "Blossom of Spring",
         "Finish": "Rainbow Foil",
         "Class": "Generic",
@@ -706,7 +706,7 @@
     {
         "uid": "DVR005",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR006.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR005.png",
         "Card Name": "Gallantry Gold",
         "Finish": "Rainbow Foil",
         "Class": "Warrior",
@@ -728,7 +728,7 @@
     {
         "uid": "DVR006",
         "Brand": "Flesh and Blood",
-        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR007.png",
+        "Product Image": "https://storage.googleapis.com/fabmaster/cardfaces/2022-CB-DVR/EN/DVR006.png",
         "Card Name": "Ironrot Legs",
         "Finish": "Rainbow Foil",
         "Class": "Generic",

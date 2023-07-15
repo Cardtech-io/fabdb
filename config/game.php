@@ -38,6 +38,12 @@ return [
             'released' => '2022-06-28',
             'browseable' => false,
         ],
+        'dtd' => [
+            'id' => 'dtd',
+            'name' => 'Dusk till Dawn',
+            'released' => '2023-07-14',
+            'browseable' => true,
+        ],
         'dyn' => [
             'id' => 'dyn',
             'name' => 'Dynasty',

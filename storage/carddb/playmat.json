@@ -1314,7 +1314,7 @@
     {
         "Brand": "Flesh and Blood",
         "Product Image": "",
-        "Product": "Pitts Landscape",
+        "Product": "Pits Landscape",
         "Type": "Playmat",
         "Release Date": 2023.0,
         "Notes": "Outsiders Pre-release"
@@ -1362,7 +1362,7 @@
     {
         "Brand": "Flesh and Blood",
         "Product Image": "",
-        "Product": "Volcore Landscape",
+        "Product": "Volcor Landscape",
         "Type": "Playmat",
         "Release Date": 2023.0,
         "Notes": "Judge"
@@ -1390,5 +1390,85 @@
         "Type": "Playmat",
         "Release Date": 2023.0,
         "Notes": "Armory Kit Uzuri - Season 9"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Riptide, Lurker of the Deep",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Armory Kit Riptide - Season 9"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Arakni, Solitary Confinement",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Armory Kit Arakni - Season 9"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Spider's Bite",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Battle Hardened"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Quiver of Abyssal Depths",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Battle Hardened"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Aegis",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Armory Kit Prism - Season 10"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Requiem for the Damned",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Armory Kit Vynnset - Season 10"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Stained Glass Key Art",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Armory Kit Base - Season 10"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Flicker Trick",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Skirmish - Season 7"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Avalon",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Calling Birmingham 2023"
+    },
+    {
+        "Brand": "Flesh and Blood",
+        "Product Image": "",
+        "Product": "Sigil of Solace (Merlion)",
+        "Type": "Playmat",
+        "Release Date": 2023.0,
+        "Notes": "Calling Singapore 2023"
     }
 ]
