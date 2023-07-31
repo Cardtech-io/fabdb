@@ -13,7 +13,7 @@ class TCGPlayerServiceProvider extends AppServiceProvider
     private function registerTCGPlayerClient()
     {
         $this->app->bind(Client::class, function($app) {
-            $guzzle = new \GuzzleHttp\Client(['base_uri' => 'https://api.tcgplayer.com/']);
+            $guzzle = new \GuzzleHttp\Client(['base_uri' => 'https://api.tcgplayer.com/v1.39.0']);
 
             return new Client($guzzle);
         });
