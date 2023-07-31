@@ -137,7 +137,7 @@ class LSSImport
         $sku = Sku::fromLSS($record['uid']);
         $localDir = base_path().'/'.$this->withImages;
         $importer = new ImageImporter($localDir, $sku, $record['back']);
-        $localFile = $record['Product Image'] ?? $importer->requiredFile($record['Finish']);
+        $localFile = $importer->requiredFile($record['Finish']);
         $serverPath = $importer->serverPath();
 
         if (!Storage::disk('do')->exists($serverPath)) {
