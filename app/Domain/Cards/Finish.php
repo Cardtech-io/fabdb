@@ -29,6 +29,7 @@ class Finish
         'gf' => 'gold',
         'mv' => 'marvel',
         'rf' => 'rainbow',
+        'v2' => 'v2',
     ];
 
     /**
@@ -41,6 +42,10 @@ class Finish
         $foiling = Str::lower($foiling);
 
         Assert::inArray($foiling, array_keys(static::$validFinishes));
+
+        if ($foiling === 'v2') {
+            $foiling = 'ea';
+        }
 
         $this->finish = $foiling;
     }

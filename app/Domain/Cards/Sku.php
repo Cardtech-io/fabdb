@@ -18,9 +18,11 @@ class Sku implements JsonSerializable
      * 4 - Full Identifier
      * 5 - Set
      * 6 - Card number
-     * 7 - Finish (foiling.etc.)
+     * 7 - Finishes
+     * 8 - Full finish
+     * 9 - Finish (foiling.etc.)
      */
-    private const REGEX = '((U)([A-Z]+)?-)?((!!sets!!)([0-9]{3}))(-(ap|rf|cf|gf|ea|aa|mv|mvl|back|mvback))?';
+    private const REGEX = '((U)([A-Z]+)?-)?((!!sets!!)([0-9]{3}))(([-_](ap|rf|cf|gf|ea|aa|mv|mvl|back|mvback|v2))+)?';
 
     /**
      * @var string
@@ -88,8 +90,8 @@ class Sku implements JsonSerializable
     public function finish()
     {
         $matches = self::match($this->sku);
-
-        return Finish::fromString((string) Arr::get($matches, 8));
+        
+        return Finish::fromString((string) Arr::get($matches, 9));
     }
 
     public function set(): Set

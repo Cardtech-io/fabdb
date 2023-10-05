@@ -2,6 +2,12 @@
 
 return [
     'sets' => [
+        '1hb' => [
+            'id' => '1hb',
+            'name' => 'History Pack 1',
+            'released' => '2021-05-07',
+            'browseable' => false,
+        ],
         '1hp' => [
             'id' => '1hp',
             'name' => 'History Pack 1',
@@ -54,6 +60,13 @@ return [
             'id' => 'ele',
             'name' => 'Tales of Aria',
             'released' => '2021-09-24',
+            'browseable' => true,
+            'draftable' => true,
+        ],
+        'evo' => [
+            'id' => 'evo',
+            'name' => 'Bright Lights',
+            'released' => '2023-10-06',
             'browseable' => true,
             'draftable' => true,
         ],
@@ -129,6 +142,12 @@ return [
             'id' => 'oxo'  ,
             'name' => 'Slingshot Underground',
             'released' => '2018-12-01',
+            'browseable' => false,
+        ],
+        'tcc' => [
+            'id' => 'tcc',
+            'name' => 'Round the Table',
+            'released' => '2023-09-29',
             'browseable' => false,
         ],
         'tea' => [
@@ -296,6 +315,7 @@ return [
         'club',
         'dagger',
         'demon',
+        'fiddle',
         'gem',
         'gun',
         'hammer',
@@ -308,6 +328,7 @@ return [
         'orb',
         'pistol',
         'scythe',
+        'song',
         'staff',
         'sword',
         'trap',
