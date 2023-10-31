@@ -21,7 +21,7 @@
 
         methods: {
             link() {
-                return this.price.sourceLink+'?utm_campaign=affiliate&utm_medium=FABDB&utm_source=cardtech';
+                return 'https://tcgplayer.pxf.io/c/4925620/1830156/21018?u='+encodeURIComponent(this.price.sourceLink);
             }
         }
     }
