@@ -140,6 +140,11 @@ class LSSImport
         $localFile = $importer->requiredFile($record['Finish']);
         $serverPath = $importer->serverPath();
 
+        if (!$localFile) {
+            $this->log('error', "File does not exist for [$localFile] with SKU [$sku]");
+            return;
+        }
+
         if (!Storage::disk('do')->exists($serverPath)) {
             $this->log('info', "Copying image from [{$localFile}] to [$serverPath]");
 

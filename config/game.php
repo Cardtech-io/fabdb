@@ -82,6 +82,13 @@ return [
             'released' => '2022-01-01',
             'browseable' => false,
         ],
+        'hvy' => [
+            'id' => 'hvy',
+            'name' => 'Heavy Hitters',
+            'released' => '2024-02-02',
+            'browseable' => true,
+            'draftable' => true,
+        ],
         'u-ele' => [
             'id' => 'u-ele',
             'name' => 'Tales of Aria (Unlimited)',

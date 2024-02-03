@@ -23,7 +23,7 @@ class ImageImporter
     {
         $files = $this->availableFiles($this->localDir, $this->sku);
 
-        return $files[$this->fileKey()];
+        return $files[$this->fileKey()] ?? '';
     }
 
     /**
