@@ -29,29 +29,6 @@ $jsFile = $view === 'embed' ? 'resources/js/embed.js' : 'resources/js/app.js';
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-
-        @if ($analyticsId = config('services.google.analytics.id'))
-            <script async src="https://www.googletagmanager.com/gtag/js?id={{$analyticsId}}"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '{{$analyticsId}}');
-            </script>
-        @endif
-
-        @if ($hotjarId = config('services.hotjar.id'))
-            <script>
-                (function(h,o,t,j,a,r){
-                    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                    h._hjSettings={hjid:{{$hotjarId}},hjsv:6};
-                    a=o.getElementsByTagName('head')[0];
-                    r=o.createElement('script');r.async=1;
-                    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                    a.appendChild(r);
-                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-            </script>
-        @endif
     </head>
     <body class="<?php echo $view === 'app' ? 'theme-bg theme-'.$theme : '' ?> font-sans font-normal h-full">
         <div id="app"></div>
